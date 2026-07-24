@@ -1,0 +1,93 @@
+{{ define "main" }}
+{{ $links := sort hugo.Data.links "added" "desc" }}
+{{ $categories := slice }}
+{{ range $links }}
+  {{ $categories = $categories | append .category }}
+{{ end }}
+{{ $categories = uniq $categories | sort }}
+{{ $initialLinks := first 51 $links }}
+
+<section class="digest-hero">
+  <p class="digest-kicker">Veille personnelle</p>
+  <h1>Web Digest’s</h1>
+  <p class="digest-tagline">Ce qui mérite d’être gardé… ou pas.</p>
+  <p class="digest-intro">Une collection resserrée de ressources sur l’IA, le code, le design et l’image. Pas de flux infini&nbsp;: juste les liens qui valent le détour.</p>
+  <div class="digest-stat"><strong>{{ len $links }}</strong><span>liens sélectionnés</span></div>
+</section>
+
+<section class="digest-tools" aria-label="Filtrer le digest">
+  <label class="digest-search">
+    <span class="sr-only">Rechercher</span>
+    <input id="digest-search" type="search" placeholder="Rechercher un outil, un sujet…" autocomplete="off">
+    <kbd>/</kbd>
+  </label>
+  <div class="digest-filters" id="digest-filters">
+    <button class="is-active" type="button" data-category-label="all">Tout <span>{{ len $links }}</span></button>
+    {{ range $categories }}
+      {{ $category := . }}
+      <button type="button" data-category-label="{{ $category }}">{{ $category }} <span>{{ len (where $links "category" $category) }}</span></button>
+    {{ end }}
+  </div>
+</section>
+
+<section class="digest-grid" id="digest-grid" aria-live="polite">
+  {{ range $index, $link := $initialLinks }}
+    {{ $host := urls.Parse $link.url }}
+    {{ $searchTags := "" }}
+    {{ with $link.tags }}{{ $searchTags = delimit . " " }}{{ end }}
+    <article
+      class="digest-card"
+      data-category="{{ $link.category | urlize }}"
+      data-search="{{ lower (printf "%s %s %s %s %s %s" $link.title $link.category $host.Host $link.url ($link.description | default "") $searchTags) }}">
+      <button
+        class="digest-card-trigger"
+        type="button"
+        data-title="{{ $link.title }}"
+        data-url="{{ $link.url }}"
+        data-description="{{ $link.description | default "" }}"
+        data-category-label="{{ $link.category }}"
+        data-host="{{ $host.Host | strings.TrimPrefix "www." }}"
+        data-tags="{{ with $link.tags }}{{ delimit . "|" }}{{ end }}"
+        aria-label="{{ $link.title }} — afficher le résumé">
+        <div class="digest-card-top">
+          <span class="digest-category">{{ $link.category }}</span>
+          <span class="digest-arrow" aria-hidden="true">＋</span>
+        </div>
+        <h2>{{ $link.title }}</h2>
+        <div class="digest-meta">
+          <span>{{ $host.Host | strings.TrimPrefix "www." }}</span>
+          <time datetime="{{ $link.added }}">{{ time.Format "02 Jan 2006" $link.added }}</time>
+        </div>
+      </button>
+    </article>
+  {{ end }}
+</section>
+
+<p class="digest-empty" id="digest-empty" hidden>Aucun lien ne correspond à cette recherche.</p>
+
+<nav class="digest-pagination" id="digest-pagination" aria-label="Pagination des liens" hidden>
+  <button id="digest-page-prev" type="button">← Précédent</button>
+  <span id="digest-page-status" aria-live="polite"></span>
+  <button id="digest-page-next" type="button">Suivant →</button>
+</nav>
+
+<dialog class="digest-modal" id="digest-modal" aria-labelledby="digest-modal-title">
+  <div class="digest-modal-shell">
+    <button class="digest-modal-close" type="button" aria-label="Fermer la fenêtre">
+      <svg aria-hidden="true" viewBox="0 0 24 24">
+        <path d="M6 6 18 18M18 6 6 18"></path>
+      </svg>
+    </button>
+    <p class="digest-kicker" id="digest-modal-category"></p>
+    <h2 id="digest-modal-title"></h2>
+    <p class="digest-modal-description" id="digest-modal-description"></p>
+    <div class="archive-tags digest-modal-tags" id="digest-modal-tags" data-base="{{ "tags/" | relURL }}" aria-label="Tags"></div>
+    <div class="digest-modal-footer">
+      <span class="digest-modal-url" id="digest-modal-url"></span>
+        <a id="digest-modal-link">Visiter le site <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</dialog>
+<script id="digest-data" type="application/json">{{ $links | jsonify | safeHTML }}</script>
+<script src="{{ "js/digest.js" | relURL }}" defer></script>
+{{ end }}

@@ -1,0 +1,36 @@
+{{ define "main" }}
+{{ $links := hugo.Data.links }}
+{{ $tagPages := where site.RegularPages "Section" "tags" }}
+{{ $counts := newScratch }}
+{{ $maxCount := 1 }}
+{{ range $tagPages }}
+  {{ $tag := .Params.tag }}
+  {{ $count := len (where $links "tags" "intersect" (slice $tag)) }}
+  {{ $counts.Set $tag $count }}
+  {{ if gt $count $maxCount }}{{ $maxCount = $count }}{{ end }}
+{{ end }}
+
+<section class="archives-hero">
+  <div>
+    <p class="digest-kicker">Index thématique</p>
+    <h1>Tags</h1>
+    <p>Retrouvez les ressources du Digest par sujet, outil ou pratique.</p>
+  </div>
+</section>
+
+<section class="tag-cloud" aria-label="Nuage de tags">
+  {{ range sort $tagPages "Title" }}
+    {{ $tag := .Params.tag }}
+    {{ $count := $counts.Get $tag }}
+    {{ $scale := div (mul (float $count) 100) (float $maxCount) }}
+    <a
+      class="tag-cloud-item"
+      href="{{ .RelPermalink }}"
+      style="--tag-scale: {{ printf "%.2f" $scale }};"
+      aria-label="{{ $tag }}, {{ $count }} {{ cond (eq $count 1) "lien" "liens" }}">
+      <span>#{{ $tag }}</span>
+      <sup>{{ $count }}</sup>
+    </a>
+  {{ end }}
+</section>
+{{ end }}

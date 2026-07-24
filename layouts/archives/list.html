@@ -1,0 +1,30 @@
+{{ define "main" }}
+<header class="archives-hero">
+  <div>
+    <p class="digest-kicker">Toutes les éditions</p>
+    <h1>Archives</h1>
+    <p>Chaque digest garde sa date, ses liens, ses descriptions et ses tags pour rester consultable longtemps après sa publication.</p>
+  </div>
+</header>
+
+<section class="archive-editions" aria-label="Éditions archivées">
+  {{ range .Pages.ByDate.Reverse }}
+    {{ $digestDate := .Params.digest_date }}
+    {{ $links := where hugo.Data.links "added" $digestDate }}
+    {{ $categories := slice }}
+    {{ range $links }}
+      {{ $categories = $categories | append .category }}
+    {{ end }}
+    <article class="archive-edition">
+      <a href="{{ .RelPermalink }}">
+        <span class="archive-edition-kicker">Édition</span>
+        <h2>{{ .Title }}</h2>
+        <div class="archive-edition-meta">
+          <span>{{ len $links }} liens</span>
+          <span>{{ len (uniq $categories) }} rubriques ↗</span>
+        </div>
+      </a>
+    </article>
+  {{ end }}
+</section>
+{{ end }}

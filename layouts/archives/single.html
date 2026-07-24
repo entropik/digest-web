@@ -1,0 +1,44 @@
+{{ define "main" }}
+{{ $digestDate := .Params.digest_date }}
+{{ $links := where hugo.Data.links "added" $digestDate }}
+{{ $categories := slice }}
+{{ range $links }}
+  {{ $categories = $categories | append .category }}
+{{ end }}
+{{ $categories = uniq $categories | sort }}
+
+<article class="archive-single">
+  <header class="archive-single-header">
+    <p class="digest-kicker">Web Digest’s — édition</p>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+    <div class="archive-single-count"><strong>{{ len $links }}</strong><span>liens documentés</span></div>
+  </header>
+
+  {{ range $categories }}
+    {{ $category := . }}
+    {{ $categoryLinks := where $links "category" $category }}
+    <section class="archive-group">
+      <h2>{{ $category }}</h2>
+      <div class="archive-link-list">
+        {{ range sort $categoryLinks "title" }}
+          <article class="archive-link">
+            <div>
+              <h3><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a></h3>
+              <span class="archive-url">{{ .url }}</span>
+            </div>
+            <div>
+              {{ with .description }}<p class="archive-link-description">{{ . }}</p>{{ end }}
+              {{ with .tags }}
+                <div class="archive-tags" aria-label="Tags">
+                  {{ range . }}<a href="{{ partial "tag-url.html" . }}">#{{ . }}</a>{{ end }}
+                </div>
+              {{ end }}
+            </div>
+          </article>
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+</article>
+{{ end }}

@@ -1,0 +1,899 @@
+[
+  {
+    "title": "Veille nº48 — L’actu de la semaine",
+    "url": "https://www.camilleroux.com/veille-48-lactu-de-la-semaine",
+    "category": "Médias & Veille",
+    "added": "2026-07-24",
+    "description": "Une édition de veille hebdomadaire rassemblant actualités, projets et ressources technologiques.",
+    "tags": [
+      "veille",
+      "technologie",
+      "IA",
+      "newsletter"
+    ]
+  },
+  {
+    "title": "Understand Anything",
+    "url": "https://github.com/Egonex-AI/Understand-Anything",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Un outil qui transforme un dépôt de code en graphe de connaissances interactif, consultable et interrogeable.",
+    "tags": [
+      "IA",
+      "codebase",
+      "graphe",
+      "documentation"
+    ]
+  },
+  {
+    "title": "The Agent Skills Directory",
+    "url": "https://www.skills.sh/",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Un annuaire de compétences réutilisables pour enrichir les assistants et agents de programmation.",
+    "tags": [
+      "IA",
+      "agents",
+      "skills",
+      "annuaire"
+    ]
+  },
+  {
+    "title": "Superpowers 5",
+    "url": "https://blog.fsck.com/2026/03/09/superpowers-5",
+    "category": "Développement",
+    "added": "2026-07-24",
+    "description": "Un article consacré aux possibilités et aux limites du travail massivement parallèle avec des agents.",
+    "tags": [
+      "IA",
+      "agents",
+      "parallélisation",
+      "réflexion"
+    ]
+  },
+  {
+    "title": "Spectral",
+    "url": "https://www.getspectral.sh/",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Un projet qui cherche à fournir aux agents des données web structurées sans leur imposer une navigation classique.",
+    "tags": [
+      "IA",
+      "agents",
+      "web",
+      "outils"
+    ]
+  },
+  {
+    "title": "SocratiCode",
+    "url": "https://github.com/giancarloerra/SocratiCode",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Un outil d’intelligence de code pour les grands projets, combinant recherche sémantique, dépendances et analyse d’impact.",
+    "tags": [
+      "IA",
+      "codebase",
+      "analyse",
+      "entreprise"
+    ]
+  },
+  {
+    "title": "SnapOtter",
+    "url": "https://github.com/snapotter-hq/SnapOtter",
+    "category": "Développement",
+    "added": "2026-07-24",
+    "description": "Une boîte à outils de traitement local pour les images, vidéos, sons, PDF et autres fichiers, avec une approche centrée sur la confidentialité.",
+    "tags": [
+      "fichiers",
+      "multimédia",
+      "confidentialité",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Shannon",
+    "url": "https://github.com/KeygraphHQ/shannon",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Un agent de test d’intrusion open source capable d’analyser du code et de vérifier des vulnérabilités sur des applications web.",
+    "tags": [
+      "IA",
+      "cybersécurité",
+      "pentest",
+      "agents"
+    ]
+  },
+  {
+    "title": "Semantic Analysis of Text and Images",
+    "url": "https://kalisteo.cea.fr/index.php/textual-and-visual-semantic",
+    "category": "Design & Création",
+    "added": "2026-07-24",
+    "description": "Une présentation de travaux et technologies d’analyse sémantique appliqués aux textes et aux images.",
+    "tags": [
+      "IA",
+      "vision",
+      "NLP",
+      "recherche"
+    ]
+  },
+  {
+    "title": "Seerr — code source",
+    "url": "https://github.com/seerr-team/seerr",
+    "category": "Médias & Veille",
+    "added": "2026-07-24",
+    "description": "Le dépôt open source de Seerr, avec sa documentation d’installation et son développement.",
+    "tags": [
+      "multimédia",
+      "opensource",
+      "Jellyfin",
+      "développement"
+    ]
+  },
+  {
+    "title": "Seerr",
+    "url": "https://seerr.dev/",
+    "category": "Médias & Veille",
+    "added": "2026-07-24",
+    "description": "Une interface de découverte et de demande de contenus pour Jellyfin, Plex et Emby.",
+    "tags": [
+      "multimédia",
+      "Jellyfin",
+      "Plex",
+      "opensource"
+    ]
+  },
+  {
+    "title": "RTK — code source",
+    "url": "https://github.com/rtk-ai/rtk",
+    "category": "Développement",
+    "added": "2026-07-24",
+    "description": "Le dépôt open source de RTK, avec son installation, son fonctionnement et ses intégrations.",
+    "tags": [
+      "CLI",
+      "Rust",
+      "opensource",
+      "tokens"
+    ]
+  },
+  {
+    "title": "RTK",
+    "url": "https://www.rtk-ai.app/",
+    "category": "Développement",
+    "added": "2026-07-24",
+    "description": "Un proxy en ligne de commande qui compresse les sorties des outils de développement afin de réduire la consommation de jetons.",
+    "tags": [
+      "CLI",
+      "IA",
+      "tokens",
+      "développement"
+    ]
+  },
+  {
+    "title": "RapidRAW",
+    "url": "https://github.com/CyberTimon/RapidRAW",
+    "category": "Développement",
+    "added": "2026-07-24",
+    "description": "Un éditeur d’images RAW non destructif et accéléré par GPU.",
+    "tags": [
+      "photo",
+      "RAW",
+      "GPU",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Printess Webinar — All Printers Are Tech Companies",
+    "url": "https://vimeo.com/1208382998",
+    "category": "Design & Création",
+    "added": "2026-07-24",
+    "description": "Un webinaire sur la transformation technologique des imprimeurs et l’évolution des services de personnalisation.",
+    "tags": [
+      "impression",
+      "technologie",
+      "web-to-print",
+      "webinaire"
+    ]
+  },
+  {
+    "title": "Pretext",
+    "url": "https://pretextjs.dev/pretext-library",
+    "category": "Développement",
+    "added": "2026-07-24",
+    "description": "Une bibliothèque JavaScript permettant de mesurer et mettre en page du texte sans dépendre du DOM.",
+    "tags": [
+      "JavaScript",
+      "typographie",
+      "layout",
+      "performance"
+    ]
+  },
+  {
+    "title": "Penpot — fiche PÉPITES",
+    "url": "https://papyrus.z29k.fr/gemshelf/penpot",
+    "category": "Design & Création",
+    "added": "2026-07-24",
+    "description": "Une présentation synthétique de Penpot, de son positionnement open source et de ses principaux usages.",
+    "tags": [
+      "design",
+      "veille",
+      "opensource",
+      "fiche"
+    ]
+  },
+  {
+    "title": "Penpot",
+    "url": "https://github.com/penpot/penpot",
+    "category": "Design & Création",
+    "added": "2026-07-24",
+    "description": "Une plateforme open source de conception d’interfaces et de collaboration entre designers et développeurs.",
+    "tags": [
+      "design",
+      "UI",
+      "collaboration",
+      "opensource"
+    ]
+  },
+  {
+    "title": "PageTatin — Visual Grid Calculator",
+    "url": "https://pagetatin.com/grid-calculator",
+    "category": "Design & Création",
+    "added": "2026-07-24",
+    "description": "Un calculateur visuel gratuit pour construire et tester rapidement des grilles de mise en page.",
+    "tags": [
+      "design",
+      "grille",
+      "mise-en-page",
+      "outil"
+    ]
+  },
+  {
+    "title": "p5.brush",
+    "url": "https://p5-brush.cargo.site/",
+    "category": "Design & Création",
+    "added": "2026-07-24",
+    "description": "Une bibliothèque de pinceaux pour créer des rendus picturaux et expressifs dans des canevas p5.js.",
+    "tags": [
+      "creative-coding",
+      "p5js",
+      "illustration",
+      "génératif"
+    ]
+  },
+  {
+    "title": "OpenSpec",
+    "url": "https://openspec.dev/",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Un framework léger fondé sur des spécifications pour organiser le développement assisté par des agents.",
+    "tags": [
+      "IA",
+      "spécifications",
+      "développement",
+      "agents"
+    ]
+  },
+  {
+    "title": "Onyx",
+    "url": "https://github.com/onyx-dot-app/onyx",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Une plateforme open source de recherche et de conversation IA compatible avec plusieurs modèles et sources d’information.",
+    "tags": [
+      "IA",
+      "recherche",
+      "LLM",
+      "opensource"
+    ]
+  },
+  {
+    "title": "On a hacké le SaaS de Benjamin Code",
+    "url": "https://www.youtube.com/watch?v=WAsmcwBIqVc",
+    "category": "Médias & Veille",
+    "added": "2026-07-24",
+    "description": "Une vidéo consacrée à l’analyse de sécurité d’un produit SaaS et aux enseignements tirés de cette expérience.",
+    "tags": [
+      "cybersécurité",
+      "SaaS",
+      "développement",
+      "vidéo"
+    ]
+  },
+  {
+    "title": "Nothing Design Skill",
+    "url": "https://github.com/dominikmartn/nothing-design-skill",
+    "category": "Design & Création",
+    "added": "2026-07-24",
+    "description": "Une compétence pour générer des interfaces inspirées du langage visuel monochrome et industriel de Nothing.",
+    "tags": [
+      "design",
+      "IA",
+      "UI",
+      "skills"
+    ]
+  },
+  {
+    "title": "Nashsu LLM Wiki",
+    "url": "https://github.com/nashsu/llm_wiki",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Une application multiplateforme qui transforme des documents en base de connaissances interconnectée et persistante.",
+    "tags": [
+      "IA",
+      "knowledge-management",
+      "documents",
+      "desktop"
+    ]
+  },
+  {
+    "title": "Mystic Organic Vector Graphic Kit",
+    "url": "https://creativemarket.com/lumionary/292097130-Mystic-Organic-Vector-Graphic-Kit",
+    "category": "Design & Création",
+    "added": "2026-07-24",
+    "description": "Une collection d’illustrations vectorielles inspirées de formes organiques, mystiques et folkloriques.",
+    "tags": [
+      "illustration",
+      "vecteur",
+      "ressources",
+      "graphisme"
+    ]
+  },
+  {
+    "title": "Mixam — impression de zines",
+    "url": "https://mixam.com/zines",
+    "category": "Design & Création",
+    "added": "2026-07-24",
+    "description": "Une présentation des formats et options proposés par Mixam pour imprimer des zines personnalisés.",
+    "tags": [
+      "impression",
+      "zine",
+      "édition",
+      "web-to-print"
+    ]
+  },
+  {
+    "title": "Medusa — fiche PÉPITES",
+    "url": "https://papyrus.z29k.fr/gemshelf/medusa",
+    "category": "Développement",
+    "added": "2026-07-24",
+    "description": "Une présentation synthétique de Medusa et de ses usages pour orchestrer des outils de sécurité.",
+    "tags": [
+      "cybersécurité",
+      "veille",
+      "outils",
+      "fiche"
+    ]
+  },
+  {
+    "title": "Medusa",
+    "url": "https://github.com/WhiteMuush/Medusa",
+    "category": "Développement",
+    "added": "2026-07-24",
+    "description": "Une boîte à outils d’orchestration qui rassemble de nombreux outils open source de cybersécurité.",
+    "tags": [
+      "cybersécurité",
+      "orchestration",
+      "opensource",
+      "outils"
+    ]
+  },
+  {
+    "title": "Marx va avoir raison — IA et lutte des classes",
+    "url": "https://blog.mondediplo.net/marx-va-avoir-raison-ia-et-lutte-des-classes",
+    "category": "Médias & Veille",
+    "added": "2026-07-24",
+    "description": "Un essai de Frédéric Lordon sur l’intelligence artificielle, le travail et les rapports de classes.",
+    "tags": [
+      "IA",
+      "société",
+      "politique",
+      "travail"
+    ]
+  },
+  {
+    "title": "MapToPoster",
+    "url": "https://github.com/originalankur/maptoposter",
+    "category": "Design & Création",
+    "added": "2026-07-24",
+    "description": "Un projet permettant de transformer des villes et territoires en affiches cartographiques minimalistes.",
+    "tags": [
+      "cartographie",
+      "poster",
+      "design-génératif",
+      "opensource"
+    ]
+  },
+  {
+    "title": "LocalSend",
+    "url": "https://github.com/localsend/localsend",
+    "category": "Développement",
+    "added": "2026-07-24",
+    "description": "Une alternative open source et multiplateforme à AirDrop pour transférer des fichiers sur un réseau local.",
+    "tags": [
+      "fichiers",
+      "réseau-local",
+      "opensource",
+      "multiplateforme"
+    ]
+  },
+  {
+    "title": "LM Studio",
+    "url": "https://lmstudio.ai/",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Une application de bureau pour télécharger, tester et exécuter des modèles de langage sur son propre ordinateur.",
+    "tags": [
+      "IA-locale",
+      "LLM",
+      "desktop",
+      "inférence"
+    ]
+  },
+  {
+    "title": "LLM-Wiki",
+    "url": "https://github.com/TrueHOOHA/LLM-Wiki",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Une implémentation de wiki pour modèles de langage qui utilise des compétences afin de rendre le workflow plus rigoureux.",
+    "tags": [
+      "IA",
+      "LLM",
+      "wiki",
+      "knowledge-management"
+    ]
+  },
+  {
+    "title": "Karpathy’s LLM Wiki",
+    "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Les notes de référence d’Andrej Karpathy autour de l’idée d’un wiki progressivement construit et maintenu par un LLM.",
+    "tags": [
+      "IA",
+      "LLM",
+      "wiki",
+      "recherche"
+    ]
+  },
+  {
+    "title": "Kanna",
+    "url": "https://github.com/jakemor/kanna",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Une interface web destinée à piloter des assistants de programmation comme Claude Code et Codex.",
+    "tags": [
+      "IA",
+      "agents",
+      "interface",
+      "développement"
+    ]
+  },
+  {
+    "title": "Instant Design Tool — démonstration",
+    "url": "https://designer-demo.instantdesigntool.com/create/hardcover-a4-landscape",
+    "category": "Design & Création",
+    "added": "2026-07-24",
+    "description": "Une démonstration d’éditeur en ligne pour personnaliser une couverture rigide au format A4 paysage.",
+    "tags": [
+      "web-to-print",
+      "personnalisation",
+      "éditeur",
+      "démonstration"
+    ]
+  },
+  {
+    "title": "Improve",
+    "url": "https://github.com/shadcn/improve",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Un workflow qui mobilise un modèle puissant pour auditer un projet et préparer des plans exécutables par des modèles moins coûteux.",
+    "tags": [
+      "IA",
+      "agents",
+      "code-review",
+      "optimisation"
+    ]
+  },
+  {
+    "title": "Impeccable",
+    "url": "https://github.com/pbakaus/impeccable",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Un langage de design destiné à aider les assistants de programmation à produire des interfaces plus soignées et cohérentes.",
+    "tags": [
+      "IA",
+      "agents",
+      "design",
+      "frontend"
+    ]
+  },
+  {
+    "title": "Hunk",
+    "url": "https://github.com/modem-dev/hunk",
+    "category": "Développement",
+    "added": "2026-07-24",
+    "description": "Un visualiseur de différences en terminal qui place la relecture au centre des workflows de programmation agentique.",
+    "tags": [
+      "Git",
+      "terminal",
+      "code-review",
+      "agents"
+    ]
+  },
+  {
+    "title": "Hivemind",
+    "url": "https://github.com/activeloopai/hivemind",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Un outil qui transforme les traces d’exécution d’agents en compétences réutilisables.",
+    "tags": [
+      "IA",
+      "agents",
+      "traces",
+      "skills"
+    ]
+  },
+  {
+    "title": "Hermes Agent et Paperclip",
+    "url": "https://www.youtube.com/watch?v=O_irkwZoQw8",
+    "category": "Médias & Veille",
+    "added": "2026-07-24",
+    "description": "Une vidéo de veille présentant les évolutions de l’agent IA Hermes et son association avec Paperclip.",
+    "tags": [
+      "IA",
+      "agents",
+      "veille",
+      "vidéo"
+    ]
+  },
+  {
+    "title": "Headroom",
+    "url": "https://github.com/headroomlabs-ai/headroom",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Une bibliothèque et un proxy destinés à compresser les sorties d’outils, journaux et fragments RAG avant leur envoi au modèle.",
+    "tags": [
+      "IA",
+      "LLM",
+      "compression",
+      "tokens"
+    ]
+  },
+  {
+    "title": "Guide Jellyfin, Radarr et Sonarr",
+    "url": "https://www.reddit.com/r/synology/comments/1sc9dn8/guide_for_jellyfin_radarr_sonarr_etc",
+    "category": "Médias & Veille",
+    "added": "2026-07-24",
+    "description": "Un guide communautaire pour mettre en place une chaîne de gestion et de diffusion multimédia autour d’un NAS Synology.",
+    "tags": [
+      "NAS",
+      "Jellyfin",
+      "automatisation",
+      "multimédia"
+    ]
+  },
+  {
+    "title": "getdesign.md",
+    "url": "https://getdesign.md/",
+    "category": "Design & Création",
+    "added": "2026-07-24",
+    "description": "Une collection de fichiers DESIGN.md utilisables comme références par les assistants de création d’interfaces.",
+    "tags": [
+      "design-system",
+      "IA",
+      "collection",
+      "frontend"
+    ]
+  },
+  {
+    "title": "GenP",
+    "url": "https://github.com/TheMythologist/GenP/tree/main",
+    "category": "Développement",
+    "added": "2026-07-24",
+    "description": "Un projet qui automatise la construction des exécutables GenP à partir de leur code source.",
+    "tags": [
+      "build",
+      "automatisation",
+      "opensource",
+      "Windows"
+    ]
+  },
+  {
+    "title": "Fraunces",
+    "url": "https://fonts.google.com/specimen/Fraunces",
+    "category": "Design & Création",
+    "added": "2026-07-24",
+    "description": "Une famille typographique variable expressive, adaptée aux titres, à l’édition et aux identités visuelles.",
+    "tags": [
+      "typographie",
+      "variable-font",
+      "design",
+      "Google-Fonts"
+    ]
+  },
+  {
+    "title": "FluidVoice",
+    "url": "https://github.com/altic-dev/FluidVoice",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Une application de dictée locale combinant reconnaissance vocale et amélioration du texte par IA.",
+    "tags": [
+      "IA-locale",
+      "voix",
+      "dictée",
+      "accessibilité"
+    ]
+  },
+  {
+    "title": "Feynman",
+    "url": "https://www.feynman.is/",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Un agent de recherche open source conçu pour explorer, synthétiser et structurer des informations.",
+    "tags": [
+      "IA",
+      "recherche",
+      "agents",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Extension Visual Studio Code pour la syntaxe PDF",
+    "url": "https://pdfa.org/new-visual-studio-code-extension-supporting-pdf-syntax",
+    "category": "Développement",
+    "added": "2026-07-24",
+    "description": "Un article de la PDF Association présentant une extension Visual Studio Code dédiée à l’analyse de la syntaxe interne des PDF.",
+    "tags": [
+      "PDF",
+      "VSCode",
+      "développement",
+      "prépresse"
+    ]
+  },
+  {
+    "title": "Ente Photo Editor",
+    "url": "https://ente.com/blog/introducing-web-desktop-photo-editor",
+    "category": "Design & Création",
+    "added": "2026-07-24",
+    "description": "Une présentation de l’éditeur photo intégré aux versions web et bureau d’Ente.",
+    "tags": [
+      "photo",
+      "éditeur",
+      "confidentialité",
+      "desktop"
+    ]
+  },
+  {
+    "title": "Editor.js",
+    "url": "https://editorjs.io/",
+    "category": "Développement",
+    "added": "2026-07-24",
+    "description": "Un éditeur de contenu structuré par blocs qui produit des données JSON propres plutôt que du HTML monolithique.",
+    "tags": [
+      "éditeur",
+      "JavaScript",
+      "contenu",
+      "opensource"
+    ]
+  },
+  {
+    "title": "dmux",
+    "url": "https://dmux.ai/",
+    "category": "Développement",
+    "added": "2026-07-24",
+    "description": "Un outil pour orchestrer plusieurs agents en parallèle à l’aide de sessions tmux et de worktrees Git.",
+    "tags": [
+      "agents",
+      "Git",
+      "tmux",
+      "parallélisation"
+    ]
+  },
+  {
+    "title": "DESIGN.md",
+    "url": "https://github.com/google-labs-code/design.md",
+    "category": "Design & Création",
+    "added": "2026-07-24",
+    "description": "Une spécification destinée à décrire une identité visuelle de manière structurée pour les agents de programmation.",
+    "tags": [
+      "design-system",
+      "IA",
+      "agents",
+      "spécification"
+    ]
+  },
+  {
+    "title": "Design Better Periodic Table",
+    "url": "https://db-periodic-table.vercel.app/",
+    "category": "Design & Création",
+    "added": "2026-07-24",
+    "description": "Une table périodique de principes et techniques pour améliorer la qualité du design d’interface.",
+    "tags": [
+      "design",
+      "UI",
+      "référence",
+      "méthode"
+    ]
+  },
+  {
+    "title": "Dagger",
+    "url": "https://dagger.io/",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Une plateforme permettant de construire des pipelines de développement programmables, portables et adaptés aux workflows agentiques.",
+    "tags": [
+      "DevOps",
+      "CI-CD",
+      "agents",
+      "automatisation"
+    ]
+  },
+  {
+    "title": "Context Engineering P3: Token Reduction",
+    "url": "https://www.florian.bruniaux.com/blog/articles/context-engineering-tools-map",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Une cartographie des techniques et outils permettant de réduire le contexte et la consommation de jetons des agents IA.",
+    "tags": [
+      "IA",
+      "contexte",
+      "LLM",
+      "optimisation"
+    ]
+  },
+  {
+    "title": "Codegraph",
+    "url": "https://github.com/colbymchenry/codegraph",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Un graphe de connaissances local qui indexe le code et se synchronise avec ses évolutions afin d’aider les agents.",
+    "tags": [
+      "IA",
+      "codebase",
+      "graphe",
+      "local"
+    ]
+  },
+  {
+    "title": "casier-politique.fr",
+    "url": "https://casier-politique.fr/",
+    "category": "Médias & Veille",
+    "added": "2026-07-24",
+    "description": "Un site public consacré à la documentation et à la consultation d’informations relatives au monde politique.",
+    "tags": [
+      "politique",
+      "données",
+      "société",
+      "information"
+    ]
+  },
+  {
+    "title": "CanIRun.ai",
+    "url": "https://www.canirun.ai/",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Un outil qui aide à déterminer quels modèles d’IA peuvent fonctionner sur une configuration matérielle donnée.",
+    "tags": [
+      "IA-locale",
+      "hardware",
+      "GPU",
+      "benchmark"
+    ]
+  },
+  {
+    "title": "Camille Roux — archives",
+    "url": "https://www.camilleroux.com/archive",
+    "category": "Médias & Veille",
+    "added": "2026-07-24",
+    "description": "Les archives d’articles et de newsletters de Camille Roux autour de la technologie, du produit et de l’IA.",
+    "tags": [
+      "veille",
+      "IA",
+      "produit",
+      "technologie"
+    ]
+  },
+  {
+    "title": "Browser Use — Quick Start",
+    "url": "https://docs.browser-use.com/cloud/quickstart",
+    "category": "Développement",
+    "added": "2026-07-24",
+    "description": "Le guide de démarrage rapide de Browser Use pour créer des automatisations et agents capables d’interagir avec le web.",
+    "tags": [
+      "automatisation",
+      "navigateur",
+      "agents",
+      "documentation"
+    ]
+  },
+  {
+    "title": "Browser Use CLI",
+    "url": "https://docs.browser-use.com/open-source/browser-use-cli",
+    "category": "Développement",
+    "added": "2026-07-24",
+    "description": "La documentation de l’interface en ligne de commande open source de Browser Use.",
+    "tags": [
+      "CLI",
+      "automatisation",
+      "navigateur",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Brik",
+    "url": "https://github.com/getbrik/brik",
+    "category": "Développement",
+    "added": "2026-07-24",
+    "description": "Un format de configuration visant à rendre les pipelines CI/CD portables, cohérents et auditables.",
+    "tags": [
+      "DevOps",
+      "CI-CD",
+      "configuration",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Auto-Company",
+    "url": "https://github.com/MaxMiksa/Auto-Company",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Une expérimentation d’entreprise autonome fonctionnant avec des agents sur un ordinateur personnel.",
+    "tags": [
+      "IA",
+      "agents",
+      "automatisation",
+      "expérimentation"
+    ]
+  },
+  {
+    "title": "Atelier Photo-Actifs",
+    "url": "https://lelabophoto.com/ateliers/mode-demploi",
+    "category": "Design & Création",
+    "added": "2026-07-24",
+    "description": "Le mode d’emploi d’un atelier participatif autour de la pratique photographique et du laboratoire.",
+    "tags": [
+      "photo",
+      "atelier",
+      "pratique",
+      "laboratoire"
+    ]
+  },
+  {
+    "title": "AnythingLLM Desktop",
+    "url": "https://anythingllm.com/desktop",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "La version de bureau d’AnythingLLM, pensée pour exécuter des usages documentaires et conversationnels localement.",
+    "tags": [
+      "IA-locale",
+      "desktop",
+      "LLM",
+      "RAG"
+    ]
+  },
+  {
+    "title": "AnythingLLM",
+    "url": "https://anythingllm.com/download",
+    "category": "IA & Agents",
+    "added": "2026-07-24",
+    "description": "Une application permettant d’utiliser différents modèles de langage avec ses propres documents et espaces de travail.",
+    "tags": [
+      "IA",
+      "LLM",
+      "RAG",
+      "productivité"
+    ]
+  },
+  {
+    "title": "Actualités et tendances de l’impression papier",
+    "url": "https://justeprint.fr/actualites-et-tendances-de-limpression-papier",
+    "category": "Design & Création",
+    "added": "2026-07-24",
+    "description": "Une rubrique consacrée aux tendances, techniques et actualités du secteur de l’impression.",
+    "tags": [
+      "impression",
+      "édition",
+      "veille",
+      "papier"
+    ]
+  }
+]

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Curate Web Digest"
+  short_description: "Transforme des liens en digest Hugo publiable"
+  default_prompt: "Use $curate-web-digest to deduplicate, classify, and import these links into my Hugo web digest."
