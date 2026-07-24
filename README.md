@@ -34,11 +34,12 @@ production est <https://digest.ooblik.com/>.
 ## Déploiement
 
 La branche `main` est validée par GitHub Actions. Le workflow `Deploy
-production` construit Hugo puis transfère une release versionnée vers
-CloudPanel avec l’utilisateur SSH propre au site.
+production` construit Hugo et publie le résultat sur la branche
+`production`. Un cron exécuté par l’utilisateur CloudPanel du site transforme
+chaque révision de cette branche en release locale.
 
 Le serveur conserve les cinq dernières releases et le lien symbolique
 `current` permet une bascule ou un retour arrière atomique.
 
-Les paramètres sensibles sont stockés dans l’environnement GitHub
-`production`, jamais dans le dépôt.
+Le dépôt public permet à CloudPanel de récupérer la branche sans clé ni
+identifiant de serveur stocké dans GitHub.
