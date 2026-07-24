@@ -39,6 +39,10 @@ menu:
       name: "Tags"
       url: "/tags/"
       weight: 30
+    - identifier: flux
+      name: "Flux mémoire"
+      url: "/flux/"
+      weight: 35
     - identifier: about
       name: "À propos"
       url: "/a-propos/"

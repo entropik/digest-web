@@ -1,0 +1,32 @@
+{{ define "main" }}
+{{ $links := hugo.Data.links }}
+{{ $streams := slice
+  (dict "slug" "twitter" "title" "Twitter" "note" "Relique du web social")
+  (dict "slug" "instagram" "title" "Instagram" "note" "Archive visuelle")
+  (dict "slug" "tumblr-ooblik" "title" "Tumblr Ooblik" "note" "Journal visuel")
+  (dict "slug" "blog-ooblik" "title" "Blog Ooblik" "note" "Mémoire éditoriale")
+}}
+
+<header class="archives-hero">
+  <div>
+    <p class="digest-kicker">Archéologie du web social</p>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+  </div>
+</header>
+
+<section class="flux-grid" aria-label="Flux sociaux archivés">
+  {{ range $streams }}
+    {{ $streamLinks := where $links "stream" .slug }}
+    {{ $dead := where $streamLinks "status" "dead" }}
+    <article class="flux-card">
+      <a href="{{ printf "flux/%s/" .slug | relURL }}">
+        <span class="archive-edition-kicker">{{ .note }}</span>
+        <h2>{{ .title }}</h2>
+        <p>{{ len $streamLinks }} publications · {{ len $dead }} liens morts conservés</p>
+        <span>Parcourir le flux ↗</span>
+      </a>
+    </article>
+  {{ end }}
+</section>
+{{ end }}

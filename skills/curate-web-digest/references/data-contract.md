@@ -14,6 +14,9 @@ Each item has:
   address no longer resolves to its documented resource but must be preserved
   for historical purposes.
 - `status_note`: optional reader-facing explanation of the lifecycle status.
+- `stream`: optional slug for a historical source stream kept outside the
+  editorial homepage, such as `twitter`, `instagram`, `tumblr-ooblik`, or
+  `blog-ooblik`.
 
 Example:
 

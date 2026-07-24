@@ -34,6 +34,9 @@
               {{ if eq (.status | default "") "dead" }}
                 <span class="archive-status">Lien mort · conservé pour mémoire</span>
               {{ end }}
+              {{ with .stream }}
+                <a class="archive-stream" href="{{ printf "flux/%s/" . | relURL }}">Flux {{ humanize . }}</a>
+              {{ end }}
               <span class="archive-url">{{ .url }}</span>
             </div>
             <div>

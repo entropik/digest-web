@@ -826,6 +826,26 @@ body.digest-modal-open {
   margin-top: .7rem;
 }
 
+.archive-stream {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: .7rem;
+  padding: .15rem .4rem;
+  border: 1px solid var(--digest-line);
+  border-radius: 999px;
+  color: var(--digest-muted);
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.archive-stream:hover {
+  border-color: var(--digest-accent);
+  color: var(--digest-accent);
+}
+
 .archive-status-note {
   margin: 0 0 .6rem;
   color: #a33a2b;
@@ -905,6 +925,75 @@ body.digest-modal-open {
   opacity: .55;
 }
 
+.flux-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-left: 1px solid var(--digest-line);
+}
+
+.flux-card {
+  border-right: 1px solid var(--digest-line);
+  border-bottom: 1px solid var(--digest-line);
+}
+
+.flux-card a {
+  display: flex;
+  min-height: 250px;
+  flex-direction: column;
+  padding: 1.5rem;
+  color: var(--digest-ink);
+  text-decoration: none;
+  transition: background .18s ease;
+}
+
+.flux-card a:hover {
+  background: var(--digest-accent);
+  color: #111;
+}
+
+.flux-card h2 {
+  margin: 2rem 0 .6rem;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  letter-spacing: -.05em;
+}
+
+.flux-card p {
+  margin: 0 0 auto;
+  color: var(--digest-muted);
+}
+
+.flux-card a > span:last-child {
+  margin-top: 2rem;
+  font-size: .78rem;
+  text-transform: uppercase;
+}
+
+.flux-year {
+  border-bottom: 1px solid var(--digest-line);
+}
+
+.flux-year summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.3rem 0;
+  color: var(--digest-ink);
+  cursor: pointer;
+}
+
+.flux-year summary span:first-child {
+  font-family: var(--digest-font-heading);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+}
+
+.flux-year summary span:last-child {
+  color: var(--digest-muted);
+  font-size: .78rem;
+  text-transform: uppercase;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -971,6 +1060,10 @@ body.digest-modal-open {
   }
 
   .archive-editions {
+    grid-template-columns: 1fr;
+  }
+
+  .flux-grid {
     grid-template-columns: 1fr;
   }
 

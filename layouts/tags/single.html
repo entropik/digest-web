@@ -1,6 +1,7 @@
 {{ define "main" }}
 {{ $tag := .Params.tag }}
-{{ $links := where hugo.Data.links "tags" "intersect" (slice $tag) }}
+{{ $tags := .Params.tags | default (slice $tag) }}
+{{ $links := where hugo.Data.links "tags" "intersect" $tags }}
 
 <article class="archive-single">
   <header class="archive-single-header tag-archive-header">

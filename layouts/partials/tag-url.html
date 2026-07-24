@@ -1,6 +1,9 @@
 {{- $tag := . -}}
 {{- $tagPages := where site.RegularPages "Section" "tags" -}}
-{{- $matches := where $tagPages "Params.tag" $tag -}}
+{{- $matches := where $tagPages "Params.tags" "intersect" (slice $tag) -}}
+{{- if not $matches -}}
+  {{- $matches = where $tagPages "Params.tag" $tag -}}
+{{- end -}}
 {{- with $matches -}}
   {{- (index . 0).RelPermalink -}}
 {{- else -}}

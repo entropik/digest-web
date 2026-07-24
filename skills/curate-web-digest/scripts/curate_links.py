@@ -9,6 +9,7 @@ import json
 import re
 import sys
 import unicodedata
+from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
@@ -178,6 +179,11 @@ def normalize_item(item: dict[str, object], fallback_date: str) -> dict[str, obj
         status_note = str(item.get("status_note", "")).strip()
         if status_note:
             normalized["status_note"] = status_note
+    stream = str(item.get("stream", "")).strip().lower()
+    if stream:
+        if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", stream):
+            raise ValueError(f"invalid stream slug: {stream}")
+        normalized["stream"] = stream
     return normalized
 
 
@@ -207,17 +213,17 @@ def slugify_tag(tag: str) -> str:
 
 
 def write_tag_pages(site: Path, items: list[dict[str, object]], dry_run: bool) -> int:
-    tags = sorted(
-        {
-            str(tag).strip().lstrip("#")
-            for item in items
-            for tag in item.get("tags", [])
-            if str(tag).strip()
-        },
-        key=str.casefold,
+    tag_counts: Counter[str] = Counter(
+        str(tag).strip().lstrip("#")
+        for item in items
+        for tag in item.get("tags", [])
+        if str(tag).strip()
     )
+    tags_by_slug: defaultdict[str, list[str]] = defaultdict(list)
+    for tag in tag_counts:
+        tags_by_slug[slugify_tag(tag)].append(tag)
     if dry_run:
-        return len(tags)
+        return len(tags_by_slug)
 
     tag_directory = site / "content" / "tags"
     tag_directory.mkdir(parents=True, exist_ok=True)
@@ -225,17 +231,19 @@ def write_tag_pages(site: Path, items: list[dict[str, object]], dry_run: bool) -
         '---\ntitle: "Tags"\ndescription: "Toutes les ressources classées par tag."\n---\n',
         encoding="utf-8",
     )
-    for tag in tags:
-        slug = slugify_tag(tag)
+    for slug, variants in sorted(tags_by_slug.items()):
+        variants.sort(key=lambda tag: (-tag_counts[tag], tag.casefold(), tag))
+        tag = variants[0]
         front_matter = (
             "---\n"
             f"title: {json.dumps('#' + tag, ensure_ascii=False)}\n"
             f"tag: {json.dumps(tag, ensure_ascii=False)}\n"
+            f"tags: {json.dumps(variants, ensure_ascii=False)}\n"
             'generated_by: "curate-web-digest"\n'
             "---\n"
         )
         (tag_directory / f"{slug}.md").write_text(front_matter, encoding="utf-8")
-    return len(tags)
+    return len(tags_by_slug)
 
 
 def main() -> int:

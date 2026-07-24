@@ -1,5 +1,11 @@
 {{ define "main" }}
-{{ $links := sort hugo.Data.links "added" "desc" }}
+{{ $editorialLinks := slice }}
+{{ range hugo.Data.links }}
+  {{ if not (.stream | default "") }}
+    {{ $editorialLinks = $editorialLinks | append . }}
+  {{ end }}
+{{ end }}
+{{ $links := sort $editorialLinks "added" "desc" }}
 {{ $categories := slice }}
 {{ range $links }}
   {{ $categories = $categories | append .category }}

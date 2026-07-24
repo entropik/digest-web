@@ -5,7 +5,8 @@
 {{ $maxCount := 1 }}
 {{ range $tagPages }}
   {{ $tag := .Params.tag }}
-  {{ $count := len (where $links "tags" "intersect" (slice $tag)) }}
+  {{ $tags := .Params.tags | default (slice $tag) }}
+  {{ $count := len (where $links "tags" "intersect" $tags) }}
   {{ $counts.Set $tag $count }}
   {{ if gt $count $maxCount }}{{ $maxCount = $count }}{{ end }}
 {{ end }}
