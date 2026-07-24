@@ -100,5 +100,6 @@
   </div>
 </dialog>
 <script id="digest-data" type="application/json">{{ $links | jsonify | safeHTML }}</script>
-<script src="{{ "js/digest.js" | relURL }}" defer></script>
+{{ $digestScript := resources.Get "js/digest.js" | minify | fingerprint }}
+<script src="{{ $digestScript.RelPermalink }}" integrity="{{ $digestScript.Data.Integrity }}" defer></script>
 {{ end }}

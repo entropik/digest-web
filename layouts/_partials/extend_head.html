@@ -1,0 +1,2 @@
+{{- $externalLinks := resources.Get "js/external-links.js" | minify | fingerprint }}
+<script src="{{ $externalLinks.RelPermalink }}" integrity="{{ $externalLinks.Data.Integrity }}" defer></script>
