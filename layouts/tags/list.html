@@ -11,27 +11,50 @@
   {{ if gt $count $maxCount }}{{ $maxCount = $count }}{{ end }}
 {{ end }}
 
-<section class="archives-hero">
-  <div>
-    <p class="digest-kicker">Index thématique</p>
-    <h1>Tags</h1>
-    <p>Retrouvez les ressources du Digest par sujet, outil ou pratique.</p>
-  </div>
-</section>
+<section class="tag-explorer" data-tag-explorer aria-labelledby="tag-explorer-title">
+  <header class="tag-explorer-header">
+    <div class="tag-explorer-intro">
+      <p class="digest-kicker">Index thématique</p>
+      <h1 id="tag-explorer-title">Suivez<br>un fil.</h1>
+      <p>Les obsessions du Digest, à parcourir plutôt qu’à inventorier.</p>
+    </div>
 
-<section class="tag-cloud" aria-label="Nuage de tags">
-  {{ range sort $tagPages "Title" }}
-    {{ $tag := .Params.tag }}
-    {{ $count := $counts.Get $tag }}
-    {{ $scale := div (mul (float $count) 100) (float $maxCount) }}
-    <a
-      class="tag-cloud-item"
-      href="{{ .RelPermalink }}"
-      style="--tag-scale: {{ printf "%.2f" $scale }};"
-      aria-label="{{ $tag }}, {{ $count }} {{ cond (eq $count 1) "lien" "liens" }}">
-      <span>#{{ $tag }}</span>
-      <sup>{{ $count }}</sup>
-    </a>
-  {{ end }}
+    <div class="tag-explorer-tools" aria-label="Explorer les tags">
+      <label class="tag-search">
+        <span class="sr-only">Rechercher un tag</span>
+        <span aria-hidden="true">#</span>
+        <input type="search" data-tag-search placeholder="chercher un thème" autocomplete="off">
+      </label>
+      <div class="tag-sort" aria-label="Ordre des tags">
+        <button type="button" data-tag-sort="popular" class="is-active" aria-pressed="true">Populaires</button>
+        <button type="button" data-tag-sort="alpha" aria-pressed="false">A—Z</button>
+        <button type="button" data-tag-sort="wander" aria-pressed="false">Flâner</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="tag-explorer-scene" data-tag-scene aria-label="Tags à explorer">
+    {{ range sort $tagPages "Title" }}
+      {{ $tag := .Params.tag }}
+      {{ $count := $counts.Get $tag }}
+      {{ $importance := div (math.Log (add (float $count) 1)) (math.Log (add (float $maxCount) 1)) }}
+      <a
+        class="tag-cloud-item"
+        href="{{ .RelPermalink }}"
+        data-tag="{{ $tag }}"
+        data-count="{{ $count }}"
+        style="--tag-importance: {{ printf "%.4f" $importance }};"
+        aria-label="{{ $tag }}, {{ $count }} {{ cond (eq $count 1) "lien" "liens" }}">
+        <span>#{{ $tag }}</span>
+        <sup>{{ $count }}</sup>
+      </a>
+    {{ end }}
+  </div>
+
+  <footer class="tag-explorer-footer">
+    <p data-tag-status>{{ len $tagPages }} thèmes · la taille indique le nombre de liens</p>
+    <p aria-hidden="true">Approchez le pointeur, les mots font place.</p>
+  </footer>
 </section>
+<script src="{{ "js/tag-explorer.js" | relURL }}" defer></script>
 {{ end }}
