@@ -25,6 +25,11 @@ jobs:
           hugo-version: "0.164.0"
           extended: true
 
+      - name: Validate digest data
+        run: |
+          python3 skills/curate-web-digest/scripts/curate_links.py --check --site .
+          python3 scripts/check_digest_consistency.py --site .
+
       - name: Build production site
         run: hugo --gc --minify --baseURL https://digest.ooblik.com/
 

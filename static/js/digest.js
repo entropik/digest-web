@@ -52,6 +52,8 @@
         link.url,
         getHost(link.url),
         link.description,
+        link.status,
+        link.status_note,
         ...(link.tags || []),
       ].join(" "),
     );
@@ -60,6 +62,7 @@
     const host = getHost(link.url);
     const article = document.createElement("article");
     article.className = "digest-card";
+    if (link.status === "dead") article.classList.add("is-dead");
 
     const trigger = document.createElement("button");
     trigger.className = "digest-card-trigger";
@@ -70,18 +73,29 @@
     trigger.dataset.categoryLabel = link.category;
     trigger.dataset.host = host;
     trigger.dataset.tags = (link.tags || []).join("|");
+    trigger.dataset.status = link.status || "";
+    trigger.dataset.statusNote = link.status_note || "";
     trigger.setAttribute("aria-label", `${link.title} — afficher le résumé`);
 
     const top = document.createElement("div");
     top.className = "digest-card-top";
+    const labels = document.createElement("div");
+    labels.className = "digest-card-labels";
     const categoryLabel = document.createElement("span");
     categoryLabel.className = "digest-category";
     categoryLabel.textContent = link.category;
+    labels.append(categoryLabel);
+    if (link.status === "dead") {
+      const status = document.createElement("span");
+      status.className = "digest-status";
+      status.textContent = "Lien mort";
+      labels.append(status);
+    }
     const arrow = document.createElement("span");
     arrow.className = "digest-arrow";
     arrow.setAttribute("aria-hidden", "true");
     arrow.textContent = "＋";
-    top.append(categoryLabel, arrow);
+    top.append(labels, arrow);
 
     const title = document.createElement("h2");
     title.textContent = link.title;
@@ -182,12 +196,20 @@
     if (!trigger) return;
 
     modalTitle.textContent = trigger.dataset.title;
-    modalCategory.textContent = trigger.dataset.categoryLabel;
+    const isDead = trigger.dataset.status === "dead";
+    modalCategory.textContent = isDead
+      ? `${trigger.dataset.categoryLabel} · LIEN MORT`
+      : trigger.dataset.categoryLabel;
     modalDescription.textContent =
-      trigger.dataset.description || "Aucun résumé n’est encore disponible pour cette ressource.";
+      [trigger.dataset.statusNote, trigger.dataset.description].filter(Boolean).join(" ") ||
+      "Aucun résumé n’est encore disponible pour cette ressource.";
     modalUrl.textContent = trigger.dataset.url;
     modalLink.href = trigger.dataset.url;
-    modalLink.setAttribute("aria-label", `Visiter ${trigger.dataset.host}`);
+    modalLink.textContent = isDead ? "Tester l’adresse d’origine ↗" : "Visiter le site ↗";
+    modalLink.setAttribute(
+      "aria-label",
+      isDead ? `Tester l’adresse d’origine de ${trigger.dataset.title}` : `Visiter ${trigger.dataset.host}`,
+    );
 
     modalTags.replaceChildren();
     (trigger.dataset.tags || "")

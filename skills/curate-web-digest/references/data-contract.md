@@ -10,6 +10,10 @@ Each item has:
 - `added`: ISO date in `YYYY-MM-DD` format.
 - `description`: optional short reader-facing summary.
 - `tags`: optional array of reader-facing tags without the leading `#`.
+- `status`: optional lifecycle marker. Use `dead` when the original public
+  address no longer resolves to its documented resource but must be preserved
+  for historical purposes.
+- `status_note`: optional reader-facing explanation of the lifecycle status.
 
 Example:
 
@@ -20,8 +24,12 @@ Example:
   "category": "Development",
   "added": "2026-07-24",
   "description": "A short factual description.",
-  "tags": ["example", "reference"]
+  "tags": ["example", "reference"],
+  "status": "dead",
+  "status_note": "Dead link — preserved as part of the historical record."
 }
 ```
 
-The importer sorts newest entries first, then by title. Existing metadata wins when the same canonical URL appears again.
+The importer sorts newest entries first, then by title. Existing metadata wins
+when the same canonical URL appears again. A dead public link is valid data: do
+not discard it merely because the remote server or resource has disappeared.

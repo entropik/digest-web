@@ -895,5 +895,945 @@
       "veille",
       "papier"
     ]
+  },
+  {
+    "title": "YUI ImageLoader",
+    "url": "https://clarle.github.io/yui3/yui/docs/imageloader",
+    "category": "Développement",
+    "added": "2016-10-04",
+    "description": "La documentation archivée du module ImageLoader de YUI, une autre approche historique du chargement différé des images.",
+    "tags": [
+      "JavaScript",
+      "images",
+      "performance",
+      "archive"
+    ]
+  },
+  {
+    "title": "Xamiro",
+    "url": "https://github.com/gbaumgart/xamiro",
+    "category": "Développement",
+    "added": "2016-10-04",
+    "description": "Un gestionnaire de fichiers et de médias en PHP qui proposait aussi des éditeurs pour le code.",
+    "tags": [
+      "PHP",
+      "gestionnaire-de-fichiers",
+      "opensource",
+      "archive",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "Lien mort — le dépôt GitHub d’origine a été supprimé."
+  },
+  {
+    "title": "WhatCMS",
+    "url": "https://whatcms.org/",
+    "category": "Développement",
+    "added": "2016-10-04",
+    "description": "Un service qui tente d’identifier le système de gestion de contenu utilisé par un site web.",
+    "tags": [
+      "CMS",
+      "détection",
+      "analyse",
+      "web"
+    ]
+  },
+  {
+    "title": "Tweak",
+    "url": "https://www.tweak.com/",
+    "category": "Design & Création",
+    "added": "2016-10-04",
+    "description": "Une plateforme de création de contenus et de modèles de marque, issue d’une culture très liée au web-to-print et à l’automatisation graphique.",
+    "tags": [
+      "web-to-print",
+      "automatisation",
+      "design",
+      "SaaS"
+    ]
+  },
+  {
+    "title": "Shortwhale",
+    "url": "http://www.shortwhale.com/",
+    "category": "Développement",
+    "added": "2016-10-04",
+    "description": "Un service de gestion des contacts, conversations et relances directement à partir des échanges par email.",
+    "tags": [
+      "email",
+      "contacts",
+      "productivité",
+      "SaaS",
+      "archive",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "Lien mort — le service a disparu du web public."
+  },
+  {
+    "title": "Papier Machine",
+    "url": "https://papier-machine.fr/",
+    "category": "Design & Création",
+    "added": "2016-10-04",
+    "description": "Un collectif artistique du Havre qui développe des projets d’art, d’architecture, de graphisme et de scénographie dans une logique d’expérimentation et de travail avec les lieux.",
+    "tags": [
+      "art",
+      "architecture",
+      "graphisme",
+      "scénographie"
+    ]
+  },
+  {
+    "title": "Pagination d’une galerie sans base de données",
+    "url": "https://forum.hardware.fr/hfr/Programmation/PHP/pagination-galerie-donnees-sujet_99447_1.htm",
+    "category": "Développement",
+    "added": "2016-10-04",
+    "description": "Une discussion technique autour de la pagination en PHP d’une galerie d’images alimentée directement depuis le système de fichiers.",
+    "tags": [
+      "PHP",
+      "pagination",
+      "images",
+      "forum"
+    ]
+  },
+  {
+    "title": "Ozalto Productivity",
+    "url": "http://www.ozalto.com/",
+    "category": "Médias & Veille",
+    "added": "2016-10-04",
+    "description": "Un cabinet spécialisé dans l’automatisation de la production éditoriale et graphique, notamment autour d’InDesign et du web-to-print.",
+    "tags": [
+      "automatisation",
+      "production",
+      "InDesign",
+      "web-to-print"
+    ]
+  },
+  {
+    "title": "Montserrat",
+    "url": "https://fonts.google.com/specimen/Montserrat",
+    "category": "Design & Création",
+    "added": "2016-10-04",
+    "description": "La famille de caractères géométrique dessinée par Julieta Ulanovsky, devenue un classique très diffusé du web.",
+    "tags": [
+      "typographie",
+      "Google-Fonts",
+      "sans-serif",
+      "design"
+    ]
+  },
+  {
+    "title": "Lazy Load Remastered",
+    "url": "https://www.appelsiini.net/projects/lazyload",
+    "category": "Développement",
+    "added": "2016-10-04",
+    "description": "Une bibliothèque JavaScript historique pour charger les images à la demande, témoin des solutions employées avant la généralisation du lazy loading natif.",
+    "tags": [
+      "JavaScript",
+      "performance",
+      "images",
+      "frontend"
+    ]
+  },
+  {
+    "title": "Kirby",
+    "url": "https://getkirby.com/",
+    "category": "Développement",
+    "added": "2016-10-04",
+    "description": "Un CMS sans base de données, centré sur les fichiers et apprécié pour sa souplesse éditoriale.",
+    "tags": [
+      "CMS",
+      "fichiers",
+      "publication",
+      "web"
+    ]
+  },
+  {
+    "title": "iScroll",
+    "url": "https://github.com/cubiq/iscroll",
+    "category": "Développement",
+    "added": "2016-10-04",
+    "description": "Une bibliothèque de défilement fluide en JavaScript conçue à l’origine pour pallier les limites des navigateurs mobiles.",
+    "tags": [
+      "JavaScript",
+      "scroll",
+      "mobile",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Importer un dossier d’images dans InDesign",
+    "url": "https://creativepro.com/import-folder-full-pictures-page",
+    "category": "Design & Création",
+    "added": "2016-10-04",
+    "description": "Une méthode pour placer automatiquement dans InDesign toutes les images d’un dossier, à raison d’un fichier par page.",
+    "tags": [
+      "InDesign",
+      "images",
+      "automatisation",
+      "mise-en-page"
+    ]
+  },
+  {
+    "title": "GitHub Pages",
+    "url": "https://pages.github.com/",
+    "category": "Développement",
+    "added": "2016-10-04",
+    "description": "Le service d’hébergement statique de GitHub, qui publie un site directement depuis un dépôt et reste une porte d’entrée simple vers le web statique.",
+    "tags": [
+      "GitHub",
+      "hébergement",
+      "site-statique",
+      "publication"
+    ]
+  },
+  {
+    "title": "Ghost",
+    "url": "https://github.com/TryGhost/Ghost",
+    "category": "Développement",
+    "added": "2016-10-04",
+    "description": "Le dépôt du CMS open source Ghost, devenu une plateforme complète de publication, d’abonnement et de newsletter.",
+    "tags": [
+      "CMS",
+      "opensource",
+      "publication",
+      "newsletter"
+    ]
+  },
+  {
+    "title": "Font Squirrel Webfont Generator",
+    "url": "https://www.fontsquirrel.com/tools/webfont-generator",
+    "category": "Design & Création",
+    "added": "2016-10-04",
+    "description": "Un générateur de kits webfont qui convertit des fontes et prépare les fichiers nécessaires à leur intégration dans un site.",
+    "tags": [
+      "typographie",
+      "webfont",
+      "conversion",
+      "outil"
+    ]
+  },
+  {
+    "title": "Enfocus — produits",
+    "url": "https://www.enfocus.com/en/products",
+    "category": "Design & Création",
+    "added": "2016-10-04",
+    "description": "La gamme d’outils Enfocus pour le contrôle PDF, le prépresse et l’automatisation des flux de production graphique.",
+    "tags": [
+      "prépresse",
+      "PDF",
+      "automatisation",
+      "impression"
+    ]
+  },
+  {
+    "title": "ElmaStudio Themes",
+    "url": "https://www.elmastudio.de/en/themes",
+    "category": "Design & Création",
+    "added": "2016-10-04",
+    "description": "Une collection de thèmes WordPress sobres et éditoriaux, représentative de l’esthétique des blogs indépendants des années 2010.",
+    "tags": [
+      "WordPress",
+      "thèmes",
+      "design",
+      "blog"
+    ]
+  },
+  {
+    "title": "ElmaStudio Theme Updates",
+    "url": "http://themeupdates.elmastudio.de/",
+    "category": "Design & Création",
+    "added": "2016-10-04",
+    "description": "L’ancien portail utilisé par ElmaStudio pour diffuser les mises à jour de ses thèmes WordPress.",
+    "tags": [
+      "WordPress",
+      "thèmes",
+      "mise-à-jour",
+      "archive",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "Lien mort — le portail de mises à jour n’est plus accessible."
+  },
+  {
+    "title": "Démo de lazy loading sur CodePen",
+    "url": "https://codepen.io/SitePoint/pen/WrXjmQ",
+    "category": "Développement",
+    "added": "2016-10-04",
+    "description": "Une démonstration isolée du chargement différé d’images, utile pour relire les pratiques frontend de l’époque.",
+    "tags": [
+      "JavaScript",
+      "démonstration",
+      "performance",
+      "frontend"
+    ]
+  },
+  {
+    "title": "Dosis",
+    "url": "https://fonts.google.com/specimen/Dosis",
+    "category": "Design & Création",
+    "added": "2016-10-04",
+    "description": "Une famille sans serif arrondie et légère, disponible en plusieurs graisses sur Google Fonts.",
+    "tags": [
+      "typographie",
+      "Google-Fonts",
+      "sans-serif",
+      "design"
+    ]
+  },
+  {
+    "title": "Decent Web",
+    "url": "https://decentweb.org/",
+    "category": "Médias & Veille",
+    "added": "2016-10-04",
+    "description": "Un manifeste qui défendait un web plus décent, ouvert et respectueux de ses utilisateurs.",
+    "tags": [
+      "web",
+      "manifeste",
+      "éthique",
+      "archive",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "Lien mort — le site du manifeste ne répond plus."
+  },
+  {
+    "title": "Dareboost",
+    "url": "https://www.dareboost.com/fr/service/analyse-site-web",
+    "category": "Développement",
+    "added": "2016-10-04",
+    "description": "Un service d’audit de pages web couvrant performance, qualité technique, accessibilité, sécurité et référencement.",
+    "tags": [
+      "performance",
+      "audit",
+      "SEO",
+      "accessibilité"
+    ]
+  },
+  {
+    "title": "CSS Minifier",
+    "url": "https://www.toptal.com/developers/cssminifier",
+    "category": "Développement",
+    "added": "2016-10-04",
+    "description": "Un utilitaire en ligne pour compresser une feuille de styles en supprimant les caractères inutiles.",
+    "tags": [
+      "CSS",
+      "compression",
+      "performance",
+      "outil"
+    ]
+  },
+  {
+    "title": "Crowdbooks",
+    "url": "https://crowdbooks.com/",
+    "category": "Design & Création",
+    "added": "2016-10-04",
+    "description": "Une plateforme de financement participatif dédiée aux projets éditoriaux et à la publication de livres.",
+    "tags": [
+      "édition",
+      "livre",
+      "financement-participatif",
+      "publication"
+    ]
+  },
+  {
+    "title": "Coding Horror",
+    "url": "https://blog.codinghorror.com/",
+    "category": "Médias & Veille",
+    "added": "2016-10-04",
+    "description": "Le blog de Jeff Atwood sur la programmation, les communautés en ligne et la culture du logiciel.",
+    "tags": [
+      "blog",
+      "développement",
+      "logiciel",
+      "réflexion"
+    ]
+  },
+  {
+    "title": "Center for Humane Technology",
+    "url": "https://www.humanetech.com/",
+    "category": "Médias & Veille",
+    "added": "2016-10-04",
+    "description": "L’organisation issue du mouvement Time Well Spent, qui critique les mécanismes de captation de l’attention et défend des technologies plus humaines.",
+    "tags": [
+      "attention",
+      "éthique",
+      "technologie",
+      "société"
+    ]
+  },
+  {
+    "title": "BuiltWith",
+    "url": "https://builtwith.com/",
+    "category": "Développement",
+    "added": "2016-10-04",
+    "description": "Un outil de profilage qui inventorie les technologies, services et bibliothèques détectés sur un site.",
+    "tags": [
+      "détection",
+      "technologie",
+      "analyse",
+      "web"
+    ]
+  },
+  {
+    "title": "Berta",
+    "url": "https://www.berta.me/",
+    "category": "Développement",
+    "added": "2016-10-04",
+    "description": "Un CMS de portfolio minimaliste conçu pour permettre aux créatifs de composer et publier facilement leur site.",
+    "tags": [
+      "CMS",
+      "portfolio",
+      "design",
+      "publication"
+    ]
+  },
+  {
+    "title": "Atlantis World’s Fair",
+    "url": "https://lostworldsfairs.com/atlantis",
+    "category": "Design & Création",
+    "added": "2016-10-04",
+    "description": "Une expérience web narrative en défilement continu qui met en scène une exposition universelle imaginaire consacrée à Atlantis.",
+    "tags": [
+      "scroll",
+      "expérimentation",
+      "design",
+      "narration"
+    ]
+  },
+  {
+    "title": "AREA 17 sur Medium",
+    "url": "https://area17.medium.com/",
+    "category": "Médias & Veille",
+    "added": "2016-10-04",
+    "description": "Les archives éditoriales du studio AREA 17 autour du design, de la stratégie numérique et de la fabrication de produits web.",
+    "tags": [
+      "design",
+      "agence",
+      "produit",
+      "blog"
+    ]
+  },
+  {
+    "title": "Aperçu Typecast — Dosis",
+    "url": "http://typecast.com/preview/google/Dosis",
+    "category": "Design & Création",
+    "added": "2016-10-04",
+    "description": "Un ancien aperçu de la fonte Dosis dans Typecast, service ensuite absorbé dans l’offre de Monotype.",
+    "tags": [
+      "typographie",
+      "Dosis",
+      "outil",
+      "archive",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "Lien mort — la page d’origine n’est plus disponible."
+  },
+  {
+    "title": "Andrew McCarthy",
+    "url": "https://andrevv.com/",
+    "category": "Design & Création",
+    "added": "2016-10-04",
+    "description": "Le portfolio d’un développeur créatif, construit comme une expérience visuelle où animation et défilement participent au récit.",
+    "tags": [
+      "portfolio",
+      "creative-coding",
+      "animation",
+      "web"
+    ]
+  },
+  {
+    "title": "Whois Mono",
+    "url": "https://github.com/raphaelbastide/Whois-mono",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "Une fonte monospace simple et libre dessinée par Raphaël Bastide.",
+    "tags": [
+      "typographie",
+      "monospace",
+      "fonte-libre",
+      "GitHub"
+    ]
+  },
+  {
+    "title": "Whisky — Étienne Ozeray",
+    "url": "https://etienneozeray.fr/whisky.php",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "Une ancienne expérimentation typographique d’Étienne Ozeray publiée sous le titre Whisky.",
+    "tags": [
+      "typographie",
+      "expérimentation",
+      "archive",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "Lien mort — la page du projet n’existe plus à cette adresse."
+  },
+  {
+    "title": "Use & Modify",
+    "url": "https://usemodify.com/",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "Une sélection durable de fontes libres, choisies pour leur qualité et documentées avec leurs auteurs et licences.",
+    "tags": [
+      "typographie",
+      "fonte-libre",
+      "sélection",
+      "licences"
+    ]
+  },
+  {
+    "title": "Typewolf",
+    "url": "https://www.typewolf.com/",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "Un site de veille et d’inspiration consacré aux fontes utilisées sur le web, aux tendances et aux associations typographiques.",
+    "tags": [
+      "typographie",
+      "veille",
+      "webfont",
+      "inspiration"
+    ]
+  },
+  {
+    "title": "ttfautohint",
+    "url": "https://freetype.org/ttfautohint",
+    "category": "Développement",
+    "added": "2014-09-13",
+    "description": "Un outil libre d’autohinting pour les fontes TrueType, construit sur FreeType afin d’améliorer leur rendu à l’écran.",
+    "tags": [
+      "typographie",
+      "TrueType",
+      "hinting",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Tous les hommes sont des connards",
+    "url": "https://fvsch.com/connards",
+    "category": "Médias & Veille",
+    "added": "2014-09-13",
+    "description": "Un texte d’humeur de Florent Verschelde sur le sexisme ordinaire, la responsabilité individuelle et les comportements masculins.",
+    "tags": [
+      "société",
+      "sexisme",
+      "opinion",
+      "article"
+    ]
+  },
+  {
+    "title": "The Paper Globe",
+    "url": "https://professeurjoachim.com/globe",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "Un globe terrestre en papier à télécharger, découper, plier et assembler soi-même.",
+    "tags": [
+      "papier",
+      "DIY",
+      "découpage",
+      "objet"
+    ]
+  },
+  {
+    "title": "Pro bono",
+    "url": "https://en.wikipedia.org/wiki/Pro_bono",
+    "category": "Médias & Veille",
+    "added": "2014-09-13",
+    "description": "L’article encyclopédique consacré au travail professionnel accompli gratuitement au bénéfice d’une cause ou du public.",
+    "tags": [
+      "pro-bono",
+      "travail",
+      "société",
+      "référence"
+    ]
+  },
+  {
+    "title": "Printed Matter",
+    "url": "https://www.printedmatter.org/",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "La librairie et organisation new-yorkaise consacrée aux livres d’artistes, éditions indépendantes et publications imprimées.",
+    "tags": [
+      "livre-d’artiste",
+      "édition",
+      "librairie",
+      "New-York"
+    ]
+  },
+  {
+    "title": "offpixel",
+    "url": "https://www.offpixel.co/",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "Une expérience web volontairement minimale et graphique, conservée comme exemple d’interface arty.",
+    "tags": [
+      "interface",
+      "expérimentation",
+      "web",
+      "design"
+    ]
+  },
+  {
+    "title": "Noto",
+    "url": "https://fonts.google.com/noto",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "La superfamille de Google conçue pour couvrir un très grand nombre de systèmes d’écriture et éviter les caractères manquants.",
+    "tags": [
+      "typographie",
+      "Google-Fonts",
+      "multilingue",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Multitoner",
+    "url": "https://github.com/graphicore/multitoner",
+    "category": "Développement",
+    "added": "2014-09-13",
+    "description": "Un outil libre pour produire des fichiers EPS monotones, bichromes, trichromes ou quadrichromes destinés à l’impression.",
+    "tags": [
+      "impression",
+      "EPS",
+      "prépresse",
+      "opensource"
+    ]
+  },
+  {
+    "title": "MKSHFT",
+    "url": "http://mkshft.org/",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "Une ancienne revue indépendante consacrée aux pratiques artistiques et créatives contemporaines.",
+    "tags": [
+      "revue",
+      "art",
+      "création",
+      "archive",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "Lien mort — le site de la revue n’est plus accessible."
+  },
+  {
+    "title": "Minotaur",
+    "url": "https://productiontype.com/font/minotaur",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "Une famille de caractères de Production Type dessinée par Jean-Baptiste Levée, inspirée du cubisme et des premières fontes informatiques vectorielles.",
+    "tags": [
+      "typographie",
+      "fonderie",
+      "Production-Type",
+      "design"
+    ]
+  },
+  {
+    "title": "Metapolator — code source",
+    "url": "https://github.com/metapolator",
+    "category": "Développement",
+    "added": "2014-09-13",
+    "description": "L’organisation GitHub qui rassemble le code et les composants open source du projet Metapolator.",
+    "tags": [
+      "typographie",
+      "GitHub",
+      "opensource",
+      "code"
+    ]
+  },
+  {
+    "title": "Metapolator",
+    "url": "http://metapolator.com/",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "Un outil web libre de conception paramétrique destiné à créer, interpoler et décliner rapidement des familles de caractères.",
+    "tags": [
+      "typographie",
+      "outil",
+      "paramétrique",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Massimo Nicolaci",
+    "url": "https://www.massimonicolaci.com/",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "Le portfolio du photographe et réalisateur italien Massimo Nicolaci, entre travaux personnels, films et commandes documentaires.",
+    "tags": [
+      "photographie",
+      "film",
+      "portfolio",
+      "Italie"
+    ]
+  },
+  {
+    "title": "Line Breaking",
+    "url": "http://xxyxyz.org/line-breaking",
+    "category": "Développement",
+    "added": "2014-09-13",
+    "description": "Une visualisation pédagogique de plusieurs algorithmes de coupure de lignes, accompagnés de code Python et de mesures de performance.",
+    "tags": [
+      "typographie",
+      "Python",
+      "algorithme",
+      "visualisation",
+      "archive",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "Lien mort — l’article original n’est plus servi par son domaine."
+  },
+  {
+    "title": "Large — blog",
+    "url": "http://large.la/blog",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "Le blog de Large, collectif de designers qui documentait une approche moderne du graphisme et de la typographie.",
+    "tags": [
+      "design",
+      "typographie",
+      "collectif",
+      "blog",
+      "archive",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "Lien mort — le blog ne livre plus son contenu éditorial."
+  },
+  {
+    "title": "Karmilla",
+    "url": "https://github.com/ms-studio/karmilla",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "Une extension libre de la fonte Karla qui ajoute la prise en charge de nombreuses langues européennes.",
+    "tags": [
+      "typographie",
+      "fonte-libre",
+      "GitHub",
+      "multilingue"
+    ]
+  },
+  {
+    "title": "jQuery File Upload",
+    "url": "https://blueimp.github.io/jQuery-File-Upload",
+    "category": "Développement",
+    "added": "2014-09-13",
+    "description": "La démonstration du composant blueimp pour gérer glisser-déposer, progression et envoi multiple de fichiers avec jQuery.",
+    "tags": [
+      "JavaScript",
+      "jQuery",
+      "upload",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Institut Typeface — Astronaut Design",
+    "url": "http://astronautdesign.com/11-Institut-Typeface",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "La présentation de la famille Institut par Astronaut Design, fonderie et studio typographique aujourd’hui disparus de cette adresse.",
+    "tags": [
+      "typographie",
+      "fonderie",
+      "archive",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "Lien mort — le domaine est désormais proposé à la vente."
+  },
+  {
+    "title": "Input",
+    "url": "https://input.djr.com/",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "La famille de caractères de David Jonathan Ross pensée pour le code, avec ponctuation généreuse, caractères distinctifs et nombreuses variantes.",
+    "tags": [
+      "typographie",
+      "code",
+      "monospace",
+      "développement"
+    ]
+  },
+  {
+    "title": "Grilli Type",
+    "url": "https://www.grillitype.com/",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "Une fonderie typographique suisse indépendante qui publie des familles comme GT America, GT Sectra, GT Alpina ou GT Walsheim.",
+    "tags": [
+      "typographie",
+      "fonderie",
+      "Suisse",
+      "design"
+    ]
+  },
+  {
+    "title": "GitHub Docs",
+    "url": "https://docs.github.com/en",
+    "category": "Développement",
+    "added": "2014-09-13",
+    "description": "La documentation officielle de GitHub, héritière des anciens Guides conçus pour apprivoiser dépôts, contributions et collaboration.",
+    "tags": [
+      "GitHub",
+      "documentation",
+      "Git",
+      "collaboration"
+    ]
+  },
+  {
+    "title": "Gents Themes",
+    "url": "http://gentsthemes.com/",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "Un ancien catalogue de thèmes WordPress au positionnement graphique et éditorial.",
+    "tags": [
+      "WordPress",
+      "thèmes",
+      "design",
+      "archive",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "Lien mort — le domaine ne sert plus le catalogue d’origine."
+  },
+  {
+    "title": "Flagsmith",
+    "url": "https://www.scribbletone.com/typefaces/flagsmith",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "Une fonte modulaire créée par Scribble Tone avec Always With Honor, capable de combiner formes et motifs pour fabriquer des drapeaux.",
+    "tags": [
+      "typographie",
+      "drapeau",
+      "OpenType",
+      "design"
+    ]
+  },
+  {
+    "title": "DSPly Notes — thèmes Kirby",
+    "url": "http://notes.dsply.fr/",
+    "category": "Développement",
+    "added": "2014-09-13",
+    "description": "Un ancien carnet de notes proposant notamment des thèmes et ressources pour le CMS Kirby.",
+    "tags": [
+      "Kirby",
+      "CMS",
+      "thèmes",
+      "archive",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "Lien mort — le sous-domaine n’est plus accessible."
+  },
+  {
+    "title": "Direct Upload to S3 avec jQuery",
+    "url": "https://designedbyaturtle.com/direct-upload-to-s3-with-a-little-help-from-jquery",
+    "category": "Développement",
+    "added": "2014-09-13",
+    "description": "Un tutoriel expliquant l’envoi direct de fichiers vers Amazon S3 depuis le navigateur, avec suivi de progression en jQuery.",
+    "tags": [
+      "S3",
+      "jQuery",
+      "upload",
+      "tutoriel"
+    ]
+  },
+  {
+    "title": "Camera Oscura",
+    "url": "http://www.cameraoscura.org/",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "Le site d’un ancien espace romain consacré à la photographie, aux expositions et à l’édition photographique.",
+    "tags": [
+      "photographie",
+      "Italie",
+      "galerie",
+      "archive",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "Lien mort — le domaine ne possède plus de destination publique."
+  },
+  {
+    "title": "ButtleOFX",
+    "url": "https://buttleofx.wordpress.com/",
+    "category": "Développement",
+    "added": "2014-09-13",
+    "description": "Les archives du projet ButtleOFX, logiciel libre de compositing basé sur le standard OpenFX.",
+    "tags": [
+      "vidéo",
+      "compositing",
+      "OpenFX",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Beautiful Web Type",
+    "url": "https://hellohappy.org/beautiful-web-type",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "Une sélection de fontes Google présentées dans des compositions web soignées afin de les juger en situation plutôt que dans un simple spécimen.",
+    "tags": [
+      "typographie",
+      "Google-Fonts",
+      "webfont",
+      "sélection"
+    ]
+  },
+  {
+    "title": "Art Opology sur Stampsy",
+    "url": "https://stampsy.com/art-opology/trending/8064",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "Une publication photographique hébergée sur Stampsy, ancienne plateforme de récits visuels et de portfolios.",
+    "tags": [
+      "photographie",
+      "portfolio",
+      "plateforme",
+      "archive",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "Lien mort — la publication renvoie désormais une erreur serveur."
+  },
+  {
+    "title": "Arnaud Mercier — rétrospective 1999–2011",
+    "url": "https://arnaud.area17.com/",
+    "category": "Design & Création",
+    "added": "2014-09-13",
+    "description": "Une rétrospective interactive du travail d’Arnaud Mercier, cofondateur d’AREA 17, couvrant plus d’une décennie de design numérique.",
+    "tags": [
+      "design",
+      "portfolio",
+      "rétrospective",
+      "AREA-17"
+    ]
+  },
+  {
+    "title": "Amateurs et typothèses",
+    "url": "https://www.anthonymasure.com/en/articles/2013-09-rencontres-lures-amateurs-typotheses",
+    "category": "Médias & Veille",
+    "added": "2014-09-13",
+    "description": "Le compte rendu d’Anthony Masure sur les Rencontres de Lure 2013, entre culture graphique, pratiques amateures et typographie numérique.",
+    "tags": [
+      "typographie",
+      "Rencontres-de-Lure",
+      "design-graphique",
+      "article"
+    ]
+  },
+  {
+    "title": "653 ressources typographiques gratuites",
+    "url": "https://www.creativebloq.com/typography/free-resources-71412289",
+    "category": "Médias & Veille",
+    "added": "2014-09-13",
+    "description": "Une vaste compilation de ressources gratuites autour des fontes, de la composition et de l’apprentissage typographique.",
+    "tags": [
+      "typographie",
+      "ressources",
+      "sélection",
+      "apprentissage"
+    ]
   }
 ]

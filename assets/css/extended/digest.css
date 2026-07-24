@@ -421,6 +421,37 @@ html {
   text-transform: uppercase;
 }
 
+.digest-card-labels {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .45rem;
+}
+
+.digest-status,
+.archive-status {
+  display: inline-flex;
+  width: fit-content;
+  padding: .15rem .4rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  color: #a33a2b;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.digest-card.is-dead {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 12px,
+    color-mix(in srgb, var(--digest-line) 32%, transparent) 12px,
+    color-mix(in srgb, var(--digest-line) 32%, transparent) 13px
+  );
+}
+
 .digest-arrow {
   font-size: 1.15rem;
 }
@@ -711,6 +742,41 @@ body.digest-modal-open {
   font-size: 2.2rem;
 }
 
+.archive-intro {
+  max-width: 860px;
+  margin-top: 3rem;
+  color: var(--digest-muted);
+  line-height: 1.7;
+}
+
+.archive-intro > p:first-child {
+  color: var(--digest-ink);
+  font-weight: 700;
+}
+
+.archive-intro blockquote {
+  margin: 1.5rem 0 0;
+  padding: .2rem 0 .2rem 1.5rem;
+  border-inline-start: 2px solid var(--digest-accent);
+}
+
+.archive-intro blockquote p {
+  margin: 0 0 1rem;
+}
+
+.archive-intro blockquote ol,
+.archive-intro blockquote ul {
+  padding-inline-start: 1.4rem;
+}
+
+.archive-intro blockquote li {
+  margin-bottom: .35rem;
+}
+
+.archive-intro a {
+  overflow-wrap: anywhere;
+}
+
 .archive-group {
   padding: 3rem 0 1rem;
 }
@@ -754,6 +820,19 @@ body.digest-modal-open {
   font-size: .72rem;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.archive-status {
+  margin-top: .7rem;
+}
+
+.archive-status-note {
+  margin: 0 0 .6rem;
+  color: #a33a2b;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+  text-transform: uppercase;
 }
 
 .archive-link-description {

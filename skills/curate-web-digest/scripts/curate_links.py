@@ -170,6 +170,14 @@ def normalize_item(item: dict[str, object], fallback_date: str) -> dict[str, obj
         clean_tags = [str(tag).strip().lstrip("#") for tag in tags if str(tag).strip()]
         if clean_tags:
             normalized["tags"] = clean_tags
+    status = str(item.get("status", "")).strip().lower()
+    if status:
+        if status not in {"dead"}:
+            raise ValueError(f"unsupported link status: {status}")
+        normalized["status"] = status
+        status_note = str(item.get("status_note", "")).strip()
+        if status_note:
+            normalized["status_note"] = status_note
     return normalized
 
 

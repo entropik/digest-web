@@ -36,9 +36,9 @@
     {{ $searchTags := "" }}
     {{ with $link.tags }}{{ $searchTags = delimit . " " }}{{ end }}
     <article
-      class="digest-card"
+      class="digest-card{{ if eq ($link.status | default "") "dead" }} is-dead{{ end }}"
       data-category="{{ $link.category | urlize }}"
-      data-search="{{ lower (printf "%s %s %s %s %s %s" $link.title $link.category $host.Host $link.url ($link.description | default "") $searchTags) }}">
+      data-search="{{ lower (printf "%s %s %s %s %s %s %s %s" $link.title $link.category $host.Host $link.url ($link.description | default "") $searchTags ($link.status | default "") ($link.status_note | default "")) }}">
       <button
         class="digest-card-trigger"
         type="button"
@@ -48,9 +48,14 @@
         data-category-label="{{ $link.category }}"
         data-host="{{ $host.Host | strings.TrimPrefix "www." }}"
         data-tags="{{ with $link.tags }}{{ delimit . "|" }}{{ end }}"
+        data-status="{{ $link.status | default "" }}"
+        data-status-note="{{ $link.status_note | default "" }}"
         aria-label="{{ $link.title }} — afficher le résumé">
         <div class="digest-card-top">
-          <span class="digest-category">{{ $link.category }}</span>
+          <div class="digest-card-labels">
+            <span class="digest-category">{{ $link.category }}</span>
+            {{ if eq ($link.status | default "") "dead" }}<span class="digest-status">Lien mort</span>{{ end }}
+          </div>
           <span class="digest-arrow" aria-hidden="true">＋</span>
         </div>
         <h2>{{ $link.title }}</h2>
