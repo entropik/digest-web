@@ -235,14 +235,6 @@
   modal.addEventListener("close", () => {
     document.body.classList.remove("digest-modal-open");
   });
-  modalLink.addEventListener("click", (event) => {
-    event.preventDefault();
-    const destination = new URL(modalLink.href);
-    if (!["http:", "https:"].includes(destination.protocol)) return;
-    modal.close();
-    window.location.assign(destination.href);
-  });
-
   document.addEventListener("keydown", (event) => {
     if (event.key === "/" && document.activeElement !== search) {
       event.preventDefault();

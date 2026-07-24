@@ -15,6 +15,10 @@ from urllib.parse import parse_qs, unquote, urlsplit
 
 HTTP_ERROR_TITLE = re.compile(r"^\((\d{3})\)\s*(.*)$", re.S)
 URL_TITLE = re.compile(r"^https?://", re.I)
+PLACEHOLDER_TITLE = re.compile(
+    r"^(?:untitled|sans titre|no title)(?:\s*(?:\(|\[|[-–—:]).*)?$",
+    re.I | re.S,
+)
 VALID_CATEGORIES = {
     "Développement",
     "Design & Création",
@@ -73,6 +77,10 @@ def readable_title(url: str) -> str:
             "",
         )
         return f"Vidéo Vimeo {video_id}".strip()
+    if host == "photos.google.com" and parts.path.startswith("/share/"):
+        return "Album Google Photos"
+    if host == "info.cern.ch" and parts.path.casefold() == "/hypertext/www/theproject.html":
+        return "The World Wide Web project"
     if "ebay." in host and query.get("item"):
         return f"Annonce eBay {query['item'][0]}"
 
@@ -82,8 +90,17 @@ def readable_title(url: str) -> str:
         if segment and segment.lower() not in {"index.html", "index.htm", "error", "404"}
     ]
     candidate = segments[-1] if segments else host
+    if candidate.casefold() == "index.php" and parts.query:
+        query_path = unquote(parts.query).rstrip("=")
+        candidate = query_path.rsplit("/", 1)[-1]
+        candidate = re.sub(r"^\d+-", "", candidate)
+        if candidate.casefold() == "etrange":
+            candidate = "Étrange"
+    if host == "storehouse.co":
+        candidate = re.sub(r"^[a-z]\w{4}-", "", candidate, flags=re.I)
     candidate = re.sub(r"\.(?:html?|php|aspx?)$", "", candidate, flags=re.I)
     candidate = re.sub(r"[-_]+", " ", candidate)
+    candidate = re.sub(r"\s+art\d+$", "", candidate, flags=re.I)
     candidate = re.sub(r"\s+", " ", candidate).strip()
     if not candidate or candidate.isdigit():
         candidate = host
@@ -97,7 +114,7 @@ def clean_title(raw_title: str, url: str) -> tuple[str, int | None]:
     if match:
         error_code = int(match.group(1))
         title = match.group(2).strip()
-    if not title or URL_TITLE.match(title):
+    if not title or URL_TITLE.match(title) or PLACEHOLDER_TITLE.match(title):
         title = readable_title(url)
     title = re.sub(r"\s+", " ", title).strip()
     return title or host_label(url), error_code
@@ -412,6 +429,45 @@ def create_archives(site: Path) -> dict[str, int]:
     return {"created": created, "preserved": preserved, "dates": len(by_date)}
 
 
+def clean_site_titles(site: Path) -> dict[str, int]:
+    links_path = site / "data" / "links.json"
+    links = json.loads(links_path.read_text(encoding="utf-8"))
+    changed = 0
+    descriptions = 0
+
+    for item in links:
+        old_title = str(item.get("title", ""))
+        new_title, _ = clean_title(old_title, str(item["url"]))
+        if new_title == old_title:
+            continue
+
+        item["title"] = new_title
+        changed += 1
+        description = str(item.get("description", ""))
+        old_prefix = f"Ressource « {old_title} » archivée depuis "
+        if description.startswith(old_prefix):
+            item["description"] = (
+                f"Ressource « {new_title} » archivée depuis "
+                f"{description.removeprefix(old_prefix)}"
+            )
+            descriptions += 1
+
+    remaining = sum(
+        bool(PLACEHOLDER_TITLE.match(str(item.get("title", "")).strip()))
+        for item in links
+    )
+    if changed:
+        links_path.write_text(
+            json.dumps(links, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+    return {
+        "titles_changed": changed,
+        "descriptions_changed": descriptions,
+        "placeholder_titles_remaining": remaining,
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -438,6 +494,11 @@ def main() -> int:
         help="Créer les pages d’archives manquantes depuis data/links.json.",
     )
     parser.add_argument(
+        "--clean-titles",
+        action="store_true",
+        help="Remplacer les titres techniques de data/links.json par des libellés lisibles.",
+    )
+    parser.add_argument(
         "--site",
         type=Path,
         default=Path.cwd(),
@@ -445,7 +506,9 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    if args.archives:
+    if args.clean_titles:
+        print(json.dumps(clean_site_titles(args.site.resolve()), ensure_ascii=False))
+    elif args.archives:
         print(json.dumps(create_archives(args.site.resolve()), ensure_ascii=False))
     else:
         print(
