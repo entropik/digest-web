@@ -30,7 +30,12 @@
         {{ range sort $categoryLinks "title" }}
           <article class="archive-link">
             <div>
-              <h3><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a></h3>
+              <h3>
+                <a class="link-title" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+                  {{ partial "link-favicon.html" .url }}
+                  <span>{{ .title }}</span>
+                </a>
+              </h3>
               {{ if eq (.status | default "") "dead" }}
                 <span class="archive-status">Lien mort · conservé pour mémoire</span>
               {{ end }}

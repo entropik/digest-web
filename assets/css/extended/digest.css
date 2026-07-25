@@ -463,6 +463,25 @@ html {
   line-height: 1.12;
 }
 
+.link-title {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: .5rem;
+}
+
+.link-favicon {
+  flex: 0 0 auto;
+  width: 1rem;
+  height: 1rem;
+  margin-top: .08em;
+  border-radius: .18rem;
+  object-fit: contain;
+}
+
+.digest-card .link-favicon {
+  margin-top: .12em;
+}
+
 .digest-meta {
   align-items: end;
   margin-top: 2rem;

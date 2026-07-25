@@ -31,7 +31,12 @@
           <article class="archive-link">
             <div>
               <time class="archive-edition-kicker" datetime="{{ .added }}">{{ time.Format "02 January 2006" .added }}</time>
-              <h3><a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a></h3>
+              <h3>
+                <a class="link-title" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+                  {{ partial "link-favicon.html" .url }}
+                  <span>{{ .title }}</span>
+                </a>
+              </h3>
               {{ if eq (.status | default "") "dead" }}
                 <span class="archive-status">Lien mort · conservé pour mémoire</span>
               {{ end }}

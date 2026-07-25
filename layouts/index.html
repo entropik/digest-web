@@ -64,7 +64,10 @@
           </div>
           <span class="digest-arrow" aria-hidden="true">＋</span>
         </div>
-        <h2>{{ $link.title }}</h2>
+        <h2 class="link-title">
+          {{ partial "link-favicon.html" $link.url }}
+          <span>{{ $link.title }}</span>
+        </h2>
         <div class="digest-meta">
           <span>{{ $host.Host | strings.TrimPrefix "www." }}</span>
           <time datetime="{{ $link.added }}">{{ time.Format "02 Jan 2006" $link.added }}</time>

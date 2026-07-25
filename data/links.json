@@ -1287,6 +1287,395 @@
     ]
   },
   {
+    "title": "Émilie Coquard",
+    "url": "http://emiliecoquard.fr/",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "Le portfolio d’une designer graphique indépendante travaillant notamment sur la visualisation de données, l’édition et la typographie.",
+    "tags": [
+      "design-graphique",
+      "datavisualisation",
+      "édition",
+      "typographie"
+    ]
+  },
+  {
+    "title": "Éditions GwinZegal",
+    "url": "http://www.gwinzegal.com/edition.html",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "L’ancienne page des éditions du Centre d’art GwinZegal, maison spécialisée dans les livres de photographie.",
+    "tags": [
+      "photographie",
+      "édition",
+      "livre-photo",
+      "centre-d-art",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "La page d’origine renvoie une erreur 404. Les éditions GwinZegal existent toujours sur le site actuel du Centre d’art ; l’ancienne adresse est conservée pour mémoire."
+  },
+  {
+    "title": "Type Magazine",
+    "url": "https://www.typemag.org/",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "Un ancien magazine en ligne consacré à la typographie et au dessin de caractères.",
+    "tags": [
+      "typographie",
+      "magazine",
+      "design-graphique",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "Le domaine d’origine a été repris par un site de jeux d’argent sans rapport avec la typographie. L’adresse est conservée pour mémoire."
+  },
+  {
+    "title": "TruFont",
+    "url": "https://trufont.github.io/",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "Un éditeur de polices multiplateforme, open source et conçu pour le format UFO.",
+    "tags": [
+      "typographie",
+      "polices",
+      "opensource",
+      "outil"
+    ]
+  },
+  {
+    "title": "Théorie du design graphique",
+    "url": "http://www.theoriedesigngraphique.org/",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "Un ancien blog consacré aux textes, concepts et débats théoriques du design graphique.",
+    "tags": [
+      "design-graphique",
+      "théorie",
+      "critique",
+      "blog",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "Le domaine d’origine a été repris par un site sans rapport avec le design graphique. L’adresse est conservée pour mémoire."
+  },
+  {
+    "title": "T&G Publishing",
+    "url": "http://www.tgpublishing.com.au/",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "Une maison d’édition australienne indépendante spécialisée dans les livres de photographie.",
+    "tags": [
+      "photographie",
+      "édition",
+      "livre-photo",
+      "Australie"
+    ]
+  },
+  {
+    "title": "Subfolio",
+    "url": "https://github.com/area17/subfolio",
+    "category": "Développement",
+    "added": "2017-03-08",
+    "description": "Un CMS de portfolio simple et orienté fichiers, publié en open source par AREA 17.",
+    "tags": [
+      "CMS",
+      "portfolio",
+      "opensource",
+      "PHP"
+    ]
+  },
+  {
+    "title": "RMarkdown : pour en finir avec Word",
+    "url": "http://data.hypotheses.org/1144",
+    "category": "Développement",
+    "added": "2017-03-08",
+    "description": "Une introduction détaillée à RMarkdown pour rédiger des documents structurés et produire des sorties PDF, Word ou HTML.",
+    "tags": [
+      "Markdown",
+      "RMarkdown",
+      "écriture",
+      "édition-scientifique"
+    ]
+  },
+  {
+    "title": "Rapport d’activité du CNAP",
+    "url": "https://louiseveillard.com/projets/rapport-dactivite-du-cnap",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "Un rapport d’activité du CNAP dont les visualisations de données sont dessinées par un robot, conçu par Louise Veillard et Émilie Coquard.",
+    "tags": [
+      "design-graphique",
+      "datavisualisation",
+      "édition",
+      "creative-coding"
+    ]
+  },
+  {
+    "title": "Pierre Callet — matériels de bordage",
+    "url": "http://www.pierre-callet.fr/materiels-de-bordage-et-ruban-de-bordage",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "Une ancienne fiche de machines et rubans de bordage pour le façonnage de tissus et de supports imprimés.",
+    "tags": [
+      "façonnage",
+      "textile",
+      "matériel",
+      "bordage",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "La fiche d’origine a disparu et le domaine affiche désormais un annuaire de machines sans lien éditorial clair avec l’entreprise Pierre Callet. L’adresse est conservée pour mémoire."
+  },
+  {
+    "title": "Piccolo — CNC-bot open source",
+    "url": "http://www.piccolo.cc/",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "Un petit robot CNC open source, piloté par Arduino et construit avec des pièces découpées au laser.",
+    "tags": [
+      "CNC",
+      "robotique",
+      "opensource",
+      "fabrication-numérique"
+    ]
+  },
+  {
+    "title": "Le gris typographique",
+    "url": "http://paris.blog.lemonde.fr/2005/11/30/2005_11_le_gris_typogra",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "Un ancien billet expliquant le gris typographique, cette impression de densité produite par un bloc de texte composé.",
+    "tags": [
+      "typographie",
+      "mise-en-page",
+      "lisibilité",
+      "blog",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "L’ancienne URL du blog Le Monde redirige vers une page introuvable. Elle est conservée comme trace de ce billet sur le gris typographique."
+  },
+  {
+    "title": "Jirafeau",
+    "url": "https://gitlab.com/mojo42/Jirafeau",
+    "category": "Développement",
+    "added": "2017-03-08",
+    "description": "Un outil web libre et auto-hébergeable pour déposer un fichier et partager un lien temporaire ; le développement a depuis migré vers un nouveau groupe GitLab.",
+    "tags": [
+      "transfert-de-fichiers",
+      "auto-hébergement",
+      "opensource",
+      "PHP"
+    ]
+  },
+  {
+    "title": "Indie Photobooks",
+    "url": "http://indiephotobooks.com/",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "Un ancien blog consacré aux livres photo indépendants et à leurs aspects éditoriaux et techniques.",
+    "tags": [
+      "photographie",
+      "livre-photo",
+      "édition",
+      "blog",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "Le domaine d’origine ne répond plus. Cette adresse est conservée comme trace d’un blog dédié à l’édition photographique indépendante."
+  },
+  {
+    "title": "Grafiche dell’Artiere",
+    "url": "http://www.graficartiere.com/fr",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "L’ancien site français d’un imprimeur italien spécialisé dans l’édition, la cartotecnica et la reliure de qualité.",
+    "tags": [
+      "imprimerie",
+      "livre-d-art",
+      "reliure",
+      "Italie",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "Le domaine de Grafiche dell’Artiere ne présente plus l’imprimerie d’origine et semble avoir expiré. L’adresse publique est conservée comme trace de cette entreprise."
+  },
+  {
+    "title": "FileSender sur Assembla",
+    "url": "https://app.assembla.com/spaces/file_sender/wiki",
+    "category": "Développement",
+    "added": "2017-03-08",
+    "description": "L’ancien espace de documentation et de développement de FileSender hébergé sur Assembla.",
+    "tags": [
+      "transfert-de-fichiers",
+      "FileSender",
+      "documentation",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "L’espace Assembla d’origine n’existe plus et renvoie une erreur 404. L’adresse est conservée comme trace de l’ancien projet FileSender."
+  },
+  {
+    "title": "FileSender RENATER",
+    "url": "https://filesender.renater.fr/?s=home",
+    "category": "Développement",
+    "added": "2017-03-08",
+    "description": "Le service RENATER d’envoi sécurisé de fichiers volumineux, destiné à la communauté de l’enseignement et de la recherche.",
+    "tags": [
+      "transfert-de-fichiers",
+      "FileSender",
+      "RENATER",
+      "service-public"
+    ]
+  },
+  {
+    "title": "Facebook, scanner qui nous numérise",
+    "url": "https://framablog.org/2017/02/20/facebook-scanner-qui-nous-numerise",
+    "category": "Médias & Veille",
+    "added": "2017-03-08",
+    "description": "Une réflexion publiée par Framasoft sur la collecte de données, le profilage et le modèle de surveillance de Facebook.",
+    "tags": [
+      "Facebook",
+      "vie-privée",
+      "surveillance",
+      "données"
+    ]
+  },
+  {
+    "title": "Empreinte Conseil",
+    "url": "http://www.empreinte-conseil.fr/",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "Une agence indépendante de conseil en communication installée à Lyon, engagée dans une démarche de responsabilité sociale.",
+    "tags": [
+      "communication",
+      "agence",
+      "Lyon",
+      "RSE"
+    ]
+  },
+  {
+    "title": "Créer une police d’écriture",
+    "url": "https://mac-quest.com/creer-une-police-d-ecriture",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "Un guide pratique pour concevoir sa propre police de caractères et découvrir les outils de création typographique.",
+    "tags": [
+      "typographie",
+      "polices",
+      "tutoriel",
+      "création"
+    ]
+  },
+  {
+    "title": "Créer sa typo gratuitement",
+    "url": "http://simonertel.net/blog/creer-sa-typo-entierement-et-gratuitement",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "Un tutoriel pour dessiner, numériser et produire une police de caractères avec des outils gratuits.",
+    "tags": [
+      "typographie",
+      "polices",
+      "tutoriel",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Claire Schvartz",
+    "url": "http://claireschvartz.free.fr/",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "L’ancien portfolio de Claire Schvartz, graphiste, illustratrice et cofondatrice du studio et maison d’édition FP&CF.",
+    "tags": [
+      "design-graphique",
+      "illustration",
+      "édition",
+      "livre",
+      "lien-mort"
+    ],
+    "status": "dead",
+    "status_note": "Le portfolio Free.fr d’origine renvoie une erreur 404. Claire Schvartz poursuit son travail d’illustratrice et d’éditrice ; l’ancienne adresse est conservée pour mémoire."
+  },
+  {
+    "title": "Chris Cubellis",
+    "url": "http://chrs.cblls.com/",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "Le site et les archives du designer Chris Cubellis, aujourd’hui redirigés vers son nouveau domaine.",
+    "tags": [
+      "design",
+      "portfolio",
+      "web",
+      "archives"
+    ]
+  },
+  {
+    "title": "Campus Junior — apprendre à coder",
+    "url": "https://outilstice.com/2016/12/campus-junior-un-cours-en-ligne-pour-apprendre-a-vos-eleves-a-coder",
+    "category": "Développement",
+    "added": "2017-03-08",
+    "description": "La présentation d’un cours en ligne destiné à initier les enfants et les élèves à la programmation.",
+    "tags": [
+      "code",
+      "éducation",
+      "enfants",
+      "apprentissage"
+    ]
+  },
+  {
+    "title": "Birdfont",
+    "url": "https://birdfont.org/",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "Un éditeur de polices permettant de dessiner des glyphes vectoriels et d’exporter des fontes TTF, OTF et SVG.",
+    "tags": [
+      "typographie",
+      "polices",
+      "éditeur",
+      "outil"
+    ]
+  },
+  {
+    "title": "Baltan Laboratories sur Flickr",
+    "url": "https://www.flickr.com/photos/baltanlaboratories",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "Les archives photographiques des recherches, ateliers et événements de Baltan Laboratories à Eindhoven.",
+    "tags": [
+      "art-numérique",
+      "laboratoire",
+      "photographie",
+      "Eindhoven"
+    ]
+  },
+  {
+    "title": "Baltan Laboratories",
+    "url": "http://baltanlaboratories.org/home",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "Un laboratoire culturel indisciplinaire d’Eindhoven qui explore les relations entre art, design, science et technologie.",
+    "tags": [
+      "art-numérique",
+      "laboratoire",
+      "recherche",
+      "Eindhoven"
+    ]
+  },
+  {
+    "title": "Arts numériques — CodeDrops",
+    "url": "http://arts-numeriques.codedrops.net/",
+    "category": "Design & Création",
+    "added": "2017-03-08",
+    "description": "Une collection de tutoriels et d’expérimentations mêlant programmation, création visuelle et arts numériques.",
+    "tags": [
+      "art-numérique",
+      "creative-coding",
+      "tutoriel",
+      "programmation"
+    ]
+  },
+  {
     "title": "Éphéméride anarchiste",
     "url": "http://www.ephemanar.net/",
     "category": "Médias & Veille",

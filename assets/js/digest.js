@@ -98,7 +98,19 @@
     top.append(labels, arrow);
 
     const title = document.createElement("h2");
-    title.textContent = link.title;
+    title.className = "link-title";
+    const favicon = document.createElement("img");
+    favicon.className = "link-favicon";
+    favicon.src = `https://www.google.com/s2/favicons?domain_url=${encodeURIComponent(link.url)}&sz=32`;
+    favicon.alt = "";
+    favicon.width = 16;
+    favicon.height = 16;
+    favicon.loading = "lazy";
+    favicon.decoding = "async";
+    favicon.referrerPolicy = "no-referrer";
+    const titleText = document.createElement("span");
+    titleText.textContent = link.title;
+    title.append(favicon, titleText);
 
     const meta = document.createElement("div");
     meta.className = "digest-meta";
