@@ -34,24 +34,24 @@
     y: 0,
     vx: 0,
     vy: 0,
+    rotation: 0,
+    angularVelocity: 0,
     width: 0,
     height: 0,
+    locked: false,
   }));
 
   let mode = "popular";
   let wanderSeed = 0;
   let active = [];
   let frame = 0;
-  let pointerActive = false;
-  let pointerX = 0;
-  let pointerY = 0;
   let sceneWidth = 0;
   let sceneHeight = 0;
 
   const nodeLimit = () => {
-    if (window.innerWidth < 560) return 12;
-    if (window.innerWidth < 900) return 22;
-    return 42;
+    if (window.innerWidth < 560) return 14;
+    if (window.innerWidth < 900) return 26;
+    return 50;
   };
 
   const compareAlpha = (a, b) => a.tag.localeCompare(b.tag, "fr");
@@ -105,8 +105,13 @@
 
       record.x = best?.x ?? sceneWidth / 2 - record.width / 2;
       record.y = best?.y ?? sceneHeight / 2 - record.height / 2;
-      record.vx = ((record.seed % 17) - 8) * 0.006;
-      record.vy = (((record.seed >>> 4) % 17) - 8) * 0.006;
+      record.vx = ((record.seed % 17) - 8) * 0.012;
+      record.vy = (((record.seed >>> 4) % 17) - 8) * 0.012;
+      record.rotation = ((record.seed % 2001) / 2000 - 0.5) * 5;
+      record.angularVelocity =
+        (record.seed % 2 ? 1 : -1) *
+        (0.008 + ((record.seed >>> 8) % 101) / 100 * 0.018);
+      record.locked = false;
       placed.push(record);
     });
 
@@ -181,7 +186,9 @@
 
   const draw = () => {
     active.forEach((record) => {
-      record.element.style.transform = `translate3d(${record.x.toFixed(1)}px, ${record.y.toFixed(1)}px, 0)`;
+      record.element.style.transform =
+        `translate3d(${record.x.toFixed(1)}px, ${record.y.toFixed(1)}px, 0) ` +
+        `rotate(${record.rotation.toFixed(2)}deg)`;
     });
   };
 
@@ -191,41 +198,40 @@
 
     const padding = 8;
     active.forEach((record) => {
-      record.vx += Math.sin((performance.now() + record.seed) * 0.00023) * 0.0012;
-      record.vy += Math.cos((performance.now() + record.seed) * 0.00019) * 0.0012;
-
-      if (pointerActive) {
-        const centerX = record.x + record.width / 2;
-        const centerY = record.y + record.height / 2;
-        const dx = centerX - pointerX;
-        const dy = centerY - pointerY;
-        const distance = Math.max(1, Math.hypot(dx, dy));
-        const reach = 125 + Math.max(record.width, record.height) / 2;
-        if (distance < reach) {
-          const force = (1 - distance / reach) * 0.18;
-          record.vx += (dx / distance) * force;
-          record.vy += (dy / distance) * force;
-        }
+      if (record.locked) {
+        record.vx = 0;
+        record.vy = 0;
+        record.angularVelocity = 0;
+        return;
       }
 
-      record.vx *= 0.985;
-      record.vy *= 0.985;
+      record.vx += Math.sin((performance.now() + record.seed) * 0.00031) * 0.0025;
+      record.vy += Math.cos((performance.now() + record.seed) * 0.00027) * 0.0025;
+
+      record.vx *= 0.993;
+      record.vy *= 0.993;
       record.x += record.vx;
       record.y += record.vy;
+      record.rotation += record.angularVelocity;
+
+      if (Math.abs(record.rotation) > 7) {
+        record.rotation = Math.sign(record.rotation) * 7;
+        record.angularVelocity *= -0.82;
+      }
 
       if (record.x < padding) {
         record.x = padding;
-        record.vx = Math.abs(record.vx) * 0.7;
+        record.vx = Math.abs(record.vx) * 0.9;
       } else if (record.x + record.width > sceneWidth - padding) {
         record.x = sceneWidth - padding - record.width;
-        record.vx = -Math.abs(record.vx) * 0.7;
+        record.vx = -Math.abs(record.vx) * 0.9;
       }
       if (record.y < padding) {
         record.y = padding;
-        record.vy = Math.abs(record.vy) * 0.7;
+        record.vy = Math.abs(record.vy) * 0.9;
       } else if (record.y + record.height > sceneHeight - padding) {
         record.y = sceneHeight - padding - record.height;
-        record.vy = -Math.abs(record.vy) * 0.7;
+        record.vy = -Math.abs(record.vy) * 0.9;
       }
     });
 
@@ -240,30 +246,63 @@
 
         if (overlapX > 0 && overlapY > 0) {
           if (overlapX < overlapY) {
-            const push = Math.sign(dx || 1) * overlapX * 0.018;
-            a.vx += push;
-            b.vx -= push;
+            const direction = Math.sign(dx || 1);
+            const correction = overlapX * (a.locked || b.locked ? 0.85 : 0.52);
+
+            if (!a.locked) a.x += direction * correction;
+            if (!b.locked) b.x -= direction * correction;
+
+            if (a.locked && !b.locked) {
+              b.vx = -direction * Math.max(Math.abs(b.vx), 0.28);
+            } else if (b.locked && !a.locked) {
+              a.vx = direction * Math.max(Math.abs(a.vx), 0.28);
+            } else if (!a.locked && !b.locked) {
+              const velocity = a.vx;
+              a.vx = b.vx * 0.78;
+              b.vx = velocity * 0.78;
+            }
           } else {
-            const push = Math.sign(dy || 1) * overlapY * 0.018;
-            a.vy += push;
-            b.vy -= push;
+            const direction = Math.sign(dy || 1);
+            const correction = overlapY * (a.locked || b.locked ? 0.85 : 0.52);
+
+            if (!a.locked) a.y += direction * correction;
+            if (!b.locked) b.y -= direction * correction;
+
+            if (a.locked && !b.locked) {
+              b.vy = -direction * Math.max(Math.abs(b.vy), 0.28);
+            } else if (b.locked && !a.locked) {
+              a.vy = direction * Math.max(Math.abs(a.vy), 0.28);
+            } else if (!a.locked && !b.locked) {
+              const velocity = a.vy;
+              a.vy = b.vy * 0.78;
+              b.vy = velocity * 0.78;
+            }
           }
+
+          const spin = Math.min(0.025, Math.hypot(a.vx - b.vx, a.vy - b.vy) * 0.025);
+          if (!a.locked) a.angularVelocity += spin * Math.sign(dy || 1);
+          if (!b.locked) b.angularVelocity -= spin * Math.sign(dx || 1);
         }
       }
     }
     draw();
   };
 
-  scene.addEventListener("pointerenter", () => {
-    pointerActive = true;
-  });
-  scene.addEventListener("pointermove", (event) => {
-    const rect = scene.getBoundingClientRect();
-    pointerX = event.clientX - rect.left;
-    pointerY = event.clientY - rect.top;
-  });
-  scene.addEventListener("pointerleave", () => {
-    pointerActive = false;
+  const setLocked = (record, locked) => {
+    record.locked = locked;
+    record.element.classList.toggle("is-locked", locked);
+    if (!locked) {
+      record.vx = ((record.seed % 9) - 4) * 0.025;
+      record.vy = (((record.seed >>> 5) % 9) - 4) * 0.025;
+      record.angularVelocity = (((record.seed >>> 9) % 7) - 3) * 0.006;
+    }
+  };
+
+  records.forEach((record) => {
+    record.element.addEventListener("pointerenter", () => setLocked(record, true));
+    record.element.addEventListener("pointerleave", () => setLocked(record, false));
+    record.element.addEventListener("focus", () => setLocked(record, true));
+    record.element.addEventListener("blur", () => setLocked(record, false));
   });
 
   search.addEventListener("input", update);
@@ -286,6 +325,9 @@
     resizeTimer = window.setTimeout(update, 120);
   });
 
+  records.forEach((record) => {
+    record.element.hidden = true;
+  });
   explorer.classList.add("is-enhanced");
   document.fonts.ready.then(() => {
     update();
