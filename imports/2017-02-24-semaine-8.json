@@ -1,0 +1,154 @@
+[
+  {
+    "title": "Kuma Eyes",
+    "url": "http://kuma-eyes.com",
+    "category": "Design & Création",
+    "added": "2017-02-24",
+    "description": "Un bureau de conseil photographique fondé par Xavier Gautruche et Gilles Collignon.",
+    "tags": ["photographie", "conseil", "image", "lien-mort"],
+    "status": "dead",
+    "status_note": "Le domaine d’origine ne répond plus. Cette adresse est conservée comme trace du bureau de conseil photographique Kuma Eyes."
+  },
+  {
+    "title": "Studio Pigments",
+    "url": "http://www.studiopigments.com/",
+    "category": "Design & Création",
+    "added": "2017-02-24",
+    "description": "Un atelier parisien spécialisé dans le tirage pigmentaire, la numérisation et l’accompagnement de projets photographiques et artistiques.",
+    "tags": ["impression", "photographie", "tirage-pigmentaire", "Paris"]
+  },
+  {
+    "title": "Art & Caractère",
+    "url": "http://www.artetcaractere.com/",
+    "category": "Design & Création",
+    "added": "2017-02-24",
+    "description": "Une imprimerie à Lavaur qui réalise livres et ouvrages en offset ou numérique, avec façonnage et finitions sur mesure.",
+    "tags": ["imprimerie", "livre", "offset", "façonnage"]
+  },
+  {
+    "title": "PDF/X-4 — abracadabraPDF",
+    "url": "http://abracadabrapdf.net/format_pdf/normes_iso_et_pdf/pdfx-4/",
+    "category": "Design & Création",
+    "added": "2017-02-24",
+    "description": "Une ancienne fiche de référence consacrée à la norme PDF/X-4 et à ses contraintes pour la production imprimée.",
+    "tags": ["PDF", "PDF-X", "normes", "prépresse", "lien-mort"],
+    "status": "dead",
+    "status_note": "La page d’origine renvoie désormais une erreur 404. L’adresse est conservée pour mémoire ; abracadabraPDF documente encore PDF/X-4 dans sa page générale sur la norme PDF/X."
+  },
+  {
+    "title": "BRISE — matériel d’imprimerie et de façonnage",
+    "url": "http://brise.fr/index.php",
+    "category": "Design & Création",
+    "added": "2017-02-24",
+    "description": "Un fournisseur de matériels neufs et d’occasion pour l’imprimerie, la reprographie, le façonnage et le traitement du courrier.",
+    "tags": ["imprimerie", "façonnage", "matériel", "plieuse"]
+  },
+  {
+    "title": "Plieuse Uchida F43N A3",
+    "url": "http://www.alpha-buro-faconnage.com/Plieuse-Uchida-F43N-A3-Automatique-programmable-_MACH._PLIE._A3._00708.html",
+    "category": "Design & Création",
+    "added": "2017-02-24",
+    "description": "La fiche d’une plieuse automatique programmable Uchida F43N pour documents au format A3.",
+    "tags": ["façonnage", "plieuse", "matériel", "imprimerie"]
+  },
+  {
+    "title": "Morlans‑Euroma — plieuses d’occasion",
+    "url": "http://www.morlans-euroma.com/sitefr/machines-imprimerie-plieuse-0107030.html",
+    "category": "Design & Création",
+    "added": "2017-02-24",
+    "description": "Une ancienne sélection de plieuses et de matériels d’imprimerie d’occasion proposée par Morlans‑Euroma.",
+    "tags": ["imprimerie", "façonnage", "matériel", "occasion", "lien-mort"],
+    "status": "dead",
+    "status_note": "Le domaine d’origine ne répond plus et l’entreprise a cessé son activité. La fiche est conservée comme archive du marché des machines d’imprimerie d’occasion."
+  },
+  {
+    "title": "Conférences typographiques — Typofacto",
+    "url": "http://typofacto.com/?p=21147",
+    "category": "Design & Création",
+    "added": "2017-02-24",
+    "description": "Une sélection de conférences, rencontres et projets autour de la typographie réunis par Typofacto.",
+    "tags": ["typographie", "conférence", "design-graphique", "édition"]
+  },
+  {
+    "title": "Portraits de Villes",
+    "url": "http://www.portraitsdevilles.fr/fr/",
+    "category": "Design & Création",
+    "added": "2017-02-24",
+    "description": "Une collection de livres photographiques au format carnet de voyage, donnant carte blanche à un artiste pour raconter une ville.",
+    "tags": ["photographie", "édition", "livre", "voyage"]
+  },
+  {
+    "title": "Les anarchistes de Bertillon",
+    "url": "http://www.lapetitehistoireillustree.com/portfolio/les-anarchistes-de-bertillon/",
+    "category": "Médias & Veille",
+    "added": "2017-02-24",
+    "description": "Un récit illustré autour du fichier anthropométrique constitué par Alphonse Bertillon pour surveiller les anarchistes à la fin du XIXe siècle.",
+    "tags": ["histoire", "anarchisme", "archives", "photographie"]
+  },
+  {
+    "title": "Brutalist Websites",
+    "url": "http://brutalistwebsites.com",
+    "category": "Design & Création",
+    "added": "2017-02-24",
+    "description": "Une galerie de sites web qui explorent une esthétique brute, directe et volontairement éloignée des conventions du design lissé.",
+    "tags": ["web", "brutalisme", "design", "inspiration"]
+  },
+  {
+    "title": "Subjective Encyclopedia",
+    "url": "https://subjective-encyclopedia.ch",
+    "category": "Médias & Veille",
+    "added": "2017-02-24",
+    "description": "Une encyclopédie suisse, alphabétique et volontairement subjective, composée de textes et d’entrées inattendues.",
+    "tags": ["encyclopédie", "culture", "Suisse", "édition"]
+  },
+  {
+    "title": "Studium Generale KABK",
+    "url": "http://studiumgeneralekabk.nl",
+    "category": "Design & Création",
+    "added": "2017-02-24",
+    "description": "Le programme interdisciplinaire de conférences de la Royal Academy of Art de La Haye, consacré aux enjeux contemporains de l’art et du design.",
+    "tags": ["design", "art", "école", "conférence", "Pays-Bas"]
+  },
+  {
+    "title": "oFont — gestionnaire de polices en ligne",
+    "url": "http://ofont.net",
+    "category": "Design & Création",
+    "added": "2017-02-24",
+    "description": "Un ancien outil en ligne destiné à organiser et gérer des collections de polices de caractères.",
+    "tags": ["typographie", "polices", "outil", "web", "lien-mort"],
+    "status": "dead",
+    "status_note": "Le domaine a été repris par un site de contenus sans rapport avec la typographie. L’adresse originale est conservée pour mémoire."
+  },
+  {
+    "title": "ProcessWire",
+    "url": "http://processwire.com",
+    "category": "Développement",
+    "added": "2017-02-24",
+    "description": "Un CMS et framework de gestion de contenu libre, centré sur une API souple, les champs personnalisés et une structure de pages arborescente.",
+    "tags": ["CMS", "opensource", "PHP", "développement-web"]
+  },
+  {
+    "title": "Velvetyne Type Foundry",
+    "url": "http://velvetyne.fr",
+    "category": "Design & Création",
+    "added": "2017-02-24",
+    "description": "Une fonderie typographique française qui publie des caractères libres et encourage leur usage, leur étude et leur transformation.",
+    "tags": ["typographie", "fonderie", "polices", "opensource"]
+  },
+  {
+    "title": "Atelier Haußmann",
+    "url": "https://atelierhaussmann.de",
+    "category": "Design & Création",
+    "added": "2017-02-24",
+    "description": "Un atelier allemand de mobilier et d’objets d’intérieur aux lignes graphiques, fabriqués en métal et en bois par des artisans locaux.",
+    "tags": ["mobilier", "design", "artisanat", "Allemagne"]
+  },
+  {
+    "title": "Éphéméride anarchiste",
+    "url": "http://www.ephemanar.net",
+    "category": "Médias & Veille",
+    "added": "2017-02-24",
+    "description": "Une chronologie quotidienne de l’histoire anarchiste, de ses figures, publications, mouvements et événements.",
+    "tags": ["anarchisme", "histoire", "archives", "éphéméride"]
+  }
+]
