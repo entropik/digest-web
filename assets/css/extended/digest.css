@@ -1017,6 +1017,49 @@ body.digest-modal-open {
   color: var(--theme);
 }
 
+.tag-alphabet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .22rem;
+  margin-top: -.25rem;
+}
+
+.tag-alphabet[hidden] {
+  display: none;
+}
+
+.tag-alphabet button {
+  display: grid;
+  width: 1.65rem;
+  height: 1.65rem;
+  place-items: center;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--digest-muted);
+  cursor: pointer;
+  font-size: .64rem;
+  font-weight: 700;
+}
+
+.tag-alphabet button:hover,
+.tag-alphabet button:focus-visible {
+  border-color: var(--digest-accent);
+  color: var(--digest-ink);
+}
+
+.tag-alphabet button.is-active {
+  border-color: var(--digest-ink);
+  background: var(--digest-ink);
+  color: var(--theme);
+}
+
+.tag-alphabet button:disabled {
+  cursor: default;
+  opacity: .22;
+}
+
 .tag-explorer-scene {
   position: relative;
   z-index: 2;

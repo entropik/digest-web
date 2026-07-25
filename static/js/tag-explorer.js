@@ -3,11 +3,12 @@
   const scene = explorer?.querySelector("[data-tag-scene]");
   const search = explorer?.querySelector("[data-tag-search]");
   const buttons = [...(explorer?.querySelectorAll("[data-tag-sort]") || [])];
+  const alphabet = explorer?.querySelector("[data-tag-alphabet]");
   const status = explorer?.querySelector("[data-tag-status]");
   const items = [...(scene?.querySelectorAll(".tag-cloud-item") || [])];
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  if (!explorer || !scene || !search || !status || !items.length) return;
+  if (!explorer || !scene || !search || !alphabet || !status || !items.length) return;
 
   const normalize = (value) =>
     value
@@ -42,6 +43,7 @@
   }));
 
   let mode = "popular";
+  let selectedLetter = "A";
   let wanderSeed = 0;
   let active = [];
   let frame = 0;
@@ -58,6 +60,30 @@
   const comparePopular = (a, b) => b.count - a.count || compareAlpha(a, b);
   const compareWander = (a, b) =>
     ((a.seed ^ wanderSeed) >>> 0) - ((b.seed ^ wanderSeed) >>> 0);
+  const initialFor = (record) => {
+    const initial = record.normalized.charAt(0).toLocaleUpperCase("fr");
+    return /^[A-Z]$/.test(initial) ? initial : "#";
+  };
+  const alphabetLetters = ["#", ..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+  const letterCounts = new Map(
+    alphabetLetters.map((letter) => [
+      letter,
+      records.filter((record) => initialFor(record) === letter).length,
+    ])
+  );
+  const letterButtons = alphabetLetters.map((letter) => {
+    const button = document.createElement("button");
+    const count = letterCounts.get(letter) || 0;
+    button.type = "button";
+    button.dataset.tagLetter = letter;
+    button.textContent = letter;
+    button.disabled = count === 0;
+    button.setAttribute("aria-label", `${letter}, ${count} ${count === 1 ? "thème" : "thèmes"}`);
+    button.setAttribute("aria-pressed", String(letter === selectedLetter));
+    button.classList.toggle("is-active", letter === selectedLetter);
+    alphabet.append(button);
+    return button;
+  });
 
   const place = () => {
     const bounds = scene.getBoundingClientRect();
@@ -154,7 +180,11 @@
 
   const update = () => {
     const query = normalize(search.value.trim().replace(/^#/, ""));
-    let matches = records.filter((record) => !query || record.normalized.includes(query));
+    let matches = records.filter((record) => {
+      if (query) return record.normalized.includes(query);
+      if (mode === "alpha") return initialFor(record) === selectedLetter;
+      return true;
+    });
 
     if (mode === "alpha") matches.sort(compareAlpha);
     else if (mode === "wander") matches.sort(compareWander);
@@ -174,8 +204,9 @@
         : `Aucun thème pour « ${search.value.trim()} »`;
     } else {
       const label =
-        mode === "popular" ? "les plus présents" : mode === "alpha" ? "de A à Z" : "pour flâner";
-      status.textContent = `${shown} thèmes ${label} sur ${records.length} · cherchez pour révéler les autres`;
+        mode === "popular" ? "les plus présents" : mode === "alpha" ? `en ${selectedLetter}` : "pour flâner";
+      const total = mode === "alpha" ? matches.length : records.length;
+      status.textContent = `${shown} thèmes ${label} sur ${total} · cherchez pour révéler les autres`;
     }
 
     requestAnimationFrame(() => {
@@ -309,8 +340,20 @@
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       mode = button.dataset.tagSort || "popular";
+      alphabet.hidden = mode !== "alpha";
       if (mode === "wander") wanderSeed = (wanderSeed + 0x9e3779b9) >>> 0;
       buttons.forEach((candidate) => {
+        const selected = candidate === button;
+        candidate.classList.toggle("is-active", selected);
+        candidate.setAttribute("aria-pressed", String(selected));
+      });
+      update();
+    });
+  });
+  letterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      selectedLetter = button.dataset.tagLetter || "A";
+      letterButtons.forEach((candidate) => {
         const selected = candidate === button;
         candidate.classList.toggle("is-active", selected);
         candidate.setAttribute("aria-pressed", String(selected));
