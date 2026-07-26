@@ -1,6 +1,6 @@
 ---
 title: "#twitter"
 tag: "twitter"
-tags: ["twitter"]
+tags: ["twitter", "Twitter"]
 generated_by: "curate-web-digest"
 ---

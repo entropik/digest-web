@@ -1,0 +1,460 @@
+[
+  {
+    "title": "Time to First Fix",
+    "url": "https://twitter.com/timetofirstfix",
+    "category": "Médias & Veille",
+    "added": "2017-03-21",
+    "description": "Le compte de Louis Eveillard, designer et développeur, publié sous le nom Time to First Fix.",
+    "tags": ["design", "développement", "Twitter", "veille"]
+  },
+  {
+    "title": "Louis Eveillard",
+    "url": "https://louiseveillard.com/",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Le portfolio de Louis Eveillard, designer graphique indépendant travaillant entre édition, visualisation de données et outils numériques.",
+    "tags": ["design-graphique", "édition", "datavisualisation", "portfolio"]
+  },
+  {
+    "title": "Aint—Bad",
+    "url": "https://www.aint-bad.com/",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Une maison d’édition et plateforme américaine consacrée à la photographie contemporaine.",
+    "tags": ["photographie", "édition", "livre-photo", "États-Unis"]
+  },
+  {
+    "title": "L’Atelier des chercheurs — outils",
+    "url": "https://latelier-des-chercheurs.fr/outils",
+    "category": "Développement",
+    "added": "2017-03-21",
+    "description": "Des outils libres conçus pour documenter, expérimenter et apprendre dans les ateliers, les écoles et les laboratoires.",
+    "tags": ["opensource", "éducation", "enfants", "laboratoire", "outils"]
+  },
+  {
+    "title": "L’OpenDoc",
+    "url": "http://www.lopendoc.org/",
+    "category": "Développement",
+    "added": "2017-03-21",
+    "description": "L’ancienne adresse d’une plateforme collaborative et libre de documentation de projets, conçue pour les ateliers, les écoles et les laboratoires.",
+    "tags": ["opensource", "éducation", "enfants", "documentation", "lien-mort"],
+    "status": "dead",
+    "status_note": "Le domaine d’origine ne répond plus. L’OpenDoc reste documenté sur le site de l’Atelier des chercheurs ; cette adresse est conservée pour mémoire."
+  },
+  {
+    "title": "Bâtisseurs de possibles",
+    "url": "http://www.batisseursdepossibles.org/",
+    "category": "Médias & Veille",
+    "added": "2017-03-21",
+    "description": "Une démarche pédagogique qui invite les enfants à imaginer et réaliser des solutions à des problèmes qui les concernent.",
+    "tags": ["éducation", "enfants", "créativité", "numérique"]
+  },
+  {
+    "title": "GCompris",
+    "url": "http://gcompris.net/index-fr.html",
+    "category": "Développement",
+    "added": "2017-03-21",
+    "description": "Une suite éducative libre proposant de nombreuses activités pour les enfants de deux à dix ans.",
+    "tags": ["opensource", "éducation", "enfants", "logiciel-libre"]
+  },
+  {
+    "title": "Everypixel",
+    "url": "https://everypixel.com/",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Un méta-moteur de recherche d’images issues de plusieurs banques photographiques gratuites et payantes.",
+    "tags": ["photographie", "moteur-de-recherche", "images", "stock-photo"]
+  },
+  {
+    "title": "Transsibérien — le guide ultime",
+    "url": "http://www.lesothers.com/transsiberien-guide-ultime/",
+    "category": "Médias & Veille",
+    "added": "2017-03-21",
+    "description": "Un guide de voyage détaillé pour préparer et parcourir le Transsibérien.",
+    "tags": ["voyage", "Transsibérien", "guide", "Russie"]
+  },
+  {
+    "title": "A-Jump Books",
+    "url": "http://a-jumpbooks.com/books/",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "L’ancien catalogue d’une maison d’édition indépendante spécialisée dans les livres de photographie.",
+    "tags": ["photographie", "édition", "livre-photo", "livre", "lien-mort"],
+    "status": "dead",
+    "status_note": "Le catalogue d’origine a disparu et le domaine n’affiche plus qu’une page d’attente. L’adresse est conservée comme trace des publications d’A-Jump Books."
+  },
+  {
+    "title": "Isabelle Evertse",
+    "url": "http://cargocollective.com/isabelleevertse",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Le portfolio d’Isabelle Evertse, photographe et éditrice de projets photographiques.",
+    "tags": ["photographie", "édition", "portfolio", "livre-photo"]
+  },
+  {
+    "title": "Shadow of the State — Lewis Bush",
+    "url": "http://www.lewisbush.com/shadow-of-the-state-book/",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Un livre de Lewis Bush consacré aux stations d’écoute secrètes utilisées par les services de renseignement britanniques.",
+    "tags": ["photographie", "livre-photo", "surveillance", "Royaume-Uni"]
+  },
+  {
+    "title": "Atelier Mondineu — encadrement",
+    "url": "http://www.atelier-mondineu.fr/encadrement/",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Un atelier artisanal d’encadrement sur mesure pour œuvres, photographies et documents.",
+    "tags": ["encadrement", "artisanat", "photographie", "art"]
+  },
+  {
+    "title": "Éditions Tusitala",
+    "url": "http://www.editions-tusitala.org",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Une maison d’édition indépendante consacrée aux littératures d’aventure, de voyage et aux voix singulières.",
+    "tags": ["édition", "livre", "littérature", "indépendant"]
+  },
+  {
+    "title": "Créer sa maison d’édition",
+    "url": "http://creersamaisondedition.tumblr.com",
+    "category": "Médias & Veille",
+    "added": "2017-03-21",
+    "description": "Un Tumblr humoristique autour des réalités quotidiennes de la création d’une maison d’édition.",
+    "tags": ["édition", "humour", "Tumblr", "livre"]
+  },
+  {
+    "title": "Rondinax",
+    "url": "https://rondinax.wordpress.com",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Un site consacré aux cuves Rondinax et au développement de films photographiques argentiques en plein jour.",
+    "tags": ["photographie", "argentique", "laboratoire", "développement-photo"]
+  },
+  {
+    "title": "Réseau Diagonal",
+    "url": "http://www.reseau-diagonal.com",
+    "category": "Médias & Veille",
+    "added": "2017-03-21",
+    "description": "Un réseau national de structures dédiées à la photographie, à sa production, sa diffusion et son éducation.",
+    "tags": ["photographie", "réseau", "culture", "éducation"]
+  },
+  {
+    "title": "Merriweather",
+    "url": "https://fonts.google.com/specimen/Merriweather",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Une famille de caractères avec empattements conçue par Eben Sorkin pour la lecture confortable à l’écran.",
+    "tags": ["typographie", "Google-Fonts", "serif", "police"]
+  },
+  {
+    "title": "Inconsolata",
+    "url": "https://fonts.google.com/specimen/Inconsolata",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Une police monospace de Raph Levien pensée pour le code, les terminaux et les usages éditoriaux.",
+    "tags": ["typographie", "Google-Fonts", "monospace", "police"]
+  },
+  {
+    "title": "Montserrat",
+    "url": "https://fonts.google.com/specimen/Montserrat",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Une famille sans serif de Julieta Ulanovsky inspirée des enseignes du quartier Montserrat à Buenos Aires.",
+    "tags": ["typographie", "Google-Fonts", "sans-serif", "police"]
+  },
+  {
+    "title": "Le CAP — Centre d’arts plastiques de Saint-Fons",
+    "url": "https://lecap-saintfons.com",
+    "category": "Médias & Veille",
+    "added": "2017-03-21",
+    "description": "Le Centre d’arts plastiques de Saint-Fons, lieu d’exposition, de création et de médiation culturelle.",
+    "tags": ["art-contemporain", "centre-d-art", "Saint-Fons", "culture"]
+  },
+  {
+    "title": "Ediciones Anómalas",
+    "url": "http://www.edicionesanomalas.com/en/",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Une maison d’édition indépendante espagnole spécialisée dans les livres de photographie.",
+    "tags": ["photographie", "édition", "livre-photo", "Espagne"]
+  },
+  {
+    "title": "Le Bel Envol",
+    "url": "http://lebelenvol.tumblr.com",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Un ancien carnet Tumblr consacré à des images, éditions et inspirations visuelles.",
+    "tags": ["Tumblr", "photographie", "édition", "inspiration"]
+  },
+  {
+    "title": "Alberto Sinigaglia",
+    "url": "http://www.albertosinigaglia.net",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "L’ancien portfolio du photographe italien Alberto Sinigaglia et de ses projets éditoriaux.",
+    "tags": ["photographie", "portfolio", "livre-photo", "Italie", "lien-mort"],
+    "status": "dead",
+    "status_note": "Le domaine redirige désormais vers un site de jeux d’argent sans rapport avec le photographe. L’adresse d’origine est conservée pour mémoire."
+  },
+  {
+    "title": "Masood Kamandy",
+    "url": "http://masoodkamandy.com",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Le site de l’artiste Masood Kamandy, dont le travail explore photographie, calcul et image numérique.",
+    "tags": ["art", "photographie", "image-numérique", "artiste"]
+  },
+  {
+    "title": "Flat & Framed",
+    "url": "http://www.flatandframed.com",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Un ancien blog consacré aux livres photo, aux photographes et aux pratiques éditoriales.",
+    "tags": ["photographie", "livre-photo", "blog", "édition", "lien-mort"],
+    "status": "dead",
+    "status_note": "Le domaine d’origine ne répond plus. Cette adresse est conservée comme trace du blog Flat & Framed."
+  },
+  {
+    "title": "The Wonderful Start of Making a Photo Book",
+    "url": "http://www.flatandframed.com/the-wonderful-start-of-making-a-photo-book/",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Un ancien billet sur les premières étapes, les choix et les plaisirs de la fabrication d’un livre photographique.",
+    "tags": ["photographie", "livre-photo", "édition", "fabrication", "lien-mort"],
+    "status": "dead",
+    "status_note": "Le domaine Flat & Framed ne répond plus et le billet n’est plus accessible. L’adresse est conservée pour mémoire."
+  },
+  {
+    "title": "Cámara Infinita Magazine",
+    "url": "http://www.camerainfinita.com/magazine-1/",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Une ancienne revue indépendante dédiée à la photographie contemporaine et aux projets visuels.",
+    "tags": ["photographie", "revue", "édition", "Espagne", "lien-mort"],
+    "status": "dead",
+    "status_note": "Le domaine est désormais proposé à la vente et ne présente plus la revue Cámara Infinita. L’adresse d’origine est conservée pour mémoire."
+  },
+  {
+    "title": "Rocket Science",
+    "url": "http://rocketscience.tumblr.com",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Un Tumblr de photographie et d’inspirations visuelles.",
+    "tags": ["photographie", "Tumblr", "inspiration", "images"]
+  },
+  {
+    "title": "Spacebar",
+    "url": "https://yanone.de/software/spacebar/",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Un ancien outil de Yanone pour travailler l’espacement des glyphes et le rythme d’une police de caractères.",
+    "tags": ["typographie", "logiciel", "espacement", "polices", "lien-mort"],
+    "status": "dead",
+    "status_note": "La page d’origine renvoie une erreur 404. L’outil Spacebar a existé comme extension typographique pour Glyphs ; son adresse est conservée pour mémoire."
+  },
+  {
+    "title": "FOAM Magazine #47 — Propaganda",
+    "url": "http://shop.foam.org/en/foam-magazine-foam-magazine-47-propaganda.html",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "L’ancienne fiche boutique du numéro 47 de FOAM Magazine, consacré aux relations entre photographie, propagande et pouvoir.",
+    "tags": ["photographie", "revue", "propagande", "FOAM", "lien-mort"],
+    "status": "dead",
+    "status_note": "La fiche boutique d’origine renvoie une erreur 404. Le numéro 47 reste documenté dans les archives actuelles de FOAM ; cette URL est conservée pour mémoire."
+  },
+  {
+    "title": "Ava — thème WordPress",
+    "url": "https://themebeans.com/themes/ava/",
+    "category": "Développement",
+    "added": "2017-03-21",
+    "description": "Un ancien thème WordPress minimal destiné aux boutiques et portfolios visuels.",
+    "tags": ["WordPress", "thème", "e-commerce", "design-web"]
+  },
+  {
+    "title": "Agfa Silette LK Sensor — mode d’emploi",
+    "url": "http://www.butkus.org/chinon/agfa/agfa_silette_lk_sensor/agfa_silette_lk_sensor.htm",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Le manuel numérisé de l’appareil photographique argentique Agfa Silette LK Sensor.",
+    "tags": ["photographie", "argentique", "manuel", "Agfa"]
+  },
+  {
+    "title": "Rondinax — Summilux",
+    "url": "http://www.summilux.net/labo/rondinax/",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Une présentation pratique des cuves Rondinax pour développer des films argentiques en plein jour.",
+    "tags": ["photographie", "argentique", "laboratoire", "Rondinax"]
+  },
+  {
+    "title": "Halogénure",
+    "url": "https://halogenure.com",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Une revue photographique indépendante attentive aux écritures contemporaines de l’image.",
+    "tags": ["photographie", "revue", "édition", "argentique"]
+  },
+  {
+    "title": "Mathieu Bernard-Reymond",
+    "url": "http://matbr.com",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Le portfolio du photographe et artiste Mathieu Bernard-Reymond, qui mêle image, paysage, données et construction numérique.",
+    "tags": ["photographie", "portfolio", "artiste", "art"]
+  },
+  {
+    "title": "Photo-Forum",
+    "url": "http://www.photo-forum.fr",
+    "category": "Médias & Veille",
+    "added": "2017-03-21",
+    "description": "Une association et un espace d’échange consacrés à la pratique et à la culture photographiques.",
+    "tags": ["photographie", "association", "communauté", "culture"]
+  },
+  {
+    "title": "Scout Supply",
+    "url": "http://shop.scoutsupply.fr",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Une ancienne boutique d’objets et accessoires en cuir fabriqués artisanalement.",
+    "tags": ["cuir", "artisanat", "objet", "boutique", "lien-mort"],
+    "status": "dead",
+    "status_note": "Le sous-domaine de la boutique ne répond plus. Cette adresse est conservée comme trace de Scout Supply."
+  },
+  {
+    "title": "Design History",
+    "url": "http://www.designhistory.org/index.html",
+    "category": "Médias & Veille",
+    "added": "2017-03-21",
+    "description": "Une ressource anglophone retraçant les mouvements, figures et objets majeurs de l’histoire du design.",
+    "tags": ["design", "histoire", "référence", "anglais"]
+  },
+  {
+    "title": "Agfa Silette LK — notice",
+    "url": "http://www.collection-appareils.fr/accesnotices/html/lire_repertoire?repert=Agfa_Silette_LK&marque=Agfa&modele=Silette%20LK",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "La notice française de l’appareil photographique Agfa Silette LK, conservée par Collection Appareils.",
+    "tags": ["photographie", "argentique", "manuel", "Agfa", "archives"]
+  },
+  {
+    "title": "Éditions Loco",
+    "url": "http://www.editionsloco.com",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Une maison d’édition indépendante spécialisée dans la photographie, l’art contemporain et les sciences humaines.",
+    "tags": ["photographie", "édition", "livre-photo", "art"]
+  },
+  {
+    "title": "Junction",
+    "url": "https://www.theleagueofmoveabletype.com/junction",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Une famille de caractères humaniste libre distribuée par The League of Moveable Type.",
+    "tags": ["typographie", "police", "opensource", "sans-serif"]
+  },
+  {
+    "title": "Tobiko — Gabriele Harhoff",
+    "url": "http://www.gabrieleharhoff.de/tobiko-book-2/",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Un livre photographique de Gabriele Harhoff consacré à Tokyo.",
+    "tags": ["photographie", "livre-photo", "Tokyo", "édition"]
+  },
+  {
+    "title": "Innocences",
+    "url": "http://www.innocences.net/",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Une maison d’édition indépendante dédiée aux livres de photographie.",
+    "tags": ["photographie", "édition", "livre-photo", "indépendant"]
+  },
+  {
+    "title": "Sporting Grotesque",
+    "url": "http://bretagnebretagne.fr/font/sporting-grotesque-normal",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "L’ancienne page de diffusion de Sporting Grotesque, une police libre dessinée par Lucas Le Bihan pour le studio Bretagne.",
+    "tags": ["typographie", "police", "opensource", "grotesque", "lien-mort"],
+    "status": "dead",
+    "status_note": "La page du studio Bretagne renvoie une erreur 404. La police continue de circuler ailleurs ; l’adresse originale est conservée pour mémoire."
+  },
+  {
+    "title": "Interart",
+    "url": "http://www.interart.fr/",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Un diffuseur et distributeur français spécialisé dans les livres d’art, de photographie et de design.",
+    "tags": ["édition", "diffusion", "livre-d-art", "photographie"]
+  },
+  {
+    "title": "Print on Demand is Dead",
+    "url": "https://www.tierslivre.net/spip/spip.php?article4376",
+    "category": "Médias & Veille",
+    "added": "2017-03-21",
+    "description": "Une réflexion de François Bon sur l’impression à la demande, l’édition numérique et leurs transformations.",
+    "tags": ["édition", "impression-à-la-demande", "numérique", "livre"]
+  },
+  {
+    "title": "Notices de projecteurs Super 8",
+    "url": "http://letransfert.soforums.com/t398-notices-projecteurs-sur-le-repaire-net.htm",
+    "category": "Médias & Veille",
+    "added": "2017-03-21",
+    "description": "Un ancien fil de forum réunissant des notices et ressources techniques pour des projecteurs Super 8.",
+    "tags": ["Super-8", "cinéma", "manuel", "forum", "lien-mort"],
+    "status": "dead",
+    "status_note": "Le forum d’origine n’est plus accessible et renvoie une erreur de service persistante. L’adresse est conservée pour mémoire."
+  },
+  {
+    "title": "Pièces Stereovox — Van Eck",
+    "url": "http://www.van-eck.net/itable.php?lang=en&size=0&cat=film&merk=73&type=Stereovox",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "L’ancienne fiche du catalogue Van Eck pour les pièces détachées et accessoires du matériel cinématographique Stereovox.",
+    "tags": ["Super-8", "cinéma", "pièces-détachées", "réparation", "lien-mort"],
+    "status": "dead",
+    "status_note": "Cette ancienne fiche renvoie une erreur 404 après la refonte de Van Eck. L’entreprise maintient un nouveau moteur de recherche de pièces ; l’URL d’origine est conservée pour mémoire."
+  },
+  {
+    "title": "Family Movie",
+    "url": "http://www.familymovie.fr/",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Un service de numérisation et de transfert de films de famille en formats 8 mm et Super 8.",
+    "tags": ["Super-8", "numérisation", "film", "archives-familiales"]
+  },
+  {
+    "title": "EggBot — Evil Mad Scientist",
+    "url": "http://shop.evilmadscientist.com/productsmenu/846#",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Une machine à dessiner programmable et open source pour expérimenter la fabrication numérique et la robotique.",
+    "tags": ["CNC", "robotique", "opensource", "éducation", "enfants"]
+  },
+  {
+    "title": "François Rappo — l’endurance des caractères",
+    "url": "http://indexgrafik.fr/francois-rappo-lendurance-des-caracteres/",
+    "category": "Design & Création",
+    "added": "2017-03-21",
+    "description": "Un entretien d’Index Grafik avec le typographe François Rappo sur le dessin et la durée de vie des caractères.",
+    "tags": ["typographie", "design-graphique", "entretien", "polices"]
+  },
+  {
+    "title": "Voter, c’est abdiquer",
+    "url": "http://www.donquichotte-editions.com/donquichotte-editions/livres/voter-cest-abdiquer.html",
+    "category": "Médias & Veille",
+    "added": "2017-03-21",
+    "description": "L’ancienne fiche éditoriale du livre d’Antoine Peillon consacré à la critique du vote et de la représentation politique.",
+    "tags": ["politique", "édition", "livre", "abstention", "lien-mort"],
+    "status": "dead",
+    "status_note": "La fiche de Don Quichotte éditions renvoie une erreur 404. Le livre reste référencé en librairie ; l’adresse éditoriale d’origine est conservée pour mémoire."
+  },
+  {
+    "title": "Doing Data",
+    "url": "https://www.doingdata.org/blog",
+    "category": "Médias & Veille",
+    "added": "2017-03-21",
+    "description": "Un blog consacré aux pratiques, méthodes et cultures de la donnée.",
+    "tags": ["données", "datavisualisation", "recherche", "blog"]
+  }
+]
