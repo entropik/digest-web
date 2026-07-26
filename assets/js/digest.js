@@ -1,7 +1,9 @@
 (() => {
   const PAGE_SIZE = 51;
+  const FAVORITES_STORAGE_KEY = "digest-favorites-v1";
   const search = document.querySelector("#digest-search");
   const filters = document.querySelector("#digest-filters");
+  const favoritesCount = document.querySelector("#digest-favorites-count");
   const tools = document.querySelector(".digest-tools");
   const grid = document.querySelector("#digest-grid");
   const empty = document.querySelector("#digest-empty");
@@ -19,16 +21,74 @@
   const modalTags = document.querySelector("#digest-modal-tags");
   const modalUrl = document.querySelector("#digest-modal-url");
   const modalLink = document.querySelector("#digest-modal-link");
+  const modalFavorite = document.querySelector("#digest-modal-favorite");
   const dateFormatter = new Intl.DateTimeFormat("fr-FR", {
     day: "2-digit",
     month: "short",
     year: "numeric",
   });
   let category = "all";
+  let modalFavoriteUrl = "";
+  let favorites = new Set();
   let currentPage = Math.max(
     1,
     Number.parseInt(new URL(window.location.href).searchParams.get("page"), 10) || 1,
   );
+
+  try {
+    const storedFavorites = JSON.parse(localStorage.getItem(FAVORITES_STORAGE_KEY) || "[]");
+    if (Array.isArray(storedFavorites)) favorites = new Set(storedFavorites.filter(Boolean));
+  } catch {
+    // Les favoris restent utilisables pour la session si le stockage est indisponible.
+  }
+
+  const isFavorite = (url) => favorites.has(url);
+
+  const saveFavorites = () => {
+    try {
+      localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify([...favorites]));
+    } catch {
+      // Certains modes de navigation peuvent bloquer le stockage local.
+    }
+  };
+
+  const updateFavoriteButton = (button, url, { expandedLabel = false } = {}) => {
+    const active = isFavorite(url);
+    button.classList.toggle("is-favorite", active);
+    button.setAttribute("aria-pressed", String(active));
+    button.setAttribute(
+      "aria-label",
+      active ? "Retirer ce lien des favoris" : "Ajouter ce lien aux favoris",
+    );
+    button.title = active ? "Retirer des favoris" : "Ajouter aux favoris";
+    button.textContent = expandedLabel
+      ? active
+        ? "♥ Dans mes favoris"
+        : "♡ Ajouter aux favoris"
+      : active
+        ? "♥"
+        : "♡";
+  };
+
+  const refreshFavoriteControls = () => {
+    favoritesCount.textContent = favorites.size;
+    document.querySelectorAll(".digest-favorite").forEach((button) => {
+      updateFavoriteButton(button, button.dataset.favoriteUrl);
+    });
+    if (modalFavoriteUrl) {
+      updateFavoriteButton(modalFavorite, modalFavoriteUrl, { expandedLabel: true });
+    }
+  };
+
+  const toggleFavorite = (url) => {
+    if (isFavorite(url)) {
+      favorites.delete(url);
+    } else {
+      favorites.add(url);
+    }
+    saveFavorites();
+    refreshFavoriteControls();
+  };
 
   const normalize = (value = "") =>
     String(value).normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase().trim();
@@ -122,14 +182,22 @@
     meta.append(hostLabel, date);
 
     trigger.append(top, title, meta);
-    article.append(trigger);
+    const favorite = document.createElement("button");
+    favorite.className = "digest-favorite";
+    favorite.type = "button";
+    favorite.dataset.favoriteUrl = link.url;
+    updateFavoriteButton(favorite, link.url);
+
+    article.append(trigger, favorite);
     return article;
   };
 
   const getFilteredLinks = () => {
     const terms = normalize(search.value).split(/\s+/).filter(Boolean);
     return links.filter((link) => {
-      const matchesCategory = category === "all" || link.category === category;
+      const matchesCategory =
+        category === "all" ||
+        (category === "favorites" ? isFavorite(link.url) : link.category === category);
       const searchableText = getSearchableText(link);
       const matchesQuery = terms.every((term) => searchableText.includes(term));
       return matchesCategory && matchesQuery;
@@ -204,6 +272,13 @@
   });
 
   grid.addEventListener("click", (event) => {
+    const favorite = event.target.closest(".digest-favorite");
+    if (favorite) {
+      toggleFavorite(favorite.dataset.favoriteUrl);
+      if (category === "favorites") render({ urlMode: "replace" });
+      return;
+    }
+
     const trigger = event.target.closest(".digest-card-trigger");
     if (!trigger) return;
 
@@ -222,6 +297,8 @@
       "aria-label",
       isDead ? `Tester l’adresse d’origine de ${trigger.dataset.title}` : `Visiter ${trigger.dataset.host}`,
     );
+    modalFavoriteUrl = trigger.dataset.url;
+    updateFavoriteButton(modalFavorite, modalFavoriteUrl, { expandedLabel: true });
 
     modalTags.replaceChildren();
     (trigger.dataset.tags || "")
@@ -239,6 +316,12 @@
     document.body.classList.add("digest-modal-open");
   });
 
+  modalFavorite.addEventListener("click", () => {
+    if (!modalFavoriteUrl) return;
+    toggleFavorite(modalFavoriteUrl);
+    if (category === "favorites") render({ urlMode: "replace" });
+  });
+
   const closeModal = () => modal.close();
   modalClose.addEventListener("click", closeModal);
   modal.addEventListener("click", (event) => {
@@ -254,5 +337,6 @@
     }
   });
 
+  refreshFavoriteControls();
   render({ urlMode: "replace" });
 })();

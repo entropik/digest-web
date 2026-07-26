@@ -33,6 +33,9 @@
       {{ $category := . }}
       <button type="button" data-category-label="{{ $category }}">{{ $category }} <span>{{ len (where $links "category" $category) }}</span></button>
     {{ end }}
+    <button type="button" data-category-label="favorites">
+      ♥ Favoris <span id="digest-favorites-count">0</span>
+    </button>
   </div>
 </section>
 
@@ -98,6 +101,9 @@
     <div class="archive-tags digest-modal-tags" id="digest-modal-tags" data-base="{{ "tags/" | relURL }}" aria-label="Tags"></div>
     <div class="digest-modal-footer">
       <span class="digest-modal-url" id="digest-modal-url"></span>
+      <button class="digest-modal-favorite" id="digest-modal-favorite" type="button" aria-pressed="false">
+        ♡ Ajouter aux favoris
+      </button>
       <a id="digest-modal-link" target="_blank" rel="noopener noreferrer">Visiter le site <span aria-hidden="true">↗</span></a>
     </div>
   </div>
