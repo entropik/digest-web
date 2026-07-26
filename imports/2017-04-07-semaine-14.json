@@ -1,0 +1,204 @@
+[
+  {
+    "title": "Etherpad",
+    "url": "https://etherpad.org/",
+    "category": "Développement",
+    "added": "2017-04-07",
+    "description": "Un éditeur de texte collaboratif libre permettant à plusieurs personnes d’écrire simultanément dans le navigateur.",
+    "tags": ["opensource", "collaboration", "éditeur", "texte", "web"]
+  },
+  {
+    "title": "La Main Donne",
+    "url": "https://www.lamaindonne.fr/",
+    "category": "Design & Création",
+    "added": "2017-04-07",
+    "description": "Une maison d’édition indépendante fondée par David Fourré et consacrée aux livres de photographie.",
+    "tags": ["photographie", "édition", "livre-photo", "indépendant", "France"]
+  },
+  {
+    "title": "Memory Unearthed — The Lodz Ghetto Photographs of Henryk Ross",
+    "url": "http://agolodzghetto.com/",
+    "category": "Médias & Veille",
+    "added": "2017-04-07",
+    "description": "L’ancien site de l’exposition de l’Art Gallery of Ontario consacrée aux photographies clandestines du ghetto de Łódź réalisées par Henryk Ross.",
+    "tags": ["photographie", "histoire", "mémoire", "Pologne", "Shoah", "lien-mort"],
+    "status": "dead",
+    "status_note": "Le site d’exposition de l’Art Gallery of Ontario ne répond plus. Le projet Memory Unearthed et les photographies de Henryk Ross restent documentés par l’AGO et les archives de l’exposition ; l’adresse d’origine est conservée pour mémoire."
+  },
+  {
+    "title": "Milieu Grotesque",
+    "url": "http://www.milieugrotesque.com/typefaces/",
+    "category": "Design & Création",
+    "added": "2017-04-07",
+    "description": "L’ancien catalogue de la fonderie typographique fondée par Timo Gaessner et Alexander Colby, à l’origine de Maison, Maison Neue, Chapeau, Boutique et Patron.",
+    "tags": ["typographie", "fonderie", "police", "design-graphique", "Suisse", "lien-mort"],
+    "status": "dead",
+    "status_note": "Le catalogue d’origine ne répond plus et Milieu Grotesque a été acquis par Monotype en 2023. Ses familles restent distribuées par Monotype ; cette adresse historique est conservée pour mémoire."
+  },
+  {
+    "title": "Systemantics",
+    "url": "https://www.systemantics.net/about",
+    "category": "Design & Création",
+    "added": "2017-04-07",
+    "description": "Un studio berlinois qui conçoit des identités, des interfaces et des systèmes numériques avec une forte culture typographique.",
+    "tags": ["design", "design-graphique", "design-web", "identité", "Berlin"]
+  },
+  {
+    "title": "Commercial Type — catalogue",
+    "url": "https://commercialtype.com/catalog",
+    "category": "Design & Création",
+    "added": "2017-04-07",
+    "description": "Le catalogue de Commercial Type, fonderie indépendante créée par Paul Barnes et Christian Schwartz.",
+    "tags": ["typographie", "fonderie", "police", "catalogue", "design"]
+  },
+  {
+    "title": "Dinamo",
+    "url": "https://abcdinamo.com/",
+    "category": "Design & Création",
+    "added": "2017-04-07",
+    "description": "Une fonderie typographique suisse qui développe caractères, outils et projets expérimentaux autour du langage visuel.",
+    "tags": ["typographie", "fonderie", "police", "outils", "Suisse"]
+  },
+  {
+    "title": "FormFiftyFive",
+    "url": "https://formfiftyfive.com/",
+    "category": "Médias & Veille",
+    "added": "2017-04-07",
+    "description": "Un magazine et répertoire d’inspiration consacré au design graphique, aux identités visuelles et à la création contemporaine.",
+    "tags": ["design-graphique", "inspiration", "magazine", "identité", "veille"]
+  },
+  {
+    "title": "Schick Toikka",
+    "url": "https://www.schick-toikka.com/",
+    "category": "Design & Création",
+    "added": "2017-04-07",
+    "description": "La fonderie de Florian Schick et Lauri Toikka, qui dessine des familles typographiques pour l’édition, les marques et les écrans.",
+    "tags": ["typographie", "fonderie", "police", "design", "Berlin"]
+  },
+  {
+    "title": "Optimo — typefaces",
+    "url": "https://optimo.ch/typefaces",
+    "category": "Design & Création",
+    "added": "2017-04-07",
+    "description": "Le catalogue de la fonderie suisse Optimo, éditrice de caractères contemporains pour l’imprimé et les environnements numériques.",
+    "tags": ["typographie", "fonderie", "police", "catalogue", "Suisse"]
+  },
+  {
+    "title": "Des livres et des photos",
+    "url": "http://deslivresetdesphotos.blog.lemonde.fr/",
+    "category": "Médias & Veille",
+    "added": "2017-04-07",
+    "description": "L’ancien blog de Rémi Coignet consacré à la critique, à l’édition et à l’actualité du livre de photographie.",
+    "tags": ["photographie", "livre-photo", "critique", "blog", "édition", "lien-mort"],
+    "status": "dead",
+    "status_note": "Le blog hébergé par Le Monde n’est plus accessible. Rémi Coignet l’a animé pendant plus de dix ans et son travail critique reste documenté par ses entretiens et publications ; l’adresse d’origine est conservée pour mémoire."
+  },
+  {
+    "title": "MACK",
+    "url": "https://mackbooks.co.uk/",
+    "category": "Design & Création",
+    "added": "2017-04-07",
+    "description": "Une maison d’édition indépendante britannique spécialisée dans les livres de photographie, d’art et de pensée visuelle.",
+    "tags": ["photographie", "édition", "livre-photo", "livre-d-art", "Royaume-Uni"]
+  },
+  {
+    "title": "Gerry Johansson",
+    "url": "https://www.gerryjohansson.com/",
+    "category": "Design & Création",
+    "added": "2017-04-07",
+    "description": "Le site du photographe suédois Gerry Johansson, connu pour ses séries documentaires en noir et blanc et ses nombreux livres.",
+    "tags": ["photographie", "photographe", "noir-et-blanc", "livre-photo", "Suède"]
+  },
+  {
+    "title": "Last but not liste",
+    "url": "http://lastbutnotliste.com/",
+    "category": "Médias & Veille",
+    "added": "2017-04-07",
+    "description": "Une vaste collection de liens et de références visuelles tenue par le designer et enseignant Thierry Chancogne.",
+    "tags": ["design-graphique", "liens", "collection", "inspiration", "veille"]
+  },
+  {
+    "title": "Swiss eBook Minimal Template",
+    "url": "http://jiminy.chapalpanoz.com/maj-themes-ebook-swiss-min/",
+    "category": "Développement",
+    "added": "2017-04-07",
+    "description": "Une mise à jour du thème minimal Swiss pour concevoir des livres numériques EPUB lisibles et soigneusement typographiés.",
+    "tags": ["ebook", "EPUB", "typographie", "édition-numérique", "template"]
+  },
+  {
+    "title": "Undone — Zen Habits",
+    "url": "https://zenhabits.net/undone/",
+    "category": "Médias & Veille",
+    "added": "2017-04-07",
+    "description": "Un essai de Leo Babauta sur l’art de commencer, d’accepter l’inachevé et de desserrer l’emprise de la procrastination.",
+    "tags": ["procrastination", "productivité", "habitudes", "écriture", "minimalisme"]
+  },
+  {
+    "title": "Héliotrope",
+    "url": "http://www.heliotrope-online.com/",
+    "category": "Médias & Veille",
+    "added": "2017-04-07",
+    "description": "L’ancien site d’une revue semestrielle française consacrée à la photographie contemporaine.",
+    "tags": ["photographie", "revue", "édition", "art-contemporain", "lien-mort"],
+    "status": "dead",
+    "status_note": "Le site de la revue Héliotrope n’est plus accessible. La publication reste signalée dans des catalogues et archives photographiques ; l’adresse d’origine est conservée pour mémoire."
+  },
+  {
+    "title": "work.with.sk",
+    "url": "http://work.with.sk/",
+    "category": "Design & Création",
+    "added": "2017-04-07",
+    "description": "L’ancienne adresse d’un portfolio de designer remarqué pour sa présentation web volontairement expérimentale.",
+    "tags": ["design", "portfolio", "design-web", "expérimentation", "lien-mort"],
+    "status": "dead",
+    "status_note": "Le sous-domaine d’origine ne résout plus et les traces publiques disponibles ne permettent pas de retrouver avec certitude son auteur. L’adresse est conservée comme fragment de cette veille de 2017."
+  },
+  {
+    "title": "Material Design",
+    "url": "https://m3.material.io/",
+    "category": "Design & Création",
+    "added": "2017-04-07",
+    "description": "Le système de design open source de Google pour concevoir des interfaces cohérentes, accessibles et adaptatives.",
+    "tags": ["design-system", "UX", "UI", "Google", "interface"]
+  },
+  {
+    "title": "L’Atelier R",
+    "url": "https://www.latelierre.fr/",
+    "category": "Design & Création",
+    "added": "2017-04-07",
+    "description": "Un atelier arlésien de reliure, restauration de livres et création artisanale autour du papier.",
+    "tags": ["reliure", "artisanat", "restauration", "papier", "Arles"]
+  },
+  {
+    "title": "Fw:Books",
+    "url": "https://fw-books.nl/home/",
+    "category": "Design & Création",
+    "added": "2017-04-07",
+    "description": "Une maison d’édition indépendante néerlandaise consacrée aux livres de photographie et aux projets visuels expérimentaux.",
+    "tags": ["photographie", "édition", "livre-photo", "indépendant", "Pays-Bas"]
+  },
+  {
+    "title": "Celui qui pourrait changer le monde",
+    "url": "https://editions-b42.com/produit/celui-qui-pourrait-changer-le-monde/",
+    "category": "Médias & Veille",
+    "added": "2017-04-07",
+    "description": "Un recueil de textes d’Aaron Swartz publié par B42, introduit par Lawrence Lessig, sur la culture libre, la politique, l’informatique et l’éducation.",
+    "tags": ["Aaron-Swartz", "culture-libre", "Internet", "politique", "édition"]
+  },
+  {
+    "title": "Texturing — Ivan Murit",
+    "url": "http://ivan-murit.fr/project.php?w=texturing&p=texturing-fr.htm",
+    "category": "Design & Création",
+    "added": "2017-04-07",
+    "description": "Un logiciel d’Ivan Murit qui transforme des images en trames génératives et exporte des compositions vectorielles pour l’impression.",
+    "tags": ["creative-coding", "trame", "image", "génératif", "impression"]
+  },
+  {
+    "title": "Marc Monjou",
+    "url": "https://marcmonjou.fr/",
+    "category": "Design & Création",
+    "added": "2017-04-07",
+    "description": "Le site de Marc Monjou, designer graphique, enseignant et directeur de l’École supérieure d’art et design de Saint-Étienne.",
+    "tags": ["design-graphique", "enseignement", "école", "Saint-Étienne", "portfolio"]
+  }
+]

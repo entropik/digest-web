@@ -1,6 +1,6 @@
 ---
-title: "#arles"
-tag: "arles"
-tags: ["arles", "Arles"]
+title: "#Arles"
+tag: "Arles"
+tags: ["Arles", "arles"]
 generated_by: "curate-web-digest"
 ---

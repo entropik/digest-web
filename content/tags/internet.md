@@ -1,6 +1,6 @@
 ---
-title: "#internet"
-tag: "internet"
-tags: ["internet"]
+title: "#Internet"
+tag: "Internet"
+tags: ["Internet", "internet"]
 generated_by: "curate-web-digest"
 ---
