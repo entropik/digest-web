@@ -25,27 +25,36 @@ const chunk = (name, data) => {
   return Buffer.concat([length, type, data, checksum]);
 };
 
+const isRoundedSquare = (x, y, size) => {
+  const min = size * 0.125;
+  const max = size * 0.875;
+  const radius = size * 0.172;
+  const clampedX = Math.max(min + radius, Math.min(x, max - radius));
+  const clampedY = Math.max(min + radius, Math.min(y, max - radius));
+  return Math.hypot(x - clampedX, y - clampedY) <= radius;
+};
+
+const isDigestMark = (x, y, size) => {
+  const sx = (x / size) * 128;
+  const sy = (y / size) * 128;
+  const vertical = sx >= 40 && sx <= 54 && sy >= 34 && sy <= 94;
+  const outer = ((sx - 66) / 32) ** 2 + ((sy - 64) / 30) ** 2 <= 1;
+  const inner = ((sx - 68) / 16) ** 2 + ((sy - 64) / 17) ** 2 <= 1;
+  return vertical || (sx >= 40 && outer && !inner);
+};
+
 const icon = (size) => {
   const rows = [];
   for (let y = 0; y < size; y += 1) {
     const row = Buffer.alloc(1 + size * 4);
     for (let x = 0; x < size; x += 1) {
       const offset = 1 + x * 4;
-      const margin = Math.max(2, Math.round(size * 0.17));
-      const stroke = Math.max(1, Math.round(size * 0.09));
-      const inVertical =
-        x >= margin && x < margin + stroke && y >= margin && y < size - margin;
-      const centerY = size / 2;
-      const radius = size / 2 - margin;
-      const ring =
-        x >= margin &&
-        x <= size - margin &&
-        Math.abs(Math.hypot(x - margin, y - centerY) - radius) < stroke;
-      const dark = inVertical || (ring && x >= margin);
-      row[offset] = dark ? 23 : 255;
-      row[offset + 1] = dark ? 23 : 90;
-      row[offset + 2] = dark ? 23 : 54;
-      row[offset + 3] = 255;
+      const dark = isDigestMark(x + 0.5, y + 0.5, size);
+      const coral = isRoundedSquare(x + 0.5, y + 0.5, size);
+      row[offset] = dark ? 22 : 255;
+      row[offset + 1] = dark ? 22 : 92;
+      row[offset + 2] = dark ? 22 : 53;
+      row[offset + 3] = dark || coral ? 255 : 0;
     }
     rows.push(row);
   }

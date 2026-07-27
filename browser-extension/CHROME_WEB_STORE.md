@@ -10,7 +10,7 @@
 - **Langue** : français.
 - **URL d’accueil** : <https://digest.ooblik.com/>
 - **Politique de confidentialité** :
-  <https://digest.ooblik.com/confidentialite-extension/>
+  <https://digest.ooblik.com/confidentialite/>
 
 Description proposée :
 
@@ -19,6 +19,22 @@ Description proposée :
 > vous en avez sélectionné, un extrait privé. Rien n’est capturé en arrière-plan.
 > Les brouillons sont envoyés uniquement à digest.ooblik.com et restent privés
 > jusqu’à la publication explicite d’une édition.
+
+## Éléments graphiques prêts à téléverser
+
+- icône de fiche : `store-assets/store-icon-128.png` ;
+- capture principale : `store-assets/screenshot-capture-1280x800.jpg` ;
+- petite tuile promotionnelle :
+  `store-assets/promo-small-440x280.jpg` ;
+- bannière facultative : `store-assets/promo-marquee-1400x560.jpg` ;
+- source vectorielle du signe :
+  `store-assets/ooblik-digest-mark.svg` ;
+- master PNG : `store-assets/icon-master-512.png`.
+
+Le ZIP `store-assets/ooblik-digest-store-assets-v1.zip` regroupe les fichiers
+à utiliser dans la fiche. Les dimensions suivent les recommandations Chrome
+Web Store : icône 128 × 128, capture 1280 × 800, petite tuile 440 × 280 et
+bannière 1400 × 560.
 
 ## Justification des permissions
 

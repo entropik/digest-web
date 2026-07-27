@@ -51,7 +51,7 @@ menu:
       weight: 40
     - identifier: extension-privacy
       name: "Confidentialité"
-      url: "/confidentialite-extension/"
+      url: "/confidentialite/"
       weight: 50
 
 outputs:

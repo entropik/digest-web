@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OOBLIK Digest — Démonstration</title>
+    <link rel="stylesheet" href="../entrypoints/popup/style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <p>OOBLIK DIGEST</p>
+        <h1>Ajouter ce lien.</h1>
+      </header>
+      <form>
+        <label>
+          URL
+          <input type="url" value="https://exemple.fr/article-remarquable" />
+        </label>
+        <label>
+          Titre
+          <input value="Un article remarquable sur le design éditorial" />
+        </label>
+        <label>
+          Catégorie
+          <select>
+            <option>Design graphique</option>
+          </select>
+        </label>
+        <label>
+          Résumé
+          <textarea rows="4">Une ressource choisie pour sa réflexion claire sur les formes éditoriales contemporaines.</textarea>
+        </label>
+        <label>
+          Tags existants
+          <span class="tag-row">
+            <input list="known-tags" value="typographie" />
+            <button type="button">Ajouter</button>
+          </span>
+        </label>
+        <div class="tags">
+          <span class="tag">design éditorial ×</span>
+          <span class="tag">typographie ×</span>
+        </div>
+        <label>
+          Note privée
+          <textarea rows="3">À relire avant la prochaine édition.</textarea>
+        </label>
+        <p class="completeness">Prêt à rejoindre la file éditoriale.</p>
+        <button class="primary" type="button">Enregistrer le brouillon</button>
+      </form>
+    </main>
+  </body>
+</html>

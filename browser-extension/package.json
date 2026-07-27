@@ -7,6 +7,7 @@
     "postinstall": "wxt prepare",
     "dev": "wxt",
     "icons": "node scripts/generate-icons.mjs",
+    "store-assets": "python scripts/generate-store-assets.py",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "build": "npm run icons && wxt build",
