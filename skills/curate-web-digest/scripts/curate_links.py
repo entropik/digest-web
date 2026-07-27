@@ -17,6 +17,14 @@ from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 TRACKING_KEYS = {"_kx", "fbclid", "gclid", "mc_cid", "mc_eid", "nb_klid", "ref_src"}
 PRIVATE_HOST_MARKERS = (".lan", ".local", ".internal")
+SENSITIVE_QUERY_KEY = re.compile(
+    r"(?:^|[_-])(auth|code|credential|jwt|key|pass(?:word)?|secret|session|signature|token)(?:$|[_-])",
+    re.I,
+)
+SENSITIVE_PATH_SEGMENT = re.compile(
+    r"/(?:account|admin|auth|console|dashboard|login|oauth|signin)(?:/|$)",
+    re.I,
+)
 MARKDOWN_LINK = re.compile(r"\[([^\]]+)\]\((https?://[^)\s]+)\)")
 BARE_URL = re.compile(r"(?<!\()(https?://[^\s<>\]]+)")
 MARKDOWN_ENTRY = re.compile(r"^### \[([^\]]+)\]\((https?://[^)]+)\)\s*$")
@@ -43,14 +51,20 @@ def is_private_host(host: str) -> bool:
         return False
 
 
-def canonicalize(raw_url: str) -> str:
+def canonicalize(raw_url: str, reject_sensitive: bool = False) -> str:
     parts = urlsplit(raw_url.strip())
     if parts.scheme.lower() not in {"http", "https"} or not parts.hostname:
         raise ValueError("only public HTTP(S) URLs are supported")
+    if reject_sensitive and (parts.username or parts.password):
+        raise ValueError("URL credentials are not publishable")
 
     host = parts.hostname.lower().rstrip(".")
+    if reject_sensitive:
+        host = host.encode("idna").decode("ascii")
     if is_private_host(host):
         raise ValueError("private or local host")
+    if reject_sensitive and SENSITIVE_PATH_SEGMENT.search(parts.path):
+        raise ValueError("authenticated application page")
 
     port = parts.port
     netloc = host
@@ -60,6 +74,8 @@ def canonicalize(raw_url: str) -> str:
     query = []
     for key, value in parse_qsl(parts.query, keep_blank_values=True):
         lowered = key.lower()
+        if reject_sensitive and SENSITIVE_QUERY_KEY.search(key):
+            raise ValueError("sensitive query parameter")
         if lowered.startswith("utm_") or lowered in TRACKING_KEYS:
             continue
         query.append((key, value))
@@ -67,7 +83,15 @@ def canonicalize(raw_url: str) -> str:
     path = re.sub(r"/{2,}", "/", parts.path or "/")
     if path != "/":
         path = path.rstrip("/")
+    if reject_sensitive:
+        from urllib.parse import quote
+
+        path = quote(path, safe="/:@-._~!$&'()*+,;=%")
     fragment = "" if parts.fragment.lower() in {"fullscreen", "top"} else parts.fragment
+    if reject_sensitive:
+        from urllib.parse import quote
+
+        fragment = quote(fragment, safe=":@-._~!$&'()*+,;=/?%")
     return urlunsplit((parts.scheme.lower(), netloc, path, urlencode(query, doseq=True), fragment))
 
 
@@ -161,8 +185,10 @@ def load_input(path: Path, fallback_date: str) -> list[dict[str, object]]:
     return found
 
 
-def normalize_item(item: dict[str, object], fallback_date: str) -> dict[str, object]:
-    url = canonicalize(str(item.get("url", "")))
+def normalize_item(
+    item: dict[str, object], fallback_date: str, reject_sensitive: bool = False
+) -> dict[str, object]:
+    url = canonicalize(str(item.get("url", "")), reject_sensitive=reject_sensitive)
     link_id = str(item.get("id", "")).strip() or stable_link_id(url)
     uuid.UUID(link_id)
     title = str(item.get("title", "")).strip() or infer_title(url)
@@ -362,7 +388,7 @@ def main() -> int:
 
     for item in incoming:
         try:
-            normalized = normalize_item(item, args.date)
+            normalized = normalize_item(item, args.date, reject_sensitive=True)
         except (ValueError, TypeError) as exc:
             skipped.append(f"{item.get('url', '<missing URL>')}: {exc}")
             continue

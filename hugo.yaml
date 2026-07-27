@@ -49,6 +49,10 @@ menu:
       name: "À propos"
       url: "/a-propos/"
       weight: 40
+    - identifier: extension-privacy
+      name: "Confidentialité"
+      url: "/confidentialite-extension/"
+      weight: 50
 
 outputs:
   home:

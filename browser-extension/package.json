@@ -1,0 +1,28 @@
+{
+  "name": "ooblik-digest-curator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "postinstall": "wxt prepare",
+    "dev": "wxt",
+    "icons": "node scripts/generate-icons.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "npm run icons && wxt build",
+    "zip": "npm run icons && wxt zip"
+  },
+  "devDependencies": {
+    "jsdom": "27.4.0",
+    "typescript": "5.9.3",
+    "vitest": "4.1.10",
+    "wxt": "0.21.1"
+  },
+  "overrides": {
+    "adm-zip": "0.6.0",
+    "minimatch": "10.2.4",
+    "shell-quote": "1.10.0",
+    "tmp": "0.2.7",
+    "uuid": "11.1.1"
+  }
+}

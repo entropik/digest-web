@@ -1,0 +1,39 @@
+name: Package Chrome extension
+
+on:
+  push:
+    tags:
+      - "extension-v*"
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: browser-extension/package-lock.json
+
+      - name: Test and package
+        working-directory: browser-extension
+        run: |
+          npm ci
+          npm run typecheck
+          npm test
+          npm run zip
+
+      - name: Upload Chrome Web Store package
+        uses: actions/upload-artifact@v4
+        with:
+          name: ooblik-digest-curator-${{ github.ref_name }}
+          path: browser-extension/.output/*-chrome.zip
+          if-no-files-found: error
+          retention-days: 30

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajouter au Digest</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <p>OOBLIK DIGEST</p>
+        <h1>Ajouter ce lien.</h1>
+      </header>
+      <section id="login" hidden>
+        <p>Connectez-vous à l’espace propriétaire avant de capturer cette page.</p>
+        <button id="login-button" class="primary" type="button">
+          Ouvrir l’administration
+        </button>
+      </section>
+      <form id="capture-form" hidden>
+        <label>
+          URL
+          <input id="url" name="url" type="url" required />
+        </label>
+        <label>
+          Titre
+          <input id="title" name="title" maxlength="240" />
+        </label>
+        <label>
+          Catégorie
+          <select id="category" name="category"></select>
+        </label>
+        <label>
+          Résumé
+          <textarea id="description" name="description" rows="4"></textarea>
+        </label>
+        <label>
+          Tags existants
+          <span class="tag-row">
+            <input id="tag-input" list="known-tags" autocomplete="off" />
+            <button id="add-tag" type="button">Ajouter</button>
+          </span>
+        </label>
+        <datalist id="known-tags"></datalist>
+        <div id="selected-tags" class="tags" aria-live="polite"></div>
+        <label>
+          Note privée
+          <textarea id="private-note" name="privateNote" rows="3"></textarea>
+        </label>
+        <p id="completeness" class="completeness"></p>
+        <button id="save" class="primary" type="submit">
+          Enregistrer le brouillon
+        </button>
+      </form>
+      <p id="feedback" role="status"></p>
+    </main>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+[
+  {
+    "name": "tracking and trailing slash",
+    "input": "HTTPS://Example.COM/a//b/?utm_source=newsletter&keep=yes",
+    "expected": "https://example.com/a/b?keep=yes"
+  },
+  {
+    "name": "www stays distinct",
+    "input": "https://www.example.com/",
+    "expected": "https://www.example.com/"
+  },
+  {
+    "name": "unicode host and path",
+    "input": "https://café.example/café",
+    "expected": "https://xn--caf-dma.example/caf%C3%A9"
+  },
+  {
+    "name": "default port and top fragment",
+    "input": "https://example.com:443/project/#top",
+    "expected": "https://example.com/project"
+  },
+  {
+    "name": "private host",
+    "input": "http://192.168.1.2/page",
+    "error": true
+  },
+  {
+    "name": "credentials",
+    "input": "https://user:password@example.com/page",
+    "error": true
+  },
+  {
+    "name": "sensitive query",
+    "input": "https://example.com/article?session_token=secret",
+    "error": true
+  },
+  {
+    "name": "authenticated path",
+    "input": "https://example.com/admin/report",
+    "error": true
+  }
+]

@@ -23,6 +23,18 @@ if (base.protocol !== "https:" && process.env.NODE_ENV === "production") {
   throw new Error("BETTER_AUTH_URL must use HTTPS in production");
 }
 
+const extensionOrigins = (process.env.CHROME_EXTENSION_ORIGINS ?? "")
+  .split(",")
+  .map((value) => value.trim().replace(/\/+$/, ""))
+  .filter(Boolean);
+for (const origin of extensionOrigins) {
+  if (!/^chrome-extension:\/\/[a-p]{32}$/.test(origin)) {
+    throw new Error(
+      "CHROME_EXTENSION_ORIGINS must contain exact chrome-extension origins",
+    );
+  }
+}
+
 export const config = {
   nodeEnv: process.env.NODE_ENV ?? "development",
   port: positiveInteger("PORT", 3210),
@@ -42,4 +54,6 @@ export const config = {
   repositoryName: process.env.GITHUB_REPOSITORY_NAME?.trim() || "digest-web",
   repositoryBranch: process.env.GITHUB_REPOSITORY_BRANCH?.trim() || "main",
   adminGithubId: process.env.ADMIN_GITHUB_ID?.trim() || "1025402",
+  extensionOrigins,
+  allowedOrigins: [base.origin, ...extensionOrigins],
 } as const;

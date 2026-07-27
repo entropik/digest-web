@@ -14,7 +14,7 @@ export const auth = betterAuth({
   appName: "Digest Admin",
   baseURL: config.baseUrl,
   secret: config.betterAuthSecret,
-  trustedOrigins: [config.origin],
+  trustedOrigins: [...config.allowedOrigins],
   database: authDatabase,
   emailAndPassword: {
     enabled: false,

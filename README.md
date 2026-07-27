@@ -75,6 +75,8 @@ Créer une GitHub App privée avec :
   `https://digest.ooblik.com/api/auth/callback/github` ;
 - permission de compte `Email addresses: Read-only` ;
 - permission du dépôt `Contents: Read and write` ;
+- permission du dépôt `Actions: Read-only`, utilisée pour suivre la validation
+  et le déploiement du commit ;
 - installation limitée au dépôt `entropik/digest-web` ;
 - aucun webhook.
 
@@ -83,6 +85,10 @@ Copier `admin-service/.env.example` vers
 privée PEM de la GitHub App est stockée sous forme Base64 dans
 `GITHUB_APP_PRIVATE_KEY_BASE64`. L’autorisation serveur vérifie l’identifiant
 GitHub immuable `1025402`, et non seulement le nom `entropik`.
+
+Après avoir ajouté la permission `Actions: Read-only` à une GitHub App déjà
+installée, accepter la nouvelle permission dans les paramètres d’installation
+GitHub avant de redéployer le service.
 
 ### CloudPanel
 
@@ -103,3 +109,35 @@ Copier ce script dans `/home/digest/bin/` avant d’activer le cron, car la
 branche `production` ne contient que la sortie Hugo. Une fois connecté sur
 `/admin`, les commandes propriétaire apparaissent automatiquement dans les
 fiches du Digest.
+
+### Curation et extension Chrome
+
+Le service conserve les captures dans SQLite jusqu’à la composition explicite
+d’un Digest. La publication sélectionne un lot, crée sa page d’archive et met à
+jour `data/links.json` dans un seul commit. L’administration suit ensuite les
+workflows GitHub Actions et vérifie la présence de l’édition en production.
+
+L’extension Manifest V3 se trouve dans `browser-extension/` :
+
+```shell
+cd browser-extension
+npm ci
+npm test
+npm run build
+npm run zip
+```
+
+Pour le développement, charger `.output/chrome-mv3` comme extension non
+empaquetée. L’origine Chrome Web Store de production est
+`chrome-extension://nlejcccmpbajpoaknlecegkpgdegiflf` ; l’ajouter à
+`CHROME_EXTENSION_ORIGINS` dans le fichier `.env` du service. La procédure
+Chrome Web Store et les textes de fiche sont documentés dans
+`browser-extension/CHROME_WEB_STORE.md`.
+
+Les brouillons utilisent le même fichier SQLite que Better Auth. Le script de
+déploiement crée une sauvegarde avant toute migration et en conserve quatorze.
+Pour une sauvegarde quotidienne supplémentaire :
+
+```cron
+17 3 * * * cd /home/digest/apps/digest-admin/current && npm run backup >> /home/digest/logs/digest-admin-backup.log 2>&1
+```

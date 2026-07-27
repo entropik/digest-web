@@ -4,6 +4,8 @@ export type DigestLink = {
   url: string;
   category: string;
   added: string;
+  description?: string;
+  tags?: string[];
   visibility?: "hidden";
   hidden_at?: string;
   [key: string]: unknown;
@@ -80,11 +82,61 @@ export const changeVisibility = (
 export const serializeCatalog = (links: DigestLink[]): string =>
   `${JSON.stringify(links, null, 2)}\n`;
 
+export const catalogTaxonomy = (links: DigestLink[]) => ({
+  categories: [...new Set(links.map((link) => link.category))].sort((a, b) =>
+    a.localeCompare(b, "fr"),
+  ),
+  tags: [
+    ...new Set(
+      links.flatMap((link) =>
+        Array.isArray(link.tags) ? link.tags.map(String) : [],
+      ),
+    ),
+  ].sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" })),
+});
+
+export type PublishedMetadata = {
+  title: string;
+  category: string;
+  description: string;
+  tags: string[];
+};
+
+export const changePublishedMetadata = (
+  links: DigestLink[],
+  id: string,
+  metadata: PublishedMetadata,
+): CatalogMutation => {
+  const index = links.findIndex((link) => link.id === id);
+  if (index < 0) throw new Error("LINK_NOT_FOUND");
+  const current = links[index]!;
+  const updated: DigestLink = {
+    ...current,
+    title: metadata.title,
+    category: metadata.category,
+    description: metadata.description,
+    tags: [...metadata.tags],
+  };
+  const changed =
+    current.title !== updated.title ||
+    current.category !== updated.category ||
+    current.description !== updated.description ||
+    JSON.stringify(current.tags ?? []) !== JSON.stringify(updated.tags);
+  if (!changed) return { links, link: current, changed: false };
+  const next = links.slice();
+  next[index] = updated;
+  return { links: next, link: updated, changed: true };
+};
+
 export const publicAdminLink = (link: DigestLink) => ({
   id: link.id,
   title: link.title,
   url: link.url,
   category: link.category,
   added: link.added,
+  description: link.description ?? "",
+  tags: Array.isArray(link.tags) ? link.tags : [],
+  status: typeof link.status === "string" ? link.status : null,
+  visibility: link.visibility ?? null,
   hiddenAt: link.hidden_at ?? null,
 });

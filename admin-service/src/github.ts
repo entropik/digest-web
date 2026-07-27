@@ -1,9 +1,12 @@
 import { createAppAuth } from "@octokit/auth-app";
 import {
+  changePublishedMetadata,
   changeVisibility,
   parseCatalog,
   publicAdminLink,
   serializeCatalog,
+  type DigestLink,
+  type PublishedMetadata,
   type VisibilityAction,
 } from "./catalog.js";
 import { config } from "./config.js";
@@ -12,8 +15,17 @@ type GitHubRef = { object: { sha: string } };
 type GitHubCommit = { sha: string; tree: { sha: string } };
 type GitHubBlob = { sha: string };
 type GitHubTree = { sha: string };
+type GitHubContentItem = { name: string; path: string; type: string };
+type WorkflowRun = {
+  id: number;
+  name: string;
+  status: string;
+  conclusion: string | null;
+  html_url: string;
+  head_sha: string;
+};
 
-class GitHubResponseError extends Error {
+export class GitHubResponseError extends Error {
   constructor(
     message: string,
     readonly status: number,
@@ -33,7 +45,7 @@ const installationToken = async (): Promise<string> => {
     type: "installation",
     installationId: config.githubInstallationId,
     repositories: [config.repositoryName],
-    permissions: { contents: "write" },
+    permissions: { contents: "write", actions: "read" },
   });
   return authentication.token;
 };
@@ -62,6 +74,7 @@ const request = async <T>(
       response.status,
     );
   }
+  if (response.status === 204) return undefined as T;
   return (await response.json()) as T;
 };
 
@@ -77,7 +90,7 @@ const requestText = async (path: string): Promise<string> => {
   });
   if (!response.ok) {
     throw new GitHubResponseError(
-      `GitHub catalog read failed (${response.status})`,
+      `GitHub content read failed (${response.status})`,
       response.status,
     );
   }
@@ -85,8 +98,13 @@ const requestText = async (path: string): Promise<string> => {
 };
 
 const repositoryPath = `/repos/${encodeURIComponent(config.repositoryOwner)}/${encodeURIComponent(config.repositoryName)}`;
+const contentPath = (path: string, ref: string) =>
+  `${repositoryPath}/contents/${path
+    .split("/")
+    .map(encodeURIComponent)
+    .join("/")}?ref=${encodeURIComponent(ref)}`;
 
-const readHead = async () => {
+export const readRepositoryHead = async () => {
   const ref = await request<GitHubRef>(
     `${repositoryPath}/git/ref/heads/${encodeURIComponent(config.repositoryBranch)}`,
   );
@@ -94,7 +112,7 @@ const readHead = async () => {
     `${repositoryPath}/git/commits/${ref.object.sha}`,
   );
   const catalog = await requestText(
-    `${repositoryPath}/contents/data/links.json?ref=${encodeURIComponent(ref.object.sha)}`,
+    contentPath("data/links.json", ref.object.sha),
   );
   return {
     commitSha: ref.object.sha,
@@ -103,28 +121,51 @@ const readHead = async () => {
   };
 };
 
-const commitCatalog = async (
+export const readRepositoryFile = (path: string, ref: string): Promise<string> =>
+  requestText(contentPath(path, ref));
+
+export const tryReadRepositoryFile = async (
+  path: string,
+  ref: string,
+): Promise<string | null> => {
+  try {
+    return await readRepositoryFile(path, ref);
+  } catch (error) {
+    if (error instanceof GitHubResponseError && error.status === 404) return null;
+    throw error;
+  }
+};
+
+export const listRepositoryDirectory = (
+  path: string,
+  ref: string,
+): Promise<GitHubContentItem[]> =>
+  request<GitHubContentItem[]>(contentPath(path, ref));
+
+export const commitRepositoryFiles = async (
   parentSha: string,
   treeSha: string,
-  content: string,
+  files: Record<string, string>,
   message: string,
 ): Promise<string> => {
-  const blob = await request<GitHubBlob>(`${repositoryPath}/git/blobs`, {
-    method: "POST",
-    body: JSON.stringify({ content, encoding: "utf-8" }),
-  });
+  const entries = [];
+  for (const [path, content] of Object.entries(files)) {
+    const blob = await request<GitHubBlob>(`${repositoryPath}/git/blobs`, {
+      method: "POST",
+      body: JSON.stringify({ content, encoding: "utf-8" }),
+    });
+    entries.push({
+      path,
+      mode: "100644",
+      type: "blob",
+      sha: blob.sha,
+    });
+  }
   const tree = await request<GitHubTree>(`${repositoryPath}/git/trees`, {
     method: "POST",
     body: JSON.stringify({
       base_tree: treeSha,
-      tree: [
-        {
-          path: "data/links.json",
-          mode: "100644",
-          type: "blob",
-          sha: blob.sha,
-        },
-      ],
+      tree: entries,
     }),
   });
   const commit = await request<GitHubCommit>(`${repositoryPath}/git/commits`, {
@@ -145,45 +186,35 @@ const commitCatalog = async (
   return commit.sha;
 };
 
-export const listHiddenLinks = async () => {
-  const head = await readHead();
-  return head.links
-    .filter((link) => link.visibility === "hidden")
-    .map(publicAdminLink)
-    .sort((left, right) =>
-      String(right.hiddenAt).localeCompare(String(left.hiddenAt)),
-    );
-};
-
-export const updateLinkVisibility = async (
-  id: string,
-  action: VisibilityAction,
+const commitCatalogMutation = async (
+  mutation: (links: DigestLink[]) => {
+    links: DigestLink[];
+    link: DigestLink;
+    changed: boolean;
+  },
+  message: (link: DigestLink) => string,
 ) => {
   for (let attempt = 0; attempt < 2; attempt += 1) {
-    const head = await readHead();
-    const mutation = changeVisibility(head.links, id, action);
-    if (!mutation.changed) {
+    const head = await readRepositoryHead();
+    const result = mutation(head.links);
+    if (!result.changed) {
       return {
         changed: false,
-        state: action === "hide" ? "hidden" : "visible",
         commit: head.commitSha,
-        link: publicAdminLink(mutation.link),
+        link: publicAdminLink(result.link),
       };
     }
-
-    const verb = action === "hide" ? "Masquer" : "Restaurer";
     try {
-      const commit = await commitCatalog(
+      const commit = await commitRepositoryFiles(
         head.commitSha,
         head.treeSha,
-        serializeCatalog(mutation.links),
-        `${verb} ${mutation.link.title}`,
+        { "data/links.json": serializeCatalog(result.links) },
+        message(result.link),
       );
       return {
         changed: true,
-        state: action === "hide" ? "hidden" : "visible",
         commit,
-        link: publicAdminLink(mutation.link),
+        link: publicAdminLink(result.link),
       };
     } catch (error) {
       if (
@@ -197,4 +228,62 @@ export const updateLinkVisibility = async (
     }
   }
   throw new Error("Unable to update the catalog after a concurrent change");
+};
+
+export const listHiddenLinks = async () => {
+  const head = await readRepositoryHead();
+  return head.links
+    .filter((link) => link.visibility === "hidden")
+    .map(publicAdminLink)
+    .sort((left, right) =>
+      String(right.hiddenAt).localeCompare(String(left.hiddenAt)),
+    );
+};
+
+export const listAdminLinks = async (query = "", limit = 100) => {
+  const head = await readRepositoryHead();
+  const needle = query.trim().toLocaleLowerCase("fr");
+  return head.links
+    .filter((link) => {
+      if (!needle) return true;
+      return [link.title, link.url, link.category, link.description ?? ""]
+        .join(" ")
+        .toLocaleLowerCase("fr")
+        .includes(needle);
+    })
+    .slice(0, Math.max(1, Math.min(limit, 200)))
+    .map(publicAdminLink);
+};
+
+export const updateLinkVisibility = async (
+  id: string,
+  action: VisibilityAction,
+) => {
+  const verb = action === "hide" ? "Masquer" : "Restaurer";
+  const result = await commitCatalogMutation(
+    (links) => changeVisibility(links, id, action),
+    (link) => `${verb} ${link.title}`,
+  );
+  return {
+    ...result,
+    state: action === "hide" ? "hidden" : "visible",
+  };
+};
+
+export const updatePublishedLink = (
+  id: string,
+  metadata: PublishedMetadata,
+) =>
+  commitCatalogMutation(
+    (links) => changePublishedMetadata(links, id, metadata),
+    (link) => `Corriger ${link.title}`,
+  );
+
+export const workflowRunsForCommit = async (
+  commitSha: string,
+): Promise<WorkflowRun[]> => {
+  const payload = await request<{ workflow_runs: WorkflowRun[] }>(
+    `${repositoryPath}/actions/runs?head_sha=${encodeURIComponent(commitSha)}&per_page=100`,
+  );
+  return payload.workflow_runs;
 };

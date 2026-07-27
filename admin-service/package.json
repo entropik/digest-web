@@ -6,7 +6,9 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "dev": "tsx watch src/server.ts",
+    "backup": "node dist/src/backup.js",
     "migrate": "tsx src/migrate.ts",
+    "preview": "npm run build && node scripts/preview-admin.mjs",
     "start": "node dist/src/server.js",
     "test": "node --import tsx --test test/*.test.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"

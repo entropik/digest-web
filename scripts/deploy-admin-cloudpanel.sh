@@ -31,6 +31,7 @@ if [ ! -d "$release" ]; then
   ln -s "$base/shared/.env" .env
   npm ci
   npm run build
+  npm run backup
   npm run migrate
   npm prune --omit=dev
   rm -rf -- "$temporary/.git"
