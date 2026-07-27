@@ -1,6 +1,6 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
-import { deflateSync } from "node:zlib";
+import { constants, deflateSync } from "node:zlib";
 
 const crcTable = Array.from({ length: 256 }, (_, index) => {
   let value = index;
@@ -66,14 +66,35 @@ const icon = (size) => {
   return Buffer.concat([
     Buffer.from("89504e470d0a1a0a", "hex"),
     chunk("IHDR", header),
-    chunk("IDAT", deflateSync(Buffer.concat(rows))),
+    chunk(
+      "IDAT",
+      deflateSync(Buffer.concat(rows), {
+        level: constants.Z_BEST_COMPRESSION,
+        strategy: constants.Z_FIXED,
+      }),
+    ),
     chunk("IEND", Buffer.alloc(0)),
   ]);
 };
 
+const check = process.argv.includes("--check");
 for (const size of [16, 32, 48, 128]) {
   const path = resolve(`public/icon/${size}.png`);
+  const expected = icon(size);
+  if (check) {
+    const current = await readFile(path).catch(() => undefined);
+    if (!current?.equals(expected)) {
+      throw new Error(
+        `public/icon/${size}.png is stale; run "npm run icons" and commit the result.`,
+      );
+    }
+    continue;
+  }
   await mkdir(dirname(path), { recursive: true });
-  await writeFile(path, icon(size));
+  await writeFile(path, expected);
 }
-console.log("Chrome extension icons generated.");
+console.log(
+  check
+    ? "Chrome extension icons are reproducible and current."
+    : "Chrome extension icons generated.",
+);

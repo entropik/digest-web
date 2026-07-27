@@ -7,11 +7,12 @@
     "postinstall": "wxt prepare",
     "dev": "wxt",
     "icons": "node scripts/generate-icons.mjs",
+    "icons:check": "node scripts/generate-icons.mjs --check",
     "store-assets": "python scripts/generate-store-assets.py",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "build": "npm run icons && wxt build",
-    "zip": "npm run icons && wxt zip"
+    "build": "npm run icons:check && wxt build",
+    "zip": "npm run icons:check && wxt zip"
   },
   "devDependencies": {
     "jsdom": "27.4.0",
