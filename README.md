@@ -116,6 +116,23 @@ résolvent toujours le `ref` courant avant de travailler, conservent les
 protections de concurrence GitHub, et toute écriture réussie par le service
 invalide à la fois le cache temporaire et le snapshot indexé par SHA.
 
+#### Diagnostic de latence
+
+Le service écrit dans la sortie PM2 une ligne JSON par étape du bootstrap :
+`github.cache`, `github.auth`, `github.ref`, `github.commit`,
+`github.catalog.download`, `github.catalog.parse`, puis
+`curation.bootstrap`. Le champ `request_id`, également renvoyé dans l’en-tête
+HTTP `X-Request-Id`, permet de regrouper les lignes d’une même ouverture du
+popup. Le cache indique explicitement `hit`, `miss` ou `shared`.
+
+Une étape GitHub de 750 ms ou plus, ou un bootstrap total de 1 500 ms ou plus,
+passe au niveau `warn`. Pour diagnostiquer un popup lent, filtrer
+`pm2 logs digest-admin` sur son `request_id`, puis comparer la durée totale aux
+sous-durées : un `miss` suivi d’un `github.ref` lent indique le réseau ou
+GitHub, tandis qu’un `github.catalog.parse` lent pointe le traitement local.
+Les journaux n’incluent jamais l’URL demandée, le catalogue, les notes privées,
+les cookies ou les jetons.
+
 ### CloudPanel
 
 Le service doit utiliser Node.js 22 ou supérieur et PM2. Le script
