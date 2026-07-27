@@ -20,6 +20,7 @@ const saveButton = document.querySelector<HTMLButtonElement>("#save")!;
 const retryButton = document.querySelector<HTMLButtonElement>("#retry")!;
 let tags: string[] = [];
 let verifiedUrl: string | null = null;
+let verificationSequence = 0;
 
 type CurationOptions = { categories: string[]; tags: string[] };
 type EditableField = keyof PageCapture | "category" | "tags";
@@ -188,6 +189,7 @@ const bootstrapErrorMessage = (error: DigestApiError): string => {
 };
 
 const verifyCapture = async (verificationUrl: string): Promise<void> => {
+  const verificationId = ++verificationSequence;
   if (!isSupportedCaptureUrl(verificationUrl)) {
     verifiedUrl = null;
     saveButton.disabled = true;
@@ -208,11 +210,10 @@ const verifyCapture = async (verificationUrl: string): Promise<void> => {
       {},
       9_000,
     );
-    if (field("url").value.trim() !== verificationUrl) {
-      feedback.textContent = "L’URL a changé · vérifiez-la à nouveau.";
-      retryButton.hidden = false;
-      return;
-    }
+    if (
+      verificationId !== verificationSequence ||
+      field("url").value.trim() !== verificationUrl
+    ) return;
     verifiedUrl = verificationUrl;
     populateOptions(bootstrap.options);
     if (bootstrap.draft) {
@@ -230,6 +231,7 @@ const verifyCapture = async (verificationUrl: string): Promise<void> => {
     saveButton.disabled = false;
     feedback.textContent = "Lien vérifié · prêt à enregistrer.";
   } catch (error) {
+    if (verificationId !== verificationSequence) return;
     if (
       error instanceof DigestApiError &&
       (error.status === 401 || error.status === 403)
@@ -286,6 +288,7 @@ form.addEventListener("input", (event) => {
     touchedFields.add(name);
   }
   if (name === "url") {
+    verificationSequence += 1;
     verifiedUrl = null;
     saveButton.disabled = true;
     feedback.textContent = "URL modifiée · vérifiez-la à nouveau.";
@@ -309,7 +312,7 @@ form.addEventListener("submit", async (event) => {
       {
         method: "POST",
         body: JSON.stringify({
-          url: field("url").value,
+          url: field("url").value.trim(),
           title: field("title").value,
           category: category.value,
           description: field("description").value,
