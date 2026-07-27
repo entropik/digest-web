@@ -58,7 +58,7 @@ describe("temporary local drafts", () => {
     );
 
     await expect(
-      loadLocalDraft(storage, "https://example.com/article", 2_000),
+      loadLocalDraft(storage, "https://example.com/article/", 2_000),
     ).resolves.toEqual(fields);
   });
 
@@ -68,6 +68,15 @@ describe("temporary local drafts", () => {
     await expect(
       loadLocalDraft(storage, "https://example.com/second", 2_000),
     ).resolves.toBeNull();
+  });
+
+  test.each([
+    ["https://example.com/report", "https://example.com/report/"],
+    ["https://example.com/a/b", "https://example.com/a//b"],
+  ])("keeps distinct path structures isolated: %s / %s", async (first, second) => {
+    await saveLocalDraft(storage, first, fields, 1_000);
+
+    await expect(loadLocalDraft(storage, second, 2_000)).resolves.toBeNull();
   });
 
   test("expires and removes a draft after 24 hours", async () => {
@@ -118,10 +127,10 @@ describe("temporary local drafts", () => {
   test("keeps meaningful fragments but removes presentation fragments", () => {
     expect(
       canonicalLocalDraftUrl("https://example.com/article/#comments"),
-    ).toBe("https://example.com/article#comments");
+    ).toBe("https://example.com/article/#comments");
     expect(
       canonicalLocalDraftUrl("https://example.com/article/#fullscreen"),
-    ).toBe("https://example.com/article");
+    ).toBe("https://example.com/article/");
   });
 
   test.each([
@@ -141,6 +150,8 @@ describe("temporary local drafts", () => {
     "https://user:password@example.com/article",
     "http://localhost/article",
     "http://localhost./article",
+    "http://app.localhost/article",
+    "http://app.localhost./article",
     "https://example.com/reset-password/SECRET",
     "https://example.com/invitations/SECRET",
     "https://example.com/callback?ticket=SECRET",

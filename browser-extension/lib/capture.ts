@@ -40,14 +40,14 @@ const mappedPrivateIpv4 = (host: string): boolean => {
 export const isSupportedCaptureUrl = (rawUrl: string): boolean => {
   try {
     const url = new URL(rawUrl);
-    const host = url.hostname.toLowerCase();
+    const host = url.hostname.toLowerCase().replace(/\.$/, "");
     const ipHost = host.replace(/^\[|\]$/g, "");
     return (
       ["http:", "https:"].includes(url.protocol) &&
       !url.username &&
       !url.password &&
       host !== "localhost" &&
-      ![".local", ".lan", ".internal"].some((suffix) =>
+      ![".localhost", ".local", ".lan", ".internal"].some((suffix) =>
         host.endsWith(suffix),
       ) &&
       !privateIpv4(ipHost) &&

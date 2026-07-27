@@ -100,8 +100,6 @@ export const canonicalLocalDraftUrl = (rawUrl: string): string => {
   });
   url.search = "";
   for (const [key, value] of query) url.searchParams.append(key, value);
-  url.pathname = url.pathname.replace(/\/{2,}/g, "/");
-  if (url.pathname !== "/") url.pathname = url.pathname.replace(/\/+$/, "");
   if (["fullscreen", "top"].includes(url.hash.slice(1).toLowerCase())) {
     url.hash = "";
   }
