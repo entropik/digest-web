@@ -17,26 +17,44 @@ const privateIpv4 = (host: string): boolean => {
     a === 0 ||
     (a === 169 && b === 254) ||
     (a === 172 && b >= 16 && b <= 31) ||
-    (a === 192 && b === 168)
+    (a === 192 && b === 168) ||
+    (a === 100 && b >= 64 && b <= 127) ||
+    a >= 224
+  );
+};
+
+const mappedPrivateIpv4 = (host: string): boolean => {
+  const dotted = host.match(/^::ffff:(?:0:)?(\d+\.\d+\.\d+\.\d+)$/i);
+  if (dotted?.[1]) return privateIpv4(dotted[1]);
+  const hexadecimal = host.match(
+    /^::ffff:(?:0:)?([0-9a-f]{1,4}):([0-9a-f]{1,4})$/i,
+  );
+  if (!hexadecimal?.[1] || !hexadecimal[2]) return false;
+  const high = Number.parseInt(hexadecimal[1], 16);
+  const low = Number.parseInt(hexadecimal[2], 16);
+  return privateIpv4(
+    `${high >>> 8}.${high & 255}.${low >>> 8}.${low & 255}`,
   );
 };
 
 export const isSupportedCaptureUrl = (rawUrl: string): boolean => {
   try {
     const url = new URL(rawUrl);
-    const host = url.hostname.toLowerCase();
+    const host = url.hostname.toLowerCase().replace(/\.$/, "");
     const ipHost = host.replace(/^\[|\]$/g, "");
     return (
       ["http:", "https:"].includes(url.protocol) &&
       !url.username &&
       !url.password &&
       host !== "localhost" &&
-      ![".local", ".lan", ".internal"].some((suffix) =>
+      ![".localhost", ".local", ".lan", ".internal"].some((suffix) =>
         host.endsWith(suffix),
       ) &&
       !privateIpv4(ipHost) &&
+      !mappedPrivateIpv4(ipHost) &&
+      ipHost !== "::" &&
       ipHost !== "::1" &&
-      !/^f[cd]|^fe[89ab]/i.test(ipHost)
+      !/^f[cd]|^fe[89a-f]|^ff/i.test(ipHost)
     );
   } catch {
     return false;

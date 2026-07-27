@@ -35,7 +35,21 @@ describe("page capture", () => {
   test("rejects browser, local and credentialed URLs", () => {
     expect(isSupportedCaptureUrl("chrome://settings")).toBe(false);
     expect(isSupportedCaptureUrl("http://localhost/report")).toBe(false);
+    expect(isSupportedCaptureUrl("http://app.localhost/report")).toBe(false);
+    expect(isSupportedCaptureUrl("http://app.localhost./report")).toBe(false);
+    expect(isSupportedCaptureUrl("http://100.64.0.1/report")).toBe(false);
+    expect(isSupportedCaptureUrl("http://224.0.0.1/report")).toBe(false);
+    expect(isSupportedCaptureUrl("http://[::]/report")).toBe(false);
+    expect(
+      isSupportedCaptureUrl("http://[::ffff:127.0.0.1]/report"),
+    ).toBe(false);
+    expect(
+      isSupportedCaptureUrl("http://[::ffff:192.168.1.1]/report"),
+    ).toBe(false);
     expect(isSupportedCaptureUrl("http://[::1]/report")).toBe(false);
+    expect(isSupportedCaptureUrl("http://[ff02::1]/report")).toBe(false);
+    expect(isSupportedCaptureUrl("http://[fec0::1]/report")).toBe(false);
+    expect(isSupportedCaptureUrl("http://[feff::1]/report")).toBe(false);
     expect(isSupportedCaptureUrl("https://user:pass@example.com")).toBe(false);
     expect(isSupportedCaptureUrl("https://example.com/article")).toBe(true);
   });

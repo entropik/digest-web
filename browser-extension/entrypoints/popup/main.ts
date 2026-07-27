@@ -6,6 +6,14 @@ import {
   type PageCapture
 } from "../../lib/capture";
 import { DigestApiError, requestJson } from "../../lib/api";
+import {
+  canonicalLocalDraftUrl,
+  clearLocalDraft,
+  loadLocalDraft,
+  pruneExpiredLocalDrafts,
+  saveLocalDraft,
+  type LocalDraftFields,
+} from "../../lib/local-draft";
 
 const API_ORIGIN = "https://digest.ooblik.com";
 const form = document.querySelector<HTMLFormElement>("#capture-form")!;
@@ -18,12 +26,25 @@ const knownTags = document.querySelector<HTMLDataListElement>("#known-tags")!;
 const category = document.querySelector<HTMLSelectElement>("#category")!;
 const saveButton = document.querySelector<HTMLButtonElement>("#save")!;
 const retryButton = document.querySelector<HTMLButtonElement>("#retry")!;
+const discardLocalButton =
+  document.querySelector<HTMLButtonElement>("#discard-local")!;
+const localPersistence =
+  document.querySelector<HTMLInputElement>("#local-persistence")!;
 let tags: string[] = [];
 let addedTags: string[] = [];
 let removedTags: string[] = [];
 let verifiedUrl: string | null = null;
 let verificationSequence = 0;
 let canSaveVerifiedDraft = false;
+let localSaveTimer: ReturnType<typeof setTimeout> | undefined;
+let popupCloseTimer: ReturnType<typeof setTimeout> | undefined;
+let localPersistenceEnabled = false;
+let localDraftDirty = false;
+let restoredLocalDraftUrl: string | null = null;
+let restoredTagsAuthoritative = false;
+let capturedPageUrl: string | null = null;
+const persistedLocalDraftUrls = new Set<string>();
+const pendingLocalWrites = new Set<Promise<void>>();
 
 type CurationOptions = { categories: string[]; tags: string[] };
 type EditableField = keyof PageCapture | "category" | "tags";
@@ -38,6 +59,11 @@ type BootstrapResponse = {
   draft: StoredDraft | null;
   published: { id?: string; title?: string } | null;
 };
+type ActivePageCapture = {
+  capture: PageCapture;
+  pageUrl: string;
+  localPersistenceAllowed: boolean;
+};
 
 const api = async <T>(
   path: string,
@@ -47,6 +73,79 @@ const api = async <T>(
 
 const field = (name: string): HTMLInputElement | HTMLTextAreaElement =>
   form.elements.namedItem(name) as HTMLInputElement | HTMLTextAreaElement;
+
+const currentLocalDraft = (): LocalDraftFields => ({
+  url: field("url").value.trim(),
+  title: field("title").value,
+  category: category.value,
+  description: field("description").value,
+  tags: [...tags],
+  privateNote: field("privateNote").value,
+});
+
+const reportLocalDraftWriteFailure = (): void => {
+  localPersistenceEnabled = false;
+  localPersistence.checked = false;
+  localDraftDirty = false;
+  feedback.textContent =
+    "Reprise locale impossible : cette saisie n’a pas été enregistrée sur l’appareil.";
+};
+
+const persistLocalDraft = (): void => {
+  if (!localPersistenceEnabled || !localDraftDirty) return;
+  const url = field("url").value.trim();
+  if (!capturedPageUrl || !isSupportedCaptureUrl(url)) return;
+  persistedLocalDraftUrls.add(capturedPageUrl);
+  const write = saveLocalDraft(
+    browser.storage.local,
+    capturedPageUrl,
+    currentLocalDraft(),
+  ).catch(() => {
+    reportLocalDraftWriteFailure();
+  });
+  pendingLocalWrites.add(write);
+  void write.finally(() => {
+    pendingLocalWrites.delete(write);
+  });
+};
+
+const clearSessionLocalDrafts = async (): Promise<void> => {
+  await Promise.all([...pendingLocalWrites]);
+  const urls = [
+    ...new Set(
+      [
+        ...persistedLocalDraftUrls,
+        restoredLocalDraftUrl,
+        capturedPageUrl,
+      ].filter((url): url is string => !!url),
+    ),
+  ];
+  await Promise.all(
+    urls.map((url) =>
+      clearLocalDraft(browser.storage.local, url).catch((error) => {
+        if (
+          error instanceof TypeError ||
+          (error instanceof Error && error.message === "SENSITIVE_URL")
+        ) return;
+        throw error;
+      }),
+    ),
+  );
+  persistedLocalDraftUrls.clear();
+  restoredLocalDraftUrl = null;
+};
+
+const flushLocalDraftSave = (): void => {
+  if (localSaveTimer) clearTimeout(localSaveTimer);
+  localSaveTimer = undefined;
+  persistLocalDraft();
+};
+
+const scheduleLocalDraftSave = (): void => {
+  localDraftDirty = true;
+  if (localSaveTimer) clearTimeout(localSaveTimer);
+  localSaveTimer = setTimeout(flushLocalDraftSave, 300);
+};
 
 const tagKey = (tag: string): string => tag.toLocaleLowerCase("fr");
 const sameTag = (left: string, right: string): boolean =>
@@ -78,6 +177,7 @@ const renderTags = (): void => {
         renderTags();
         updateCompleteness();
         updateSaveAvailability();
+        scheduleLocalDraftSave();
         if (canSaveVerifiedDraft && tags.length <= 12) {
           feedback.textContent = "Brouillon prêt à enregistrer.";
         }
@@ -109,6 +209,7 @@ const addTag = (): void => {
   renderTags();
   updateCompleteness();
   updateSaveAvailability();
+  scheduleLocalDraftSave();
 };
 
 const updateCompleteness = (): void => {
@@ -125,11 +226,22 @@ const updateCompleteness = (): void => {
 
 const fillForm = (
   capture: PageCapture & { category?: string; tags?: string[] },
+  allowProvisionalCategory = false,
 ): void => {
   field("url").value = capture.url;
   field("title").value = capture.title;
   field("description").value = capture.description;
   field("privateNote").value = capture.privateNote;
+  if (
+    allowProvisionalCategory &&
+    capture.category &&
+    ![...category.options].some((option) => option.value === capture.category)
+  ) {
+    const provisionalCategory = document.createElement("option");
+    provisionalCategory.value = capture.category;
+    provisionalCategory.textContent = capture.category;
+    category.append(provisionalCategory);
+  }
   category.value = capture.category ?? "";
   tags = capture.tags ?? [];
   renderTags();
@@ -146,20 +258,13 @@ const populateOptions = (options: CurationOptions): void => {
     option.textContent = value;
     return option;
   });
-  if (
-    selectedCategory &&
-    !options.categories.some((value) => value === selectedCategory)
-  ) {
-    const selectedOption = document.createElement("option");
-    selectedOption.value = selectedCategory;
-    selectedOption.textContent = selectedCategory;
-    categoryOptions.push(selectedOption);
-  }
   category.replaceChildren(
     blankCategory,
     ...categoryOptions,
   );
-  category.value = selectedCategory;
+  category.value = options.categories.includes(selectedCategory)
+    ? selectedCategory
+    : "";
   knownTags.replaceChildren(
     ...options.tags.map((value) => {
       const option = document.createElement("option");
@@ -188,11 +293,15 @@ const fillDraftPreservingEdits = (draft: StoredDraft): void => {
       ? field("privateNote").value
       : draft.privateNote,
     category: touchedFields.has("category") ? category.value : draft.category,
-    tags: touchedFields.has("tags") ? mergedTags : draft.tags,
+    tags: touchedFields.has("tags")
+      ? restoredTagsAuthoritative
+        ? tags
+        : mergedTags
+      : draft.tags,
   });
 };
 
-const captureActivePage = async (): Promise<PageCapture> => {
+const captureActivePage = async (): Promise<ActivePageCapture> => {
   const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
   if (!tab?.id || !tab.url || !isSupportedCaptureUrl(tab.url)) {
     throw new Error("PAGE_NOT_SUPPORTED");
@@ -205,7 +314,13 @@ const captureActivePage = async (): Promise<PageCapture> => {
   if (!capture || !isSupportedCaptureUrl(capture.url)) {
     throw new Error("PAGE_NOT_SUPPORTED");
   }
-  return capture;
+  let localPersistenceAllowed = true;
+  try {
+    canonicalLocalDraftUrl(tab.url);
+  } catch {
+    localPersistenceAllowed = false;
+  }
+  return { capture, pageUrl: tab.url, localPersistenceAllowed };
 };
 
 const bootstrapErrorMessage = (error: DigestApiError): string => {
@@ -296,10 +411,72 @@ const verifyCapture = async (verificationUrl: string): Promise<void> => {
 
 const initialize = async (): Promise<void> => {
   try {
-    const capture = await captureActivePage();
+    const { capture, pageUrl, localPersistenceAllowed } =
+      await captureActivePage();
+    capturedPageUrl = pageUrl;
+    localPersistence.disabled = !localPersistenceAllowed;
+    localPersistence.title = localPersistenceAllowed
+      ? ""
+      : "Reprise locale indisponible pour cette page privée ou authentifiée.";
     fillForm(capture);
     form.hidden = false;
-    await verifyCapture(capture.url);
+    void pruneExpiredLocalDrafts(browser.storage.local).catch(() => undefined);
+    const localDraft = await loadLocalDraft(
+      browser.storage.local,
+      pageUrl,
+    ).catch(() => null);
+    if (localDraft) {
+      const localTags = touchedFields.has("tags")
+        ? [...addedTags, ...tags, ...localDraft.tags]
+            .filter(
+              (tag) =>
+                !removedTags.some((removedTag) => sameTag(removedTag, tag)),
+            )
+            .filter(
+              (tag, index, candidates) =>
+                candidates.findIndex((candidate) => sameTag(candidate, tag)) ===
+                index,
+            )
+        : localDraft.tags;
+      fillForm(
+        {
+          url: touchedFields.has("url")
+            ? field("url").value
+            : localDraft.url,
+          title: touchedFields.has("title")
+            ? field("title").value
+            : localDraft.title,
+          description: touchedFields.has("description")
+            ? field("description").value
+            : localDraft.description,
+          privateNote: touchedFields.has("privateNote")
+            ? field("privateNote").value
+            : localDraft.privateNote,
+          category: touchedFields.has("category")
+            ? category.value
+            : localDraft.category,
+          tags: localTags,
+        },
+        true,
+      );
+      addedTags = [...tags];
+      restoredLocalDraftUrl = pageUrl;
+      restoredTagsAuthoritative = true;
+      localPersistenceEnabled = true;
+      localPersistence.checked = true;
+      discardLocalButton.hidden = false;
+      (
+        [
+          "url",
+          "title",
+          "description",
+          "privateNote",
+          "category",
+          "tags",
+        ] as EditableField[]
+      ).forEach((name) => touchedFields.add(name));
+    }
+    await verifyCapture(field("url").value.trim());
   } catch (error) {
     feedback.textContent =
       error instanceof Error && error.message === "PAGE_NOT_SUPPORTED"
@@ -315,6 +492,50 @@ document.querySelector("#add-tag")?.addEventListener("click", addTag);
 retryButton.addEventListener("click", () => {
   void verifyCapture(field("url").value.trim());
 });
+localPersistence.addEventListener("change", () => {
+  localPersistenceEnabled = localPersistence.checked;
+  if (localPersistenceEnabled) {
+    scheduleLocalDraftSave();
+    feedback.textContent = "Reprise locale activée pendant 24 h.";
+    return;
+  }
+  localDraftDirty = false;
+  if (localSaveTimer) clearTimeout(localSaveTimer);
+  localSaveTimer = undefined;
+  void clearSessionLocalDrafts().then(() => {
+    discardLocalButton.hidden = true;
+    feedback.textContent = "Reprise locale désactivée.";
+  }).catch(() => {
+    localPersistenceEnabled = true;
+    localPersistence.checked = true;
+    feedback.textContent = "Impossible de désactiver la reprise locale.";
+  });
+});
+discardLocalButton.addEventListener("click", () => {
+  localPersistenceEnabled = false;
+  localDraftDirty = false;
+  if (localSaveTimer) clearTimeout(localSaveTimer);
+  localSaveTimer = undefined;
+  void clearSessionLocalDrafts().then(() => {
+    localPersistence.checked = false;
+    discardLocalButton.hidden = true;
+    feedback.textContent =
+      "La saisie reste affichée, mais ne sera plus restaurée.";
+  }).catch(() => {
+    localPersistenceEnabled = true;
+    localPersistence.checked = true;
+    feedback.textContent = "Impossible d’oublier la reprise locale.";
+  });
+});
+window.addEventListener(
+  "pagehide",
+  () => {
+    if (popupCloseTimer) clearTimeout(popupCloseTimer);
+    popupCloseTimer = undefined;
+    flushLocalDraftSave();
+  },
+  { once: true },
+);
 tagInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     event.preventDefault();
@@ -341,6 +562,7 @@ form.addEventListener("input", (event) => {
     retryButton.hidden = false;
   }
   updateCompleteness();
+  scheduleLocalDraftSave();
 });
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -374,10 +596,26 @@ form.addEventListener("submit", async (event) => {
         }),
       },
     );
+    localPersistenceEnabled = false;
+    localPersistence.checked = false;
+    localDraftDirty = false;
+    restoredTagsAuthoritative = false;
+    discardLocalButton.hidden = true;
+    if (localSaveTimer) clearTimeout(localSaveTimer);
+    localSaveTimer = undefined;
+    try {
+      await clearSessionLocalDrafts();
+    } catch {
+      discardLocalButton.hidden = false;
+      feedback.textContent =
+        "Brouillon enregistré, mais sa reprise locale n’a pas pu être effacée. Utilisez « Oublier la reprise locale » pour réessayer.";
+      return;
+    }
+    discardLocalButton.hidden = true;
     feedback.textContent = data.existing
       ? "Brouillon mis à jour."
       : "Brouillon ajouté à la file.";
-    setTimeout(() => window.close(), 900);
+    popupCloseTimer = setTimeout(() => window.close(), 900);
   } catch (error) {
     const message = error instanceof Error ? error.message : "REQUEST_FAILED";
     feedback.textContent =

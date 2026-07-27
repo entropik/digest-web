@@ -42,11 +42,15 @@ bannière 1400 × 560.
   l’extension ou son raccourci.
 - `scripting` : extraire ponctuellement l’URL canonique, la meta description et
   le texte sélectionné dans cet onglet.
+- `storage` : restaurer pendant 24 heures au maximum une saisie interrompue.
+  Ces données restent dans `chrome.storage.local` sur la machine courante et
+  sont écrites seulement après activation explicite de la reprise locale, puis
+  effacées après un enregistrement réussi.
 - `https://digest.ooblik.com/*` : vérifier la session propriétaire et enregistrer
   le brouillon dans le service d’administration.
 
-L’extension n’utilise ni `<all_urls>`, ni l’API cookies, ni stockage local, ni
-code distant.
+L’extension n’utilise ni `<all_urls>`, ni l’API cookies, ni
+`chrome.storage.sync`, ni code distant.
 
 ## Première publication
 

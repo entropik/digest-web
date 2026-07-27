@@ -3,10 +3,21 @@
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
+import {
+  LOCAL_DRAFT_TTL_MS,
+  localDraftStorageKey,
+} from "../lib/local-draft";
 
 const browserMock = vi.hoisted(() => ({
   scripting: {
     executeScript: vi.fn(),
+  },
+  storage: {
+    local: {
+      get: vi.fn(),
+      set: vi.fn(),
+      remove: vi.fn(),
+    },
   },
   tabs: {
     create: vi.fn(),
@@ -68,6 +79,7 @@ const loadPopup = async (): Promise<void> => {
 
 beforeEach(() => {
   vi.resetModules();
+  vi.spyOn(window, "close").mockImplementation(() => undefined);
   document.documentElement.innerHTML = new DOMParser().parseFromString(
     popupHtml,
     "text/html",
@@ -78,10 +90,14 @@ beforeEach(() => {
   browserMock.scripting.executeScript.mockResolvedValue([
     { result: capture },
   ]);
+  browserMock.storage.local.get.mockResolvedValue({});
+  browserMock.storage.local.set.mockResolvedValue(undefined);
+  browserMock.storage.local.remove.mockResolvedValue(undefined);
   browserMock.tabs.create.mockResolvedValue(undefined);
 });
 
 afterEach(() => {
+  window.dispatchEvent(new PageTransitionEvent("pagehide"));
   vi.unstubAllGlobals();
   vi.useRealTimers();
   vi.clearAllMocks();
@@ -296,5 +312,374 @@ describe("états asynchrones du popup", () => {
       expect(input("description").value).toBe("Résumé distant");
       expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
     });
+  });
+
+  test("restaure une saisie locale récente avant la réponse distante", async () => {
+    const pending = deferred<Response>();
+    vi.stubGlobal("fetch", vi.fn(() => pending.promise));
+    const key = localDraftStorageKey(capture.url);
+    browserMock.storage.local.get.mockImplementation(async () => ({
+      [key]: {
+        version: 1,
+        url: capture.url,
+        savedAt: Date.now(),
+        expiresAt: Date.now() + LOCAL_DRAFT_TTL_MS,
+        fields: {
+          url: `${capture.url}/?utm_source=verbatim`,
+          title: "Titre local restauré",
+          category: "Design",
+          description: "Résumé local restauré",
+          tags: ["design"],
+          privateNote: "Note privée locale",
+        },
+      },
+    }));
+
+    await loadPopup();
+
+    await vi.waitFor(() => {
+      expect(input("title").value).toBe("Titre local restauré");
+      expect(input("url").value).toBe(
+        `${capture.url}/?utm_source=verbatim`,
+      );
+      expect(input("privateNote").value).toBe("Note privée locale");
+      expect(element<HTMLSelectElement>("#category").value).toBe("Design");
+      expect(element("#selected-tags").textContent).toContain("design");
+      expect(
+        element<HTMLButtonElement>("#discard-local").hidden,
+      ).toBe(false);
+      expect(
+        element<HTMLInputElement>("#local-persistence").checked,
+      ).toBe(true);
+    });
+
+    pending.resolve(
+      response(
+        bootstrap({
+          draft: {
+            url: capture.url,
+            title: "Titre distant",
+            category: "Développement",
+            description: "Résumé distant",
+            tags: ["outil"],
+            privateNote: "Note distante",
+          },
+        }),
+      ),
+    );
+    await vi.waitFor(() => {
+      expect(input("title").value).toBe("Titre local restauré");
+      expect(input("url").value).toBe(
+        `${capture.url}/?utm_source=verbatim`,
+      );
+      expect(element<HTMLSelectElement>("#category").value).toBe("Design");
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+      expect(element("#selected-tags").textContent).not.toContain("outil");
+    });
+
+    input("url").value = "https://";
+    input("url").dispatchEvent(new Event("input", { bubbles: true }));
+    element<HTMLButtonElement>("#discard-local").click();
+    await vi.waitFor(() => {
+      expect(browserMock.storage.local.remove).toHaveBeenCalledWith(key);
+      expect(element("#feedback").textContent).toBe(
+        "La saisie reste affichée, mais ne sera plus restaurée.",
+      );
+    });
+  });
+
+  test("préserve une saisie faite pendant la lecture locale", async () => {
+    const pendingBootstrap = deferred<Response>();
+    const pendingStorage = deferred<Record<string, unknown>>();
+    vi.stubGlobal("fetch", vi.fn(() => pendingBootstrap.promise));
+    const key = localDraftStorageKey(capture.url);
+    browserMock.storage.local.get.mockImplementation(async (keys) =>
+      keys === null ? {} : pendingStorage.promise,
+    );
+
+    await loadPopup();
+    await vi.waitFor(() => {
+      expect(element<HTMLFormElement>("#capture-form").hidden).toBe(false);
+    });
+    input("title").value = "Titre saisi pendant la lecture";
+    input("title").dispatchEvent(new Event("input", { bubbles: true }));
+    input("url").value = "https://example.com/nouvelle-adresse";
+    input("url").dispatchEvent(new Event("input", { bubbles: true }));
+
+    pendingStorage.resolve({
+      [key]: {
+        version: 1,
+        url: capture.url,
+        savedAt: Date.now(),
+        expiresAt: Date.now() + LOCAL_DRAFT_TTL_MS,
+        fields: {
+          url: capture.url,
+          title: "Ancien titre local",
+          category: "Design",
+          description: "Résumé local",
+          tags: ["design"],
+          privateNote: "Note locale",
+        },
+      },
+    });
+
+    await vi.waitFor(() => {
+      expect(input("title").value).toBe("Titre saisi pendant la lecture");
+      expect(input("url").value).toBe("https://example.com/nouvelle-adresse");
+      expect(input("description").value).toBe("Résumé local");
+      expect(element("#selected-tags").textContent).toContain("design");
+      expect(fetch).toHaveBeenCalledWith(
+        expect.stringContaining(
+          encodeURIComponent("https://example.com/nouvelle-adresse"),
+        ),
+        expect.anything(),
+      );
+    });
+  });
+
+  test("retire la catégorie locale si elle n’existe plus dans la taxonomie", async () => {
+    const key = localDraftStorageKey(capture.url);
+    browserMock.storage.local.get.mockImplementation(async () => ({
+      [key]: {
+        version: 1,
+        url: capture.url,
+        savedAt: Date.now(),
+        expiresAt: Date.now() + LOCAL_DRAFT_TTL_MS,
+        fields: {
+          url: capture.url,
+          title: "Titre local",
+          category: "Catégorie disparue",
+          description: "Résumé local",
+          tags: ["design"],
+          privateNote: "",
+        },
+      },
+    }));
+    vi.stubGlobal("fetch", vi.fn(async () => response(bootstrap())));
+
+    await loadPopup();
+
+    await vi.waitFor(() => {
+      expect(element<HTMLSelectElement>("#category").value).toBe("");
+      expect(
+        [...element<HTMLSelectElement>("#category").options].map(
+          (option) => option.value,
+        ),
+      ).not.toContain("Catégorie disparue");
+    });
+  });
+
+  test("force la dernière sauvegarde locale lorsque le popup se ferme", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => response(bootstrap())));
+    await loadPopup();
+    await vi.waitFor(() => {
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+    });
+
+    element<HTMLInputElement>("#local-persistence").click();
+    input("title").value = "Dernière correction";
+    input("title").dispatchEvent(new Event("input", { bubbles: true }));
+    window.dispatchEvent(new PageTransitionEvent("pagehide"));
+
+    await vi.waitFor(() => {
+      expect(browserMock.storage.local.set).toHaveBeenCalledWith({
+        [localDraftStorageKey(capture.url)]: expect.objectContaining({
+          fields: expect.objectContaining({ title: "Dernière correction" }),
+        }),
+      });
+    });
+  });
+
+  test("supprime la sauvegarde locale après un enregistrement réussi", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi
+        .fn()
+        .mockResolvedValueOnce(response(bootstrap()))
+        .mockResolvedValueOnce(response({ existing: false })),
+    );
+    await loadPopup();
+    await vi.waitFor(() => {
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+    });
+
+    element<HTMLFormElement>("#capture-form").dispatchEvent(
+      new Event("submit", { bubbles: true, cancelable: true }),
+    );
+
+    await vi.waitFor(() => {
+      expect(browserMock.storage.local.remove).toHaveBeenCalledWith(
+        localDraftStorageKey(capture.url),
+      );
+      expect(element("#feedback").textContent).toBe(
+        "Brouillon ajouté à la file.",
+      );
+    });
+
+    window.dispatchEvent(new PageTransitionEvent("pagehide"));
+    expect(browserMock.storage.local.set).not.toHaveBeenCalled();
+  });
+
+  test("signale une sauvegarde locale impossible et désactive la reprise", async () => {
+    browserMock.storage.local.set.mockRejectedValueOnce(
+      new Error("STORAGE_UNAVAILABLE"),
+    );
+    vi.stubGlobal("fetch", vi.fn(async () => response(bootstrap())));
+    await loadPopup();
+    await vi.waitFor(() => {
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+    });
+
+    element<HTMLInputElement>("#local-persistence").click();
+
+    await vi.waitFor(() => {
+      expect(element<HTMLInputElement>("#local-persistence").checked).toBe(
+        false,
+      );
+      expect(element("#feedback").textContent).toBe(
+        "Reprise locale impossible : cette saisie n’a pas été enregistrée sur l’appareil.",
+      );
+    });
+  });
+
+  test("n’efface pas le brouillon indépendant dont l’URL a seulement été saisie", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => response(bootstrap())));
+    await loadPopup();
+    await vi.waitFor(() => {
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+    });
+
+    element<HTMLInputElement>("#local-persistence").click();
+    input("url").value = "https://example.com/autre-brouillon";
+    input("url").dispatchEvent(new Event("input", { bubbles: true }));
+    await new Promise((resolve) => setTimeout(resolve, 350));
+    element<HTMLInputElement>("#local-persistence").click();
+
+    await vi.waitFor(() => {
+      expect(element("#feedback").textContent).toBe(
+        "Reprise locale désactivée.",
+      );
+    });
+    expect(browserMock.storage.local.remove).toHaveBeenCalledWith(
+      localDraftStorageKey(capture.url),
+    );
+    expect(browserMock.storage.local.remove).not.toHaveBeenCalledWith(
+      localDraftStorageKey("https://example.com/autre-brouillon"),
+    );
+  });
+
+  test("garde l’échec de nettoyage local actionnable après soumission", async () => {
+    browserMock.storage.local.remove.mockRejectedValue(
+      new Error("STORAGE_UNAVAILABLE"),
+    );
+    vi.stubGlobal(
+      "fetch",
+      vi
+        .fn()
+        .mockResolvedValueOnce(response(bootstrap()))
+        .mockResolvedValueOnce(response({ existing: false })),
+    );
+    await loadPopup();
+    await vi.waitFor(() => {
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+    });
+
+    element<HTMLInputElement>("#local-persistence").click();
+    element<HTMLFormElement>("#capture-form").dispatchEvent(
+      new Event("submit", { bubbles: true, cancelable: true }),
+    );
+
+    await vi.waitFor(() => {
+      expect(element("#feedback").textContent).toBe(
+        "Brouillon enregistré, mais sa reprise locale n’a pas pu être effacée. Utilisez « Oublier la reprise locale » pour réessayer.",
+      );
+      expect(element<HTMLButtonElement>("#discard-local").hidden).toBe(false);
+    });
+    expect(window.close).not.toHaveBeenCalled();
+  });
+
+  test("conserve une identité stable puis nettoie la session", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (_url: string | URL | Request, init?: RequestInit) =>
+        response(init?.method === "POST" ? { existing: false } : bootstrap()),
+      ),
+    );
+    await loadPopup();
+    await vi.waitFor(() => {
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+    });
+
+    element<HTMLInputElement>("#local-persistence").click();
+    input("title").value = "Correction locale";
+    input("title").dispatchEvent(new Event("input", { bubbles: true }));
+    await new Promise((resolve) => setTimeout(resolve, 350));
+
+    input("url").value = "https://example.com/intermediaire";
+    input("url").dispatchEvent(new Event("input", { bubbles: true }));
+    await new Promise((resolve) => setTimeout(resolve, 350));
+    expect(browserMock.storage.local.set).toHaveBeenCalledWith({
+      [localDraftStorageKey(capture.url)]: expect.objectContaining({
+        fields: expect.objectContaining({
+          url: "https://example.com/intermediaire",
+        }),
+      }),
+    });
+
+    input("url").value = capture.url;
+    input("url").dispatchEvent(new Event("input", { bubbles: true }));
+    element<HTMLButtonElement>("#retry").click();
+    await vi.waitFor(() => {
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+    });
+    element<HTMLFormElement>("#capture-form").dispatchEvent(
+      new Event("submit", { bubbles: true, cancelable: true }),
+    );
+
+    await vi.waitFor(() => {
+      expect(browserMock.storage.local.remove).toHaveBeenCalledWith(
+        localDraftStorageKey(capture.url),
+      );
+      expect(element("#feedback").textContent).toBe(
+        "Brouillon ajouté à la file.",
+      );
+    });
+  });
+
+  test("ne persiste rien sans consentement local explicite", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => response(bootstrap())));
+    await loadPopup();
+    await vi.waitFor(() => {
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+    });
+
+    input("title").value = "Correction non persistée";
+    input("title").dispatchEvent(new Event("input", { bubbles: true }));
+    window.dispatchEvent(new PageTransitionEvent("pagehide"));
+
+    expect(browserMock.storage.local.set).not.toHaveBeenCalled();
+  });
+
+  test("désactive la reprise locale pour l’URL réelle d’un onglet authentifié", async () => {
+    browserMock.tabs.query.mockResolvedValue([
+      { id: 7, url: "https://example.com/admin/private" },
+    ]);
+    browserMock.scripting.executeScript.mockResolvedValue([
+      { result: capture },
+    ]);
+    vi.stubGlobal("fetch", vi.fn(async () => response(bootstrap())));
+
+    await loadPopup();
+
+    await vi.waitFor(() => {
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+      expect(element<HTMLInputElement>("#local-persistence").disabled).toBe(
+        true,
+      );
+    });
+    expect(element<HTMLInputElement>("#local-persistence").title).toBe(
+      "Reprise locale indisponible pour cette page privée ou authentifiée.",
+    );
+    expect(browserMock.storage.local.set).not.toHaveBeenCalled();
   });
 });
