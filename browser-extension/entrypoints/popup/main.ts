@@ -38,6 +38,8 @@ let localPersistenceEnabled = true;
 let localDraftDirty = false;
 let restoredLocalDraftUrl: string | null = null;
 let restoredTagsAuthoritative = false;
+const persistedLocalDraftUrls = new Set<string>();
+const pendingLocalWrites = new Set<Promise<void>>();
 
 type CurationOptions = { categories: string[]; tags: string[] };
 type EditableField = keyof PageCapture | "category" | "tags";
@@ -74,9 +76,39 @@ const persistLocalDraft = (): void => {
   if (!localPersistenceEnabled || !localDraftDirty) return;
   const url = field("url").value.trim();
   if (!isSupportedCaptureUrl(url)) return;
-  void saveLocalDraft(browser.storage.local, url, currentLocalDraft()).catch(
-    () => undefined,
+  persistedLocalDraftUrls.add(url);
+  const write = saveLocalDraft(
+    browser.storage.local,
+    url,
+    currentLocalDraft(),
+  ).catch(() => undefined);
+  pendingLocalWrites.add(write);
+  void write.finally(() => {
+    pendingLocalWrites.delete(write);
+  });
+};
+
+const clearSessionLocalDrafts = async (): Promise<void> => {
+  await Promise.all([...pendingLocalWrites]);
+  const urls = [
+    ...new Set(
+      [
+        ...persistedLocalDraftUrls,
+        restoredLocalDraftUrl,
+        field("url").value.trim(),
+      ].filter((url): url is string => !!url),
+    ),
+  ];
+  await Promise.all(
+    urls.map((url) =>
+      clearLocalDraft(browser.storage.local, url).catch((error) => {
+        if (error instanceof Error && error.message === "SENSITIVE_URL") return;
+        throw error;
+      }),
+    ),
   );
+  persistedLocalDraftUrls.clear();
+  restoredLocalDraftUrl = null;
 };
 
 const flushLocalDraftSave = (): void => {
@@ -394,22 +426,7 @@ discardLocalButton.addEventListener("click", () => {
   localDraftDirty = false;
   if (localSaveTimer) clearTimeout(localSaveTimer);
   localSaveTimer = undefined;
-  const urls = [
-    ...new Set(
-      [restoredLocalDraftUrl, field("url").value.trim()].filter(
-        (url): url is string => !!url,
-      ),
-    ),
-  ];
-  void Promise.all(
-    urls.map((url) =>
-      clearLocalDraft(browser.storage.local, url).catch((error) => {
-        if (error instanceof Error && error.message === "SENSITIVE_URL") return;
-        throw error;
-      }),
-    ),
-  ).then(() => {
-    restoredLocalDraftUrl = null;
+  void clearSessionLocalDrafts().then(() => {
     discardLocalButton.hidden = true;
     feedback.textContent =
       "La saisie reste affichée, mais ne sera plus restaurée.";
@@ -485,15 +502,7 @@ form.addEventListener("submit", async (event) => {
     discardLocalButton.hidden = true;
     if (localSaveTimer) clearTimeout(localSaveTimer);
     localSaveTimer = undefined;
-    await Promise.all(
-      [...new Set([
-        field("url").value.trim(),
-        restoredLocalDraftUrl,
-      ].filter((url): url is string => !!url))].map((url) =>
-        clearLocalDraft(browser.storage.local, url),
-      ),
-    ).catch(() => undefined);
-    restoredLocalDraftUrl = null;
+    await clearSessionLocalDrafts().catch(() => undefined);
     feedback.textContent = data.existing
       ? "Brouillon mis à jour."
       : "Brouillon ajouté à la file.";

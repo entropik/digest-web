@@ -44,8 +44,10 @@ export const canonicalLocalDraftUrl = (rawUrl: string): string => {
   const fragmentQuery = fragment.includes("?")
     ? fragment.slice(fragment.indexOf("?") + 1)
     : fragment;
+  const fragmentPath = `/${(fragment.split("?")[0] ?? "").replace(/^\/+/, "")}`;
   if (
     SENSITIVE_PATH_SEGMENT.test(url.pathname) ||
+    SENSITIVE_PATH_SEGMENT.test(fragmentPath) ||
     [...url.searchParams.keys()].some((key) => SENSITIVE_QUERY_KEY.test(key)) ||
     [...new URLSearchParams(fragmentQuery).keys()].some((key) =>
       SENSITIVE_QUERY_KEY.test(key),

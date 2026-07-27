@@ -79,6 +79,7 @@ const loadPopup = async (): Promise<void> => {
 
 beforeEach(() => {
   vi.resetModules();
+  vi.spyOn(window, "close").mockImplementation(() => undefined);
   document.documentElement.innerHTML = new DOMParser().parseFromString(
     popupHtml,
     "text/html",
@@ -459,5 +460,48 @@ describe("états asynchrones du popup", () => {
 
     window.dispatchEvent(new PageTransitionEvent("pagehide"));
     expect(browserMock.storage.local.set).not.toHaveBeenCalled();
+  });
+
+  test("nettoie toutes les URL sauvegardées pendant la session", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (_url: string | URL | Request, init?: RequestInit) =>
+        response(init?.method === "POST" ? { existing: false } : bootstrap()),
+      ),
+    );
+    await loadPopup();
+    await vi.waitFor(() => {
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+    });
+
+    input("title").value = "Correction locale";
+    input("title").dispatchEvent(new Event("input", { bubbles: true }));
+    await new Promise((resolve) => setTimeout(resolve, 350));
+
+    input("url").value = "https://example.com/intermediaire";
+    input("url").dispatchEvent(new Event("input", { bubbles: true }));
+    await new Promise((resolve) => setTimeout(resolve, 350));
+
+    input("url").value = capture.url;
+    input("url").dispatchEvent(new Event("input", { bubbles: true }));
+    element<HTMLButtonElement>("#retry").click();
+    await vi.waitFor(() => {
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+    });
+    element<HTMLFormElement>("#capture-form").dispatchEvent(
+      new Event("submit", { bubbles: true, cancelable: true }),
+    );
+
+    await vi.waitFor(() => {
+      expect(browserMock.storage.local.remove).toHaveBeenCalledWith(
+        localDraftStorageKey(capture.url),
+      );
+      expect(browserMock.storage.local.remove).toHaveBeenCalledWith(
+        localDraftStorageKey("https://example.com/intermediaire"),
+      );
+      expect(element("#feedback").textContent).toBe(
+        "Brouillon ajouté à la file.",
+      );
+    });
   });
 });
