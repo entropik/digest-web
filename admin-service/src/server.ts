@@ -26,6 +26,10 @@ import {
   listHiddenLinks,
   updateLinkVisibility,
 } from "./github.js";
+import {
+  createRequestId,
+  runWithRequestContext,
+} from "./observability.js";
 import { UnsafeUrlError } from "./urls.js";
 
 type Variables = {
@@ -40,11 +44,18 @@ const allowedOrigin = (origin: string | undefined): origin is string =>
   !!origin && config.allowedOrigins.includes(origin);
 
 app.use("*", async (context, next) => {
+  const requestId = createRequestId();
+  context.header("X-Request-Id", requestId);
+  await runWithRequestContext(requestId, next);
+});
+
+app.use("*", async (context, next) => {
   const origin = context.req.header("Origin");
   if (allowedOrigin(origin)) {
     context.header("Access-Control-Allow-Origin", origin);
     context.header("Access-Control-Allow-Credentials", "true");
     context.header("Access-Control-Allow-Headers", "Content-Type");
+    context.header("Access-Control-Expose-Headers", "X-Request-Id");
     context.header(
       "Access-Control-Allow-Methods",
       "GET, POST, PATCH, DELETE, OPTIONS",

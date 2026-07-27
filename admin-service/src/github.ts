@@ -11,6 +11,12 @@ import {
   type VisibilityAction,
 } from "./catalog.js";
 import { config } from "./config.js";
+import {
+  measureTiming,
+  measureTimingSync,
+  recordTiming,
+  startTimer,
+} from "./observability.js";
 
 type GitHubRef = { object: { sha: string } };
 type GitHubCommit = { sha: string; tree: { sha: string } };
@@ -63,12 +69,14 @@ const appAuth = createAppAuth({
 });
 
 const installationToken = async (): Promise<string> => {
-  const authentication = await appAuth({
-    type: "installation",
-    installationId: config.githubInstallationId,
-    repositories: [config.repositoryName],
-    permissions: { contents: "write", actions: "read" },
-  });
+  const authentication = await measureTiming("github.auth", () =>
+    appAuth({
+      type: "installation",
+      installationId: config.githubInstallationId,
+      repositories: [config.repositoryName],
+      permissions: { contents: "write", actions: "read" },
+    }),
+  );
   return authentication.token;
 };
 
@@ -141,17 +149,23 @@ export const createRepositoryHeadReader = (
     read: async () => {
       const readGeneration = generation;
       const readId = ++latestRead;
-      const commitSha = await dependencies.readRef();
+      const commitSha = await measureTiming("github.ref", dependencies.readRef);
       if (snapshot?.commitSha === commitSha) return snapshot;
 
       const [commit, catalog] = await Promise.all([
-        dependencies.readCommit(commitSha),
-        dependencies.readCatalog(commitSha),
+        measureTiming("github.commit", () =>
+          dependencies.readCommit(commitSha),
+        ),
+        measureTiming("github.catalog.download", () =>
+          dependencies.readCatalog(commitSha),
+        ),
       ]);
       const next = {
         commitSha,
         treeSha: commit.tree.sha,
-        links: parseCatalog(catalog),
+        links: measureTimingSync("github.catalog.parse", () =>
+          parseCatalog(catalog),
+        ),
       };
       if (readGeneration === generation && readId === latestRead) {
         snapshot = next;
@@ -177,12 +191,30 @@ export const readRepositoryHead = (): Promise<RepositoryHead> =>
   repositoryHeadReader.read();
 
 export const readCachedRepositoryHead = async (): Promise<RepositoryHead> => {
+  const startedAt = startTimer();
   const now = Date.now();
   if (cachedRepositoryHead && cachedRepositoryHead.expiresAt > now) {
+    recordTiming("github.cache", startedAt, { cache: "hit" });
     return cachedRepositoryHead.value;
   }
-  if (repositoryHeadRequest) return repositoryHeadRequest;
+  if (repositoryHeadRequest) {
+    try {
+      const value = await repositoryHeadRequest;
+      recordTiming("github.cache", startedAt, {
+        cache: "shared",
+        status: "success",
+      });
+      return value;
+    } catch (error) {
+      recordTiming("github.cache", startedAt, {
+        cache: "shared",
+        status: "error",
+      });
+      throw error;
+    }
+  }
 
+  recordTiming("github.cache", startedAt, { cache: "miss" });
   const generation = repositoryHeadGeneration;
   const request = readRepositoryHead()
     .then((value) => {

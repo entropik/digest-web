@@ -43,6 +43,10 @@ test("CORS only trusts the configured extension origin", async () => {
     "chrome-extension://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
   );
   assert.equal(allowed.headers.get("Access-Control-Allow-Credentials"), "true");
+  assert.equal(
+    allowed.headers.get("Access-Control-Expose-Headers"),
+    "X-Request-Id",
+  );
 
   const denied = await app.request("/api/admin/session", {
     method: "OPTIONS",
@@ -61,6 +65,10 @@ test("session endpoint is readable but mutations require authentication", async 
     },
   });
   assert.equal(session.status, 200);
+  assert.match(
+    session.headers.get("X-Request-Id") ?? "",
+    /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i,
+  );
   assert.deepEqual(await session.json(), {
     authenticated: false,
     isAdmin: false,

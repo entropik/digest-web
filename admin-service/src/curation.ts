@@ -24,6 +24,7 @@ import {
   updatePublishedLink,
   workflowRunsForCommit,
 } from "./github.js";
+import { recordTiming, startTimer } from "./observability.js";
 import { buildPublicationFiles } from "./publication.js";
 import { canonicalizePublicUrl } from "./urls.js";
 
@@ -121,32 +122,41 @@ export class CurationService {
   }
 
   async bootstrap(rawUrl: string) {
-    const url = canonicalizePublicUrl(rawUrl);
-    const draft = this.store.findDraftByUrl(url);
-    const head = await readCachedRepositoryHead();
-    const options = catalogTaxonomy(head.links);
+    const startedAt = startTimer();
+    let outcome: "available" | "draft" | "error" | "published" = "error";
+    try {
+      const url = canonicalizePublicUrl(rawUrl);
+      const draft = this.store.findDraftByUrl(url);
+      const head = await readCachedRepositoryHead();
+      const options = catalogTaxonomy(head.links);
 
-    if (draft?.state === "draft") {
-      return { options, url, draft, published: null };
-    }
-    if (draft?.state === "published") {
+      if (draft?.state === "draft") {
+        outcome = "draft";
+        return { options, url, draft, published: null };
+      }
+      if (draft?.state === "published") {
+        outcome = "published";
+        return {
+          options,
+          url,
+          draft: null,
+          published: {
+            id: draft.publishedLinkId,
+            commit: draft.publishedCommit,
+          },
+        };
+      }
+      const published = head.links.find((link) => link.url === url);
+      outcome = published ? "published" : "available";
       return {
         options,
         url,
         draft: null,
-        published: {
-          id: draft.publishedLinkId,
-          commit: draft.publishedCommit,
-        },
+        published: published ? publicAdminLink(published) : null,
       };
+    } finally {
+      recordTiming("curation.bootstrap", startedAt, { outcome });
     }
-    const published = head.links.find((link) => link.url === url);
-    return {
-      options,
-      url,
-      draft: null,
-      published: published ? publicAdminLink(published) : null,
-    };
   }
 
   async lookupUrl(rawUrl: string) {
