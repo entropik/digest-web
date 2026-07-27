@@ -48,6 +48,8 @@ describe("page capture", () => {
     ).toBe(false);
     expect(isSupportedCaptureUrl("http://[::1]/report")).toBe(false);
     expect(isSupportedCaptureUrl("http://[ff02::1]/report")).toBe(false);
+    expect(isSupportedCaptureUrl("http://[fec0::1]/report")).toBe(false);
+    expect(isSupportedCaptureUrl("http://[feff::1]/report")).toBe(false);
     expect(isSupportedCaptureUrl("https://user:pass@example.com")).toBe(false);
     expect(isSupportedCaptureUrl("https://example.com/article")).toBe(true);
   });

@@ -135,6 +135,9 @@ describe("temporary local drafts", () => {
 
   test.each([
     "https://example.com/login",
+    "https://example.com/wp-admin/post.php",
+    "https://example.com/cms-admin/editor",
+    "https://example.com/wp-login.php",
     "https://example.com/article?session_token=secret",
     "https://example.com/article?oauth_code=secret",
     "https://example.com/callback#access_token=secret",
@@ -159,6 +162,8 @@ describe("temporary local drafts", () => {
     "https://example.com/callback?ticket_id=SECRET",
     "http://[::ffff:127.0.0.1]/article",
     "http://[ff02::1]/article",
+    "http://[fec0::1]/article",
+    "http://[feff::1]/article",
   ])("rejects sensitive URL data before local persistence: %s", async (url) => {
     await expect(saveLocalDraft(storage, url, fields)).rejects.toThrow(
       "SENSITIVE_URL",

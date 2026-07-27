@@ -54,7 +54,7 @@ export const isSupportedCaptureUrl = (rawUrl: string): boolean => {
       !mappedPrivateIpv4(ipHost) &&
       ipHost !== "::" &&
       ipHost !== "::1" &&
-      !/^f[cd]|^fe[89ab]|^ff/i.test(ipHost)
+      !/^f[cd]|^fe[89a-f]|^ff/i.test(ipHost)
     );
   } catch {
     return false;
