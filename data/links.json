@@ -10747,7 +10747,9 @@
       "création",
       "youtube"
     ],
-    "id": "d26ee461-f9c9-5b84-ae35-a9153f8b8056"
+    "id": "d26ee461-f9c9-5b84-ae35-a9153f8b8056",
+    "visibility": "hidden",
+    "hidden_at": "2026-07-27T10:23:10.659Z"
   },
   {
     "title": "Instagram",
