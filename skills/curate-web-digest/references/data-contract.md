@@ -10,6 +10,17 @@ Each item has:
 - `added`: ISO date in `YYYY-MM-DD` format.
 - `description`: optional short reader-facing summary.
 - `tags`: optional array of reader-facing tags without the leading `#`.
+- `status`: optional `dead` marker for a vanished public resource.
+- `status_note`: reader-facing explanation retained with a dead link.
+- `archive_url`: optional timestamped HTTPS replay URL on `web.archive.org`.
+- `archive_timestamp`: the 14-digit timestamp encoded in `archive_url`.
+- `archive_scope`: `url` for the exact resource or `site` when the resolver had
+  to fall back to the original site root.
+- `archive_status`: `missing` only when Wayback has no usable capture.
+- `archive_checked_at`: ISO date of the latest Wayback lookup.
+
+The canonical `url` is never replaced by `archive_url`: it remains the
+historical address displayed to readers and used for deduplication.
 - `status`: optional lifecycle marker. Use `dead` when the original public
   address no longer resolves to its documented resource but must be preserved
   for historical purposes.

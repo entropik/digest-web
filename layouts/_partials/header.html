@@ -1,0 +1,73 @@
+<header class="header">
+  <nav class="header-nav" aria-label="Navigation principale">
+    {{- $labelText := site.Params.label.text | default site.Title }}
+    <a class="header-brand" href="{{ "" | absLangURL }}" accesskey="h" title="{{ $labelText }} (Alt + H)">
+      {{- $labelText -}}
+    </a>
+
+    {{- $currentPage := . }}
+    <ul id="menu" class="menu">
+      {{- range site.Menus.main }}
+        {{- $menuItemURL := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL)) | absLangURL }}
+        {{- $pageURL := $currentPage.Permalink | absLangURL }}
+        <li>
+          <a href="{{ .URL | absLangURL }}"{{ if eq $menuItemURL $pageURL }} aria-current="page"{{ end }}>
+            <span{{ if eq $menuItemURL $pageURL }} class="active"{{ end }}>{{ .Name }}</span>
+          </a>
+        </li>
+      {{- end }}
+    </ul>
+
+    <div class="header-actions">
+      {{- if not site.Params.disableThemeToggle }}
+      <button id="theme-toggle" class="theme-toggle" type="button" accesskey="t" title="Changer de thème (Alt + T)" aria-label="Changer de thème">
+        <svg class="moon" aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
+        </svg>
+        <svg class="sun" aria-hidden="true" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5"></circle>
+          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+        </svg>
+      </button>
+      {{- end }}
+      <button
+        class="header-menu-toggle"
+        id="header-menu-toggle"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="header-mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <dialog class="header-mobile-menu" id="header-mobile-menu" aria-labelledby="header-mobile-menu-title">
+    <div class="header-mobile-menu-shell">
+      <div class="header-mobile-menu-top">
+        <p id="header-mobile-menu-title">Navigation</p>
+        <button class="header-mobile-menu-close" type="button" aria-label="Fermer le menu">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M6 6 18 18M18 6 6 18"></path>
+          </svg>
+        </button>
+      </div>
+      <nav aria-label="Navigation mobile">
+        <ul>
+          {{- range $index, $item := site.Menus.main }}
+            {{- $menuItemURL := (cond (strings.HasSuffix $item.URL "/") $item.URL (printf "%s/" $item.URL)) | absLangURL }}
+            {{- $pageURL := $currentPage.Permalink | absLangURL }}
+            <li>
+              <a href="{{ $item.URL | absLangURL }}"{{ if eq $menuItemURL $pageURL }} aria-current="page"{{ end }}>
+                <span>{{ printf "%02d" (add $index 1) }}</span>
+                <strong>{{ $item.Name }}</strong>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </li>
+          {{- end }}
+        </ul>
+      </nav>
+      <p class="header-mobile-menu-signature">{{ $labelText }}</p>
+    </div>
+  </dialog>
+</header>

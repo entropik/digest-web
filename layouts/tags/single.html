@@ -14,17 +14,22 @@
   <section class="archive-group">
     <div class="archive-link-list">
       {{ range sort $links "title" }}
+        {{ $targetURL := partial "link-target-url.html" . }}
         <article class="archive-link">
           <div>
             <h3>
-              <a class="link-title" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+              <a class="link-title" href="{{ $targetURL }}" target="_blank" rel="noopener noreferrer">
                 {{ partial "link-favicon.html" .url }}
                 <span>{{ .title }}</span>
               </a>
             </h3>
+            {{ if eq (.status | default "") "dead" }}
+              <span class="archive-status">Lien mort · conservé pour mémoire</span>
+            {{ end }}
             <span class="archive-url">{{ .url }}</span>
           </div>
           <div>
+            {{ with .status_note }}<p class="archive-status-note">{{ . }}</p>{{ end }}
             {{ with .description }}<p class="archive-link-description">{{ . }}</p>{{ end }}
             {{ with .tags }}
               <div class="archive-tags" aria-label="Tags">

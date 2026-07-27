@@ -3,6 +3,15 @@
   const FAVORITES_STORAGE_KEY = "digest-favorites-v1";
   const search = document.querySelector("#digest-search");
   const dateFilter = document.querySelector("#digest-date");
+  const dateToggle = document.querySelector("#digest-date-toggle");
+  const dateValue = document.querySelector("#digest-date-value");
+  const calendar = document.querySelector("#digest-calendar");
+  const calendarTitle = document.querySelector("#digest-calendar-title");
+  const calendarGrid = document.querySelector("#digest-calendar-grid");
+  const calendarPrev = document.querySelector("#digest-calendar-prev");
+  const calendarNext = document.querySelector("#digest-calendar-next");
+  const calendarClear = document.querySelector("#digest-calendar-clear");
+  const calendarToday = document.querySelector("#digest-calendar-today");
   const filters = document.querySelector("#digest-filters");
   const randomButton = document.querySelector("#digest-random");
   const favoritesCount = document.querySelector("#digest-favorites-count");
@@ -15,8 +24,15 @@
   const pageStatus = document.querySelector("#digest-page-status");
   const rawLinks = JSON.parse(document.querySelector("#digest-data").textContent);
   const links = typeof rawLinks === "string" ? JSON.parse(rawLinks) : rawLinks;
+  const linkCountByDate = links.reduce((counts, link) => {
+    const dateKey = String(link.added || "").slice(0, 10);
+    if (dateKey) counts.set(dateKey, (counts.get(dateKey) || 0) + 1);
+    return counts;
+  }, new Map());
   const modal = document.querySelector("#digest-modal");
   const modalClose = modal.querySelector(".digest-modal-close");
+  const modalPrev = modal.querySelector(".digest-modal-prev");
+  const modalNext = modal.querySelector(".digest-modal-next");
   const modalTitle = document.querySelector("#digest-modal-title");
   const modalCategory = document.querySelector("#digest-modal-category");
   const modalDescription = document.querySelector("#digest-modal-description");
@@ -29,9 +45,19 @@
     month: "short",
     year: "numeric",
   });
+  const calendarMonthFormatter = new Intl.DateTimeFormat("fr-FR", {
+    month: "long",
+    year: "numeric",
+  });
+  const calendarValueFormatter = new Intl.DateTimeFormat("fr-FR");
+  const today = new Date();
+  today.setHours(12, 0, 0, 0);
+  let calendarMonth = new Date(today.getFullYear(), today.getMonth(), 1, 12);
   let category = "all";
   let randomLinkUrl = "";
   let modalFavoriteUrl = "";
+  let modalNavigationLinks = [];
+  let modalNavigationIndex = -1;
   let favorites = new Set();
   let currentPage = Math.max(
     1,
@@ -64,11 +90,19 @@
       active ? "Retirer ce lien des favoris" : "Ajouter ce lien aux favoris",
     );
     button.title = active ? "Retirer des favoris" : "Ajouter aux favoris";
-    button.textContent = expandedLabel
-      ? "Favoris"
-      : active
-        ? "♥"
-        : "♡";
+    if (expandedLabel) {
+      const heart = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      heart.setAttribute("aria-hidden", "true");
+      heart.setAttribute("viewBox", "0 0 24 24");
+      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("d", "M12 20.5 4.7 13.8A5.4 5.4 0 0 1 12 5.9a5.4 5.4 0 0 1 7.3 7.9Z");
+      heart.append(path);
+      const label = document.createElement("span");
+      label.textContent = "Favoris";
+      button.replaceChildren(heart, label);
+    } else {
+      button.textContent = active ? "♥" : "♡";
+    }
   };
 
   const refreshFavoriteControls = () => {
@@ -119,6 +153,64 @@
       ].join(" "),
     );
 
+  const toDateKey = (date) =>
+    [
+      date.getFullYear(),
+      String(date.getMonth() + 1).padStart(2, "0"),
+      String(date.getDate()).padStart(2, "0"),
+    ].join("-");
+
+  const parseDateKey = (dateKey) => {
+    const [year, month, day] = dateKey.split("-").map(Number);
+    return new Date(year, month - 1, day, 12);
+  };
+
+  const closeCalendar = () => {
+    calendar.hidden = true;
+    dateToggle.setAttribute("aria-expanded", "false");
+  };
+
+  const renderCalendar = () => {
+    const year = calendarMonth.getFullYear();
+    const month = calendarMonth.getMonth();
+    const selectedDate = dateFilter.value;
+    const monthStart = new Date(year, month, 1, 12);
+    const firstDayOffset = (monthStart.getDay() + 6) % 7;
+    const gridStart = new Date(year, month, 1 - firstDayOffset, 12);
+    const fragment = document.createDocumentFragment();
+
+    calendarTitle.textContent = calendarMonthFormatter.format(calendarMonth);
+
+    for (let index = 0; index < 42; index += 1) {
+      const date = new Date(
+        gridStart.getFullYear(),
+        gridStart.getMonth(),
+        gridStart.getDate() + index,
+        12,
+      );
+      const dateKey = toDateKey(date);
+      const linkCount = linkCountByDate.get(dateKey) || 0;
+      const day = document.createElement("button");
+      day.className = "digest-calendar-day";
+      day.type = "button";
+      day.textContent = date.getDate();
+      day.dataset.date = dateKey;
+      day.classList.toggle("is-outside", date.getMonth() !== month);
+      day.classList.toggle("is-today", dateKey === toDateKey(today));
+      day.classList.toggle("is-selected", dateKey === selectedDate);
+      day.classList.toggle("has-links", linkCount > 0);
+      day.setAttribute(
+        "aria-label",
+        `${calendarValueFormatter.format(date)}${linkCount ? ` · ${linkCount} lien${linkCount > 1 ? "s" : ""}` : ""}`,
+      );
+      if (dateKey === selectedDate) day.setAttribute("aria-current", "date");
+      fragment.append(day);
+    }
+
+    calendarGrid.replaceChildren(fragment);
+    calendarClear.disabled = !selectedDate;
+  };
+
   const createCard = (link) => {
     const host = getHost(link.url);
     const article = document.createElement("article");
@@ -130,6 +222,8 @@
     trigger.type = "button";
     trigger.dataset.title = link.title;
     trigger.dataset.url = link.url;
+    trigger.dataset.archiveUrl = link.archive_url || "";
+    trigger.dataset.archiveScope = link.archive_scope || "";
     trigger.dataset.description = link.description || "";
     trigger.dataset.categoryLabel = link.category;
     trigger.dataset.host = host;
@@ -149,7 +243,7 @@
     if (link.status === "dead") {
       const status = document.createElement("span");
       status.className = "digest-status";
-      status.textContent = "Lien mort";
+      status.textContent = "Lien mort · conservé pour mémoire";
       labels.append(status);
     }
     const arrow = document.createElement("span");
@@ -202,7 +296,7 @@
         (category === "favorites" ? isFavorite(link.url) : link.category === category);
       const searchableText = getSearchableText(link);
       const matchesQuery = terms.every((term) => searchableText.includes(term));
-      const matchesDate = !selectedDate || link.added === selectedDate;
+      const matchesDate = !selectedDate || String(link.added).slice(0, 10) === selectedDate;
       return matchesCategory && matchesQuery && matchesDate;
     });
   };
@@ -211,6 +305,18 @@
     randomLinkUrl = "";
     randomButton.classList.remove("is-active");
     randomButton.setAttribute("aria-pressed", "false");
+  };
+
+  const getDisplayState = () => {
+    const filteredLinks = getFilteredLinks();
+    const randomLink = randomLinkUrl
+      ? filteredLinks.find((link) => link.url === randomLinkUrl)
+      : null;
+    if (randomLinkUrl && !randomLink) clearRandomSelection();
+    return {
+      filteredLinks,
+      displayedLinks: randomLink ? [randomLink] : filteredLinks,
+    };
   };
 
   const syncPageUrl = (mode) => {
@@ -224,12 +330,7 @@
   };
 
   const render = ({ urlMode = null, scroll = false } = {}) => {
-    const filteredLinks = getFilteredLinks();
-    const randomLink = randomLinkUrl
-      ? filteredLinks.find((link) => link.url === randomLinkUrl)
-      : null;
-    if (randomLinkUrl && !randomLink) clearRandomSelection();
-    const displayedLinks = randomLink ? [randomLink] : filteredLinks;
+    const { filteredLinks, displayedLinks } = getDisplayState();
     const pageCount = Math.max(1, Math.ceil(displayedLinks.length / PAGE_SIZE));
     currentPage = Math.min(Math.max(1, currentPage), pageCount);
     const start = (currentPage - 1) * PAGE_SIZE;
@@ -251,6 +352,15 @@
     }
   };
 
+  const selectDate = (dateKey) => {
+    dateFilter.value = dateKey;
+    dateValue.textContent = calendarValueFormatter.format(parseDateKey(dateKey));
+    currentPage = 1;
+    clearRandomSelection();
+    closeCalendar();
+    render({ urlMode: "replace" });
+  };
+
   filters.addEventListener("click", (event) => {
     const button = event.target.closest("button[data-category-label]");
     if (!button) return;
@@ -268,11 +378,56 @@
     render({ urlMode: "replace" });
   });
 
-  dateFilter.addEventListener("input", () => {
+  dateToggle.addEventListener("click", () => {
+    const willOpen = calendar.hidden;
+    if (!willOpen) {
+      closeCalendar();
+      return;
+    }
+
+    const referenceDate = dateFilter.value ? parseDateKey(dateFilter.value) : today;
+    calendarMonth = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), 1, 12);
+    renderCalendar();
+    calendar.hidden = false;
+    dateToggle.setAttribute("aria-expanded", "true");
+  });
+
+  calendarPrev.addEventListener("click", () => {
+    calendarMonth = new Date(
+      calendarMonth.getFullYear(),
+      calendarMonth.getMonth() - 1,
+      1,
+      12,
+    );
+    renderCalendar();
+  });
+
+  calendarNext.addEventListener("click", () => {
+    calendarMonth = new Date(
+      calendarMonth.getFullYear(),
+      calendarMonth.getMonth() + 1,
+      1,
+      12,
+    );
+    renderCalendar();
+  });
+
+  calendarGrid.addEventListener("click", (event) => {
+    const day = event.target.closest(".digest-calendar-day");
+    if (!day) return;
+    selectDate(day.dataset.date);
+  });
+
+  calendarClear.addEventListener("click", () => {
+    dateFilter.value = "";
+    dateValue.textContent = "jj/mm/aaaa";
     currentPage = 1;
     clearRandomSelection();
+    closeCalendar();
     render({ urlMode: "replace" });
   });
+
+  calendarToday.addEventListener("click", () => selectDate(toDateKey(today)));
 
   randomButton.addEventListener("click", () => {
     const candidates = getFilteredLinks();
@@ -312,6 +467,61 @@
     render();
   });
 
+  const renderModalLink = (link) => {
+    const isDead = link.status === "dead";
+    const archiveUrl = link.archive_url || "";
+    const host = getHost(link.url);
+
+    modalTitle.textContent = link.title;
+    modalCategory.textContent = isDead ? `${link.category} · LIEN MORT` : link.category;
+    modalDescription.textContent =
+      [link.status_note, link.description].filter(Boolean).join(" ") ||
+      "Aucun résumé n’est encore disponible pour cette ressource.";
+    modalUrl.textContent = link.url;
+    modalLink.href = isDead && archiveUrl ? archiveUrl : link.url;
+    modalLink.textContent = isDead ? "Tester l’URL" : "Visiter le site";
+    modalLink.setAttribute(
+      "aria-label",
+      isDead && archiveUrl
+        ? `Tester l’URL archivée de ${link.title}`
+        : isDead
+          ? `Tester l’adresse d’origine de ${link.title}`
+          : `Visiter ${host}`,
+    );
+    modalFavoriteUrl = link.url;
+    updateFavoriteButton(modalFavorite, modalFavoriteUrl, { expandedLabel: true });
+
+    modalTags.replaceChildren();
+    (link.tags || []).forEach((tag) => {
+      const chip = document.createElement("a");
+      chip.textContent = `#${tag}`;
+      chip.href = `${modalTags.dataset.base}${slugifyTag(tag)}/`;
+      modalTags.append(chip);
+    });
+    modalTags.hidden = modalTags.childElementCount === 0;
+
+    const previousLink = modalNavigationLinks[modalNavigationIndex - 1];
+    const nextLink = modalNavigationLinks[modalNavigationIndex + 1];
+    modalPrev.disabled = !previousLink;
+    modalNext.disabled = !nextLink;
+    modalPrev.setAttribute(
+      "aria-label",
+      previousLink ? `Lien précédent : ${previousLink.title}` : "Aucun lien précédent",
+    );
+    modalNext.setAttribute(
+      "aria-label",
+      nextLink ? `Lien suivant : ${nextLink.title}` : "Aucun lien suivant",
+    );
+    modal.scrollTop = 0;
+  };
+
+  const moveModal = (offset) => {
+    const nextIndex = modalNavigationIndex + offset;
+    if (nextIndex < 0 || nextIndex >= modalNavigationLinks.length) return;
+    modalNavigationIndex = nextIndex;
+    renderModalLink(modalNavigationLinks[modalNavigationIndex]);
+  };
+
   grid.addEventListener("click", (event) => {
     const favorite = event.target.closest(".digest-favorite");
     if (favorite) {
@@ -323,39 +533,20 @@
     const trigger = event.target.closest(".digest-card-trigger");
     if (!trigger) return;
 
-    modalTitle.textContent = trigger.dataset.title;
-    const isDead = trigger.dataset.status === "dead";
-    modalCategory.textContent = isDead
-      ? `${trigger.dataset.categoryLabel} · LIEN MORT`
-      : trigger.dataset.categoryLabel;
-    modalDescription.textContent =
-      [trigger.dataset.statusNote, trigger.dataset.description].filter(Boolean).join(" ") ||
-      "Aucun résumé n’est encore disponible pour cette ressource.";
-    modalUrl.textContent = trigger.dataset.url;
-    modalLink.href = trigger.dataset.url;
-    modalLink.textContent = "Tester url";
-    modalLink.setAttribute(
-      "aria-label",
-      isDead ? `Tester l’adresse d’origine de ${trigger.dataset.title}` : `Visiter ${trigger.dataset.host}`,
+    const { displayedLinks } = getDisplayState();
+    modalNavigationLinks = displayedLinks;
+    modalNavigationIndex = displayedLinks.findIndex(
+      (link) => link.url === trigger.dataset.url && link.title === trigger.dataset.title,
     );
-    modalFavoriteUrl = trigger.dataset.url;
-    updateFavoriteButton(modalFavorite, modalFavoriteUrl, { expandedLabel: true });
+    if (modalNavigationIndex < 0) return;
 
-    modalTags.replaceChildren();
-    (trigger.dataset.tags || "")
-      .split("|")
-      .filter(Boolean)
-      .forEach((tag) => {
-        const chip = document.createElement("a");
-        chip.textContent = `#${tag}`;
-        chip.href = `${modalTags.dataset.base}${slugifyTag(tag)}/`;
-        modalTags.append(chip);
-      });
-    modalTags.hidden = modalTags.childElementCount === 0;
-
+    renderModalLink(modalNavigationLinks[modalNavigationIndex]);
     modal.showModal();
     document.body.classList.add("digest-modal-open");
   });
+
+  modalPrev.addEventListener("click", () => moveModal(-1));
+  modalNext.addEventListener("click", () => moveModal(1));
 
   modalFavorite.addEventListener("click", () => {
     if (!modalFavoriteUrl) return;
@@ -371,8 +562,21 @@
   modal.addEventListener("close", () => {
     document.body.classList.remove("digest-modal-open");
   });
+  document.addEventListener("click", (event) => {
+    if (!calendar.hidden && !event.target.closest(".digest-date")) closeCalendar();
+  });
   document.addEventListener("keydown", (event) => {
-    if (event.key === "/" && document.activeElement !== search) {
+    if (event.key === "Escape" && !calendar.hidden) {
+      closeCalendar();
+      dateToggle.focus();
+      return;
+    }
+    if (modal.open && (event.key === "ArrowLeft" || event.key === "ArrowRight")) {
+      event.preventDefault();
+      moveModal(event.key === "ArrowLeft" ? -1 : 1);
+      return;
+    }
+    if (event.key === "/" && !modal.open && document.activeElement !== search) {
       event.preventDefault();
       search.focus();
     }

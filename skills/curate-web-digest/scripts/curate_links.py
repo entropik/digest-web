@@ -179,6 +179,50 @@ def normalize_item(item: dict[str, object], fallback_date: str) -> dict[str, obj
         status_note = str(item.get("status_note", "")).strip()
         if status_note:
             normalized["status_note"] = status_note
+        archive_url = str(item.get("archive_url", "")).strip()
+        if archive_url:
+            archive_parts = urlsplit(archive_url)
+            if (
+                archive_parts.scheme != "https"
+                or archive_parts.hostname not in {"web.archive.org", "www.web.archive.org"}
+                or archive_parts.username
+                or archive_parts.password
+            ):
+                raise ValueError("archive_url must be a public HTTPS web.archive.org URL")
+            archive_match = re.match(
+                r"^/web/(\d{14})(?:[a-z_]+)?/(https?://.+)$",
+                archive_parts.path,
+                re.I,
+            )
+            if not archive_match:
+                raise ValueError("archive_url must contain a timestamped Wayback replay")
+            captured_url = canonicalize(archive_match.group(2))
+            if urlsplit(captured_url).hostname != urlsplit(url).hostname:
+                raise ValueError("archive_url must capture the original host")
+            normalized["archive_url"] = archive_url
+
+            archive_timestamp = str(item.get("archive_timestamp", "")).strip()
+            if archive_timestamp and archive_timestamp != archive_match.group(1):
+                raise ValueError("archive_timestamp must match archive_url")
+            normalized["archive_timestamp"] = archive_timestamp or archive_match.group(1)
+
+            archive_scope = str(item.get("archive_scope", "url")).strip().lower()
+            if archive_scope not in {"url", "site"}:
+                raise ValueError("archive_scope must be url or site")
+            normalized["archive_scope"] = archive_scope
+        archive_status = str(item.get("archive_status", "")).strip().lower()
+        if archive_status:
+            if archive_status != "missing" or archive_url:
+                raise ValueError("archive_status is only supported as missing without archive_url")
+            normalized["archive_status"] = archive_status
+        archive_checked_at = str(item.get("archive_checked_at", "")).strip()
+        if archive_checked_at:
+            date.fromisoformat(archive_checked_at)
+            normalized["archive_checked_at"] = archive_checked_at
+        if archive_url and not archive_checked_at:
+            raise ValueError("archive_url requires archive_checked_at")
+        if archive_status and not archive_checked_at:
+            raise ValueError("archive_status missing requires archive_checked_at")
     stream = str(item.get("stream", "")).strip().lower()
     if stream:
         if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", stream):

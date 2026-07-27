@@ -22,6 +22,21 @@ hugo server
 
 Le site est alors disponible sur <http://localhost:1313/>.
 
+## Liens morts et mémoire du web
+
+L’adresse publique d’origine reste stockée dans `url`. Pour chaque entrée
+marquée `status: "dead"`, résoudre sa destination Wayback avant validation :
+
+```shell
+node scripts/resolve_wayback_links.mjs
+```
+
+Le script cherche d’abord la dernière capture réussie de l’URL exacte, puis la
+dernière capture de la racine du même site. Il mémorise aussi l’absence de
+capture afin que les exécutions suivantes ne sollicitent que les nouveaux liens
+morts. Utiliser `--refresh` pour revérifier l’ensemble du catalogue. La CI
+refuse une nouvelle entrée morte qui n’a pas encore été vérifiée.
+
 ## Build de production
 
 ```shell

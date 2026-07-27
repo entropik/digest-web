@@ -28,7 +28,7 @@ params:
 menu:
   main:
     - identifier: digest
-      name: "Tous les liens"
+      name: "Liens"
       url: "/"
       weight: 10
     - identifier: archives
@@ -40,7 +40,7 @@ menu:
       url: "/tags/"
       weight: 30
     - identifier: flux
-      name: "Flux mémoire"
+      name: "Flux"
       url: "/flux/"
       weight: 35
     - identifier: about

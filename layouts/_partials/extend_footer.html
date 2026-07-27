@@ -1,3 +1,27 @@
 {{- if eq .RelPermalink "/a-propos/" }}
 <script src="{{ "js/about-liquid.js" | relURL }}" defer></script>
 {{- end }}
+<script>
+  (() => {
+    const menu = document.querySelector("#header-mobile-menu");
+    const toggle = document.querySelector("#header-menu-toggle");
+    const close = menu?.querySelector(".header-mobile-menu-close");
+    if (!menu || !toggle || !close) return;
+
+    const closeMenu = () => {
+      if (menu.open) menu.close();
+    };
+
+    toggle.addEventListener("click", () => {
+      menu.showModal();
+      toggle.setAttribute("aria-expanded", "true");
+      document.body.classList.add("header-menu-open");
+    });
+    close.addEventListener("click", closeMenu);
+    menu.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+    menu.addEventListener("close", () => {
+      toggle.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("header-menu-open");
+    });
+  })();
+</script>

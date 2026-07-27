@@ -28,16 +28,23 @@
       <h2>{{ $category }}</h2>
       <div class="archive-link-list">
         {{ range sort $categoryLinks "title" }}
+          {{ $targetURL := partial "link-target-url.html" . }}
+          {{ $archiveScope := .archive_scope | default "url" }}
           <article class="archive-link">
             <div>
               <h3>
-                <a class="link-title" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+                <a class="link-title" href="{{ $targetURL }}" target="_blank" rel="noopener noreferrer">
                   {{ partial "link-favicon.html" .url }}
                   <span>{{ .title }}</span>
                 </a>
               </h3>
               {{ if eq (.status | default "") "dead" }}
                 <span class="archive-status">Lien mort · conservé pour mémoire</span>
+                {{ with .archive_url }}
+                  <span class="archive-stream">
+                    {{ if eq $archiveScope "site" }}Dernière capture du site{{ else }}Capture archivée{{ end }}
+                  </span>
+                {{ end }}
               {{ end }}
               {{ with .stream }}
                 <a class="archive-stream" href="{{ printf "flux/%s/" . | relURL }}">Flux {{ humanize . }}</a>

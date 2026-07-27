@@ -28,10 +28,37 @@
       <input id="digest-search" type="search" placeholder="Rechercher un outil, un sujet…" autocomplete="off">
       <kbd>/</kbd>
     </label>
-    <label class="digest-date">
-      <span>Par date</span>
-      <input id="digest-date" type="date" aria-label="Filtrer par jour, mois et année">
-    </label>
+    <div class="digest-date">
+      <span class="digest-date-label">Par date</span>
+      <input id="digest-date" type="hidden">
+      <button
+        class="digest-date-toggle"
+        id="digest-date-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="digest-calendar"
+        aria-haspopup="dialog">
+        <span id="digest-date-value">jj/mm/aaaa</span>
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M7 3v3M17 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Z"></path>
+        </svg>
+      </button>
+      <div class="digest-calendar" id="digest-calendar" role="dialog" aria-label="Choisir une date" hidden>
+        <div class="digest-calendar-header">
+          <button id="digest-calendar-prev" type="button" aria-label="Mois précédent">←</button>
+          <strong id="digest-calendar-title"></strong>
+          <button id="digest-calendar-next" type="button" aria-label="Mois suivant">→</button>
+        </div>
+        <div class="digest-calendar-weekdays" aria-hidden="true">
+          <span>lu</span><span>ma</span><span>me</span><span>je</span><span>ve</span><span>sa</span><span>di</span>
+        </div>
+        <div class="digest-calendar-grid" id="digest-calendar-grid"></div>
+        <div class="digest-calendar-footer">
+          <button id="digest-calendar-clear" type="button">Effacer</button>
+          <button id="digest-calendar-today" type="button">Aujourd’hui</button>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="digest-filters" id="digest-filters">
     <button class="is-active" type="button" data-category-label="all">Tout <span>{{ len $links }}</span></button>
@@ -60,6 +87,8 @@
         type="button"
         data-title="{{ $link.title }}"
         data-url="{{ $link.url }}"
+        data-archive-url="{{ $link.archive_url | default "" }}"
+        data-archive-scope="{{ $link.archive_scope | default "" }}"
         data-description="{{ $link.description | default "" }}"
         data-category-label="{{ $link.category }}"
         data-host="{{ $host.Host | strings.TrimPrefix "www." }}"
@@ -70,7 +99,7 @@
         <div class="digest-card-top">
           <div class="digest-card-labels">
             <span class="digest-category">{{ $link.category }}</span>
-            {{ if eq ($link.status | default "") "dead" }}<span class="digest-status">Lien mort</span>{{ end }}
+            {{ if eq ($link.status | default "") "dead" }}<span class="digest-status">Lien mort · conservé pour mémoire</span>{{ end }}
           </div>
           <span class="digest-arrow" aria-hidden="true">＋</span>
         </div>
@@ -96,8 +125,13 @@
 </nav>
 
 <dialog class="digest-modal" id="digest-modal" aria-labelledby="digest-modal-title">
+  <button class="digest-modal-nav digest-modal-prev" type="button" aria-label="Lien précédent">
+    <svg aria-hidden="true" viewBox="0 0 24 24">
+      <path d="m15 18-6-6 6-6"></path>
+    </svg>
+  </button>
   <div class="digest-modal-shell">
-    <button class="digest-modal-close" type="button" aria-label="Fermer la fenêtre">
+    <button class="digest-modal-close" type="button" aria-label="Fermer la fenêtre" autofocus>
       <svg aria-hidden="true" viewBox="0 0 24 24">
         <path d="M6 6 18 18M18 6 6 18"></path>
       </svg>
@@ -109,11 +143,19 @@
     <div class="digest-modal-footer">
       <span class="digest-modal-url" id="digest-modal-url"></span>
       <button class="digest-modal-favorite" id="digest-modal-favorite" type="button" aria-pressed="false">
-        Favoris
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M12 20.5 4.7 13.8A5.4 5.4 0 0 1 12 5.9a5.4 5.4 0 0 1 7.3 7.9Z"></path>
+        </svg>
+        <span>Favoris</span>
       </button>
-      <a id="digest-modal-link" target="_blank" rel="noopener noreferrer">Tester url</a>
+      <a id="digest-modal-link" target="_blank" rel="noopener noreferrer">Visiter le site</a>
     </div>
   </div>
+  <button class="digest-modal-nav digest-modal-next" type="button" aria-label="Lien suivant">
+    <svg aria-hidden="true" viewBox="0 0 24 24">
+      <path d="m9 18 6-6-6-6"></path>
+    </svg>
+  </button>
 </dialog>
 <script id="digest-data" type="application/json">{{ $links | jsonify | safeHTML }}</script>
 {{ $digestScript := resources.Get "js/digest.js" | minify | fingerprint }}

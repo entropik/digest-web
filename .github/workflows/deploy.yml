@@ -32,6 +32,7 @@ jobs:
       - name: Validate digest data
         run: |
           python3 skills/curate-web-digest/scripts/curate_links.py --check --site .
+          node scripts/resolve_wayback_links.mjs --check
           python3 scripts/check_digest_consistency.py --site .
 
       - name: Build production site
