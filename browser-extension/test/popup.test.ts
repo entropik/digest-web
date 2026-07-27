@@ -381,6 +381,45 @@ describe("états asynchrones du popup", () => {
     });
   });
 
+  test("préserve une saisie faite pendant la lecture locale", async () => {
+    const pendingBootstrap = deferred<Response>();
+    const pendingStorage = deferred<Record<string, unknown>>();
+    vi.stubGlobal("fetch", vi.fn(() => pendingBootstrap.promise));
+    const key = localDraftStorageKey(capture.url);
+    browserMock.storage.local.get.mockImplementation(async (keys) =>
+      keys === null ? {} : pendingStorage.promise,
+    );
+
+    await loadPopup();
+    await vi.waitFor(() => {
+      expect(element<HTMLFormElement>("#capture-form").hidden).toBe(false);
+    });
+    input("title").value = "Titre saisi pendant la lecture";
+    input("title").dispatchEvent(new Event("input", { bubbles: true }));
+
+    pendingStorage.resolve({
+      [key]: {
+        version: 1,
+        url: capture.url,
+        savedAt: Date.now(),
+        expiresAt: Date.now() + LOCAL_DRAFT_TTL_MS,
+        fields: {
+          title: "Ancien titre local",
+          category: "Design",
+          description: "Résumé local",
+          tags: ["design"],
+          privateNote: "Note locale",
+        },
+      },
+    });
+
+    await vi.waitFor(() => {
+      expect(input("title").value).toBe("Titre saisi pendant la lecture");
+      expect(input("description").value).toBe("Résumé local");
+      expect(element("#selected-tags").textContent).toContain("design");
+    });
+  });
+
   test("retire la catégorie locale si elle n’existe plus dans la taxonomie", async () => {
     const key = localDraftStorageKey(capture.url);
     browserMock.storage.local.get.mockImplementation(async () => ({

@@ -131,6 +131,9 @@ describe("temporary local drafts", () => {
     "https://example.com/#/callback?session_token=secret",
     "https://example.com/#/admin",
     "https://example.com/#/oauth/callback/SECRET",
+    "https://example.com/callback?accessToken=SECRET",
+    "https://example.com/callback?apiKey=SECRET",
+    "https://example.com/#accessToken=SECRET",
   ])("rejects sensitive URL data before local persistence: %s", async (url) => {
     await expect(saveLocalDraft(storage, url, fields)).rejects.toThrow(
       "SENSITIVE_URL",

@@ -390,8 +390,38 @@ const initialize = async (): Promise<void> => {
       capture.url,
     ).catch(() => null);
     if (localDraft) {
-      fillForm({ ...capture, ...localDraft }, true);
-      addedTags = [...localDraft.tags];
+      const localTags = touchedFields.has("tags")
+        ? [...addedTags, ...tags, ...localDraft.tags]
+            .filter(
+              (tag) =>
+                !removedTags.some((removedTag) => sameTag(removedTag, tag)),
+            )
+            .filter(
+              (tag, index, candidates) =>
+                candidates.findIndex((candidate) => sameTag(candidate, tag)) ===
+                index,
+            )
+        : localDraft.tags;
+      fillForm(
+        {
+          url: touchedFields.has("url") ? field("url").value : capture.url,
+          title: touchedFields.has("title")
+            ? field("title").value
+            : localDraft.title,
+          description: touchedFields.has("description")
+            ? field("description").value
+            : localDraft.description,
+          privateNote: touchedFields.has("privateNote")
+            ? field("privateNote").value
+            : localDraft.privateNote,
+          category: touchedFields.has("category")
+            ? category.value
+            : localDraft.category,
+          tags: localTags,
+        },
+        true,
+      );
+      addedTags = [...tags];
       restoredLocalDraftUrl = capture.url;
       restoredTagsAuthoritative = true;
       discardLocalButton.hidden = false;

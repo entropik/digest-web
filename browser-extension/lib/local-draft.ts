@@ -37,6 +37,10 @@ const SENSITIVE_QUERY_KEY =
   /(?:^|[_-])(auth|code|credential|jwt|key|pass(?:word)?|secret|session|signature|token)(?:$|[_-])/i;
 const SENSITIVE_PATH_SEGMENT =
   /\/(?:account|admin|auth|console|dashboard|login|oauth|signin)(?:\/|$)/i;
+const isSensitiveKey = (key: string): boolean =>
+  SENSITIVE_QUERY_KEY.test(
+    key.replace(/([a-z0-9])([A-Z])/g, "$1_$2"),
+  );
 
 export const canonicalLocalDraftUrl = (rawUrl: string): string => {
   const url = new URL(rawUrl.trim());
@@ -48,10 +52,8 @@ export const canonicalLocalDraftUrl = (rawUrl: string): string => {
   if (
     SENSITIVE_PATH_SEGMENT.test(url.pathname) ||
     SENSITIVE_PATH_SEGMENT.test(fragmentPath) ||
-    [...url.searchParams.keys()].some((key) => SENSITIVE_QUERY_KEY.test(key)) ||
-    [...new URLSearchParams(fragmentQuery).keys()].some((key) =>
-      SENSITIVE_QUERY_KEY.test(key),
-    )
+    [...url.searchParams.keys()].some(isSensitiveKey) ||
+    [...new URLSearchParams(fragmentQuery).keys()].some(isSensitiveKey)
   ) {
     throw new Error("SENSITIVE_URL");
   }
