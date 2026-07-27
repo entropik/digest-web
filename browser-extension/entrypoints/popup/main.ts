@@ -23,6 +23,7 @@ let addedTags: string[] = [];
 const removedTagKeys = new Set<string>();
 let verifiedUrl: string | null = null;
 let verificationSequence = 0;
+let canSaveVerifiedDraft = false;
 
 type CurationOptions = { categories: string[]; tags: string[] };
 type EditableField = keyof PageCapture | "category" | "tags";
@@ -49,6 +50,10 @@ const field = (name: string): HTMLInputElement | HTMLTextAreaElement =>
 
 const tagKey = (tag: string): string => tag.toLocaleLowerCase("fr");
 
+const updateSaveAvailability = (): void => {
+  saveButton.disabled = !canSaveVerifiedDraft || tags.length > 12;
+};
+
 const renderTags = (): void => {
   selectedTags.replaceChildren(
     ...tags.map((tag) => {
@@ -68,6 +73,10 @@ const renderTags = (): void => {
         tags = tags.filter((candidate) => candidate !== tag);
         renderTags();
         updateCompleteness();
+        updateSaveAvailability();
+        if (canSaveVerifiedDraft && tags.length <= 12) {
+          feedback.textContent = "Brouillon prêt à enregistrer.";
+        }
       });
       chip.append(remove);
       return chip;
@@ -95,6 +104,7 @@ const addTag = (): void => {
   feedback.textContent = "";
   renderTags();
   updateCompleteness();
+  updateSaveAvailability();
 };
 
 const updateCompleteness = (): void => {
@@ -162,8 +172,7 @@ const fillDraftPreservingEdits = (draft: StoredDraft): void => {
       (tag, index, candidates) =>
         candidates.findIndex((candidate) => tagKey(candidate) === tagKey(tag)) ===
         index,
-    )
-    .slice(0, 12);
+    );
   fillForm({
     url: touchedFields.has("url") ? field("url").value : draft.url,
     title: touchedFields.has("title") ? field("title").value : draft.title,
@@ -211,6 +220,7 @@ const verifyCapture = async (verificationUrl: string): Promise<void> => {
   const verificationId = ++verificationSequence;
   if (!isSupportedCaptureUrl(verificationUrl)) {
     verifiedUrl = null;
+    canSaveVerifiedDraft = false;
     saveButton.disabled = true;
     feedback.textContent =
       "Cette URL ne peut pas être publiée : utilisez une adresse web publique HTTP(S).";
@@ -219,6 +229,7 @@ const verifyCapture = async (verificationUrl: string): Promise<void> => {
   }
 
   verifiedUrl = null;
+  canSaveVerifiedDraft = false;
   saveButton.disabled = true;
   retryButton.hidden = true;
   feedback.textContent = "Vérification du lien…";
@@ -237,20 +248,28 @@ const verifyCapture = async (verificationUrl: string): Promise<void> => {
     if (bootstrap.draft) {
       fillDraftPreservingEdits(bootstrap.draft);
       verifiedUrl = field("url").value.trim();
+      canSaveVerifiedDraft = true;
+      updateSaveAvailability();
       feedback.textContent =
-        "Ce brouillon existe déjà : le formulaire permet de le mettre à jour.";
-      saveButton.disabled = false;
+        tags.length > 12
+          ? "La limite de 12 tags est dépassée · retirez-en un avant d’enregistrer."
+          : "Ce brouillon existe déjà : le formulaire permet de le mettre à jour.";
       return;
     }
     if (bootstrap.published) {
       verifiedUrl = verificationUrl;
+      canSaveVerifiedDraft = false;
       feedback.textContent = "Ce lien est déjà publié dans le Digest.";
       return;
     }
     updateCompleteness();
     verifiedUrl = verificationUrl;
-    saveButton.disabled = false;
-    feedback.textContent = "Lien vérifié · prêt à enregistrer.";
+    canSaveVerifiedDraft = true;
+    updateSaveAvailability();
+    feedback.textContent =
+      tags.length > 12
+        ? "La limite de 12 tags est dépassée · retirez-en un avant d’enregistrer."
+        : "Lien vérifié · prêt à enregistrer.";
   } catch (error) {
     if (verificationId !== verificationSequence) return;
     if (
@@ -311,6 +330,7 @@ form.addEventListener("input", (event) => {
   if (name === "url") {
     verificationSequence += 1;
     verifiedUrl = null;
+    canSaveVerifiedDraft = false;
     saveButton.disabled = true;
     feedback.textContent = "URL modifiée · vérifiez-la à nouveau.";
     retryButton.hidden = false;
@@ -323,6 +343,12 @@ form.addEventListener("submit", async (event) => {
     saveButton.disabled = true;
     feedback.textContent = "Vérifiez cette URL avant de l’enregistrer.";
     retryButton.hidden = false;
+    return;
+  }
+  if (tags.length > 12) {
+    saveButton.disabled = true;
+    feedback.textContent =
+      "Retirez un tag avant d’enregistrer : la limite est de 12.";
     return;
   }
   saveButton.disabled = true;
