@@ -344,6 +344,9 @@ describe("états asynchrones du popup", () => {
       expect(
         element<HTMLButtonElement>("#discard-local").hidden,
       ).toBe(false);
+      expect(
+        element<HTMLInputElement>("#local-persistence").checked,
+      ).toBe(true);
     });
 
     pending.resolve(
@@ -467,6 +470,7 @@ describe("états asynchrones du popup", () => {
       expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
     });
 
+    element<HTMLInputElement>("#local-persistence").click();
     input("title").value = "Dernière correction";
     input("title").dispatchEvent(new Event("input", { bubbles: true }));
     window.dispatchEvent(new PageTransitionEvent("pagehide"));
@@ -522,6 +526,7 @@ describe("états asynchrones du popup", () => {
       expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
     });
 
+    element<HTMLInputElement>("#local-persistence").click();
     input("title").value = "Correction locale";
     input("title").dispatchEvent(new Event("input", { bubbles: true }));
     await new Promise((resolve) => setTimeout(resolve, 350));
@@ -551,5 +556,19 @@ describe("états asynchrones du popup", () => {
         "Brouillon ajouté à la file.",
       );
     });
+  });
+
+  test("ne persiste rien sans consentement local explicite", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => response(bootstrap())));
+    await loadPopup();
+    await vi.waitFor(() => {
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+    });
+
+    input("title").value = "Correction non persistée";
+    input("title").dispatchEvent(new Event("input", { bubbles: true }));
+    window.dispatchEvent(new PageTransitionEvent("pagehide"));
+
+    expect(browserMock.storage.local.set).not.toHaveBeenCalled();
   });
 });

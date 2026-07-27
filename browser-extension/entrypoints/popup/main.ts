@@ -27,6 +27,8 @@ const saveButton = document.querySelector<HTMLButtonElement>("#save")!;
 const retryButton = document.querySelector<HTMLButtonElement>("#retry")!;
 const discardLocalButton =
   document.querySelector<HTMLButtonElement>("#discard-local")!;
+const localPersistence =
+  document.querySelector<HTMLInputElement>("#local-persistence")!;
 let tags: string[] = [];
 let addedTags: string[] = [];
 let removedTags: string[] = [];
@@ -34,7 +36,7 @@ let verifiedUrl: string | null = null;
 let verificationSequence = 0;
 let canSaveVerifiedDraft = false;
 let localSaveTimer: ReturnType<typeof setTimeout> | undefined;
-let localPersistenceEnabled = true;
+let localPersistenceEnabled = false;
 let localDraftDirty = false;
 let restoredLocalDraftUrl: string | null = null;
 let restoredTagsAuthoritative = false;
@@ -424,6 +426,8 @@ const initialize = async (): Promise<void> => {
       addedTags = [...tags];
       restoredLocalDraftUrl = capture.url;
       restoredTagsAuthoritative = true;
+      localPersistenceEnabled = true;
+      localPersistence.checked = true;
       discardLocalButton.hidden = false;
       (
         [
@@ -451,17 +455,38 @@ document.querySelector("#add-tag")?.addEventListener("click", addTag);
 retryButton.addEventListener("click", () => {
   void verifyCapture(field("url").value.trim());
 });
+localPersistence.addEventListener("change", () => {
+  localPersistenceEnabled = localPersistence.checked;
+  if (localPersistenceEnabled) {
+    scheduleLocalDraftSave();
+    feedback.textContent = "Reprise locale activée pendant 24 h.";
+    return;
+  }
+  localDraftDirty = false;
+  if (localSaveTimer) clearTimeout(localSaveTimer);
+  localSaveTimer = undefined;
+  void clearSessionLocalDrafts().then(() => {
+    discardLocalButton.hidden = true;
+    feedback.textContent = "Reprise locale désactivée.";
+  }).catch(() => {
+    localPersistenceEnabled = true;
+    localPersistence.checked = true;
+    feedback.textContent = "Impossible de désactiver la reprise locale.";
+  });
+});
 discardLocalButton.addEventListener("click", () => {
   localPersistenceEnabled = false;
   localDraftDirty = false;
   if (localSaveTimer) clearTimeout(localSaveTimer);
   localSaveTimer = undefined;
   void clearSessionLocalDrafts().then(() => {
+    localPersistence.checked = false;
     discardLocalButton.hidden = true;
     feedback.textContent =
       "La saisie reste affichée, mais ne sera plus restaurée.";
   }).catch(() => {
     localPersistenceEnabled = true;
+    localPersistence.checked = true;
     feedback.textContent = "Impossible d’oublier la reprise locale.";
   });
 });
@@ -527,6 +552,7 @@ form.addEventListener("submit", async (event) => {
       },
     );
     localPersistenceEnabled = false;
+    localPersistence.checked = false;
     localDraftDirty = false;
     restoredTagsAuthoritative = false;
     discardLocalButton.hidden = true;
