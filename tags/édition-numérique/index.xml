@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Édition-Numérique on Digest</title>
+    <link>https://digest.ooblik.com/tags/%C3%A9dition-num%C3%A9rique/</link>
+    <description>Recent content in Édition-Numérique on Digest</description>
+    <generator>Hugo</generator>
+    <language>fr-FR</language>
+    <atom:link href="https://digest.ooblik.com/tags/%C3%A9dition-num%C3%A9rique/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>#édition-numérique</title>
+      <link>https://digest.ooblik.com/tags/edition-numerique/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/tags/edition-numerique/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

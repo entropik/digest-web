@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Éducation on Digest</title>
+    <link>https://digest.ooblik.com/tags/%C3%A9ducation/</link>
+    <description>Recent content in Éducation on Digest</description>
+    <generator>Hugo</generator>
+    <language>fr-FR</language>
+    <atom:link href="https://digest.ooblik.com/tags/%C3%A9ducation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>#éducation</title>
+      <link>https://digest.ooblik.com/tags/education/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/tags/education/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

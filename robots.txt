@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://digest.ooblik.com/sitemap.xml
