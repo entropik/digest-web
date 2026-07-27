@@ -1033,6 +1033,10 @@ html {
   padding-inline: clamp(4.8rem, 8vw, 6.2rem);
 }
 
+.digest-modal-shell:has(.digest-modal-admin:not([hidden])) {
+  padding-bottom: 5.25rem;
+}
+
 .digest-modal-nav {
   position: absolute;
   z-index: 2;
@@ -1188,8 +1192,11 @@ html {
 }
 
 .digest-modal-admin {
+  position: absolute;
+  left: 50%;
+  bottom: 1.25rem;
   display: block;
-  margin: 1rem auto 0;
+  margin: 0;
   padding: 0;
   border: 0;
   background: transparent;
@@ -1201,6 +1208,8 @@ html {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: .22em;
+  transform: translateX(-50%);
+  white-space: nowrap;
 }
 
 .digest-modal-admin:hover,
