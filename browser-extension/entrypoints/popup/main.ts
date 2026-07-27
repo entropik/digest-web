@@ -19,7 +19,7 @@ const category = document.querySelector<HTMLSelectElement>("#category")!;
 const saveButton = document.querySelector<HTMLButtonElement>("#save")!;
 const retryButton = document.querySelector<HTMLButtonElement>("#retry")!;
 let tags: string[] = [];
-let activeCapture: PageCapture | null = null;
+let verifiedUrl: string | null = null;
 
 type CurationOptions = { categories: string[]; tags: string[] };
 type EditableField = keyof PageCapture | "category" | "tags";
@@ -134,16 +134,16 @@ const populateOptions = (options: CurationOptions): void => {
 
 const fillDraftPreservingEdits = (draft: StoredDraft): void => {
   const mergedTags = [
-    ...draft.tags,
-    ...tags.filter(
-      (localTag) =>
-        !draft.tags.some(
-          (draftTag) =>
-            draftTag.localeCompare(localTag, "fr", { sensitivity: "base" }) ===
+    ...tags,
+    ...draft.tags.filter(
+      (draftTag) =>
+        !tags.some(
+          (localTag) =>
+            localTag.localeCompare(draftTag, "fr", { sensitivity: "base" }) ===
             0,
         ),
     ),
-  ];
+  ].slice(0, 12);
   fillForm({
     url: touchedFields.has("url") ? field("url").value : draft.url,
     title: touchedFields.has("title") ? field("title").value : draft.title,
@@ -187,17 +187,33 @@ const bootstrapErrorMessage = (error: DigestApiError): string => {
   return "Impossible de vérifier ce lien.";
 };
 
-const verifyCapture = async (capture: PageCapture): Promise<void> => {
+const verifyCapture = async (verificationUrl: string): Promise<void> => {
+  if (!isSupportedCaptureUrl(verificationUrl)) {
+    verifiedUrl = null;
+    saveButton.disabled = true;
+    feedback.textContent =
+      "Cette URL ne peut pas être publiée : utilisez une adresse web publique HTTP(S).";
+    retryButton.hidden = true;
+    return;
+  }
+
+  verifiedUrl = null;
   saveButton.disabled = true;
   retryButton.hidden = true;
   feedback.textContent = "Vérification du lien…";
 
   try {
     const bootstrap = await api<BootstrapResponse>(
-      `/api/admin/curation/bootstrap?url=${encodeURIComponent(capture.url)}`,
+      `/api/admin/curation/bootstrap?url=${encodeURIComponent(verificationUrl)}`,
       {},
       9_000,
     );
+    if (field("url").value.trim() !== verificationUrl) {
+      feedback.textContent = "L’URL a changé · vérifiez-la à nouveau.";
+      retryButton.hidden = false;
+      return;
+    }
+    verifiedUrl = verificationUrl;
     populateOptions(bootstrap.options);
     if (bootstrap.draft) {
       fillDraftPreservingEdits(bootstrap.draft);
@@ -234,10 +250,9 @@ const verifyCapture = async (capture: PageCapture): Promise<void> => {
 const initialize = async (): Promise<void> => {
   try {
     const capture = await captureActivePage();
-    activeCapture = capture;
     fillForm(capture);
     form.hidden = false;
-    await verifyCapture(capture);
+    await verifyCapture(capture.url);
   } catch (error) {
     feedback.textContent =
       error instanceof Error && error.message === "PAGE_NOT_SUPPORTED"
@@ -251,7 +266,7 @@ document.querySelector("#login-button")?.addEventListener("click", () => {
 });
 document.querySelector("#add-tag")?.addEventListener("click", addTag);
 retryButton.addEventListener("click", () => {
-  if (activeCapture) void verifyCapture(activeCapture);
+  void verifyCapture(field("url").value.trim());
 });
 tagInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
@@ -270,10 +285,22 @@ form.addEventListener("input", (event) => {
   ) {
     touchedFields.add(name);
   }
+  if (name === "url") {
+    verifiedUrl = null;
+    saveButton.disabled = true;
+    feedback.textContent = "URL modifiée · vérifiez-la à nouveau.";
+    retryButton.hidden = false;
+  }
   updateCompleteness();
 });
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
+  if (field("url").value.trim() !== verifiedUrl) {
+    saveButton.disabled = true;
+    feedback.textContent = "Vérifiez cette URL avant de l’enregistrer.";
+    retryButton.hidden = false;
+    return;
+  }
   saveButton.disabled = true;
   feedback.textContent = "Enregistrement…";
   try {
