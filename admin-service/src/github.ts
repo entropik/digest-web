@@ -30,6 +30,15 @@ type RepositoryHead = {
   treeSha: string;
   links: DigestLink[];
 };
+type RepositoryHeadDependencies = {
+  readRef: () => Promise<string>;
+  readCommit: (sha: string) => Promise<GitHubCommit>;
+  readCatalog: (sha: string) => Promise<string>;
+};
+type RepositoryHeadReader = {
+  invalidate: () => void;
+  read: () => Promise<RepositoryHead>;
+};
 
 const READ_CACHE_TTL_MS = 30_000;
 let cachedRepositoryHead:
@@ -117,22 +126,55 @@ const contentPath = (path: string, ref: string) =>
     .map(encodeURIComponent)
     .join("/")}?ref=${encodeURIComponent(ref)}`;
 
-export const readRepositoryHead = async (): Promise<RepositoryHead> => {
-  const ref = await request<GitHubRef>(
-    `${repositoryPath}/git/ref/heads/${encodeURIComponent(config.repositoryBranch)}`,
-  );
-  const commit = await request<GitHubCommit>(
-    `${repositoryPath}/git/commits/${ref.object.sha}`,
-  );
-  const catalog = await requestText(
-    contentPath("data/links.json", ref.object.sha),
-  );
+export const createRepositoryHeadReader = (
+  dependencies: RepositoryHeadDependencies,
+): RepositoryHeadReader => {
+  let snapshot: RepositoryHead | undefined;
+  let generation = 0;
+  let latestRead = 0;
+
   return {
-    commitSha: ref.object.sha,
-    treeSha: commit.tree.sha,
-    links: parseCatalog(catalog),
+    invalidate: () => {
+      generation += 1;
+      snapshot = undefined;
+    },
+    read: async () => {
+      const readGeneration = generation;
+      const readId = ++latestRead;
+      const commitSha = await dependencies.readRef();
+      if (snapshot?.commitSha === commitSha) return snapshot;
+
+      const [commit, catalog] = await Promise.all([
+        dependencies.readCommit(commitSha),
+        dependencies.readCatalog(commitSha),
+      ]);
+      const next = {
+        commitSha,
+        treeSha: commit.tree.sha,
+        links: parseCatalog(catalog),
+      };
+      if (readGeneration === generation && readId === latestRead) {
+        snapshot = next;
+      }
+      return next;
+    },
   };
 };
+
+const repositoryHeadReader = createRepositoryHeadReader({
+  readRef: async () => {
+    const ref = await request<GitHubRef>(
+      `${repositoryPath}/git/ref/heads/${encodeURIComponent(config.repositoryBranch)}`,
+    );
+    return ref.object.sha;
+  },
+  readCommit: (sha) =>
+    request<GitHubCommit>(`${repositoryPath}/git/commits/${sha}`),
+  readCatalog: (sha) => requestText(contentPath("data/links.json", sha)),
+});
+
+export const readRepositoryHead = (): Promise<RepositoryHead> =>
+  repositoryHeadReader.read();
 
 export const readCachedRepositoryHead = async (): Promise<RepositoryHead> => {
   const now = Date.now();
@@ -165,6 +207,7 @@ const invalidateRepositoryHeadCache = (): void => {
   repositoryHeadGeneration += 1;
   cachedRepositoryHead = undefined;
   repositoryHeadRequest = undefined;
+  repositoryHeadReader.invalidate();
 };
 
 export const readRepositoryFile = (path: string, ref: string): Promise<string> =>
