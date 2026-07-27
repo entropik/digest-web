@@ -17,7 +17,9 @@ const privateIpv4 = (host: string): boolean => {
     a === 0 ||
     (a === 169 && b === 254) ||
     (a === 172 && b >= 16 && b <= 31) ||
-    (a === 192 && b === 168)
+    (a === 192 && b === 168) ||
+    (a === 100 && b >= 64 && b <= 127) ||
+    a >= 224
   );
 };
 
@@ -35,6 +37,7 @@ export const isSupportedCaptureUrl = (rawUrl: string): boolean => {
         host.endsWith(suffix),
       ) &&
       !privateIpv4(ipHost) &&
+      ipHost !== "::" &&
       ipHost !== "::1" &&
       !/^f[cd]|^fe[89ab]/i.test(ipHost)
     );

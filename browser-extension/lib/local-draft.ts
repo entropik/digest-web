@@ -1,4 +1,5 @@
 export type LocalDraftFields = {
+  url: string;
   title: string;
   category: string;
   description: string;
@@ -36,7 +37,7 @@ const TRACKING_KEYS = new Set([
 const SENSITIVE_QUERY_KEY =
   /(?:^|[_-])(auth|code|credential|jwt|key|pass(?:word)?|secret|session|signature|token)(?:$|[_-])/i;
 const SENSITIVE_PATH_SEGMENT =
-  /\/(?:account|admin|auth|console|dashboard|login|oauth|signin)(?:\/|$)/i;
+  /\/(?:account|admin|auth|console|dashboard|invite|invitation|login|magic-link|oauth|password-reset|reset(?:-password)?|signin|verification|verify)(?:\/|$)/i;
 const SENSITIVE_COMPACT_KEYS = new Set([
   "accesstoken",
   "apikey",
@@ -55,7 +56,9 @@ const SENSITIVE_COMPACT_KEYS = new Set([
   "session",
   "sessionid",
   "signature",
+  "ticket",
   "token",
+  "verificationtoken",
 ]);
 const isSensitiveKey = (key: string): boolean => {
   const separated = key.replace(/([a-z0-9])([A-Z])/g, "$1_$2");
@@ -72,6 +75,7 @@ const decodeUrlComponent = (value: string): string => {
 
 export const canonicalLocalDraftUrl = (rawUrl: string): string => {
   const url = new URL(rawUrl.trim());
+  url.hostname = url.hostname.toLowerCase().replace(/\.$/, "");
   const fragment = decodeUrlComponent(url.hash.slice(1));
   const fragmentQuery = fragment.includes("?")
     ? fragment.slice(fragment.indexOf("?") + 1)
@@ -92,7 +96,6 @@ export const canonicalLocalDraftUrl = (rawUrl: string): string => {
   });
   url.search = "";
   for (const [key, value] of query) url.searchParams.append(key, value);
-  url.hostname = url.hostname.toLowerCase().replace(/\.$/, "");
   url.pathname = url.pathname.replace(/\/{2,}/g, "/");
   if (url.pathname !== "/") url.pathname = url.pathname.replace(/\/+$/, "");
   if (["fullscreen", "top"].includes(url.hash.slice(1).toLowerCase())) {
@@ -109,6 +112,7 @@ const isLocalDraftFields = (value: unknown): value is LocalDraftFields => {
   const fields = value as Record<string, unknown>;
   return (
     typeof fields.title === "string" &&
+    typeof fields.url === "string" &&
     typeof fields.category === "string" &&
     typeof fields.description === "string" &&
     Array.isArray(fields.tags) &&
@@ -136,13 +140,14 @@ export const saveLocalDraft = async (
   now = Date.now(),
 ): Promise<void> => {
   const url = canonicalLocalDraftUrl(rawUrl);
+  const fieldsUrl = canonicalLocalDraftUrl(fields.url);
   await storage.set({
     [`${STORAGE_PREFIX}${url}`]: {
       version: 1,
       url,
       savedAt: now,
       expiresAt: now + LOCAL_DRAFT_TTL_MS,
-      fields,
+      fields: { ...fields, url: fieldsUrl },
     } satisfies StoredLocalDraft,
   });
 };

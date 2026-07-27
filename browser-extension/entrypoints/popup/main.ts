@@ -40,6 +40,7 @@ let localPersistenceEnabled = false;
 let localDraftDirty = false;
 let restoredLocalDraftUrl: string | null = null;
 let restoredTagsAuthoritative = false;
+let capturedPageUrl: string | null = null;
 const persistedLocalDraftUrls = new Set<string>();
 const pendingLocalWrites = new Set<Promise<void>>();
 
@@ -67,6 +68,7 @@ const field = (name: string): HTMLInputElement | HTMLTextAreaElement =>
   form.elements.namedItem(name) as HTMLInputElement | HTMLTextAreaElement;
 
 const currentLocalDraft = (): LocalDraftFields => ({
+  url: field("url").value.trim(),
   title: field("title").value,
   category: category.value,
   description: field("description").value,
@@ -77,11 +79,11 @@ const currentLocalDraft = (): LocalDraftFields => ({
 const persistLocalDraft = (): void => {
   if (!localPersistenceEnabled || !localDraftDirty) return;
   const url = field("url").value.trim();
-  if (!isSupportedCaptureUrl(url)) return;
-  persistedLocalDraftUrls.add(url);
+  if (!capturedPageUrl || !isSupportedCaptureUrl(url)) return;
+  persistedLocalDraftUrls.add(capturedPageUrl);
   const write = saveLocalDraft(
     browser.storage.local,
-    url,
+    capturedPageUrl,
     currentLocalDraft(),
   ).catch(() => undefined);
   pendingLocalWrites.add(write);
@@ -384,6 +386,7 @@ const verifyCapture = async (verificationUrl: string): Promise<void> => {
 const initialize = async (): Promise<void> => {
   try {
     const capture = await captureActivePage();
+    capturedPageUrl = capture.url;
     fillForm(capture);
     form.hidden = false;
     void pruneExpiredLocalDrafts(browser.storage.local).catch(() => undefined);
@@ -406,7 +409,9 @@ const initialize = async (): Promise<void> => {
         : localDraft.tags;
       fillForm(
         {
-          url: touchedFields.has("url") ? field("url").value : capture.url,
+          url: touchedFields.has("url")
+            ? field("url").value
+            : localDraft.url,
           title: touchedFields.has("title")
             ? field("title").value
             : localDraft.title,

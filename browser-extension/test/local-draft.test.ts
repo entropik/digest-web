@@ -11,6 +11,7 @@ import {
 } from "../lib/local-draft";
 
 const fields: LocalDraftFields = {
+  url: "https://example.com/article",
   title: "Titre corrigé",
   category: "Design",
   description: "Résumé corrigé",
@@ -139,10 +140,32 @@ describe("temporary local drafts", () => {
     "https://example.com/#/%61dmin",
     "https://user:password@example.com/article",
     "http://localhost/article",
+    "http://localhost./article",
+    "https://example.com/reset-password/SECRET",
+    "https://example.com/callback?ticket=SECRET",
   ])("rejects sensitive URL data before local persistence: %s", async (url) => {
     await expect(saveLocalDraft(storage, url, fields)).rejects.toThrow(
       "SENSITIVE_URL",
     );
     expect(values).toEqual({});
+  });
+
+  test("keys an edited URL by the stable captured-page identity", async () => {
+    await saveLocalDraft(
+      storage,
+      "https://example.com/captured",
+      { ...fields, url: "https://example.com/corrected" },
+      1_000,
+    );
+
+    await expect(
+      loadLocalDraft(storage, "https://example.com/captured", 2_000),
+    ).resolves.toEqual({
+      ...fields,
+      url: "https://example.com/corrected",
+    });
+    await expect(
+      loadLocalDraft(storage, "https://example.com/corrected", 2_000),
+    ).resolves.toBeNull();
   });
 });

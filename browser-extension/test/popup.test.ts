@@ -325,6 +325,7 @@ describe("états asynchrones du popup", () => {
         savedAt: Date.now(),
         expiresAt: Date.now() + LOCAL_DRAFT_TTL_MS,
         fields: {
+          url: capture.url,
           title: "Titre local restauré",
           category: "Design",
           description: "Résumé local restauré",
@@ -409,6 +410,7 @@ describe("états asynchrones du popup", () => {
         savedAt: Date.now(),
         expiresAt: Date.now() + LOCAL_DRAFT_TTL_MS,
         fields: {
+          url: capture.url,
           title: "Ancien titre local",
           category: "Design",
           description: "Résumé local",
@@ -441,6 +443,7 @@ describe("états asynchrones du popup", () => {
         savedAt: Date.now(),
         expiresAt: Date.now() + LOCAL_DRAFT_TTL_MS,
         fields: {
+          url: capture.url,
           title: "Titre local",
           category: "Catégorie disparue",
           description: "Résumé local",
@@ -514,7 +517,7 @@ describe("états asynchrones du popup", () => {
     expect(browserMock.storage.local.set).not.toHaveBeenCalled();
   });
 
-  test("nettoie toutes les URL sauvegardées pendant la session", async () => {
+  test("conserve une identité stable puis nettoie la session", async () => {
     vi.stubGlobal(
       "fetch",
       vi.fn(async (_url: string | URL | Request, init?: RequestInit) =>
@@ -534,6 +537,13 @@ describe("états asynchrones du popup", () => {
     input("url").value = "https://example.com/intermediaire";
     input("url").dispatchEvent(new Event("input", { bubbles: true }));
     await new Promise((resolve) => setTimeout(resolve, 350));
+    expect(browserMock.storage.local.set).toHaveBeenCalledWith({
+      [localDraftStorageKey(capture.url)]: expect.objectContaining({
+        fields: expect.objectContaining({
+          url: "https://example.com/intermediaire",
+        }),
+      }),
+    });
 
     input("url").value = capture.url;
     input("url").dispatchEvent(new Event("input", { bubbles: true }));
@@ -548,9 +558,6 @@ describe("états asynchrones du popup", () => {
     await vi.waitFor(() => {
       expect(browserMock.storage.local.remove).toHaveBeenCalledWith(
         localDraftStorageKey(capture.url),
-      );
-      expect(browserMock.storage.local.remove).toHaveBeenCalledWith(
-        localDraftStorageKey("https://example.com/intermediaire"),
       );
       expect(element("#feedback").textContent).toBe(
         "Brouillon ajouté à la file.",
