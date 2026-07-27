@@ -13,22 +13,28 @@
 }
 
 body {
-  width: 420px;
+  width: 540px;
   margin: 0;
+  overflow: hidden;
   background: var(--paper);
   color: var(--ink);
 }
 
 main {
-  padding: 20px;
+  padding: 14px 16px;
 }
 
 header {
-  padding-bottom: 14px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 9px;
   border-bottom: 1px solid var(--line);
 }
 
 header p {
+  flex: 0 0 auto;
   margin: 0;
   color: var(--accent);
   font-size: 10px;
@@ -37,16 +43,30 @@ header p {
 }
 
 h1 {
-  margin: 5px 0 0;
+  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 38px;
-  letter-spacing: -0.06em;
+  font-size: 19px;
+  line-height: 1;
+  letter-spacing: -0.035em;
 }
 
 form {
   display: grid;
-  gap: 11px;
-  padding-top: 16px;
+  gap: 8px;
+  padding-top: 10px;
+}
+
+.field-row {
+  display: grid;
+  gap: 10px;
+}
+
+.title-row {
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+}
+
+.text-row {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 label {
@@ -71,11 +91,12 @@ textarea {
   border-radius: 3px;
   background: white;
   color: var(--ink);
-  padding: 8px;
+  padding: 7px 8px;
 }
 
 textarea {
-  resize: vertical;
+  min-height: 62px;
+  resize: none;
 }
 
 button {
@@ -84,7 +105,7 @@ button {
   background: transparent;
   color: inherit;
   cursor: pointer;
-  padding: 9px 11px;
+  padding: 8px 10px;
   font-weight: 700;
 }
 
@@ -126,12 +147,13 @@ button:disabled {
 .completeness,
 #feedback,
 #login p {
+  margin: 0;
   color: var(--muted);
   font-size: 11px;
   line-height: 1.5;
 }
 
 #feedback {
-  min-height: 16px;
+  min-height: 0;
   color: var(--accent);
 }

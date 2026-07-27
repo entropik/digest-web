@@ -19,23 +19,31 @@
         </button>
       </section>
       <form id="capture-form" hidden>
-        <label>
+        <label class="field-full">
           URL
           <input id="url" name="url" type="url" required />
         </label>
-        <label>
-          Titre
-          <input id="title" name="title" maxlength="240" />
-        </label>
-        <label>
-          Catégorie
-          <select id="category" name="category"></select>
-        </label>
-        <label>
-          Résumé
-          <textarea id="description" name="description" rows="4"></textarea>
-        </label>
-        <label>
+        <div class="field-row title-row">
+          <label>
+            Titre
+            <input id="title" name="title" maxlength="240" />
+          </label>
+          <label>
+            Catégorie
+            <select id="category" name="category"></select>
+          </label>
+        </div>
+        <div class="field-row text-row">
+          <label>
+            Résumé
+            <textarea id="description" name="description" rows="3"></textarea>
+          </label>
+          <label>
+            Note privée
+            <textarea id="private-note" name="privateNote" rows="3"></textarea>
+          </label>
+        </div>
+        <label class="field-full">
           Tags existants
           <span class="tag-row">
             <input id="tag-input" list="known-tags" autocomplete="off" />
@@ -44,10 +52,6 @@
         </label>
         <datalist id="known-tags"></datalist>
         <div id="selected-tags" class="tags" aria-live="polite"></div>
-        <label>
-          Note privée
-          <textarea id="private-note" name="privateNote" rows="3"></textarea>
-        </label>
         <p id="completeness" class="completeness"></p>
         <button id="save" class="primary" type="submit">
           Enregistrer le brouillon
