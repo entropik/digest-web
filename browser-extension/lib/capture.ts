@@ -23,6 +23,20 @@ const privateIpv4 = (host: string): boolean => {
   );
 };
 
+const mappedPrivateIpv4 = (host: string): boolean => {
+  const dotted = host.match(/^::ffff:(?:0:)?(\d+\.\d+\.\d+\.\d+)$/i);
+  if (dotted?.[1]) return privateIpv4(dotted[1]);
+  const hexadecimal = host.match(
+    /^::ffff:(?:0:)?([0-9a-f]{1,4}):([0-9a-f]{1,4})$/i,
+  );
+  if (!hexadecimal?.[1] || !hexadecimal[2]) return false;
+  const high = Number.parseInt(hexadecimal[1], 16);
+  const low = Number.parseInt(hexadecimal[2], 16);
+  return privateIpv4(
+    `${high >>> 8}.${high & 255}.${low >>> 8}.${low & 255}`,
+  );
+};
+
 export const isSupportedCaptureUrl = (rawUrl: string): boolean => {
   try {
     const url = new URL(rawUrl);
@@ -37,6 +51,7 @@ export const isSupportedCaptureUrl = (rawUrl: string): boolean => {
         host.endsWith(suffix),
       ) &&
       !privateIpv4(ipHost) &&
+      !mappedPrivateIpv4(ipHost) &&
       ipHost !== "::" &&
       ipHost !== "::1" &&
       !/^f[cd]|^fe[89ab]/i.test(ipHost)

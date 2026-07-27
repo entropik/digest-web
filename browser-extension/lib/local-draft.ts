@@ -37,7 +37,7 @@ const TRACKING_KEYS = new Set([
 const SENSITIVE_QUERY_KEY =
   /(?:^|[_-])(auth|code|credential|jwt|key|pass(?:word)?|secret|session|signature|token)(?:$|[_-])/i;
 const SENSITIVE_PATH_SEGMENT =
-  /\/(?:account|admin|auth|console|dashboard|invite|invitation|login|magic-link|oauth|password-reset|reset(?:-password)?|signin|verification|verify)(?:\/|$)/i;
+  /\/(?:account|admin|auth|console|dashboard|invites?|invitations?|login|magic-link|oauth|password-reset|reset(?:-password)?|signin|verification|verify)(?:\/|$)/i;
 const SENSITIVE_COMPACT_KEYS = new Set([
   "accesstoken",
   "apikey",
@@ -140,14 +140,14 @@ export const saveLocalDraft = async (
   now = Date.now(),
 ): Promise<void> => {
   const url = canonicalLocalDraftUrl(rawUrl);
-  const fieldsUrl = canonicalLocalDraftUrl(fields.url);
+  canonicalLocalDraftUrl(fields.url);
   await storage.set({
     [`${STORAGE_PREFIX}${url}`]: {
       version: 1,
       url,
       savedAt: now,
       expiresAt: now + LOCAL_DRAFT_TTL_MS,
-      fields: { ...fields, url: fieldsUrl },
+      fields,
     } satisfies StoredLocalDraft,
   });
 };

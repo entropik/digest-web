@@ -142,7 +142,9 @@ describe("temporary local drafts", () => {
     "http://localhost/article",
     "http://localhost./article",
     "https://example.com/reset-password/SECRET",
+    "https://example.com/invitations/SECRET",
     "https://example.com/callback?ticket=SECRET",
+    "http://[::ffff:127.0.0.1]/article",
   ])("rejects sensitive URL data before local persistence: %s", async (url) => {
     await expect(saveLocalDraft(storage, url, fields)).rejects.toThrow(
       "SENSITIVE_URL",
@@ -154,7 +156,10 @@ describe("temporary local drafts", () => {
     await saveLocalDraft(
       storage,
       "https://example.com/captured",
-      { ...fields, url: "https://example.com/corrected" },
+      {
+        ...fields,
+        url: "https://example.com/corrected/?utm_source=verbatim",
+      },
       1_000,
     );
 
@@ -162,7 +167,7 @@ describe("temporary local drafts", () => {
       loadLocalDraft(storage, "https://example.com/captured", 2_000),
     ).resolves.toEqual({
       ...fields,
-      url: "https://example.com/corrected",
+      url: "https://example.com/corrected/?utm_source=verbatim",
     });
     await expect(
       loadLocalDraft(storage, "https://example.com/corrected", 2_000),

@@ -38,6 +38,12 @@ describe("page capture", () => {
     expect(isSupportedCaptureUrl("http://100.64.0.1/report")).toBe(false);
     expect(isSupportedCaptureUrl("http://224.0.0.1/report")).toBe(false);
     expect(isSupportedCaptureUrl("http://[::]/report")).toBe(false);
+    expect(
+      isSupportedCaptureUrl("http://[::ffff:127.0.0.1]/report"),
+    ).toBe(false);
+    expect(
+      isSupportedCaptureUrl("http://[::ffff:192.168.1.1]/report"),
+    ).toBe(false);
     expect(isSupportedCaptureUrl("http://[::1]/report")).toBe(false);
     expect(isSupportedCaptureUrl("https://user:pass@example.com")).toBe(false);
     expect(isSupportedCaptureUrl("https://example.com/article")).toBe(true);
