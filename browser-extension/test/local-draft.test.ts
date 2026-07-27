@@ -138,6 +138,8 @@ describe("temporary local drafts", () => {
     "https://example.com/wp-admin/post.php",
     "https://example.com/cms-admin/editor",
     "https://example.com/wp-login.php",
+    "https://example.com/staging-wp-admin/post.php",
+    "https://example.com/foo-bar-login.php",
     "https://example.com/article?session_token=secret",
     "https://example.com/article?oauth_code=secret",
     "https://example.com/callback#access_token=secret",

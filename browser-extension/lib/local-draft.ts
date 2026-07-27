@@ -37,7 +37,7 @@ const TRACKING_KEYS = new Set([
 const SENSITIVE_QUERY_KEY =
   /(?:^|[_-])(auth|code|credential|jwt|key|pass(?:word)?|secret|session|signature|token)(?:$|[_-])/i;
 const SENSITIVE_PATH_SEGMENT =
-  /\/(?:[a-z0-9]+-)?(?:account|admin|auth|console|dashboard|invites?|invitations?|login|magic-link|oauth|password-reset|reset(?:-password)?|signin|verification|verify)(?:[._-][a-z0-9-]+)*(?:\/|$)/i;
+  /\/(?:[a-z0-9]+[._-])*(?:account|admin|auth|console|dashboard|invites?|invitations?|login|magic-link|oauth|password-reset|reset(?:-password)?|signin|verification|verify)(?:[._-][a-z0-9-]+)*(?:\/|$)/i;
 const SENSITIVE_COMPACT_KEYS = new Set([
   "accesstoken",
   "apikey",
