@@ -1188,34 +1188,40 @@ html {
 }
 
 .digest-modal-admin {
-  flex: 0 0 auto;
-  padding: .75rem 1rem;
-  border: 1px solid #c93624;
-  border-radius: .25rem;
+  display: block;
+  margin: 1rem auto 0;
+  padding: 0;
+  border: 0;
   background: transparent;
-  color: #c93624;
+  color: var(--digest-muted);
   cursor: pointer;
   font: inherit;
-  font-weight: 700;
+  font-size: .68rem;
+  opacity: .6;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .22em;
 }
 
 .digest-modal-admin:hover,
 .digest-modal-admin:focus-visible {
-  background: #c93624;
-  color: #fff;
-  outline: 0;
+  color: #c93624;
+  opacity: 1;
+  outline: 1px dotted currentColor;
+  outline-offset: .3rem;
 }
 
 .digest-modal-admin:disabled {
   cursor: wait;
-  opacity: .6;
+  opacity: .35;
 }
 
 .digest-modal-admin-feedback {
   min-height: 1.3em;
-  margin: .8rem 0 0;
+  margin: .55rem 0 0;
   color: #c93624;
   font-size: .76rem;
+  text-align: center;
 }
 
 .digest-admin-notice {

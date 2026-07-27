@@ -604,10 +604,6 @@
     if (!isAdmin || !modalAdminId) return;
     const link = links.find((candidate) => candidate.id === modalAdminId);
     if (!link) return;
-    const confirmed = window.confirm(
-      `Retirer « ${link.title} » du Digest ?\n\nLe lien sera masqué, restera dans les données et pourra être restauré depuis /admin.`,
-    );
-    if (!confirmed) return;
 
     modalAdmin.disabled = true;
     modalAdmin.textContent = "Retrait en cours…";
