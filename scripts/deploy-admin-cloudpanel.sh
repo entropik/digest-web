@@ -6,6 +6,23 @@ base="/home/digest/apps/digest-admin"
 repository="https://github.com/entropik/digest-web.git"
 branch="main"
 
+start_admin() {
+  cd "$base/current"
+  pm2 delete digest-admin >/dev/null 2>&1 || true
+  pm2 start ecosystem.config.cjs --update-env
+  pm2 save
+
+  attempt=0
+  until curl -fsS http://127.0.0.1:3210/health >/dev/null; do
+    attempt=$((attempt + 1))
+    if [ "$attempt" -ge 20 ]; then
+      echo "The admin service did not become healthy on port 3210." >&2
+      exit 1
+    fi
+    sleep 1
+  done
+}
+
 mkdir -p "$base/releases" "$base/shared"
 test -s "$base/shared/.env"
 
@@ -17,6 +34,9 @@ test -n "$remote_sha"
 
 current_target="$(readlink "$base/current" 2>/dev/null || true)"
 if [ "$current_target" = "releases/$remote_sha/admin-service" ]; then
+  if ! curl -fsS http://127.0.0.1:3210/health >/dev/null; then
+    start_admin
+  fi
   exit 0
 fi
 
@@ -43,20 +63,7 @@ test -s "$release/admin-service/dist/src/server.js"
 ln -sfn "releases/$remote_sha/admin-service" "$base/current.new"
 mv -Tf "$base/current.new" "$base/current"
 
-cd "$base/current"
-pm2 delete digest-admin >/dev/null 2>&1 || true
-pm2 start ecosystem.config.cjs --update-env
-pm2 save
-
-attempt=0
-until curl -fsS http://127.0.0.1:3210/health >/dev/null; do
-  attempt=$((attempt + 1))
-  if [ "$attempt" -ge 20 ]; then
-    echo "The admin service did not become healthy on port 3210." >&2
-    exit 1
-  fi
-  sleep 1
-done
+start_admin
 
 cd "$base/releases"
 ls -1dt -- */ 2>/dev/null | tail -n +6 | xargs -r rm -rf --
