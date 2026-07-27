@@ -48,10 +48,19 @@ export const requestJson = async <T>(
         ...init.headers,
       },
     });
-    const data = (await response.json().catch(() => ({}))) as T & {
+    let data: T & {
       error?: string;
       details?: unknown;
     };
+    try {
+      data = (await response.json()) as typeof data;
+    } catch (error) {
+      if (timedOut) throw error;
+      if (response.ok) {
+        throw new DigestApiError("INVALID_RESPONSE", response.status);
+      }
+      data = {} as typeof data;
+    }
     if (!response.ok) {
       throw new DigestApiError(
         data.error || "REQUEST_FAILED",

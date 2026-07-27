@@ -123,17 +123,29 @@ const fillForm = (
 };
 
 const populateOptions = (options: CurationOptions): void => {
+  const selectedCategory = category.value;
   const blankCategory = document.createElement("option");
   blankCategory.value = "";
+  const categoryOptions = options.categories.map((value) => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = value;
+    return option;
+  });
+  if (
+    selectedCategory &&
+    !options.categories.some((value) => value === selectedCategory)
+  ) {
+    const selectedOption = document.createElement("option");
+    selectedOption.value = selectedCategory;
+    selectedOption.textContent = selectedCategory;
+    categoryOptions.push(selectedOption);
+  }
   category.replaceChildren(
     blankCategory,
-    ...options.categories.map((value) => {
-      const option = document.createElement("option");
-      option.value = value;
-      option.textContent = value;
-      return option;
-    }),
+    ...categoryOptions,
   );
+  category.value = selectedCategory;
   knownTags.replaceChildren(
     ...options.tags.map((value) => {
       const option = document.createElement("option");
@@ -221,20 +233,22 @@ const verifyCapture = async (verificationUrl: string): Promise<void> => {
       verificationId !== verificationSequence ||
       field("url").value.trim() !== verificationUrl
     ) return;
-    verifiedUrl = verificationUrl;
     populateOptions(bootstrap.options);
     if (bootstrap.draft) {
       fillDraftPreservingEdits(bootstrap.draft);
+      verifiedUrl = field("url").value.trim();
       feedback.textContent =
         "Ce brouillon existe déjà : le formulaire permet de le mettre à jour.";
       saveButton.disabled = false;
       return;
     }
     if (bootstrap.published) {
+      verifiedUrl = verificationUrl;
       feedback.textContent = "Ce lien est déjà publié dans le Digest.";
       return;
     }
     updateCompleteness();
+    verifiedUrl = verificationUrl;
     saveButton.disabled = false;
     feedback.textContent = "Lien vérifié · prêt à enregistrer.";
   } catch (error) {
