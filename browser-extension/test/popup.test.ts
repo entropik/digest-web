@@ -363,6 +363,7 @@ describe("états asynchrones du popup", () => {
       expect(input("title").value).toBe("Titre local restauré");
       expect(element<HTMLSelectElement>("#category").value).toBe("Design");
       expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+      expect(element("#selected-tags").textContent).not.toContain("outil");
     });
 
     input("url").value = "https://example.com/autre";
@@ -370,6 +371,9 @@ describe("états asynchrones du popup", () => {
     element<HTMLButtonElement>("#discard-local").click();
     await vi.waitFor(() => {
       expect(browserMock.storage.local.remove).toHaveBeenCalledWith(key);
+      expect(browserMock.storage.local.remove).toHaveBeenCalledWith(
+        localDraftStorageKey("https://example.com/autre"),
+      );
       expect(element("#feedback").textContent).toBe(
         "La saisie reste affichée, mais ne sera plus restaurée.",
       );

@@ -40,9 +40,16 @@ const SENSITIVE_PATH_SEGMENT =
 
 export const canonicalLocalDraftUrl = (rawUrl: string): string => {
   const url = new URL(rawUrl.trim());
+  const fragment = url.hash.slice(1);
+  const fragmentQuery = fragment.includes("?")
+    ? fragment.slice(fragment.indexOf("?") + 1)
+    : fragment;
   if (
     SENSITIVE_PATH_SEGMENT.test(url.pathname) ||
-    [...url.searchParams.keys()].some((key) => SENSITIVE_QUERY_KEY.test(key))
+    [...url.searchParams.keys()].some((key) => SENSITIVE_QUERY_KEY.test(key)) ||
+    [...new URLSearchParams(fragmentQuery).keys()].some((key) =>
+      SENSITIVE_QUERY_KEY.test(key),
+    )
   ) {
     throw new Error("SENSITIVE_URL");
   }
@@ -121,10 +128,12 @@ export const loadLocalDraft = async (
   return stored.fields;
 };
 
-export const clearLocalDraft = (
+export const clearLocalDraft = async (
   storage: LocalStorageArea,
   rawUrl: string,
-): Promise<void> => storage.remove(localDraftStorageKey(rawUrl));
+): Promise<void> => {
+  await storage.remove(localDraftStorageKey(rawUrl));
+};
 
 export const pruneExpiredLocalDrafts = async (
   storage: LocalStorageArea,

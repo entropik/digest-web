@@ -37,6 +37,7 @@ let localSaveTimer: ReturnType<typeof setTimeout> | undefined;
 let localPersistenceEnabled = true;
 let localDraftDirty = false;
 let restoredLocalDraftUrl: string | null = null;
+let restoredTagsAuthoritative = false;
 
 type CurationOptions = { categories: string[]; tags: string[] };
 type EditableField = keyof PageCapture | "category" | "tags";
@@ -236,7 +237,11 @@ const fillDraftPreservingEdits = (draft: StoredDraft): void => {
       ? field("privateNote").value
       : draft.privateNote,
     category: touchedFields.has("category") ? category.value : draft.category,
-    tags: touchedFields.has("tags") ? mergedTags : draft.tags,
+    tags: touchedFields.has("tags")
+      ? restoredTagsAuthoritative
+        ? tags
+        : mergedTags
+      : draft.tags,
   });
 };
 
@@ -356,6 +361,7 @@ const initialize = async (): Promise<void> => {
       fillForm({ ...capture, ...localDraft }, true);
       addedTags = [...localDraft.tags];
       restoredLocalDraftUrl = capture.url;
+      restoredTagsAuthoritative = true;
       discardLocalButton.hidden = false;
       (
         [
@@ -388,9 +394,20 @@ discardLocalButton.addEventListener("click", () => {
   localDraftDirty = false;
   if (localSaveTimer) clearTimeout(localSaveTimer);
   localSaveTimer = undefined;
-  void clearLocalDraft(
-    browser.storage.local,
-    restoredLocalDraftUrl ?? field("url").value.trim(),
+  const urls = [
+    ...new Set(
+      [restoredLocalDraftUrl, field("url").value.trim()].filter(
+        (url): url is string => !!url,
+      ),
+    ),
+  ];
+  void Promise.all(
+    urls.map((url) =>
+      clearLocalDraft(browser.storage.local, url).catch((error) => {
+        if (error instanceof Error && error.message === "SENSITIVE_URL") return;
+        throw error;
+      }),
+    ),
   ).then(() => {
     restoredLocalDraftUrl = null;
     discardLocalButton.hidden = true;
@@ -464,6 +481,7 @@ form.addEventListener("submit", async (event) => {
     );
     localPersistenceEnabled = false;
     localDraftDirty = false;
+    restoredTagsAuthoritative = false;
     discardLocalButton.hidden = true;
     if (localSaveTimer) clearTimeout(localSaveTimer);
     localSaveTimer = undefined;
