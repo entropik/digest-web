@@ -19,6 +19,8 @@ const category = document.querySelector<HTMLSelectElement>("#category")!;
 const saveButton = document.querySelector<HTMLButtonElement>("#save")!;
 const retryButton = document.querySelector<HTMLButtonElement>("#retry")!;
 let tags: string[] = [];
+let addedTags: string[] = [];
+const removedTagKeys = new Set<string>();
 let verifiedUrl: string | null = null;
 let verificationSequence = 0;
 
@@ -45,6 +47,8 @@ const api = async <T>(
 const field = (name: string): HTMLInputElement | HTMLTextAreaElement =>
   form.elements.namedItem(name) as HTMLInputElement | HTMLTextAreaElement;
 
+const tagKey = (tag: string): string => tag.toLocaleLowerCase("fr");
+
 const renderTags = (): void => {
   selectedTags.replaceChildren(
     ...tags.map((tag) => {
@@ -57,6 +61,10 @@ const renderTags = (): void => {
       remove.textContent = "×";
       remove.addEventListener("click", () => {
         touchedFields.add("tags");
+        removedTagKeys.add(tagKey(tag));
+        addedTags = addedTags.filter(
+          (candidate) => tagKey(candidate) !== tagKey(tag),
+        );
         tags = tags.filter((candidate) => candidate !== tag);
         renderTags();
         updateCompleteness();
@@ -79,6 +87,8 @@ const addTag = (): void => {
   }
   if (!alreadySelected) {
     touchedFields.add("tags");
+    removedTagKeys.delete(tagKey(value));
+    addedTags.push(value);
     tags.push(value);
   }
   tagInput.value = "";
@@ -134,17 +144,14 @@ const populateOptions = (options: CurationOptions): void => {
 };
 
 const fillDraftPreservingEdits = (draft: StoredDraft): void => {
-  const mergedTags = [
-    ...tags,
-    ...draft.tags.filter(
-      (draftTag) =>
-        !tags.some(
-          (localTag) =>
-            localTag.localeCompare(draftTag, "fr", { sensitivity: "base" }) ===
-            0,
-        ),
-    ),
-  ].slice(0, 12);
+  const mergedTags = [...addedTags, ...tags, ...draft.tags]
+    .filter((tag) => !removedTagKeys.has(tagKey(tag)))
+    .filter(
+      (tag, index, candidates) =>
+        candidates.findIndex((candidate) => tagKey(candidate) === tagKey(tag)) ===
+        index,
+    )
+    .slice(0, 12);
   fillForm({
     url: touchedFields.has("url") ? field("url").value : draft.url,
     title: touchedFields.has("title") ? field("title").value : draft.title,
