@@ -20,7 +20,7 @@ const saveButton = document.querySelector<HTMLButtonElement>("#save")!;
 const retryButton = document.querySelector<HTMLButtonElement>("#retry")!;
 let tags: string[] = [];
 let addedTags: string[] = [];
-const removedTagKeys = new Set<string>();
+let removedTags: string[] = [];
 let verifiedUrl: string | null = null;
 let verificationSequence = 0;
 let canSaveVerifiedDraft = false;
@@ -48,7 +48,9 @@ const api = async <T>(
 const field = (name: string): HTMLInputElement | HTMLTextAreaElement =>
   form.elements.namedItem(name) as HTMLInputElement | HTMLTextAreaElement;
 
-const tagKey = (tag: string): string => tag.toLocaleLowerCase("fr");
+const tagCollator = new Intl.Collator("fr", { sensitivity: "base" });
+const sameTag = (left: string, right: string): boolean =>
+  tagCollator.compare(left, right) === 0;
 
 const updateSaveAvailability = (): void => {
   saveButton.disabled = !canSaveVerifiedDraft || tags.length > 12;
@@ -66,9 +68,11 @@ const renderTags = (): void => {
       remove.textContent = "×";
       remove.addEventListener("click", () => {
         touchedFields.add("tags");
-        removedTagKeys.add(tagKey(tag));
+        if (!removedTags.some((candidate) => sameTag(candidate, tag))) {
+          removedTags.push(tag);
+        }
         addedTags = addedTags.filter(
-          (candidate) => tagKey(candidate) !== tagKey(tag),
+          (candidate) => !sameTag(candidate, tag),
         );
         tags = tags.filter((candidate) => candidate !== tag);
         renderTags();
@@ -87,16 +91,16 @@ const renderTags = (): void => {
 const addTag = (): void => {
   const value = tagInput.value.trim().replace(/^#+/, "").slice(0, 80);
   if (!value) return;
-  const alreadySelected = tags.some(
-    (tag) => tag.localeCompare(value, "fr", { sensitivity: "base" }) === 0,
-  );
+  const alreadySelected = tags.some((tag) => sameTag(tag, value));
   if (!alreadySelected && tags.length >= 12) {
     feedback.textContent = "Maximum de 12 tags par lien.";
     return;
   }
   if (!alreadySelected) {
     touchedFields.add("tags");
-    removedTagKeys.delete(tagKey(value));
+    removedTags = removedTags.filter(
+      (candidate) => !sameTag(candidate, value),
+    );
     addedTags.push(value);
     tags.push(value);
   }
@@ -167,11 +171,12 @@ const populateOptions = (options: CurationOptions): void => {
 
 const fillDraftPreservingEdits = (draft: StoredDraft): void => {
   const mergedTags = [...addedTags, ...tags, ...draft.tags]
-    .filter((tag) => !removedTagKeys.has(tagKey(tag)))
+    .filter(
+      (tag) => !removedTags.some((removedTag) => sameTag(removedTag, tag)),
+    )
     .filter(
       (tag, index, candidates) =>
-        candidates.findIndex((candidate) => tagKey(candidate) === tagKey(tag)) ===
-        index,
+        candidates.findIndex((candidate) => sameTag(candidate, tag)) === index,
     );
   fillForm({
     url: touchedFields.has("url") ? field("url").value : draft.url,
