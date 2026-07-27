@@ -25,6 +25,18 @@ type WorkflowRun = {
   html_url: string;
   head_sha: string;
 };
+type RepositoryHead = {
+  commitSha: string;
+  treeSha: string;
+  links: DigestLink[];
+};
+
+const READ_CACHE_TTL_MS = 30_000;
+let cachedRepositoryHead:
+  | { expiresAt: number; value: RepositoryHead }
+  | undefined;
+let repositoryHeadRequest: Promise<RepositoryHead> | undefined;
+let repositoryHeadGeneration = 0;
 
 export class GitHubResponseError extends Error {
   constructor(
@@ -105,7 +117,7 @@ const contentPath = (path: string, ref: string) =>
     .map(encodeURIComponent)
     .join("/")}?ref=${encodeURIComponent(ref)}`;
 
-export const readRepositoryHead = async () => {
+export const readRepositoryHead = async (): Promise<RepositoryHead> => {
   const ref = await request<GitHubRef>(
     `${repositoryPath}/git/ref/heads/${encodeURIComponent(config.repositoryBranch)}`,
   );
@@ -120,6 +132,39 @@ export const readRepositoryHead = async () => {
     treeSha: commit.tree.sha,
     links: parseCatalog(catalog),
   };
+};
+
+export const readCachedRepositoryHead = async (): Promise<RepositoryHead> => {
+  const now = Date.now();
+  if (cachedRepositoryHead && cachedRepositoryHead.expiresAt > now) {
+    return cachedRepositoryHead.value;
+  }
+  if (repositoryHeadRequest) return repositoryHeadRequest;
+
+  const generation = repositoryHeadGeneration;
+  const request = readRepositoryHead()
+    .then((value) => {
+      if (generation === repositoryHeadGeneration) {
+        cachedRepositoryHead = {
+          expiresAt: Date.now() + READ_CACHE_TTL_MS,
+          value,
+        };
+      }
+      return value;
+    })
+    .finally(() => {
+      if (repositoryHeadRequest === request) {
+        repositoryHeadRequest = undefined;
+      }
+    });
+  repositoryHeadRequest = request;
+  return request;
+};
+
+const invalidateRepositoryHeadCache = (): void => {
+  repositoryHeadGeneration += 1;
+  cachedRepositoryHead = undefined;
+  repositoryHeadRequest = undefined;
 };
 
 export const readRepositoryFile = (path: string, ref: string): Promise<string> =>
@@ -184,6 +229,7 @@ export const commitRepositoryFiles = async (
       body: JSON.stringify({ sha: commit.sha, force: false }),
     },
   );
+  invalidateRepositoryHeadCache();
   return commit.sha;
 };
 

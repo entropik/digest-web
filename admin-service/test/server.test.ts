@@ -66,6 +66,16 @@ test("session endpoint is readable but mutations require authentication", async 
     isAdmin: false,
   });
 
+  const bootstrap = await app.request(
+    "/api/admin/curation/bootstrap?url=https%3A%2F%2Fexample.com",
+    {
+      headers: {
+        Origin: "chrome-extension://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      },
+    },
+  );
+  assert.equal(bootstrap.status, 401);
+
   const mutation = await app.request("/api/admin/curation/drafts", {
     method: "POST",
     headers: {

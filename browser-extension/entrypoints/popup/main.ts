@@ -15,7 +15,21 @@ const tagInput = document.querySelector<HTMLInputElement>("#tag-input")!;
 const selectedTags = document.querySelector<HTMLElement>("#selected-tags")!;
 const knownTags = document.querySelector<HTMLDataListElement>("#known-tags")!;
 const category = document.querySelector<HTMLSelectElement>("#category")!;
+const saveButton = document.querySelector<HTMLButtonElement>("#save")!;
 let tags: string[] = [];
+
+type ApiError = Error & { status?: number };
+type CurationOptions = { categories: string[]; tags: string[] };
+type StoredDraft = PageCapture & {
+  category: string;
+  tags: string[];
+  privateNote: string;
+};
+type BootstrapResponse = {
+  options: CurationOptions;
+  draft: StoredDraft | null;
+  published: { id?: string; title?: string } | null;
+};
 
 const api = async <T>(
   path: string,
@@ -34,7 +48,7 @@ const api = async <T>(
     error?: string;
   };
   if (!response.ok) {
-    const error = new Error(data.error || "REQUEST_FAILED");
+    const error = new Error(data.error || "REQUEST_FAILED") as ApiError;
     Object.assign(error, { data, status: response.status });
     throw error;
   }
@@ -107,72 +121,78 @@ const fillForm = (
   updateCompleteness();
 };
 
+const populateOptions = (options: CurationOptions): void => {
+  const blankCategory = document.createElement("option");
+  blankCategory.value = "";
+  category.replaceChildren(
+    blankCategory,
+    ...options.categories.map((value) => {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = value;
+      return option;
+    }),
+  );
+  knownTags.replaceChildren(
+    ...options.tags.map((value) => {
+      const option = document.createElement("option");
+      option.value = value;
+      return option;
+    }),
+  );
+};
+
+const captureActivePage = async (): Promise<PageCapture> => {
+  const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
+  if (!tab?.id || !tab.url || !isSupportedCaptureUrl(tab.url)) {
+    throw new Error("PAGE_NOT_SUPPORTED");
+  }
+  const [result] = await browser.scripting.executeScript({
+    target: { tabId: tab.id },
+    func: extractPageMetadata,
+  });
+  const capture = result?.result;
+  if (!capture || !isSupportedCaptureUrl(capture.url)) {
+    throw new Error("PAGE_NOT_SUPPORTED");
+  }
+  return capture;
+};
+
 const initialize = async (): Promise<void> => {
   try {
-    const session = await api<{ authenticated: boolean; isAdmin: boolean }>(
-      "/api/admin/session",
+    const capture = await captureActivePage();
+    fillForm(capture);
+    form.hidden = false;
+    feedback.textContent = "Vérification du lien…";
+
+    const bootstrap = await api<BootstrapResponse>(
+      `/api/admin/curation/bootstrap?url=${encodeURIComponent(capture.url)}`,
     );
-    if (!session.authenticated || !session.isAdmin) {
-      login.hidden = false;
+    populateOptions(bootstrap.options);
+    if (bootstrap.draft) {
+      fillForm(bootstrap.draft);
+      feedback.textContent = "Ce brouillon existe déjà : le formulaire permet de le mettre à jour.";
+      saveButton.disabled = false;
       return;
     }
-    const options = await api<{ categories: string[]; tags: string[] }>(
-      "/api/admin/curation/options",
-    );
-    const blankCategory = document.createElement("option");
-    blankCategory.value = "";
-    category.replaceChildren(
-      blankCategory,
-      ...options.categories.map((value) => {
-        const option = document.createElement("option");
-        option.value = value;
-        option.textContent = value;
-        return option;
-      }),
-    );
-    knownTags.replaceChildren(
-      ...options.tags.map((value) => {
-        const option = document.createElement("option");
-        option.value = value;
-        return option;
-      }),
-    );
-
-    const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
-    if (!tab?.id || !tab.url || !isSupportedCaptureUrl(tab.url)) {
-      throw new Error("PAGE_NOT_SUPPORTED");
+    if (bootstrap.published) {
+      feedback.textContent = "Ce lien est déjà publié dans le Digest.";
+      return;
     }
-    const [result] = await browser.scripting.executeScript({
-      target: { tabId: tab.id },
-      func: extractPageMetadata,
-    });
-    const capture = result?.result;
-    if (!capture || !isSupportedCaptureUrl(capture.url)) {
-      throw new Error("PAGE_NOT_SUPPORTED");
-    }
-
-    const existing = await api<{
-      draft: (PageCapture & {
-        category: string;
-        tags: string[];
-        privateNote: string;
-      }) | null;
-      published: { id?: string; title?: string } | null;
-    }>(`/api/admin/curation/drafts?url=${encodeURIComponent(capture.url)}`);
-    if (existing.published) {
-      throw new Error("ALREADY_PUBLISHED");
-    }
-    fillForm(existing.draft ?? capture);
-    form.hidden = false;
-    if (existing.draft) {
-      feedback.textContent = "Ce brouillon existe déjà : le formulaire permet de le mettre à jour.";
-    }
+    updateCompleteness();
+    saveButton.disabled = false;
+    feedback.textContent = "Lien vérifié · prêt à enregistrer.";
   } catch (error) {
+    const apiError = error as ApiError;
+    if (apiError.status === 401 || apiError.status === 403) {
+      form.hidden = true;
+      login.hidden = false;
+      feedback.textContent = "";
+      return;
+    }
     feedback.textContent =
       error instanceof Error && error.message === "PAGE_NOT_SUPPORTED"
         ? "Cette page ne peut pas être publiée : seules les pages web publiques HTTP(S) sont acceptées."
-        : error instanceof Error && error.message === "ALREADY_PUBLISHED"
-          ? "Ce lien est déjà publié dans le Digest."
         : "Impossible de préparer la capture. Vérifiez votre connexion au Digest.";
   }
 };
@@ -190,8 +210,7 @@ tagInput.addEventListener("keydown", (event) => {
 form.addEventListener("input", updateCompleteness);
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const button = document.querySelector<HTMLButtonElement>("#save")!;
-  button.disabled = true;
+  saveButton.disabled = true;
   feedback.textContent = "Enregistrement…";
   try {
     const data = await api<{ existing: boolean }>(
@@ -219,7 +238,7 @@ form.addEventListener("submit", async (event) => {
       message === "ALREADY_PUBLISHED"
         ? "Ce lien est déjà publié dans le Digest."
         : `Enregistrement impossible : ${message}`;
-    button.disabled = false;
+    saveButton.disabled = false;
   }
 });
 

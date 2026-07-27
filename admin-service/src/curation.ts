@@ -18,6 +18,7 @@ import {
   GitHubResponseError,
   commitRepositoryFiles,
   listRepositoryDirectory,
+  readCachedRepositoryHead,
   readRepositoryHead,
   tryReadRepositoryFile,
   updatePublishedLink,
@@ -115,8 +116,37 @@ export class CurationService {
   constructor(readonly store: CurationStore) {}
 
   async options() {
-    const head = await readRepositoryHead();
+    const head = await readCachedRepositoryHead();
     return catalogTaxonomy(head.links);
+  }
+
+  async bootstrap(rawUrl: string) {
+    const url = canonicalizePublicUrl(rawUrl);
+    const draft = this.store.findDraftByUrl(url);
+    const head = await readCachedRepositoryHead();
+    const options = catalogTaxonomy(head.links);
+
+    if (draft?.state === "draft") {
+      return { options, url, draft, published: null };
+    }
+    if (draft?.state === "published") {
+      return {
+        options,
+        url,
+        draft: null,
+        published: {
+          id: draft.publishedLinkId,
+          commit: draft.publishedCommit,
+        },
+      };
+    }
+    const published = head.links.find((link) => link.url === url);
+    return {
+      options,
+      url,
+      draft: null,
+      published: published ? publicAdminLink(published) : null,
+    };
   }
 
   async lookupUrl(rawUrl: string) {
@@ -135,7 +165,7 @@ export class CurationService {
         },
       };
     }
-    const head = await readRepositoryHead();
+    const head = await readCachedRepositoryHead();
     const published = head.links.find((link) => link.url === url);
     return {
       url,

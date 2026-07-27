@@ -179,6 +179,14 @@ app.get("/api/admin/curation/options", (context) =>
   handle(context, () => curation.options()),
 );
 
+app.get("/api/admin/curation/bootstrap", (context) =>
+  handle(context, () => {
+    const url = context.req.query("url");
+    if (!url) throw new CurationError("URL_REQUIRED");
+    return curation.bootstrap(url);
+  }),
+);
+
 app.get("/api/admin/curation/drafts", (context) =>
   handle(context, async () => {
     const url = context.req.query("url");
