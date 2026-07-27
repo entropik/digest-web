@@ -79,12 +79,6 @@ export const normalizeDraftInput = (
   if (taxonomy && category && !taxonomy.categories.includes(category)) {
     throw new CurationError("INVALID_CATEGORY");
   }
-  if (taxonomy) {
-    const allowed = new Set(taxonomy.tags);
-    if (tags.some((tag) => !allowed.has(tag))) {
-      throw new CurationError("INVALID_TAG");
-    }
-  }
   return { url, title, category, description, privateNote, tags };
 };
 
@@ -111,10 +105,6 @@ const metadataInput = (
   }
   if (!taxonomy.categories.includes(category)) {
     throw new CurationError("INVALID_CATEGORY");
-  }
-  const allowed = new Set(taxonomy.tags);
-  if (tags.some((tag) => !allowed.has(tag))) {
-    throw new CurationError("INVALID_TAG");
   }
   return { title, category, description, tags };
 };
@@ -248,13 +238,9 @@ export class CurationService {
     }
     const taxonomy = catalogTaxonomy(head.links);
     const categories = new Set(taxonomy.categories);
-    const tags = new Set(taxonomy.tags);
     for (const draft of concreteDrafts) {
       if (!categories.has(draft.category)) {
         throw new CurationError("INVALID_CATEGORY", 400, { id: draft.id });
-      }
-      if (draft.tags.some((tag) => !tags.has(tag))) {
-        throw new CurationError("INVALID_TAG", 400, { id: draft.id });
       }
       if (head.links.some((link) => link.url === draft.url)) {
         throw new CurationError("ALREADY_PUBLISHED", 409, { id: draft.id });

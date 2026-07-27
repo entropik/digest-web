@@ -15,7 +15,6 @@ const tagInput = document.querySelector<HTMLInputElement>("#tag-input")!;
 const selectedTags = document.querySelector<HTMLElement>("#selected-tags")!;
 const knownTags = document.querySelector<HTMLDataListElement>("#known-tags")!;
 const category = document.querySelector<HTMLSelectElement>("#category")!;
-let allowedTags = new Set<string>();
 let tags: string[] = [];
 
 const api = async <T>(
@@ -67,13 +66,16 @@ const renderTags = (): void => {
 };
 
 const addTag = (): void => {
-  const value = tagInput.value.trim();
+  const value = tagInput.value.trim().replace(/^#+/, "").slice(0, 80);
   if (!value) return;
-  if (!allowedTags.has(value)) {
-    feedback.textContent = "Choisissez un tag existant.";
+  const alreadySelected = tags.some(
+    (tag) => tag.localeCompare(value, "fr", { sensitivity: "base" }) === 0,
+  );
+  if (!alreadySelected && tags.length >= 12) {
+    feedback.textContent = "Maximum de 12 tags par lien.";
     return;
   }
-  if (!tags.includes(value)) tags.push(value);
+  if (!alreadySelected) tags.push(value);
   tagInput.value = "";
   feedback.textContent = "";
   renderTags();
@@ -117,7 +119,6 @@ const initialize = async (): Promise<void> => {
     const options = await api<{ categories: string[]; tags: string[] }>(
       "/api/admin/curation/options",
     );
-    allowedTags = new Set(options.tags);
     const blankCategory = document.createElement("option");
     blankCategory.value = "";
     category.replaceChildren(
