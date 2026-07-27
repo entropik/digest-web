@@ -40,6 +40,11 @@
   const modalUrl = document.querySelector("#digest-modal-url");
   const modalLink = document.querySelector("#digest-modal-link");
   const modalFavorite = document.querySelector("#digest-modal-favorite");
+  const modalAdminTools = document.querySelector("#digest-modal-admin-tools");
+  const modalTagEditor = document.querySelector("#digest-modal-tag-editor");
+  const modalTagForm = document.querySelector("#digest-modal-tag-form");
+  const modalTagInput = document.querySelector("#digest-modal-tag-input");
+  const modalTagSubmit = modalTagForm.querySelector('button[type="submit"]');
   const modalAdmin = document.querySelector("#digest-modal-admin");
   const modalAdminFeedback = document.querySelector("#digest-modal-admin-feedback");
   const adminNotice = document.querySelector("#digest-admin-notice");
@@ -498,9 +503,13 @@
     );
     modalFavoriteUrl = link.url;
     modalAdminId = link.id;
+    modalAdminTools.hidden = !isAdmin;
     modalAdmin.hidden = !isAdmin;
     modalAdmin.disabled = false;
     modalAdmin.textContent = "Retirer du Digest";
+    modalTagEditor.open = false;
+    modalTagInput.value = "";
+    modalTagSubmit.disabled = false;
     modalAdminFeedback.textContent = "";
     updateFavoriteButton(modalFavorite, modalFavoriteUrl, { expandedLabel: true });
 
@@ -593,12 +602,64 @@
         headers: { Accept: "application/json" },
       });
       isAdmin = response.ok && (await response.json()).isAdmin === true;
+      modalAdminTools.hidden = !isAdmin || !modalAdminId;
       modalAdmin.hidden = !isAdmin || !modalAdminId;
     } catch {
       isAdmin = false;
+      modalAdminTools.hidden = true;
       modalAdmin.hidden = true;
     }
   };
+
+  modalTagForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!isAdmin || !modalAdminId) return;
+    const link = links.find((candidate) => candidate.id === modalAdminId);
+    if (!link) return;
+    const tags = modalTagInput.value
+      .split(/[,\n]+/)
+      .map((tag) => tag.trim().replace(/^#+/, ""))
+      .filter(Boolean);
+    if (!tags.length) {
+      modalTagInput.focus();
+      return;
+    }
+
+    modalTagSubmit.disabled = true;
+    modalAdminFeedback.textContent = "";
+    try {
+      const response = await fetch(
+        `/api/admin/links/${encodeURIComponent(modalAdminId)}/tags`,
+        {
+          method: "POST",
+          credentials: "same-origin",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ tags, confirm: true }),
+        },
+      );
+      const result = await response.json();
+      if (!response.ok) {
+        if (response.status === 401 || response.status === 403) {
+          isAdmin = false;
+          modalAdminTools.hidden = true;
+          throw new Error("La session propriétaire a expiré. Reconnecte-toi sur /admin.");
+        }
+        throw new Error(result.error || "Les tags n’ont pas pu être enregistrés.");
+      }
+
+      link.tags = [...result.link.tags];
+      renderModalLink(link);
+      showAdminNotice(
+        result.changed
+          ? "Tags ajoutés. La version publique sera mise à jour dans quelques minutes."
+          : "Ces tags étaient déjà présents.",
+      );
+    } catch (error) {
+      modalTagSubmit.disabled = false;
+      modalAdminFeedback.textContent =
+        error instanceof Error ? error.message : "L’ajout des tags a échoué.";
+    }
+  });
 
   modalAdmin.addEventListener("click", async () => {
     if (!isAdmin || !modalAdminId) return;
@@ -622,6 +683,7 @@
       if (!response.ok) {
         if (response.status === 401 || response.status === 403) {
           isAdmin = false;
+          modalAdminTools.hidden = true;
           modalAdmin.hidden = true;
           throw new Error("La session propriétaire a expiré. Reconnecte-toi sur /admin.");
         }
@@ -652,7 +714,11 @@
       dateToggle.focus();
       return;
     }
-    if (modal.open && (event.key === "ArrowLeft" || event.key === "ArrowRight")) {
+    if (
+      modal.open &&
+      !event.target.matches("input, textarea") &&
+      (event.key === "ArrowLeft" || event.key === "ArrowRight")
+    ) {
       event.preventDefault();
       moveModal(event.key === "ArrowLeft" ? -1 : 1);
       return;

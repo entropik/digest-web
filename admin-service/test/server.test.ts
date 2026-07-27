@@ -78,4 +78,17 @@ test("session endpoint is readable but mutations require authentication", async 
     }),
   });
   assert.equal(mutation.status, 401);
+
+  const tagMutation = await app.request("/api/admin/links/example/tags", {
+    method: "POST",
+    headers: {
+      Origin: "https://digest.ooblik.com",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      tags: ["design"],
+      confirm: true,
+    }),
+  });
+  assert.equal(tagMutation.status, 401);
 });

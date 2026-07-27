@@ -1,5 +1,6 @@
 import { createAppAuth } from "@octokit/auth-app";
 import {
+  addPublishedTags,
   changePublishedMetadata,
   changeVisibility,
   parseCatalog,
@@ -277,6 +278,12 @@ export const updatePublishedLink = (
   commitCatalogMutation(
     (links) => changePublishedMetadata(links, id, metadata),
     (link) => `Corriger ${link.title}`,
+  );
+
+export const addTagsToPublishedLink = (id: string, tags: string[]) =>
+  commitCatalogMutation(
+    (links) => addPublishedTags(links, id, tags),
+    (link) => `Ajouter des tags à ${link.title}`,
   );
 
 export const workflowRunsForCommit = async (

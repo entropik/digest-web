@@ -102,6 +102,35 @@ export type PublishedMetadata = {
   tags: string[];
 };
 
+export const addPublishedTags = (
+  links: DigestLink[],
+  id: string,
+  additions: string[],
+): CatalogMutation => {
+  const index = links.findIndex((link) => link.id === id);
+  if (index < 0) throw new Error("LINK_NOT_FOUND");
+  const current = links[index]!;
+  const tags = Array.isArray(current.tags) ? [...current.tags] : [];
+  const known = new Set(tags.map((tag) => tag.toLocaleLowerCase("fr")));
+
+  for (const tag of additions) {
+    const key = tag.toLocaleLowerCase("fr");
+    if (!known.has(key)) {
+      known.add(key);
+      tags.push(tag);
+    }
+  }
+
+  if (tags.length === (current.tags ?? []).length) {
+    return { links, link: current, changed: false };
+  }
+
+  const updated: DigestLink = { ...current, tags };
+  const next = links.slice();
+  next[index] = updated;
+  return { links: next, link: updated, changed: true };
+};
+
 export const changePublishedMetadata = (
   links: DigestLink[],
   id: string,

@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 import {
+  addPublishedTags,
   changePublishedMetadata,
   changeVisibility,
   parseCatalog,
@@ -34,6 +35,31 @@ test("published metadata correction preserves historical fields", () => {
   assert.equal(mutation.link.added, original.added);
   assert.equal(mutation.link.status, "dead");
   assert.equal(mutation.link.archive_url, original.archive_url);
+});
+
+test("adding tags preserves existing tags and is idempotent", () => {
+  const original: DigestLink = {
+    ...link(),
+    description: "Description",
+    tags: ["design", "outil"],
+  };
+  const mutation = addPublishedTags(
+    [original],
+    original.id,
+    ["Outil", "grille", "mise-en-page"],
+  );
+  assert.equal(mutation.changed, true);
+  assert.deepEqual(mutation.link.tags, [
+    "design",
+    "outil",
+    "grille",
+    "mise-en-page",
+  ]);
+  assert.equal(mutation.link.description, original.description);
+  assert.equal(
+    addPublishedTags(mutation.links, original.id, ["GRILLE"]).changed,
+    false,
+  );
 });
 
 test("hide is reversible and keeps editorial metadata", () => {

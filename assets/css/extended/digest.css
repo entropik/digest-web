@@ -1033,8 +1033,12 @@ html {
   padding-inline: clamp(4.8rem, 8vw, 6.2rem);
 }
 
-.digest-modal-shell:has(.digest-modal-admin:not([hidden])) {
-  padding-bottom: 5.25rem;
+.digest-modal-shell:has(.digest-modal-admin-tools:not([hidden])) {
+  padding-bottom: 8rem;
+}
+
+.digest-modal-shell:has(.digest-modal-tag-editor[open]) {
+  padding-bottom: 13rem;
 }
 
 .digest-modal-nav {
@@ -1191,12 +1195,90 @@ html {
   font-weight: 700;
 }
 
-.digest-modal-admin {
+.digest-modal-admin-tools {
   position: absolute;
-  left: 50%;
-  bottom: 1.25rem;
+  display: flex;
+  right: clamp(1.6rem, 5vw, 3.2rem);
+  bottom: 1rem;
+  left: clamp(1.6rem, 5vw, 3.2rem);
+  align-items: center;
+  flex-direction: column;
+}
+
+.digest-modal-tag-editor {
+  width: min(430px, 100%);
+  color: var(--digest-muted);
+  font-size: .72rem;
+  text-align: center;
+}
+
+.digest-modal-tag-editor summary {
+  cursor: pointer;
+  list-style: none;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .22em;
+}
+
+.digest-modal-tag-editor summary::-webkit-details-marker {
+  display: none;
+}
+
+.digest-modal-tag-editor summary::before {
+  content: "+ ";
+}
+
+.digest-modal-tag-editor[open] summary,
+.digest-modal-tag-editor summary:hover,
+.digest-modal-tag-editor summary:focus-visible {
+  color: var(--digest-ink);
+}
+
+.digest-modal-tag-form {
+  display: flex;
+  gap: .5rem;
+  margin-top: .8rem;
+}
+
+.digest-modal-tag-form input {
+  min-width: 0;
+  flex: 1 1 auto;
+  padding: .65rem .75rem;
+  border: 1px solid var(--digest-line);
+  border-radius: .2rem;
+  background: var(--theme);
+  color: var(--digest-ink);
+  font: inherit;
+  font-size: .78rem;
+}
+
+.digest-modal-tag-form button {
+  flex: 0 0 auto;
+  padding: .65rem .8rem;
+  border: 1px solid var(--digest-ink);
+  border-radius: .2rem;
+  background: var(--digest-ink);
+  color: var(--theme);
+  cursor: pointer;
+  font: inherit;
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+.digest-modal-tag-form button:disabled {
+  cursor: wait;
+  opacity: .5;
+}
+
+.digest-modal-tag-editor small {
   display: block;
-  margin: 0;
+  margin-top: .45rem;
+  font-size: .64rem;
+}
+
+.digest-modal-admin {
+  display: block;
+  margin: 1.35rem auto 0;
   padding: 0;
   border: 0;
   background: transparent;
@@ -1208,7 +1290,6 @@ html {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: .22em;
-  transform: translateX(-50%);
   white-space: nowrap;
 }
 
@@ -1251,6 +1332,7 @@ html {
 }
 
 .digest-admin-notice[hidden],
+.digest-modal-admin-tools[hidden],
 .digest-modal-admin[hidden] {
   display: none;
 }

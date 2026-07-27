@@ -268,6 +268,14 @@ app.patch("/api/admin/links/:id", async (context) =>
   }),
 );
 
+app.post("/api/admin/links/:id/tags", async (context) =>
+  handle(context, async () => {
+    const body = await jsonBody<Record<string, unknown>>(context);
+    requireConfirmation(body);
+    return curation.addTagsToPublishedLink(context.req.param("id"), body);
+  }),
+);
+
 app.get("/api/admin/links/hidden", async (context) =>
   handle(context, async () => ({ links: await listHiddenLinks() })),
 );

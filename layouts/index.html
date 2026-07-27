@@ -152,10 +152,26 @@
       </button>
       <a id="digest-modal-link" target="_blank" rel="noopener noreferrer">Visiter le site</a>
     </div>
-    <button class="digest-modal-admin" id="digest-modal-admin" type="button" hidden>
-      Retirer du Digest
-    </button>
-    <p class="digest-modal-admin-feedback" id="digest-modal-admin-feedback" role="status"></p>
+    <div class="digest-modal-admin-tools" id="digest-modal-admin-tools" hidden>
+      <details class="digest-modal-tag-editor" id="digest-modal-tag-editor">
+        <summary>Ajouter des tags</summary>
+        <form class="digest-modal-tag-form" id="digest-modal-tag-form">
+          <label class="sr-only" for="digest-modal-tag-input">Tags à ajouter</label>
+          <input
+            id="digest-modal-tag-input"
+            type="text"
+            placeholder="design, grille, outil…"
+            autocomplete="off"
+          >
+          <button type="submit">Ajouter</button>
+        </form>
+        <small>Sépare plusieurs tags par des virgules.</small>
+      </details>
+      <button class="digest-modal-admin" id="digest-modal-admin" type="button">
+        Retirer du Digest
+      </button>
+      <p class="digest-modal-admin-feedback" id="digest-modal-admin-feedback" role="status"></p>
+    </div>
   </div>
   <button class="digest-modal-nav digest-modal-next" type="button" aria-label="Lien suivant">
     <svg aria-hidden="true" viewBox="0 0 24 24">

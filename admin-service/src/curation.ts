@@ -14,6 +14,7 @@ import type {
 } from "./curation-types.js";
 import { parseEdition, renderEdition } from "./editions.js";
 import {
+  addTagsToPublishedLink,
   GitHubResponseError,
   commitRepositoryFiles,
   listRepositoryDirectory,
@@ -470,6 +471,20 @@ export class CurationService {
     const head = await readRepositoryHead();
     const metadata = metadataInput(body, catalogTaxonomy(head.links));
     return updatePublishedLink(id, metadata);
+  }
+
+  async addTagsToPublishedLink(id: string, body: unknown) {
+    const input = (body ?? {}) as Record<string, unknown>;
+    const tags = cleanTags(input.tags);
+    if (!tags.length) throw new CurationError("INVALID_TAG");
+    try {
+      return await addTagsToPublishedLink(id, tags);
+    } catch (error) {
+      if (error instanceof Error && error.message === "LINK_NOT_FOUND") {
+        throw new CurationError("LINK_NOT_FOUND", 404);
+      }
+      throw error;
+    }
   }
 
   async listEditions() {
