@@ -5,6 +5,7 @@ import {
   missingEditorialFields,
   type PageCapture
 } from "../../lib/capture";
+import { DigestApiError, requestJson } from "../../lib/api";
 
 const API_ORIGIN = "https://digest.ooblik.com";
 const form = document.querySelector<HTMLFormElement>("#capture-form")!;
@@ -16,9 +17,11 @@ const selectedTags = document.querySelector<HTMLElement>("#selected-tags")!;
 const knownTags = document.querySelector<HTMLDataListElement>("#known-tags")!;
 const category = document.querySelector<HTMLSelectElement>("#category")!;
 const saveButton = document.querySelector<HTMLButtonElement>("#save")!;
+const retryButton = document.querySelector<HTMLButtonElement>("#retry")!;
 let tags: string[] = [];
+let activeCapture: PageCapture | null = null;
+let formWasEdited = false;
 
-type ApiError = Error & { status?: number };
 type CurationOptions = { categories: string[]; tags: string[] };
 type StoredDraft = PageCapture & {
   category: string;
@@ -34,26 +37,7 @@ type BootstrapResponse = {
 const api = async <T>(
   path: string,
   init: RequestInit = {},
-): Promise<T> => {
-  const response = await fetch(`${API_ORIGIN}${path}`, {
-    ...init,
-    credentials: "include",
-    headers: {
-      Accept: "application/json",
-      ...(init.body ? { "Content-Type": "application/json" } : {}),
-      ...init.headers,
-    },
-  });
-  const data = (await response.json().catch(() => ({}))) as T & {
-    error?: string;
-  };
-  if (!response.ok) {
-    const error = new Error(data.error || "REQUEST_FAILED") as ApiError;
-    Object.assign(error, { data, status: response.status });
-    throw error;
-  }
-  return data;
-};
+): Promise<T> => requestJson<T>(API_ORIGIN, path, init);
 
 const field = (name: string): HTMLInputElement | HTMLTextAreaElement =>
   form.elements.namedItem(name) as HTMLInputElement | HTMLTextAreaElement;
@@ -69,6 +53,7 @@ const renderTags = (): void => {
       remove.setAttribute("aria-label", `Retirer ${tag}`);
       remove.textContent = "×";
       remove.addEventListener("click", () => {
+        formWasEdited = true;
         tags = tags.filter((candidate) => candidate !== tag);
         renderTags();
         updateCompleteness();
@@ -89,7 +74,10 @@ const addTag = (): void => {
     feedback.textContent = "Maximum de 12 tags par lien.";
     return;
   }
-  if (!alreadySelected) tags.push(value);
+  if (!alreadySelected) {
+    formWasEdited = true;
+    tags.push(value);
+  }
   tagInput.value = "";
   feedback.textContent = "";
   renderTags();
@@ -158,20 +146,33 @@ const captureActivePage = async (): Promise<PageCapture> => {
   return capture;
 };
 
-const initialize = async (): Promise<void> => {
-  try {
-    const capture = await captureActivePage();
-    fillForm(capture);
-    form.hidden = false;
-    feedback.textContent = "Vérification du lien…";
+const bootstrapErrorMessage = (error: DigestApiError): string => {
+  if (error.code === "REQUEST_TIMEOUT") {
+    return "La vérification prend trop de temps.";
+  }
+  if (error.code === "NETWORK_UNAVAILABLE") {
+    return "Réseau indisponible pour vérifier ce lien.";
+  }
+  if ((error.status ?? 0) >= 500) {
+    return "Le service du Digest est temporairement indisponible.";
+  }
+  return "Impossible de vérifier ce lien.";
+};
 
+const verifyCapture = async (capture: PageCapture): Promise<void> => {
+  saveButton.disabled = true;
+  retryButton.hidden = true;
+  feedback.textContent = "Vérification du lien…";
+
+  try {
     const bootstrap = await api<BootstrapResponse>(
       `/api/admin/curation/bootstrap?url=${encodeURIComponent(capture.url)}`,
     );
     populateOptions(bootstrap.options);
     if (bootstrap.draft) {
-      fillForm(bootstrap.draft);
-      feedback.textContent = "Ce brouillon existe déjà : le formulaire permet de le mettre à jour.";
+      if (!formWasEdited) fillForm(bootstrap.draft);
+      feedback.textContent =
+        "Ce brouillon existe déjà : le formulaire permet de le mettre à jour.";
       saveButton.disabled = false;
       return;
     }
@@ -183,13 +184,31 @@ const initialize = async (): Promise<void> => {
     saveButton.disabled = false;
     feedback.textContent = "Lien vérifié · prêt à enregistrer.";
   } catch (error) {
-    const apiError = error as ApiError;
-    if (apiError.status === 401 || apiError.status === 403) {
+    if (
+      error instanceof DigestApiError &&
+      (error.status === 401 || error.status === 403)
+    ) {
       form.hidden = true;
       login.hidden = false;
       feedback.textContent = "";
       return;
     }
+    feedback.textContent =
+      error instanceof DigestApiError
+        ? bootstrapErrorMessage(error)
+        : "Impossible de vérifier ce lien.";
+    retryButton.hidden = false;
+  }
+};
+
+const initialize = async (): Promise<void> => {
+  try {
+    const capture = await captureActivePage();
+    activeCapture = capture;
+    fillForm(capture);
+    form.hidden = false;
+    await verifyCapture(capture);
+  } catch (error) {
     feedback.textContent =
       error instanceof Error && error.message === "PAGE_NOT_SUPPORTED"
         ? "Cette page ne peut pas être publiée : seules les pages web publiques HTTP(S) sont acceptées."
@@ -201,13 +220,19 @@ document.querySelector("#login-button")?.addEventListener("click", () => {
   void browser.tabs.create({ url: `${API_ORIGIN}/admin` });
 });
 document.querySelector("#add-tag")?.addEventListener("click", addTag);
+retryButton.addEventListener("click", () => {
+  if (activeCapture) void verifyCapture(activeCapture);
+});
 tagInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     event.preventDefault();
     addTag();
   }
 });
-form.addEventListener("input", updateCompleteness);
+form.addEventListener("input", () => {
+  formWasEdited = true;
+  updateCompleteness();
+});
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   saveButton.disabled = true;
