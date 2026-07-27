@@ -97,6 +97,25 @@ Après avoir ajouté la permission `Actions: Read-only` à une GitHub App déjà
 installée, accepter la nouvelle permission dans les paramètres d’installation
 GitHub avant de redéployer le service.
 
+#### Lectures GitHub et cache
+
+Une lecture froide du catalogue commence toujours par la référence fraîche de
+`main`. Avant l’optimisation, le service attendait ensuite successivement le
+commit, puis `data/links.json`, soit trois allers-retours GitHub sur le chemin
+critique (`ref → commit → contenu`).
+
+Pour un SHA inconnu, le commit et le catalogue sont maintenant lus en parallèle
+après le `ref` (`ref → [commit + contenu]`). Le dernier snapshot est conservé
+par SHA : comme un commit Git est immuable, une nouvelle lecture fraîche du
+`ref` qui renvoie le même SHA peut réutiliser ce snapshot sans requête
+conditionnelle. `ETag`/`If-None-Match` n’apporterait alors qu’un aller-retour
+`304` supplémentaire.
+
+Le cache de 30 secondes reste réservé aux lectures du popup. Les mutations
+résolvent toujours le `ref` courant avant de travailler, conservent les
+protections de concurrence GitHub, et toute écriture réussie par le service
+invalide à la fois le cache temporaire et le snapshot indexé par SHA.
+
 ### CloudPanel
 
 Le service doit utiliser Node.js 22 ou supérieur et PM2. Le script
