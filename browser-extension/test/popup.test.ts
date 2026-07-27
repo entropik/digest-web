@@ -396,6 +396,8 @@ describe("états asynchrones du popup", () => {
     });
     input("title").value = "Titre saisi pendant la lecture";
     input("title").dispatchEvent(new Event("input", { bubbles: true }));
+    input("url").value = "https://example.com/nouvelle-adresse";
+    input("url").dispatchEvent(new Event("input", { bubbles: true }));
 
     pendingStorage.resolve({
       [key]: {
@@ -415,8 +417,15 @@ describe("états asynchrones du popup", () => {
 
     await vi.waitFor(() => {
       expect(input("title").value).toBe("Titre saisi pendant la lecture");
+      expect(input("url").value).toBe("https://example.com/nouvelle-adresse");
       expect(input("description").value).toBe("Résumé local");
       expect(element("#selected-tags").textContent).toContain("design");
+      expect(fetch).toHaveBeenCalledWith(
+        expect.stringContaining(
+          encodeURIComponent("https://example.com/nouvelle-adresse"),
+        ),
+        expect.anything(),
+      );
     });
   });
 

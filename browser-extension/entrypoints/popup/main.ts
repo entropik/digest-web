@@ -435,7 +435,7 @@ const initialize = async (): Promise<void> => {
         ] as EditableField[]
       ).forEach((name) => touchedFields.add(name));
     }
-    await verifyCapture(capture.url);
+    await verifyCapture(field("url").value.trim());
   } catch (error) {
     feedback.textContent =
       error instanceof Error && error.message === "PAGE_NOT_SUPPORTED"
