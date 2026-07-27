@@ -48,9 +48,9 @@ const api = async <T>(
 const field = (name: string): HTMLInputElement | HTMLTextAreaElement =>
   form.elements.namedItem(name) as HTMLInputElement | HTMLTextAreaElement;
 
-const tagCollator = new Intl.Collator("fr", { sensitivity: "base" });
+const tagKey = (tag: string): string => tag.toLocaleLowerCase("fr");
 const sameTag = (left: string, right: string): boolean =>
-  tagCollator.compare(left, right) === 0;
+  tagKey(left) === tagKey(right);
 
 const updateSaveAvailability = (): void => {
   saveButton.disabled = !canSaveVerifiedDraft || tags.length > 12;
