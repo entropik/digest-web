@@ -124,6 +124,8 @@ Le service écrit dans la sortie PM2 une ligne JSON par étape du bootstrap :
 `curation.bootstrap`. Le champ `request_id`, également renvoyé dans l’en-tête
 HTTP `X-Request-Id`, permet de regrouper les lignes d’une même ouverture du
 popup. Le cache indique explicitement `hit`, `miss` ou `shared`.
+Dans ce dernier cas, `duration_ms` mesure l’attente complète de la lecture
+déjà lancée par une autre requête.
 
 Une étape GitHub de 750 ms ou plus, ou un bootstrap total de 1 500 ms ou plus,
 passe au niveau `warn`. Pour diagnostiquer un popup lent, filtrer

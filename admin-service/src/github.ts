@@ -198,8 +198,20 @@ export const readCachedRepositoryHead = async (): Promise<RepositoryHead> => {
     return cachedRepositoryHead.value;
   }
   if (repositoryHeadRequest) {
-    recordTiming("github.cache", startedAt, { cache: "shared" });
-    return repositoryHeadRequest;
+    try {
+      const value = await repositoryHeadRequest;
+      recordTiming("github.cache", startedAt, {
+        cache: "shared",
+        status: "success",
+      });
+      return value;
+    } catch (error) {
+      recordTiming("github.cache", startedAt, {
+        cache: "shared",
+        status: "error",
+      });
+      throw error;
+    }
   }
 
   recordTiming("github.cache", startedAt, { cache: "miss" });
