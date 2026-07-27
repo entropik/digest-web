@@ -36,6 +36,7 @@ let verifiedUrl: string | null = null;
 let verificationSequence = 0;
 let canSaveVerifiedDraft = false;
 let localSaveTimer: ReturnType<typeof setTimeout> | undefined;
+let popupCloseTimer: ReturnType<typeof setTimeout> | undefined;
 let localPersistenceEnabled = false;
 let localDraftDirty = false;
 let restoredLocalDraftUrl: string | null = null;
@@ -509,7 +510,15 @@ discardLocalButton.addEventListener("click", () => {
     feedback.textContent = "Impossible d’oublier la reprise locale.";
   });
 });
-window.addEventListener("pagehide", flushLocalDraftSave, { once: true });
+window.addEventListener(
+  "pagehide",
+  () => {
+    if (popupCloseTimer) clearTimeout(popupCloseTimer);
+    popupCloseTimer = undefined;
+    flushLocalDraftSave();
+  },
+  { once: true },
+);
 tagInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     event.preventDefault();
@@ -589,7 +598,7 @@ form.addEventListener("submit", async (event) => {
     feedback.textContent = data.existing
       ? "Brouillon mis à jour."
       : "Brouillon ajouté à la file.";
-    setTimeout(() => window.close(), 900);
+    popupCloseTimer = setTimeout(() => window.close(), 900);
   } catch (error) {
     const message = error instanceof Error ? error.message : "REQUEST_FAILED";
     feedback.textContent =
