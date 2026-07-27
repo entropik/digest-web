@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ $stream := .Params.stream }}
-{{ $links := where hugo.Data.links "stream" $stream }}
+{{ $links := where (partial "public-links.html" hugo.Data.links) "stream" $stream }}
 {{ $years := slice }}
 {{ range $links }}
   {{ $years = $years | append (time.Format "2006" .added) }}

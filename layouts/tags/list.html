@@ -1,6 +1,7 @@
 {{ define "main" }}
-{{ $links := hugo.Data.links }}
+{{ $links := partial "public-links.html" hugo.Data.links }}
 {{ $tagPages := where site.RegularPages "Section" "tags" }}
+{{ $visibleTagPages := slice }}
 {{ $counts := newScratch }}
 {{ $maxCount := 1 }}
 {{ range $tagPages }}
@@ -8,7 +9,10 @@
   {{ $tags := .Params.tags | default (slice $tag) }}
   {{ $count := len (where $links "tags" "intersect" $tags) }}
   {{ $counts.Set $tag $count }}
-  {{ if gt $count $maxCount }}{{ $maxCount = $count }}{{ end }}
+  {{ if gt $count 0 }}
+    {{ $visibleTagPages = $visibleTagPages | append . }}
+    {{ if gt $count $maxCount }}{{ $maxCount = $count }}{{ end }}
+  {{ end }}
 {{ end }}
 
 <section class="tag-explorer" data-tag-explorer aria-labelledby="tag-explorer-title">
@@ -35,7 +39,7 @@
   </header>
 
   <div class="tag-explorer-scene" data-tag-scene aria-label="Tags à explorer">
-    {{ range sort $tagPages "Title" }}
+    {{ range sort $visibleTagPages "Title" }}
       {{ $tag := .Params.tag }}
       {{ $count := $counts.Get $tag }}
       {{ $importance := div (math.Log (add (float $count) 1)) (math.Log (add (float $maxCount) 1)) }}
@@ -53,7 +57,7 @@
   </div>
 
   <footer class="tag-explorer-footer">
-    <p data-tag-status>{{ len $tagPages }} thèmes · la taille indique le nombre de liens</p>
+    <p data-tag-status>{{ len $visibleTagPages }} thèmes · la taille indique le nombre de liens</p>
     <p aria-hidden="true">Survolez un mot pour l’arrêter, cliquez pour suivre le fil.</p>
   </footer>
 </section>

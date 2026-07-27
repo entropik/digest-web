@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ $digestDate := .Params.digest_date }}
-{{ $links := where hugo.Data.links "added" $digestDate }}
+{{ $links := where (partial "public-links.html" hugo.Data.links) "added" $digestDate }}
 {{ $categories := slice }}
 {{ range $links }}
   {{ $categories = $categories | append .category }}

@@ -4,6 +4,7 @@ Store the curated collection in `<site>/data/links.json` as a JSON array.
 
 Each item has:
 
+- `id`: stable UUID identifying the record independently from its URL.
 - `title`: non-empty reader-facing string.
 - `url`: canonical public HTTP(S) URL, unique in the array.
 - `category`: non-empty taxonomy label.
@@ -18,6 +19,8 @@ Each item has:
   to fall back to the original site root.
 - `archive_status`: `missing` only when Wayback has no usable capture.
 - `archive_checked_at`: ISO date of the latest Wayback lookup.
+- `visibility`: optional `hidden` marker for an editorial removal.
+- `hidden_at`: required ISO timestamp when `visibility` is `hidden`.
 
 The canonical `url` is never replaced by `archive_url`: it remains the
 historical address displayed to readers and used for deduplication.
@@ -33,6 +36,7 @@ Example:
 
 ```json
 {
+  "id": "ebd768df-0bfa-5e55-9af8-776fbb2fdd31",
   "title": "Example project",
   "url": "https://example.com/project",
   "category": "Development",

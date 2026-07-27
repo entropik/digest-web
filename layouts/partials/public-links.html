@@ -1,0 +1,7 @@
+{{- $publicLinks := slice -}}
+{{- range . -}}
+  {{- if ne (.visibility | default "") "hidden" -}}
+    {{- $publicLinks = $publicLinks | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- return $publicLinks -}}

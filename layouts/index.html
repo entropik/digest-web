@@ -1,6 +1,7 @@
 {{ define "main" }}
+{{ $publicLinks := partial "public-links.html" hugo.Data.links }}
 {{ $editorialLinks := slice }}
-{{ range hugo.Data.links }}
+{{ range $publicLinks }}
   {{ if not (.stream | default "") }}
     {{ $editorialLinks = $editorialLinks | append . }}
   {{ end }}
@@ -86,6 +87,7 @@
         class="digest-card-trigger"
         type="button"
         data-title="{{ $link.title }}"
+        data-id="{{ $link.id }}"
         data-url="{{ $link.url }}"
         data-archive-url="{{ $link.archive_url | default "" }}"
         data-archive-scope="{{ $link.archive_scope | default "" }}"
@@ -148,8 +150,12 @@
         </svg>
         <span>Favoris</span>
       </button>
+      <button class="digest-modal-admin" id="digest-modal-admin" type="button" hidden>
+        Retirer du Digest
+      </button>
       <a id="digest-modal-link" target="_blank" rel="noopener noreferrer">Visiter le site</a>
     </div>
+    <p class="digest-modal-admin-feedback" id="digest-modal-admin-feedback" role="status"></p>
   </div>
   <button class="digest-modal-nav digest-modal-next" type="button" aria-label="Lien suivant">
     <svg aria-hidden="true" viewBox="0 0 24 24">
@@ -157,6 +163,7 @@
     </svg>
   </button>
 </dialog>
+<p class="digest-admin-notice" id="digest-admin-notice" role="status" hidden></p>
 <script id="digest-data" type="application/json">{{ $links | jsonify | safeHTML }}</script>
 {{ $digestScript := resources.Get "js/digest.js" | minify | fingerprint }}
 <script src="{{ $digestScript.RelPermalink }}" integrity="{{ $digestScript.Data.Integrity }}" defer></script>

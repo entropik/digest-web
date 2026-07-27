@@ -9,8 +9,9 @@ import json
 import re
 import sys
 import unicodedata
+import uuid
 from collections import Counter, defaultdict
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
@@ -27,6 +28,10 @@ SECTION_CATEGORIES = {
     "Design, interfaces et création": "Design & Création",
     "Médias, société et veille": "Médias & Veille",
 }
+
+
+def stable_link_id(url: str) -> str:
+    return str(uuid.uuid5(uuid.NAMESPACE_URL, url))
 
 
 def is_private_host(host: str) -> bool:
@@ -158,11 +163,19 @@ def load_input(path: Path, fallback_date: str) -> list[dict[str, object]]:
 
 def normalize_item(item: dict[str, object], fallback_date: str) -> dict[str, object]:
     url = canonicalize(str(item.get("url", "")))
+    link_id = str(item.get("id", "")).strip() or stable_link_id(url)
+    uuid.UUID(link_id)
     title = str(item.get("title", "")).strip() or infer_title(url)
     added = str(item.get("added", "")).strip() or fallback_date
     date.fromisoformat(added)
     category = str(item.get("category", "")).strip() or infer_category(title, url)
-    normalized = {"title": title, "url": url, "category": category, "added": added}
+    normalized = {
+        "title": title,
+        "url": url,
+        "category": category,
+        "added": added,
+        "id": link_id,
+    }
     description = str(item.get("description", "")).strip()
     if description:
         normalized["description"] = description
@@ -228,12 +241,26 @@ def normalize_item(item: dict[str, object], fallback_date: str) -> dict[str, obj
         if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", stream):
             raise ValueError(f"invalid stream slug: {stream}")
         normalized["stream"] = stream
+    visibility = str(item.get("visibility", "")).strip().lower()
+    if visibility:
+        if visibility != "hidden":
+            raise ValueError(f"unsupported visibility: {visibility}")
+        hidden_at = str(item.get("hidden_at", "")).strip()
+        if not hidden_at:
+            raise ValueError("hidden links require hidden_at")
+        try:
+            datetime.fromisoformat(hidden_at.replace("Z", "+00:00"))
+        except ValueError as exc:
+            raise ValueError("hidden_at must be an ISO timestamp") from exc
+        normalized["visibility"] = visibility
+        normalized["hidden_at"] = hidden_at
     return normalized
 
 
 def validate(items: list[dict[str, object]]) -> list[str]:
     errors: list[str] = []
     seen: set[str] = set()
+    seen_ids: set[str] = set()
     for index, item in enumerate(items, start=1):
         try:
             normalized = normalize_item(item, date.today().isoformat())
@@ -242,7 +269,10 @@ def validate(items: list[dict[str, object]]) -> list[str]:
             continue
         if normalized["url"] in seen:
             errors.append(f"item {index}: duplicate URL {normalized['url']}")
+        if normalized["id"] in seen_ids:
+            errors.append(f"item {index}: duplicate id {normalized['id']}")
         seen.add(normalized["url"])
+        seen_ids.add(normalized["id"])
     return errors
 
 
@@ -260,6 +290,7 @@ def write_tag_pages(site: Path, items: list[dict[str, object]], dry_run: bool) -
     tag_counts: Counter[str] = Counter(
         str(tag).strip().lstrip("#")
         for item in items
+        if item.get("visibility") != "hidden"
         for tag in item.get("tags", [])
         if str(tag).strip()
     )

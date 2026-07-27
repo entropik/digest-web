@@ -4,3 +4,9 @@
 /import/
 __pycache__/
 *.py[cod]
+/admin-service/dist/
+/admin-service/node_modules/
+/admin-service/*.sqlite
+/admin-service/*.sqlite-*
+/admin-service/.env
+/.build-*/

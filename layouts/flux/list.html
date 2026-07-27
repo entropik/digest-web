@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ $links := hugo.Data.links }}
+{{ $links := partial "public-links.html" hugo.Data.links }}
 {{ $streams := slice
   (dict "slug" "twitter" "title" "Twitter" "note" "Relique du web social")
   (dict "slug" "instagram" "title" "Instagram" "note" "Archive visuelle")

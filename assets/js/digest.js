@@ -40,6 +40,9 @@
   const modalUrl = document.querySelector("#digest-modal-url");
   const modalLink = document.querySelector("#digest-modal-link");
   const modalFavorite = document.querySelector("#digest-modal-favorite");
+  const modalAdmin = document.querySelector("#digest-modal-admin");
+  const modalAdminFeedback = document.querySelector("#digest-modal-admin-feedback");
+  const adminNotice = document.querySelector("#digest-admin-notice");
   const dateFormatter = new Intl.DateTimeFormat("fr-FR", {
     day: "2-digit",
     month: "short",
@@ -56,8 +59,10 @@
   let category = "all";
   let randomLinkUrl = "";
   let modalFavoriteUrl = "";
+  let modalAdminId = "";
   let modalNavigationLinks = [];
   let modalNavigationIndex = -1;
+  let isAdmin = false;
   let favorites = new Set();
   let currentPage = Math.max(
     1,
@@ -220,6 +225,7 @@
     const trigger = document.createElement("button");
     trigger.className = "digest-card-trigger";
     trigger.type = "button";
+    trigger.dataset.id = link.id;
     trigger.dataset.title = link.title;
     trigger.dataset.url = link.url;
     trigger.dataset.archiveUrl = link.archive_url || "";
@@ -491,6 +497,11 @@
           : `Visiter ${host}`,
     );
     modalFavoriteUrl = link.url;
+    modalAdminId = link.id;
+    modalAdmin.hidden = !isAdmin;
+    modalAdmin.disabled = false;
+    modalAdmin.textContent = "Retirer du Digest";
+    modalAdminFeedback.textContent = "";
     updateFavoriteButton(modalFavorite, modalFavoriteUrl, { expandedLabel: true });
 
     modalTags.replaceChildren();
@@ -538,7 +549,7 @@
     const { displayedLinks } = getDisplayState();
     modalNavigationLinks = displayedLinks;
     modalNavigationIndex = displayedLinks.findIndex(
-      (link) => link.url === trigger.dataset.url && link.title === trigger.dataset.title,
+      (link) => link.id === trigger.dataset.id,
     );
     if (modalNavigationIndex < 0) return;
 
@@ -564,6 +575,78 @@
   modal.addEventListener("close", () => {
     document.body.classList.remove("digest-modal-open");
   });
+
+  let noticeTimeout = 0;
+  const showAdminNotice = (message) => {
+    window.clearTimeout(noticeTimeout);
+    adminNotice.textContent = message;
+    adminNotice.hidden = false;
+    noticeTimeout = window.setTimeout(() => {
+      adminNotice.hidden = true;
+    }, 7000);
+  };
+
+  const refreshAdminSession = async () => {
+    try {
+      const response = await fetch("/api/admin/session", {
+        credentials: "same-origin",
+        headers: { Accept: "application/json" },
+      });
+      isAdmin = response.ok && (await response.json()).isAdmin === true;
+      modalAdmin.hidden = !isAdmin || !modalAdminId;
+    } catch {
+      isAdmin = false;
+      modalAdmin.hidden = true;
+    }
+  };
+
+  modalAdmin.addEventListener("click", async () => {
+    if (!isAdmin || !modalAdminId) return;
+    const link = links.find((candidate) => candidate.id === modalAdminId);
+    if (!link) return;
+    const confirmed = window.confirm(
+      `Retirer « ${link.title} » du Digest ?\n\nLe lien sera masqué, restera dans les données et pourra être restauré depuis /admin.`,
+    );
+    if (!confirmed) return;
+
+    modalAdmin.disabled = true;
+    modalAdmin.textContent = "Retrait en cours…";
+    modalAdminFeedback.textContent = "";
+    try {
+      const response = await fetch(
+        `/api/admin/links/${encodeURIComponent(modalAdminId)}/hide`,
+        {
+          method: "POST",
+          credentials: "same-origin",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ confirm: true }),
+        },
+      );
+      const result = await response.json();
+      if (!response.ok) {
+        if (response.status === 401 || response.status === 403) {
+          isAdmin = false;
+          modalAdmin.hidden = true;
+          throw new Error("La session propriétaire a expiré. Reconnecte-toi sur /admin.");
+        }
+        throw new Error(result.error || "Le retrait n’a pas pu être enregistré.");
+      }
+
+      const index = links.findIndex((candidate) => candidate.id === modalAdminId);
+      if (index >= 0) links.splice(index, 1);
+      modal.close();
+      clearRandomSelection();
+      render({ urlMode: "replace" });
+      showAdminNotice(
+        "Lien retiré. La version publique sera mise à jour dans quelques minutes.",
+      );
+    } catch (error) {
+      modalAdmin.disabled = false;
+      modalAdmin.textContent = "Retirer du Digest";
+      modalAdminFeedback.textContent =
+        error instanceof Error ? error.message : "Le retrait a échoué.";
+    }
+  });
   document.addEventListener("click", (event) => {
     if (!calendar.hidden && !event.target.closest(".digest-date")) closeCalendar();
   });
@@ -585,6 +668,7 @@
   });
 
   refreshFavoriteControls();
+  refreshAdminSession();
   randomButton.setAttribute("aria-pressed", "false");
   render({ urlMode: "replace" });
 })();
