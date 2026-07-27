@@ -144,6 +144,8 @@ describe("temporary local drafts", () => {
     "https://example.com/reset-password/SECRET",
     "https://example.com/invitations/SECRET",
     "https://example.com/callback?ticket=SECRET",
+    "https://example.com/callback?tickets=SECRET",
+    "https://example.com/callback?ticket_id=SECRET",
     "http://[::ffff:127.0.0.1]/article",
   ])("rejects sensitive URL data before local persistence: %s", async (url) => {
     await expect(saveLocalDraft(storage, url, fields)).rejects.toThrow(

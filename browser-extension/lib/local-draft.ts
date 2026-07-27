@@ -63,7 +63,11 @@ const SENSITIVE_COMPACT_KEYS = new Set([
 const isSensitiveKey = (key: string): boolean => {
   const separated = key.replace(/([a-z0-9])([A-Z])/g, "$1_$2");
   const compact = separated.toLowerCase().replace(/[^a-z0-9]/g, "");
-  return SENSITIVE_QUERY_KEY.test(separated) || SENSITIVE_COMPACT_KEYS.has(compact);
+  return (
+    SENSITIVE_QUERY_KEY.test(separated) ||
+    SENSITIVE_COMPACT_KEYS.has(compact) ||
+    /^tickets?(?:id|key|token)?$/.test(compact)
+  );
 };
 const decodeUrlComponent = (value: string): string => {
   try {

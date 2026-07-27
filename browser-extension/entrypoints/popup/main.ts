@@ -106,7 +106,10 @@ const clearSessionLocalDrafts = async (): Promise<void> => {
   await Promise.all(
     urls.map((url) =>
       clearLocalDraft(browser.storage.local, url).catch((error) => {
-        if (error instanceof Error && error.message === "SENSITIVE_URL") return;
+        if (
+          error instanceof TypeError ||
+          (error instanceof Error && error.message === "SENSITIVE_URL")
+        ) return;
         throw error;
       }),
     ),
@@ -436,6 +439,7 @@ const initialize = async (): Promise<void> => {
       discardLocalButton.hidden = false;
       (
         [
+          "url",
           "title",
           "description",
           "privateNote",

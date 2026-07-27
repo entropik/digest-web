@@ -325,7 +325,7 @@ describe("états asynchrones du popup", () => {
         savedAt: Date.now(),
         expiresAt: Date.now() + LOCAL_DRAFT_TTL_MS,
         fields: {
-          url: capture.url,
+          url: `${capture.url}/?utm_source=verbatim`,
           title: "Titre local restauré",
           category: "Design",
           description: "Résumé local restauré",
@@ -339,6 +339,9 @@ describe("états asynchrones du popup", () => {
 
     await vi.waitFor(() => {
       expect(input("title").value).toBe("Titre local restauré");
+      expect(input("url").value).toBe(
+        `${capture.url}/?utm_source=verbatim`,
+      );
       expect(input("privateNote").value).toBe("Note privée locale");
       expect(element<HTMLSelectElement>("#category").value).toBe("Design");
       expect(element("#selected-tags").textContent).toContain("design");
@@ -366,19 +369,19 @@ describe("états asynchrones du popup", () => {
     );
     await vi.waitFor(() => {
       expect(input("title").value).toBe("Titre local restauré");
+      expect(input("url").value).toBe(
+        `${capture.url}/?utm_source=verbatim`,
+      );
       expect(element<HTMLSelectElement>("#category").value).toBe("Design");
       expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
       expect(element("#selected-tags").textContent).not.toContain("outil");
     });
 
-    input("url").value = "https://example.com/autre";
+    input("url").value = "https://";
     input("url").dispatchEvent(new Event("input", { bubbles: true }));
     element<HTMLButtonElement>("#discard-local").click();
     await vi.waitFor(() => {
       expect(browserMock.storage.local.remove).toHaveBeenCalledWith(key);
-      expect(browserMock.storage.local.remove).toHaveBeenCalledWith(
-        localDraftStorageKey("https://example.com/autre"),
-      );
       expect(element("#feedback").textContent).toBe(
         "La saisie reste affichée, mais ne sera plus restaurée.",
       );
