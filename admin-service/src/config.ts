@@ -25,7 +25,7 @@ if (base.protocol !== "https:" && process.env.NODE_ENV === "production") {
 
 export const config = {
   nodeEnv: process.env.NODE_ENV ?? "development",
-  port: positiveInteger("PORT", 3010),
+  port: positiveInteger("PORT", 3210),
   baseUrl,
   origin: base.origin,
   databasePath: resolve(required("BETTER_AUTH_DATABASE")),
