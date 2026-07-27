@@ -1034,11 +1034,11 @@ html {
 }
 
 .digest-modal-shell:has(.digest-modal-admin-tools:not([hidden])) {
-  padding-bottom: 8rem;
+  padding-bottom: 6.5rem;
 }
 
 .digest-modal-shell:has(.digest-modal-tag-editor[open]) {
-  padding-bottom: 13rem;
+  padding-bottom: 11.5rem;
 }
 
 .digest-modal-nav {
@@ -1201,15 +1201,22 @@ html {
   right: clamp(1.6rem, 5vw, 3.2rem);
   bottom: 1rem;
   left: clamp(1.6rem, 5vw, 3.2rem);
-  align-items: center;
-  flex-direction: column;
+  align-items: flex-start;
+  flex-flow: row wrap;
+  justify-content: center;
+  column-gap: 2rem;
 }
 
 .digest-modal-tag-editor {
-  width: min(430px, 100%);
+  width: auto;
+  max-width: calc(100% - 8rem);
   color: var(--digest-muted);
   font-size: .72rem;
   text-align: center;
+}
+
+.digest-modal-tag-editor[open] {
+  width: min(430px, calc(100% - 8rem));
 }
 
 .digest-modal-tag-editor summary {
@@ -1278,7 +1285,7 @@ html {
 
 .digest-modal-admin {
   display: block;
-  margin: 1.35rem auto 0;
+  margin: 0;
   padding: 0;
   border: 0;
   background: transparent;
@@ -1307,6 +1314,7 @@ html {
 }
 
 .digest-modal-admin-feedback {
+  flex: 0 0 100%;
   min-height: 1.3em;
   margin: .55rem 0 0;
   color: #c93624;
