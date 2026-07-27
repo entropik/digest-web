@@ -2,7 +2,9 @@
   const PAGE_SIZE = 51;
   const FAVORITES_STORAGE_KEY = "digest-favorites-v1";
   const search = document.querySelector("#digest-search");
+  const dateFilter = document.querySelector("#digest-date");
   const filters = document.querySelector("#digest-filters");
+  const randomButton = document.querySelector("#digest-random");
   const favoritesCount = document.querySelector("#digest-favorites-count");
   const tools = document.querySelector(".digest-tools");
   const grid = document.querySelector("#digest-grid");
@@ -28,6 +30,7 @@
     year: "numeric",
   });
   let category = "all";
+  let randomLinkUrl = "";
   let modalFavoriteUrl = "";
   let favorites = new Set();
   let currentPage = Math.max(
@@ -62,9 +65,7 @@
     );
     button.title = active ? "Retirer des favoris" : "Ajouter aux favoris";
     button.textContent = expandedLabel
-      ? active
-        ? "♥ Dans mes favoris"
-        : "♡ Ajouter aux favoris"
+      ? "Favoris"
       : active
         ? "♥"
         : "♡";
@@ -194,14 +195,22 @@
 
   const getFilteredLinks = () => {
     const terms = normalize(search.value).split(/\s+/).filter(Boolean);
+    const selectedDate = dateFilter.value;
     return links.filter((link) => {
       const matchesCategory =
         category === "all" ||
         (category === "favorites" ? isFavorite(link.url) : link.category === category);
       const searchableText = getSearchableText(link);
       const matchesQuery = terms.every((term) => searchableText.includes(term));
-      return matchesCategory && matchesQuery;
+      const matchesDate = !selectedDate || link.added === selectedDate;
+      return matchesCategory && matchesQuery && matchesDate;
     });
+  };
+
+  const clearRandomSelection = () => {
+    randomLinkUrl = "";
+    randomButton.classList.remove("is-active");
+    randomButton.setAttribute("aria-pressed", "false");
   };
 
   const syncPageUrl = (mode) => {
@@ -216,10 +225,15 @@
 
   const render = ({ urlMode = null, scroll = false } = {}) => {
     const filteredLinks = getFilteredLinks();
-    const pageCount = Math.max(1, Math.ceil(filteredLinks.length / PAGE_SIZE));
+    const randomLink = randomLinkUrl
+      ? filteredLinks.find((link) => link.url === randomLinkUrl)
+      : null;
+    if (randomLinkUrl && !randomLink) clearRandomSelection();
+    const displayedLinks = randomLink ? [randomLink] : filteredLinks;
+    const pageCount = Math.max(1, Math.ceil(displayedLinks.length / PAGE_SIZE));
     currentPage = Math.min(Math.max(1, currentPage), pageCount);
     const start = (currentPage - 1) * PAGE_SIZE;
-    const pageLinks = filteredLinks.slice(start, start + PAGE_SIZE);
+    const pageLinks = displayedLinks.slice(start, start + PAGE_SIZE);
     const fragment = document.createDocumentFragment();
 
     pageLinks.forEach((link) => fragment.append(createCard(link)));
@@ -242,6 +256,7 @@
     if (!button) return;
     category = button.dataset.categoryLabel;
     currentPage = 1;
+    clearRandomSelection();
     filters.querySelector(".is-active")?.classList.remove("is-active");
     button.classList.add("is-active");
     render({ urlMode: "replace" });
@@ -249,7 +264,33 @@
 
   search.addEventListener("input", () => {
     currentPage = 1;
+    clearRandomSelection();
     render({ urlMode: "replace" });
+  });
+
+  dateFilter.addEventListener("input", () => {
+    currentPage = 1;
+    clearRandomSelection();
+    render({ urlMode: "replace" });
+  });
+
+  randomButton.addEventListener("click", () => {
+    const candidates = getFilteredLinks();
+    currentPage = 1;
+    if (candidates.length === 0) {
+      clearRandomSelection();
+      render({ urlMode: "replace" });
+      return;
+    }
+
+    const alternatives =
+      candidates.length > 1
+        ? candidates.filter((link) => link.url !== randomLinkUrl)
+        : candidates;
+    randomLinkUrl = alternatives[Math.floor(Math.random() * alternatives.length)].url;
+    randomButton.classList.add("is-active");
+    randomButton.setAttribute("aria-pressed", "true");
+    render({ urlMode: "replace", scroll: true });
   });
 
   pagePrev.addEventListener("click", () => {
@@ -292,7 +333,7 @@
       "Aucun résumé n’est encore disponible pour cette ressource.";
     modalUrl.textContent = trigger.dataset.url;
     modalLink.href = trigger.dataset.url;
-    modalLink.textContent = isDead ? "Tester l’adresse d’origine ↗" : "Visiter le site ↗";
+    modalLink.textContent = "Tester url";
     modalLink.setAttribute(
       "aria-label",
       isDead ? `Tester l’adresse d’origine de ${trigger.dataset.title}` : `Visiter ${trigger.dataset.host}`,
@@ -338,5 +379,6 @@
   });
 
   refreshFavoriteControls();
+  randomButton.setAttribute("aria-pressed", "false");
   render({ urlMode: "replace" });
 })();

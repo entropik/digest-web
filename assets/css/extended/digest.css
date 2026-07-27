@@ -304,15 +304,24 @@ html {
   scroll-margin-top: var(--header-height);
 }
 
-.digest-search {
+.digest-query-tools {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.digest-search,
+.digest-date {
   display: flex;
   align-items: center;
   gap: 1rem;
   border-bottom: 2px solid var(--digest-ink);
 }
 
-.digest-search input {
+.digest-search input,
+.digest-date input {
   width: 100%;
+  min-width: 0;
   padding: .9rem 0;
   border: 0;
   outline: 0;
@@ -320,6 +329,23 @@ html {
   color: var(--digest-ink);
   font: inherit;
   font-size: 1.15rem;
+}
+
+.digest-date span {
+  flex: 0 0 auto;
+  color: var(--digest-muted);
+  font-size: .8rem;
+  text-transform: uppercase;
+}
+
+.digest-date input {
+  color-scheme: light;
+  text-align: right;
+}
+
+[data-theme="dark"] .digest-date input,
+.dark .digest-date input {
+  color-scheme: dark;
 }
 
 .digest-search kbd {
@@ -358,6 +384,11 @@ html {
   color: var(--digest-paper);
 }
 
+.digest-filters .digest-random {
+  border-color: var(--digest-ink);
+  color: var(--digest-ink);
+}
+
 .digest-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -368,6 +399,7 @@ html {
 .digest-card {
   position: relative;
   min-width: 0;
+  overflow: hidden;
   border-right: 1px solid var(--digest-line);
   border-bottom: 1px solid var(--digest-line);
 }
@@ -580,14 +612,22 @@ html {
 }
 
 .digest-modal {
+  box-sizing: border-box;
   width: min(680px, calc(100% - 2rem));
   max-height: calc(100dvh - 2rem);
+  overflow-x: hidden;
+  overflow-y: auto;
   padding: 0;
   border: 1px solid var(--digest-line);
   border-radius: .35rem;
   background: var(--theme);
   color: var(--digest-ink);
   box-shadow: 0 24px 80px rgb(0 0 0 / 24%);
+  scrollbar-width: none;
+}
+
+.digest-modal::-webkit-scrollbar {
+  display: none;
 }
 
 .digest-modal::backdrop {
@@ -597,6 +637,7 @@ html {
 
 .digest-modal-shell {
   position: relative;
+  min-width: 0;
   padding: clamp(1.6rem, 5vw, 3.2rem);
 }
 
@@ -659,6 +700,8 @@ html {
 
 .digest-modal-footer {
   display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
   align-items: end;
   justify-content: space-between;
   gap: 1.5rem;
@@ -668,6 +711,7 @@ html {
 }
 
 .digest-modal-url {
+  flex: 1 1 8rem;
   min-width: 0;
   overflow: hidden;
   color: var(--digest-muted);
@@ -678,6 +722,7 @@ html {
 
 .digest-modal-footer a {
   flex: 0 0 auto;
+  max-width: 100%;
   padding: .8rem 1rem;
   border-radius: .25rem;
   background: var(--digest-accent);
@@ -688,6 +733,7 @@ html {
 
 .digest-modal-favorite {
   flex: 0 0 auto;
+  max-width: 100%;
   padding: .75rem 1rem;
   border: 1px solid var(--digest-line);
   border-radius: .25rem;
@@ -1394,6 +1440,11 @@ body.digest-modal-open {
 }
 
 @media (max-width: 520px) {
+  .digest-query-tools {
+    grid-template-columns: 1fr;
+    gap: .75rem;
+  }
+
   .digest-grid {
     grid-template-columns: 1fr;
   }

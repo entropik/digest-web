@@ -22,13 +22,20 @@
 </section>
 
 <section class="digest-tools" aria-label="Filtrer le digest">
-  <label class="digest-search">
-    <span class="sr-only">Rechercher</span>
-    <input id="digest-search" type="search" placeholder="Rechercher un outil, un sujet…" autocomplete="off">
-    <kbd>/</kbd>
-  </label>
+  <div class="digest-query-tools">
+    <label class="digest-search">
+      <span class="sr-only">Rechercher</span>
+      <input id="digest-search" type="search" placeholder="Rechercher un outil, un sujet…" autocomplete="off">
+      <kbd>/</kbd>
+    </label>
+    <label class="digest-date">
+      <span>Par date</span>
+      <input id="digest-date" type="date" aria-label="Filtrer par jour, mois et année">
+    </label>
+  </div>
   <div class="digest-filters" id="digest-filters">
     <button class="is-active" type="button" data-category-label="all">Tout <span>{{ len $links }}</span></button>
+    <button class="digest-random" id="digest-random" type="button">Aléatoire</button>
     {{ range $categories }}
       {{ $category := . }}
       <button type="button" data-category-label="{{ $category }}">{{ $category }} <span>{{ len (where $links "category" $category) }}</span></button>
@@ -102,9 +109,9 @@
     <div class="digest-modal-footer">
       <span class="digest-modal-url" id="digest-modal-url"></span>
       <button class="digest-modal-favorite" id="digest-modal-favorite" type="button" aria-pressed="false">
-        ♡ Ajouter aux favoris
+        Favoris
       </button>
-      <a id="digest-modal-link" target="_blank" rel="noopener noreferrer">Visiter le site <span aria-hidden="true">↗</span></a>
+      <a id="digest-modal-link" target="_blank" rel="noopener noreferrer">Tester url</a>
     </div>
   </div>
 </dialog>
