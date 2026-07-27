@@ -37,20 +37,49 @@ const SENSITIVE_QUERY_KEY =
   /(?:^|[_-])(auth|code|credential|jwt|key|pass(?:word)?|secret|session|signature|token)(?:$|[_-])/i;
 const SENSITIVE_PATH_SEGMENT =
   /\/(?:account|admin|auth|console|dashboard|login|oauth|signin)(?:\/|$)/i;
-const isSensitiveKey = (key: string): boolean =>
-  SENSITIVE_QUERY_KEY.test(
-    key.replace(/([a-z0-9])([A-Z])/g, "$1_$2"),
-  );
+const SENSITIVE_COMPACT_KEYS = new Set([
+  "accesstoken",
+  "apikey",
+  "authcode",
+  "clientsecret",
+  "code",
+  "credential",
+  "idtoken",
+  "jwt",
+  "key",
+  "oauthcode",
+  "password",
+  "passwd",
+  "refreshtoken",
+  "secret",
+  "session",
+  "sessionid",
+  "signature",
+  "token",
+]);
+const isSensitiveKey = (key: string): boolean => {
+  const separated = key.replace(/([a-z0-9])([A-Z])/g, "$1_$2");
+  const compact = separated.toLowerCase().replace(/[^a-z0-9]/g, "");
+  return SENSITIVE_QUERY_KEY.test(separated) || SENSITIVE_COMPACT_KEYS.has(compact);
+};
+const decodeUrlComponent = (value: string): string => {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+};
 
 export const canonicalLocalDraftUrl = (rawUrl: string): string => {
   const url = new URL(rawUrl.trim());
-  const fragment = url.hash.slice(1);
+  const fragment = decodeUrlComponent(url.hash.slice(1));
   const fragmentQuery = fragment.includes("?")
     ? fragment.slice(fragment.indexOf("?") + 1)
     : fragment;
   const fragmentPath = `/${(fragment.split("?")[0] ?? "").replace(/^\/+/, "")}`;
   if (
-    SENSITIVE_PATH_SEGMENT.test(url.pathname) ||
+    !isSupportedCaptureUrl(url.toString()) ||
+    SENSITIVE_PATH_SEGMENT.test(decodeUrlComponent(url.pathname)) ||
     SENSITIVE_PATH_SEGMENT.test(fragmentPath) ||
     [...url.searchParams.keys()].some(isSensitiveKey) ||
     [...new URLSearchParams(fragmentQuery).keys()].some(isSensitiveKey)
@@ -152,3 +181,4 @@ export const pruneExpiredLocalDrafts = async (
     .map(([key]) => key);
   if (expired.length) await storage.remove(expired);
 };
+import { isSupportedCaptureUrl } from "./capture";
