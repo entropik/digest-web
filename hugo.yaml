@@ -20,7 +20,7 @@ params:
   ShowCodeCopyButtons: true
   disableSpecial1stPost: true
   footer:
-    text: "[Admin](/admin)"
+    text: "[Admin](/admin) · [Confidentialité](/confidentialite/)"
   label:
     text: "OOBLIK DIGEST"
   homeInfoParams:
@@ -49,10 +49,6 @@ menu:
       name: "À propos"
       url: "/a-propos/"
       weight: 40
-    - identifier: extension-privacy
-      name: "Confidentialité"
-      url: "/confidentialite/"
-      weight: 50
 
 outputs:
   home:
