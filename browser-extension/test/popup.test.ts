@@ -659,4 +659,27 @@ describe("états asynchrones du popup", () => {
 
     expect(browserMock.storage.local.set).not.toHaveBeenCalled();
   });
+
+  test("désactive la reprise locale pour l’URL réelle d’un onglet authentifié", async () => {
+    browserMock.tabs.query.mockResolvedValue([
+      { id: 7, url: "https://example.com/admin/private" },
+    ]);
+    browserMock.scripting.executeScript.mockResolvedValue([
+      { result: capture },
+    ]);
+    vi.stubGlobal("fetch", vi.fn(async () => response(bootstrap())));
+
+    await loadPopup();
+
+    await vi.waitFor(() => {
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+      expect(element<HTMLInputElement>("#local-persistence").disabled).toBe(
+        true,
+      );
+    });
+    expect(element<HTMLInputElement>("#local-persistence").title).toBe(
+      "Reprise locale indisponible pour cette page privée ou authentifiée.",
+    );
+    expect(browserMock.storage.local.set).not.toHaveBeenCalled();
+  });
 });

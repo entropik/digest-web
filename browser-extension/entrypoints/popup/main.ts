@@ -7,6 +7,7 @@ import {
 } from "../../lib/capture";
 import { DigestApiError, requestJson } from "../../lib/api";
 import {
+  canonicalLocalDraftUrl,
   clearLocalDraft,
   loadLocalDraft,
   pruneExpiredLocalDrafts,
@@ -57,6 +58,11 @@ type BootstrapResponse = {
   options: CurationOptions;
   draft: StoredDraft | null;
   published: { id?: string; title?: string } | null;
+};
+type ActivePageCapture = {
+  capture: PageCapture;
+  pageUrl: string;
+  localPersistenceAllowed: boolean;
 };
 
 const api = async <T>(
@@ -295,7 +301,7 @@ const fillDraftPreservingEdits = (draft: StoredDraft): void => {
   });
 };
 
-const captureActivePage = async (): Promise<PageCapture> => {
+const captureActivePage = async (): Promise<ActivePageCapture> => {
   const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
   if (!tab?.id || !tab.url || !isSupportedCaptureUrl(tab.url)) {
     throw new Error("PAGE_NOT_SUPPORTED");
@@ -308,7 +314,13 @@ const captureActivePage = async (): Promise<PageCapture> => {
   if (!capture || !isSupportedCaptureUrl(capture.url)) {
     throw new Error("PAGE_NOT_SUPPORTED");
   }
-  return capture;
+  let localPersistenceAllowed = true;
+  try {
+    canonicalLocalDraftUrl(tab.url);
+  } catch {
+    localPersistenceAllowed = false;
+  }
+  return { capture, pageUrl: tab.url, localPersistenceAllowed };
 };
 
 const bootstrapErrorMessage = (error: DigestApiError): string => {
@@ -399,14 +411,19 @@ const verifyCapture = async (verificationUrl: string): Promise<void> => {
 
 const initialize = async (): Promise<void> => {
   try {
-    const capture = await captureActivePage();
-    capturedPageUrl = capture.url;
+    const { capture, pageUrl, localPersistenceAllowed } =
+      await captureActivePage();
+    capturedPageUrl = pageUrl;
+    localPersistence.disabled = !localPersistenceAllowed;
+    localPersistence.title = localPersistenceAllowed
+      ? ""
+      : "Reprise locale indisponible pour cette page privée ou authentifiée.";
     fillForm(capture);
     form.hidden = false;
     void pruneExpiredLocalDrafts(browser.storage.local).catch(() => undefined);
     const localDraft = await loadLocalDraft(
       browser.storage.local,
-      capture.url,
+      pageUrl,
     ).catch(() => null);
     if (localDraft) {
       const localTags = touchedFields.has("tags")
@@ -443,7 +460,7 @@ const initialize = async (): Promise<void> => {
         true,
       );
       addedTags = [...tags];
-      restoredLocalDraftUrl = capture.url;
+      restoredLocalDraftUrl = pageUrl;
       restoredTagsAuthoritative = true;
       localPersistenceEnabled = true;
       localPersistence.checked = true;
