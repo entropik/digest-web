@@ -5,6 +5,7 @@ import {
   missingEditorialFields,
   type PageCapture
 } from "../../lib/capture";
+import { DigestApiError, requestJson } from "../../lib/api";
 
 const API_ORIGIN = "https://digest.ooblik.com";
 const form = document.querySelector<HTMLFormElement>("#capture-form")!;
@@ -16,15 +17,22 @@ const selectedTags = document.querySelector<HTMLElement>("#selected-tags")!;
 const knownTags = document.querySelector<HTMLDataListElement>("#known-tags")!;
 const category = document.querySelector<HTMLSelectElement>("#category")!;
 const saveButton = document.querySelector<HTMLButtonElement>("#save")!;
+const retryButton = document.querySelector<HTMLButtonElement>("#retry")!;
 let tags: string[] = [];
+let addedTags: string[] = [];
+let removedTags: string[] = [];
+let verifiedUrl: string | null = null;
+let verificationSequence = 0;
+let canSaveVerifiedDraft = false;
 
-type ApiError = Error & { status?: number };
 type CurationOptions = { categories: string[]; tags: string[] };
+type EditableField = keyof PageCapture | "category" | "tags";
 type StoredDraft = PageCapture & {
   category: string;
   tags: string[];
   privateNote: string;
 };
+const touchedFields = new Set<EditableField>();
 type BootstrapResponse = {
   options: CurationOptions;
   draft: StoredDraft | null;
@@ -34,29 +42,19 @@ type BootstrapResponse = {
 const api = async <T>(
   path: string,
   init: RequestInit = {},
-): Promise<T> => {
-  const response = await fetch(`${API_ORIGIN}${path}`, {
-    ...init,
-    credentials: "include",
-    headers: {
-      Accept: "application/json",
-      ...(init.body ? { "Content-Type": "application/json" } : {}),
-      ...init.headers,
-    },
-  });
-  const data = (await response.json().catch(() => ({}))) as T & {
-    error?: string;
-  };
-  if (!response.ok) {
-    const error = new Error(data.error || "REQUEST_FAILED") as ApiError;
-    Object.assign(error, { data, status: response.status });
-    throw error;
-  }
-  return data;
-};
+  timeoutMs?: number,
+): Promise<T> => requestJson<T>(API_ORIGIN, path, init, { timeoutMs });
 
 const field = (name: string): HTMLInputElement | HTMLTextAreaElement =>
   form.elements.namedItem(name) as HTMLInputElement | HTMLTextAreaElement;
+
+const tagKey = (tag: string): string => tag.toLocaleLowerCase("fr");
+const sameTag = (left: string, right: string): boolean =>
+  tagKey(left) === tagKey(right);
+
+const updateSaveAvailability = (): void => {
+  saveButton.disabled = !canSaveVerifiedDraft || tags.length > 12;
+};
 
 const renderTags = (): void => {
   selectedTags.replaceChildren(
@@ -69,9 +67,20 @@ const renderTags = (): void => {
       remove.setAttribute("aria-label", `Retirer ${tag}`);
       remove.textContent = "×";
       remove.addEventListener("click", () => {
+        touchedFields.add("tags");
+        if (!removedTags.some((candidate) => sameTag(candidate, tag))) {
+          removedTags.push(tag);
+        }
+        addedTags = addedTags.filter(
+          (candidate) => !sameTag(candidate, tag),
+        );
         tags = tags.filter((candidate) => candidate !== tag);
         renderTags();
         updateCompleteness();
+        updateSaveAvailability();
+        if (canSaveVerifiedDraft && tags.length <= 12) {
+          feedback.textContent = "Brouillon prêt à enregistrer.";
+        }
       });
       chip.append(remove);
       return chip;
@@ -82,18 +91,24 @@ const renderTags = (): void => {
 const addTag = (): void => {
   const value = tagInput.value.trim().replace(/^#+/, "").slice(0, 80);
   if (!value) return;
-  const alreadySelected = tags.some(
-    (tag) => tag.localeCompare(value, "fr", { sensitivity: "base" }) === 0,
-  );
+  const alreadySelected = tags.some((tag) => sameTag(tag, value));
   if (!alreadySelected && tags.length >= 12) {
     feedback.textContent = "Maximum de 12 tags par lien.";
     return;
   }
-  if (!alreadySelected) tags.push(value);
+  if (!alreadySelected) {
+    touchedFields.add("tags");
+    removedTags = removedTags.filter(
+      (candidate) => !sameTag(candidate, value),
+    );
+    addedTags.push(value);
+    tags.push(value);
+  }
   tagInput.value = "";
   feedback.textContent = "";
   renderTags();
   updateCompleteness();
+  updateSaveAvailability();
 };
 
 const updateCompleteness = (): void => {
@@ -122,17 +137,29 @@ const fillForm = (
 };
 
 const populateOptions = (options: CurationOptions): void => {
+  const selectedCategory = category.value;
   const blankCategory = document.createElement("option");
   blankCategory.value = "";
+  const categoryOptions = options.categories.map((value) => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = value;
+    return option;
+  });
+  if (
+    selectedCategory &&
+    !options.categories.some((value) => value === selectedCategory)
+  ) {
+    const selectedOption = document.createElement("option");
+    selectedOption.value = selectedCategory;
+    selectedOption.textContent = selectedCategory;
+    categoryOptions.push(selectedOption);
+  }
   category.replaceChildren(
     blankCategory,
-    ...options.categories.map((value) => {
-      const option = document.createElement("option");
-      option.value = value;
-      option.textContent = value;
-      return option;
-    }),
+    ...categoryOptions,
   );
+  category.value = selectedCategory;
   knownTags.replaceChildren(
     ...options.tags.map((value) => {
       const option = document.createElement("option");
@@ -140,6 +167,29 @@ const populateOptions = (options: CurationOptions): void => {
       return option;
     }),
   );
+};
+
+const fillDraftPreservingEdits = (draft: StoredDraft): void => {
+  const mergedTags = [...addedTags, ...tags, ...draft.tags]
+    .filter(
+      (tag) => !removedTags.some((removedTag) => sameTag(removedTag, tag)),
+    )
+    .filter(
+      (tag, index, candidates) =>
+        candidates.findIndex((candidate) => sameTag(candidate, tag)) === index,
+    );
+  fillForm({
+    url: touchedFields.has("url") ? field("url").value : draft.url,
+    title: touchedFields.has("title") ? field("title").value : draft.title,
+    description: touchedFields.has("description")
+      ? field("description").value
+      : draft.description,
+    privateNote: touchedFields.has("privateNote")
+      ? field("privateNote").value
+      : draft.privateNote,
+    category: touchedFields.has("category") ? category.value : draft.category,
+    tags: touchedFields.has("tags") ? mergedTags : draft.tags,
+  });
 };
 
 const captureActivePage = async (): Promise<PageCapture> => {
@@ -158,38 +208,99 @@ const captureActivePage = async (): Promise<PageCapture> => {
   return capture;
 };
 
-const initialize = async (): Promise<void> => {
-  try {
-    const capture = await captureActivePage();
-    fillForm(capture);
-    form.hidden = false;
-    feedback.textContent = "Vérification du lien…";
+const bootstrapErrorMessage = (error: DigestApiError): string => {
+  if (error.code === "REQUEST_TIMEOUT") {
+    return "La vérification prend trop de temps.";
+  }
+  if (error.code === "NETWORK_UNAVAILABLE") {
+    return "Réseau indisponible pour vérifier ce lien.";
+  }
+  if ((error.status ?? 0) >= 500) {
+    return "Le service du Digest est temporairement indisponible.";
+  }
+  return "Impossible de vérifier ce lien.";
+};
 
+const verifyCapture = async (verificationUrl: string): Promise<void> => {
+  const verificationId = ++verificationSequence;
+  if (!isSupportedCaptureUrl(verificationUrl)) {
+    verifiedUrl = null;
+    canSaveVerifiedDraft = false;
+    saveButton.disabled = true;
+    feedback.textContent =
+      "Cette URL ne peut pas être publiée : utilisez une adresse web publique HTTP(S).";
+    retryButton.hidden = true;
+    return;
+  }
+
+  verifiedUrl = null;
+  canSaveVerifiedDraft = false;
+  saveButton.disabled = true;
+  retryButton.hidden = true;
+  feedback.textContent = "Vérification du lien…";
+
+  try {
     const bootstrap = await api<BootstrapResponse>(
-      `/api/admin/curation/bootstrap?url=${encodeURIComponent(capture.url)}`,
+      `/api/admin/curation/bootstrap?url=${encodeURIComponent(verificationUrl)}`,
+      {},
+      9_000,
     );
+    if (
+      verificationId !== verificationSequence ||
+      field("url").value.trim() !== verificationUrl
+    ) return;
     populateOptions(bootstrap.options);
     if (bootstrap.draft) {
-      fillForm(bootstrap.draft);
-      feedback.textContent = "Ce brouillon existe déjà : le formulaire permet de le mettre à jour.";
-      saveButton.disabled = false;
+      fillDraftPreservingEdits(bootstrap.draft);
+      verifiedUrl = field("url").value.trim();
+      canSaveVerifiedDraft = true;
+      updateSaveAvailability();
+      feedback.textContent =
+        tags.length > 12
+          ? "La limite de 12 tags est dépassée · retirez-en un avant d’enregistrer."
+          : "Ce brouillon existe déjà : le formulaire permet de le mettre à jour.";
       return;
     }
     if (bootstrap.published) {
+      verifiedUrl = verificationUrl;
+      canSaveVerifiedDraft = false;
       feedback.textContent = "Ce lien est déjà publié dans le Digest.";
       return;
     }
     updateCompleteness();
-    saveButton.disabled = false;
-    feedback.textContent = "Lien vérifié · prêt à enregistrer.";
+    verifiedUrl = verificationUrl;
+    canSaveVerifiedDraft = true;
+    updateSaveAvailability();
+    feedback.textContent =
+      tags.length > 12
+        ? "La limite de 12 tags est dépassée · retirez-en un avant d’enregistrer."
+        : "Lien vérifié · prêt à enregistrer.";
   } catch (error) {
-    const apiError = error as ApiError;
-    if (apiError.status === 401 || apiError.status === 403) {
+    if (verificationId !== verificationSequence) return;
+    if (
+      error instanceof DigestApiError &&
+      (error.status === 401 || error.status === 403)
+    ) {
       form.hidden = true;
       login.hidden = false;
       feedback.textContent = "";
       return;
     }
+    feedback.textContent =
+      error instanceof DigestApiError
+        ? bootstrapErrorMessage(error)
+        : "Impossible de vérifier ce lien.";
+    retryButton.hidden = false;
+  }
+};
+
+const initialize = async (): Promise<void> => {
+  try {
+    const capture = await captureActivePage();
+    fillForm(capture);
+    form.hidden = false;
+    await verifyCapture(capture.url);
+  } catch (error) {
     feedback.textContent =
       error instanceof Error && error.message === "PAGE_NOT_SUPPORTED"
         ? "Cette page ne peut pas être publiée : seules les pages web publiques HTTP(S) sont acceptées."
@@ -201,15 +312,50 @@ document.querySelector("#login-button")?.addEventListener("click", () => {
   void browser.tabs.create({ url: `${API_ORIGIN}/admin` });
 });
 document.querySelector("#add-tag")?.addEventListener("click", addTag);
+retryButton.addEventListener("click", () => {
+  void verifyCapture(field("url").value.trim());
+});
 tagInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     event.preventDefault();
     addTag();
   }
 });
-form.addEventListener("input", updateCompleteness);
+form.addEventListener("input", (event) => {
+  const name = (event.target as HTMLInputElement | HTMLTextAreaElement).name;
+  if (
+    name === "url" ||
+    name === "title" ||
+    name === "description" ||
+    name === "privateNote" ||
+    name === "category"
+  ) {
+    touchedFields.add(name);
+  }
+  if (name === "url") {
+    verificationSequence += 1;
+    verifiedUrl = null;
+    canSaveVerifiedDraft = false;
+    saveButton.disabled = true;
+    feedback.textContent = "URL modifiée · vérifiez-la à nouveau.";
+    retryButton.hidden = false;
+  }
+  updateCompleteness();
+});
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
+  if (field("url").value.trim() !== verifiedUrl) {
+    saveButton.disabled = true;
+    feedback.textContent = "Vérifiez cette URL avant de l’enregistrer.";
+    retryButton.hidden = false;
+    return;
+  }
+  if (tags.length > 12) {
+    saveButton.disabled = true;
+    feedback.textContent =
+      "Retirez un tag avant d’enregistrer : la limite est de 12.";
+    return;
+  }
   saveButton.disabled = true;
   feedback.textContent = "Enregistrement…";
   try {
@@ -218,7 +364,7 @@ form.addEventListener("submit", async (event) => {
       {
         method: "POST",
         body: JSON.stringify({
-          url: field("url").value,
+          url: field("url").value.trim(),
           title: field("title").value,
           category: category.value,
           description: field("description").value,
