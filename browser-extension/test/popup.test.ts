@@ -365,12 +365,45 @@ describe("états asynchrones du popup", () => {
       expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
     });
 
+    input("url").value = "https://example.com/autre";
+    input("url").dispatchEvent(new Event("input", { bubbles: true }));
     element<HTMLButtonElement>("#discard-local").click();
     await vi.waitFor(() => {
       expect(browserMock.storage.local.remove).toHaveBeenCalledWith(key);
       expect(element("#feedback").textContent).toBe(
         "La saisie reste affichée, mais ne sera plus restaurée.",
       );
+    });
+  });
+
+  test("retire la catégorie locale si elle n’existe plus dans la taxonomie", async () => {
+    const key = localDraftStorageKey(capture.url);
+    browserMock.storage.local.get.mockImplementation(async () => ({
+      [key]: {
+        version: 1,
+        url: capture.url,
+        savedAt: Date.now(),
+        expiresAt: Date.now() + LOCAL_DRAFT_TTL_MS,
+        fields: {
+          title: "Titre local",
+          category: "Catégorie disparue",
+          description: "Résumé local",
+          tags: ["design"],
+          privateNote: "",
+        },
+      },
+    }));
+    vi.stubGlobal("fetch", vi.fn(async () => response(bootstrap())));
+
+    await loadPopup();
+
+    await vi.waitFor(() => {
+      expect(element<HTMLSelectElement>("#category").value).toBe("");
+      expect(
+        [...element<HTMLSelectElement>("#category").options].map(
+          (option) => option.value,
+        ),
+      ).not.toContain("Catégorie disparue");
     });
   });
 

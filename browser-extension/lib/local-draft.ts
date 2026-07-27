@@ -33,9 +33,19 @@ const TRACKING_KEYS = new Set([
   "nb_klid",
   "ref_src",
 ]);
+const SENSITIVE_QUERY_KEY =
+  /(?:^|[_-])(auth|code|credential|jwt|key|pass(?:word)?|secret|session|signature|token)(?:$|[_-])/i;
+const SENSITIVE_PATH_SEGMENT =
+  /\/(?:account|admin|auth|console|dashboard|login|oauth|signin)(?:\/|$)/i;
 
 export const canonicalLocalDraftUrl = (rawUrl: string): string => {
   const url = new URL(rawUrl.trim());
+  if (
+    SENSITIVE_PATH_SEGMENT.test(url.pathname) ||
+    [...url.searchParams.keys()].some((key) => SENSITIVE_QUERY_KEY.test(key))
+  ) {
+    throw new Error("SENSITIVE_URL");
+  }
   const query = [...url.searchParams.entries()].filter(([key]) => {
     const lowered = key.toLowerCase();
     return !lowered.startsWith("utm_") && !TRACKING_KEYS.has(lowered);

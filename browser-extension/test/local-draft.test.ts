@@ -122,4 +122,15 @@ describe("temporary local drafts", () => {
       canonicalLocalDraftUrl("https://example.com/article/#fullscreen"),
     ).toBe("https://example.com/article");
   });
+
+  test.each([
+    "https://example.com/login",
+    "https://example.com/article?session_token=secret",
+    "https://example.com/article?oauth_code=secret",
+  ])("rejects sensitive URL data before local persistence: %s", async (url) => {
+    await expect(saveLocalDraft(storage, url, fields)).rejects.toThrow(
+      "SENSITIVE_URL",
+    );
+    expect(values).toEqual({});
+  });
 });

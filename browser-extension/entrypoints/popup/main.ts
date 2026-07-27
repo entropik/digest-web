@@ -36,6 +36,7 @@ let canSaveVerifiedDraft = false;
 let localSaveTimer: ReturnType<typeof setTimeout> | undefined;
 let localPersistenceEnabled = true;
 let localDraftDirty = false;
+let restoredLocalDraftUrl: string | null = null;
 
 type CurationOptions = { categories: string[]; tags: string[] };
 type EditableField = keyof PageCapture | "category" | "tags";
@@ -168,12 +169,14 @@ const updateCompleteness = (): void => {
 
 const fillForm = (
   capture: PageCapture & { category?: string; tags?: string[] },
+  allowProvisionalCategory = false,
 ): void => {
   field("url").value = capture.url;
   field("title").value = capture.title;
   field("description").value = capture.description;
   field("privateNote").value = capture.privateNote;
   if (
+    allowProvisionalCategory &&
     capture.category &&
     ![...category.options].some((option) => option.value === capture.category)
   ) {
@@ -198,20 +201,13 @@ const populateOptions = (options: CurationOptions): void => {
     option.textContent = value;
     return option;
   });
-  if (
-    selectedCategory &&
-    !options.categories.some((value) => value === selectedCategory)
-  ) {
-    const selectedOption = document.createElement("option");
-    selectedOption.value = selectedCategory;
-    selectedOption.textContent = selectedCategory;
-    categoryOptions.push(selectedOption);
-  }
   category.replaceChildren(
     blankCategory,
     ...categoryOptions,
   );
-  category.value = selectedCategory;
+  category.value = options.categories.includes(selectedCategory)
+    ? selectedCategory
+    : "";
   knownTags.replaceChildren(
     ...options.tags.map((value) => {
       const option = document.createElement("option");
@@ -357,8 +353,9 @@ const initialize = async (): Promise<void> => {
       capture.url,
     ).catch(() => null);
     if (localDraft) {
-      fillForm({ ...capture, ...localDraft });
+      fillForm({ ...capture, ...localDraft }, true);
       addedTags = [...localDraft.tags];
+      restoredLocalDraftUrl = capture.url;
       discardLocalButton.hidden = false;
       (
         [
@@ -393,8 +390,9 @@ discardLocalButton.addEventListener("click", () => {
   localSaveTimer = undefined;
   void clearLocalDraft(
     browser.storage.local,
-    field("url").value.trim(),
+    restoredLocalDraftUrl ?? field("url").value.trim(),
   ).then(() => {
+    restoredLocalDraftUrl = null;
     discardLocalButton.hidden = true;
     feedback.textContent =
       "La saisie reste affichée, mais ne sera plus restaurée.";
@@ -469,10 +467,15 @@ form.addEventListener("submit", async (event) => {
     discardLocalButton.hidden = true;
     if (localSaveTimer) clearTimeout(localSaveTimer);
     localSaveTimer = undefined;
-    await clearLocalDraft(
-      browser.storage.local,
-      field("url").value.trim(),
+    await Promise.all(
+      [...new Set([
+        field("url").value.trim(),
+        restoredLocalDraftUrl,
+      ].filter((url): url is string => !!url))].map((url) =>
+        clearLocalDraft(browser.storage.local, url),
+      ),
     ).catch(() => undefined);
+    restoredLocalDraftUrl = null;
     feedback.textContent = data.existing
       ? "Brouillon mis à jour."
       : "Brouillon ajouté à la file.";
