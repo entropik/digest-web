@@ -19,6 +19,8 @@ params:
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
   disableSpecial1stPost: true
+  footer:
+    text: "[Admin](/admin)"
   label:
     text: "OOBLIK DIGEST"
   homeInfoParams:
