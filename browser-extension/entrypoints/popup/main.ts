@@ -6,6 +6,13 @@ import {
   type PageCapture
 } from "../../lib/capture";
 import { DigestApiError, requestJson } from "../../lib/api";
+import {
+  clearLocalDraft,
+  loadLocalDraft,
+  pruneExpiredLocalDrafts,
+  saveLocalDraft,
+  type LocalDraftFields,
+} from "../../lib/local-draft";
 
 const API_ORIGIN = "https://digest.ooblik.com";
 const form = document.querySelector<HTMLFormElement>("#capture-form")!;
@@ -18,12 +25,17 @@ const knownTags = document.querySelector<HTMLDataListElement>("#known-tags")!;
 const category = document.querySelector<HTMLSelectElement>("#category")!;
 const saveButton = document.querySelector<HTMLButtonElement>("#save")!;
 const retryButton = document.querySelector<HTMLButtonElement>("#retry")!;
+const discardLocalButton =
+  document.querySelector<HTMLButtonElement>("#discard-local")!;
 let tags: string[] = [];
 let addedTags: string[] = [];
 let removedTags: string[] = [];
 let verifiedUrl: string | null = null;
 let verificationSequence = 0;
 let canSaveVerifiedDraft = false;
+let localSaveTimer: ReturnType<typeof setTimeout> | undefined;
+let localPersistenceEnabled = true;
+let localDraftDirty = false;
 
 type CurationOptions = { categories: string[]; tags: string[] };
 type EditableField = keyof PageCapture | "category" | "tags";
@@ -47,6 +59,35 @@ const api = async <T>(
 
 const field = (name: string): HTMLInputElement | HTMLTextAreaElement =>
   form.elements.namedItem(name) as HTMLInputElement | HTMLTextAreaElement;
+
+const currentLocalDraft = (): LocalDraftFields => ({
+  title: field("title").value,
+  category: category.value,
+  description: field("description").value,
+  tags: [...tags],
+  privateNote: field("privateNote").value,
+});
+
+const persistLocalDraft = (): void => {
+  if (!localPersistenceEnabled || !localDraftDirty) return;
+  const url = field("url").value.trim();
+  if (!isSupportedCaptureUrl(url)) return;
+  void saveLocalDraft(browser.storage.local, url, currentLocalDraft()).catch(
+    () => undefined,
+  );
+};
+
+const flushLocalDraftSave = (): void => {
+  if (localSaveTimer) clearTimeout(localSaveTimer);
+  localSaveTimer = undefined;
+  persistLocalDraft();
+};
+
+const scheduleLocalDraftSave = (): void => {
+  localDraftDirty = true;
+  if (localSaveTimer) clearTimeout(localSaveTimer);
+  localSaveTimer = setTimeout(flushLocalDraftSave, 300);
+};
 
 const tagKey = (tag: string): string => tag.toLocaleLowerCase("fr");
 const sameTag = (left: string, right: string): boolean =>
@@ -78,6 +119,7 @@ const renderTags = (): void => {
         renderTags();
         updateCompleteness();
         updateSaveAvailability();
+        scheduleLocalDraftSave();
         if (canSaveVerifiedDraft && tags.length <= 12) {
           feedback.textContent = "Brouillon prêt à enregistrer.";
         }
@@ -109,6 +151,7 @@ const addTag = (): void => {
   renderTags();
   updateCompleteness();
   updateSaveAvailability();
+  scheduleLocalDraftSave();
 };
 
 const updateCompleteness = (): void => {
@@ -130,6 +173,15 @@ const fillForm = (
   field("title").value = capture.title;
   field("description").value = capture.description;
   field("privateNote").value = capture.privateNote;
+  if (
+    capture.category &&
+    ![...category.options].some((option) => option.value === capture.category)
+  ) {
+    const provisionalCategory = document.createElement("option");
+    provisionalCategory.value = capture.category;
+    provisionalCategory.textContent = capture.category;
+    category.append(provisionalCategory);
+  }
   category.value = capture.category ?? "";
   tags = capture.tags ?? [];
   renderTags();
@@ -299,6 +351,25 @@ const initialize = async (): Promise<void> => {
     const capture = await captureActivePage();
     fillForm(capture);
     form.hidden = false;
+    void pruneExpiredLocalDrafts(browser.storage.local).catch(() => undefined);
+    const localDraft = await loadLocalDraft(
+      browser.storage.local,
+      capture.url,
+    ).catch(() => null);
+    if (localDraft) {
+      fillForm({ ...capture, ...localDraft });
+      addedTags = [...localDraft.tags];
+      discardLocalButton.hidden = false;
+      (
+        [
+          "title",
+          "description",
+          "privateNote",
+          "category",
+          "tags",
+        ] as EditableField[]
+      ).forEach((name) => touchedFields.add(name));
+    }
     await verifyCapture(capture.url);
   } catch (error) {
     feedback.textContent =
@@ -315,6 +386,24 @@ document.querySelector("#add-tag")?.addEventListener("click", addTag);
 retryButton.addEventListener("click", () => {
   void verifyCapture(field("url").value.trim());
 });
+discardLocalButton.addEventListener("click", () => {
+  localPersistenceEnabled = false;
+  localDraftDirty = false;
+  if (localSaveTimer) clearTimeout(localSaveTimer);
+  localSaveTimer = undefined;
+  void clearLocalDraft(
+    browser.storage.local,
+    field("url").value.trim(),
+  ).then(() => {
+    discardLocalButton.hidden = true;
+    feedback.textContent =
+      "La saisie reste affichée, mais ne sera plus restaurée.";
+  }).catch(() => {
+    localPersistenceEnabled = true;
+    feedback.textContent = "Impossible d’oublier la reprise locale.";
+  });
+});
+window.addEventListener("pagehide", flushLocalDraftSave, { once: true });
 tagInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     event.preventDefault();
@@ -341,6 +430,7 @@ form.addEventListener("input", (event) => {
     retryButton.hidden = false;
   }
   updateCompleteness();
+  scheduleLocalDraftSave();
 });
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -374,6 +464,15 @@ form.addEventListener("submit", async (event) => {
         }),
       },
     );
+    localPersistenceEnabled = false;
+    localDraftDirty = false;
+    discardLocalButton.hidden = true;
+    if (localSaveTimer) clearTimeout(localSaveTimer);
+    localSaveTimer = undefined;
+    await clearLocalDraft(
+      browser.storage.local,
+      field("url").value.trim(),
+    ).catch(() => undefined);
     feedback.textContent = data.existing
       ? "Brouillon mis à jour."
       : "Brouillon ajouté à la file.";
