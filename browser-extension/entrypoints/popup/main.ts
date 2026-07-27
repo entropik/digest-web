@@ -76,6 +76,14 @@ const currentLocalDraft = (): LocalDraftFields => ({
   privateNote: field("privateNote").value,
 });
 
+const reportLocalDraftWriteFailure = (): void => {
+  localPersistenceEnabled = false;
+  localPersistence.checked = false;
+  localDraftDirty = false;
+  feedback.textContent =
+    "Reprise locale impossible : cette saisie n’a pas été enregistrée sur l’appareil.";
+};
+
 const persistLocalDraft = (): void => {
   if (!localPersistenceEnabled || !localDraftDirty) return;
   const url = field("url").value.trim();
@@ -85,7 +93,9 @@ const persistLocalDraft = (): void => {
     browser.storage.local,
     capturedPageUrl,
     currentLocalDraft(),
-  ).catch(() => undefined);
+  ).catch(() => {
+    reportLocalDraftWriteFailure();
+  });
   pendingLocalWrites.add(write);
   void write.finally(() => {
     pendingLocalWrites.delete(write);
@@ -99,7 +109,7 @@ const clearSessionLocalDrafts = async (): Promise<void> => {
       [
         ...persistedLocalDraftUrls,
         restoredLocalDraftUrl,
-        field("url").value.trim(),
+        capturedPageUrl,
       ].filter((url): url is string => !!url),
     ),
   ];
@@ -567,7 +577,15 @@ form.addEventListener("submit", async (event) => {
     discardLocalButton.hidden = true;
     if (localSaveTimer) clearTimeout(localSaveTimer);
     localSaveTimer = undefined;
-    await clearSessionLocalDrafts().catch(() => undefined);
+    try {
+      await clearSessionLocalDrafts();
+    } catch {
+      discardLocalButton.hidden = false;
+      feedback.textContent =
+        "Brouillon enregistré, mais sa reprise locale n’a pas pu être effacée. Utilisez « Oublier la reprise locale » pour réessayer.";
+      return;
+    }
+    discardLocalButton.hidden = true;
     feedback.textContent = data.existing
       ? "Brouillon mis à jour."
       : "Brouillon ajouté à la file.";

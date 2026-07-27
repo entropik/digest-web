@@ -520,6 +520,84 @@ describe("états asynchrones du popup", () => {
     expect(browserMock.storage.local.set).not.toHaveBeenCalled();
   });
 
+  test("signale une sauvegarde locale impossible et désactive la reprise", async () => {
+    browserMock.storage.local.set.mockRejectedValueOnce(
+      new Error("STORAGE_UNAVAILABLE"),
+    );
+    vi.stubGlobal("fetch", vi.fn(async () => response(bootstrap())));
+    await loadPopup();
+    await vi.waitFor(() => {
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+    });
+
+    element<HTMLInputElement>("#local-persistence").click();
+
+    await vi.waitFor(() => {
+      expect(element<HTMLInputElement>("#local-persistence").checked).toBe(
+        false,
+      );
+      expect(element("#feedback").textContent).toBe(
+        "Reprise locale impossible : cette saisie n’a pas été enregistrée sur l’appareil.",
+      );
+    });
+  });
+
+  test("n’efface pas le brouillon indépendant dont l’URL a seulement été saisie", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => response(bootstrap())));
+    await loadPopup();
+    await vi.waitFor(() => {
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+    });
+
+    element<HTMLInputElement>("#local-persistence").click();
+    input("url").value = "https://example.com/autre-brouillon";
+    input("url").dispatchEvent(new Event("input", { bubbles: true }));
+    await new Promise((resolve) => setTimeout(resolve, 350));
+    element<HTMLInputElement>("#local-persistence").click();
+
+    await vi.waitFor(() => {
+      expect(element("#feedback").textContent).toBe(
+        "Reprise locale désactivée.",
+      );
+    });
+    expect(browserMock.storage.local.remove).toHaveBeenCalledWith(
+      localDraftStorageKey(capture.url),
+    );
+    expect(browserMock.storage.local.remove).not.toHaveBeenCalledWith(
+      localDraftStorageKey("https://example.com/autre-brouillon"),
+    );
+  });
+
+  test("garde l’échec de nettoyage local actionnable après soumission", async () => {
+    browserMock.storage.local.remove.mockRejectedValue(
+      new Error("STORAGE_UNAVAILABLE"),
+    );
+    vi.stubGlobal(
+      "fetch",
+      vi
+        .fn()
+        .mockResolvedValueOnce(response(bootstrap()))
+        .mockResolvedValueOnce(response({ existing: false })),
+    );
+    await loadPopup();
+    await vi.waitFor(() => {
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+    });
+
+    element<HTMLInputElement>("#local-persistence").click();
+    element<HTMLFormElement>("#capture-form").dispatchEvent(
+      new Event("submit", { bubbles: true, cancelable: true }),
+    );
+
+    await vi.waitFor(() => {
+      expect(element("#feedback").textContent).toBe(
+        "Brouillon enregistré, mais sa reprise locale n’a pas pu être effacée. Utilisez « Oublier la reprise locale » pour réessayer.",
+      );
+      expect(element<HTMLButtonElement>("#discard-local").hidden).toBe(false);
+    });
+    expect(window.close).not.toHaveBeenCalled();
+  });
+
   test("conserve une identité stable puis nettoie la session", async () => {
     vi.stubGlobal(
       "fetch",
