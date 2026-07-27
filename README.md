@@ -6,6 +6,13 @@ développement, le design, l’édition et l’image.
 Le site est construit avec [Hugo](https://gohugo.io/) et le thème
 [PaperMod](https://github.com/adityatelange/hugo-PaperMod).
 
+## Documentation du projet
+
+La documentation durable se trouve dans [`docs/`](docs/README.md). Elle
+comprend l’architecture, les décisions structurantes et un
+[journal chronologique](docs/journal/README.md) avec un billet pour chaque
+journée active du projet.
+
 ## Développement
 
 Initialiser le thème après un nouveau clonage :

@@ -1,0 +1,87 @@
+# Architecture
+
+## Vue d’ensemble
+
+OOBLIK Digest sépare strictement la lecture publique, l’administration privée
+et la capture depuis Chrome.
+
+```text
+Extension Chrome
+      │ HTTPS, session propriétaire
+      ▼
+admin-service ── SQLite privée
+      │
+      │ commit atomique via GitHub App
+      ▼
+branche main ── GitHub Actions ── branche production
+                                      │
+                                      │ relève CloudPanel
+                                      ▼
+                              digest.ooblik.com
+```
+
+## Site public
+
+Le site est construit avec Hugo et PaperMod. Le catalogue éditorial réside
+dans `data/links.json`; les éditions sont décrites dans
+`content/archives/YYYY-MM-DD.md`. Les catégories puis les titres sont triés
+alphabétiquement.
+
+La branche `main` contient les sources. GitHub Actions valide les données et
+construit le site, puis force la branche `production` sur la sortie statique.
+CloudPanel relève cette branche, crée une release locale et bascule un lien
+symbolique `current`. Les cinq dernières releases sont conservées.
+
+## Mémoire éditoriale
+
+Une ressource publique disparue n’est pas supprimée uniquement parce qu’elle
+ne répond plus. Elle conserve son URL d’origine, reçoit `status: "dead"`, une
+note lisible et le tag `lien-mort`. Une capture Wayback peut servir de
+destination de consultation.
+
+Cette conservation ne s’applique jamais à une URL privée, locale,
+authentifiée ou contenant des informations sensibles.
+
+## Administration propriétaire
+
+`admin-service/` est un service Node.js séparé du site statique :
+
+- authentification GitHub avec Better Auth ;
+- autorisation limitée à l’identité GitHub propriétaire ;
+- lecture et modification contrôlée du catalogue ;
+- SQLite privée pour les brouillons et le suivi des publications ;
+- GitHub App limitée aux contenus du dépôt et à la lecture des Actions ;
+- sauvegardes avant migration et sauvegardes tournantes.
+
+Un lien publié peut être corrigé sans perdre son identifiant, son URL, sa date
+ou son historique. Un retrait public modifie sa visibilité sans effacer la
+ressource.
+
+## Extension Chrome
+
+`browser-extension/` contient une extension Manifest V3 construite avec WXT,
+TypeScript et une interface HTML/CSS sans framework.
+
+Une action explicite sur l’icône ou le raccourci autorise la lecture ponctuelle
+de la page active. L’extension extrait l’URL, le titre, l’adresse canonique, la
+meta description et, si elle existe, la sélection de texte. La sélection et
+la note restent privées.
+
+L’extension ne possède aucun jeton GitHub. Elle communique uniquement avec
+`https://digest.ooblik.com/*`, et le serveur n’accepte que l’origine exacte de
+l’extension publiée :
+`chrome-extension://nlejcccmpbajpoaknlecegkpgdegiflf`.
+
+## Publication d’un Digest
+
+1. Les captures sont conservées comme brouillons SQLite.
+2. L’administration sélectionne explicitement un lot.
+3. Le serveur vérifie les champs obligatoires, la taxonomie, les doublons, les
+   URL et l’unicité de la date.
+4. Il génère le catalogue et l’archive dans un seul commit idempotent.
+5. Il suit `Validate` puis `Deploy production` pour le SHA produit.
+6. Il vérifie enfin la présence du titre et de la date sur le site public avant
+   d’annoncer l’état « En ligne ».
+
+Une date existante est refusée avec `409 EDITION_EXISTS`. Un brouillon
+incomplet peut être enregistré, mais jamais publié.
