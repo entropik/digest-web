@@ -73,3 +73,15 @@ jamais autoriser `chrome-extension://*`.
 4. Téléverser et publier manuellement cette version dans le tableau de bord.
 
 Chrome met ensuite automatiquement à jour les installations existantes.
+
+## Modifier l’icône de l’extension
+
+Le générateur canonique des icônes 16, 32, 48 et 128 px est
+`scripts/generate-icons.mjs`. Après une modification graphique, exécuter
+`npm run icons`, vérifier visuellement les quatre PNG de `public/icon/`, puis
+les committer avec le générateur. `npm run build` et `npm run zip` vérifient
+que ces fichiers sont à jour sans les réécrire. La CI les régénère également
+et refuse toute différence.
+
+Le script `generate-store-assets.py` ne modifie pas les icônes de l’extension :
+il produit seulement les ressources propres à la fiche Chrome Web Store.

@@ -41,6 +41,8 @@ jobs:
           npm ci
           npm run typecheck
           npm test
+          npm run icons
+          git diff --exit-code -- public/icon
           npm run build
           npm run zip
 

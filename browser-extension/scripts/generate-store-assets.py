@@ -9,8 +9,6 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "store-assets" / "source" / "editorial-collage-v1.png"
 POPUP_SOURCE = ROOT / "store-assets" / "source" / "popup-demo-browser.png"
 STORE = ROOT / "store-assets"
-ICONS = ROOT / "public" / "icon"
-
 CORAL = "#ff5c35"
 INK = "#161616"
 PAPER = "#f5f2ec"
@@ -40,10 +38,7 @@ def mark(size: int) -> Image.Image:
     return image
 
 
-def save_icons() -> None:
-    ICONS.mkdir(parents=True, exist_ok=True)
-    for size in (16, 32, 48, 128):
-        mark(size).save(ICONS / f"{size}.png", optimize=True)
+def save_store_icons() -> None:
     mark(512).save(STORE / "icon-master-512.png", optimize=True)
     mark(128).save(STORE / "store-icon-128.png", optimize=True)
 
@@ -137,7 +132,7 @@ def screenshot() -> None:
 
 def main() -> None:
     STORE.mkdir(parents=True, exist_ok=True)
-    save_icons()
+    save_store_icons()
     small_promo()
     marquee()
     if POPUP_SOURCE.exists():
