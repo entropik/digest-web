@@ -20,14 +20,15 @@ const saveButton = document.querySelector<HTMLButtonElement>("#save")!;
 const retryButton = document.querySelector<HTMLButtonElement>("#retry")!;
 let tags: string[] = [];
 let activeCapture: PageCapture | null = null;
-let formWasEdited = false;
 
 type CurationOptions = { categories: string[]; tags: string[] };
+type EditableField = keyof PageCapture | "category" | "tags";
 type StoredDraft = PageCapture & {
   category: string;
   tags: string[];
   privateNote: string;
 };
+const touchedFields = new Set<EditableField>();
 type BootstrapResponse = {
   options: CurationOptions;
   draft: StoredDraft | null;
@@ -37,7 +38,8 @@ type BootstrapResponse = {
 const api = async <T>(
   path: string,
   init: RequestInit = {},
-): Promise<T> => requestJson<T>(API_ORIGIN, path, init);
+  timeoutMs?: number,
+): Promise<T> => requestJson<T>(API_ORIGIN, path, init, { timeoutMs });
 
 const field = (name: string): HTMLInputElement | HTMLTextAreaElement =>
   form.elements.namedItem(name) as HTMLInputElement | HTMLTextAreaElement;
@@ -53,7 +55,7 @@ const renderTags = (): void => {
       remove.setAttribute("aria-label", `Retirer ${tag}`);
       remove.textContent = "×";
       remove.addEventListener("click", () => {
-        formWasEdited = true;
+        touchedFields.add("tags");
         tags = tags.filter((candidate) => candidate !== tag);
         renderTags();
         updateCompleteness();
@@ -75,7 +77,7 @@ const addTag = (): void => {
     return;
   }
   if (!alreadySelected) {
-    formWasEdited = true;
+    touchedFields.add("tags");
     tags.push(value);
   }
   tagInput.value = "";
@@ -130,6 +132,32 @@ const populateOptions = (options: CurationOptions): void => {
   );
 };
 
+const fillDraftPreservingEdits = (draft: StoredDraft): void => {
+  const mergedTags = [
+    ...draft.tags,
+    ...tags.filter(
+      (localTag) =>
+        !draft.tags.some(
+          (draftTag) =>
+            draftTag.localeCompare(localTag, "fr", { sensitivity: "base" }) ===
+            0,
+        ),
+    ),
+  ];
+  fillForm({
+    url: touchedFields.has("url") ? field("url").value : draft.url,
+    title: touchedFields.has("title") ? field("title").value : draft.title,
+    description: touchedFields.has("description")
+      ? field("description").value
+      : draft.description,
+    privateNote: touchedFields.has("privateNote")
+      ? field("privateNote").value
+      : draft.privateNote,
+    category: touchedFields.has("category") ? category.value : draft.category,
+    tags: touchedFields.has("tags") ? mergedTags : draft.tags,
+  });
+};
+
 const captureActivePage = async (): Promise<PageCapture> => {
   const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
   if (!tab?.id || !tab.url || !isSupportedCaptureUrl(tab.url)) {
@@ -167,10 +195,12 @@ const verifyCapture = async (capture: PageCapture): Promise<void> => {
   try {
     const bootstrap = await api<BootstrapResponse>(
       `/api/admin/curation/bootstrap?url=${encodeURIComponent(capture.url)}`,
+      {},
+      9_000,
     );
     populateOptions(bootstrap.options);
     if (bootstrap.draft) {
-      if (!formWasEdited) fillForm(bootstrap.draft);
+      fillDraftPreservingEdits(bootstrap.draft);
       feedback.textContent =
         "Ce brouillon existe déjà : le formulaire permet de le mettre à jour.";
       saveButton.disabled = false;
@@ -229,8 +259,17 @@ tagInput.addEventListener("keydown", (event) => {
     addTag();
   }
 });
-form.addEventListener("input", () => {
-  formWasEdited = true;
+form.addEventListener("input", (event) => {
+  const name = (event.target as HTMLInputElement | HTMLTextAreaElement).name;
+  if (
+    name === "url" ||
+    name === "title" ||
+    name === "description" ||
+    name === "privateNote" ||
+    name === "category"
+  ) {
+    touchedFields.add(name);
+  }
   updateCompleteness();
 });
 form.addEventListener("submit", async (event) => {

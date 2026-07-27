@@ -2,6 +2,28 @@ import { describe, expect, test, vi } from "vitest";
 import { DigestApiError, requestJson } from "../lib/api";
 
 describe("Digest API client", () => {
+  test("does not impose a timeout unless the caller requests one", async () => {
+    const timeoutSpy = vi.spyOn(globalThis, "setTimeout");
+    const fetchImpl = vi.fn(async () =>
+      Response.json({ ok: true }),
+    ) as typeof fetch;
+
+    await expect(
+      requestJson(
+        "https://digest.ooblik.com",
+        "/api/admin/curation/drafts",
+        {
+          method: "POST",
+        },
+        {
+          fetchImpl,
+        },
+      ),
+    ).resolves.toEqual({ ok: true });
+    expect(timeoutSpy).not.toHaveBeenCalled();
+    timeoutSpy.mockRestore();
+  });
+
   test("turns a stalled request into an explicit timeout", async () => {
     const fetchImpl = vi.fn(
       (_input: RequestInfo | URL, init?: RequestInit) =>

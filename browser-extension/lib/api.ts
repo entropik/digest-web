@@ -27,13 +27,15 @@ export const requestJson = async <T>(
   options: RequestJsonOptions = {},
 ): Promise<T> => {
   const controller = new AbortController();
-  const timeoutMs = options.timeoutMs ?? 9_000;
   const fetchImpl = options.fetchImpl ?? fetch;
   let timedOut = false;
-  const timeout = setTimeout(() => {
-    timedOut = true;
-    controller.abort();
-  }, timeoutMs);
+  const timeout =
+    options.timeoutMs === undefined
+      ? undefined
+      : setTimeout(() => {
+          timedOut = true;
+          controller.abort();
+        }, options.timeoutMs);
 
   try {
     const response = await fetchImpl(`${origin}${path}`, {
@@ -63,6 +65,6 @@ export const requestJson = async <T>(
     if (timedOut) throw new DigestApiError("REQUEST_TIMEOUT");
     throw new DigestApiError("NETWORK_UNAVAILABLE");
   } finally {
-    clearTimeout(timeout);
+    if (timeout !== undefined) clearTimeout(timeout);
   }
 };
