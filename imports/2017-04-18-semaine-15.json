@@ -1,0 +1,132 @@
+[
+  {
+    "title": "Florian Chevillard — Buroloco",
+    "url": "https://florianchevillard.fr/",
+    "category": "Design & Création",
+    "added": "2017-04-18",
+    "description": "Le portfolio de Florian Chevillard, designer graphique auparavant connu sous le nom Buroloco, actif dans l’édition, l’identité visuelle et la typographie.",
+    "tags": ["design-graphique", "portfolio", "édition", "identité", "typographie"]
+  },
+  {
+    "title": "Craonne, rose rouge pour Georges",
+    "url": "https://la-bas.org/la-bas-magazine/reportages/craonne-rose-rouge-pour-georges",
+    "category": "Médias & Veille",
+    "added": "2017-04-18",
+    "description": "Un reportage de Là-bas si j’y suis autour de la Chanson de Craonne, de la mémoire des mutins de 1917 et de l’interprétation qu’en donne Sanseverino.",
+    "tags": ["histoire", "musique", "Première-Guerre-mondiale", "mémoire", "radio"]
+  },
+  {
+    "title": "La Rentadora",
+    "url": "https://larentadora.tumblr.com/",
+    "category": "Design & Création",
+    "added": "2017-04-18",
+    "description": "Un carnet visuel suisse consacré au graphisme, à l’édition, aux formes imprimées et aux références typographiques.",
+    "tags": ["design-graphique", "Tumblr", "inspiration", "édition", "Suisse"]
+  },
+  {
+    "title": "Fake Newsroom",
+    "url": "http://fakenewsroom.org/hsdvjm",
+    "category": "Médias & Veille",
+    "added": "2017-04-18",
+    "description": "Une édition quotidienne du projet Fake Newsroom, atelier-exposition où Jason Fulford, Jim Goldberg et Dru Donovan recomposaient les images d’actualité de l’Associated Press.",
+    "tags": ["photographie", "fake-news", "médias", "exposition", "édition"]
+  },
+  {
+    "title": "DIY Software — Grafik",
+    "url": "https://www.grafik.net/category/screenshot/diy-software",
+    "category": "Design & Création",
+    "added": "2017-04-18",
+    "description": "L’ancienne publication de Grafik dans laquelle Open Source Publishing présentait les fonctions de gravure et de tramage développées pour le logiciel libre Laidout.",
+    "tags": ["opensource", "logiciel-libre", "design-graphique", "Laidout", "OSP", "lien-mort"],
+    "status": "dead",
+    "status_note": "La page d’origine renvoie désormais une erreur 404. L’article DIY Software reste référencé dans les archives officielles d’Open Source Publishing et dans des travaux de recherche sur les outils graphiques libres ; son adresse est conservée pour mémoire."
+  },
+  {
+    "title": "Visual Culture — Open Source Publishing, Git et le design graphique",
+    "url": "http://strabic.fr/OSP-Visual-Culture",
+    "category": "Design & Création",
+    "added": "2017-04-18",
+    "description": "Un entretien avec le collectif Open Source Publishing sur le logiciel libre, Git et les pratiques collaboratives du design graphique.",
+    "tags": ["opensource", "logiciel-libre", "design-graphique", "Git", "OSP"]
+  },
+  {
+    "title": "Relearn — Open Source Publishing",
+    "url": "http://f-u-t-u-r-e.org/r/02_OSP_Relearn_FR.md",
+    "category": "Design & Création",
+    "added": "2017-04-18",
+    "description": "Un texte d’Open Source Publishing sur Relearn, école d’été expérimentale où outils libres, pédagogie et pratiques graphiques se construisent collectivement.",
+    "tags": ["opensource", "pédagogie", "design-graphique", "OSP", "recherche"]
+  },
+  {
+    "title": "Un logo inoxydable — Centre Pompidou",
+    "url": "https://www.centrepompidou.fr/fr/programme/agenda/evenement/cz5Kygo",
+    "category": "Design & Création",
+    "added": "2017-04-18",
+    "description": "Une rencontre consacrée au logo du Centre Pompidou dessiné par Jean Widmer et à la longévité remarquable de cette identité visuelle.",
+    "tags": ["logo", "identité", "design-graphique", "Jean-Widmer", "Centre-Pompidou"]
+  },
+  {
+    "title": "Les textes de Jean-Marie Guyau",
+    "url": "http://jmguyau.free.fr/Jean-Marie_GUYAU,_une_morale_de_lobligation_immanente/Les_textes_de_Guyau/Les_textes_de_Guyau.html",
+    "category": "Médias & Veille",
+    "added": "2017-04-18",
+    "description": "Une bibliothèque en ligne des œuvres de Jean-Marie Guyau, philosophe et poète dont la morale sans obligation a influencé la pensée libertaire.",
+    "tags": ["philosophie", "poésie", "anarchisme", "Jean-Marie-Guyau", "textes"]
+  },
+  {
+    "title": "Laidout",
+    "url": "https://laidout.org/",
+    "category": "Développement",
+    "added": "2017-04-18",
+    "description": "Un logiciel libre de publication assistée par ordinateur et d’imposition, pensé notamment pour les livres, brochures pliées et surfaces polyédriques.",
+    "tags": ["opensource", "logiciel-libre", "PAO", "édition", "imposition"]
+  },
+  {
+    "title": "Humble Arts Foundation",
+    "url": "http://hafny.org/",
+    "category": "Médias & Veille",
+    "added": "2017-04-18",
+    "description": "Une fondation créée à New York en 2005 pour soutenir la photographie artistique émergente par des expositions, publications, entretiens et appels à projets.",
+    "tags": ["photographie", "art-contemporain", "fondation", "exposition", "New-York"]
+  },
+  {
+    "title": "oodee — Books",
+    "url": "https://oodee.net/books/",
+    "category": "Design & Création",
+    "added": "2017-04-18",
+    "description": "Le catalogue de livres photographiques et d’éditions d’artistes publié par la maison indépendante londonienne oodee.",
+    "tags": ["photographie", "édition", "livre-photo", "livre-d-art", "Royaume-Uni"]
+  },
+  {
+    "title": "Vitor Araújo",
+    "url": "https://www.youtube.com/channel/UCXykOmHqpa9wI8lRD-Dsv8Q",
+    "category": "Médias & Veille",
+    "added": "2017-04-18",
+    "description": "La chaîne du pianiste, compositeur et orchestrateur brésilien Vitor Araújo, dont la musique relie écriture contemporaine, expérimentation et traditions du Pernambouc.",
+    "tags": ["musique", "piano", "composition", "Brésil", "YouTube"]
+  },
+  {
+    "title": "English: Learn Languages for Free — Open Culture",
+    "url": "https://www.openculture.com/free_english_lessons",
+    "category": "Médias & Veille",
+    "added": "2017-04-18",
+    "description": "Une sélection de cours, podcasts, vidéos et ressources gratuites pour apprendre et pratiquer l’anglais.",
+    "tags": ["anglais", "apprentissage", "cours", "ressources", "gratuit"]
+  },
+  {
+    "title": "Cyril Sancereau",
+    "url": "https://cyrilsancereau.com/",
+    "category": "Design & Création",
+    "added": "2017-04-18",
+    "description": "Le portfolio du photographe français Cyril Sancereau, entre architecture, paysage, espaces urbains et commandes éditoriales.",
+    "tags": ["photographie", "photographe", "architecture", "paysage", "portfolio"]
+  },
+  {
+    "title": "NovaCut — Spécimen hybrides",
+    "url": "https://furter.github.io/specimen-hybrides/Presentation/specimove/novacut.html",
+    "category": "Design & Création",
+    "added": "2017-04-18",
+    "description": "Un spécimen typographique interactif qui met en mouvement NovaCut dans le cadre d’une recherche sur les caractères hybrides.",
+    "tags": ["typographie", "spécimen", "web", "animation", "expérimentation"]
+  }
+]
