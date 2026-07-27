@@ -355,6 +355,7 @@
   const selectDate = (dateKey) => {
     dateFilter.value = dateKey;
     dateValue.textContent = calendarValueFormatter.format(parseDateKey(dateKey));
+    dateToggle.classList.add("has-value");
     currentPage = 1;
     clearRandomSelection();
     closeCalendar();
@@ -420,7 +421,8 @@
 
   calendarClear.addEventListener("click", () => {
     dateFilter.value = "";
-    dateValue.textContent = "jj/mm/aaaa";
+    dateValue.textContent = "cliquer sur le calendrier";
+    dateToggle.classList.remove("has-value");
     currentPage = 1;
     clearRandomSelection();
     closeCalendar();

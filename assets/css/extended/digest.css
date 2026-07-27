@@ -515,7 +515,7 @@ html {
 
 .digest-query-tools {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   gap: 1.25rem;
 }
 
@@ -567,6 +567,16 @@ html {
 .digest-date-toggle:focus-visible {
   color: var(--digest-accent);
   outline: 0;
+}
+
+.digest-date-value {
+  color: var(--digest-muted);
+  font-size: .78rem;
+}
+
+.digest-date-toggle.has-value .digest-date-value {
+  color: inherit;
+  font-size: 1.15rem;
 }
 
 .digest-date-toggle svg {
@@ -1381,6 +1391,41 @@ body.digest-modal-open {
   font-size: .72rem;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.archive-favorite {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  margin-top: .65rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--digest-muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: .72rem;
+}
+
+.archive-favorite svg {
+  width: 1rem;
+  height: 1rem;
+  fill: transparent;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.archive-favorite:hover,
+.archive-favorite:focus-visible,
+.archive-favorite.is-favorite {
+  color: #a33a2b;
+  outline: 0;
+}
+
+.archive-favorite.is-favorite svg {
+  fill: currentColor;
 }
 
 .archive-status {

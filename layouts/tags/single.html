@@ -27,6 +27,17 @@
               <span class="archive-status">Lien mort · conservé pour mémoire</span>
             {{ end }}
             <span class="archive-url">{{ .url }}</span>
+            <button
+              class="archive-favorite"
+              type="button"
+              data-favorite-url="{{ .url }}"
+              aria-pressed="false"
+              aria-label="Ajouter ce lien aux favoris">
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M12 20.5 4.7 13.8A5.4 5.4 0 0 1 12 5.9a5.4 5.4 0 0 1 7.3 7.9Z"></path>
+              </svg>
+              <span>Favoris</span>
+            </button>
           </div>
           <div>
             {{ with .status_note }}<p class="archive-status-note">{{ . }}</p>{{ end }}
