@@ -78,7 +78,16 @@ select {
   gap: 16px 32px;
 }
 
-.archive-linkedin-share {
+.archive-linkedin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  max-width: 620px;
+}
+
+.archive-linkedin-share,
+.archive-linkedin-image {
   display: inline-flex;
   min-height: 44px;
   align-items: center;
@@ -90,10 +99,25 @@ select {
   text-decoration: none;
 }
 
+.archive-linkedin-image {
+  border: 1px solid var(--digest-ink);
+  cursor: pointer;
+}
+
 .archive-linkedin-share:hover,
-.archive-linkedin-share:focus-visible {
+.archive-linkedin-share:focus-visible,
+.archive-linkedin-image:hover,
+.archive-linkedin-image:focus-visible {
   background: #e10600;
   color: #fff;
+}
+
+.archive-linkedin-feedback {
+  flex-basis: 100%;
+  min-height: 1.4em;
+  color: var(--digest-muted);
+  font-size: .72rem;
+  text-align: right;
 }
 
 .archive-social-visual {

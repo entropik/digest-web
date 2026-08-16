@@ -3,6 +3,10 @@
 {{ $linksByDate := partialCached "public-links-by-date.html" hugo.Data.links "public-links-by-date" }}
 {{ $links := index $linksByDate $digestDate | default slice }}
 {{ $categories := slice }}
+{{ $socialImage := "" }}
+{{ with .Params.images }}
+  {{ with index . 0 }}{{ $socialImage = . }}{{ end }}
+{{ end }}
 {{ range $links }}
   {{ $categories = $categories | append .category }}
 {{ end }}
@@ -15,19 +19,26 @@
     <p>{{ .Description }}</p>
     <div class="archive-single-actions">
       <div class="archive-single-count"><strong>{{ len $links }}</strong><span>liens documentés</span></div>
-      <a
-        class="archive-linkedin-share"
-        href="https://www.linkedin.com/sharing/share-offsite/?url={{ printf "%s?share=linkedin" .Permalink | urlquery }}"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Partager cette édition sur LinkedIn">
-        Partager sur LinkedIn ↗
-      </a>
+      <div class="archive-linkedin-actions">
+        {{ with $socialImage }}
+          <button class="archive-linkedin-image" type="button" data-linkedin-image="{{ . | relURL }}">
+            Copier l’image pour LinkedIn
+          </button>
+        {{ end }}
+        <a
+          class="archive-linkedin-share"
+          href="https://www.linkedin.com/sharing/share-offsite/?url={{ printf "%s?share=linkedin" .Permalink | urlquery }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Partager le lien de cette édition sur LinkedIn">
+          Partager le lien ↗
+        </a>
+        <span class="archive-linkedin-feedback" data-linkedin-feedback role="status" aria-live="polite"></span>
+      </div>
     </div>
   </header>
 
-  {{ with .Params.images }}
-    {{ with index . 0 }}
+  {{ with $socialImage }}
       <figure class="archive-social-visual">
         <img
           src="{{ . | relURL }}"
@@ -36,7 +47,6 @@
           alt="Affiche générative de cette édition du Digest"
           decoding="async">
       </figure>
-    {{ end }}
   {{ end }}
 
   {{ with .Content }}
