@@ -17,7 +17,7 @@
       <div class="archive-single-count"><strong>{{ len $links }}</strong><span>liens documentés</span></div>
       <a
         class="archive-linkedin-share"
-        href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | urlquery }}"
+        href="https://www.linkedin.com/sharing/share-offsite/?url={{ printf "%s?share=linkedin" .Permalink | urlquery }}"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Partager cette édition sur LinkedIn">

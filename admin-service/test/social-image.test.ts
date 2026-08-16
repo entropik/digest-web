@@ -91,6 +91,7 @@ test("archive pages expose a LinkedIn share action for their permalink", async (
     "utf8",
   );
   assert.match(layout, /linkedin\.com\/sharing\/share-offsite/);
+  assert.match(layout, /printf "%s\?share=linkedin" \.Permalink/);
   assert.match(layout, /\.Permalink \| urlquery/);
   assert.match(layout, /Partager sur LinkedIn/);
   assert.match(layout, /archive-social-visual/);
