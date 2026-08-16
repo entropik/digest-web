@@ -2,3 +2,5 @@
 <script src="{{ $externalLinks.RelPermalink }}" integrity="{{ $externalLinks.Data.Integrity }}" defer></script>
 {{- $archiveFavorites := resources.Get "js/archive-favorites.js" | minify | fingerprint }}
 <script src="{{ $archiveFavorites.RelPermalink }}" integrity="{{ $archiveFavorites.Data.Integrity }}" defer></script>
+{{- $linkedinImage := resources.Get "js/linkedin-image.js" | minify | fingerprint }}
+<script src="{{ $linkedinImage.RelPermalink }}" integrity="{{ $linkedinImage.Data.Integrity }}" defer></script>
