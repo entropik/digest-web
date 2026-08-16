@@ -100,6 +100,7 @@ const metadataInput = (
   taxonomy: { categories: string[]; tags: string[] },
 ): PublishedMetadata => {
   const body = (value ?? {}) as Record<string, unknown>;
+  const url = canonicalizePublicUrl(String(body.url ?? ""));
   const title = cleanText(body.title, 240);
   const category = cleanText(body.category, 100);
   const description = cleanText(body.description, 1_200);
@@ -110,7 +111,7 @@ const metadataInput = (
   if (!taxonomy.categories.includes(category)) {
     throw new CurationError("INVALID_CATEGORY");
   }
-  return { title, category, description, tags };
+  return { url, title, category, description, tags };
 };
 
 const editionPath = (date: string): string => `content/archives/${date}.md`;
@@ -471,7 +472,17 @@ export class CurationService {
   async editPublishedLink(id: string, body: unknown) {
     const head = await readRepositoryHead();
     const metadata = metadataInput(body, catalogTaxonomy(head.links));
-    return updatePublishedLink(id, metadata);
+    try {
+      return await updatePublishedLink(id, metadata);
+    } catch (error) {
+      if (error instanceof Error && error.message === "DUPLICATE_LINK_URL") {
+        throw new CurationError("DUPLICATE_LINK_URL", 409);
+      }
+      if (error instanceof Error && error.message === "LINK_NOT_FOUND") {
+        throw new CurationError("LINK_NOT_FOUND", 404);
+      }
+      throw error;
+    }
   }
 
   async addTagsToPublishedLink(id: string, body: unknown) {
