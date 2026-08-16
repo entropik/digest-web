@@ -5,6 +5,13 @@ const pageShell = (body: string, title = "Administration · Digest") => `<!docty
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
   <title>${title}</title>
+  <link rel="icon" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg">
+  <meta name="theme-color" content="#ff5c35">
+  <meta name="msapplication-TileColor" content="#ff5c35">
   <link rel="stylesheet" href="/admin/style.css">
 </head>
 <body>
