@@ -1835,6 +1835,49 @@ body.digest-modal-open {
   font-size: .72rem;
 }
 
+.archive-item-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .9rem;
+}
+
+.archive-linkedin-share {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  margin-top: .65rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--digest-muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: .72rem;
+}
+
+.archive-linkedin-share[hidden] {
+  display: none;
+}
+
+.archive-linkedin-share span[aria-hidden="true"] {
+  display: grid;
+  width: 1rem;
+  height: 1rem;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  font-size: .58rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.archive-linkedin-share:hover,
+.archive-linkedin-share:focus-visible {
+  color: #0a66c2;
+  outline: 0;
+}
+
 .archive-favorite svg {
   width: 1rem;
   height: 1rem;

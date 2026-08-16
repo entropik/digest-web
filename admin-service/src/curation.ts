@@ -125,6 +125,15 @@ export class CurationService {
     return catalogTaxonomy(head.links);
   }
 
+  async publishedLink(id: string) {
+    const head = await readCachedRepositoryHead();
+    const link = head.links.find(
+      (candidate) => candidate.id === id && candidate.visibility !== "hidden",
+    );
+    if (!link) throw new CurationError("LINK_NOT_FOUND", 404);
+    return link;
+  }
+
   async bootstrap(rawUrl: string) {
     const startedAt = startTimer();
     let outcome: "available" | "draft" | "error" | "published" = "error";

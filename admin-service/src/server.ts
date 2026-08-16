@@ -271,6 +271,25 @@ app.post("/api/admin/linkedin/publish", async (context) =>
   }),
 );
 
+app.post("/api/admin/linkedin/publish-link", async (context) =>
+  handle(context, async () => {
+    const body = await jsonBody<{
+      linkId: string;
+      text: string;
+      imageUrl: string;
+      confirm?: boolean;
+    }>(context);
+    requireConfirmation(body);
+    const link = await curation.publishedLink(String(body.linkId || ""));
+    return linkedin.publishLink(context.get("admin").user.id, {
+      title: link.title,
+      text: body.text,
+      url: link.url,
+      imageUrl: body.imageUrl,
+    });
+  }),
+);
+
 app.get("/api/admin/curation/options", (context) =>
   handle(context, () => curation.options()),
 );

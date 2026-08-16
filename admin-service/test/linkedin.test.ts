@@ -153,6 +153,20 @@ test("publishing uploads the PNG then creates one native image post with its URL
   });
   assert.equal(repeated.alreadyPublished, true);
   assert.equal(calls.filter(({ url }) => url.endsWith("/v2/ugcPosts")).length, 1);
+
+  const linkResult = await service.publishLink("admin-2", {
+    title: "Une ressource du Digest",
+    text: "À lire. #Design",
+    url: "https://example.com/une-ressource",
+    imageUrl: "/social/2026-08-16.png",
+  });
+  assert.equal(linkResult.alreadyPublished, false);
+  const linkPostCall = calls.filter(({ url }) => url.endsWith("/v2/ugcPosts")).at(-1)!;
+  const linkPost = JSON.parse(String(linkPostCall.init!.body));
+  assert.equal(
+    linkPost.specificContent["com.linkedin.ugc.ShareContent"].shareCommentary.text,
+    "À lire. #Design\n\nhttps://example.com/une-ressource",
+  );
 });
 
 test("publication rejects external archive and image URLs before fetching", async () => {
@@ -172,4 +186,14 @@ test("publication rejects external archive and image URLs before fetching", asyn
       error instanceof LinkedInError && error.code === "LINKEDIN_INVALID_PUBLICATION",
   );
   assert.equal(fetched, false);
+  await assert.rejects(
+    service.publishLink("admin-1", {
+      title: "Digest",
+      text: "Texte",
+      url: "http://127.0.0.1/private",
+      imageUrl: "/social/2026-08-16.png",
+    }),
+    (error: unknown) =>
+      error instanceof LinkedInError && error.code === "LINKEDIN_INVALID_PUBLICATION",
+  );
 });
