@@ -85,7 +85,7 @@ test("waves vary between editions instead of appearing systematically", () => {
   assert.ok(variants.some((svg) => !/ Q\d+/.test(svg)));
 });
 
-test("archive pages expose a native LinkedIn share with image, text and permalink", async () => {
+test("archive pages expose a native LinkedIn publication with image, text and permalink", async () => {
   const layout = await readFile(
     new URL("../../layouts/archives/single.html", import.meta.url),
     "utf8",
@@ -95,9 +95,8 @@ test("archive pages expose a native LinkedIn share with image, text and permalin
   assert.match(layout, /data-share-title="Web Digest — \{\{ \$\.Title \}\}"/);
   assert.match(layout, /data-share-text="\{\{ \$\.Description \}\}"/);
   assert.match(layout, /data-share-url="\{\{ \$\.Permalink \}\}"/);
-  assert.match(layout, /Partager sur LinkedIn/);
-  assert.match(layout, /linkedin\.com\/feed\/\?shareActive=true/);
-  assert.match(layout, /Ouvrir LinkedIn/);
+  assert.match(layout, /Publier sur LinkedIn/);
+  assert.doesNotMatch(layout, /linkedin\.com\/feed\/\?shareActive=true/);
   assert.match(layout, /data-linkedin-feedback/);
   assert.match(layout, /archive-social-visual/);
   assert.match(layout, /\.Params\.images/);
@@ -105,17 +104,16 @@ test("archive pages expose a native LinkedIn share with image, text and permalin
   assert.match(layout, /height="627"/);
 });
 
-test("LinkedIn native sharing sends the PNG, text and URL with a clear fallback", async () => {
+test("LinkedIn native publishing uses the authenticated server API", async () => {
   const [script, headPartial] = await Promise.all([
     readFile(new URL("../../assets/js/linkedin-image.js", import.meta.url), "utf8"),
     readFile(new URL("../../layouts/_partials/extend_head.html", import.meta.url), "utf8"),
   ]);
-  assert.match(script, /new File\(\[blob\], filename, \{ type: "image\/png" \}\)/);
-  assert.match(script, /navigator\.canShare\?\.\(\{ files \}\)/);
-  assert.match(script, /navigator\.share\(\{ title, text, url, files \}\)/);
-  assert.match(script, /navigator\.clipboard\?\.writeText/);
-  assert.match(script, /Image téléchargée et texte copié/);
-  assert.match(script, /download\(imageUrl\)/);
+  assert.match(script, /api\("\/api\/admin\/linkedin\/status"\)/);
+  assert.match(script, /\/api\/admin\/linkedin\/connect\?returnTo=/);
+  assert.match(script, /api\("\/api\/admin\/linkedin\/publish"/);
+  assert.match(script, /confirm: true/);
+  assert.doesNotMatch(script, /navigator\.share/);
   assert.match(headPartial, /resources\.Get "js\/linkedin-image\.js"/);
   assert.match(headPartial, /\$linkedinImage\.RelPermalink/);
 });

@@ -30,6 +30,7 @@ import {
   createRequestId,
   runWithRequestContext,
 } from "./observability.js";
+import { LinkedInError, LinkedInService } from "./linkedin.js";
 import { UnsafeUrlError } from "./urls.js";
 
 type Variables = {
@@ -39,6 +40,7 @@ type Variables = {
 const app = new Hono<{ Variables: Variables }>();
 const mutationAttempts = new Map<string, number[]>();
 const curation = new CurationService(new CurationStore(authDatabase));
+const linkedin = new LinkedInService(authDatabase);
 
 const allowedOrigin = (origin: string | undefined): origin is string =>
   !!origin && config.allowedOrigins.includes(origin);
@@ -181,10 +183,77 @@ const handle = async <T>(
     if (error instanceof UnsafeUrlError) {
       return context.json({ error: error.code }, 400);
     }
+    if (error instanceof LinkedInError) {
+      return context.json(
+        { error: error.code, details: error.details },
+        error.status as 400,
+      );
+    }
     console.error("Admin operation failed", error);
     return context.json({ error: "ADMIN_OPERATION_FAILED" }, 502);
   }
 };
+
+app.get("/api/admin/linkedin/status", (context) =>
+  handle(context, () => linkedin.status(context.get("admin").user.id)),
+);
+
+app.get("/api/admin/linkedin/connect", (context) => {
+  try {
+    const url = linkedin.authorizationUrl(
+      context.get("admin").user.id,
+      context.req.query("returnTo"),
+    );
+    return context.redirect(url);
+  } catch (error) {
+    if (error instanceof LinkedInError) {
+      return context.json({ error: error.code }, error.status as 400);
+    }
+    throw error;
+  }
+});
+
+app.get("/api/admin/linkedin/callback", async (context) => {
+  if (context.req.query("error")) {
+    return context.redirect("/admin?linkedin=cancelled");
+  }
+  const state = context.req.query("state");
+  const code = context.req.query("code");
+  if (!state || !code) {
+    return context.json({ error: "LINKEDIN_AUTHORIZATION_FAILED" }, 400);
+  }
+  try {
+    const returnTo = await linkedin.completeAuthorization(
+      context.get("admin").user.id,
+      state,
+      code,
+    );
+    return context.redirect(`${returnTo}?linkedin=connected`);
+  } catch (error) {
+    if (error instanceof LinkedInError) {
+      return context.json(
+        { error: error.code, details: error.details },
+        error.status as 400,
+      );
+    }
+    console.error("LinkedIn authorization failed", error);
+    return context.json({ error: "LINKEDIN_AUTHORIZATION_FAILED" }, 502);
+  }
+});
+
+app.post("/api/admin/linkedin/publish", async (context) =>
+  handle(context, async () => {
+    const body = await jsonBody<{
+      title: string;
+      text: string;
+      url: string;
+      imageUrl: string;
+      confirm?: boolean;
+    }>(context);
+    requireConfirmation(body);
+    return linkedin.publish(context.get("admin").user.id, body);
+  }),
+);
 
 app.get("/api/admin/curation/options", (context) =>
   handle(context, () => curation.options()),

@@ -109,4 +109,22 @@ test("session endpoint is readable but mutations require authentication", async 
     }),
   });
   assert.equal(tagMutation.status, 401);
+
+  const linkedinStatus = await app.request("/api/admin/linkedin/status", {
+    headers: { Origin: "https://digest.ooblik.com" },
+  });
+  assert.equal(linkedinStatus.status, 401);
+
+  const linkedinPublication = await app.request(
+    "/api/admin/linkedin/publish",
+    {
+      method: "POST",
+      headers: {
+        Origin: "https://digest.ooblik.com",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ confirm: true }),
+    },
+  );
+  assert.equal(linkedinPublication.status, 401);
 });
