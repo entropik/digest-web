@@ -26,6 +26,19 @@
     </div>
   </header>
 
+  {{ with .Params.images }}
+    {{ with index . 0 }}
+      <figure class="archive-social-visual">
+        <img
+          src="{{ . | relURL }}"
+          width="1200"
+          height="627"
+          alt="Affiche générative de cette édition du Digest"
+          decoding="async">
+      </figure>
+    {{ end }}
+  {{ end }}
+
   {{ with .Content }}
     <section class="archive-intro">
       {{ . }}

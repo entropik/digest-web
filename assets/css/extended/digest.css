@@ -96,6 +96,19 @@ select {
   color: #fff;
 }
 
+.archive-social-visual {
+  margin: clamp(28px, 5vw, 64px) 0;
+  background: #0a0a0a;
+}
+
+.archive-social-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 627;
+  object-fit: cover;
+}
+
 .about-liquid-page .post-content {
   position: relative;
   isolation: isolate;
