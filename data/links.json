@@ -3726,21 +3726,16 @@
   },
   {
     "title": "Éditions GwinZegal",
-    "url": "http://www.gwinzegal.com/",
+    "url": "https://gwinzegal.com/",
     "category": "Design & Création",
     "added": "2017-03-08",
-    "description": "L’ancienne page des éditions du Centre d’art GwinZegal, maison spécialisée dans les livres de photographie.",
+    "description": "Le Centre d’art GwinZegal, dont l’activité autour de la photographie comprend notamment l’édition de livres.",
     "tags": [
       "photographie",
       "édition",
       "livre-photo",
-      "centre-d-art",
-      "lien-mort"
+      "centre-d-art"
     ],
-    "status": "dead",
-    "status_note": "La page d’origine renvoie une erreur 404. Les éditions GwinZegal existent toujours sur le site actuel du Centre d’art ; l’ancienne adresse est conservée pour mémoire.",
-    "archive_checked_at": "2026-07-27",
-    "archive_status": "missing",
     "id": "d1c8f599-c83d-5e9c-a1a9-a1cac5f9d53d"
   },
   {
