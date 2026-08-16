@@ -106,16 +106,18 @@ test("archive pages expose a native LinkedIn share with image, text and permalin
 });
 
 test("LinkedIn native sharing sends the PNG, text and URL with a clear fallback", async () => {
-  const script = await readFile(
-    new URL("../../assets/js/linkedin-image.js", import.meta.url),
-    "utf8",
-  );
+  const [script, headPartial] = await Promise.all([
+    readFile(new URL("../../assets/js/linkedin-image.js", import.meta.url), "utf8"),
+    readFile(new URL("../../layouts/_partials/extend_head.html", import.meta.url), "utf8"),
+  ]);
   assert.match(script, /new File\(\[blob\], filename, \{ type: "image\/png" \}\)/);
   assert.match(script, /navigator\.canShare\?\.\(\{ files \}\)/);
   assert.match(script, /navigator\.share\(\{ title, text, url, files \}\)/);
   assert.match(script, /navigator\.clipboard\?\.writeText/);
   assert.match(script, /Image téléchargée et texte copié/);
   assert.match(script, /download\(imageUrl\)/);
+  assert.match(headPartial, /resources\.Get "js\/linkedin-image\.js"/);
+  assert.match(headPartial, /\$linkedinImage\.RelPermalink/);
 });
 
 test("archive Open Graph images declare their large preview dimensions", async () => {
