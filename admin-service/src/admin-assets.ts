@@ -56,7 +56,7 @@ export const dashboardPage = (name: string) =>
     </header>
     <nav class="admin-nav" aria-label="Administration">
       <button class="is-active" type="button" data-panel-button="drafts">Brouillons <span id="draft-count">0</span></button>
-      <button type="button" data-panel-button="publish">Composer <span id="selected-count">0</span></button>
+      <button type="button" data-panel-button="publish">Publier <span id="selected-count">0</span></button>
       <button type="button" data-panel-button="publications">Publications</button>
       <button type="button" data-panel-button="links">Liens publiés</button>
       <button type="button" data-panel-button="editions">Éditions</button>
@@ -68,6 +68,7 @@ export const dashboardPage = (name: string) =>
       <div class="section-heading">
         <div><p class="kicker">File privée</p><h2>Brouillons</h2></div>
         <div class="toolbar">
+          <button id="select-all-drafts" type="button" aria-pressed="false">Tout sélectionner</button>
           <input id="draft-search" type="search" placeholder="Filtrer les brouillons">
           <select id="draft-filter"><option value="all">Tous</option><option value="complete">Complets</option><option value="incomplete">Incomplets</option></select>
         </div>
@@ -76,7 +77,7 @@ export const dashboardPage = (name: string) =>
     </section>
 
     <section class="admin-panel" data-panel="publish">
-      <div class="section-heading"><div><p class="kicker">Prochaine édition</p><h2>Composer</h2></div></div>
+      <div class="section-heading"><div><p class="kicker">Prochaine édition</p><h2>Publier</h2></div></div>
       <form id="publication-form" class="edition-form">
         <div class="field-row">
           <label>Date<input id="publication-date" name="digestDate" type="date" required></label>
@@ -160,7 +161,7 @@ const missing=(draft)=>[!draft.title&&"titre",!draft.category&&"catégorie",!dra
 const renderDrafts=()=>{
   const list=document.querySelector("#draft-list");if(!list)return;
   document.querySelector("#draft-count").textContent=String(drafts.length);
-  if(!drafts.length){list.innerHTML='<p class="empty">Aucun brouillon. L’extension Chrome peut alimenter cette file.</p>';return}
+  if(!drafts.length){list.innerHTML='<p class="empty">Aucun brouillon. L’extension Chrome peut alimenter cette file.</p>';updateSelection();return}
   list.innerHTML=drafts.map((draft)=>{
     const gaps=missing(draft);
     return '<article class="draft-card" data-draft-id="'+esc(draft.id)+'" data-complete="'+(!gaps.length)+'">'+
@@ -203,9 +204,17 @@ document.querySelector("#draft-search")?.addEventListener("input",filterDrafts);
 document.querySelector("#draft-filter")?.addEventListener("change",filterDrafts);
 const updateSelection=()=>{
   document.querySelector("#selected-count").textContent=String(selected.size);
+  const selectAll=document.querySelector("#select-all-drafts");
+  const allSelected=drafts.length>0&&drafts.every((draft)=>selected.has(draft.id));
+  if(selectAll){selectAll.disabled=!drafts.length;selectAll.setAttribute("aria-pressed",String(allSelected));selectAll.textContent=allSelected?"Tout désélectionner":"Tout sélectionner"}
   const summary=document.querySelector("#publication-selection");
   if(summary)summary.textContent=selected.size?selected.size+" lien"+(selected.size>1?"s":"")+" sélectionné"+(selected.size>1?"s":"")+".":"Aucun lien sélectionné.";
 };
+document.querySelector("#select-all-drafts")?.addEventListener("click",()=>{
+  const allSelected=drafts.length>0&&drafts.every((draft)=>selected.has(draft.id));
+  if(allSelected)selected.clear();else drafts.forEach((draft)=>selected.add(draft.id));
+  renderDrafts();
+});
 
 const publicationPayload=()=>{
   const form=new FormData(document.querySelector("#publication-form"));
