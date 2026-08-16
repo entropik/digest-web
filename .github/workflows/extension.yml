@@ -36,4 +36,5 @@ jobs:
           name: ooblik-digest-curator-${{ github.ref_name }}
           path: browser-extension/.output/*-chrome.zip
           if-no-files-found: error
+          include-hidden-files: true
           retention-days: 30

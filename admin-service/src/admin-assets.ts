@@ -269,21 +269,24 @@ const filterDrafts=()=>{
     card.classList.toggle("is-filtered",!matchesText||!matchesState);
   });
 };
-document.querySelector("#draft-search")?.addEventListener("input",filterDrafts);
-document.querySelector("#draft-filter")?.addEventListener("change",filterDrafts);
+document.querySelector("#draft-search")?.addEventListener("input",()=>{filterDrafts();updateSelection()});
+document.querySelector("#draft-filter")?.addEventListener("change",()=>{filterDrafts();updateSelection()});
+const visibleDraftCards=()=>[...document.querySelectorAll("[data-draft-id]:not(.is-filtered)")];
 const updateSelection=()=>{
   document.querySelector("#selected-count").textContent=String(selected.size);
   const selectAll=document.querySelector("#select-all-drafts");
-  const allSelected=drafts.length>0&&drafts.every((draft)=>selected.has(draft.id));
-  if(selectAll){selectAll.disabled=!drafts.length;selectAll.setAttribute("aria-pressed",String(allSelected));selectAll.textContent=allSelected?"Tout désélectionner":"Tout sélectionner"}
+  const visibleIds=visibleDraftCards().map((card)=>card.dataset.draftId);
+  const allSelected=visibleIds.length>0&&visibleIds.every((id)=>selected.has(id));
+  if(selectAll){selectAll.disabled=!visibleIds.length;selectAll.setAttribute("aria-pressed",String(allSelected));selectAll.textContent=allSelected?"Tout désélectionner":"Tout sélectionner"}
   const summary=document.querySelector("#publication-selection");
   if(summary)summary.textContent=selected.size?selected.size+" lien"+(selected.size>1?"s":"")+" sélectionné"+(selected.size>1?"s":"")+".":"Aucun lien sélectionné.";
   const submit=document.querySelector("#submit-publication");
   if(submit){submit.disabled=!selected.size||submit.dataset.busy==="true";submit.textContent=selected.size===1?"Publier le lien":selected.size>1?"Publier les "+selected.size+" liens":"Publier les liens"}
 };
 document.querySelector("#select-all-drafts")?.addEventListener("click",()=>{
-  const allSelected=drafts.length>0&&drafts.every((draft)=>selected.has(draft.id));
-  if(allSelected)selected.clear();else drafts.forEach((draft)=>selected.add(draft.id));
+  const visibleIds=visibleDraftCards().map((card)=>card.dataset.draftId);
+  const allSelected=visibleIds.length>0&&visibleIds.every((id)=>selected.has(id));
+  if(allSelected)visibleIds.forEach((id)=>selected.delete(id));else visibleIds.forEach((id)=>selected.add(id));
   renderDrafts();
 });
 
@@ -368,11 +371,16 @@ document.querySelector("#publication-form")?.addEventListener("submit",async(eve
   pendingPublicationRequestId=pendingPublicationRequestId||crypto.randomUUID();
   setSubmissionStatus("committing","Contrôle et création du commit…");
   try{
-    const payload=publicationPayload(pendingPublicationRequestId);payload.confirm=true;
-    const data=await api("/api/admin/curation/publications",{method:"POST",body:JSON.stringify(payload)});
-    pendingPublicationRequestId=null;announcedPublicationStates.set(data.publication.id,data.publication.state);selected.clear();
-    await Promise.all([loadDrafts(),loadPublications()]);openPanel("publications");clearSubmissionStatus();show("Commit créé. Validation GitHub en cours…");startPublicationPolling(data.publication.id);
-  }catch(error){if(error.status&&error.status<500)pendingPublicationRequestId=null;setSubmissionStatus("failed","Publication impossible : "+error.message);show("Publication impossible : "+error.message)}
+    let publication;
+    try{
+      const payload=publicationPayload(pendingPublicationRequestId);payload.confirm=true;
+      const data=await api("/api/admin/curation/publications",{method:"POST",body:JSON.stringify(payload)});
+      publication=data.publication;
+    }catch(error){if(error.status)pendingPublicationRequestId=null;setSubmissionStatus("failed","Publication impossible : "+error.message);show("Publication impossible : "+error.message);return}
+    pendingPublicationRequestId=null;announcedPublicationStates.set(publication.id,publication.state);selected.clear();
+    openPanel("publications");clearSubmissionStatus();show("Commit créé. Validation GitHub en cours…");startPublicationPolling(publication.id,false);
+    try{await Promise.all([loadDrafts(),loadPublications()])}catch(error){show("Publication lancée. Actualisation momentanément indisponible ; le suivi continue automatiquement.")}
+  }
   finally{button.dataset.busy="false";updateSelection()}
 });
 
@@ -396,7 +404,7 @@ const initialize=async()=>{
   const today=new Date().toISOString().slice(0,10);document.querySelector("#publication-date").value=today;
   document.querySelector("#publication-title").value=new Intl.DateTimeFormat("fr-FR",{day:"numeric",month:"long",year:"numeric",timeZone:"Europe/Paris"}).format(new Date(today+"T12:00:00Z"));
   document.querySelector("#publication-date").addEventListener("change",(event)=>{document.querySelector("#publication-title").value=new Intl.DateTimeFormat("fr-FR",{day:"numeric",month:"long",year:"numeric",timeZone:"Europe/Paris"}).format(new Date(event.target.value+"T12:00:00Z"))});
-  try{options=await api("/api/admin/curation/options");const results=await Promise.all([loadDrafts(),loadPublications(),loadEditions(),loadHidden()]);resumePublicationPolling(results[1])}catch(error){show("Initialisation impossible : "+error.message)}
+  try{options=await api("/api/admin/curation/options");const publications=loadPublications().then((items)=>{resumePublicationPolling(items);return items});await Promise.all([loadDrafts(),publications,loadEditions(),loadHidden()])}catch(error){show("Initialisation impossible : "+error.message)}
 };
 initialize();
 `;

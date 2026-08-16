@@ -29,6 +29,11 @@ test("draft toolbar exposes an accessible select-all toggle", () => {
   assert.match(adminJs, /Tout désélectionner/);
   assert.match(
     adminJs,
+    /visibleDraftCards\(\)\.map\(\(card\)=>card\.dataset\.draftId\)/,
+  );
+  assert.match(adminJs, /visibleIds\.forEach\(\(id\)=>selected\.add\(id\)\)/);
+  assert.doesNotMatch(
+    adminJs,
     /drafts\.forEach\(\(draft\)=>selected\.add\(draft\.id\)\)/,
   );
 });
@@ -67,8 +72,20 @@ test("publication polling resumes and retries with a single managed timer", () =
     /activePublicationStates=new Set\(\["committing","validating","deploying"\]\)/,
   );
   assert.match(adminJs, /clearTimeout\(publicationPollTimer\)/);
-  assert.match(adminJs, /resumePublicationPolling\(results\[1\]\)/);
   assert.match(adminJs, /document\.visibilityState==="visible"/);
   assert.match(adminJs, /Nouvelle tentative automatique/);
+  assert.match(
+    adminJs,
+    /loadPublications\(\)\.then\(\(items\)=>\{resumePublicationPolling\(items\);return items\}\)/,
+  );
   assert.doesNotMatch(adminJs, /data-refresh-publication|>Actualiser</);
+});
+
+test("a confirmed publication is tracked before ancillary refreshes", () => {
+  assert.match(
+    adminJs,
+    /startPublicationPolling\(publication\.id,false\);\s*try\{await Promise\.all\(\[loadDrafts\(\),loadPublications\(\)\]\)\}/,
+  );
+  assert.match(adminJs, /if\(error\.status\)pendingPublicationRequestId=null/);
+  assert.doesNotMatch(adminJs, /error\.status&&error\.status<500/);
 });
