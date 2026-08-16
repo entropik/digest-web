@@ -98,3 +98,23 @@ test("archive pages expose a LinkedIn share action for their permalink", async (
   assert.match(layout, /width="1200"/);
   assert.match(layout, /height="627"/);
 });
+
+test("the archive index uses social images as lazily loaded edition posters", async () => {
+  const layout = await readFile(
+    new URL("../../layouts/archives/list.html", import.meta.url),
+    "utf8",
+  );
+  const loader = await readFile(
+    new URL("../../assets/js/archive-posters.js", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(layout, /archive-edition-poster/);
+  assert.match(layout, /\.Paginate \.Pages\.ByDate\.Reverse 24/);
+  assert.match(layout, /archive-pagination/);
+  assert.match(layout, /Page {{ \$paginator\.PageNumber }} \/ {{ \$paginator\.TotalPages }}/);
+  assert.match(layout, /data-src="{{ \. \| relURL }}"/);
+  assert.match(layout, /archive-posters\.js/);
+  assert.match(loader, /IntersectionObserver/);
+  assert.match(loader, /rootMargin: "600px 0px"/);
+});

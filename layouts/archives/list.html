@@ -1,5 +1,6 @@
 {{ define "main" }}
 {{ $linksByDate := partialCached "public-links-by-date.html" hugo.Data.links "public-links-by-date" }}
+{{ $paginator := .Paginate .Pages.ByDate.Reverse 24 }}
 <header class="archives-hero">
   <div>
     <p class="digest-kicker">Toutes les éditions</p>
@@ -9,7 +10,7 @@
 </header>
 
 <section class="archive-editions" aria-label="Éditions archivées">
-  {{ range .Pages.ByDate.Reverse }}
+  {{ range $paginator.Pages }}
     {{ $digestDate := .Params.digest_date }}
     {{ $links := index $linksByDate $digestDate | default slice }}
     {{ $categories := slice }}
@@ -18,14 +19,40 @@
     {{ end }}
     <article class="archive-edition">
       <a href="{{ .RelPermalink }}">
-        <span class="archive-edition-kicker">Édition</span>
-        <h2>{{ .Title }}</h2>
-        <div class="archive-edition-meta">
-          <span>{{ len $links }} liens</span>
-          <span>{{ len (uniq $categories) }} rubriques ↗</span>
-        </div>
+        {{ with .Params.images }}
+          {{ with index . 0 }}
+            <span class="archive-edition-poster" aria-hidden="true">
+              <img data-src="{{ . | relURL }}" width="1200" height="627" alt="" decoding="async">
+            </span>
+          {{ end }}
+        {{ end }}
+        <span class="archive-edition-content">
+          <span class="archive-edition-kicker">Édition</span>
+          <h2>{{ .Title }}</h2>
+          <span class="archive-edition-meta">
+            <span>{{ len $links }} liens</span>
+            <span>{{ len (uniq $categories) }} rubriques ↗</span>
+          </span>
+        </span>
       </a>
     </article>
   {{ end }}
 </section>
+{{ if gt $paginator.TotalPages 1 }}
+  <nav class="archive-pagination" aria-label="Pagination des archives">
+    {{ with $paginator.Prev }}
+      <a href="{{ .URL }}" rel="prev">← Éditions plus récentes</a>
+    {{ else }}
+      <span aria-hidden="true"></span>
+    {{ end }}
+    <span>Page {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
+    {{ with $paginator.Next }}
+      <a href="{{ .URL }}" rel="next">Éditions plus anciennes →</a>
+    {{ else }}
+      <span aria-hidden="true"></span>
+    {{ end }}
+  </nav>
+{{ end }}
+{{ $archivePosters := resources.Get "js/archive-posters.js" | minify | fingerprint }}
+<script src="{{ $archivePosters.RelPermalink }}" integrity="{{ $archivePosters.Data.Integrity }}" defer></script>
 {{ end }}
