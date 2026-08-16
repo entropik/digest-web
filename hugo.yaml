@@ -13,6 +13,14 @@ params:
   author: "Marc"
   defaultTheme: light
   disableThemeToggle: false
+  assets:
+    favicon: "/favicon.svg"
+    favicon16x16: "/favicon-16x16.png"
+    favicon32x32: "/favicon-32x32.png"
+    apple_touch_icon: "/apple-touch-icon.png"
+    safari_pinned_tab: "/favicon.svg"
+    theme_color: "#ff5c35"
+    msapplication_TileColor: "#ff5c35"
   ShowReadingTime: false
   ShowShareButtons: false
   ShowPostNavLinks: false
