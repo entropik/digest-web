@@ -93,11 +93,24 @@ test("archive pages expose a LinkedIn share action for their permalink", async (
   assert.match(layout, /linkedin\.com\/sharing\/share-offsite/);
   assert.match(layout, /printf "%s\?share=linkedin" \.Permalink/);
   assert.match(layout, /\.Permalink \| urlquery/);
-  assert.match(layout, /Partager sur LinkedIn/);
+  assert.match(layout, /Partager le lien/);
+  assert.match(layout, /Copier l’image pour LinkedIn/);
+  assert.match(layout, /data-linkedin-feedback/);
   assert.match(layout, /archive-social-visual/);
   assert.match(layout, /\.Params\.images/);
   assert.match(layout, /width="1200"/);
   assert.match(layout, /height="627"/);
+});
+
+test("LinkedIn native-image sharing copies the PNG with a download fallback", async () => {
+  const script = await readFile(
+    new URL("../../assets/js/linkedin-image.js", import.meta.url),
+    "utf8",
+  );
+  assert.match(script, /navigator\.clipboard\?\.write/);
+  assert.match(script, /new ClipboardItem\(\{ "image\/png": blob \}\)/);
+  assert.match(script, /Image copiée/);
+  assert.match(script, /download\(url\)/);
 });
 
 test("archive Open Graph images declare their large preview dimensions", async () => {
