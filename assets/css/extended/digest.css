@@ -117,6 +117,87 @@ select {
   text-align: right;
 }
 
+.linkedin-composer {
+  width: min(680px, calc(100% - 32px));
+  max-height: calc(100vh - 32px);
+  padding: 0;
+  border: 1px solid var(--digest-line);
+  background: var(--digest-paper);
+  color: var(--digest-ink);
+  box-shadow: 0 24px 80px rgb(0 0 0 / 35%);
+}
+
+.linkedin-composer::backdrop {
+  background: rgb(0 0 0 / 68%);
+}
+
+.linkedin-composer-form {
+  display: grid;
+  gap: 18px;
+  padding: clamp(18px, 4vw, 32px);
+}
+
+.linkedin-composer-heading,
+.linkedin-composer-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.linkedin-composer-heading h2,
+.linkedin-composer-heading p,
+.linkedin-composer-account,
+.linkedin-composer-url {
+  margin: 0;
+}
+
+.linkedin-composer-close {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.linkedin-composer-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 627;
+  object-fit: cover;
+  background: #0a0a0a;
+}
+
+.linkedin-composer-field {
+  display: grid;
+  gap: 8px;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.linkedin-composer-field textarea {
+  width: 100%;
+  resize: vertical;
+  padding: 12px;
+  border: 1px solid var(--digest-line);
+  background: var(--digest-page-bg);
+  color: var(--digest-ink);
+  font-size: .86rem;
+  line-height: 1.6;
+}
+
+.linkedin-composer-url,
+.linkedin-composer-account {
+  overflow-wrap: anywhere;
+  color: var(--digest-muted);
+  font-size: .72rem;
+}
+
+.linkedin-composer-actions {
+  justify-content: flex-end;
+}
+
 .archive-social-visual {
   margin: clamp(28px, 5vw, 64px) 0;
   background: #0a0a0a;

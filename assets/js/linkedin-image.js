@@ -1,7 +1,13 @@
 (() => {
   const button = document.querySelector("[data-linkedin-share]");
   const feedback = document.querySelector("[data-linkedin-feedback]");
-  if (!button || !feedback) return;
+  const composer = document.querySelector("[data-linkedin-composer]");
+  const form = document.querySelector("[data-linkedin-form]");
+  const textField = document.querySelector("[data-linkedin-text]");
+  const urlField = document.querySelector("[data-linkedin-url]");
+  const accountField = document.querySelector("[data-linkedin-account]");
+  const confirmButton = document.querySelector("[data-linkedin-confirm]");
+  if (!button || !feedback || !composer || !form || !textField) return;
 
   const api = async (path, options) => {
     const response = await fetch(path, options);
@@ -43,11 +49,26 @@
     history.replaceState(null, "", window.location.pathname);
   }
 
+  const publicationData = () => ({
+    imageUrl: button.dataset.shareImage,
+    title: button.dataset.shareTitle || "Web Digest",
+    text: textField.value.trim(),
+    url: button.dataset.shareUrl || window.location.href,
+  });
+
+  document.querySelectorAll("[data-linkedin-cancel]").forEach((cancel) => {
+    cancel.addEventListener("click", () => composer.close("cancel"));
+  });
+  composer.addEventListener("close", () => {
+    if (button.textContent !== "Publié sur LinkedIn") button.disabled = false;
+  });
+
   button.addEventListener("click", async () => {
-    const imageUrl = button.dataset.shareImage;
-    const title = button.dataset.shareTitle || "Web Digest";
-    const text = button.dataset.shareText || "Une nouvelle édition du Web Digest.";
-    const url = button.dataset.shareUrl || window.location.href;
+    const { imageUrl, text, url } = {
+      imageUrl: button.dataset.shareImage,
+      text: button.dataset.shareText || "Une nouvelle édition du Web Digest.",
+      url: button.dataset.shareUrl || window.location.href,
+    };
     if (!imageUrl) return;
     button.disabled = true;
     feedback.textContent = "Vérification du compte LinkedIn…";
@@ -57,23 +78,43 @@
       if (!status.configured) {
         feedback.textContent =
           "L’application LinkedIn doit encore être configurée dans l’administration.";
+        button.disabled = false;
         return;
       }
       if (!status.connected) {
         connect();
         return;
       }
-      if (!window.confirm(`Publier « ${title} » sur le compte LinkedIn ${status.memberName} ?`)) {
-        feedback.textContent = "Publication annulée.";
-        return;
-      }
+      textField.value = text;
+      urlField.textContent = url;
+      accountField.textContent = `Publication sur le compte ${status.memberName}`;
+      feedback.textContent = "Personnalisez le texte avant de confirmer.";
+      composer.showModal();
+      textField.focus();
+    } catch (error) {
+      if (error?.message === "AUTHENTICATION_REQUIRED") return;
+      feedback.textContent = "La vérification du compte LinkedIn a échoué.";
+      button.disabled = false;
+    }
+  });
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const data = publicationData();
+    if (!data.text) {
+      textField.focus();
+      return;
+    }
+    confirmButton.disabled = true;
+    try {
       feedback.textContent = "Téléversement de la grande image et publication…";
       const publication = await api("/api/admin/linkedin/publish", {
         method: "POST",
         credentials: "same-origin",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title, text, url, imageUrl, confirm: true }),
+        body: JSON.stringify({ ...data, confirm: true }),
       });
+      composer.close("published");
       showPost(publication.postUrl, publication.alreadyPublished);
       button.textContent = "Publié sur LinkedIn";
       button.disabled = true;
@@ -86,6 +127,7 @@
       feedback.textContent =
         "La publication LinkedIn a échoué. Aucun second post n’a été créé automatiquement.";
     } finally {
+      confirmButton.disabled = false;
       if (button.textContent !== "Publié sur LinkedIn") button.disabled = false;
     }
   });
