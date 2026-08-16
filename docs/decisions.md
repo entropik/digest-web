@@ -77,8 +77,9 @@ idempotente et peut être reprise après une interruption.
 
 ### Le déploiement est confirmé de bout en bout
 
-La réussite du commit ne suffit pas : l’administration suit les deux workflows
-GitHub Actions puis vérifie le résultat servi par le site.
+La réussite du commit ne suffit pas : l’administration suit le workflow
+`Deploy production`, qui valide et construit une seule fois le commit, puis
+vérifie le résultat servi par le site.
 
 ### La note et la sélection restent privées
 

@@ -81,7 +81,7 @@ présenté uniquement dans l’administration après authentification propriéta
 3. Le serveur vérifie les champs obligatoires, la taxonomie, les doublons, les
    URL et l’unicité de la date.
 4. Il génère le catalogue et l’archive dans un seul commit idempotent.
-5. Il suit `Validate` puis `Deploy production` pour le SHA produit.
+5. Il suit l’unique workflow `Deploy production` pour le SHA produit.
 6. Il vérifie enfin la présence du titre et de la date sur le site public avant
    d’annoncer l’état « En ligne ».
 
