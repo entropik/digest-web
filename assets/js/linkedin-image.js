@@ -32,6 +32,17 @@
     window.location.assign(`/api/admin/linkedin/connect?returnTo=${returnTo}`);
   };
 
+  const revealForAuthenticatedAdmin = async () => {
+    try {
+      const response = await fetch("/api/admin/linkedin/status", {
+        credentials: "same-origin",
+      });
+      if (response.ok) button.hidden = false;
+    } catch {
+      // Le bouton reste invisible pour les visiteurs et en cas d’indisponibilité de l’admin.
+    }
+  };
+
   const showPost = (postUrl, alreadyPublished) => {
     feedback.replaceChildren(
       document.createTextNode(
@@ -50,6 +61,8 @@
     feedback.textContent = "Compte LinkedIn connecté. Cliquez pour publier cette édition.";
     history.replaceState(null, "", window.location.pathname);
   }
+
+  revealForAuthenticatedAdmin();
 
   const publicationData = () => {
     const postText = textField.value.trim();

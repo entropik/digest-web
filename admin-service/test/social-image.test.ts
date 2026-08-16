@@ -93,6 +93,7 @@ test("archive pages expose a native LinkedIn publication with image, text and pe
   assert.match(layout, /data-linkedin-share/);
   assert.match(layout, /data-share-image/);
   assert.match(layout, /data-share-title="Web Digest — \{\{ \$\.Title \}\}"/);
+  assert.match(layout, /type="button"\s+hidden\s+data-linkedin-share/);
   assert.doesNotMatch(layout, /data-share-text=/);
   assert.match(layout, /data-share-tags="\{\{ \$tags \| jsonify \}\}"/);
   assert.match(layout, /data-share-url="\{\{ \$\.Permalink \}\}"/);
@@ -116,6 +117,8 @@ test("LinkedIn native publishing uses the authenticated server API", async () =>
     readFile(new URL("../../layouts/_partials/extend_head.html", import.meta.url), "utf8"),
   ]);
   assert.match(script, /api\("\/api\/admin\/linkedin\/status"\)/);
+  assert.match(script, /revealForAuthenticatedAdmin/);
+  assert.match(script, /if \(response\.ok\) button\.hidden = false/);
   assert.match(script, /\/api\/admin\/linkedin\/connect\?returnTo=/);
   assert.match(script, /api\("\/api\/admin\/linkedin\/publish"/);
   assert.match(script, /confirm: true/);

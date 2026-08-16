@@ -98,6 +98,10 @@ select {
   text-decoration: none;
 }
 
+.archive-linkedin-image[hidden] {
+  display: none;
+}
+
 .archive-linkedin-image {
   border: 1px solid var(--digest-ink);
   cursor: pointer;
