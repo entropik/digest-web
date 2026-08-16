@@ -46,6 +46,7 @@ jobs:
           npm run typecheck
           npm test
           npm run build
+          npm run zip
 
       - name: Install Hugo
         uses: peaceiris/actions-hugo@v3

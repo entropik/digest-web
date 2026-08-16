@@ -26,6 +26,7 @@ import {
 } from "./github.js";
 import { recordTiming, startTimer } from "./observability.js";
 import { buildPublicationFiles } from "./publication.js";
+import { deploymentWorkflowProgress } from "./publication-workflow.js";
 import { canonicalizePublicUrl } from "./urls.js";
 
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
@@ -416,33 +417,22 @@ export class CurationService {
     }
 
     const runs = await workflowRunsForCommit(publication.commitSha);
-    const validate = runs.find((run) => run.name === "Validate");
-    const deploy = runs.find((run) => run.name === "Deploy production");
-    const failed = [validate, deploy].find(
-      (run) =>
-        run?.status === "completed" &&
-        run.conclusion !== null &&
-        run.conclusion !== "success",
-    );
-    if (failed) {
+    const workflow = deploymentWorkflowProgress(runs);
+    if (workflow.state === "failed") {
       return this.store.updatePublication(id, {
         state: "failed",
-        validateUrl: validate?.html_url ?? null,
-        deployUrl: deploy?.html_url ?? null,
+        validateUrl: null,
+        deployUrl: workflow.workflowUrl,
         errorCode: "WORKFLOW_FAILED",
         checked: true,
       });
     }
 
-    const validateDone =
-      validate?.status === "completed" && validate.conclusion === "success";
-    const deployDone =
-      deploy?.status === "completed" && deploy.conclusion === "success";
-    if (!validateDone || !deployDone) {
+    if (!workflow.workflowDone) {
       return this.store.updatePublication(id, {
-        state: validateDone ? "deploying" : "validating",
-        validateUrl: validate?.html_url ?? null,
-        deployUrl: deploy?.html_url ?? null,
+        state: workflow.state,
+        validateUrl: null,
+        deployUrl: workflow.workflowUrl,
         checked: true,
       });
     }
@@ -471,8 +461,8 @@ export class CurationService {
     }
     return this.store.updatePublication(id, {
       state: live ? "live" : "deploying",
-      validateUrl: validate?.html_url ?? null,
-      deployUrl: deploy?.html_url ?? null,
+      validateUrl: null,
+      deployUrl: workflow.workflowUrl,
       checked: true,
     });
   }

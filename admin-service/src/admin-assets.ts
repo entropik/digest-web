@@ -301,7 +301,7 @@ const activePublicationStates=new Set(["committing","validating","deploying"]);
 const publicationStages={committing:1,validating:2,deploying:3,live:4};
 const publicationStepLabels=["Préparation","Validation","Déploiement","En ligne"];
 const publicationStateLabels={committing:"Préparation",validating:"Validation",deploying:"Déploiement",live:"En ligne",failed:"Échec"};
-const publicationStateCopy={committing:"Préparation du Digest…",validating:"Validation GitHub en cours…",deploying:"Déploiement en cours… Comptez généralement 3 à 4 minutes.",live:"Le Digest est en ligne.",failed:"Publication interrompue."};
+const publicationStateCopy={committing:"Préparation du Digest…",validating:"Validation et build GitHub en cours…",deploying:"Mise en ligne en cours…",live:"Le Digest est en ligne.",failed:"Publication interrompue."};
 const publicationProgressMarkup=(item)=>{
   if(item.state==="failed")return '<div class="publication-detail" role="status"><p class="publication-copy publication-error">'+esc(publicationStateCopy.failed)+(item.errorCode?' · '+esc(item.errorCode):'')+'</p></div>';
   const stage=publicationStages[item.state]||1;
@@ -317,8 +317,8 @@ const publicationProgressMarkup=(item)=>{
 };
 const publicationLinksMarkup=(item)=>{
   const links=[];
-  if(item.validateUrl)links.push('<a href="'+esc(item.validateUrl)+'" target="_blank" rel="noopener">Validation</a>');
-  if(item.deployUrl)links.push('<a href="'+esc(item.deployUrl)+'" target="_blank" rel="noopener">Déploiement</a>');
+  const workflowUrl=item.deployUrl||item.validateUrl;
+  if(workflowUrl)links.push('<a href="'+esc(workflowUrl)+'" target="_blank" rel="noopener">GitHub Actions</a>');
   if(item.state==="live")links.push('<a href="/archives/'+encodeURIComponent(item.digestDate)+'/">Voir l’édition</a>');
   return links.length?'<p class="publication-links">'+links.join("")+'</p>':"";
 };

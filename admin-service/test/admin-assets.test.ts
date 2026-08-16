@@ -86,11 +86,15 @@ test("publication progress exposes four real and accessible stages", () => {
   );
   assert.match(adminJs, /role="progressbar"/);
   assert.match(adminJs, /aria-valuemax="4"/);
-  assert.match(adminJs, /Validation GitHub en cours/);
-  assert.match(adminJs, /Comptez généralement 3 à 4 minutes/);
+  assert.match(adminJs, /Validation et build GitHub en cours/);
+  assert.match(adminJs, /Mise en ligne en cours/);
+  assert.doesNotMatch(adminJs, /3 à 4 minutes/);
   assert.match(adminJs, /Voir l’édition/);
   assert.match(adminCss, /@keyframes progress-scan/);
   assert.match(adminCss, /@media\(prefers-reduced-motion:reduce\)/);
+  assert.match(adminJs, />GitHub Actions<\/a>/);
+  assert.match(adminJs, /item\.deployUrl\|\|item\.validateUrl/);
+  assert.doesNotMatch(adminJs, />Validation<\/a>|>Déploiement<\/a>/);
 });
 
 test("publication polling resumes and retries with a single managed timer", () => {

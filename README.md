@@ -55,10 +55,11 @@ production est <https://digest.ooblik.com/>.
 
 ## Déploiement
 
-La branche `main` est validée par GitHub Actions. Le workflow `Deploy
-production` construit Hugo et publie le résultat sur la branche
-`production`. Un cron exécuté par l’utilisateur CloudPanel du site transforme
-chaque révision de cette branche en release locale.
+Les pull requests sont validées par GitHub Actions. Sur `main`, le workflow
+`Deploy production` valide le commit, construit Hugo une seule fois et publie
+ce même résultat sur la branche `production`. Un cron exécuté par l’utilisateur
+CloudPanel du site transforme chaque révision de cette branche en release
+locale.
 
 Le serveur conserve les cinq dernières releases et le lien symbolique
 `current` permet une bascule ou un retour arrière atomique.
