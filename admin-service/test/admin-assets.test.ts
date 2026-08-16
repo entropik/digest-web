@@ -120,3 +120,12 @@ test("a confirmed publication is tracked before ancillary refreshes", () => {
   assert.match(adminJs, /if\(error\.status\)pendingPublicationRequestId=null/);
   assert.doesNotMatch(adminJs, /error\.status&&error\.status<500/);
 });
+
+test("published link correction exposes and submits an editable URL", () => {
+  assert.match(adminJs, /<input name="url" type="url"/);
+  assert.match(adminJs, /url:urlInput\.value/);
+  assert.match(adminJs, /urlInput\.checkValidity\(\)/);
+  assert.match(adminJs, /urlInput\.value=data\.link\.url/);
+  assert.match(adminJs, /DUPLICATE_LINK_URL:"Cette URL est déjà utilisée/);
+  assert.match(adminJs, /L’identifiant et la date d’ajout ne changeront pas/);
+});

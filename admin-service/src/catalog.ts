@@ -96,6 +96,7 @@ export const catalogTaxonomy = (links: DigestLink[]) => ({
 });
 
 export type PublishedMetadata = {
+  url: string;
   title: string;
   category: string;
   description: string;
@@ -138,15 +139,20 @@ export const changePublishedMetadata = (
 ): CatalogMutation => {
   const index = links.findIndex((link) => link.id === id);
   if (index < 0) throw new Error("LINK_NOT_FOUND");
+  if (links.some((link) => link.id !== id && link.url === metadata.url)) {
+    throw new Error("DUPLICATE_LINK_URL");
+  }
   const current = links[index]!;
   const updated: DigestLink = {
     ...current,
+    url: metadata.url,
     title: metadata.title,
     category: metadata.category,
     description: metadata.description,
     tags: [...metadata.tags],
   };
   const changed =
+    current.url !== updated.url ||
     current.title !== updated.title ||
     current.category !== updated.category ||
     current.description !== updated.description ||

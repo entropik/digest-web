@@ -26,15 +26,46 @@ test("published metadata correction preserves historical fields", () => {
     archive_url: "https://web.archive.org/web/20200101000000/https://example.com",
   };
   const mutation = changePublishedMetadata([original], original.id, {
+    url: "https://example.org/correction",
     title: "Titre corrigé",
     category: "Médias & Veille",
     description: "Description corrigée",
     tags: ["archive"],
   });
-  assert.equal(mutation.link.url, original.url);
+  assert.equal(mutation.link.url, "https://example.org/correction");
+  assert.equal(mutation.link.id, original.id);
   assert.equal(mutation.link.added, original.added);
   assert.equal(mutation.link.status, "dead");
   assert.equal(mutation.link.archive_url, original.archive_url);
+});
+
+test("published URL correction is included in change detection", () => {
+  const original = link();
+  const mutation = changePublishedMetadata([original], original.id, {
+    url: "https://example.org",
+    title: original.title,
+    category: original.category,
+    description: "",
+    tags: [],
+  });
+  assert.equal(mutation.changed, true);
+  assert.equal(mutation.link.url, "https://example.org");
+});
+
+test("published URL correction rejects a URL already in the catalog", () => {
+  const original = link();
+  const duplicate = { ...link(), id: "link-2", url: "https://example.org" };
+  assert.throws(
+    () =>
+      changePublishedMetadata([original, duplicate], original.id, {
+        url: duplicate.url,
+        title: original.title,
+        category: original.category,
+        description: "",
+        tags: [],
+      }),
+    /DUPLICATE_LINK_URL/,
+  );
 });
 
 test("adding tags preserves existing tags and is idempotent", () => {
