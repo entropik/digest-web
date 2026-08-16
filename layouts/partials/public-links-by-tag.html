@@ -1,0 +1,11 @@
+{{- $linksByTag := newScratch -}}
+{{- $linksByTag.Set "links" dict -}}
+{{- range (partialCached "public-links.html" hugo.Data.links "public-links") -}}
+  {{- $link := . -}}
+  {{- range .tags -}}
+    {{- $tag := . -}}
+    {{- $current := index ($linksByTag.Get "links") $tag | default slice -}}
+    {{- $linksByTag.SetInMap "links" $tag ($current | append $link) -}}
+  {{- end -}}
+{{- end -}}
+{{- return ($linksByTag.Get "links") -}}

@@ -1,13 +1,21 @@
 {{ define "main" }}
-{{ $links := partial "public-links.html" hugo.Data.links }}
+{{ $links := partialCached "public-links.html" hugo.Data.links "public-links" }}
 {{ $tagPages := where site.RegularPages "Section" "tags" }}
 {{ $visibleTagPages := slice }}
 {{ $counts := newScratch }}
 {{ $maxCount := 1 }}
+{{ range $links }}
+  {{ range .tags }}
+    {{ $counts.Set . (add ($counts.Get . | default 0) 1) }}
+  {{ end }}
+{{ end }}
 {{ range $tagPages }}
   {{ $tag := .Params.tag }}
   {{ $tags := .Params.tags | default (slice $tag) }}
-  {{ $count := len (where $links "tags" "intersect" $tags) }}
+  {{ $count := 0 }}
+  {{ range $tags }}
+    {{ $count = add $count ($counts.Get . | default 0) }}
+  {{ end }}
   {{ $counts.Set $tag $count }}
   {{ if gt $count 0 }}
     {{ $visibleTagPages = $visibleTagPages | append . }}

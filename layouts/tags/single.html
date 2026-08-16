@@ -1,7 +1,17 @@
 {{ define "main" }}
 {{ $tag := .Params.tag }}
 {{ $tags := .Params.tags | default (slice $tag) }}
-{{ $links := where (partial "public-links.html" hugo.Data.links) "tags" "intersect" $tags }}
+{{ $linksByTag := partialCached "public-links-by-tag.html" hugo.Data.links "public-links-by-tag" }}
+{{ $links := slice }}
+{{ $seenLinks := newScratch }}
+{{ range $tags }}
+  {{ range (index $linksByTag . | default slice) }}
+    {{ if not ($seenLinks.Get .id) }}
+      {{ $links = $links | append . }}
+      {{ $seenLinks.Set .id true }}
+    {{ end }}
+  {{ end }}
+{{ end }}
 
 <article class="archive-single">
   <header class="archive-single-header tag-archive-header">
@@ -44,7 +54,7 @@
             {{ with .description }}<p class="archive-link-description">{{ . }}</p>{{ end }}
             {{ with .tags }}
               <div class="archive-tags" aria-label="Tags">
-                {{ range . }}<a href="{{ partial "tag-url.html" . }}">#{{ . }}</a>{{ end }}
+                {{ range . }}<a href="{{ partialCached "tag-url.html" . . }}">#{{ . }}</a>{{ end }}
               </div>
             {{ end }}
           </div>

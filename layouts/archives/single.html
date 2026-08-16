@@ -1,6 +1,7 @@
 {{ define "main" }}
 {{ $digestDate := .Params.digest_date }}
-{{ $links := where (partial "public-links.html" hugo.Data.links) "added" $digestDate }}
+{{ $linksByDate := partialCached "public-links-by-date.html" hugo.Data.links "public-links-by-date" }}
+{{ $links := index $linksByDate $digestDate | default slice }}
 {{ $categories := slice }}
 {{ range $links }}
   {{ $categories = $categories | append .category }}
@@ -67,7 +68,7 @@
               {{ with .description }}<p class="archive-link-description">{{ . }}</p>{{ end }}
               {{ with .tags }}
                 <div class="archive-tags" aria-label="Tags">
-                  {{ range . }}<a href="{{ partial "tag-url.html" . }}">#{{ . }}</a>{{ end }}
+                  {{ range . }}<a href="{{ partialCached "tag-url.html" . . }}">#{{ . }}</a>{{ end }}
                 </div>
               {{ end }}
             </div>

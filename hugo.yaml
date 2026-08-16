@@ -6,6 +6,9 @@ theme: "PaperMod"
 
 enableRobotsTXT: true
 enableGitInfo: false
+# Tag archives are explicit pages under content/tags; Hugo taxonomies would
+# generate competing accented URLs and duplicate RSS outputs for the same tags.
+taxonomies: {}
 
 params:
   env: production

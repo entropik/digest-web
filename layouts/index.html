@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ $publicLinks := partial "public-links.html" hugo.Data.links }}
+{{ $publicLinks := partialCached "public-links.html" hugo.Data.links "public-links" }}
 {{ $editorialLinks := slice }}
 {{ range $publicLinks }}
   {{ if not (.stream | default "") }}

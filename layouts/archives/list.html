@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ $publicLinks := partial "public-links.html" hugo.Data.links }}
+{{ $linksByDate := partialCached "public-links-by-date.html" hugo.Data.links "public-links-by-date" }}
 <header class="archives-hero">
   <div>
     <p class="digest-kicker">Toutes les éditions</p>
@@ -11,7 +11,7 @@
 <section class="archive-editions" aria-label="Éditions archivées">
   {{ range .Pages.ByDate.Reverse }}
     {{ $digestDate := .Params.digest_date }}
-    {{ $links := where $publicLinks "added" $digestDate }}
+    {{ $links := index $linksByDate $digestDate | default slice }}
     {{ $categories := slice }}
     {{ range $links }}
       {{ $categories = $categories | append .category }}
