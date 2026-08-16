@@ -3,12 +3,16 @@
 {{ $linksByDate := partialCached "public-links-by-date.html" hugo.Data.links "public-links-by-date" }}
 {{ $links := index $linksByDate $digestDate | default slice }}
 {{ $categories := slice }}
+{{ $tags := slice }}
 {{ $socialImage := "" }}
 {{ with .Params.images }}
   {{ with index . 0 }}{{ $socialImage = . }}{{ end }}
 {{ end }}
 {{ range $links }}
   {{ $categories = $categories | append .category }}
+  {{ range .tags }}
+    {{ $tags = $tags | append . }}
+  {{ end }}
 {{ end }}
 {{ $categories = uniq $categories | sort }}
 
@@ -27,7 +31,7 @@
             data-linkedin-share
             data-share-image="{{ . | relURL }}"
             data-share-title="Web Digest — {{ $.Title }}"
-            data-share-text="{{ $.Description }}"
+            data-share-tags="{{ $tags | jsonify }}"
             data-share-url="{{ $.Permalink }}">
             Publier sur LinkedIn
           </button>
@@ -53,8 +57,13 @@
             alt="Grande image qui accompagnera la publication LinkedIn">
           <label class="linkedin-composer-field">
             <span>Texte du post</span>
-            <textarea data-linkedin-text rows="6" maxlength="1500" required></textarea>
+            <textarea data-linkedin-text rows="6" maxlength="1250" required></textarea>
           </label>
+          <label class="linkedin-composer-field">
+            <span>Hashtags</span>
+            <input data-linkedin-hashtags type="text" maxlength="200">
+          </label>
+          <p class="linkedin-composer-tags-note" data-linkedin-tags-note></p>
           <p class="linkedin-composer-url" data-linkedin-url></p>
           <p class="linkedin-composer-account" data-linkedin-account></p>
           <div class="linkedin-composer-actions">
