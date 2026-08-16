@@ -241,13 +241,6 @@ app.delete("/api/admin/curation/drafts/:id", async (context) =>
   }),
 );
 
-app.post("/api/admin/curation/publications/preview", async (context) =>
-  handle(context, async () => {
-    const body = await jsonBody<PublicationInput>(context);
-    return curation.previewPublication(body);
-  }),
-);
-
 app.post("/api/admin/curation/publications", async (context) =>
   handle(context, async () => {
     const body = await jsonBody<PublicationInput & { confirm?: boolean }>(
