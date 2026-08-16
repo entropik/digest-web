@@ -3,6 +3,15 @@ import test from "node:test";
 
 import { adminCss, adminJs, dashboardPage } from "../src/admin-assets.js";
 
+test("the private dashboard links to the unlisted Chrome extension", () => {
+  const page = dashboardPage("Marc");
+
+  assert.match(
+    page,
+    /href="https:\/\/chromewebstore\.google\.com\/detail\/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer">Installer l’extension<\/a>/,
+  );
+});
+
 test("publication wording uses Publier throughout the dashboard", () => {
   const page = dashboardPage("Marc");
 

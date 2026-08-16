@@ -71,6 +71,8 @@ L’extension ne possède aucun jeton GitHub. Elle communique uniquement avec
 `https://digest.ooblik.com/*`, et le serveur n’accepte que l’origine exacte de
 l’extension publiée :
 `chrome-extension://nlejcccmpbajpoaknlecegkpgdegiflf`.
+La fiche Chrome Web Store reste non listée et son lien d’installation est
+présenté uniquement dans l’administration après authentification propriétaire.
 
 ## Publication d’un Digest
 
