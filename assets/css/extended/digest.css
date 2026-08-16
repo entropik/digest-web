@@ -99,6 +99,13 @@ select {
   text-decoration: none;
 }
 
+.archive-linkedin-share {
+  background: transparent;
+  color: var(--digest-ink);
+  outline: 1px solid var(--digest-ink);
+  outline-offset: -1px;
+}
+
 .archive-linkedin-image {
   border: 1px solid var(--digest-ink);
   cursor: pointer;

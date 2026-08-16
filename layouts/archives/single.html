@@ -21,17 +21,24 @@
       <div class="archive-single-count"><strong>{{ len $links }}</strong><span>liens documentés</span></div>
       <div class="archive-linkedin-actions">
         {{ with $socialImage }}
-          <button class="archive-linkedin-image" type="button" data-linkedin-image="{{ . | relURL }}">
-            Copier l’image pour LinkedIn
+          <button
+            class="archive-linkedin-image"
+            type="button"
+            data-linkedin-share
+            data-share-image="{{ . | relURL }}"
+            data-share-title="Web Digest — {{ $.Title }}"
+            data-share-text="{{ $.Description }}"
+            data-share-url="{{ $.Permalink }}">
+            Partager sur LinkedIn
           </button>
         {{ end }}
         <a
           class="archive-linkedin-share"
-          href="https://www.linkedin.com/sharing/share-offsite/?url={{ printf "%s?share=linkedin" .Permalink | urlquery }}"
+          href="https://www.linkedin.com/feed/?shareActive=true"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Partager le lien de cette édition sur LinkedIn">
-          Partager le lien ↗
+          aria-label="Ouvrir l’éditeur de publication LinkedIn">
+          Ouvrir LinkedIn ↗
         </a>
         <span class="archive-linkedin-feedback" data-linkedin-feedback role="status" aria-live="polite"></span>
       </div>
