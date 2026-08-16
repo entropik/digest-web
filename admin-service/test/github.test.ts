@@ -12,7 +12,20 @@ process.env.GITHUB_APP_INSTALLATION_ID = "1";
 process.env.GITHUB_APP_PRIVATE_KEY_BASE64 =
   Buffer.from("not-used-in-these-tests").toString("base64");
 
-const { createRepositoryHeadReader } = await import("../src/github.js");
+const { createRepositoryHeadReader, repositoryBlobBody } = await import(
+  "../src/github.js"
+);
+
+test("serializes text and binary Git blobs with the correct encoding", () => {
+  assert.deepEqual(repositoryBlobBody("bonjour"), {
+    content: "bonjour",
+    encoding: "utf-8",
+  });
+  assert.deepEqual(repositoryBlobBody(Buffer.from([0, 255, 12])), {
+    content: "AP8M",
+    encoding: "base64",
+  });
+});
 
 const catalog = JSON.stringify([
   {

@@ -44,5 +44,6 @@ export const renderEdition = (edition: EditionDocument): string =>
   `date: ${edition.digestDate}\n` +
   `digest_date: ${JSON.stringify(edition.digestDate)}\n` +
   `description: ${JSON.stringify(edition.description)}\n` +
+  `images:\n` +
+  `  - ${JSON.stringify(`/social/${edition.digestDate}.png`)}\n` +
   `---\n\n${edition.introduction.trim()}\n`;
-

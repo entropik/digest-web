@@ -1,0 +1,96 @@
+import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import test from "node:test";
+import {
+  generateSocialImage,
+  generateOptimizedSocialImage,
+  MAX_SOCIAL_IMAGE_BYTES,
+  socialImageSvg,
+  type SocialImageFamily,
+} from "../src/social-image.js";
+
+const input = {
+  digestDate: "2026-08-16",
+  title: "16 août 2026",
+  description:
+    "Intelligence artificielle, développement, design, édition et création numérique.",
+  linkCount: 13,
+};
+
+test("social image generation is deterministic and produces a 1200 by 627 PNG", () => {
+  const first = generateSocialImage(input);
+  const second = generateSocialImage(input);
+  assert.deepEqual(first, second);
+  assert.deepEqual(first.subarray(0, 8), Buffer.from("89504e470d0a1a0a", "hex"));
+  assert.equal(first.readUInt32BE(16), 1200);
+  assert.equal(first.readUInt32BE(20), 627);
+});
+
+test("social PNG optimization stays deterministic and under its byte budget", async () => {
+  const first = await generateOptimizedSocialImage(input);
+  const second = await generateOptimizedSocialImage(input);
+  assert.deepEqual(first, second);
+  assert.ok(first.length < MAX_SOCIAL_IMAGE_BYTES);
+  assert.ok(first.length < generateSocialImage(input).length);
+  assert.deepEqual(first.subarray(0, 8), Buffer.from("89504e470d0a1a0a", "hex"));
+});
+
+test("the seeded system reaches every composition family", () => {
+  const families = new Set<SocialImageFamily>();
+  const accents = new Set<string>();
+  for (let day = 1; day <= 31; day += 1) {
+    const variation = socialImageSvg({
+      ...input,
+      digestDate: `2026-08-${String(day).padStart(2, "0")}`,
+    });
+    families.add(variation.family);
+    accents.add(variation.accent);
+  }
+  assert.deepEqual(
+    [...families].sort(),
+    ["broken-grid", "collision", "screens"],
+  );
+  assert.deepEqual(
+    [...accents].sort(),
+    ["#00AEEF", "#1646D8", "#EC008C", "#FFD500"],
+  );
+});
+
+test("the SVG keeps editorial content and palette constraints", () => {
+  const { svg, accent } = socialImageSvg(input);
+  assert.match(svg, /OOBLIK/);
+  assert.match(svg, /13 LIENS/);
+  assert.match(svg, /INTELLIGENCE ARTIFICIELLE/);
+  assert.match(svg, /#E10600/);
+  assert.ok(["#00AEEF", "#FFD500", "#EC008C", "#1646D8"].includes(accent));
+  assert.match(svg, /linearGradient id="background"/);
+  assert.match(svg, /pattern id="texture-accent"/);
+  assert.match(svg, /pattern id="texture-primary"/);
+  assert.match(svg, /fill="url\(#texture-(?:accent|primary|black|red)\)"/);
+  assert.match(svg, /aria-hidden="true"/);
+  assert.match(svg, /data-layer="accidents"/);
+  assert.doesNotMatch(svg, /width="1000" height="150" fill="#F4F2ED"/);
+  assert.doesNotMatch(svg, /width="410" height="138" fill="#F4F2ED"/);
+  assert.doesNotMatch(svg, /width="940" height="350" fill="#F4F2ED"/);
+});
+
+test("waves vary between editions instead of appearing systematically", () => {
+  const variants = Array.from({ length: 31 }, (_, index) =>
+    socialImageSvg({
+      ...input,
+      digestDate: `2026-08-${String(index + 1).padStart(2, "0")}`,
+    }).svg,
+  );
+  assert.ok(variants.some((svg) => / Q\d+/.test(svg)));
+  assert.ok(variants.some((svg) => !/ Q\d+/.test(svg)));
+});
+
+test("archive pages expose a LinkedIn share action for their permalink", async () => {
+  const layout = await readFile(
+    new URL("../../layouts/archives/single.html", import.meta.url),
+    "utf8",
+  );
+  assert.match(layout, /linkedin\.com\/sharing\/share-offsite/);
+  assert.match(layout, /\.Permalink \| urlquery/);
+  assert.match(layout, /Partager sur LinkedIn/);
+});

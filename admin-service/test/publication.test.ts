@@ -20,8 +20,8 @@ const draft: CurationDraft = {
   publishedAt: null,
 };
 
-test("publication produces exactly the catalog and one archive", () => {
-  const result = buildPublicationFiles({
+test("publication produces the catalog, archive and social image", async () => {
+  const result = await buildPublicationFiles({
     currentLinks: [],
     drafts: [draft],
     digestDate: "2026-07-27",
@@ -32,14 +32,21 @@ test("publication produces exactly the catalog and one archive", () => {
   assert.deepEqual(Object.keys(result.files).sort(), [
     "content/archives/2026-07-27.md",
     "data/links.json",
+    "static/social/2026-07-27.png",
   ]);
   assert.equal(
     result.linkIdsByDraft.get(draft.id),
     stableLinkId(draft.url),
   );
-  const combined = Object.values(result.files).join("\n");
+  const combined = Object.values(result.files)
+    .filter((value): value is string => typeof value === "string")
+    .join("\n");
   assert.doesNotMatch(combined, /Ce texte privé/);
   assert.match(combined, /Résumé éditorial/);
+  assert.match(combined, /\/social\/2026-07-27\.png/);
+  const image = result.files["static/social/2026-07-27.png"];
+  assert.ok(Buffer.isBuffer(image));
+  assert.deepEqual(image.subarray(0, 8), Buffer.from("89504e470d0a1a0a", "hex"));
 });
 
 test("stable link ids match UUID v5 URL namespace", () => {

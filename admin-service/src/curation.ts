@@ -27,6 +27,7 @@ import {
 import { recordTiming, startTimer } from "./observability.js";
 import { buildPublicationFiles } from "./publication.js";
 import { deploymentWorkflowProgress } from "./publication-workflow.js";
+import { generateOptimizedSocialImage } from "./social-image.js";
 import { canonicalizePublicUrl } from "./urls.js";
 
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
@@ -309,7 +310,7 @@ export class CurationService {
             throw new CurationError("ALREADY_PUBLISHED", 409, { id: draft.id });
           }
         }
-        const publication = buildPublicationFiles({
+        const publication = await buildPublicationFiles({
           currentLinks: head.links,
           drafts: prepared.drafts,
           digestDate: input.digestDate,
@@ -537,11 +538,22 @@ export class CurationService {
       if (next === source) {
         return { changed: false, commit: head.commitSha, edition: current };
       }
+      const socialImage = await generateOptimizedSocialImage({
+        digestDate: date,
+        title,
+        description,
+        linkCount: head.links.filter(
+          (link) => link.added === date && link.visibility !== "hidden",
+        ).length,
+      });
       try {
         const commit = await commitRepositoryFiles(
           head.commitSha,
           head.treeSha,
-          { [editionPath(date)]: next },
+          {
+            [editionPath(date)]: next,
+            [`static/social/${date}.png`]: socialImage,
+          },
           `Corriger le Digest du ${date}`,
         );
         return {

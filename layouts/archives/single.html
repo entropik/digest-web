@@ -13,7 +13,17 @@
     <p class="digest-kicker">Web Digest’s — édition</p>
     <h1>{{ .Title }}</h1>
     <p>{{ .Description }}</p>
-    <div class="archive-single-count"><strong>{{ len $links }}</strong><span>liens documentés</span></div>
+    <div class="archive-single-actions">
+      <div class="archive-single-count"><strong>{{ len $links }}</strong><span>liens documentés</span></div>
+      <a
+        class="archive-linkedin-share"
+        href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | urlquery }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Partager cette édition sur LinkedIn">
+        Partager sur LinkedIn ↗
+      </a>
+    </div>
   </header>
 
   {{ with .Content }}

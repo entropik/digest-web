@@ -70,6 +70,32 @@ select {
   margin-inline: auto;
 }
 
+.archive-single-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px 32px;
+}
+
+.archive-linkedin-share {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  padding: 0 16px;
+  background: var(--digest-ink);
+  color: var(--digest-paper);
+  font-size: .78rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.archive-linkedin-share:hover,
+.archive-linkedin-share:focus-visible {
+  background: #e10600;
+  color: #fff;
+}
+
 .about-liquid-page .post-content {
   position: relative;
   isolation: isolate;

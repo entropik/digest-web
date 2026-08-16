@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-16T00:00:00.000Z",
+  "title": "Design System: OOBLIK Digest",
+  "extensions": {
+    "colorMeta": {
+      "ooblik-red": {
+        "role": "primary",
+        "displayName": "Rouge OOBLIK",
+        "canonical": "#E10600",
+        "tonalRamp": ["#3B0000", "#650000", "#900000", "#BA0200", "#E10600", "#F43A2C", "#FF7469", "#FFD8D4"]
+      },
+      "absolute-black": {
+        "role": "neutral",
+        "displayName": "Noir absolu",
+        "canonical": "#0A0A0A",
+        "tonalRamp": ["#0A0A0A", "#242424", "#3E3E3E", "#5B5B5B", "#777777", "#969696", "#C8C8C8", "#F4F2ED"]
+      },
+      "process-cyan": { "role": "secondary", "displayName": "Cyan process", "canonical": "#00AEEF", "tonalRamp": ["#002B3B", "#004C68", "#006D94", "#008EC1", "#00AEEF", "#49C4F4", "#91DCF9", "#D9F4FE"] },
+      "process-yellow": { "role": "secondary", "displayName": "Jaune process", "canonical": "#FFD500", "tonalRamp": ["#3D3300", "#665500", "#907800", "#B99B00", "#FFD500", "#FFE24A", "#FFED91", "#FFF8D5"] },
+      "process-magenta": { "role": "secondary", "displayName": "Magenta process", "canonical": "#EC008C", "tonalRamp": ["#3B0023", "#64003C", "#8D0054", "#B6006C", "#EC008C", "#F143A8", "#F78ACB", "#FDD5EB"] },
+      "primary-blue": { "role": "secondary", "displayName": "Bleu primaire", "canonical": "#1646D8", "tonalRamp": ["#071238", "#0A2062", "#0E2D8C", "#123AB5", "#1646D8", "#5476E4", "#93A8EF", "#D9E1FB"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Grotesque monumentale", "purpose": "Titres, dates et matière graphique." },
+      "body": { "displayName": "Mono éditoriale", "purpose": "Descriptions et contenu courant." },
+      "label": { "displayName": "Mono signalétique", "purpose": "Métadonnées et actions courtes." }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [
+      { "name": "mobile", "value": "640px" },
+      { "name": "desktop", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Lien de partage",
+      "kind": "button",
+      "refersTo": "share-link",
+      "description": "Action rectangulaire, contrastée et sans effet de volume.",
+      "html": "<a class=\"ds-share\" href=\"#\">Partager sur LinkedIn ↗</a>",
+      "css": ".ds-share{display:inline-flex;min-height:44px;align-items:center;padding:0 16px;background:#0A0A0A;color:#F4F2ED;font:700 .78rem 'JetBrains Mono',monospace;text-decoration:none}.ds-share:hover,.ds-share:focus-visible{background:#E10600;color:#fff;outline:2px solid #0A0A0A;outline-offset:2px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La grille insoumise",
+    "overview": "Une discipline suisse visible, localement sabotée par la typographie, les formes et les trames. Le chaos reste dirigé et le contenu conserve toujours une zone de lecture nette.",
+    "keyCharacteristics": ["Grille structurelle perceptible", "Typographie monumentale", "Chaos local et hiérarchie globale", "Trames d’impression", "Rouge et noir permanents"],
+    "rules": [
+      { "name": "Two-Ink Rule", "body": "Rouge et noir, puis au maximum deux encres d’accent.", "section": "colors" },
+      { "name": "Protected Copy Rule", "body": "Une lettre décorative peut être coupée ; un texte informatif ne l’est jamais.", "section": "typography" },
+      { "name": "Flat Print Rule", "body": "La profondeur vient des recouvrements et des aplats, jamais des ombres.", "section": "elevation" }
+    ],
+    "dos": ["Montrer la grille avant de la briser", "Employer des formes élémentaires", "Rendre l’aléatoire déterministe"],
+    "donts": ["Pas de dégradés IA", "Pas de glassmorphism ni de 3D molle", "Pas de bruit sans structure", "Ne jamais sacrifier la lisibilité"]
+  }
+}
