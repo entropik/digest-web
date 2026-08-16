@@ -6,6 +6,7 @@ import {
 } from "node:crypto";
 import type Database from "better-sqlite3";
 import { config } from "./config.js";
+import { canonicalizePublicUrl } from "./urls.js";
 
 const LINKEDIN_AUTHORIZE_URL = "https://www.linkedin.com/oauth/v2/authorization";
 const LINKEDIN_TOKEN_URL = "https://www.linkedin.com/oauth/v2/accessToken";
@@ -297,8 +298,24 @@ export class LinkedInService {
   }
 
   async publish(adminUserId: string, input: PublicationInput) {
+    return this.publishValidated(
+      adminUserId,
+      this.validatePublication(input),
+    );
+  }
+
+  async publishLink(adminUserId: string, input: PublicationInput) {
+    return this.publishValidated(
+      adminUserId,
+      this.validatePublication(input, true),
+    );
+  }
+
+  private async publishValidated(
+    adminUserId: string,
+    validated: PublicationInput,
+  ) {
     this.requireConfiguration(adminUserId);
-    const validated = this.validatePublication(input);
     const previous = this.database
       .prepare("SELECT post_urn FROM linkedin_publications WHERE archive_url = ?")
       .get(validated.url) as { post_urn: string } | undefined;
@@ -480,7 +497,10 @@ export class LinkedInService {
     return credentials;
   }
 
-  private validatePublication(input: PublicationInput): PublicationInput {
+  private validatePublication(
+    input: PublicationInput,
+    allowCatalogUrl = false,
+  ): PublicationInput {
     const title = input.title?.trim();
     const text = input.text?.trim();
     if (!title || title.length > 200 || !text || text.length > 1_500) {
@@ -494,13 +514,21 @@ export class LinkedInService {
     } catch {
       throw new LinkedInError("LINKEDIN_INVALID_PUBLICATION", 400);
     }
-    if (
-      url.origin !== config.origin ||
-      imageUrl.origin !== config.origin ||
-      !/^\/archives\/\d{4}-\d{2}-\d{2}\/$/.test(url.pathname) ||
-      !/^\/social\/\d{4}-\d{2}-\d{2}\.png$/.test(imageUrl.pathname)
-    ) {
+    if (imageUrl.origin !== config.origin ||
+        !/^\/social\/\d{4}-\d{2}-\d{2}\.png$/.test(imageUrl.pathname)) {
       throw new LinkedInError("LINKEDIN_INVALID_PUBLICATION", 400);
+    }
+    if (!allowCatalogUrl &&
+        (url.origin !== config.origin ||
+         !/^\/archives\/\d{4}-\d{2}-\d{2}\/$/.test(url.pathname))) {
+      throw new LinkedInError("LINKEDIN_INVALID_PUBLICATION", 400);
+    }
+    if (allowCatalogUrl) {
+      try {
+        url = new URL(canonicalizePublicUrl(url.toString()));
+      } catch {
+        throw new LinkedInError("LINKEDIN_INVALID_PUBLICATION", 400);
+      }
     }
     return {
       title,

@@ -1,5 +1,7 @@
 (() => {
   const button = document.querySelector("[data-linkedin-share]");
+  const linkButtons = [...document.querySelectorAll("[data-linkedin-link-share]")];
+  const shareButtons = [button, ...linkButtons].filter(Boolean);
   const feedback = document.querySelector("[data-linkedin-feedback]");
   const composer = document.querySelector("[data-linkedin-composer]");
   const form = document.querySelector("[data-linkedin-form]");
@@ -9,7 +11,9 @@
   const hashtagsField = document.querySelector("[data-linkedin-hashtags]");
   const tagsNote = document.querySelector("[data-linkedin-tags-note]");
   const confirmButton = document.querySelector("[data-linkedin-confirm]");
+  const preview = document.querySelector("[data-linkedin-preview]");
   if (!button || !feedback || !composer || !form || !textField || !hashtagsField) return;
+  let activeButton = button;
 
   const api = async (path, options) => {
     const response = await fetch(path, options);
@@ -37,7 +41,7 @@
       const response = await fetch("/api/admin/linkedin/status", {
         credentials: "same-origin",
       });
-      if (response.ok) button.hidden = false;
+      if (response.ok) shareButtons.forEach((shareButton) => { shareButton.hidden = false; });
     } catch {
       // Le bouton reste invisible pour les visiteurs et en cas d’indisponibilité de l’admin.
     }
@@ -46,7 +50,9 @@
   const showPost = (postUrl, alreadyPublished) => {
     feedback.replaceChildren(
       document.createTextNode(
-        alreadyPublished ? "Cette édition est déjà publiée. " : "Publié avec la grande image. ",
+        alreadyPublished
+          ? "Cette ressource est déjà publiée. "
+          : "Publié avec la grande image. ",
       ),
     );
     const link = document.createElement("a");
@@ -68,10 +74,11 @@
     const postText = textField.value.trim();
     const hashtags = hashtagsField.value.trim();
     return {
-      imageUrl: button.dataset.shareImage,
-      title: button.dataset.shareTitle || "Web Digest",
+      imageUrl: activeButton.dataset.shareImage,
+      linkId: activeButton.dataset.linkId || "",
+      title: activeButton.dataset.shareTitle || "Web Digest",
       text: [postText, hashtags].filter(Boolean).join("\n\n"),
-      url: button.dataset.shareUrl || window.location.href,
+      url: activeButton.dataset.shareUrl || window.location.href,
     };
   };
 
@@ -91,10 +98,10 @@
       .join("");
   };
 
-  const automaticHashtags = () => {
+  const automaticHashtags = (shareButton) => {
     let tags = [];
     try {
-      tags = JSON.parse(button.dataset.shareTags || "[]");
+      tags = JSON.parse(shareButton.dataset.shareTags || "[]");
     } catch {
       return [];
     }
@@ -118,16 +125,17 @@
     cancel.addEventListener("click", () => composer.close("cancel"));
   });
   composer.addEventListener("close", () => {
-    if (button.textContent !== "Publié sur LinkedIn") button.disabled = false;
+    if (activeButton.dataset.published !== "true") activeButton.disabled = false;
   });
 
-  button.addEventListener("click", async () => {
+  const openComposer = async (shareButton) => {
+    activeButton = shareButton;
     const { imageUrl, url } = {
-      imageUrl: button.dataset.shareImage,
-      url: button.dataset.shareUrl || window.location.href,
+      imageUrl: shareButton.dataset.shareImage,
+      url: shareButton.dataset.shareUrl || window.location.href,
     };
     if (!imageUrl) return;
-    button.disabled = true;
+    shareButton.disabled = true;
     feedback.textContent = "Vérification du compte LinkedIn…";
 
     try {
@@ -135,21 +143,22 @@
       if (!status.configured) {
         feedback.textContent =
           "L’application LinkedIn doit encore être configurée dans l’administration.";
-        button.disabled = false;
+        shareButton.disabled = false;
         return;
       }
       if (!status.connected) {
         connect();
         return;
       }
-      const hashtags = automaticHashtags();
+      const hashtags = automaticHashtags(shareButton);
       textField.value = "";
       hashtagsField.value = hashtags.join(" ");
       if (tagsNote) {
         tagsNote.textContent = hashtags.length
-          ? `${hashtags.length} hashtags issus des liens ont été ajoutés automatiquement. Ils restent modifiables.`
-          : "Aucun hashtag automatique pour cette édition.";
+          ? `${hashtags.length} hashtags ont été ajoutés automatiquement. Ils restent modifiables.`
+          : "Aucun hashtag automatique pour cette publication.";
       }
+      if (preview) preview.src = imageUrl;
       urlField.textContent = url;
       accountField.textContent = `Publication sur le compte ${status.memberName}`;
       feedback.textContent = "Personnalisez le texte avant de confirmer.";
@@ -158,8 +167,12 @@
     } catch (error) {
       if (error?.message === "AUTHENTICATION_REQUIRED") return;
       feedback.textContent = "La vérification du compte LinkedIn a échoué.";
-      button.disabled = false;
+      shareButton.disabled = false;
     }
+  };
+
+  shareButtons.forEach((shareButton) => {
+    shareButton.addEventListener("click", () => openComposer(shareButton));
   });
 
   form.addEventListener("submit", async (event) => {
@@ -172,16 +185,30 @@
     confirmButton.disabled = true;
     try {
       feedback.textContent = "Téléversement de la grande image et publication…";
-      const publication = await api("/api/admin/linkedin/publish", {
-        method: "POST",
-        credentials: "same-origin",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, confirm: true }),
-      });
+      const isSingleLink = Boolean(data.linkId);
+      const publication = await api(
+        isSingleLink
+          ? "/api/admin/linkedin/publish-link"
+          : "/api/admin/linkedin/publish",
+        {
+          method: "POST",
+          credentials: "same-origin",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(isSingleLink
+            ? { linkId: data.linkId, text: data.text, imageUrl: data.imageUrl, confirm: true }
+            : { ...data, confirm: true }),
+        },
+      );
       composer.close("published");
       showPost(publication.postUrl, publication.alreadyPublished);
-      button.textContent = "Publié sur LinkedIn";
-      button.disabled = true;
+      activeButton.dataset.published = "true";
+      if (isSingleLink) {
+        const label = activeButton.querySelector("span:last-child");
+        if (label) label.textContent = "Publié";
+      } else {
+        activeButton.textContent = "Publié sur LinkedIn";
+      }
+      activeButton.disabled = true;
     } catch (error) {
       if (error?.message === "AUTHENTICATION_REQUIRED") return;
       if (error?.code === "LINKEDIN_NOT_CONNECTED" || error?.code === "LINKEDIN_TOKEN_EXPIRED") {
@@ -192,7 +219,7 @@
         "La publication LinkedIn a échoué. Aucun second post n’a été créé automatiquement.";
     } finally {
       confirmButton.disabled = false;
-      if (button.textContent !== "Publié sur LinkedIn") button.disabled = false;
+      if (activeButton.dataset.published !== "true") activeButton.disabled = false;
     }
   });
 })();
