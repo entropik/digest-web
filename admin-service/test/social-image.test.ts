@@ -85,16 +85,19 @@ test("waves vary between editions instead of appearing systematically", () => {
   assert.ok(variants.some((svg) => !/ Q\d+/.test(svg)));
 });
 
-test("archive pages expose a LinkedIn share action for their permalink", async () => {
+test("archive pages expose a native LinkedIn share with image, text and permalink", async () => {
   const layout = await readFile(
     new URL("../../layouts/archives/single.html", import.meta.url),
     "utf8",
   );
-  assert.match(layout, /linkedin\.com\/sharing\/share-offsite/);
-  assert.match(layout, /printf "%s\?share=linkedin" \.Permalink/);
-  assert.match(layout, /\.Permalink \| urlquery/);
-  assert.match(layout, /Partager le lien/);
-  assert.match(layout, /Copier l’image pour LinkedIn/);
+  assert.match(layout, /data-linkedin-share/);
+  assert.match(layout, /data-share-image/);
+  assert.match(layout, /data-share-title="Web Digest — \{\{ \$\.Title \}\}"/);
+  assert.match(layout, /data-share-text="\{\{ \$\.Description \}\}"/);
+  assert.match(layout, /data-share-url="\{\{ \$\.Permalink \}\}"/);
+  assert.match(layout, /Partager sur LinkedIn/);
+  assert.match(layout, /linkedin\.com\/feed\/\?shareActive=true/);
+  assert.match(layout, /Ouvrir LinkedIn/);
   assert.match(layout, /data-linkedin-feedback/);
   assert.match(layout, /archive-social-visual/);
   assert.match(layout, /\.Params\.images/);
@@ -102,15 +105,17 @@ test("archive pages expose a LinkedIn share action for their permalink", async (
   assert.match(layout, /height="627"/);
 });
 
-test("LinkedIn native-image sharing copies the PNG with a download fallback", async () => {
+test("LinkedIn native sharing sends the PNG, text and URL with a clear fallback", async () => {
   const script = await readFile(
     new URL("../../assets/js/linkedin-image.js", import.meta.url),
     "utf8",
   );
-  assert.match(script, /navigator\.clipboard\?\.write/);
-  assert.match(script, /new ClipboardItem\(\{ "image\/png": blob \}\)/);
-  assert.match(script, /Image copiée/);
-  assert.match(script, /download\(url\)/);
+  assert.match(script, /new File\(\[blob\], filename, \{ type: "image\/png" \}\)/);
+  assert.match(script, /navigator\.canShare\?\.\(\{ files \}\)/);
+  assert.match(script, /navigator\.share\(\{ title, text, url, files \}\)/);
+  assert.match(script, /navigator\.clipboard\?\.writeText/);
+  assert.match(script, /Image téléchargée et texte copié/);
+  assert.match(script, /download\(imageUrl\)/);
 });
 
 test("archive Open Graph images declare their large preview dimensions", async () => {
