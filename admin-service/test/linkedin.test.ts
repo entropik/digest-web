@@ -40,10 +40,12 @@ test("OAuth stores an encrypted member connection tied to a one-time state", asy
     throw new Error(`Unexpected request: ${url}`);
   };
   const service = new LinkedInService(database, fetcher as typeof fetch);
+  service.configure("admin-1", "stored-client-id", "stored-client-secret-value");
   const authorization = new URL(
     service.authorizationUrl("admin-1", "/archives/2026-08-16/"),
   );
   assert.equal(authorization.origin, "https://www.linkedin.com");
+  assert.equal(authorization.searchParams.get("client_id"), "stored-client-id");
   assert.equal(authorization.searchParams.get("scope"), "openid profile w_member_social");
   assert.equal(
     authorization.searchParams.get("redirect_uri"),
@@ -56,11 +58,19 @@ test("OAuth stores an encrypted member connection tied to a one-time state", asy
   );
   assert.deepEqual(service.status("admin-1").memberName, "Marc LinkedIn");
   const stored = database
-    .prepare("SELECT encrypted_access_token FROM linkedin_connections")
-    .get() as { encrypted_access_token: string };
+    .prepare(
+      `SELECT encrypted_access_token, encrypted_client_secret
+       FROM linkedin_connections
+       JOIN linkedin_app_credentials USING (admin_user_id)`,
+    )
+    .get() as {
+    encrypted_access_token: string;
+    encrypted_client_secret: string;
+  };
   assert.doesNotMatch(stored.encrypted_access_token, /linkedin-access-token/);
+  assert.doesNotMatch(stored.encrypted_client_secret, /stored-client-secret-value/);
   const tokenBody = calls[0]!.init!.body as URLSearchParams;
-  assert.equal(tokenBody.get("client_secret"), "test-linkedin-secret");
+  assert.equal(tokenBody.get("client_secret"), "stored-client-secret-value");
   await assert.rejects(
     service.completeAuthorization("admin-1", state, "replayed-code"),
     (error: unknown) =>

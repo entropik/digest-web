@@ -68,6 +68,7 @@ export const dashboardPage = (name: string) =>
       <button type="button" data-panel-button="publications">Publications</button>
       <button type="button" data-panel-button="links">Liens publiés</button>
       <button type="button" data-panel-button="editions">Éditions</button>
+      <button type="button" data-panel-button="linkedin">LinkedIn</button>
       <button type="button" data-panel-button="hidden">Retirés</button>
     </nav>
     <p class="feedback" id="admin-feedback" role="status" aria-live="polite"></p>
@@ -127,6 +128,20 @@ export const dashboardPage = (name: string) =>
       </form>
     </section>
 
+    <section class="admin-panel" data-panel="linkedin">
+      <div class="section-heading"><div><p class="kicker">Publication native</p><h2>LinkedIn</h2></div></div>
+      <div class="linkedin-setup">
+        <p class="intro">Les identifiants sont chiffrés dans la base privée. Le Client Secret n’est jamais renvoyé au navigateur.</p>
+        <form id="linkedin-config-form" class="edition-form">
+          <label>Client ID<input name="clientId" required autocomplete="off"></label>
+          <label>Client Secret<input name="clientSecret" type="password" required minlength="12" autocomplete="new-password"></label>
+          <div class="form-actions"><button class="primary" type="submit">Enregistrer les identifiants</button></div>
+        </form>
+        <p class="feedback" id="linkedin-status" role="status" aria-live="polite"></p>
+        <div class="form-actions"><button id="linkedin-connect" type="button" class="is-hidden">Connecter mon compte LinkedIn</button></div>
+      </div>
+    </section>
+
     <section class="admin-panel" data-panel="hidden">
       <div class="section-heading"><div><p class="kicker">Mémoire éditoriale</p><h2>Liens retirés</h2></div></div>
       <div id="hidden-links"><p class="loading">Chargement…</p></div>
@@ -176,6 +191,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .missing{color:var(--warn);font-size:.78rem}
 .complete{color:var(--ok);font-size:.78rem}
 .edition-form{display:grid;gap:1rem;max-width:900px}
+.linkedin-setup{display:grid;gap:1rem;max-width:760px}
 .field-row{display:grid;grid-template-columns:1fr 2fr;gap:1rem}
 input,select,textarea{width:100%;border:1px solid var(--line);border-radius:.25rem;background:#fff;color:var(--ink);padding:.72rem}
 ::placeholder{color:#5f5b55;opacity:1}
@@ -412,12 +428,20 @@ document.querySelector("#edition-form")?.addEventListener("submit",async(event)=
 const loadHidden=async()=>{const list=document.querySelector("#hidden-links");try{const data=await api("/api/admin/links/hidden");if(!data.links.length){list.innerHTML='<p class="empty">Aucun lien n’est actuellement retiré.</p>';return}list.innerHTML=data.links.map((link)=>'<article class="admin-link" data-hidden-id="'+esc(link.id)+'"><div><h3>'+esc(link.title)+'</h3><p>'+esc(link.category)+' · '+esc(link.added)+'</p><p>'+esc(link.url)+'</p></div><button type="button" data-restore>Restaurer</button></article>').join("")}catch(error){list.innerHTML='<p class="empty">'+esc(error.message)+'</p>'}};
 document.querySelector("#hidden-links")?.addEventListener("click",async(event)=>{const button=event.target.closest("[data-restore]");if(!button)return;const article=button.closest("[data-hidden-id]");button.disabled=true;try{await api("/api/admin/links/"+encodeURIComponent(article.dataset.hiddenId)+"/restore",{method:"POST",body:JSON.stringify({confirm:true})});article.remove();show("Lien restauré. Le déploiement est lancé.")}catch(error){button.disabled=false;show(error.message)}});
 
+const loadLinkedIn=async()=>{
+  const target=document.querySelector("#linkedin-status"),connect=document.querySelector("#linkedin-connect");if(!target)return;
+  try{const status=await api("/api/admin/linkedin/status");connect.classList.toggle("is-hidden",!status.configured||status.connected);target.textContent=status.connected?"Compte connecté : "+status.memberName:status.configured?"Identifiants enregistrés. Connectez maintenant votre compte LinkedIn.":"Ajoutez le Client ID et le Client Secret de votre application LinkedIn."}
+  catch(error){target.textContent="État LinkedIn indisponible : "+error.message}
+};
+document.querySelector("#linkedin-config-form")?.addEventListener("submit",async(event)=>{event.preventDefault();const form=event.currentTarget,button=event.submitter;button.disabled=true;try{await api("/api/admin/linkedin/configure",{method:"POST",body:JSON.stringify({clientId:form.elements.clientId.value,clientSecret:form.elements.clientSecret.value,confirm:true})});form.reset();show("Identifiants LinkedIn enregistrés et chiffrés.");await loadLinkedIn()}catch(error){show("Configuration LinkedIn impossible : "+error.message)}finally{button.disabled=false}});
+document.querySelector("#linkedin-connect")?.addEventListener("click",()=>location.assign("/api/admin/linkedin/connect?returnTo=%2Fadmin"));
+
 const initialize=async()=>{
   if(!document.querySelector("[data-panel]"))return;
   const today=new Date().toISOString().slice(0,10);document.querySelector("#publication-date").value=today;
   document.querySelector("#publication-title").value=new Intl.DateTimeFormat("fr-FR",{day:"numeric",month:"long",year:"numeric",timeZone:"Europe/Paris"}).format(new Date(today+"T12:00:00Z"));
   document.querySelector("#publication-date").addEventListener("change",(event)=>{document.querySelector("#publication-title").value=new Intl.DateTimeFormat("fr-FR",{day:"numeric",month:"long",year:"numeric",timeZone:"Europe/Paris"}).format(new Date(event.target.value+"T12:00:00Z"))});
-  try{options=await api("/api/admin/curation/options");const publications=loadPublications().then((items)=>{resumePublicationPolling(items);return items});await Promise.all([loadDrafts(),publications,loadEditions(),loadHidden()])}catch(error){show("Initialisation impossible : "+error.message)}
+  try{options=await api("/api/admin/curation/options");const publications=loadPublications().then((items)=>{resumePublicationPolling(items);return items});await Promise.all([loadDrafts(),publications,loadEditions(),loadHidden(),loadLinkedIn()]);if(new URLSearchParams(location.search).get("linkedin")==="connected"){openPanel("linkedin");show("Compte LinkedIn connecté.");history.replaceState(null,"","/admin")}}catch(error){show("Initialisation impossible : "+error.message)}
 };
 initialize();
 `;
