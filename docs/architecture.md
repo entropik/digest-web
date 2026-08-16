@@ -83,5 +83,12 @@ l’extension publiée :
 6. Il vérifie enfin la présence du titre et de la date sur le site public avant
    d’annoncer l’état « En ligne ».
 
+L’interface traduit ces états persistés en quatre étapes : préparation,
+validation, déploiement et mise en ligne. Elle ne calcule pas de pourcentage
+artificiel. Le suivi reprend à l’ouverture de l’administration, au retour sur
+l’onglet et après une erreur réseau transitoire ; un seul polling actif interroge
+le serveur toutes les 15 secondes. Le lien public n’apparaît qu’après le contrôle
+de présence de l’archive.
+
 Une date existante est refusée avec `409 EDITION_EXISTS`. Un brouillon
 incomplet peut être enregistré, mais jamais publié.

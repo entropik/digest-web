@@ -42,6 +42,26 @@ const sampleDrafts = [
   },
 ];
 
+let publicationStep = 0;
+const publicationStates = ["validating", "deploying", "live"];
+const samplePublication = () => {
+  const state = publicationStates[Math.min(publicationStep, publicationStates.length - 1)];
+  return {
+    id: "publication",
+    digestDate: "2026-08-16",
+    title: "16 août 2026",
+    state,
+    commitSha: "0123456789abcdef",
+    validateUrl: "https://github.com/example/digest/actions/runs/1",
+    deployUrl:
+      state === "deploying" || state === "live"
+        ? "https://github.com/example/digest/actions/runs/2"
+        : null,
+    errorCode: null,
+    createdAt: "2026-08-16T10:00:00.000Z",
+  };
+};
+
 const json = (response, value) => {
   response.writeHead(200, { "Content-Type": "application/json" });
   response.end(JSON.stringify(value));
@@ -86,18 +106,21 @@ createServer((request, response) => {
     json(response, { drafts: sampleDrafts });
     return;
   }
+  if (
+    url.pathname === "/api/admin/curation/publications" &&
+    request.method === "POST"
+  ) {
+    publicationStep = 0;
+    json(response, { publication: samplePublication() });
+    return;
+  }
   if (url.pathname === "/api/admin/curation/publications") {
-    json(response, {
-      publications: [
-        {
-          id: "publication",
-          digestDate: "2026-07-27",
-          title: "27 juillet 2026",
-          state: "deploying",
-          commitSha: "0123456789abcdef",
-        },
-      ],
-    });
+    json(response, { publications: [samplePublication()] });
+    return;
+  }
+  if (url.pathname === "/api/admin/curation/publications/publication") {
+    publicationStep = Math.min(publicationStep + 1, publicationStates.length - 1);
+    json(response, { publication: samplePublication() });
     return;
   }
   if (url.pathname === "/api/admin/editions") {

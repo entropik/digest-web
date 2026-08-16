@@ -87,9 +87,9 @@ export const dashboardPage = (name: string) =>
         <label>Description SEO<textarea name="seoDescription" rows="3" required>Intelligence artificielle, développement, design, édition et création numérique.</textarea></label>
         <div class="selection-summary" id="publication-selection">Aucun lien sélectionné.</div>
         <div class="form-actions">
-          <button type="button" id="preview-publication">Vérifier le lot</button>
-          <button class="primary" type="submit">Publier ce Digest</button>
+          <button class="primary" id="submit-publication" type="submit" disabled>Publier les liens</button>
         </div>
+        <div class="submission-status is-hidden" id="publication-submit-status" role="status" aria-live="polite"></div>
       </form>
     </section>
 
@@ -126,8 +126,76 @@ export const dashboardPage = (name: string) =>
   `);
 
 export const adminCss = `
-:root{color-scheme:light;--paper:#f5f3ee;--ink:#171717;--muted:#77736d;--line:#d7d2c9;--accent:#ff5a36;--ok:#237a4b;--warn:#9b6400;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink)}main{width:min(1180px,calc(100% - 2rem));margin:auto;padding:clamp(2rem,7vw,5rem) 0}header{display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;border-bottom:1px solid var(--line);padding-bottom:2rem}.kicker{margin:0;color:var(--accent);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}h1{max-width:850px;margin:.5rem 0 1.5rem;font-family:Arial,Helvetica,sans-serif;font-size:clamp(3.5rem,10vw,7rem);letter-spacing:-.075em;line-height:.8}h2{margin:.35rem 0;font-family:Arial,Helvetica,sans-serif;font-size:clamp(2.2rem,6vw,4.8rem);letter-spacing:-.06em;line-height:.9}.intro{max-width:680px;color:var(--muted);font-size:1rem;line-height:1.7}button,a,input,select,textarea{font:inherit}button,a{border:1px solid var(--line);border-radius:.25rem;background:transparent;color:inherit;cursor:pointer;font-weight:700;text-decoration:none}button{padding:.8rem 1rem}button:disabled{cursor:not-allowed;opacity:.45}.primary{border-color:var(--accent);background:var(--accent);color:#111}.header-actions,.toolbar,.form-actions{display:flex;flex-wrap:wrap;gap:.6rem}.header-actions a{padding:.8rem 1rem}.feedback{min-height:1.5em;color:var(--accent)}.admin-nav{display:flex;gap:.35rem;overflow:auto;padding:1rem 0;border-bottom:1px solid var(--line)}.admin-nav button{white-space:nowrap;border:0}.admin-nav button.is-active{background:var(--ink);color:var(--paper)}.admin-nav span{color:var(--accent)}.admin-panel{display:none;padding:2.5rem 0}.admin-panel.is-active{display:block}.section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:2rem}.toolbar{align-items:center}.toolbar input,.toolbar select{min-width:220px}.draft-card,.admin-link,.publication-card,.published-card{border-top:1px solid var(--line);padding:1.35rem 0}.draft-card{display:grid;grid-template-columns:auto minmax(0,1fr);gap:1rem}.draft-card.is-filtered{display:none}.draft-select{width:1.2rem;height:1.2rem;margin-top:.4rem}.draft-grid,.published-grid{display:grid;grid-template-columns:2fr 1fr;gap:.8rem}.draft-grid label,.published-grid label,.edition-form label{display:grid;gap:.4rem;color:var(--muted);font-size:.78rem}.draft-grid label.wide,.published-grid label.wide{grid-column:1/-1}.draft-url,.admin-link p{overflow-wrap:anywhere;color:var(--muted);font-size:.8rem}.card-actions{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1rem}.missing{color:var(--warn);font-size:.78rem}.complete{color:var(--ok);font-size:.78rem}.edition-form{display:grid;gap:1rem;max-width:900px}.field-row{display:grid;grid-template-columns:1fr 2fr;gap:1rem}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:.25rem;background:#fff;color:var(--ink);padding:.72rem}.selection-summary{padding:1rem;border:1px solid var(--line);color:var(--muted)}.publication-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem}.status{display:inline-block;padding:.25rem .5rem;border-radius:2rem;background:#e7e2d8;font-size:.72rem}.status-live{background:#d6eddf;color:var(--ok)}.status-failed{background:#f5d6cf;color:#8f2d1d}.published-card h3,.admin-link h3,.publication-card h3{margin:.2rem 0;font-family:Arial,Helvetica,sans-serif;font-size:1.5rem}.admin-link{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem}.empty,.loading{padding:2rem 0;color:var(--muted)}.is-hidden{display:none!important}@media(max-width:760px){header,.section-heading,.publication-card,.admin-link{display:grid;grid-template-columns:1fr}.draft-grid,.published-grid,.field-row{grid-template-columns:1fr}.header-actions{margin-top:0}.toolbar input,.toolbar select{min-width:0}}
+:root{color-scheme:light;--paper:#f5f3ee;--ink:#171717;--muted:#68645e;--line:#d7d2c9;--accent:#ff5a36;--accent-text:#b72e10;--ok:#237a4b;--warn:#9b6400;--error:#8f2d1d;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink)}
+main{width:min(1180px,calc(100% - 2rem));margin:auto;padding:clamp(2rem,7vw,5rem) 0}
+header{display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;border-bottom:1px solid var(--line);padding-bottom:2rem}
+.kicker{margin:0;color:var(--accent-text);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+h1{max-width:850px;margin:.5rem 0 1.5rem;font-family:Arial,Helvetica,sans-serif;font-size:clamp(3.5rem,10vw,6rem);letter-spacing:-.04em;line-height:.82;text-wrap:balance}
+h2{margin:.35rem 0;font-family:Arial,Helvetica,sans-serif;font-size:clamp(2.2rem,6vw,4.8rem);letter-spacing:-.04em;line-height:.9;text-wrap:balance}
+.intro{max-width:680px;color:var(--muted);font-size:1rem;line-height:1.7;text-wrap:pretty}
+button,a,input,select,textarea{font:inherit}
+button,a{border:1px solid var(--line);border-radius:.25rem;background:transparent;color:inherit;cursor:pointer;font-weight:700;text-decoration:none}
+button{padding:.8rem 1rem}
+button:disabled{cursor:not-allowed;opacity:.45}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--accent-text);outline-offset:2px}
+.primary{border-color:var(--accent);background:var(--accent);color:#111}
+.header-actions,.toolbar,.form-actions{display:flex;flex-wrap:wrap;gap:.6rem}
+.header-actions a{padding:.8rem 1rem}
+.feedback{min-height:1.5em;color:var(--accent-text)}
+.admin-nav{display:flex;gap:.35rem;overflow:auto;padding:1rem 0;border-bottom:1px solid var(--line)}
+.admin-nav button{white-space:nowrap;border:0}
+.admin-nav button.is-active{background:var(--ink);color:var(--paper)}
+.admin-nav span{color:var(--accent-text)}
+.admin-panel{display:none;padding:2.5rem 0}
+.admin-panel.is-active{display:block}
+.section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:2rem}
+.toolbar{align-items:center}
+.toolbar input,.toolbar select{min-width:220px}
+.draft-card,.admin-link,.publication-card,.published-card{border-top:1px solid var(--line);padding:1.35rem 0}
+.draft-card{display:grid;grid-template-columns:auto minmax(0,1fr);gap:1rem}
+.draft-card.is-filtered{display:none}
+.draft-select{width:1.2rem;height:1.2rem;margin-top:.4rem}
+.draft-grid,.published-grid{display:grid;grid-template-columns:2fr 1fr;gap:.8rem}
+.draft-grid label,.published-grid label,.edition-form label{display:grid;gap:.4rem;color:var(--muted);font-size:.78rem}
+.draft-grid label.wide,.published-grid label.wide{grid-column:1/-1}
+.draft-url,.admin-link p{overflow-wrap:anywhere;color:var(--muted);font-size:.8rem}
+.card-actions{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1rem}
+.missing{color:var(--warn);font-size:.78rem}
+.complete{color:var(--ok);font-size:.78rem}
+.edition-form{display:grid;gap:1rem;max-width:900px}
+.field-row{display:grid;grid-template-columns:1fr 2fr;gap:1rem}
+input,select,textarea{width:100%;border:1px solid var(--line);border-radius:.25rem;background:#fff;color:var(--ink);padding:.72rem}
+::placeholder{color:#5f5b55;opacity:1}
+.selection-summary{padding:1rem;border:1px solid var(--line);color:var(--muted)}
+.submission-status{padding:1rem;border-top:1px solid var(--line)}
+.publication-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem}
+.publication-detail{grid-column:1/-1;max-width:760px}
+.publication-copy{margin:.65rem 0 0;color:var(--muted);line-height:1.55}
+.publication-error{color:var(--error)}
+.publication-links{display:flex;flex-wrap:wrap;gap:.5rem;margin:.8rem 0 0}
+.publication-links a{padding:.45rem .65rem;font-size:.75rem}
+.publication-progress{margin-top:.85rem}
+.progress-track{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.35rem}
+.progress-segment{position:relative;height:.4rem;overflow:hidden;border-radius:1rem;background:#ded9d0}
+.progress-segment.is-complete{background:var(--ok)}
+.progress-segment.is-active{background:#f0c8be}
+.progress-segment.is-active::after{position:absolute;inset:0;width:45%;border-radius:inherit;background:var(--accent);content:"";animation:progress-scan 1.2s cubic-bezier(.22,1,.36,1) infinite}
+.progress-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.35rem;margin-top:.45rem;color:var(--muted);font-size:.68rem}
+.progress-step{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.progress-step.is-complete{color:var(--ok)}
+.progress-step.is-current{color:var(--ink);font-weight:700}
+.status{display:inline-block;padding:.25rem .5rem;border-radius:2rem;background:#e7e2d8;font-size:.72rem}
+.status-live{background:#d6eddf;color:var(--ok)}
+.status-failed{background:#f5d6cf;color:var(--error)}
+.published-card h3,.admin-link h3,.publication-card h3{margin:.2rem 0;font-family:Arial,Helvetica,sans-serif;font-size:1.5rem}
+.admin-link{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2rem}
+.empty,.loading{padding:2rem 0;color:var(--muted)}
+.is-hidden{display:none!important}
+@keyframes progress-scan{from{transform:translateX(-110%)}to{transform:translateX(225%)}}
+@media(max-width:760px){header,.section-heading,.publication-card,.admin-link{display:grid;grid-template-columns:1fr}.draft-grid,.published-grid,.field-row{grid-template-columns:1fr}.header-actions{margin-top:0}.toolbar input,.toolbar select{min-width:0}.progress-steps{font-size:.62rem}}
+@media(prefers-reduced-motion:reduce){.progress-segment.is-active::after{width:100%;animation:none;opacity:.72}}
 `;
 
 export const adminJs = `
@@ -138,7 +206,7 @@ const api=async(path,options={})=>{
   const response=await fetch(path,{credentials:"same-origin",...options,headers:{Accept:"application/json",...(options.body?{"Content-Type":"application/json"}:{}),...(options.headers||{})}});
   if(response.status===401||response.status===403){location.assign("/admin");throw new Error("AUTHENTICATION_REQUIRED")}
   const data=await response.json().catch(()=>({}));
-  if(!response.ok){const error=new Error(data.error||"ADMIN_OPERATION_FAILED");error.details=data.details;throw error}
+  if(!response.ok){const error=new Error(data.error||"ADMIN_OPERATION_FAILED");error.details=data.details;error.status=response.status;throw error}
   return data;
 };
 document.querySelector("#admin-login")?.addEventListener("click",async(event)=>{
@@ -209,6 +277,8 @@ const updateSelection=()=>{
   if(selectAll){selectAll.disabled=!drafts.length;selectAll.setAttribute("aria-pressed",String(allSelected));selectAll.textContent=allSelected?"Tout désélectionner":"Tout sélectionner"}
   const summary=document.querySelector("#publication-selection");
   if(summary)summary.textContent=selected.size?selected.size+" lien"+(selected.size>1?"s":"")+" sélectionné"+(selected.size>1?"s":"")+".":"Aucun lien sélectionné.";
+  const submit=document.querySelector("#submit-publication");
+  if(submit){submit.disabled=!selected.size||submit.dataset.busy==="true";submit.textContent=selected.size===1?"Publier le lien":selected.size>1?"Publier les "+selected.size+" liens":"Publier les liens"}
 };
 document.querySelector("#select-all-drafts")?.addEventListener("click",()=>{
   const allSelected=drafts.length>0&&drafts.every((draft)=>selected.has(draft.id));
@@ -216,27 +286,94 @@ document.querySelector("#select-all-drafts")?.addEventListener("click",()=>{
   renderDrafts();
 });
 
-const publicationPayload=()=>{
-  const form=new FormData(document.querySelector("#publication-form"));
-  return {requestId:crypto.randomUUID(),draftIds:[...selected],digestDate:String(form.get("digestDate")||""),title:String(form.get("title")||""),introduction:String(form.get("introduction")||""),seoDescription:String(form.get("seoDescription")||"")};
+const activePublicationStates=new Set(["committing","validating","deploying"]);
+const publicationStages={committing:1,validating:2,deploying:3,live:4};
+const publicationStepLabels=["Préparation","Validation","Déploiement","En ligne"];
+const publicationStateLabels={committing:"Préparation",validating:"Validation",deploying:"Déploiement",live:"En ligne",failed:"Échec"};
+const publicationStateCopy={committing:"Préparation du Digest…",validating:"Validation GitHub en cours…",deploying:"Déploiement en cours… Comptez généralement 3 à 4 minutes.",live:"Le Digest est en ligne.",failed:"Publication interrompue."};
+const publicationProgressMarkup=(item)=>{
+  if(item.state==="failed")return '<div class="publication-detail" role="status"><p class="publication-copy publication-error">'+esc(publicationStateCopy.failed)+(item.errorCode?' · '+esc(item.errorCode):'')+'</p></div>';
+  const stage=publicationStages[item.state]||1;
+  const segments=publicationStepLabels.map((label,index)=>{
+    const step=index+1;const state=step<stage||item.state==="live"?"is-complete":step===stage?"is-active":"";
+    return '<span class="progress-segment '+state+'" aria-hidden="true"></span>';
+  }).join("");
+  const labels=publicationStepLabels.map((label,index)=>{
+    const step=index+1;const state=step<stage||item.state==="live"?"is-complete":step===stage?"is-current":"";
+    return '<span class="progress-step '+state+'">'+esc(label)+'</span>';
+  }).join("");
+  return '<div class="publication-detail"><div class="publication-progress" role="progressbar" aria-label="Progression de la publication" aria-valuemin="1" aria-valuemax="4" aria-valuenow="'+stage+'" aria-valuetext="'+esc(publicationStateCopy[item.state]||item.state)+'"><div class="progress-track">'+segments+'</div><div class="progress-steps" aria-hidden="true">'+labels+'</div></div><p class="publication-copy">'+esc(publicationStateCopy[item.state]||item.state)+'</p></div>';
 };
-document.querySelector("#preview-publication")?.addEventListener("click",async(event)=>{
-  event.target.disabled=true;try{const data=await api("/api/admin/curation/publications/preview",{method:"POST",body:JSON.stringify(publicationPayload())});show("Lot valide : "+data.count+" liens, un commit, deux fichiers.")}catch(error){show("Lot invalide : "+error.message)}finally{event.target.disabled=false}
-});
-document.querySelector("#publication-form")?.addEventListener("submit",async(event)=>{
-  event.preventDefault();const button=event.submitter;button.disabled=true;
-  try{const payload=publicationPayload();payload.confirm=true;const data=await api("/api/admin/curation/publications",{method:"POST",body:JSON.stringify(payload)});show("Commit créé. Validation GitHub Actions en cours.");selected.clear();await Promise.all([loadDrafts(),loadPublications()]);openPanel("publications");pollPublication(data.publication.id)}
-  catch(error){show("Publication impossible : "+error.message)}finally{button.disabled=false}
-});
-const statusLabel={committing:"Commit en cours",validating:"Validation",deploying:"Déploiement",live:"En ligne",failed:"Échec"};
+const publicationLinksMarkup=(item)=>{
+  const links=[];
+  if(item.validateUrl)links.push('<a href="'+esc(item.validateUrl)+'" target="_blank" rel="noopener">Validation</a>');
+  if(item.deployUrl)links.push('<a href="'+esc(item.deployUrl)+'" target="_blank" rel="noopener">Déploiement</a>');
+  if(item.state==="live")links.push('<a href="/archives/'+encodeURIComponent(item.digestDate)+'/">Voir l’édition</a>');
+  return links.length?'<p class="publication-links">'+links.join("")+'</p>':"";
+};
 const renderPublications=(items)=>{
   const list=document.querySelector("#publication-list");if(!list)return;
   if(!items.length){list.innerHTML='<p class="empty">Aucune publication initiée depuis cet atelier.</p>';return}
-  list.innerHTML=items.map((item)=>'<article class="publication-card"><div><p class="kicker">'+esc(item.digestDate)+'</p><h3>'+esc(item.title)+'</h3><p class="draft-url">'+esc(item.commitSha||"Commit en préparation")+'</p><p>'+(item.validateUrl?'<a href="'+esc(item.validateUrl)+'" target="_blank" rel="noopener">Validation</a> ':'')+(item.deployUrl?'<a href="'+esc(item.deployUrl)+'" target="_blank" rel="noopener">Déploiement</a>':'')+'</p></div><div><span class="status status-'+esc(item.state)+'">'+esc(statusLabel[item.state]||item.state)+'</span>'+(["validating","deploying"].includes(item.state)?'<br><button type="button" data-refresh-publication="'+esc(item.id)+'">Actualiser</button>':'')+'</div></article>').join("");
+  const activeIndex=items.findIndex((item)=>activePublicationStates.has(item.state));
+  const detailedIndex=activeIndex>=0?activeIndex:0;
+  list.innerHTML=items.map((item,index)=>'<article class="publication-card"><div><p class="kicker">'+esc(item.digestDate)+'</p><h3>'+esc(item.title)+'</h3><p class="draft-url">'+esc(item.commitSha||"Commit en préparation")+'</p>'+publicationLinksMarkup(item)+'</div><div><span class="status status-'+esc(item.state)+'">'+esc(publicationStateLabels[item.state]||item.state)+'</span></div>'+(index===detailedIndex?publicationProgressMarkup(item):'')+'</article>').join("");
 };
-const loadPublications=async()=>{const data=await api("/api/admin/curation/publications");renderPublications(data.publications)};
-const pollPublication=async(id)=>{try{const data=await api("/api/admin/curation/publications/"+encodeURIComponent(id));await loadPublications();if(["validating","deploying"].includes(data.publication.state))setTimeout(()=>pollPublication(id),15000);else show(data.publication.state==="live"?"Le Digest est en ligne.":"La publication a échoué : "+(data.publication.errorCode||"erreur inconnue"))}catch(error){show("Suivi indisponible : "+error.message)}};
-document.querySelector("#publication-list")?.addEventListener("click",(event)=>{const button=event.target.closest("[data-refresh-publication]");if(button)pollPublication(button.dataset.refreshPublication)});
+const loadPublications=async()=>{const data=await api("/api/admin/curation/publications");renderPublications(data.publications);return data.publications};
+
+let publicationPollTimer=null;
+let publicationPollInFlight=false;
+let activePublicationId=null;
+let pendingPublicationRequestId=null;
+const announcedPublicationStates=new Map();
+const clearPublicationPolling=()=>{if(publicationPollTimer)clearTimeout(publicationPollTimer);publicationPollTimer=null;activePublicationId=null};
+const schedulePublicationPoll=(id)=>{if(publicationPollTimer)clearTimeout(publicationPollTimer);publicationPollTimer=setTimeout(()=>pollPublication(id),15000)};
+const announcePublicationState=(item)=>{
+  const previous=announcedPublicationStates.get(item.id);
+  announcedPublicationStates.set(item.id,item.state);
+  if(previous!==item.state)show(publicationStateCopy[item.state]+(item.state==="failed"&&item.errorCode?" "+item.errorCode:""));
+};
+const pollPublication=async(id)=>{
+  if(activePublicationId!==id||publicationPollInFlight)return;
+  if(publicationPollTimer)clearTimeout(publicationPollTimer);publicationPollTimer=null;publicationPollInFlight=true;
+  try{
+    const data=await api("/api/admin/curation/publications/"+encodeURIComponent(id));
+    await loadPublications();announcePublicationState(data.publication);
+    if(activePublicationStates.has(data.publication.state))schedulePublicationPoll(id);else clearPublicationPolling();
+  }catch(error){show("Suivi momentanément indisponible. Nouvelle tentative automatique…");if(activePublicationId===id)schedulePublicationPoll(id)}
+  finally{publicationPollInFlight=false}
+};
+const startPublicationPolling=(id,immediate=true)=>{
+  if(activePublicationId!==id){clearPublicationPolling();activePublicationId=id}
+  if(immediate)pollPublication(id);else schedulePublicationPoll(id);
+};
+const resumePublicationPolling=(items)=>{
+  const active=[...items].filter((item)=>activePublicationStates.has(item.state)).sort((left,right)=>String(right.createdAt||"").localeCompare(String(left.createdAt||"")))[0];
+  if(active)startPublicationPolling(active.id);else clearPublicationPolling();
+};
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"&&activePublicationId)pollPublication(activePublicationId)});
+
+const setSubmissionStatus=(state,message)=>{
+  const target=document.querySelector("#publication-submit-status");if(!target)return;
+  target.classList.remove("is-hidden");target.innerHTML='<strong>'+esc(message)+'</strong>'+publicationProgressMarkup({state});
+};
+const clearSubmissionStatus=()=>{const target=document.querySelector("#publication-submit-status");if(target){target.classList.add("is-hidden");target.innerHTML=""}};
+const publicationPayload=(requestId)=>{
+  const form=new FormData(document.querySelector("#publication-form"));
+  return {requestId,draftIds:[...selected],digestDate:String(form.get("digestDate")||""),title:String(form.get("title")||""),introduction:String(form.get("introduction")||""),seoDescription:String(form.get("seoDescription")||"")};
+};
+document.querySelector("#publication-form")?.addEventListener("submit",async(event)=>{
+  event.preventDefault();if(!selected.size)return;
+  const button=document.querySelector("#submit-publication");button.dataset.busy="true";updateSelection();
+  pendingPublicationRequestId=pendingPublicationRequestId||crypto.randomUUID();
+  setSubmissionStatus("committing","Contrôle et création du commit…");
+  try{
+    const payload=publicationPayload(pendingPublicationRequestId);payload.confirm=true;
+    const data=await api("/api/admin/curation/publications",{method:"POST",body:JSON.stringify(payload)});
+    pendingPublicationRequestId=null;announcedPublicationStates.set(data.publication.id,data.publication.state);selected.clear();
+    await Promise.all([loadDrafts(),loadPublications()]);openPanel("publications");clearSubmissionStatus();show("Commit créé. Validation GitHub en cours…");startPublicationPolling(data.publication.id);
+  }catch(error){if(error.status&&error.status<500)pendingPublicationRequestId=null;setSubmissionStatus("failed","Publication impossible : "+error.message);show("Publication impossible : "+error.message)}
+  finally{button.dataset.busy="false";updateSelection()}
+});
 
 const renderPublishedLinks=(links)=>{
   const target=document.querySelector("#published-links");
@@ -258,7 +395,7 @@ const initialize=async()=>{
   const today=new Date().toISOString().slice(0,10);document.querySelector("#publication-date").value=today;
   document.querySelector("#publication-title").value=new Intl.DateTimeFormat("fr-FR",{day:"numeric",month:"long",year:"numeric",timeZone:"Europe/Paris"}).format(new Date(today+"T12:00:00Z"));
   document.querySelector("#publication-date").addEventListener("change",(event)=>{document.querySelector("#publication-title").value=new Intl.DateTimeFormat("fr-FR",{day:"numeric",month:"long",year:"numeric",timeZone:"Europe/Paris"}).format(new Date(event.target.value+"T12:00:00Z"))});
-  try{options=await api("/api/admin/curation/options");await Promise.all([loadDrafts(),loadPublications(),loadEditions(),loadHidden()])}catch(error){show("Initialisation impossible : "+error.message)}
+  try{options=await api("/api/admin/curation/options");const results=await Promise.all([loadDrafts(),loadPublications(),loadEditions(),loadHidden()]);resumePublicationPolling(results[1])}catch(error){show("Initialisation impossible : "+error.message)}
 };
 initialize();
 `;

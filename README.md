@@ -157,10 +157,11 @@ fiches du Digest.
 
 ### Curation et extension Chrome
 
-Le service conserve les captures dans SQLite jusqu’à la composition explicite
-d’un Digest. La publication sélectionne un lot, crée sa page d’archive et met à
-jour `data/links.json` dans un seul commit. L’administration suit ensuite les
-workflows GitHub Actions et vérifie la présence de l’édition en production.
+Le service conserve les captures dans SQLite jusqu’à leur sélection explicite.
+Une seule action publie le lot : le serveur valide automatiquement les données,
+crée la page d’archive et met à jour `data/links.json` dans un commit idempotent.
+L’administration affiche ensuite une progression reprenable entre préparation,
+validation, déploiement et présence effective de l’édition en production.
 
 L’extension Manifest V3 se trouve dans `browser-extension/` :
 
@@ -178,6 +179,10 @@ empaquetée. L’origine Chrome Web Store de production est
 `CHROME_EXTENSION_ORIGINS` dans le fichier `.env` du service. La procédure
 Chrome Web Store et les textes de fiche sont documentés dans
 `browser-extension/CHROME_WEB_STORE.md`.
+
+Le dépôt impose les fins de ligne LF via `.gitattributes`. Après un passage de
+Windows à WSL, relancer `npm ci` dans chaque projet Node afin de réinstaller les
+binaires natifs pour la plateforme active au lieu de partager `node_modules`.
 
 Les brouillons utilisent le même fichier SQLite que Better Auth. Le script de
 déploiement crée une sauvegarde avant toute migration et en conserve quatorze.

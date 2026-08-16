@@ -228,22 +228,6 @@ export class CurationService {
     }
   }
 
-  async previewPublication(input: PublicationInput) {
-    const prepared = await this.preparePublication(input);
-    return {
-      digestDate: input.digestDate,
-      count: prepared.drafts.length,
-      categories: prepared.taxonomy.categories
-        .map((category) => ({
-          category,
-          count: prepared.drafts.filter((draft) => draft.category === category)
-            .length,
-        }))
-        .filter((item) => item.count > 0),
-      files: ["data/links.json", editionPath(input.digestDate)],
-    };
-  }
-
   private async preparePublication(input: PublicationInput) {
     if (!validDate(input.digestDate)) {
       throw new CurationError("INVALID_DIGEST_DATE");
