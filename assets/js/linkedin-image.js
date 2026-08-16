@@ -6,8 +6,10 @@
   const textField = document.querySelector("[data-linkedin-text]");
   const urlField = document.querySelector("[data-linkedin-url]");
   const accountField = document.querySelector("[data-linkedin-account]");
+  const hashtagsField = document.querySelector("[data-linkedin-hashtags]");
+  const tagsNote = document.querySelector("[data-linkedin-tags-note]");
   const confirmButton = document.querySelector("[data-linkedin-confirm]");
-  if (!button || !feedback || !composer || !form || !textField) return;
+  if (!button || !feedback || !composer || !form || !textField || !hashtagsField) return;
 
   const api = async (path, options) => {
     const response = await fetch(path, options);
@@ -49,12 +51,55 @@
     history.replaceState(null, "", window.location.pathname);
   }
 
-  const publicationData = () => ({
-    imageUrl: button.dataset.shareImage,
-    title: button.dataset.shareTitle || "Web Digest",
-    text: textField.value.trim(),
-    url: button.dataset.shareUrl || window.location.href,
-  });
+  const publicationData = () => {
+    const postText = textField.value.trim();
+    const hashtags = hashtagsField.value.trim();
+    return {
+      imageUrl: button.dataset.shareImage,
+      title: button.dataset.shareTitle || "Web Digest",
+      text: [postText, hashtags].filter(Boolean).join("\n\n"),
+      url: button.dataset.shareUrl || window.location.href,
+    };
+  };
+
+  const normalizeHashtag = (tag) => {
+    const parts = String(tag)
+      .replace(/^#+/, "")
+      .trim()
+      .split(/[^\p{L}\p{N}]+/u)
+      .filter(Boolean);
+    if (!parts.length) return "";
+    return parts
+      .map((part) =>
+        part === part.toUpperCase()
+          ? part
+          : part.charAt(0).toLocaleUpperCase("fr") + part.slice(1),
+      )
+      .join("");
+  };
+
+  const automaticHashtags = () => {
+    let tags = [];
+    try {
+      tags = JSON.parse(button.dataset.shareTags || "[]");
+    } catch {
+      return [];
+    }
+    const counts = new Map();
+    tags.forEach((tag, index) => {
+      const label = normalizeHashtag(tag);
+      if (!label) return;
+      const key = label.toLocaleLowerCase("fr");
+      const previous = counts.get(key);
+      counts.set(key, previous
+        ? { ...previous, count: previous.count + 1 }
+        : { label, count: 1, index });
+    });
+    return [...counts.values()]
+      .sort((left, right) => right.count - left.count || left.index - right.index)
+      .slice(0, 5)
+      .map(({ label }) => `#${label}`);
+  };
 
   document.querySelectorAll("[data-linkedin-cancel]").forEach((cancel) => {
     cancel.addEventListener("click", () => composer.close("cancel"));
@@ -64,9 +109,8 @@
   });
 
   button.addEventListener("click", async () => {
-    const { imageUrl, text, url } = {
+    const { imageUrl, url } = {
       imageUrl: button.dataset.shareImage,
-      text: button.dataset.shareText || "Une nouvelle édition du Web Digest.",
       url: button.dataset.shareUrl || window.location.href,
     };
     if (!imageUrl) return;
@@ -85,7 +129,14 @@
         connect();
         return;
       }
-      textField.value = text;
+      const hashtags = automaticHashtags();
+      textField.value = "";
+      hashtagsField.value = hashtags.join(" ");
+      if (tagsNote) {
+        tagsNote.textContent = hashtags.length
+          ? `${hashtags.length} hashtags issus des liens ont été ajoutés automatiquement. Ils restent modifiables.`
+          : "Aucun hashtag automatique pour cette édition.";
+      }
       urlField.textContent = url;
       accountField.textContent = `Publication sur le compte ${status.memberName}`;
       feedback.textContent = "Personnalisez le texte avant de confirmer.";

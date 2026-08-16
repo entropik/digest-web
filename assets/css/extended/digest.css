@@ -176,7 +176,8 @@ select {
   font-weight: 700;
 }
 
-.linkedin-composer-field textarea {
+.linkedin-composer-field textarea,
+.linkedin-composer-field input {
   width: 100%;
   resize: vertical;
   padding: 12px;
@@ -188,10 +189,15 @@ select {
 }
 
 .linkedin-composer-url,
-.linkedin-composer-account {
+.linkedin-composer-account,
+.linkedin-composer-tags-note {
   overflow-wrap: anywhere;
   color: var(--digest-muted);
   font-size: .72rem;
+}
+
+.linkedin-composer-tags-note {
+  margin: -10px 0 0;
 }
 
 .linkedin-composer-actions {

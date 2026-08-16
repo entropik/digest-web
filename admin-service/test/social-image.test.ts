@@ -93,13 +93,16 @@ test("archive pages expose a native LinkedIn publication with image, text and pe
   assert.match(layout, /data-linkedin-share/);
   assert.match(layout, /data-share-image/);
   assert.match(layout, /data-share-title="Web Digest — \{\{ \$\.Title \}\}"/);
-  assert.match(layout, /data-share-text="\{\{ \$\.Description \}\}"/);
+  assert.doesNotMatch(layout, /data-share-text=/);
+  assert.match(layout, /data-share-tags="\{\{ \$tags \| jsonify \}\}"/);
   assert.match(layout, /data-share-url="\{\{ \$\.Permalink \}\}"/);
   assert.match(layout, /Publier sur LinkedIn/);
   assert.doesNotMatch(layout, /linkedin\.com\/feed\/\?shareActive=true/);
   assert.match(layout, /data-linkedin-feedback/);
   assert.match(layout, /data-linkedin-composer/);
   assert.match(layout, /data-linkedin-text/);
+  assert.match(layout, /data-linkedin-tags-note/);
+  assert.match(layout, /data-linkedin-hashtags/);
   assert.match(layout, /Confirmer la publication/);
   assert.match(layout, /archive-social-visual/);
   assert.match(layout, /\.Params\.images/);
@@ -118,6 +121,10 @@ test("LinkedIn native publishing uses the authenticated server API", async () =>
   assert.match(script, /confirm: true/);
   assert.match(script, /composer\.showModal\(\)/);
   assert.match(script, /textField\.value\.trim\(\)/);
+  assert.match(script, /textField\.value = ""/);
+  assert.match(script, /hashtagsField\.value = hashtags\.join/);
+  assert.match(script, /automaticHashtags/);
+  assert.match(script, /\.slice\(0, 5\)/);
   assert.doesNotMatch(script, /window\.confirm/);
   assert.doesNotMatch(script, /navigator\.share/);
   assert.match(headPartial, /resources\.Get "js\/linkedin-image\.js"/);
