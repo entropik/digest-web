@@ -3,6 +3,33 @@ import test from "node:test";
 
 import { adminCss, adminJs, dashboardPage } from "../src/admin-assets.js";
 
+test("the admin uses the same browser icons as the public site", () => {
+  const page = dashboardPage("Marc");
+
+  assert.match(page, /<link rel="icon" href="\/favicon\.svg">/);
+  assert.match(
+    page,
+    /<link rel="icon" type="image\/png" sizes="16x16" href="\/favicon-16x16\.png">/,
+  );
+  assert.match(
+    page,
+    /<link rel="icon" type="image\/png" sizes="32x32" href="\/favicon-32x32\.png">/,
+  );
+  assert.match(
+    page,
+    /<link rel="apple-touch-icon" href="\/apple-touch-icon\.png">/,
+  );
+  assert.match(
+    page,
+    /<link rel="mask-icon" href="\/safari-pinned-tab\.svg">/,
+  );
+  assert.match(page, /<meta name="theme-color" content="#ff5c35">/);
+  assert.match(
+    page,
+    /<meta name="msapplication-TileColor" content="#ff5c35">/,
+  );
+});
+
 test("the private dashboard links to the unlisted Chrome extension", () => {
   const page = dashboardPage("Marc");
 
