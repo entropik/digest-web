@@ -105,13 +105,14 @@ const metadataInput = (
   const category = cleanText(body.category, 100);
   const description = cleanText(body.description, 1_200);
   const tags = cleanTags(body.tags);
+  const reactivate = body.reactivate === true;
   if (!title || !category || !description || !tags.length) {
     throw new CurationError("INCOMPLETE_LINK");
   }
   if (!taxonomy.categories.includes(category)) {
     throw new CurationError("INVALID_CATEGORY");
   }
-  return { url, title, category, description, tags };
+  return { url, title, category, description, tags, reactivate };
 };
 
 const editionPath = (date: string): string => `content/archives/${date}.md`;

@@ -26,13 +26,14 @@ test("published metadata correction preserves historical fields", () => {
     archive_url: "https://web.archive.org/web/20200101000000/https://example.com",
   };
   const mutation = changePublishedMetadata([original], original.id, {
-    url: "https://example.org/correction",
+    url: original.url,
     title: "Titre corrigé",
     category: "Médias & Veille",
     description: "Description corrigée",
     tags: ["archive"],
+    reactivate: false,
   });
-  assert.equal(mutation.link.url, "https://example.org/correction");
+  assert.equal(mutation.link.url, original.url);
   assert.equal(mutation.link.id, original.id);
   assert.equal(mutation.link.added, original.added);
   assert.equal(mutation.link.status, "dead");
@@ -47,6 +48,7 @@ test("published URL correction is included in change detection", () => {
     category: original.category,
     description: "",
     tags: [],
+    reactivate: false,
   });
   assert.equal(mutation.changed, true);
   assert.equal(mutation.link.url, "https://example.org");
@@ -63,9 +65,41 @@ test("published URL correction rejects a URL already in the catalog", () => {
         category: original.category,
         description: "",
         tags: [],
+        reactivate: false,
       }),
     /DUPLICATE_LINK_URL/,
   );
+});
+
+test("editorial revalidation removes every dead-link marker", () => {
+  const original: DigestLink = {
+    ...link(),
+    status: "dead",
+    status_note: "Conservé pour mémoire",
+    archive_url: "https://web.archive.org/web/20200101000000/https://example.com",
+    archive_status: "available",
+    archive_checked_at: "2026-08-01T12:00:00.000Z",
+    tags: ["design", "lien-mort", "archive"],
+  };
+  const mutation = changePublishedMetadata([original], original.id, {
+    url: original.url,
+    title: original.title,
+    category: original.category,
+    description: "",
+    tags: original.tags ?? [],
+    reactivate: true,
+  });
+
+  assert.equal(mutation.changed, true);
+  assert.equal(mutation.reactivated, true);
+  assert.equal(mutation.link.status, undefined);
+  assert.equal(mutation.link.status_note, undefined);
+  assert.equal(mutation.link.archive_url, undefined);
+  assert.equal(mutation.link.archive_status, undefined);
+  assert.equal(mutation.link.archive_checked_at, undefined);
+  assert.deepEqual(mutation.link.tags, ["design", "archive"]);
+  assert.equal(mutation.link.id, original.id);
+  assert.equal(mutation.link.added, original.added);
 });
 
 test("adding tags preserves existing tags and is idempotent", () => {
