@@ -99,6 +99,18 @@ test("archive pages expose a LinkedIn share action for their permalink", async (
   assert.match(layout, /height="627"/);
 });
 
+test("archive Open Graph images declare their large preview dimensions", async () => {
+  const template = await readFile(
+    new URL("../../layouts/partials/templates/opengraph.html", import.meta.url),
+    "utf8",
+  );
+  assert.match(template, /property="og:image:secure_url"/);
+  assert.match(template, /property="og:image:type" content="image\/png"/);
+  assert.match(template, /property="og:image:width" content="1200"/);
+  assert.match(template, /property="og:image:height" content="627"/);
+  assert.match(template, /property="og:image:alt"/);
+});
+
 test("the archive index uses social images as lazily loaded edition posters", async () => {
   const layout = await readFile(
     new URL("../../layouts/archives/list.html", import.meta.url),
