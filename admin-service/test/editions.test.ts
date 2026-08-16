@@ -9,6 +9,7 @@ test("edition serialization safely quotes front matter and round trips", () => {
     description: "IA & développement",
     introduction: "Une introduction.\n\nAvec deux paragraphes.",
   });
+  assert.match(source, /images:\n  - "\/social\/2026-07-27\.png"/);
   assert.deepEqual(parseEdition(source), {
     digestDate: "2026-07-27",
     title: 'Digest : "édition"',
@@ -16,4 +17,3 @@ test("edition serialization safely quotes front matter and round trips", () => {
     introduction: "Une introduction.\n\nAvec deux paragraphes.",
   });
 });
-

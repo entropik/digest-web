@@ -13,3 +13,5 @@ __pycache__/
 /browser-extension/.wxt/
 /browser-extension/node_modules/
 /.build-*/
+/.social-preview/
+/.social-archive-preview/

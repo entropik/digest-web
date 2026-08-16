@@ -46,6 +46,14 @@ type RepositoryHeadReader = {
   read: () => Promise<RepositoryHead>;
 };
 
+export const repositoryBlobBody = (content: string | Buffer) => {
+  const binary = Buffer.isBuffer(content);
+  return {
+    content: binary ? content.toString("base64") : content,
+    encoding: binary ? "base64" : "utf-8",
+  } as const;
+};
+
 const READ_CACHE_TTL_MS = 30_000;
 let cachedRepositoryHead:
   | { expiresAt: number; value: RepositoryHead }
@@ -266,14 +274,14 @@ export const listRepositoryDirectory = (
 export const commitRepositoryFiles = async (
   parentSha: string,
   treeSha: string,
-  files: Record<string, string>,
+  files: Record<string, string | Buffer>,
   message: string,
 ): Promise<string> => {
   const entries = [];
   for (const [path, content] of Object.entries(files)) {
     const blob = await request<GitHubBlob>(`${repositoryPath}/git/blobs`, {
       method: "POST",
-      body: JSON.stringify({ content, encoding: "utf-8" }),
+      body: JSON.stringify(repositoryBlobBody(content)),
     });
     entries.push({
       path,

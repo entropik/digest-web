@@ -9,6 +9,9 @@
     "backup": "node dist/src/backup.js",
     "migrate": "tsx src/migrate.ts",
     "preview": "npm run build && node scripts/preview-admin.mjs",
+    "social:archives": "tsx scripts/social-archive-preview.ts",
+    "social:backfill": "node --import tsx scripts/social-backfill.ts",
+    "social:preview": "tsx scripts/social-preview.ts",
     "start": "node dist/src/server.js",
     "test": "node --import tsx --test test/*.test.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
@@ -16,10 +19,12 @@
   "dependencies": {
     "@hono/node-server": "2.0.12",
     "@octokit/auth-app": "8.2.0",
+    "@resvg/resvg-js": "^2.6.2",
     "better-auth": "1.6.25",
     "better-sqlite3": "12.11.1",
     "dotenv": "17.2.3",
-    "hono": "4.12.32"
+    "hono": "4.12.32",
+    "sharp": "0.35.3"
   },
   "devDependencies": {
     "@types/better-sqlite3": "7.6.13",
