@@ -98,6 +98,9 @@ test("archive pages expose a native LinkedIn publication with image, text and pe
   assert.match(layout, /Publier sur LinkedIn/);
   assert.doesNotMatch(layout, /linkedin\.com\/feed\/\?shareActive=true/);
   assert.match(layout, /data-linkedin-feedback/);
+  assert.match(layout, /data-linkedin-composer/);
+  assert.match(layout, /data-linkedin-text/);
+  assert.match(layout, /Confirmer la publication/);
   assert.match(layout, /archive-social-visual/);
   assert.match(layout, /\.Params\.images/);
   assert.match(layout, /width="1200"/);
@@ -113,6 +116,9 @@ test("LinkedIn native publishing uses the authenticated server API", async () =>
   assert.match(script, /\/api\/admin\/linkedin\/connect\?returnTo=/);
   assert.match(script, /api\("\/api\/admin\/linkedin\/publish"/);
   assert.match(script, /confirm: true/);
+  assert.match(script, /composer\.showModal\(\)/);
+  assert.match(script, /textField\.value\.trim\(\)/);
+  assert.doesNotMatch(script, /window\.confirm/);
   assert.doesNotMatch(script, /navigator\.share/);
   assert.match(headPartial, /resources\.Get "js\/linkedin-image\.js"/);
   assert.match(headPartial, /\$linkedinImage\.RelPermalink/);
