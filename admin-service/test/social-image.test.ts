@@ -93,4 +93,8 @@ test("archive pages expose a LinkedIn share action for their permalink", async (
   assert.match(layout, /linkedin\.com\/sharing\/share-offsite/);
   assert.match(layout, /\.Permalink \| urlquery/);
   assert.match(layout, /Partager sur LinkedIn/);
+  assert.match(layout, /archive-social-visual/);
+  assert.match(layout, /\.Params\.images/);
+  assert.match(layout, /width="1200"/);
+  assert.match(layout, /height="627"/);
 });
