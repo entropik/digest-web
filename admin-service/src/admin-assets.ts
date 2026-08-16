@@ -212,6 +212,8 @@ input,select,textarea{width:100%;border:1px solid var(--line);border-radius:.25r
 export const adminJs = `
 const feedback=document.querySelector("#admin-feedback");
 const show=(message)=>{if(feedback)feedback.textContent=message||""};
+const linkedinReturn=sessionStorage.getItem("digest-linkedin-return");
+if(linkedinReturn&&document.querySelector("[data-panel]")){sessionStorage.removeItem("digest-linkedin-return");location.assign(linkedinReturn)}
 const esc=(value)=>String(value??"").replace(/[&<>"']/g,(character)=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[character]));
 const correctionErrorLabel=(code)=>({INVALID_URL:"Saisissez une URL complète.",UNSUPPORTED_SCHEME:"Utilisez une adresse HTTP ou HTTPS.",URL_CREDENTIALS:"Retirez les identifiants intégrés à l’URL.",PRIVATE_URL:"Cette adresse privée ou locale ne peut pas être publiée.",AUTHENTICATED_PAGE:"Une page d’administration ou de connexion ne peut pas être publiée.",SENSITIVE_QUERY:"Retirez les paramètres sensibles de l’URL.",DUPLICATE_LINK_URL:"Cette URL est déjà utilisée par un autre lien."}[code]||code);
 const api=async(path,options={})=>{

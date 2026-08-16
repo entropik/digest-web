@@ -98,6 +98,24 @@ Après avoir ajouté la permission `Actions: Read-only` à une GitHub App déjà
 installée, accepter la nouvelle permission dans les paramètres d’installation
 GitHub avant de redéployer le service.
 
+### Publication LinkedIn native
+
+Le bouton des pages d’archive publie un post LinkedIn natif avec le texte, le
+permalien et le PNG 1200 × 627. Il ne repose pas sur la miniature d’un partage
+de lien.
+
+Créer une application dans le portail LinkedIn Developers, puis activer les
+produits **Sign In with LinkedIn using OpenID Connect** et
+**Share on LinkedIn**. Déclarer exactement cette URL de redirection :
+
+`https://digest.ooblik.com/api/admin/linkedin/callback`
+
+Ajouter `LINKEDIN_CLIENT_ID` et `LINKEDIN_CLIENT_SECRET` au fichier
+`/home/digest/apps/digest-admin/shared/.env`, sans les enregistrer dans Git.
+Le premier clic sur « Publier sur LinkedIn » demande l’autorisation des scopes
+`openid profile w_member_social`. Le jeton obtenu est chiffré dans SQLite avec
+une clé dérivée de `BETTER_AUTH_SECRET` et n’est jamais envoyé au navigateur.
+
 #### Lectures GitHub et cache
 
 Une lecture froide du catalogue commence toujours par la référence fraîche de

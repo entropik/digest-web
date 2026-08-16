@@ -3,20 +3,45 @@
   const feedback = document.querySelector("[data-linkedin-feedback]");
   if (!button || !feedback) return;
 
-  const download = (url) => {
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = url.split("/").pop() || "digest-linkedin.png";
-    document.body.append(link);
-    link.click();
-    link.remove();
+  const api = async (path, options) => {
+    const response = await fetch(path, options);
+    const data = await response.json().catch(() => ({}));
+    if (response.status === 401) {
+      sessionStorage.setItem("digest-linkedin-return", window.location.pathname);
+      window.location.assign("/admin");
+      throw new Error("AUTHENTICATION_REQUIRED");
+    }
+    if (!response.ok) {
+      const error = new Error(data.error || "LINKEDIN_FAILED");
+      error.code = data.error;
+      throw error;
+    }
+    return data;
   };
 
-  const copyText = async (text) => {
-    if (!navigator.clipboard?.writeText) return false;
-    await navigator.clipboard.writeText(text);
-    return true;
+  const connect = () => {
+    const returnTo = encodeURIComponent(window.location.pathname);
+    window.location.assign(`/api/admin/linkedin/connect?returnTo=${returnTo}`);
   };
+
+  const showPost = (postUrl, alreadyPublished) => {
+    feedback.replaceChildren(
+      document.createTextNode(
+        alreadyPublished ? "Cette édition est déjà publiée. " : "Publié avec la grande image. ",
+      ),
+    );
+    const link = document.createElement("a");
+    link.href = postUrl;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = "Voir sur LinkedIn ↗";
+    feedback.append(link);
+  };
+
+  if (new URLSearchParams(window.location.search).get("linkedin") === "connected") {
+    feedback.textContent = "Compte LinkedIn connecté. Cliquez pour publier cette édition.";
+    history.replaceState(null, "", window.location.pathname);
+  }
 
   button.addEventListener("click", async () => {
     const imageUrl = button.dataset.shareImage;
@@ -25,40 +50,43 @@
     const url = button.dataset.shareUrl || window.location.href;
     if (!imageUrl) return;
     button.disabled = true;
-    feedback.textContent = "Préparation du texte, du lien et de la grande image…";
+    feedback.textContent = "Vérification du compte LinkedIn…";
 
     try {
-      const response = await fetch(imageUrl, { credentials: "same-origin" });
-      if (!response.ok) throw new Error("IMAGE_UNAVAILABLE");
-      const blob = await response.blob();
-      const filename = imageUrl.split("/").pop() || "digest-linkedin.png";
-      const file = new File([blob], filename, { type: "image/png" });
-      const files = [file];
-
-      if (navigator.share && navigator.canShare?.({ files })) {
-        await navigator.share({ title, text, url, files });
-        feedback.textContent = "Publication transmise avec son texte, son lien et sa grande image.";
+      const status = await api("/api/admin/linkedin/status");
+      if (!status.configured) {
+        feedback.textContent =
+          "L’application LinkedIn doit encore être configurée dans l’administration.";
         return;
       }
-
-      const copied = await copyText(`${title}\n${text}\n\n${url}`);
-      download(imageUrl);
-      feedback.textContent =
-        copied
-          ? "Image téléchargée et texte copié. Ouvrez LinkedIn, ajoutez l’image puis collez le texte."
-          : "Image téléchargée. Ouvrez LinkedIn, ajoutez-la puis copiez le texte et le lien de cette page.";
-    } catch (error) {
-      if (error?.name === "AbortError") {
-        feedback.textContent = "Partage annulé.";
-      } else {
-        const copied = await copyText(`${title}\n${text}\n\n${url}`).catch(() => false);
-        download(imageUrl);
-        feedback.textContent = copied
-          ? "Partage direct indisponible : image téléchargée et texte copié."
-          : "Partage direct indisponible : l’image a été téléchargée.";
+      if (!status.connected) {
+        connect();
+        return;
       }
+      if (!window.confirm(`Publier « ${title} » sur le compte LinkedIn ${status.memberName} ?`)) {
+        feedback.textContent = "Publication annulée.";
+        return;
+      }
+      feedback.textContent = "Téléversement de la grande image et publication…";
+      const publication = await api("/api/admin/linkedin/publish", {
+        method: "POST",
+        credentials: "same-origin",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title, text, url, imageUrl, confirm: true }),
+      });
+      showPost(publication.postUrl, publication.alreadyPublished);
+      button.textContent = "Publié sur LinkedIn";
+      button.disabled = true;
+    } catch (error) {
+      if (error?.message === "AUTHENTICATION_REQUIRED") return;
+      if (error?.code === "LINKEDIN_NOT_CONNECTED" || error?.code === "LINKEDIN_TOKEN_EXPIRED") {
+        connect();
+        return;
+      }
+      feedback.textContent =
+        "La publication LinkedIn a échoué. Aucun second post n’a été créé automatiquement.";
     } finally {
-      button.disabled = false;
+      if (button.textContent !== "Publié sur LinkedIn") button.disabled = false;
     }
   });
 })();

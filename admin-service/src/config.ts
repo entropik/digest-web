@@ -35,6 +35,14 @@ for (const origin of extensionOrigins) {
   }
 }
 
+const linkedinClientId = process.env.LINKEDIN_CLIENT_ID?.trim() || null;
+const linkedinClientSecret = process.env.LINKEDIN_CLIENT_SECRET?.trim() || null;
+if (!!linkedinClientId !== !!linkedinClientSecret) {
+  throw new Error(
+    "LINKEDIN_CLIENT_ID and LINKEDIN_CLIENT_SECRET must be configured together",
+  );
+}
+
 export const config = {
   nodeEnv: process.env.NODE_ENV ?? "development",
   port: positiveInteger("PORT", 3210),
@@ -54,6 +62,9 @@ export const config = {
   repositoryName: process.env.GITHUB_REPOSITORY_NAME?.trim() || "digest-web",
   repositoryBranch: process.env.GITHUB_REPOSITORY_BRANCH?.trim() || "main",
   adminGithubId: process.env.ADMIN_GITHUB_ID?.trim() || "1025402",
+  linkedinClientId,
+  linkedinClientSecret,
+  linkedinRedirectUri: `${base.origin}/api/admin/linkedin/callback`,
   extensionOrigins,
   allowedOrigins: [base.origin, ...extensionOrigins],
 } as const;
