@@ -321,6 +321,7 @@ const commitCatalogMutation = async (
     links: DigestLink[];
     link: DigestLink;
     changed: boolean;
+    reactivated?: boolean;
   },
   message: (link: DigestLink) => string,
 ) => {
@@ -332,6 +333,7 @@ const commitCatalogMutation = async (
         changed: false,
         commit: head.commitSha,
         link: publicAdminLink(result.link),
+        reactivated: result.reactivated ?? false,
       };
     }
     try {
@@ -345,6 +347,7 @@ const commitCatalogMutation = async (
         changed: true,
         commit,
         link: publicAdminLink(result.link),
+        reactivated: result.reactivated ?? false,
       };
     } catch (error) {
       if (

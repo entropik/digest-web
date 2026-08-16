@@ -129,3 +129,12 @@ test("published link correction exposes and submits an editable URL", () => {
   assert.match(adminJs, /DUPLICATE_LINK_URL:"Cette URL est déjà utilisée/);
   assert.match(adminJs, /L’identifiant et la date d’ajout ne changeront pas/);
 });
+
+test("dead links can be explicitly revalidated and report reactivation", () => {
+  assert.match(adminJs, /name="reactivate" type="checkbox" checked/);
+  assert.match(adminJs, /Retirer le statut « lien mort » et la marquer active/);
+  assert.match(adminJs, /reactivate:Boolean\(reactivateControl\?\.checked\)/);
+  assert.match(adminJs, /Lien corrigé et réactivé/);
+  assert.match(adminJs, /if\(data\.reactivated\)/);
+  assert.match(adminJs, /data\.link\.tags\.join\(", "\)/);
+});

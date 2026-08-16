@@ -17,6 +17,7 @@ export type CatalogMutation = {
   links: DigestLink[];
   link: DigestLink;
   changed: boolean;
+  reactivated?: boolean;
 };
 
 export const parseCatalog = (text: string): DigestLink[] => {
@@ -101,6 +102,7 @@ export type PublishedMetadata = {
   category: string;
   description: string;
   tags: string[];
+  reactivate: boolean;
 };
 
 export const addPublishedTags = (
@@ -143,6 +145,7 @@ export const changePublishedMetadata = (
     throw new Error("DUPLICATE_LINK_URL");
   }
   const current = links[index]!;
+  const reactivated = metadata.reactivate && current.status === "dead";
   const updated: DigestLink = {
     ...current,
     url: metadata.url,
@@ -151,16 +154,28 @@ export const changePublishedMetadata = (
     description: metadata.description,
     tags: [...metadata.tags],
   };
+  if (reactivated) {
+    delete updated.status;
+    delete updated.status_note;
+    delete updated.archive_url;
+    delete updated.archive_status;
+    delete updated.archive_checked_at;
+    updated.tags = updated.tags?.filter(
+      (tag) => tag.toLocaleLowerCase("fr") !== "lien-mort",
+    );
+  }
   const changed =
     current.url !== updated.url ||
     current.title !== updated.title ||
     current.category !== updated.category ||
     current.description !== updated.description ||
     JSON.stringify(current.tags ?? []) !== JSON.stringify(updated.tags);
-  if (!changed) return { links, link: current, changed: false };
+  if (!changed && !reactivated) {
+    return { links, link: current, changed: false, reactivated: false };
+  }
   const next = links.slice();
   next[index] = updated;
-  return { links: next, link: updated, changed: true };
+  return { links: next, link: updated, changed: true, reactivated };
 };
 
 export const publicAdminLink = (link: DigestLink) => ({
