@@ -9,6 +9,7 @@ chaque journée ayant produit une évolution du projet.
 | 25 juillet 2026 | [Exploration des tags et reprise de 2017](2026-07-25.md) | 10 | Tags, cache et éditions historiques |
 | 26 juillet 2026 | [Favoris locaux et nouvelles éditions](2026-07-26.md) | 4 | Favoris privés et restauration |
 | 27 juillet 2026 | [Administration et curation depuis Chrome](2026-07-27.md) | 15 | Admin, extension, publication et Web Store |
+| 16 août 2026 | [Publication progressive et environnement WSL](2026-08-16.md) | 1 | Publication en une action, suivi et normalisation Git |
 
 ## Provenance
 
