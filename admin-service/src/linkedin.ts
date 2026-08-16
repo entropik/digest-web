@@ -23,6 +23,7 @@ export type LinkedInErrorCode =
   | "LINKEDIN_IMAGE_UNAVAILABLE"
   | "LINKEDIN_UPLOAD_FAILED"
   | "LINKEDIN_PUBLICATION_FAILED"
+  | "LINKEDIN_INVALID_CONFIGURATION"
   | "LINKEDIN_INVALID_PUBLICATION";
 
 export class LinkedInError extends Error {
@@ -50,6 +51,11 @@ type PublicationInput = {
   text: string;
   url: string;
   imageUrl: string;
+};
+
+type AppCredentials = {
+  clientId: string;
+  clientSecret: string;
 };
 
 const json = async <T>(response: Response, code: LinkedInErrorCode): Promise<T> => {
@@ -128,6 +134,13 @@ export class LinkedInService {
         created_at INTEGER NOT NULL,
         updated_at INTEGER NOT NULL
       );
+      CREATE TABLE IF NOT EXISTS linkedin_app_credentials (
+        admin_user_id TEXT PRIMARY KEY,
+        client_id TEXT NOT NULL,
+        encrypted_client_secret TEXT NOT NULL,
+        created_at INTEGER NOT NULL,
+        updated_at INTEGER NOT NULL
+      );
       CREATE TABLE IF NOT EXISTS linkedin_publications (
         archive_url TEXT PRIMARY KEY,
         post_urn TEXT NOT NULL,
@@ -137,23 +150,58 @@ export class LinkedInService {
     `);
   }
 
-  get configured(): boolean {
-    return !!config.linkedinClientId && !!config.linkedinClientSecret;
-  }
-
   status(adminUserId: string) {
     const connection = this.connection(adminUserId);
     const connected = !!connection && connection.expires_at > Date.now();
     return {
-      configured: this.configured,
+      configured: !!this.credentials(adminUserId),
       connected,
       memberName: connected ? connection.member_name : null,
       expiresAt: connected ? new Date(connection.expires_at).toISOString() : null,
     };
   }
 
+  configure(adminUserId: string, clientId: string, clientSecret: string) {
+    const normalizedClientId = clientId.trim();
+    const normalizedClientSecret = clientSecret.trim();
+    if (
+      !/^[a-zA-Z0-9_-]{6,200}$/.test(normalizedClientId) ||
+      normalizedClientSecret.length < 12 ||
+      normalizedClientSecret.length > 500
+    ) {
+      throw new LinkedInError("LINKEDIN_INVALID_CONFIGURATION", 400);
+    }
+    const now = Date.now();
+    this.database.transaction(() => {
+      this.database
+        .prepare(
+          `INSERT INTO linkedin_app_credentials
+             (admin_user_id, client_id, encrypted_client_secret, created_at, updated_at)
+           VALUES (?, ?, ?, ?, ?)
+           ON CONFLICT(admin_user_id) DO UPDATE SET
+             client_id = excluded.client_id,
+             encrypted_client_secret = excluded.encrypted_client_secret,
+             updated_at = excluded.updated_at`,
+        )
+        .run(
+          adminUserId,
+          normalizedClientId,
+          encrypt(normalizedClientSecret),
+          now,
+          now,
+        );
+      this.database
+        .prepare("DELETE FROM linkedin_connections WHERE admin_user_id = ?")
+        .run(adminUserId);
+      this.database
+        .prepare("DELETE FROM linkedin_oauth_states WHERE admin_user_id = ?")
+        .run(adminUserId);
+    })();
+    return { configured: true, connected: false };
+  }
+
   authorizationUrl(adminUserId: string, requestedReturnTo?: string): string {
-    this.requireConfiguration();
+    const credentials = this.requireConfiguration(adminUserId);
     const state = randomBytes(32).toString("base64url");
     const returnTo = safeReturnTo(requestedReturnTo);
     const expiresAt = Date.now() + STATE_LIFETIME_MS;
@@ -170,7 +218,7 @@ export class LinkedInService {
 
     const url = new URL(LINKEDIN_AUTHORIZE_URL);
     url.searchParams.set("response_type", "code");
-    url.searchParams.set("client_id", config.linkedinClientId!);
+    url.searchParams.set("client_id", credentials.clientId);
     url.searchParams.set("redirect_uri", config.linkedinRedirectUri);
     url.searchParams.set("state", state);
     url.searchParams.set("scope", "openid profile w_member_social");
@@ -182,7 +230,7 @@ export class LinkedInService {
     state: string,
     code: string,
   ): Promise<string> {
-    this.requireConfiguration();
+    const credentials = this.requireConfiguration(adminUserId);
     const row = this.database
       .prepare(
         `DELETE FROM linkedin_oauth_states
@@ -203,8 +251,8 @@ export class LinkedInService {
         grant_type: "authorization_code",
         code,
         redirect_uri: config.linkedinRedirectUri,
-        client_id: config.linkedinClientId!,
-        client_secret: config.linkedinClientSecret!,
+        client_id: credentials.clientId,
+        client_secret: credentials.clientSecret,
       }),
     });
     const token = await json<{ access_token: string; expires_in: number }>(
@@ -249,7 +297,7 @@ export class LinkedInService {
   }
 
   async publish(adminUserId: string, input: PublicationInput) {
-    this.requireConfiguration();
+    this.requireConfiguration(adminUserId);
     const validated = this.validatePublication(input);
     const previous = this.database
       .prepare("SELECT post_urn FROM linkedin_publications WHERE archive_url = ?")
@@ -401,10 +449,35 @@ export class LinkedInService {
       .get(adminUserId) as ConnectionRow | undefined;
   }
 
-  private requireConfiguration(): void {
-    if (!this.configured) {
+  private credentials(adminUserId: string): AppCredentials | null {
+    const row = this.database
+      .prepare(
+        `SELECT client_id, encrypted_client_secret
+         FROM linkedin_app_credentials WHERE admin_user_id = ?`,
+      )
+      .get(adminUserId) as
+      | { client_id: string; encrypted_client_secret: string }
+      | undefined;
+    if (row) {
+      return {
+        clientId: row.client_id,
+        clientSecret: decrypt(row.encrypted_client_secret),
+      };
+    }
+    return config.linkedinClientId && config.linkedinClientSecret
+      ? {
+          clientId: config.linkedinClientId,
+          clientSecret: config.linkedinClientSecret,
+        }
+      : null;
+  }
+
+  private requireConfiguration(adminUserId: string): AppCredentials {
+    const credentials = this.credentials(adminUserId);
+    if (!credentials) {
       throw new LinkedInError("LINKEDIN_NOT_CONFIGURED", 503);
     }
+    return credentials;
   }
 
   private validatePublication(input: PublicationInput): PublicationInput {

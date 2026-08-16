@@ -198,6 +198,22 @@ app.get("/api/admin/linkedin/status", (context) =>
   handle(context, () => linkedin.status(context.get("admin").user.id)),
 );
 
+app.post("/api/admin/linkedin/configure", async (context) =>
+  handle(context, async () => {
+    const body = await jsonBody<{
+      clientId: string;
+      clientSecret: string;
+      confirm?: boolean;
+    }>(context);
+    requireConfirmation(body);
+    return linkedin.configure(
+      context.get("admin").user.id,
+      body.clientId,
+      body.clientSecret,
+    );
+  }),
+);
+
 app.get("/api/admin/linkedin/connect", (context) => {
   try {
     const url = linkedin.authorizationUrl(

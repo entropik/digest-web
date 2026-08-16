@@ -46,6 +46,15 @@ test("publication wording uses Publier throughout the dashboard", () => {
   assert.equal((page.match(/Publier/g) ?? []).length, 3);
 });
 
+test("LinkedIn credentials can be configured without server access", () => {
+  const page = dashboardPage("Marc");
+  assert.match(page, /data-panel-button="linkedin"/);
+  assert.match(page, /id="linkedin-config-form"/);
+  assert.match(page, /name="clientSecret" type="password"/);
+  assert.match(adminJs, /\/api\/admin\/linkedin\/configure/);
+  assert.match(page, /Connecter mon compte LinkedIn/);
+});
+
 test("draft toolbar exposes an accessible select-all toggle", () => {
   const page = dashboardPage("Marc");
 

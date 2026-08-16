@@ -110,8 +110,12 @@ produits **Sign In with LinkedIn using OpenID Connect** et
 
 `https://digest.ooblik.com/api/admin/linkedin/callback`
 
-Ajouter `LINKEDIN_CLIENT_ID` et `LINKEDIN_CLIENT_SECRET` au fichier
-`/home/digest/apps/digest-admin/shared/.env`, sans les enregistrer dans Git.
+Le propriétaire peut saisir le Client ID et le Client Secret directement dans
+l’onglet **LinkedIn** de `/admin`. Ils sont chiffrés dans SQLite et le secret
+n’est jamais renvoyé au navigateur. Les variables `LINKEDIN_CLIENT_ID` et
+`LINKEDIN_CLIENT_SECRET` dans `/home/digest/apps/digest-admin/shared/.env`
+restent disponibles comme configuration de secours, sans les enregistrer dans
+Git.
 Le premier clic sur « Publier sur LinkedIn » demande l’autorisation des scopes
 `openid profile w_member_social`. Le jeton obtenu est chiffré dans SQLite avec
 une clé dérivée de `BETTER_AUTH_SECRET` et n’est jamais envoyé au navigateur.
