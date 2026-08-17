@@ -194,6 +194,7 @@ run_failure_case() {
   delete_line="$(grep -n 'pm2 delete' "$log" | head -n 1 | cut -d: -f1)"
   backup_line="$(grep -n 'npm run --silent backup' "$log" | head -n 1 | cut -d: -f1)"
   test "$delete_line" -lt "$backup_line"
+  grep -q 'pm2 save --force' "$log"
 }
 
 run_failure_case migration

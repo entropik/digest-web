@@ -14,14 +14,14 @@ flock -n 9 || exit 0
 
 stop_admin() {
   if pm2 delete digest-admin >/dev/null 2>&1; then
-    pm2 save
+    pm2 save --force
     return
   fi
   if ! pid="$(pm2 pid digest-admin 2>/dev/null)"; then
     return 1
   fi
   case "$pid" in
-    ""|0) pm2 save ;;
+    ""|0) pm2 save --force ;;
     *) return 1 ;;
   esac
 }
