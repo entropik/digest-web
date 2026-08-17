@@ -7,7 +7,7 @@ import {
   type OutgoingHttpHeaders,
   type ServerResponse,
 } from "node:http";
-import { connect as createSocket } from "node:net";
+import { connect as createSocket, type Socket } from "node:net";
 import type { Duplex } from "node:stream";
 import { isPrivateHost } from "./urls.js";
 
@@ -127,6 +127,18 @@ const connectTarget = (authority: string | undefined): URL | null => {
   }
 };
 
+export const destroyUpstreamOnClientDisconnect = (
+  client: Duplex,
+  upstream: Socket,
+): void => {
+  const destroyUpstream = () => upstream.destroy();
+  client.once("error", destroyUpstream);
+  client.once("close", destroyUpstream);
+  client.once("end", destroyUpstream);
+  if (client.destroyed) destroyUpstream();
+  else client.resume();
+};
+
 const handleConnect = async (
   addressBook: PinnedAddressBook,
   request: IncomingMessage,
@@ -152,7 +164,7 @@ const handleConnect = async (
       client.pipe(upstream);
     });
     upstream.once("error", () => client.destroy());
-    client.once("error", () => upstream.destroy());
+    destroyUpstreamOnClientDisconnect(client, upstream);
   } catch {
     client.destroy();
   }
@@ -166,8 +178,13 @@ export type PinnedBrowserProxy = {
 export const startPinnedBrowserProxy = async (
   addressBook: PinnedAddressBook,
 ): Promise<PinnedBrowserProxy> => {
+  const clients = new Set<Socket>();
   const server = createServer((request, response) => {
     void handleHttp(addressBook, request, response);
+  });
+  server.on("connection", (socket) => {
+    clients.add(socket);
+    socket.once("close", () => clients.delete(socket));
   });
   server.on("connect", (request, socket, head) => {
     void handleConnect(addressBook, request, socket, head);
@@ -184,9 +201,13 @@ export const startPinnedBrowserProxy = async (
   }
   return {
     url: `http://127.0.0.1:${address.port}`,
-    close: async () => {
-      server.close();
-      await once(server, "close");
-    },
+    close: () =>
+      new Promise<void>((resolve, reject) => {
+        server.close((error) => {
+          if (error) reject(error);
+          else resolve();
+        });
+        clients.forEach((socket) => socket.destroy());
+      }),
   };
 };
