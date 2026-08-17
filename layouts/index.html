@@ -13,6 +13,25 @@
 {{ end }}
 {{ $categories = uniq $categories | sort }}
 {{ $initialLinks := first 51 $links }}
+{{ $pageCount := div (add (len $links) 50) 51 }}
+{{ $compactIndex := slice }}
+{{ range $links }}
+  {{ $entry := dict
+    "i" .id
+    "t" .title
+    "u" .url
+    "c" .category
+    "d" (.description | default "")
+    "g" (.tags | default (slice))
+    "a" .added
+  }}
+  {{ with .status }}{{ $entry = merge $entry (dict "s" .) }}{{ end }}
+  {{ with .status_note }}{{ $entry = merge $entry (dict "n" .) }}{{ end }}
+  {{ with .archive_url }}{{ $entry = merge $entry (dict "r" .) }}{{ end }}
+  {{ with .archive_scope }}{{ $entry = merge $entry (dict "o" .) }}{{ end }}
+  {{ $compactIndex = $compactIndex | append $entry }}
+{{ end }}
+{{ $digestIndex := resources.FromString "data/digest-index.json" ($compactIndex | jsonify) | minify | fingerprint }}
 
 <section class="digest-hero">
   <p class="digest-kicker">Veille personnelle</p>
@@ -74,15 +93,15 @@
   </div>
 </section>
 
-<section class="digest-grid" id="digest-grid" aria-live="polite">
+<section
+  class="digest-grid"
+  id="digest-grid"
+  aria-live="polite"
+  data-index-url="{{ $digestIndex.RelPermalink }}">
   {{ range $index, $link := $initialLinks }}
     {{ $host := urls.Parse $link.url }}
-    {{ $searchTags := "" }}
-    {{ with $link.tags }}{{ $searchTags = delimit . " " }}{{ end }}
     <article
-      class="digest-card{{ if eq ($link.status | default "") "dead" }} is-dead{{ end }}"
-      data-category="{{ $link.category | urlize }}"
-      data-search="{{ lower (printf "%s %s %s %s %s %s %s %s" $link.title $link.category $host.Host $link.url ($link.description | default "") $searchTags ($link.status | default "") ($link.status_note | default "")) }}">
+      class="digest-card{{ if eq ($link.status | default "") "dead" }} is-dead{{ end }}">
       <button
         class="digest-card-trigger"
         type="button"
@@ -114,15 +133,21 @@
           <time datetime="{{ $link.added }}">{{ time.Format "02 Jan 2006" $link.added }}</time>
         </div>
       </button>
+      <button
+        class="digest-favorite"
+        type="button"
+        data-favorite-url="{{ $link.url }}"
+        aria-pressed="false"
+        aria-label="Ajouter ce lien aux favoris">♡</button>
     </article>
   {{ end }}
 </section>
 
 <p class="digest-empty" id="digest-empty" hidden>Aucun lien ne correspond à cette recherche.</p>
 
-<nav class="digest-pagination" id="digest-pagination" aria-label="Pagination des liens" hidden>
-  <button id="digest-page-prev" type="button">← Précédent</button>
-  <span id="digest-page-status" aria-live="polite"></span>
+<nav class="digest-pagination" id="digest-pagination" aria-label="Pagination des liens"{{ if le $pageCount 1 }} hidden{{ end }}>
+  <button id="digest-page-prev" type="button" disabled>← Précédent</button>
+  <span id="digest-page-status" aria-live="polite">Page 1 sur {{ $pageCount }} · {{ len $links }} liens</span>
   <button id="digest-page-next" type="button">Suivant →</button>
 </nav>
 
@@ -195,7 +220,6 @@
   id="digest-favicon-fallbacks"
   type="application/json"
   data-fallback-src="{{ $faviconFallback.RelPermalink }}">{{ hugo.Data.favicon_fallbacks | jsonify | safeHTML }}</script>
-<script id="digest-data" type="application/json">{{ $links | jsonify | safeHTML }}</script>
 {{ $digestScript := resources.Get "js/digest.js" | minify | fingerprint }}
 <script src="{{ $digestScript.RelPermalink }}" integrity="{{ $digestScript.Data.Integrity }}" defer></script>
 {{ end }}

@@ -30,13 +30,10 @@
       : rawFaviconFallbackHosts,
   );
   const faviconFallbackSrc = faviconFallbackData.dataset.fallbackSrc;
-  const rawLinks = JSON.parse(document.querySelector("#digest-data").textContent);
-  const links = typeof rawLinks === "string" ? JSON.parse(rawLinks) : rawLinks;
-  const linkCountByDate = links.reduce((counts, link) => {
-    const dateKey = String(link.added || "").slice(0, 10);
-    if (dateKey) counts.set(dateKey, (counts.get(dateKey) || 0) + 1);
-    return counts;
-  }, new Map());
+  const indexUrl = grid.dataset.indexUrl;
+  let links = null;
+  let linksPromise = null;
+  let linkCountByDate = new Map();
   const modal = document.querySelector("#digest-modal");
   const modalClose = modal.querySelector(".digest-modal-close");
   const modalPrev = modal.querySelector(".digest-modal-prev");
@@ -82,6 +79,61 @@
     1,
     Number.parseInt(new URL(window.location.href).searchParams.get("page"), 10) || 1,
   );
+
+  const decodeLink = (entry) => ({
+    id: entry.i,
+    title: entry.t,
+    url: entry.u,
+    category: entry.c,
+    description: entry.d || "",
+    tags: entry.g || [],
+    added: entry.a,
+    status: entry.s || "",
+    status_note: entry.n || "",
+    archive_url: entry.r || "",
+    archive_scope: entry.o || "",
+  });
+
+  const loadLinks = () => {
+    if (links) return Promise.resolve(links);
+    if (!linksPromise) {
+      linksPromise = fetch(indexUrl, {
+        credentials: "same-origin",
+        headers: { Accept: "application/json" },
+      })
+        .then((response) => {
+          if (!response.ok) throw new Error(`INDEX_${response.status}`);
+          return response.json();
+        })
+        .then((entries) => {
+          if (!Array.isArray(entries)) throw new Error("INDEX_INVALID");
+          links = entries.map(decodeLink);
+          linkCountByDate = links.reduce((counts, link) => {
+            const dateKey = String(link.added || "").slice(0, 10);
+            if (dateKey) counts.set(dateKey, (counts.get(dateKey) || 0) + 1);
+            return counts;
+          }, new Map());
+          return links;
+        })
+        .catch((error) => {
+          linksPromise = null;
+          throw error;
+        });
+    }
+    return linksPromise;
+  };
+
+  const withLinks = async (task) => {
+    try {
+      await loadLinks();
+      return task();
+    } catch {
+      empty.textContent =
+        "L’index de recherche n’a pas pu être chargé. Réessaie dans un instant.";
+      empty.hidden = false;
+      return undefined;
+    }
+  };
 
   try {
     const storedFavorites = JSON.parse(localStorage.getItem(FAVORITES_STORAGE_KEY) || "[]");
@@ -396,25 +448,29 @@
   filters.addEventListener("click", (event) => {
     const button = event.target.closest("button[data-category-label]");
     if (!button) return;
-    category = button.dataset.categoryLabel;
-    if (category === "favorites") {
-      search.value = "";
-      dateFilter.value = "";
-      dateValue.textContent = "cliquer sur le calendrier";
-      dateToggle.classList.remove("has-value");
-      closeCalendar();
-    }
-    currentPage = 1;
-    clearRandomSelection();
-    filters.querySelector(".is-active")?.classList.remove("is-active");
-    button.classList.add("is-active");
-    render({ urlMode: "replace" });
+    void withLinks(() => {
+      category = button.dataset.categoryLabel;
+      if (category === "favorites") {
+        search.value = "";
+        dateFilter.value = "";
+        dateValue.textContent = "cliquer sur le calendrier";
+        dateToggle.classList.remove("has-value");
+        closeCalendar();
+      }
+      currentPage = 1;
+      clearRandomSelection();
+      filters.querySelector(".is-active")?.classList.remove("is-active");
+      button.classList.add("is-active");
+      render({ urlMode: "replace" });
+    });
   });
 
   search.addEventListener("input", () => {
-    currentPage = 1;
-    clearRandomSelection();
-    render({ urlMode: "replace" });
+    void withLinks(() => {
+      currentPage = 1;
+      clearRandomSelection();
+      render({ urlMode: "replace" });
+    });
   });
 
   dateToggle.addEventListener("click", () => {
@@ -423,12 +479,13 @@
       closeCalendar();
       return;
     }
-
-    const referenceDate = dateFilter.value ? parseDateKey(dateFilter.value) : today;
-    calendarMonth = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), 1, 12);
-    renderCalendar();
-    calendar.hidden = false;
-    dateToggle.setAttribute("aria-expanded", "true");
+    void withLinks(() => {
+      const referenceDate = dateFilter.value ? parseDateKey(dateFilter.value) : today;
+      calendarMonth = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), 1, 12);
+      renderCalendar();
+      calendar.hidden = false;
+      dateToggle.setAttribute("aria-expanded", "true");
+    });
   });
 
   calendarPrev.addEventListener("click", () => {
@@ -470,33 +527,39 @@
   calendarToday.addEventListener("click", () => selectDate(toDateKey(today)));
 
   randomButton.addEventListener("click", () => {
-    const candidates = getFilteredLinks();
-    currentPage = 1;
-    if (candidates.length === 0) {
-      clearRandomSelection();
-      render({ urlMode: "replace" });
-      return;
-    }
+    void withLinks(() => {
+      const candidates = getFilteredLinks();
+      currentPage = 1;
+      if (candidates.length === 0) {
+        clearRandomSelection();
+        render({ urlMode: "replace" });
+        return;
+      }
 
-    const alternatives =
-      candidates.length > 1
-        ? candidates.filter((link) => link.url !== randomLinkUrl)
-        : candidates;
-    randomLinkUrl = alternatives[Math.floor(Math.random() * alternatives.length)].url;
-    randomButton.classList.add("is-active");
-    randomButton.setAttribute("aria-pressed", "true");
-    render({ urlMode: "replace", scroll: true });
+      const alternatives =
+        candidates.length > 1
+          ? candidates.filter((link) => link.url !== randomLinkUrl)
+          : candidates;
+      randomLinkUrl = alternatives[Math.floor(Math.random() * alternatives.length)].url;
+      randomButton.classList.add("is-active");
+      randomButton.setAttribute("aria-pressed", "true");
+      render({ urlMode: "replace", scroll: true });
+    });
   });
 
   pagePrev.addEventListener("click", () => {
     if (currentPage === 1) return;
-    currentPage -= 1;
-    render({ urlMode: "push", scroll: true });
+    void withLinks(() => {
+      currentPage -= 1;
+      render({ urlMode: "push", scroll: true });
+    });
   });
 
   pageNext.addEventListener("click", () => {
-    currentPage += 1;
-    render({ urlMode: "push", scroll: true });
+    void withLinks(() => {
+      currentPage += 1;
+      render({ urlMode: "push", scroll: true });
+    });
   });
 
   window.addEventListener("popstate", () => {
@@ -504,7 +567,7 @@
       1,
       Number.parseInt(new URL(window.location.href).searchParams.get("page"), 10) || 1,
     );
-    render();
+    void withLinks(() => render());
   });
 
   const renderModalLink = (link) => {
@@ -590,17 +653,18 @@
 
     const trigger = event.target.closest(".digest-card-trigger");
     if (!trigger) return;
+    void withLinks(() => {
+      const { displayedLinks } = getDisplayState();
+      modalNavigationLinks = displayedLinks;
+      modalNavigationIndex = displayedLinks.findIndex(
+        (link) => link.id === trigger.dataset.id,
+      );
+      if (modalNavigationIndex < 0) return;
 
-    const { displayedLinks } = getDisplayState();
-    modalNavigationLinks = displayedLinks;
-    modalNavigationIndex = displayedLinks.findIndex(
-      (link) => link.id === trigger.dataset.id,
-    );
-    if (modalNavigationIndex < 0) return;
-
-    renderModalLink(modalNavigationLinks[modalNavigationIndex]);
-    modal.showModal();
-    document.body.classList.add("digest-modal-open");
+      renderModalLink(modalNavigationLinks[modalNavigationIndex]);
+      modal.showModal();
+      document.body.classList.add("digest-modal-open");
+    });
   });
 
   modalPrev.addEventListener("click", () => moveModal(-1));
@@ -778,5 +842,5 @@
   refreshFavoriteControls();
   refreshAdminSession();
   randomButton.setAttribute("aria-pressed", "false");
-  render({ urlMode: "replace" });
+  if (currentPage > 1) void withLinks(() => render({ urlMode: "replace" }));
 })();

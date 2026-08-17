@@ -170,6 +170,27 @@ test("link icons never disclose catalog URLs to a third party", async () => {
   assert.match(layout, /data-fallback-src=/);
 });
 
+test("the home loads its compact search index only when interaction needs it", async () => {
+  const [layout, script] = await Promise.all([
+    readFile(new URL("../../layouts/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../../assets/js/digest.js", import.meta.url), "utf8"),
+  ]);
+  assert.match(layout, /resources\.FromString "data\/digest-index\.json"/);
+  assert.match(layout, /data-index-url="\{\{ \$digestIndex\.RelPermalink \}\}"/);
+  assert.doesNotMatch(layout, /id="digest-data"/);
+  assert.match(layout, /class="digest-favorite"/);
+  assert.match(layout, /Page 1 sur \{\{ \$pageCount \}\}/);
+  assert.match(script, /const loadLinks = \(\) =>/);
+  assert.match(script, /fetch\(indexUrl,/);
+  assert.match(script, /const withLinks = async \(task\) =>/);
+  assert.match(script, /search\.addEventListener\("input",[\s\S]*?withLinks/);
+  assert.match(script, /if \(currentPage > 1\) void withLinks/);
+  assert.doesNotMatch(
+    script,
+    /randomButton\.setAttribute\("aria-pressed", "false"\);\s*render\(/,
+  );
+});
+
 test("social image counts follow public link visibility", async () => {
   const [backfill, curation] = await Promise.all([
     readFile(
