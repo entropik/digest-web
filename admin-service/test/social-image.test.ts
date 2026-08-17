@@ -157,7 +157,7 @@ test("link icons never disclose catalog URLs to a third party", async () => {
   const implementation = `${partial}\n${layout}\n${script}`;
   assert.doesNotMatch(implementation, /domain_url/i);
   assert.doesNotMatch(implementation, /encodeURIComponent\(link\.url\)/);
-  assert.match(partial, /\$faviconHost := \(urls\.Parse \$url\)\.Host/);
+  assert.match(partial, /\$faviconHost := \(urls\.Parse \$url\)\.Hostname/);
   assert.match(
     partial,
     /favicons\?domain=%s&sz=32" \(\$faviconHost \| urlquery\)/,

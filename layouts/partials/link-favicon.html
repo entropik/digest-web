@@ -1,5 +1,5 @@
 {{- $url := . -}}
-{{- $faviconHost := (urls.Parse $url).Host -}}
+{{- $faviconHost := (urls.Parse $url).Hostname -}}
 {{- $host := $faviconHost | strings.TrimPrefix "www." -}}
 {{- $fallbackHosts := hugo.Data.favicon_fallbacks | default (slice) -}}
 {{- $fallbackIcon := resources.Get "images/link-fallback.svg" | fingerprint -}}
