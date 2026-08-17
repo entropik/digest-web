@@ -1354,8 +1354,43 @@ html {
   left: clamp(1.6rem, 5vw, 3.2rem);
   align-items: flex-start;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: flex-start;
   column-gap: 2rem;
+}
+
+.digest-modal-linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #0a66c2;
+  cursor: pointer;
+  font: inherit;
+  font-size: .72rem;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .22em;
+}
+
+.digest-modal-linkedin span[aria-hidden="true"] {
+  display: grid;
+  width: 1rem;
+  height: 1rem;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  font-size: .58rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.digest-modal-linkedin:hover,
+.digest-modal-linkedin:focus-visible {
+  color: var(--digest-ink);
+  outline: 1px dotted currentColor;
+  outline-offset: .3rem;
 }
 
 .digest-modal-tag-editor {
@@ -1436,7 +1471,7 @@ html {
 
 .digest-modal-admin {
   display: block;
-  margin: 0;
+  margin: 0 0 0 auto;
   padding: 0;
   border: 0;
   background: transparent;
@@ -1492,7 +1527,8 @@ html {
 
 .digest-admin-notice[hidden],
 .digest-modal-admin-tools[hidden],
-.digest-modal-admin[hidden] {
+.digest-modal-admin[hidden],
+.digest-modal-linkedin[hidden] {
   display: none;
 }
 
@@ -1899,6 +1935,59 @@ body.digest-modal-open {
 .archive-linkedin-share:focus-visible {
   color: #0a66c2;
   outline: 0;
+}
+
+.archive-delete-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  margin-top: .65rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #c93624;
+  cursor: pointer;
+  font: inherit;
+  font-size: .72rem;
+}
+
+.archive-delete-link[hidden] {
+  display: none;
+}
+
+.archive-delete-link svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.archive-delete-link:hover,
+.archive-delete-link:focus-visible {
+  color: #e10600;
+  outline: 0;
+  text-decoration: underline;
+}
+
+.archive-delete-link:disabled {
+  cursor: wait;
+  opacity: .5;
+}
+
+.archive-item-feedback {
+  display: block;
+  min-height: 1.2em;
+  margin-top: .45rem;
+  color: #c93624;
+  font-size: .68rem;
+}
+
+.archive-link.is-removed {
+  opacity: .35;
+  transition: opacity .2s ease;
 }
 
 .archive-favorite svg {

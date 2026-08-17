@@ -14,6 +14,8 @@ const LINKEDIN_USERINFO_URL = "https://api.linkedin.com/v2/userinfo";
 const LINKEDIN_ASSETS_URL = "https://api.linkedin.com/v2/assets?action=registerUpload";
 const LINKEDIN_POSTS_URL = "https://api.linkedin.com/v2/ugcPosts";
 const STATE_LIFETIME_MS = 10 * 60 * 1_000;
+const PUBLICATION_RESERVATION_LIFETIME_MS = 10 * 60 * 1_000;
+const PUBLICATION_RESERVATION_RENEWAL_MS = 60 * 1_000;
 
 export type LinkedInErrorCode =
   | "LINKEDIN_NOT_CONFIGURED"
@@ -335,6 +337,14 @@ export class LinkedInService {
       throw new LinkedInError("LINKEDIN_PUBLICATION_IN_PROGRESS", 409);
     }
 
+    const renewal = setInterval(() => {
+      try {
+        this.renewPublication(validated.url, reservation.token!);
+      } catch (error) {
+        console.error("LinkedIn publication reservation renewal failed", error);
+      }
+    }, PUBLICATION_RESERVATION_RENEWAL_MS);
+    renewal.unref();
     try {
       const postUrn = await this.createLinkedInPost(adminUserId, validated);
       this.finishPublication(
@@ -351,6 +361,8 @@ export class LinkedInService {
     } catch (error) {
       this.releasePublication(validated.url, reservation.token);
       throw error;
+    } finally {
+      clearInterval(renewal);
     }
   }
 
@@ -502,9 +514,31 @@ export class LinkedInService {
              (publication_url, reservation_token, admin_user_id, expires_at)
            VALUES (?, ?, ?, ?)`,
         )
-        .run(publicationUrl, token, adminUserId, now + 10 * 60 * 1_000);
+        .run(
+          publicationUrl,
+          token,
+          adminUserId,
+          now + PUBLICATION_RESERVATION_LIFETIME_MS,
+        );
       return inserted.changes === 1 ? { token } : {};
     })();
+  }
+
+  private renewPublication(
+    publicationUrl: string,
+    reservationToken: string,
+  ): void {
+    this.database
+      .prepare(
+        `UPDATE linkedin_publication_reservations
+         SET expires_at = ?
+         WHERE publication_url = ? AND reservation_token = ?`,
+      )
+      .run(
+        Date.now() + PUBLICATION_RESERVATION_LIFETIME_MS,
+        publicationUrl,
+        reservationToken,
+      );
   }
 
   private finishPublication(

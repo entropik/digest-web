@@ -2,7 +2,10 @@
   const button = document.querySelector("[data-linkedin-share]");
   const linkButtons = [...document.querySelectorAll("[data-linkedin-link-share]")];
   const shareButtons = [button, ...linkButtons].filter(Boolean);
-  const feedback = document.querySelector("[data-linkedin-feedback]");
+  const deleteButtons = [...document.querySelectorAll("[data-archive-delete-link]")];
+  const feedback =
+    document.querySelector("[data-linkedin-feedback]") ||
+    document.querySelector("[data-linkedin-composer-feedback]");
   const composer = document.querySelector("[data-linkedin-composer]");
   const form = document.querySelector("[data-linkedin-form]");
   const textField = document.querySelector("[data-linkedin-text]");
@@ -12,8 +15,8 @@
   const tagsNote = document.querySelector("[data-linkedin-tags-note]");
   const confirmButton = document.querySelector("[data-linkedin-confirm]");
   const preview = document.querySelector("[data-linkedin-preview]");
-  if (!button || !feedback || !composer || !form || !textField || !hashtagsField) return;
-  let activeButton = button;
+  if (!shareButtons.length || !feedback || !composer || !form || !textField || !hashtagsField) return;
+  let activeButton = shareButtons[0];
 
   const api = async (path, options) => {
     const response = await fetch(path, options);
@@ -41,7 +44,10 @@
       const response = await fetch("/api/admin/linkedin/status", {
         credentials: "same-origin",
       });
-      if (response.ok) shareButtons.forEach((shareButton) => { shareButton.hidden = false; });
+      if (response.ok) {
+        shareButtons.forEach((shareButton) => { shareButton.hidden = false; });
+        deleteButtons.forEach((deleteButton) => { deleteButton.hidden = false; });
+      }
     } catch {
       // Le bouton reste invisible pour les visiteurs et en cas d’indisponibilité de l’admin.
     }
@@ -175,6 +181,39 @@
     shareButton.addEventListener("click", () => openComposer(shareButton));
   });
 
+  deleteButtons.forEach((deleteButton) => {
+    deleteButton.addEventListener("click", async () => {
+      const title = deleteButton.dataset.linkTitle || "ce lien";
+      if (!window.confirm(`Retirer « ${title} » du Digest ? Le lien restera restaurable dans l’administration.`)) {
+        return;
+      }
+      const item = deleteButton.closest(".archive-link");
+      const itemFeedback = item?.querySelector("[data-archive-item-feedback]");
+      deleteButton.disabled = true;
+      if (itemFeedback) itemFeedback.textContent = "Retrait en cours…";
+      try {
+        await api(
+          `/api/admin/links/${encodeURIComponent(deleteButton.dataset.linkId || "")}/hide`,
+          {
+            method: "POST",
+            credentials: "same-origin",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ confirm: true }),
+          },
+        );
+        if (itemFeedback) {
+          itemFeedback.textContent = "Lien retiré. Le nouveau déploiement est lancé.";
+        }
+        item?.classList.add("is-removed");
+        window.setTimeout(() => item?.remove(), 1200);
+      } catch (error) {
+        if (error?.message === "AUTHENTICATION_REQUIRED") return;
+        if (itemFeedback) itemFeedback.textContent = "Le retrait du lien a échoué.";
+        deleteButton.disabled = false;
+      }
+    });
+  });
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const data = publicationData();
@@ -201,6 +240,9 @@
       );
       composer.close("published");
       showPost(publication.postUrl, publication.alreadyPublished);
+      window.dispatchEvent(new CustomEvent("digest:linkedin-published", {
+        detail: { alreadyPublished: publication.alreadyPublished },
+      }));
       activeButton.dataset.published = "true";
       if (isSingleLink) {
         const label = activeButton.querySelector("span:last-child");

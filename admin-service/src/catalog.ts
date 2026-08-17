@@ -147,9 +147,9 @@ export const changePublishedMetadata = (
   }
   const current = links[index]!;
   const reactivated = metadata.reactivate && current.status === "dead";
-  const previousUrls = Array.isArray(current.previous_urls)
-    ? [...current.previous_urls]
-    : [];
+  const previousUrls = (
+    Array.isArray(current.previous_urls) ? current.previous_urls : []
+  ).filter((url) => url !== metadata.url);
   if (current.url !== metadata.url && !previousUrls.includes(current.url)) {
     previousUrls.push(current.url);
   }
