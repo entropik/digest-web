@@ -141,9 +141,8 @@ const request = async <T>(
         : GITHUB_READ_TIMEOUT_MS,
       async (response) => {
         if (!response.ok) {
-          const detail = await response.text();
           throw new GitHubResponseError(
-            `GitHub request failed (${response.status}): ${detail.slice(0, 500)}`,
+            `GitHub request failed (${response.status})`,
             response.status,
           );
         }
