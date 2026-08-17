@@ -78,7 +78,6 @@
   let favorites = new Set();
   let searchRevision = 0;
   let renderedSearchRevision = 0;
-  let pendingSearchTask = null;
   let calendarRequestedOpen = false;
   let currentPage = Math.max(
     1,
@@ -140,7 +139,7 @@
     }
     empty.textContent = emptyMessage;
     empty.hidden = true;
-    if (pendingSearchTask && pendingSearchTask !== task) pendingSearchTask();
+    if (searchRevision > renderedSearchRevision) render({ urlMode: "replace" });
     return task();
   };
 
@@ -438,6 +437,7 @@
     pagePrev.disabled = currentPage === 1;
     pageNext.disabled = currentPage === pageCount;
     pageStatus.textContent = `Page ${currentPage} sur ${pageCount} · ${filteredLinks.length} liens`;
+    renderedSearchRevision = searchRevision;
 
     if (urlMode) syncPageUrl(urlMode);
     if (scroll) {
@@ -458,9 +458,9 @@
   filters.addEventListener("click", (event) => {
     const button = event.target.closest("button[data-category-label]");
     if (!button) return;
-    searchRevision += 1;
     const requestedCategory = button.dataset.categoryLabel;
     if (requestedCategory === "favorites") {
+      searchRevision += 1;
       search.value = "";
       dateFilter.value = "";
       dateValue.textContent = "cliquer sur le calendrier";
@@ -478,20 +478,10 @@
   });
 
   search.addEventListener("input", () => {
-    const revision = ++searchRevision;
-    const searchTask = () => {
-      if (revision !== searchRevision || revision <= renderedSearchRevision) {
-        if (pendingSearchTask === searchTask) pendingSearchTask = null;
-        return;
-      }
-      renderedSearchRevision = revision;
-      pendingSearchTask = null;
-      currentPage = 1;
-      clearRandomSelection();
-      render({ urlMode: "replace" });
-    };
-    pendingSearchTask = searchTask;
-    void withLinks(searchTask);
+    searchRevision += 1;
+    currentPage = 1;
+    clearRandomSelection();
+    void withLinks(() => undefined);
   });
 
   dateToggle.addEventListener("click", () => {
