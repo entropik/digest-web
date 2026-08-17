@@ -118,3 +118,30 @@ test("capture cache removes stale temporary files by timestamp", async () => {
     await rm(directory, { recursive: true, force: true });
   }
 });
+
+test("capture cache never evicts the image protected by the current generation", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "digest-capture-protected-"));
+  try {
+    const now = new Date("2026-08-17T12:00:00.000Z");
+    await writeCachedImage(directory, names[0]!, 40, new Date("2026-08-16T00:00:00.000Z"));
+    await writeCachedImage(directory, names[1]!, 40, now);
+    const recentTemporary = `${names[2]}.1234.tmp`;
+    await writeFile(join(directory, recentTemporary), Buffer.alloc(100));
+    await utimes(join(directory, recentTemporary), now, now);
+
+    await pruneCaptureCache(
+      directory,
+      {
+        maxAgeMs: Number.POSITIVE_INFINITY,
+        maxBytes: 50,
+        nowMs: now.valueOf(),
+      },
+      new Set([names[1]!]),
+    );
+
+    await assert.rejects(readFile(join(directory, names[0]!)));
+    assert.equal((await readFile(join(directory, names[1]!))).length, 40);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});

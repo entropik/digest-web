@@ -78,6 +78,7 @@ export const pruneCaptureCache = async (
     maxBytes: CAPTURE_CACHE_MAX_BYTES,
     nowMs: Date.now(),
   },
+  protectedNames: ReadonlySet<string> = new Set(),
 ): Promise<void> => {
   await mkdir(directory, { recursive: true });
   const entries = await readdir(directory, { withFileTypes: true });
@@ -138,6 +139,7 @@ export const pruneCaptureCache = async (
     temporaryBytes + retained.reduce((total, image) => total + image.size, 0);
   for (const image of retained) {
     if (totalBytes <= limits.maxBytes) break;
+    if (protectedNames.has(image.name)) continue;
     await removeImage(image);
     totalBytes -= image.size;
   }
@@ -486,7 +488,7 @@ export class LinkSocialImageService {
     if (existing) return existing;
     const generation = withCaptureCacheLock(this.directory, async () => {
       const result = await this.generate(link, name, path, metadataPath);
-      await pruneCaptureCache(this.directory);
+      await pruneCaptureCache(this.directory, undefined, new Set([name]));
       return result;
     });
     this.pending.set(name, generation);
