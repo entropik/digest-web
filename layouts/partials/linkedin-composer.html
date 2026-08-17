@@ -19,13 +19,17 @@
       <button class="linkedin-composer-regenerate" type="button" data-linkedin-regenerate hidden>Régénérer l’image</button>
     </div>
     <label class="linkedin-composer-field">
-      <span>Texte du post</span>
-      <textarea data-linkedin-text rows="6" maxlength="1250" required></textarea>
+      <span class="linkedin-composer-field-heading">
+        <span>Texte du post</span>
+        <span class="linkedin-composer-character-count" data-linkedin-character-count aria-live="polite"></span>
+      </span>
+      <textarea data-linkedin-text rows="6" aria-describedby="linkedin-composer-character-count" required></textarea>
     </label>
     <label class="linkedin-composer-field">
       <span>Hashtags</span>
-      <input data-linkedin-hashtags type="text" maxlength="200">
+      <input data-linkedin-hashtags type="text" aria-describedby="linkedin-composer-character-count">
     </label>
+    <span id="linkedin-composer-character-count" class="sr-only">Le compteur inclut le texte, les hashtags et l’adresse partagée.</span>
     <p class="linkedin-composer-tags-note" data-linkedin-tags-note></p>
     <p class="linkedin-composer-url" data-linkedin-url></p>
     <p class="linkedin-composer-account" data-linkedin-account></p>

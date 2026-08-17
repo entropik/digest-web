@@ -161,9 +161,13 @@ test("social image counts follow public link visibility", async () => {
 });
 
 test("LinkedIn native publishing uses the authenticated server API", async () => {
-  const [script, headPartial] = await Promise.all([
+  const [script, headPartial, composer] = await Promise.all([
     readFile(new URL("../../assets/js/linkedin-image.js", import.meta.url), "utf8"),
     readFile(new URL("../../layouts/_partials/extend_head.html", import.meta.url), "utf8"),
+    readFile(
+      new URL("../../layouts/partials/linkedin-composer.html", import.meta.url),
+      "utf8",
+    ),
   ]);
   assert.match(script, /api\("\/api\/admin\/linkedin\/status"\)/);
   assert.match(script, /revealForAuthenticatedAdmin/);
@@ -181,6 +185,9 @@ test("LinkedIn native publishing uses the authenticated server API", async () =>
   assert.match(script, /composer\.showModal\(\)/);
   assert.match(script, /textField\.value\.trim\(\)/);
   assert.match(script, /textField\.value = ""/);
+  assert.match(script, /maxCommentaryLength = 3000/);
+  assert.match(script, /updateCharacterCount/);
+  assert.match(script, /setCustomValidity/);
   assert.match(script, /hashtagsField\.value = hashtags\.join/);
   assert.match(script, /automaticHashtags/);
   assert.match(script, /\.slice\(0, 5\)/);
@@ -188,6 +195,8 @@ test("LinkedIn native publishing uses the authenticated server API", async () =>
   assert.doesNotMatch(script, /navigator\.share/);
   assert.match(headPartial, /resources\.Get "js\/linkedin-image\.js"/);
   assert.match(headPartial, /\$linkedinImage\.RelPermalink/);
+  assert.match(composer, /data-linkedin-character-count/);
+  assert.doesNotMatch(composer, /maxlength="1250"|maxlength="200"/);
 });
 
 test("archive Open Graph images declare their large preview dimensions", async () => {

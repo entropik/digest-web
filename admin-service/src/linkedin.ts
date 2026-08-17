@@ -16,6 +16,7 @@ const LINKEDIN_POSTS_URL = "https://api.linkedin.com/v2/ugcPosts";
 const STATE_LIFETIME_MS = 10 * 60 * 1_000;
 const PUBLICATION_RESERVATION_LIFETIME_MS = 10 * 60 * 1_000;
 const PUBLICATION_RESERVATION_RENEWAL_MS = 60 * 1_000;
+const MAX_COMMENTARY_LENGTH = 3_000;
 
 export type LinkedInErrorCode =
   | "LINKEDIN_NOT_CONFIGURED"
@@ -628,7 +629,12 @@ export class LinkedInService {
   ): PublicationInput {
     const title = input.title?.trim();
     const text = input.text?.trim();
-    if (!title || title.length > 200 || !text || text.length > 1_500) {
+    if (
+      !title ||
+      title.length > 200 ||
+      !text ||
+      text.length > MAX_COMMENTARY_LENGTH
+    ) {
       throw new LinkedInError("LINKEDIN_INVALID_PUBLICATION", 400);
     }
     let url: URL;
@@ -664,6 +670,9 @@ export class LinkedInService {
       } catch {
         throw new LinkedInError("LINKEDIN_INVALID_PUBLICATION", 400);
       }
+    }
+    if (`${text}\n\n${url.toString()}`.length > MAX_COMMENTARY_LENGTH) {
+      throw new LinkedInError("LINKEDIN_INVALID_PUBLICATION", 400);
     }
     return {
       title,

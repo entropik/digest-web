@@ -13,6 +13,7 @@
   const accountField = document.querySelector("[data-linkedin-account]");
   const hashtagsField = document.querySelector("[data-linkedin-hashtags]");
   const tagsNote = document.querySelector("[data-linkedin-tags-note]");
+  const characterCount = document.querySelector("[data-linkedin-character-count]");
   const confirmButton = document.querySelector("[data-linkedin-confirm]");
   const preview = document.querySelector("[data-linkedin-preview]");
   const imageStatus = document.querySelector("[data-linkedin-image-status]");
@@ -20,6 +21,7 @@
   if (!shareButtons.length || !feedback || !composer || !form || !textField || !hashtagsField) return;
   let activeButton = shareButtons[0];
   let imageGeneration = 0;
+  const maxCommentaryLength = 3000;
 
   const api = async (path, options) => {
     const response = await fetch(path, options);
@@ -90,6 +92,26 @@
       url: activeButton.dataset.shareUrl || window.location.href,
     };
   };
+
+  const updateCharacterCount = () => {
+    const data = publicationData();
+    const commentary = [data.text, data.url].filter(Boolean).join("\n\n");
+    const remaining = maxCommentaryLength - commentary.length;
+    const exceeded = remaining < 0;
+    textField.setCustomValidity(
+      exceeded
+        ? `Réduisez le post de ${Math.abs(remaining)} caractères.`
+        : "",
+    );
+    if (!characterCount) return;
+    characterCount.textContent = exceeded
+      ? `${Math.abs(remaining).toLocaleString("fr-FR")} caractères en trop`
+      : `${remaining.toLocaleString("fr-FR")} caractères disponibles`;
+    characterCount.classList.toggle("is-over-limit", exceeded);
+  };
+
+  textField.addEventListener("input", updateCharacterCount);
+  hashtagsField.addEventListener("input", updateCharacterCount);
 
   const normalizeHashtag = (tag) => {
     const parts = String(tag)
@@ -213,6 +235,7 @@
       if (imageStatus) imageStatus.textContent = "";
       if (!isSingleLink) await displayPreview(imageUrl);
       urlField.textContent = url;
+      updateCharacterCount();
       accountField.textContent = `Publication sur le compte ${status.memberName}`;
       feedback.textContent = isSingleLink
         ? "Préparation de l’image propre à ce lien…"

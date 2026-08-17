@@ -224,6 +224,33 @@ test("publication rejects external archive and image URLs before fetching", asyn
   );
 });
 
+test("publication reserves room for the URL within LinkedIn's 3000 character limit", () => {
+  const service = new LinkedInService(database);
+  const validate = (
+    service as unknown as {
+      validatePublication: (
+        input: { title: string; text: string; url: string; imageUrl: string },
+        allowCatalogUrl?: boolean,
+      ) => { text: string };
+    }
+  ).validatePublication.bind(service);
+  const input = {
+    title: "Un long post",
+    text: `${"x".repeat(2_900)}...`,
+    url: "https://example.com/ressource",
+    imageUrl:
+      "/api/linkedin-images/3583bb99-c9f5-53fc-832c-9d92933c1ad4-0123456789abcdef.png?v=1",
+  };
+
+  assert.equal(validate(input, true).text.endsWith("..."), true);
+  assert.throws(
+    () => validate({ ...input, text: "x".repeat(3_000) }, true),
+    (error: unknown) =>
+      error instanceof LinkedInError &&
+      error.code === "LINKEDIN_INVALID_PUBLICATION",
+  );
+});
+
 test("active LinkedIn reservations are renewed while external calls are pending", async () => {
   const source = await import("node:fs/promises").then(({ readFile }) =>
     readFile(new URL("../src/linkedin.ts", import.meta.url), "utf8"),

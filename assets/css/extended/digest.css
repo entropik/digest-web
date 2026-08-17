@@ -227,6 +227,25 @@ select {
   font-weight: 700;
 }
 
+.linkedin-composer-field-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.linkedin-composer-character-count {
+  color: var(--digest-muted);
+  font-size: .72rem;
+  font-weight: 400;
+  text-align: right;
+}
+
+.linkedin-composer-character-count.is-over-limit {
+  color: #e10600;
+  font-weight: 700;
+}
+
 .linkedin-composer-field textarea,
 .linkedin-composer-field input {
   width: 100%;
