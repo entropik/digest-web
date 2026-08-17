@@ -6,15 +6,14 @@ sur l’installation et l’exploitation.
 
 ## État documenté
 
-Dernière mise à jour : 27 juillet 2026.
+Dernière mise à jour : 17 août 2026.
 
-- 3 979 liens dans le catalogue ;
-- 835 éditions archivées ;
-- 936 pages de tags ;
-- périmètre initial de 40 commits, de `15a33606` à `25128b45`, répartis sur
-  quatre journées actives ;
+- 3 992 liens dans le catalogue ;
+- 836 éditions archivées ;
+- 937 pages de tags ;
+- journal couvrant six journées actives, du 24 juillet au 17 août 2026 ;
 - site public Hugo, administration propriétaire et extension Chrome de
-  curation.
+  curation, images sociales et publication LinkedIn native.
 
 ## Parcours de lecture
 

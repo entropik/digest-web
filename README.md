@@ -218,9 +218,10 @@ empaquetée. L’origine Chrome Web Store de production est
 Chrome Web Store et les textes de fiche sont documentés dans
 `browser-extension/CHROME_WEB_STORE.md`.
 
-Le dépôt impose les fins de ligne LF via `.gitattributes`. Après un passage de
-Windows à WSL, relancer `npm ci` dans chaque projet Node afin de réinstaller les
-binaires natifs pour la plateforme active au lieu de partager `node_modules`.
+Le dépôt impose les fins de ligne LF via `.gitattributes`. Après tout changement
+entre Windows, WSL ou Linux, supprimer `node_modules` puis relancer `npm ci`
+dans chaque projet Node afin de réinstaller les binaires natifs pour la
+plateforme active. Ne jamais partager ce répertoire entre deux systèmes.
 
 Les brouillons utilisent le même fichier SQLite que Better Auth. Le script de
 déploiement crée une sauvegarde avant toute migration et en conserve quatorze.
