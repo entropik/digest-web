@@ -566,11 +566,12 @@ export class LinkedInService {
           response.status < 400 ||
           response.status >= 500 ||
           response.status === 408;
+        if (!outcomeUnknown) {
+          throw new LinkedInError("LINKEDIN_PUBLICATION_FAILED", 502);
+        }
         throw new LinkedInError(
-          outcomeUnknown
-            ? "LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN"
-            : "LINKEDIN_PUBLICATION_FAILED",
-          outcomeUnknown ? 409 : 502,
+          "LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN",
+          409,
           (await response.text()).slice(0, 500),
         );
       }

@@ -325,6 +325,18 @@ test("a local persistence failure after LinkedIn success blocks automatic republ
       if (commentary.includes("Rejet définitif")) {
         return new Response("invalid payload", { status: 400 });
       }
+      if (commentary.includes("Rejet sans corps")) {
+        return new Response(
+          new ReadableStream({
+            start(controller) {
+              init?.signal?.addEventListener("abort", () =>
+                controller.error(new DOMException("Aborted", "AbortError")),
+              );
+            },
+          }),
+          { status: 422 },
+        );
+      }
       return new Response(null, {
         status: 201,
         headers: { "x-restli-id": "urn:li:share:ambiguous" },
@@ -413,6 +425,21 @@ test("a local persistence failure after LinkedIn success blocks automatic republ
     );
   }
   assert.equal(postCalls, 4);
+
+  const rejectedWithoutBody = {
+    ...input,
+    text: "Rejet sans corps.",
+    url: "https://example.com/publication-422-body-timeout",
+  };
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    await assert.rejects(
+      restarted.publishLink("admin-ambiguous", rejectedWithoutBody),
+      (error: unknown) =>
+        error instanceof LinkedInError &&
+        error.code === "LINKEDIN_PUBLICATION_FAILED",
+    );
+  }
+  assert.equal(postCalls, 6);
   isolatedDatabase.close();
 });
 
