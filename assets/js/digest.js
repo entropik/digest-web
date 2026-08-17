@@ -137,6 +137,7 @@
       return undefined;
     }
     empty.textContent = emptyMessage;
+    empty.hidden = true;
     return task();
   };
 

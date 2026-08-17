@@ -193,6 +193,7 @@ test("the home loads its compact search index only when interaction needs it", a
     /if \(calendarRequestedOpen && !event\.target\.closest\("\.digest-date"\)\)/,
   );
   assert.match(script, /empty\.textContent = emptyMessage/);
+  assert.match(script, /empty\.textContent = emptyMessage;\s*empty\.hidden = true/);
   assert.match(script, /if \(currentPage > 1\) void withLinks/);
   assert.doesNotMatch(
     script,
