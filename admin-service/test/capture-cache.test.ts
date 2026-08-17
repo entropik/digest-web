@@ -87,3 +87,34 @@ test("capture cache lock serializes maintenance for the same directory", async (
     await rm(directory, { recursive: true, force: true });
   }
 });
+
+test("capture cache removes stale temporary files by timestamp", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "digest-capture-temp-"));
+  try {
+    const stale = `${names[0]}.1234.tmp`;
+    const recent = `${names[1]}.5678.tmp`;
+    await writeFile(join(directory, stale), Buffer.alloc(50));
+    await writeFile(join(directory, recent), Buffer.alloc(50));
+    await utimes(
+      join(directory, stale),
+      new Date("2026-08-17T09:00:00.000Z"),
+      new Date("2026-08-17T09:00:00.000Z"),
+    );
+    await utimes(
+      join(directory, recent),
+      new Date("2026-08-17T11:30:00.000Z"),
+      new Date("2026-08-17T11:30:00.000Z"),
+    );
+
+    await pruneCaptureCache(directory, {
+      maxAgeMs: Number.POSITIVE_INFINITY,
+      maxBytes: 1_000,
+      nowMs: new Date("2026-08-17T12:00:00.000Z").valueOf(),
+    });
+
+    await assert.rejects(readFile(join(directory, stale)));
+    assert.equal((await readFile(join(directory, recent))).length, 50);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});

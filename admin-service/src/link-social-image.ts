@@ -34,10 +34,12 @@ const CORAL = "#FF5C35";
 const BLACK = "#0A0A0A";
 const PAPER = "#F4F2ED";
 const FILE_PATTERN = /^[0-9a-f-]{36}-[0-9a-f]{16}\.png$/;
+const TEMP_FILE_PATTERN = /^[0-9a-f-]{36}-[0-9a-f]{16}\.png\.\d+\.tmp$/;
 const RENDER_VERSION = "link-social-image-v2";
 const CAPTURE_CACHE_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1_000;
 const CAPTURE_CACHE_MAX_BYTES = 100 * 1024 * 1024;
 const CAPTURE_CACHE_CLEANUP_INTERVAL_MS = 60 * 60 * 1_000;
+const CAPTURE_CACHE_TEMP_MAX_AGE_MS = 60 * 60 * 1_000;
 
 type CaptureCacheLimits = {
   maxAgeMs: number;
@@ -79,6 +81,25 @@ export const pruneCaptureCache = async (
 ): Promise<void> => {
   await mkdir(directory, { recursive: true });
   const entries = await readdir(directory, { withFileTypes: true });
+  const temporaryFiles = await Promise.all(
+    entries
+      .filter((entry) => entry.isFile() && TEMP_FILE_PATTERN.test(entry.name))
+      .map(async (entry) => {
+        const path = join(directory, entry.name);
+        const info = await stat(path);
+        return { path, mtimeMs: info.mtimeMs, size: info.size };
+      }),
+  );
+  const staleTemporaryFiles = temporaryFiles.filter(
+    (file) => limits.nowMs - file.mtimeMs > CAPTURE_CACHE_TEMP_MAX_AGE_MS,
+  );
+  await Promise.all(staleTemporaryFiles.map((file) => rm(file.path, { force: true })));
+  const staleTemporaryPaths = new Set(
+    staleTemporaryFiles.map((file) => file.path),
+  );
+  const temporaryBytes = temporaryFiles
+    .filter((file) => !staleTemporaryPaths.has(file.path))
+    .reduce((total, file) => total + file.size, 0);
   const images = await Promise.all(
     entries
       .filter((entry) => entry.isFile() && FILE_PATTERN.test(entry.name))
@@ -113,7 +134,8 @@ export const pruneCaptureCache = async (
   const retained = images
     .filter((image) => !expiredNames.has(image.name))
     .sort((left, right) => left.mtimeMs - right.mtimeMs);
-  let totalBytes = retained.reduce((total, image) => total + image.size, 0);
+  let totalBytes =
+    temporaryBytes + retained.reduce((total, image) => total + image.size, 0);
   for (const image of retained) {
     if (totalBytes <= limits.maxBytes) break;
     await removeImage(image);
@@ -505,8 +527,12 @@ export class LinkSocialImageService {
       image = await fallbackImage(link.title, publicUrl.hostname);
     }
     const temporaryPath = `${path}.${process.pid}.tmp`;
-    await writeFile(temporaryPath, image, { mode: 0o640 });
-    await rename(temporaryPath, path);
+    try {
+      await writeFile(temporaryPath, image, { mode: 0o640 });
+      await rename(temporaryPath, path);
+    } finally {
+      await rm(temporaryPath, { force: true });
+    }
     await writeFile(metadataPath, JSON.stringify({ source }), { mode: 0o640 });
     const info = await stat(path);
     return {
