@@ -90,7 +90,10 @@ app.on(["GET", "POST"], "/api/auth/*", (context) =>
 app.get("/health", (context) => context.json({ status: "ok" }));
 
 app.get("/api/linkedin-images/:name", async (context) => {
-  const image = await linkSocialImages.read(context.req.param("name"));
+  const image = await linkSocialImages.read(
+    context.req.param("name"),
+    context.req.query("reservation"),
+  );
   if (!image) return context.json({ error: "IMAGE_NOT_FOUND" }, 404);
   return context.body(new Uint8Array(image), 200, {
     "Content-Type": "image/png",

@@ -1,4 +1,4 @@
-import { createHash } from "node:crypto";
+import { createHash, randomBytes } from "node:crypto";
 import type { Stats } from "node:fs";
 import {
   mkdir,
@@ -53,34 +53,32 @@ const cacheLocks = new Map<string, Promise<void>>();
 const cacheCleanedAt = new Map<string, number>();
 const cacheReservations = new Map<
   string,
-  Map<string, { count: number; expiresAt: number }>
+  Map<string, Map<string, number>>
 >();
+
+type CaptureReservation = (() => void) & { token: string };
 
 export const reserveCaptureForRead = (
   directory: string,
   name: string,
   nowMs = Date.now(),
-): (() => void) => {
+): CaptureReservation => {
   const key = resolve(directory);
   const reservations =
-    cacheReservations.get(key) ??
-    new Map<string, { count: number; expiresAt: number }>();
-  const existing = reservations.get(name);
-  reservations.set(name, {
-    count: (existing?.count ?? 0) + 1,
-    expiresAt: nowMs + CAPTURE_CACHE_RESERVATION_MS,
-  });
+    cacheReservations.get(key) ?? new Map<string, Map<string, number>>();
+  const tokens = reservations.get(name) ?? new Map<string, number>();
+  const token = randomBytes(24).toString("hex");
+  tokens.set(token, nowMs + CAPTURE_CACHE_RESERVATION_MS);
+  reservations.set(name, tokens);
   cacheReservations.set(key, reservations);
-  return () => {
+  const release = () => {
     const current = cacheReservations.get(key);
-    const reservation = current?.get(name);
-    if (reservation && reservation.count > 1) {
-      reservation.count -= 1;
-    } else {
-      current?.delete(name);
-    }
+    const currentTokens = current?.get(name);
+    currentTokens?.delete(token);
+    if (!currentTokens?.size) current?.delete(name);
     if (!current?.size) cacheReservations.delete(key);
   };
+  return Object.assign(release, { token });
 };
 
 const reservedCaptureNames = (
@@ -91,8 +89,11 @@ const reservedCaptureNames = (
   const reservations = cacheReservations.get(key);
   const names = new Set<string>();
   if (!reservations) return names;
-  for (const [name, reservation] of reservations) {
-    if (reservation.expiresAt > nowMs) names.add(name);
+  for (const [name, tokens] of reservations) {
+    for (const [token, expiresAt] of tokens) {
+      if (expiresAt <= nowMs) tokens.delete(token);
+    }
+    if (tokens.size) names.add(name);
     else reservations.delete(name);
   }
   if (!reservations.size) cacheReservations.delete(key);
@@ -540,7 +541,11 @@ export class LinkSocialImageService {
         const { info, metadata } = await this.cacheReader(path, metadataPath);
         const parsed = JSON.parse(metadata) as { source?: LinkSocialImageSource };
         return {
-          imageUrl: `/api/linkedin-images/${name}?v=${Math.trunc(info.mtimeMs)}`,
+          imageUrl: this.reservedImageUrl(
+            name,
+            Math.trunc(info.mtimeMs),
+            releaseReservation.token,
+          ),
           source: parsed.source === "fallback" ? "fallback" : "screenshot",
           generatedAt: info.mtime.toISOString(),
         };
@@ -552,8 +557,7 @@ export class LinkSocialImageService {
     const existing = this.pending.get(name);
     if (existing) {
       const result = await existing;
-      reserveCaptureForRead(this.directory, name);
-      return result;
+      return this.reserveResult(name, result);
     }
     const generation = withCaptureCacheLock(this.directory, async () => {
       const result = await this.generate(link, name, path, metadataPath);
@@ -563,14 +567,13 @@ export class LinkSocialImageService {
     this.pending.set(name, generation);
     try {
       const result = await generation;
-      reserveCaptureForRead(this.directory, name);
-      return result;
+      return this.reserveResult(name, result);
     } finally {
       this.pending.delete(name);
     }
   }
 
-  async read(name: string): Promise<Buffer | null> {
+  async read(name: string, reservationToken?: string): Promise<Buffer | null> {
     if (!FILE_PATTERN.test(name)) return null;
     try {
       return await readFile(join(this.directory, name));
@@ -579,14 +582,39 @@ export class LinkSocialImageService {
     } finally {
       const key = resolve(this.directory);
       const reservations = cacheReservations.get(key);
-      const reservation = reservations?.get(name);
-      if (reservation && reservation.count > 1) {
-        reservation.count -= 1;
-      } else {
-        reservations?.delete(name);
-      }
+      const tokens = reservations?.get(name);
+      if (reservationToken) tokens?.delete(reservationToken);
+      if (!tokens?.size) reservations?.delete(name);
       if (!reservations?.size) cacheReservations.delete(key);
     }
+  }
+
+  private reserveResult(
+    name: string,
+    result: LinkSocialImageResult,
+  ): LinkSocialImageResult {
+    const reservation = reserveCaptureForRead(this.directory, name);
+    const imageUrl = new URL(result.imageUrl, "http://localhost");
+    return {
+      ...result,
+      imageUrl: this.reservedImageUrl(
+        name,
+        imageUrl.searchParams.get("v") ?? "0",
+        reservation.token,
+      ),
+    };
+  }
+
+  private reservedImageUrl(
+    name: string,
+    version: string | number,
+    reservationToken: string,
+  ): string {
+    const query = new URLSearchParams({
+      v: String(version),
+      reservation: reservationToken,
+    });
+    return `/api/linkedin-images/${name}?${query.toString()}`;
   }
 
   private async generate(
