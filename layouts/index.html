@@ -190,10 +190,11 @@
 </dialog>
 {{ partial "linkedin-composer.html" (dict) }}
 <p class="digest-admin-notice" id="digest-admin-notice" role="status" hidden></p>
+{{- $faviconFallback := resources.Get "images/link-fallback.svg" | fingerprint }}
 <script
   id="digest-favicon-fallbacks"
   type="application/json"
-  data-fallback-src="{{ "link-fallback.svg" | relURL }}">{{ hugo.Data.favicon_fallbacks | jsonify | safeHTML }}</script>
+  data-fallback-src="{{ $faviconFallback.RelPermalink }}">{{ hugo.Data.favicon_fallbacks | jsonify | safeHTML }}</script>
 <script id="digest-data" type="application/json">{{ $links | jsonify | safeHTML }}</script>
 {{ $digestScript := resources.Get "js/digest.js" | minify | fingerprint }}
 <script src="{{ $digestScript.RelPermalink }}" integrity="{{ $digestScript.Data.Integrity }}" defer></script>
