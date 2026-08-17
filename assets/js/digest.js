@@ -22,6 +22,14 @@
   const pagePrev = document.querySelector("#digest-page-prev");
   const pageNext = document.querySelector("#digest-page-next");
   const pageStatus = document.querySelector("#digest-page-status");
+  const faviconFallbackData = document.querySelector("#digest-favicon-fallbacks");
+  const rawFaviconFallbackHosts = JSON.parse(faviconFallbackData.textContent);
+  const faviconFallbackHosts = new Set(
+    typeof rawFaviconFallbackHosts === "string"
+      ? JSON.parse(rawFaviconFallbackHosts)
+      : rawFaviconFallbackHosts,
+  );
+  const faviconFallbackSrc = faviconFallbackData.dataset.fallbackSrc;
   const rawLinks = JSON.parse(document.querySelector("#digest-data").textContent);
   const links = typeof rawLinks === "string" ? JSON.parse(rawLinks) : rawLinks;
   const linkCountByDate = links.reduce((counts, link) => {
@@ -268,7 +276,9 @@
     title.className = "link-title";
     const favicon = document.createElement("img");
     favicon.className = "link-favicon";
-    favicon.src = `https://www.google.com/s2/favicons?domain_url=${encodeURIComponent(link.url)}&sz=32`;
+    favicon.src = faviconFallbackHosts.has(host)
+      ? faviconFallbackSrc
+      : `https://www.google.com/s2/favicons?domain_url=${encodeURIComponent(link.url)}&sz=32`;
     favicon.alt = "";
     favicon.width = 16;
     favicon.height = 16;
