@@ -679,7 +679,9 @@
       "éditeur",
       "démonstration"
     ],
-    "id": "be5c3eca-6a1d-5d4d-8610-b61da198d3a4"
+    "id": "be5c3eca-6a1d-5d4d-8610-b61da198d3a4",
+    "visibility": "hidden",
+    "hidden_at": "2026-08-17T08:50:51.981Z"
   },
   {
     "title": "Improve",
