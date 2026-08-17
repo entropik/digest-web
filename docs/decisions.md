@@ -92,3 +92,59 @@ La diffusion est non répertoriée. L’examen Google reste obligatoire, mais
 apporte une extension signée, un identifiant stable et les mises à jour
 automatiques. Le backend reste inutilisable sans l’identité GitHub
 propriétaire.
+
+## 16 août 2026
+
+### La progression de publication reflète des états réels
+
+L’administration expose préparation, validation, déploiement et mise en ligne,
+sans fabriquer de pourcentage. Une publication interrompue peut reprendre son
+suivi après un rechargement, un retour dans l’onglet ou une erreur réseau.
+
+### Une seule construction Hugo devient l’artefact déployé
+
+Le workflow de production valide les sources, construit Hugo une fois puis
+publie exactement cette sortie sur la branche `production`. La validation d’un
+commit et son déploiement ne reposent ainsi plus sur deux constructions
+indépendantes.
+
+### Les images sociales font partie de l’identité éditoriale
+
+Chaque édition reçoit un PNG déterministe de 1200 × 627, produit depuis son
+contenu et versionné avec le site. La grille, la typographie et un nombre réduit
+d’encres assurent la variété sans perdre la signature OOBLIK.
+
+### LinkedIn est publié par une intégration propriétaire
+
+Le partage natif passe par l’API LinkedIn et reste réservé à l’administration.
+Les identifiants de l’application peuvent être configurés dans cette interface,
+mais sont chiffrés dans SQLite et ne sont jamais renvoyés au navigateur. Le
+jeton membre suit la même règle de confidentialité.
+
+### Le texte social reste éditable avant l’envoi
+
+Le titre, le résumé, le lien et les hashtags fournissent un point de départ,
+pas un texte imposé. Le propriétaire peut corriger la composition avant une
+publication native avec image.
+
+## 17 août 2026
+
+### Un lien individuel possède sa propre image sociale
+
+Pour partager une ressource précise, le service capture son premier écran,
+l’uniformise en noir et blanc et ajoute l’habillage éditorial OOBLIK. Si le
+site refuse la capture, une carte typographique propre au lien remplace la page
+plutôt que de réutiliser l’affiche générique de l’édition.
+
+### Une capture distante ne fait confiance ni au DNS ni aux sous-ressources
+
+La destination et chaque ressource chargée doivent rester publiques. La
+résolution DNS est épinglée pendant la navigation afin d’empêcher un rebinding
+vers le réseau privé. Le proxy limite les données en attente et ferme les
+tunnels dès que le navigateur abandonne la connexion.
+
+### Les corrections éditoriales restent non destructives
+
+Les actions d’administration permettent de modifier, masquer ou restaurer un
+lien en conservant son identifiant et son histoire. Les favoris et les filtres
+publics restent purement locaux au navigateur.

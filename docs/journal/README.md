@@ -9,7 +9,8 @@ chaque journée ayant produit une évolution du projet.
 | 25 juillet 2026 | [Exploration des tags et reprise de 2017](2026-07-25.md) | 10 | Tags, cache et éditions historiques |
 | 26 juillet 2026 | [Favoris locaux et nouvelles éditions](2026-07-26.md) | 4 | Favoris privés et restauration |
 | 27 juillet 2026 | [Administration et curation depuis Chrome](2026-07-27.md) | 15 | Admin, extension, publication et Web Store |
-| 16 août 2026 | [Publication progressive et environnement WSL](2026-08-16.md) | 1 | Publication en une action, suivi et normalisation Git |
+| 16 août 2026 | [Publication, identité visuelle et partage LinkedIn](2026-08-16.md) | 33 | Publication progressive, images sociales et diffusion LinkedIn |
+| 17 août 2026 | [Actions éditoriales et captures LinkedIn durcies](2026-08-17.md) | 11 | Administration des liens, favicons et captures sécurisées |
 
 ## Provenance
 
@@ -22,8 +23,8 @@ reconstitution prudente à partir des commits et de leurs diffs. Le billet du
 27 juillet reprend aussi les décisions explicites de la conversation de
 conception de l’extension.
 
-Les 71 exécutions GitHub Actions visibles pour cette période sont toutes
-réussies. Elles proviennent principalement de
+Le relevé initial des quatre journées de juillet comptait 71 exécutions GitHub
+Actions, toutes réussies. Elles provenaient principalement de
 [`Validate`](https://github.com/entropik/digest-web/actions/workflows/ci.yml)
 et de
 [`Deploy production`](https://github.com/entropik/digest-web/actions/workflows/deploy.yml) :
@@ -39,7 +40,11 @@ Une exécution correspond à un workflow, pas nécessairement à un déploiement
 distinct : les workflows de validation et de production sont généralement
 déclenchés ensemble.
 
-Le relevé initial couvre les 40 commits allant de `15a33606` à `25128b45`.
+Ce relevé d’exécutions reste un instantané historique et ne prétend pas couvrir
+les journées des 16 et 17 août.
+
+Le relevé initial du journal couvre les 40 commits allant de `15a33606` à
+`25128b45`.
 Le commit qui introduit matériellement cette documentation n’est pas inclus
 dans son propre relevé afin d’éviter une autoréférence impossible à stabiliser.
 
