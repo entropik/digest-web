@@ -517,9 +517,15 @@ export class LinkedInService {
       throw new LinkedInError("LINKEDIN_TOKEN_EXPIRED", 409);
     }
     if (postResponse.status !== 201) {
+      const outcomeUnknown =
+        postResponse.status < 400 ||
+        postResponse.status >= 500 ||
+        postResponse.status === 408;
       throw new LinkedInError(
-        "LINKEDIN_PUBLICATION_FAILED",
-        502,
+        outcomeUnknown
+          ? "LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN"
+          : "LINKEDIN_PUBLICATION_FAILED",
+        outcomeUnknown ? 409 : 502,
         (await postResponse.text()).slice(0, 500),
       );
     }

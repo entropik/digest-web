@@ -287,7 +287,7 @@ test("active LinkedIn reservations are renewed while external calls are pending"
 test("a local persistence failure after LinkedIn success blocks automatic republication", async () => {
   const isolatedDatabase = new Database(join(temporary, "linkedin-ambiguous.sqlite"));
   let postCalls = 0;
-  const fetcher = async (input: string | URL | Request) => {
+  const fetcher = async (input: string | URL | Request, init?: RequestInit) => {
     const url = String(input);
     if (url.endsWith("/oauth/v2/accessToken")) {
       return Response.json({ access_token: "ambiguous-token", expires_in: 3600 });
@@ -315,6 +315,16 @@ test("a local persistence failure after LinkedIn success blocks automatic republ
     }
     if (url.endsWith("/v2/ugcPosts")) {
       postCalls += 1;
+      const post = JSON.parse(String(init?.body));
+      const commentary =
+        post.specificContent["com.linkedin.ugc.ShareContent"].shareCommentary
+          .text as string;
+      if (commentary.includes("Réponse serveur ambiguë")) {
+        return new Response("upstream unavailable", { status: 503 });
+      }
+      if (commentary.includes("Rejet définitif")) {
+        return new Response("invalid payload", { status: 400 });
+      }
       return new Response(null, {
         status: 201,
         headers: { "x-restli-id": "urn:li:share:ambiguous" },
@@ -366,5 +376,42 @@ test("a local persistence failure after LinkedIn success blocks automatic republ
       error.code === "LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN",
   );
   assert.equal(postCalls, 1);
+
+  const serverFailure = {
+    ...input,
+    text: "Réponse serveur ambiguë.",
+    url: "https://example.com/publication-503",
+  };
+  await assert.rejects(
+    restarted.publishLink("admin-ambiguous", serverFailure),
+    (error: unknown) =>
+      error instanceof LinkedInError &&
+      error.code === "LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN",
+  );
+  await assert.rejects(
+    new LinkedInService(isolatedDatabase, fetcher as typeof fetch).publishLink(
+      "admin-ambiguous",
+      serverFailure,
+    ),
+    (error: unknown) =>
+      error instanceof LinkedInError &&
+      error.code === "LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN",
+  );
+  assert.equal(postCalls, 2);
+
+  const rejected = {
+    ...input,
+    text: "Rejet définitif.",
+    url: "https://example.com/publication-400",
+  };
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    await assert.rejects(
+      restarted.publishLink("admin-ambiguous", rejected),
+      (error: unknown) =>
+        error instanceof LinkedInError &&
+        error.code === "LINKEDIN_PUBLICATION_FAILED",
+    );
+  }
+  assert.equal(postCalls, 4);
   isolatedDatabase.close();
 });
