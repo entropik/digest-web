@@ -11,7 +11,7 @@ const shell =
       )
     : "sh";
 
-test("admin deployment rolls back migration, release switch, startup and health-check failures", async () => {
+test("admin deployment rolls back operational failures without restarting an unsafe release", async () => {
   assert.ok(shell, "A POSIX shell is required for the deployment contract test");
   const nativeScript = fileURLToPath(
     new URL("../../scripts/test-deploy-admin-cloudpanel.sh", import.meta.url),

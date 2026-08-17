@@ -50,8 +50,11 @@ restore_previous() {
     echo "No previous release is available to restart." >&2
     return 1
   fi
-  ln -sfn "$previous_target" "$base/current.rollback"
-  mv -Tf "$base/current.rollback" "$base/current"
+  if ! ln -sfn "$previous_target" "$base/current.rollback" ||
+     ! mv -Tf "$base/current.rollback" "$base/current"; then
+    echo "The previous release symlink could not be restored; the service will stay stopped." >&2
+    return 1
+  fi
   if ! start_admin; then
     echo "The previous release could not be restarted after rollback." >&2
     return 1

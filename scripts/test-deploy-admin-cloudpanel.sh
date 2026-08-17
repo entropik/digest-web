@@ -65,7 +65,8 @@ EOF
 
   cat >"$fake_bin/curl" <<'EOF'
 #!/bin/sh
-if [ "$TEST_SCENARIO" = "health" ] &&
+if { [ "$TEST_SCENARIO" = "health" ] ||
+     [ "$TEST_SCENARIO" = "rollback-switch" ]; } &&
    [ "$(readlink "$TEST_BASE/current")" = "releases/newsha/admin-service" ]; then
   exit 1
 fi
@@ -101,6 +102,10 @@ if [ "$destination" = "$TEST_BASE/current.new" ] ||
    [ "$destination" = "$TEST_BASE/current.rollback" ]; then
   if [ "$TEST_SCENARIO" = "switch" ] &&
      [ "$target" = "releases/newsha/admin-service" ]; then
+    exit 1
+  fi
+  if [ "$TEST_SCENARIO" = "rollback-switch" ] &&
+     [ "$target" = "releases/oldsha/admin-service" ]; then
     exit 1
   fi
   printf '%s\n' "$target" >"$TEST_PENDING_TARGET"
@@ -158,10 +163,15 @@ run_failure_case() {
     return 1
   fi
 
-  test "$(cat "$current_target_file")" = "releases/oldsha/admin-service"
   test "$(cat "$database")" = "old database state"
   grep -q "database restored" "$log"
-  grep -q "pm2 start ecosystem.config.cjs --update-env \[releases/oldsha/admin-service\]" "$log"
+  if [ "$scenario" = "rollback-switch" ]; then
+    test "$(cat "$current_target_file")" = "releases/newsha/admin-service"
+    test "$(grep -c 'pm2 start ecosystem.config.cjs --update-env' "$log")" -eq 1
+  else
+    test "$(cat "$current_target_file")" = "releases/oldsha/admin-service"
+    grep -q "pm2 start ecosystem.config.cjs --update-env \[releases/oldsha/admin-service\]" "$log"
+  fi
   delete_line="$(grep -n 'pm2 delete' "$log" | head -n 1 | cut -d: -f1)"
   backup_line="$(grep -n 'npm run --silent backup' "$log" | head -n 1 | cut -d: -f1)"
   test "$delete_line" -lt "$backup_line"
@@ -171,4 +181,5 @@ run_failure_case migration
 run_failure_case startup
 run_failure_case health
 run_failure_case switch
+run_failure_case rollback-switch
 echo "Deployment rollback scenarios passed."
