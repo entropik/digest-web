@@ -456,15 +456,16 @@
     const button = event.target.closest("button[data-category-label]");
     if (!button) return;
     searchRevision += 1;
+    const requestedCategory = button.dataset.categoryLabel;
+    if (requestedCategory === "favorites") {
+      search.value = "";
+      dateFilter.value = "";
+      dateValue.textContent = "cliquer sur le calendrier";
+      dateToggle.classList.remove("has-value");
+      closeCalendar();
+    }
     void withLinks(() => {
-      category = button.dataset.categoryLabel;
-      if (category === "favorites") {
-        search.value = "";
-        dateFilter.value = "";
-        dateValue.textContent = "cliquer sur le calendrier";
-        dateToggle.classList.remove("has-value");
-        closeCalendar();
-      }
+      category = requestedCategory;
       currentPage = 1;
       clearRandomSelection();
       filters.querySelector(".is-active")?.classList.remove("is-active");

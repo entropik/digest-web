@@ -186,6 +186,10 @@ test("the home loads its compact search index only when interaction needs it", a
   assert.match(script, /search\.addEventListener\("input",[\s\S]*?withLinks/);
   assert.match(script, /const revision = \+\+searchRevision/);
   assert.match(script, /if \(revision !== searchRevision\) return/);
+  assert.match(
+    script,
+    /if \(requestedCategory === "favorites"\)[\s\S]*?search\.value = ""[\s\S]*?void withLinks/,
+  );
   assert.match(script, /calendarRequestedOpen = !calendarRequestedOpen/);
   assert.match(script, /if \(!calendarRequestedOpen\) return/);
   assert.match(
