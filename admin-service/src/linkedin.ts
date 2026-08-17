@@ -7,6 +7,7 @@ import {
 import type Database from "better-sqlite3";
 import { config } from "./config.js";
 import { canonicalizePublicUrl } from "./urls.js";
+import { fetchWithDeadline, NetworkDeadlineError } from "./network.js";
 
 const LINKEDIN_AUTHORIZE_URL = "https://www.linkedin.com/oauth/v2/authorization";
 const LINKEDIN_TOKEN_URL = "https://www.linkedin.com/oauth/v2/accessToken";
@@ -17,6 +18,21 @@ const STATE_LIFETIME_MS = 10 * 60 * 1_000;
 const PUBLICATION_RESERVATION_LIFETIME_MS = 10 * 60 * 1_000;
 const PUBLICATION_RESERVATION_RENEWAL_MS = 60 * 1_000;
 const MAX_COMMENTARY_LENGTH = 3_000;
+const LINKEDIN_READ_TIMEOUT_MS = 15_000;
+const LINKEDIN_WRITE_TIMEOUT_MS = 30_000;
+const LINKEDIN_UPLOAD_TIMEOUT_MS = 60_000;
+
+type LinkedInDeadlines = {
+  read: number;
+  write: number;
+  upload: number;
+};
+
+const defaultDeadlines: LinkedInDeadlines = {
+  read: LINKEDIN_READ_TIMEOUT_MS,
+  write: LINKEDIN_WRITE_TIMEOUT_MS,
+  upload: LINKEDIN_UPLOAD_TIMEOUT_MS,
+};
 
 export type LinkedInErrorCode =
   | "LINKEDIN_NOT_CONFIGURED"
@@ -123,6 +139,7 @@ export class LinkedInService {
   constructor(
     private readonly database: Database.Database,
     private readonly fetcher: Fetch = fetch,
+    private readonly deadlines: LinkedInDeadlines = defaultDeadlines,
   ) {
     this.database.exec(`
       CREATE TABLE IF NOT EXISTS linkedin_oauth_states (
@@ -168,6 +185,22 @@ export class LinkedInService {
       this.database.exec(
         "ALTER TABLE linkedin_publication_reservations ADD COLUMN state TEXT NOT NULL DEFAULT 'reserved'",
       );
+    }
+  }
+
+  private async request(
+    input: Parameters<Fetch>[0],
+    init: RequestInit,
+    timeoutMs: number,
+    timeoutCode: LinkedInErrorCode,
+  ): Promise<Response> {
+    try {
+      return await fetchWithDeadline(this.fetcher, input, init, timeoutMs);
+    } catch (error) {
+      if (error instanceof NetworkDeadlineError) {
+        throw new LinkedInError(timeoutCode, 504, error.message);
+      }
+      throw error;
     }
   }
 
@@ -265,7 +298,7 @@ export class LinkedInService {
       throw new LinkedInError("LINKEDIN_INVALID_STATE", 400);
     }
 
-    const tokenResponse = await this.fetcher(LINKEDIN_TOKEN_URL, {
+    const tokenResponse = await this.request(LINKEDIN_TOKEN_URL, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams({
@@ -275,14 +308,14 @@ export class LinkedInService {
         client_id: credentials.clientId,
         client_secret: credentials.clientSecret,
       }),
-    });
+    }, this.deadlines.write, "LINKEDIN_AUTHORIZATION_FAILED");
     const token = await json<{ access_token: string; expires_in: number }>(
       tokenResponse,
       "LINKEDIN_AUTHORIZATION_FAILED",
     );
-    const userInfoResponse = await this.fetcher(LINKEDIN_USERINFO_URL, {
+    const userInfoResponse = await this.request(LINKEDIN_USERINFO_URL, {
       headers: { Authorization: `Bearer ${token.access_token}` },
-    });
+    }, this.deadlines.read, "LINKEDIN_AUTHORIZATION_FAILED");
     const userInfo = await json<{ sub: string; name?: string }>(
       userInfoResponse,
       "LINKEDIN_AUTHORIZATION_FAILED",
@@ -412,9 +445,9 @@ export class LinkedInService {
       throw new LinkedInError("LINKEDIN_TOKEN_EXPIRED", 409);
     }
     const accessToken = decrypt(connection.encrypted_access_token);
-    const imageResponse = await this.fetcher(validated.imageUrl, {
+    const imageResponse = await this.request(validated.imageUrl, {
       headers: { "User-Agent": "digest-linkedin-publisher" },
-    });
+    }, this.deadlines.read, "LINKEDIN_IMAGE_UNAVAILABLE");
     if (!imageResponse.ok) {
       throw new LinkedInError("LINKEDIN_IMAGE_UNAVAILABLE", 502);
     }
@@ -424,7 +457,7 @@ export class LinkedInService {
     }
 
     const author = `urn:li:person:${connection.member_id}`;
-    const registerResponse = await this.fetcher(LINKEDIN_ASSETS_URL, {
+    const registerResponse = await this.request(LINKEDIN_ASSETS_URL, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -443,7 +476,7 @@ export class LinkedInService {
           ],
         },
       }),
-    });
+    }, this.deadlines.write, "LINKEDIN_UPLOAD_FAILED");
     if (registerResponse.status === 401) {
       throw new LinkedInError("LINKEDIN_TOKEN_EXPIRED", 409);
     }
@@ -465,14 +498,14 @@ export class LinkedInService {
       throw new LinkedInError("LINKEDIN_UPLOAD_FAILED", 502);
     }
 
-    const uploadResponse = await this.fetcher(upload.uploadUrl, {
+    const uploadResponse = await this.request(upload.uploadUrl, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${accessToken}`,
         "Content-Type": "image/png",
       },
       body: image,
-    });
+    }, this.deadlines.upload, "LINKEDIN_UPLOAD_FAILED");
     if (uploadResponse.status === 401) {
       throw new LinkedInError("LINKEDIN_TOKEN_EXPIRED", 409);
     }
@@ -485,7 +518,7 @@ export class LinkedInService {
     }
 
     beforeSubmit();
-    const postResponse = await this.fetcher(LINKEDIN_POSTS_URL, {
+    const postResponse = await this.request(LINKEDIN_POSTS_URL, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -512,7 +545,7 @@ export class LinkedInService {
           "com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC",
         },
       }),
-    });
+    }, this.deadlines.write, "LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN");
     if (postResponse.status === 401) {
       throw new LinkedInError("LINKEDIN_TOKEN_EXPIRED", 409);
     }

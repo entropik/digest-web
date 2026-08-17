@@ -415,3 +415,82 @@ test("a local persistence failure after LinkedIn success blocks automatic republ
   assert.equal(postCalls, 4);
   isolatedDatabase.close();
 });
+
+test("a LinkedIn post timeout remains ambiguous and cannot be retried automatically", async () => {
+  const isolatedDatabase = new Database(join(temporary, "linkedin-timeout.sqlite"));
+  let postCalls = 0;
+  const fetcher = async (input: string | URL | Request, init?: RequestInit) => {
+    const url = String(input);
+    if (url.endsWith("/oauth/v2/accessToken")) {
+      return Response.json({ access_token: "timeout-token", expires_in: 3600 });
+    }
+    if (url.endsWith("/v2/userinfo")) {
+      return Response.json({ sub: "timeout-member", name: "Compte timeout" });
+    }
+    if (url.includes("/api/linkedin-images/")) {
+      return new Response(new Uint8Array([137, 80, 78, 71]));
+    }
+    if (url.includes("/v2/assets?action=registerUpload")) {
+      return Response.json({
+        value: {
+          uploadMechanism: {
+            "com.linkedin.digitalmedia.uploading.MediaUploadHttpRequest": {
+              uploadUrl: "https://upload.linkedin.test/timeout",
+            },
+          },
+          asset: "urn:li:digitalmediaAsset:timeout",
+        },
+      });
+    }
+    if (url === "https://upload.linkedin.test/timeout") {
+      return new Response(null, { status: 201 });
+    }
+    if (url.endsWith("/v2/ugcPosts")) {
+      postCalls += 1;
+      return new Promise<Response>((_resolve, reject) => {
+        init?.signal?.addEventListener("abort", () =>
+          reject(new DOMException("Aborted", "AbortError")),
+        );
+      });
+    }
+    throw new Error(`Unexpected request: ${url}`);
+  };
+  const deadlines = { read: 20, write: 20, upload: 20 };
+  const service = new LinkedInService(
+    isolatedDatabase,
+    fetcher as typeof fetch,
+    deadlines,
+  );
+  const authorization = new URL(service.authorizationUrl("admin-timeout"));
+  await service.completeAuthorization(
+    "admin-timeout",
+    authorization.searchParams.get("state")!,
+    "timeout-code",
+  );
+  const input = {
+    title: "Publication au résultat inconnu",
+    text: "Le délai ne doit pas provoquer un doublon.",
+    url: "https://example.com/publication-timeout",
+    imageUrl:
+      "/api/linkedin-images/3583bb99-c9f5-53fc-832c-9d92933c1ad4-0123456789abcdef.png?v=1",
+  };
+
+  await assert.rejects(
+    service.publishLink("admin-timeout", input),
+    (error: unknown) =>
+      error instanceof LinkedInError &&
+      error.code === "LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN",
+  );
+  await assert.rejects(
+    new LinkedInService(
+      isolatedDatabase,
+      fetcher as typeof fetch,
+      deadlines,
+    ).publishLink("admin-timeout", input),
+    (error: unknown) =>
+      error instanceof LinkedInError &&
+      error.code === "LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN",
+  );
+  assert.equal(postCalls, 1);
+  isolatedDatabase.close();
+});

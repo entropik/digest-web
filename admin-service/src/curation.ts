@@ -20,6 +20,7 @@ import {
   addTagsToPublishedLink,
   GitHubResponseError,
   commitRepositoryFiles,
+  GitHubMutationOutcomeUnknownError,
   listRepositoryDirectory,
   readCachedRepositoryHead,
   readRepositoryHead,
@@ -456,6 +457,9 @@ export class CurationService {
           }
           return committed;
         } catch (error) {
+          if (error instanceof GitHubMutationOutcomeUnknownError) {
+            remoteCommitSucceeded = true;
+          }
           if (
             attempt === 0 &&
             error instanceof GitHubResponseError &&

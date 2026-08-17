@@ -16,6 +16,7 @@ process.env.GITHUB_APP_PRIVATE_KEY_BASE64 = Buffer.from("unused").toString("base
 
 const { CurationStore } = await import("../src/curation-db.js");
 const { CurationService } = await import("../src/curation.js");
+const { GitHubMutationOutcomeUnknownError } = await import("../src/github.js");
 const { stableLinkId } = await import("../src/publication.js");
 
 class FailingPostCommitStore extends CurationStore {
@@ -109,5 +110,65 @@ test("a publication recovers after SQLite fails immediately after the GitHub com
   assert.equal(store.findDraft(draft.id)?.state, "published");
   assert.equal(store.findDraft(draft.id)?.publishedLinkId, publishedLink.id);
   assert.equal(commitCalls, 1);
+  database.close();
+});
+
+test("an ambiguous GitHub branch update keeps the publication recoverable", async () => {
+  const database = new Database(":memory:");
+  const store = new CurationStore(database);
+  const draft = store.createDraft({
+    url: "https://example.com/ambiguous-github-publication",
+    title: "Publication GitHub ambiguë",
+    category: "Développement web",
+    description: "Le brouillon doit rester réservé.",
+    tags: ["Fiabilité"],
+    privateNote: "",
+  });
+  const dependencies = {
+    readRepositoryHead: async () => ({
+      commitSha: "initial-sha",
+      treeSha: "initial-tree",
+      links: [
+        {
+          id: "33333333-3333-5333-8333-333333333333",
+          title: "Lien existant",
+          url: "https://example.org/existing-ambiguous",
+          category: "Développement web",
+          added: "2026-08-10",
+          description: "Catalogue initial",
+          tags: ["Fiabilité"],
+        },
+      ],
+    }),
+    tryReadRepositoryFile: async () => null,
+    buildPublicationFiles: async () => ({
+      files: {
+        "data/links.json": "[]",
+        "content/archives/2026-08-18.md": "archive",
+      },
+      linkIdsByDraft: new Map([[draft.id, stableLinkId(draft.url)]]),
+    }),
+    commitRepositoryFiles: async () => {
+      throw new GitHubMutationOutcomeUnknownError("update branch");
+    },
+  };
+  const service = new CurationService(store, dependencies);
+
+  await assert.rejects(
+    service.publish({
+      requestId: "22222222-2222-4222-8222-222222222222",
+      draftIds: [draft.id],
+      digestDate: "2026-08-18",
+      title: "Web Digest — 18 août 2026",
+      introduction: "Une publication au résultat distant incertain.",
+      seoDescription: "Test du délai GitHub.",
+    }),
+    GitHubMutationOutcomeUnknownError,
+  );
+  assert.equal(
+    store.findPublication("22222222-2222-4222-8222-222222222222")?.state,
+    "committing",
+  );
+  assert.equal(store.findDraft(draft.id)?.state, "publishing");
   database.close();
 });
