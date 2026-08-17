@@ -10,7 +10,6 @@ import { join, resolve } from "node:path";
 import { Resvg } from "@resvg/resvg-js";
 import {
   chromium,
-  type Browser,
   type BrowserServer,
   type Page,
   type Route,
@@ -243,11 +242,10 @@ export const capturePublicPage = async (
   const addressBook = new PinnedAddressBook();
   const url = await assertPublicDestination(rawUrl, addressBook);
   const proxy: PinnedBrowserProxy = await startPinnedBrowserProxy(addressBook);
-  let browser: Browser | undefined;
   let browserServer: BrowserServer | undefined;
   return withCaptureCleanup(
     {
-      closeBrowser: async () => browser?.close(),
+      closeBrowser: async () => browserServer?.close(),
       closeProxy: proxy.close,
       forceCloseBrowser: async () => browserServer?.kill(),
       forceCloseProxy: async () => proxy.forceClose(),
@@ -262,7 +260,6 @@ export const capturePublicPage = async (
       const connectedBrowser = await chromium.connect(
         launchedServer.wsEndpoint(),
       );
-      browser = connectedBrowser;
       const context = await connectedBrowser.newContext({
         viewport: { width: CAPTURE_WIDTH, height: CAPTURE_HEIGHT },
         deviceScaleFactor: 1,
