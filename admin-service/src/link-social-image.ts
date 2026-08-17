@@ -8,13 +8,20 @@ import {
 } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { Resvg } from "@resvg/resvg-js";
-import { chromium, type Browser, type Page, type Route } from "playwright";
+import {
+  chromium,
+  type BrowserServer,
+  type Page,
+  type Route,
+} from "playwright";
 import sharp from "sharp";
 import type { DigestLink } from "./catalog.js";
 import {
   PinnedAddressBook,
   startPinnedBrowserProxy,
+  type PinnedBrowserProxy,
 } from "./pinned-browser-proxy.js";
+import { withDeadline } from "./network.js";
 import { canonicalizePublicUrl } from "./urls.js";
 
 const WIDTH = 1200;
@@ -159,40 +166,118 @@ const preparePage = async (
   await page.waitForTimeout(2_000);
 };
 
+const CAPTURE_CLEANUP_TIMEOUT_MS = 5_000;
+
+type CaptureResources = {
+  closeBrowser: () => Promise<void>;
+  closeProxy: () => Promise<void>;
+  forceCloseBrowser: () => Promise<void>;
+  forceCloseProxy: () => Promise<void>;
+};
+
+const closeCaptureResource = async (
+  close: () => Promise<void>,
+  forceClose: () => Promise<void>,
+  timeoutMs: number,
+): Promise<void> => {
+  try {
+    await withDeadline(close, timeoutMs);
+  } catch (closeError) {
+    try {
+      await withDeadline(forceClose, timeoutMs);
+    } catch (forceError) {
+      throw new AggregateError(
+        [closeError, forceError],
+        "CAPTURE_FORCE_CLEANUP_FAILED",
+      );
+    }
+  }
+};
+
+export const withCaptureCleanup = async <T>(
+  resources: CaptureResources,
+  operation: () => Promise<T>,
+  timeoutMs = CAPTURE_CLEANUP_TIMEOUT_MS,
+): Promise<T> => {
+  let operationFailed = false;
+  try {
+    return await operation();
+  } catch (error) {
+    operationFailed = true;
+    throw error;
+  } finally {
+    const results = await Promise.allSettled([
+      closeCaptureResource(
+        resources.closeBrowser,
+        resources.forceCloseBrowser,
+        timeoutMs,
+      ),
+      closeCaptureResource(
+        resources.closeProxy,
+        resources.forceCloseProxy,
+        timeoutMs,
+      ),
+    ]);
+    const cleanupErrors = results.flatMap((result) =>
+      result.status === "rejected" ? [result.reason] : [],
+    );
+    if (cleanupErrors.length) {
+      const cleanupError = new AggregateError(
+        cleanupErrors,
+        "CAPTURE_CLEANUP_FAILED",
+      );
+      if (operationFailed) {
+        console.error("Capture cleanup failed after the primary error", cleanupError);
+      } else {
+        throw cleanupError;
+      }
+    }
+  }
+};
+
 export const capturePublicPage = async (
   rawUrl: string,
   executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE?.trim(),
 ): Promise<Buffer> => {
   const addressBook = new PinnedAddressBook();
   const url = await assertPublicDestination(rawUrl, addressBook);
-  const proxy = await startPinnedBrowserProxy(addressBook);
-  let browser: Browser | undefined;
-  try {
-    browser = await chromium.launch({
-      headless: true,
-      proxy: { server: proxy.url, bypass: "<-loopback>" },
-      ...(executablePath ? { executablePath } : {}),
-    });
-    const context = await browser.newContext({
-      viewport: { width: CAPTURE_WIDTH, height: CAPTURE_HEIGHT },
-      deviceScaleFactor: 1,
-      colorScheme: "light",
-      locale: "fr-FR",
-      reducedMotion: "reduce",
-      userAgent:
-        "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/126 Safari/537.36 OOBLIK-Digest-Capture/1.0",
-    });
-    const page = await context.newPage();
-    await preparePage(page, url.toString(), addressBook);
-    return await page.screenshot({
-      type: "png",
-      fullPage: false,
-      animations: "disabled",
-    });
-  } finally {
-    await browser?.close();
-    await proxy.close();
-  }
+  const proxy: PinnedBrowserProxy = await startPinnedBrowserProxy(addressBook);
+  let browserServer: BrowserServer | undefined;
+  return withCaptureCleanup(
+    {
+      closeBrowser: async () => browserServer?.close(),
+      closeProxy: proxy.close,
+      forceCloseBrowser: async () => browserServer?.kill(),
+      forceCloseProxy: async () => proxy.forceClose(),
+    },
+    async () => {
+      const launchedServer = await chromium.launchServer({
+        headless: true,
+        proxy: { server: proxy.url, bypass: "<-loopback>" },
+        ...(executablePath ? { executablePath } : {}),
+      });
+      browserServer = launchedServer;
+      const connectedBrowser = await chromium.connect(
+        launchedServer.wsEndpoint(),
+      );
+      const context = await connectedBrowser.newContext({
+        viewport: { width: CAPTURE_WIDTH, height: CAPTURE_HEIGHT },
+        deviceScaleFactor: 1,
+        colorScheme: "light",
+        locale: "fr-FR",
+        reducedMotion: "reduce",
+        userAgent:
+          "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/126 Safari/537.36 OOBLIK-Digest-Capture/1.0",
+      });
+      const page = await context.newPage();
+      await preparePage(page, url.toString(), addressBook);
+      return page.screenshot({
+        type: "png",
+        fullPage: false,
+        animations: "disabled",
+      });
+    },
+  );
 };
 
 const stylizeScreenshot = async (

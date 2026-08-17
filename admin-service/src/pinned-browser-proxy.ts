@@ -211,6 +211,7 @@ const handleConnect = async (
 export type PinnedBrowserProxy = {
   url: string;
   close: () => Promise<void>;
+  forceClose: () => void;
 };
 
 export const startPinnedBrowserProxy = async (
@@ -239,6 +240,11 @@ export const startPinnedBrowserProxy = async (
   }
   return {
     url: `http://127.0.0.1:${address.port}`,
+    forceClose: () => {
+      clients.forEach((socket) => socket.destroy());
+      server.closeAllConnections();
+      server.close();
+    },
     close: () =>
       new Promise<void>((resolve, reject) => {
         server.close((error) => {
