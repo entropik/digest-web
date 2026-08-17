@@ -55,6 +55,17 @@ EOF
   cat >"$fake_bin/pm2" <<'EOF'
 #!/bin/sh
 printf 'pm2 %s [%s]\n' "$*" "$(readlink "$TEST_BASE/current" 2>/dev/null || true)" >>"$TEST_LOG"
+if [ "$1" = "delete" ] && [ "$TEST_SCENARIO" = "stop" ]; then
+  exit 1
+fi
+if [ "$1" = "pid" ]; then
+  if [ "$TEST_SCENARIO" = "stop" ]; then
+    printf '4242\n'
+  else
+    printf '0\n'
+  fi
+  exit 0
+fi
 if [ "$1" = "start" ] &&
    [ "$TEST_SCENARIO" = "startup" ] &&
    [ "$(readlink "$TEST_BASE/current")" = "releases/newsha/admin-service" ]; then
@@ -163,6 +174,14 @@ run_failure_case() {
     return 1
   fi
 
+  if [ "$scenario" = "stop" ]; then
+    test "$(cat "$current_target_file")" = "releases/oldsha/admin-service"
+    test "$(cat "$database")" = "old database state"
+    ! grep -q 'npm run --silent backup' "$log"
+    ! grep -q 'pm2 start' "$log"
+    return
+  fi
+
   test "$(cat "$database")" = "old database state"
   grep -q "database restored" "$log"
   if [ "$scenario" = "rollback-switch" ]; then
@@ -182,4 +201,5 @@ run_failure_case startup
 run_failure_case health
 run_failure_case switch
 run_failure_case rollback-switch
+run_failure_case stop
 echo "Deployment rollback scenarios passed."

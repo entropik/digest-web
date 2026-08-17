@@ -12,13 +12,26 @@ mkdir -p "$base/releases" "$base/shared"
 exec 9>"$base/shared/deploy.lock"
 flock -n 9 || exit 0
 
-start_admin() {
-  cd "$base/current"
-  pm2 delete digest-admin >/dev/null 2>&1 || true
-  if ! pm2 start ecosystem.config.cjs --update-env; then
+stop_admin() {
+  if pm2 delete digest-admin >/dev/null 2>&1; then
+    pm2 save
+    return
+  fi
+  if ! pid="$(pm2 pid digest-admin 2>/dev/null)"; then
     return 1
   fi
-  if ! pm2 save; then
+  case "$pid" in
+    ""|0) pm2 save ;;
+    *) return 1 ;;
+  esac
+}
+
+start_admin() {
+  cd "$base/current"
+  if ! stop_admin; then
+    return 1
+  fi
+  if ! pm2 start ecosystem.config.cjs --update-env; then
     return 1
   fi
 
@@ -31,12 +44,16 @@ start_admin() {
     fi
     sleep "$health_sleep"
   done
+  pm2 save
 }
 
 restore_previous() {
   reason="$1"
   echo "Deployment failed during $reason; rolling back." >&2
-  pm2 delete digest-admin >/dev/null 2>&1 || true
+  if ! stop_admin; then
+    echo "The active admin process could not be stopped; rollback is unsafe." >&2
+    return 1
+  fi
 
   if [ -n "${backup_path:-}" ]; then
     cd "$release/admin-service"
@@ -101,7 +118,10 @@ fi
 test -s "$release/admin-service/dist/src/server.js"
 
 cd "$release/admin-service"
-pm2 delete digest-admin >/dev/null 2>&1 || true
+if ! stop_admin; then
+  echo "The active admin process could not be stopped; deployment aborted." >&2
+  exit 1
+fi
 backup_path=""
 if ! backup_output="$(npm run --silent backup)"; then
   restore_previous backup || true
