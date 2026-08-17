@@ -27,6 +27,7 @@ export type LinkedInErrorCode =
   | "LINKEDIN_IMAGE_UNAVAILABLE"
   | "LINKEDIN_UPLOAD_FAILED"
   | "LINKEDIN_PUBLICATION_FAILED"
+  | "LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN"
   | "LINKEDIN_PUBLICATION_IN_PROGRESS"
   | "LINKEDIN_INVALID_CONFIGURATION"
   | "LINKEDIN_INVALID_PUBLICATION";
@@ -156,9 +157,18 @@ export class LinkedInService {
         publication_url TEXT PRIMARY KEY,
         reservation_token TEXT NOT NULL,
         admin_user_id TEXT NOT NULL,
+        state TEXT NOT NULL DEFAULT 'reserved',
         expires_at INTEGER NOT NULL
       );
     `);
+    const reservationColumns = this.database
+      .prepare("PRAGMA table_info(linkedin_publication_reservations)")
+      .all() as Array<{ name: string }>;
+    if (!reservationColumns.some(({ name }) => name === "state")) {
+      this.database.exec(
+        "ALTER TABLE linkedin_publication_reservations ADD COLUMN state TEXT NOT NULL DEFAULT 'reserved'",
+      );
+    }
   }
 
   status(adminUserId: string) {
@@ -334,6 +344,9 @@ export class LinkedInService {
         alreadyPublished: true,
       };
     }
+    if (reservation.outcomeUnknown) {
+      throw new LinkedInError("LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN", 409);
+    }
     if (!reservation.token) {
       throw new LinkedInError("LINKEDIN_PUBLICATION_IN_PROGRESS", 409);
     }
@@ -346,8 +359,16 @@ export class LinkedInService {
       }
     }, PUBLICATION_RESERVATION_RENEWAL_MS);
     renewal.unref();
+    let submissionStarted = false;
     try {
-      const postUrn = await this.createLinkedInPost(adminUserId, validated);
+      const postUrn = await this.createLinkedInPost(
+        adminUserId,
+        validated,
+        () => {
+          this.markPublicationSubmitting(validated.url, reservation.token!);
+          submissionStarted = true;
+        },
+      );
       this.finishPublication(
         validated.url,
         reservation.token,
@@ -360,7 +381,20 @@ export class LinkedInService {
         alreadyPublished: false,
       };
     } catch (error) {
-      this.releasePublication(validated.url, reservation.token);
+      const definitiveRemoteFailure =
+        error instanceof LinkedInError &&
+        ["LINKEDIN_TOKEN_EXPIRED", "LINKEDIN_PUBLICATION_FAILED"].includes(
+          error.code,
+        );
+      if (!submissionStarted || definitiveRemoteFailure) {
+        this.releasePublication(validated.url, reservation.token);
+      }
+      if (submissionStarted && !definitiveRemoteFailure) {
+        throw new LinkedInError(
+          "LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN",
+          409,
+        );
+      }
       throw error;
     } finally {
       clearInterval(renewal);
@@ -370,6 +404,7 @@ export class LinkedInService {
   private async createLinkedInPost(
     adminUserId: string,
     validated: PublicationInput,
+    beforeSubmit: () => void,
   ): Promise<string> {
     const connection = this.connection(adminUserId);
     if (!connection) throw new LinkedInError("LINKEDIN_NOT_CONNECTED", 409);
@@ -449,6 +484,7 @@ export class LinkedInService {
       );
     }
 
+    beforeSubmit();
     const postResponse = await this.fetcher(LINKEDIN_POSTS_URL, {
       method: "POST",
       headers: {
@@ -488,25 +524,35 @@ export class LinkedInService {
       );
     }
     const postUrn = postResponse.headers.get("x-restli-id");
-    if (!postUrn) throw new LinkedInError("LINKEDIN_PUBLICATION_FAILED", 502);
+    if (!postUrn) {
+      throw new LinkedInError("LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN", 409);
+    }
     return postUrn;
   }
 
   private reservePublication(
     adminUserId: string,
     publicationUrl: string,
-  ): { token?: string; previousPostUrn?: string } {
+  ): { token?: string; previousPostUrn?: string; outcomeUnknown?: boolean } {
     return this.database.transaction(() => {
       const now = Date.now();
       this.database
         .prepare(
-          "DELETE FROM linkedin_publication_reservations WHERE expires_at <= ?",
+          `DELETE FROM linkedin_publication_reservations
+           WHERE expires_at <= ? AND state = 'reserved'`,
         )
         .run(now);
       const previous = this.database
         .prepare("SELECT post_urn FROM linkedin_publications WHERE archive_url = ?")
         .get(publicationUrl) as { post_urn: string } | undefined;
       if (previous) return { previousPostUrn: previous.post_urn };
+      const unresolved = this.database
+        .prepare(
+          `SELECT state FROM linkedin_publication_reservations
+           WHERE publication_url = ?`,
+        )
+        .get(publicationUrl) as { state: string } | undefined;
+      if (unresolved?.state === "submitting") return { outcomeUnknown: true };
       const token = randomBytes(24).toString("base64url");
       const inserted = this.database
         .prepare(
@@ -522,6 +568,22 @@ export class LinkedInService {
         );
       return inserted.changes === 1 ? { token } : {};
     })();
+  }
+
+  private markPublicationSubmitting(
+    publicationUrl: string,
+    reservationToken: string,
+  ): void {
+    const updated = this.database
+      .prepare(
+        `UPDATE linkedin_publication_reservations
+         SET state = 'submitting'
+         WHERE publication_url = ? AND reservation_token = ? AND state = 'reserved'`,
+      )
+      .run(publicationUrl, reservationToken);
+    if (updated.changes !== 1) {
+      throw new LinkedInError("LINKEDIN_PUBLICATION_IN_PROGRESS", 409);
+    }
   }
 
   private renewPublication(
