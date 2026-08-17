@@ -38,3 +38,16 @@ Si aucun post n’existe :
 
 Une réservation `reserved` ou une URL différente ne doit pas être supprimée.
 La sauvegarde permet de revenir à l’état précédent en cas d’erreur opérateur.
+
+## Rollback d’un déploiement admin
+
+Le script CloudPanel construit complètement la nouvelle release avant toute
+interruption. Il sauvegarde ensuite SQLite, arrête PM2, applique les migrations,
+bascule le lien `current`, démarre la release et contrôle `/health`.
+
+Une erreur de migration, de démarrage PM2 ou de contrôle de santé déclenche le
+rollback automatique suivant : arrêt du candidat, restauration atomique de la
+sauvegarde SQLite, rétablissement du lien vers la release précédente, puis
+redémarrage et contrôle de santé de cette release. Si la restauration SQLite
+échoue, le service reste volontairement arrêté afin qu’un ancien binaire ne
+s’exécute pas contre un schéma incertain.

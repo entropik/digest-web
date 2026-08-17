@@ -2,9 +2,11 @@
 
 set -eu
 
-base="/home/digest/apps/digest-admin"
-repository="https://github.com/entropik/digest-web.git"
-branch="main"
+base="${DIGEST_ADMIN_BASE:-/home/digest/apps/digest-admin}"
+repository="${DIGEST_ADMIN_REPOSITORY:-https://github.com/entropik/digest-web.git}"
+branch="${DIGEST_ADMIN_BRANCH:-main}"
+health_attempts="${DIGEST_ADMIN_HEALTH_ATTEMPTS:-20}"
+health_sleep="${DIGEST_ADMIN_HEALTH_SLEEP:-1}"
 
 mkdir -p "$base/releases" "$base/shared"
 exec 9>"$base/shared/deploy.lock"
@@ -13,18 +15,49 @@ flock -n 9 || exit 0
 start_admin() {
   cd "$base/current"
   pm2 delete digest-admin >/dev/null 2>&1 || true
-  pm2 start ecosystem.config.cjs --update-env
-  pm2 save
+  if ! pm2 start ecosystem.config.cjs --update-env; then
+    return 1
+  fi
+  if ! pm2 save; then
+    return 1
+  fi
 
   attempt=0
   until curl -fsS http://127.0.0.1:3210/health >/dev/null; do
     attempt=$((attempt + 1))
-    if [ "$attempt" -ge 20 ]; then
+    if [ "$attempt" -ge "$health_attempts" ]; then
       echo "The admin service did not become healthy on port 3210." >&2
-      exit 1
+      return 1
     fi
-    sleep 1
+    sleep "$health_sleep"
   done
+}
+
+restore_previous() {
+  reason="$1"
+  echo "Deployment failed during $reason; rolling back." >&2
+  pm2 delete digest-admin >/dev/null 2>&1 || true
+
+  if [ -n "${backup_path:-}" ]; then
+    cd "$release/admin-service"
+    if ! DATABASE_BACKUP_PATH="$backup_path" npm run --silent restore; then
+      echo "Database restoration failed; the previous service will stay stopped." >&2
+      return 1
+    fi
+  fi
+
+  if [ -z "$previous_target" ]; then
+    echo "No previous release is available to restart." >&2
+    return 1
+  fi
+  ln -sfn "$previous_target" "$base/current.rollback"
+  mv -Tf "$base/current.rollback" "$base/current"
+  if ! start_admin; then
+    echo "The previous release could not be restarted after rollback." >&2
+    return 1
+  fi
+  echo "Rollback restored $previous_target." >&2
+  return 0
 }
 
 test -s "$base/shared/.env"
@@ -35,8 +68,8 @@ remote_sha="$(
 )"
 test -n "$remote_sha"
 
-current_target="$(readlink "$base/current" 2>/dev/null || true)"
-if [ "$current_target" = "releases/$remote_sha/admin-service" ]; then
+previous_target="$(readlink "$base/current" 2>/dev/null || true)"
+if [ "$previous_target" = "releases/$remote_sha/admin-service" ]; then
   if ! curl -fsS http://127.0.0.1:3210/health >/dev/null; then
     start_admin
   fi
@@ -56,19 +89,37 @@ if [ ! -d "$release" ]; then
   PLAYWRIGHT_BROWSERS_PATH="$base/shared/playwright" \
     npx playwright install chromium --only-shell
   npm run build
-  npm run backup
-  npm run migrate
   npm prune --omit=dev
   rm -rf -- "$temporary/.git"
+  cd "$base"
   mv -- "$temporary" "$release"
 fi
 
 test -s "$release/admin-service/dist/src/server.js"
 
+cd "$release/admin-service"
+backup_output="$(npm run --silent backup)"
+printf '%s\n' "$backup_output"
+backup_path="$(
+  printf '%s\n' "$backup_output" |
+    sed -n 's/^SQLite backup created: //p' |
+    tail -n 1
+)"
+test -n "$backup_path"
+
+pm2 delete digest-admin >/dev/null 2>&1 || true
+if ! npm run --silent migrate; then
+  restore_previous migration || true
+  exit 1
+fi
+
 ln -sfn "releases/$remote_sha/admin-service" "$base/current.new"
 mv -Tf "$base/current.new" "$base/current"
 
-start_admin
+if ! start_admin; then
+  restore_previous startup-or-health-check || true
+  exit 1
+fi
 
 cd "$base/releases"
 ls -1dt -- */ 2>/dev/null | tail -n +6 | xargs -r rm -rf --

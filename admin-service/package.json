@@ -9,6 +9,7 @@
     "backup": "node dist/src/backup.js",
     "migrate": "tsx src/migrate.ts",
     "preview": "npm run build && node scripts/preview-admin.mjs",
+    "restore": "node dist/src/restore-backup.js",
     "social:archives": "tsx scripts/social-archive-preview.ts",
     "social:backfill": "node --import tsx scripts/social-backfill.ts",
     "social:preview": "tsx scripts/social-preview.ts",
