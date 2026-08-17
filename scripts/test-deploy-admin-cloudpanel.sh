@@ -99,6 +99,10 @@ eval "target=\${$position}"
 eval "destination=\${$#}"
 if [ "$destination" = "$TEST_BASE/current.new" ] ||
    [ "$destination" = "$TEST_BASE/current.rollback" ]; then
+  if [ "$TEST_SCENARIO" = "switch" ] &&
+     [ "$target" = "releases/newsha/admin-service" ]; then
+    exit 1
+  fi
   printf '%s\n' "$target" >"$TEST_PENDING_TARGET"
 else
   /usr/bin/ln "$@"
@@ -158,9 +162,13 @@ run_failure_case() {
   test "$(cat "$database")" = "old database state"
   grep -q "database restored" "$log"
   grep -q "pm2 start ecosystem.config.cjs --update-env \[releases/oldsha/admin-service\]" "$log"
+  delete_line="$(grep -n 'pm2 delete' "$log" | head -n 1 | cut -d: -f1)"
+  backup_line="$(grep -n 'npm run --silent backup' "$log" | head -n 1 | cut -d: -f1)"
+  test "$delete_line" -lt "$backup_line"
 }
 
 run_failure_case migration
 run_failure_case startup
 run_failure_case health
+run_failure_case switch
 echo "Deployment rollback scenarios passed."

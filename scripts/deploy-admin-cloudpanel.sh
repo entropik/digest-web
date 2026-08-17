@@ -98,23 +98,33 @@ fi
 test -s "$release/admin-service/dist/src/server.js"
 
 cd "$release/admin-service"
-backup_output="$(npm run --silent backup)"
+pm2 delete digest-admin >/dev/null 2>&1 || true
+backup_path=""
+if ! backup_output="$(npm run --silent backup)"; then
+  restore_previous backup || true
+  exit 1
+fi
 printf '%s\n' "$backup_output"
 backup_path="$(
   printf '%s\n' "$backup_output" |
     sed -n 's/^SQLite backup created: //p' |
     tail -n 1
 )"
-test -n "$backup_path"
+if [ -z "$backup_path" ]; then
+  restore_previous backup || true
+  exit 1
+fi
 
-pm2 delete digest-admin >/dev/null 2>&1 || true
-if ! npm run --silent migrate; then
+if ! npm run --silent migrate:compiled; then
   restore_previous migration || true
   exit 1
 fi
 
-ln -sfn "releases/$remote_sha/admin-service" "$base/current.new"
-mv -Tf "$base/current.new" "$base/current"
+if ! ln -sfn "releases/$remote_sha/admin-service" "$base/current.new" ||
+   ! mv -Tf "$base/current.new" "$base/current"; then
+  restore_previous release-switch || true
+  exit 1
+fi
 
 if ! start_admin; then
   restore_previous startup-or-health-check || true

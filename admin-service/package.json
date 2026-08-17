@@ -8,6 +8,7 @@
     "dev": "tsx watch src/server.ts",
     "backup": "node dist/src/backup.js",
     "migrate": "tsx src/migrate.ts",
+    "migrate:compiled": "node dist/src/migrate.js",
     "preview": "npm run build && node scripts/preview-admin.mjs",
     "restore": "node dist/src/restore-backup.js",
     "social:archives": "tsx scripts/social-archive-preview.ts",
