@@ -120,8 +120,25 @@ const metadataInput = (
 
 const editionPath = (date: string): string => `content/archives/${date}.md`;
 
+type PublicationDependencies = {
+  readRepositoryHead: typeof readRepositoryHead;
+  tryReadRepositoryFile: typeof tryReadRepositoryFile;
+  commitRepositoryFiles: typeof commitRepositoryFiles;
+  buildPublicationFiles: typeof buildPublicationFiles;
+};
+
+const publicationDependencies: PublicationDependencies = {
+  readRepositoryHead,
+  tryReadRepositoryFile,
+  commitRepositoryFiles,
+  buildPublicationFiles,
+};
+
 export class CurationService {
-  constructor(readonly store: CurationStore) {}
+  constructor(
+    readonly store: CurationStore,
+    private readonly publication: PublicationDependencies = publicationDependencies,
+  ) {}
 
   async options() {
     const head = await readCachedRepositoryHead();
@@ -338,8 +355,13 @@ export class CurationService {
       throw new CurationError("INCOMPLETE_DRAFTS", 400, incomplete);
     }
 
-    const head = await readRepositoryHead();
-    if (await tryReadRepositoryFile(editionPath(input.digestDate), head.commitSha)) {
+    const head = await this.publication.readRepositoryHead();
+    if (
+      await this.publication.tryReadRepositoryFile(
+        editionPath(input.digestDate),
+        head.commitSha,
+      )
+    ) {
       throw new CurationError("EDITION_EXISTS", 409);
     }
     const taxonomy = catalogTaxonomy(head.links);
@@ -378,11 +400,20 @@ export class CurationService {
       seoDescription: cleanText(input.seoDescription, 500),
     });
 
+    let remoteCommitSucceeded = false;
     try {
       this.store.markDraftsPublishing(input.draftIds, input.requestId);
       for (let attempt = 0; attempt < 2; attempt += 1) {
-        const head = attempt === 0 ? prepared.head : await readRepositoryHead();
-        if (await tryReadRepositoryFile(editionPath(input.digestDate), head.commitSha)) {
+        const head =
+          attempt === 0
+            ? prepared.head
+            : await this.publication.readRepositoryHead();
+        if (
+          await this.publication.tryReadRepositoryFile(
+            editionPath(input.digestDate),
+            head.commitSha,
+          )
+        ) {
           throw new CurationError("EDITION_EXISTS", 409);
         }
         for (const draft of prepared.drafts) {
@@ -390,7 +421,7 @@ export class CurationService {
             throw new CurationError("ALREADY_PUBLISHED", 409, { id: draft.id });
           }
         }
-        const publication = await buildPublicationFiles({
+        const publication = await this.publication.buildPublicationFiles({
           currentLinks: head.links,
           drafts: prepared.drafts,
           digestDate: input.digestDate,
@@ -399,12 +430,13 @@ export class CurationService {
           introduction: cleanText(input.introduction, 10_000),
         });
         try {
-          const commitSha = await commitRepositoryFiles(
+          const commitSha = await this.publication.commitRepositoryFiles(
             head.commitSha,
             head.treeSha,
             publication.files,
             `Publier le Digest du ${input.digestDate}`,
           );
+          remoteCommitSucceeded = true;
           const committed = this.store.updatePublication(input.requestId, {
             state: "validating",
             commitSha,
@@ -436,6 +468,13 @@ export class CurationService {
       }
       throw new Error("CONCURRENT_UPDATE");
     } catch (error) {
+      if (remoteCommitSucceeded) {
+        console.error(
+          `Publication ${input.requestId} committed remotely and awaiting local recovery`,
+          error,
+        );
+        throw error;
+      }
       this.store.restorePublishingDrafts(input.requestId);
       this.store.updatePublication(input.requestId, {
         state: "failed",
@@ -455,14 +494,14 @@ export class CurationService {
       .listDraftsByPublication(publication.id)
       .filter((draft) => draft.state === "publishing");
     if (!drafts.length) return publication;
-    const head = await readRepositoryHead();
+    const head = await this.publication.readRepositoryHead();
     const recovered = drafts.every((draft) =>
       head.links.some(
         (link) =>
           link.url === draft.url && link.added === publication.digestDate,
       ),
     );
-    const archive = await tryReadRepositoryFile(
+    const archive = await this.publication.tryReadRepositoryFile(
       editionPath(publication.digestDate),
       head.commitSha,
     );
