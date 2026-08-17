@@ -1,0 +1,34 @@
+<dialog class="linkedin-composer" data-linkedin-composer aria-labelledby="linkedin-composer-title">
+  <form method="dialog" class="linkedin-composer-form" data-linkedin-form>
+    <div class="linkedin-composer-heading">
+      <div>
+        <p class="digest-kicker">Publication native</p>
+        <h2 id="linkedin-composer-title">Préparer le post LinkedIn</h2>
+      </div>
+      <button type="button" class="linkedin-composer-close" data-linkedin-cancel aria-label="Fermer">×</button>
+    </div>
+    <img
+      class="linkedin-composer-image"
+      data-linkedin-preview
+      {{ with .image }}src="{{ . | relURL }}"{{ end }}
+      width="1200"
+      height="627"
+      alt="Grande image qui accompagnera la publication LinkedIn">
+    <label class="linkedin-composer-field">
+      <span>Texte du post</span>
+      <textarea data-linkedin-text rows="6" maxlength="1250" required></textarea>
+    </label>
+    <label class="linkedin-composer-field">
+      <span>Hashtags</span>
+      <input data-linkedin-hashtags type="text" maxlength="200">
+    </label>
+    <p class="linkedin-composer-tags-note" data-linkedin-tags-note></p>
+    <p class="linkedin-composer-url" data-linkedin-url></p>
+    <p class="linkedin-composer-account" data-linkedin-account></p>
+    <p class="linkedin-composer-account" data-linkedin-composer-feedback role="status" aria-live="polite"></p>
+    <div class="linkedin-composer-actions">
+      <button type="button" data-linkedin-cancel>Annuler</button>
+      <button type="submit" class="archive-linkedin-image" data-linkedin-confirm>Confirmer la publication</button>
+    </div>
+  </form>
+</dialog>

@@ -153,6 +153,15 @@
       <a id="digest-modal-link" target="_blank" rel="noopener noreferrer">Visiter le site</a>
     </div>
     <div class="digest-modal-admin-tools" id="digest-modal-admin-tools" hidden>
+      <button
+        class="digest-modal-linkedin"
+        id="digest-modal-linkedin"
+        type="button"
+        hidden
+        data-linkedin-link-share>
+        <span aria-hidden="true">in</span>
+        <span>Partager sur LinkedIn</span>
+      </button>
       <details class="digest-modal-tag-editor" id="digest-modal-tag-editor">
         <summary>Ajouter des tags</summary>
         <form class="digest-modal-tag-form" id="digest-modal-tag-form">
@@ -179,6 +188,7 @@
     </svg>
   </button>
 </dialog>
+{{ partial "linkedin-composer.html" (dict) }}
 <p class="digest-admin-notice" id="digest-admin-notice" role="status" hidden></p>
 <script id="digest-data" type="application/json">{{ $links | jsonify | safeHTML }}</script>
 {{ $digestScript := resources.Get "js/digest.js" | minify | fingerprint }}

@@ -83,6 +83,24 @@ test("successive URL corrections retain every distinct public address", () => {
   ]);
 });
 
+test("restoring an old URL removes it from the historical list", () => {
+  const original: DigestLink = {
+    ...link(),
+    url: "https://example.org",
+    previous_urls: ["https://example.com"],
+  };
+  const mutation = changePublishedMetadata([original], original.id, {
+    url: "https://example.com",
+    title: original.title,
+    category: original.category,
+    description: "",
+    tags: [],
+    reactivate: false,
+  });
+  assert.equal(mutation.link.url, "https://example.com");
+  assert.deepEqual(mutation.link.previous_urls, ["https://example.org"]);
+});
+
 test("published URL correction rejects a URL already in the catalog", () => {
   const original = link();
   const duplicate = { ...link(), id: "link-2", url: "https://example.org" };

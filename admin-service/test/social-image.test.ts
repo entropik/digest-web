@@ -86,10 +86,16 @@ test("waves vary between editions instead of appearing systematically", () => {
 });
 
 test("archive pages expose a native LinkedIn publication with image, text and permalink", async () => {
-  const layout = await readFile(
-    new URL("../../layouts/archives/single.html", import.meta.url),
-    "utf8",
-  );
+  const [layout, composer] = await Promise.all([
+    readFile(
+      new URL("../../layouts/archives/single.html", import.meta.url),
+      "utf8",
+    ),
+    readFile(
+      new URL("../../layouts/partials/linkedin-composer.html", import.meta.url),
+      "utf8",
+    ),
+  ]);
   assert.match(layout, /data-linkedin-share/);
   assert.match(layout, /data-share-image/);
   assert.match(layout, /data-share-title="Web Digest — \{\{ \$\.Title \}\}"/);
@@ -100,20 +106,39 @@ test("archive pages expose a native LinkedIn publication with image, text and pe
   assert.match(layout, /Publier sur LinkedIn/);
   assert.doesNotMatch(layout, /linkedin\.com\/feed\/\?shareActive=true/);
   assert.match(layout, /data-linkedin-feedback/);
-  assert.match(layout, /data-linkedin-composer/);
-  assert.match(layout, /data-linkedin-text/);
-  assert.match(layout, /data-linkedin-tags-note/);
-  assert.match(layout, /data-linkedin-hashtags/);
+  assert.match(layout, /partial "linkedin-composer\.html"/);
+  assert.match(composer, /data-linkedin-composer/);
+  assert.match(composer, /data-linkedin-text/);
+  assert.match(composer, /data-linkedin-tags-note/);
+  assert.match(composer, /data-linkedin-hashtags/);
   assert.match(layout, /data-linkedin-link-share/);
   assert.match(layout, /data-link-id="\{\{ \.id \}\}"/);
   assert.match(layout, /class="archive-item-actions"/);
   assert.match(layout, /\.previous_urls/);
   assert.match(layout, /Anciennes adresses/);
-  assert.match(layout, /Confirmer la publication/);
+  assert.match(composer, /Confirmer la publication/);
   assert.match(layout, /archive-social-visual/);
   assert.match(layout, /\.Params\.images/);
-  assert.match(layout, /width="1200"/);
-  assert.match(layout, /height="627"/);
+  assert.match(composer, /width="1200"/);
+  assert.match(composer, /height="627"/);
+  assert.match(layout, /data-archive-delete-link/);
+  assert.match(layout, /class="archive-delete-link"/);
+  assert.match(layout, /Retirer/);
+});
+
+test("the root link modal exposes LinkedIn before tag editing for admins", async () => {
+  const [layout, script] = await Promise.all([
+    readFile(new URL("../../layouts/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../../assets/js/digest.js", import.meta.url), "utf8"),
+  ]);
+  const linkedInPosition = layout.indexOf("id=\"digest-modal-linkedin\"");
+  const tagsPosition = layout.indexOf("id=\"digest-modal-tag-editor\"");
+  assert.ok(linkedInPosition > 0 && linkedInPosition < tagsPosition);
+  assert.match(layout, /data-linkedin-link-share/);
+  assert.match(layout, /partial "linkedin-composer\.html"/);
+  assert.match(script, /modalLinkedIn\.dataset\.linkId = link\.id/);
+  assert.match(script, /modalLinkedIn\.dataset\.shareImage/);
+  assert.match(script, /digest:linkedin-published/);
 });
 
 test("social image counts follow public link visibility", async () => {
@@ -149,7 +174,7 @@ test("LinkedIn native publishing uses the authenticated server API", async () =>
   assert.match(script, /hashtagsField\.value = hashtags\.join/);
   assert.match(script, /automaticHashtags/);
   assert.match(script, /\.slice\(0, 5\)/);
-  assert.doesNotMatch(script, /window\.confirm/);
+  assert.match(script, /Retirer « \$\{title\} » du Digest/);
   assert.doesNotMatch(script, /navigator\.share/);
   assert.match(headPartial, /resources\.Get "js\/linkedin-image\.js"/);
   assert.match(headPartial, /\$linkedinImage\.RelPermalink/);

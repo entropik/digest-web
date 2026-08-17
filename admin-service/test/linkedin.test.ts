@@ -216,3 +216,13 @@ test("publication rejects external archive and image URLs before fetching", asyn
       error instanceof LinkedInError && error.code === "LINKEDIN_INVALID_PUBLICATION",
   );
 });
+
+test("active LinkedIn reservations are renewed while external calls are pending", async () => {
+  const source = await import("node:fs/promises").then(({ readFile }) =>
+    readFile(new URL("../src/linkedin.ts", import.meta.url), "utf8"),
+  );
+  assert.match(source, /PUBLICATION_RESERVATION_RENEWAL_MS/);
+  assert.match(source, /setInterval\(\(\) => \{/);
+  assert.match(source, /this\.renewPublication\(validated\.url/);
+  assert.match(source, /clearInterval\(renewal\)/);
+});

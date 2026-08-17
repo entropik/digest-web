@@ -45,6 +45,7 @@
   const modalTagForm = document.querySelector("#digest-modal-tag-form");
   const modalTagInput = document.querySelector("#digest-modal-tag-input");
   const modalTagSubmit = modalTagForm.querySelector('button[type="submit"]');
+  const modalLinkedIn = document.querySelector("#digest-modal-linkedin");
   const modalAdmin = document.querySelector("#digest-modal-admin");
   const modalAdminFeedback = document.querySelector("#digest-modal-admin-feedback");
   const adminNotice = document.querySelector("#digest-admin-notice");
@@ -504,6 +505,15 @@
     modalFavoriteUrl = link.url;
     modalAdminId = link.id;
     modalAdminTools.hidden = !isAdmin;
+    modalLinkedIn.hidden = !isAdmin;
+    modalLinkedIn.disabled = false;
+    delete modalLinkedIn.dataset.published;
+    modalLinkedIn.dataset.linkId = link.id;
+    modalLinkedIn.dataset.shareImage = `/social/${String(link.added).slice(0, 10)}.png`;
+    modalLinkedIn.dataset.shareTitle = link.title;
+    modalLinkedIn.dataset.shareTags = JSON.stringify(link.tags || []);
+    modalLinkedIn.dataset.shareUrl = link.url;
+    modalLinkedIn.querySelector("span:last-child").textContent = "Partager sur LinkedIn";
     modalAdmin.hidden = !isAdmin;
     modalAdmin.disabled = false;
     modalAdmin.textContent = "Retirer du Digest";
@@ -595,6 +605,14 @@
     }, 7000);
   };
 
+  window.addEventListener("digest:linkedin-published", (event) => {
+    showAdminNotice(
+      event.detail?.alreadyPublished
+        ? "Cette ressource était déjà publiée sur LinkedIn."
+        : "Ressource publiée sur LinkedIn avec la grande image.",
+    );
+  });
+
   const refreshAdminSession = async () => {
     try {
       const response = await fetch("/api/admin/session", {
@@ -603,10 +621,12 @@
       });
       isAdmin = response.ok && (await response.json()).isAdmin === true;
       modalAdminTools.hidden = !isAdmin || !modalAdminId;
+      modalLinkedIn.hidden = !isAdmin || !modalAdminId;
       modalAdmin.hidden = !isAdmin || !modalAdminId;
     } catch {
       isAdmin = false;
       modalAdminTools.hidden = true;
+      modalLinkedIn.hidden = true;
       modalAdmin.hidden = true;
     }
   };
