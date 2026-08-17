@@ -24,6 +24,7 @@ export type LinkedInErrorCode =
   | "LINKEDIN_IMAGE_UNAVAILABLE"
   | "LINKEDIN_UPLOAD_FAILED"
   | "LINKEDIN_PUBLICATION_FAILED"
+  | "LINKEDIN_PUBLICATION_IN_PROGRESS"
   | "LINKEDIN_INVALID_CONFIGURATION"
   | "LINKEDIN_INVALID_PUBLICATION";
 
@@ -147,6 +148,12 @@ export class LinkedInService {
         post_urn TEXT NOT NULL,
         admin_user_id TEXT NOT NULL,
         created_at INTEGER NOT NULL
+      );
+      CREATE TABLE IF NOT EXISTS linkedin_publication_reservations (
+        publication_url TEXT PRIMARY KEY,
+        reservation_token TEXT NOT NULL,
+        admin_user_id TEXT NOT NULL,
+        expires_at INTEGER NOT NULL
       );
     `);
   }
@@ -316,17 +323,41 @@ export class LinkedInService {
     validated: PublicationInput,
   ) {
     this.requireConfiguration(adminUserId);
-    const previous = this.database
-      .prepare("SELECT post_urn FROM linkedin_publications WHERE archive_url = ?")
-      .get(validated.url) as { post_urn: string } | undefined;
-    if (previous) {
+    const reservation = this.reservePublication(adminUserId, validated.url);
+    if (reservation.previousPostUrn) {
       return {
-        postUrn: previous.post_urn,
-        postUrl: this.postUrl(previous.post_urn),
+        postUrn: reservation.previousPostUrn,
+        postUrl: this.postUrl(reservation.previousPostUrn),
         alreadyPublished: true,
       };
     }
+    if (!reservation.token) {
+      throw new LinkedInError("LINKEDIN_PUBLICATION_IN_PROGRESS", 409);
+    }
 
+    try {
+      const postUrn = await this.createLinkedInPost(adminUserId, validated);
+      this.finishPublication(
+        validated.url,
+        reservation.token,
+        postUrn,
+        adminUserId,
+      );
+      return {
+        postUrn,
+        postUrl: this.postUrl(postUrn),
+        alreadyPublished: false,
+      };
+    } catch (error) {
+      this.releasePublication(validated.url, reservation.token);
+      throw error;
+    }
+  }
+
+  private async createLinkedInPost(
+    adminUserId: string,
+    validated: PublicationInput,
+  ): Promise<string> {
     const connection = this.connection(adminUserId);
     if (!connection) throw new LinkedInError("LINKEDIN_NOT_CONNECTED", 409);
     if (connection.expires_at <= Date.now()) {
@@ -446,18 +477,78 @@ export class LinkedInService {
     }
     const postUrn = postResponse.headers.get("x-restli-id");
     if (!postUrn) throw new LinkedInError("LINKEDIN_PUBLICATION_FAILED", 502);
+    return postUrn;
+  }
+
+  private reservePublication(
+    adminUserId: string,
+    publicationUrl: string,
+  ): { token?: string; previousPostUrn?: string } {
+    return this.database.transaction(() => {
+      const now = Date.now();
+      this.database
+        .prepare(
+          "DELETE FROM linkedin_publication_reservations WHERE expires_at <= ?",
+        )
+        .run(now);
+      const previous = this.database
+        .prepare("SELECT post_urn FROM linkedin_publications WHERE archive_url = ?")
+        .get(publicationUrl) as { post_urn: string } | undefined;
+      if (previous) return { previousPostUrn: previous.post_urn };
+      const token = randomBytes(24).toString("base64url");
+      const inserted = this.database
+        .prepare(
+          `INSERT OR IGNORE INTO linkedin_publication_reservations
+             (publication_url, reservation_token, admin_user_id, expires_at)
+           VALUES (?, ?, ?, ?)`,
+        )
+        .run(publicationUrl, token, adminUserId, now + 10 * 60 * 1_000);
+      return inserted.changes === 1 ? { token } : {};
+    })();
+  }
+
+  private finishPublication(
+    publicationUrl: string,
+    reservationToken: string,
+    postUrn: string,
+    adminUserId: string,
+  ): void {
+    this.database.transaction(() => {
+      const reservation = this.database
+        .prepare(
+          `SELECT reservation_token FROM linkedin_publication_reservations
+           WHERE publication_url = ?`,
+        )
+        .get(publicationUrl) as { reservation_token: string } | undefined;
+      if (reservation?.reservation_token !== reservationToken) {
+        throw new LinkedInError("LINKEDIN_PUBLICATION_IN_PROGRESS", 409);
+      }
+      this.database
+        .prepare(
+          `INSERT INTO linkedin_publications
+             (archive_url, post_urn, admin_user_id, created_at)
+           VALUES (?, ?, ?, ?)`,
+        )
+        .run(publicationUrl, postUrn, adminUserId, Date.now());
+      this.database
+        .prepare(
+          `DELETE FROM linkedin_publication_reservations
+           WHERE publication_url = ? AND reservation_token = ?`,
+        )
+        .run(publicationUrl, reservationToken);
+    })();
+  }
+
+  private releasePublication(
+    publicationUrl: string,
+    reservationToken: string,
+  ): void {
     this.database
       .prepare(
-        `INSERT INTO linkedin_publications
-           (archive_url, post_urn, admin_user_id, created_at)
-         VALUES (?, ?, ?, ?)`,
+        `DELETE FROM linkedin_publication_reservations
+         WHERE publication_url = ? AND reservation_token = ?`,
       )
-      .run(validated.url, postUrn, adminUserId, Date.now());
-    return {
-      postUrn,
-      postUrl: this.postUrl(postUrn),
-      alreadyPublished: false,
-    };
+      .run(publicationUrl, reservationToken);
   }
 
   private connection(adminUserId: string): ConnectionRow | undefined {

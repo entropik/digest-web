@@ -107,11 +107,28 @@ test("archive pages expose a native LinkedIn publication with image, text and pe
   assert.match(layout, /data-linkedin-link-share/);
   assert.match(layout, /data-link-id="\{\{ \.id \}\}"/);
   assert.match(layout, /class="archive-item-actions"/);
+  assert.match(layout, /\.previous_urls/);
+  assert.match(layout, /Anciennes adresses/);
   assert.match(layout, /Confirmer la publication/);
   assert.match(layout, /archive-social-visual/);
   assert.match(layout, /\.Params\.images/);
   assert.match(layout, /width="1200"/);
   assert.match(layout, /height="627"/);
+});
+
+test("social image counts follow public link visibility", async () => {
+  const [backfill, curation] = await Promise.all([
+    readFile(
+      new URL("../scripts/social-backfill.ts", import.meta.url),
+      "utf8",
+    ),
+    readFile(new URL("../src/curation.ts", import.meta.url), "utf8"),
+  ]);
+  assert.match(backfill, /link\.visibility === "hidden"/);
+  assert.match(backfill, /argument\("--date"\)/);
+  assert.match(curation, /async updateLinkVisibility/);
+  assert.match(curation, /link\.visibility !== "hidden"/);
+  assert.match(curation, /\[`static\/social\/\$\{date\}\.png`\]: socialImage/);
 });
 
 test("LinkedIn native publishing uses the authenticated server API", async () => {

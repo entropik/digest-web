@@ -8,6 +8,7 @@ export type DigestLink = {
   tags?: string[];
   visibility?: "hidden";
   hidden_at?: string;
+  previous_urls?: string[];
   [key: string]: unknown;
 };
 
@@ -146,6 +147,12 @@ export const changePublishedMetadata = (
   }
   const current = links[index]!;
   const reactivated = metadata.reactivate && current.status === "dead";
+  const previousUrls = Array.isArray(current.previous_urls)
+    ? [...current.previous_urls]
+    : [];
+  if (current.url !== metadata.url && !previousUrls.includes(current.url)) {
+    previousUrls.push(current.url);
+  }
   const updated: DigestLink = {
     ...current,
     url: metadata.url,
@@ -154,6 +161,7 @@ export const changePublishedMetadata = (
     description: metadata.description,
     tags: [...metadata.tags],
   };
+  if (previousUrls.length) updated.previous_urls = previousUrls;
   if (reactivated) {
     delete updated.status;
     delete updated.status_note;
@@ -169,7 +177,9 @@ export const changePublishedMetadata = (
     current.title !== updated.title ||
     current.category !== updated.category ||
     current.description !== updated.description ||
-    JSON.stringify(current.tags ?? []) !== JSON.stringify(updated.tags);
+    JSON.stringify(current.tags ?? []) !== JSON.stringify(updated.tags) ||
+    JSON.stringify(current.previous_urls ?? []) !==
+      JSON.stringify(updated.previous_urls ?? []);
   if (!changed && !reactivated) {
     return { links, link: current, changed: false, reactivated: false };
   }
@@ -189,4 +199,5 @@ export const publicAdminLink = (link: DigestLink) => ({
   status: typeof link.status === "string" ? link.status : null,
   visibility: link.visibility ?? null,
   hiddenAt: link.hidden_at ?? null,
+  previousUrls: Array.isArray(link.previous_urls) ? link.previous_urls : [],
 });

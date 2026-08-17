@@ -1821,6 +1821,29 @@ body.digest-modal-open {
   white-space: nowrap;
 }
 
+.archive-previous-urls {
+  margin-top: .55rem;
+  color: var(--digest-muted);
+  font-size: .68rem;
+}
+
+.archive-previous-urls summary {
+  width: fit-content;
+  cursor: pointer;
+}
+
+.archive-previous-urls ul {
+  display: grid;
+  gap: .3rem;
+  margin: .45rem 0 0;
+  padding-left: 1rem;
+}
+
+.archive-previous-urls a {
+  overflow-wrap: anywhere;
+  color: inherit;
+}
+
 .archive-favorite {
   display: inline-flex;
   align-items: center;
