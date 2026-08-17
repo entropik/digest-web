@@ -69,5 +69,6 @@
     <p aria-hidden="true">Survolez un mot pour l’arrêter, cliquez pour suivre le fil.</p>
   </footer>
 </section>
-<script src="{{ "js/tag-explorer-20260725.js" | relURL }}?build=20260725" defer></script>
+{{ $tagExplorer := resources.Get "js/tag-explorer.js" | minify | fingerprint }}
+<script src="{{ $tagExplorer.RelPermalink }}" integrity="{{ $tagExplorer.Data.Integrity }}" defer></script>
 {{ end }}
