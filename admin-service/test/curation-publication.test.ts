@@ -172,6 +172,13 @@ test("an ambiguous GitHub branch update keeps the publication recoverable", asyn
   );
   assert.equal(store.findDraft(draft.id)?.state, "publishing");
 
+  const stillAmbiguous = await new CurationService(store, dependencies).publish(input);
+  assert.equal(stillAmbiguous.state, "committing");
+  assert.equal(store.findDraft(draft.id)?.state, "publishing");
+
+  database
+    .prepare("UPDATE digest_publications SET updated_at = ? WHERE id = ?")
+    .run("2026-08-17T00:00:00.000Z", input.requestId);
   const reconciled = await new CurationService(store, dependencies).publish(input);
   assert.equal(reconciled.state, "failed");
   assert.equal(reconciled.errorCode, "GITHUB_COMMIT_NOT_FOUND");

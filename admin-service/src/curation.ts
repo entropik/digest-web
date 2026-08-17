@@ -120,6 +120,7 @@ const metadataInput = (
 };
 
 const editionPath = (date: string): string => `content/archives/${date}.md`;
+const AMBIGUOUS_COMMIT_GRACE_MS = 2 * 60 * 1_000;
 
 type PublicationDependencies = {
   readRepositoryHead: typeof readRepositoryHead;
@@ -511,6 +512,8 @@ export class CurationService {
     );
     if (!recovered || !archive) {
       if (publication.state === "committing" && !publication.commitSha) {
+        const ambiguityAge = Date.now() - new Date(publication.updatedAt).valueOf();
+        if (ambiguityAge < AMBIGUOUS_COMMIT_GRACE_MS) return publication;
         this.store.restorePublishingDrafts(publication.id);
         return this.store.updatePublication(publication.id, {
           state: "failed",
