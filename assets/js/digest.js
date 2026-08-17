@@ -388,6 +388,13 @@
     const button = event.target.closest("button[data-category-label]");
     if (!button) return;
     category = button.dataset.categoryLabel;
+    if (category === "favorites") {
+      search.value = "";
+      dateFilter.value = "";
+      dateValue.textContent = "cliquer sur le calendrier";
+      dateToggle.classList.remove("has-value");
+      closeCalendar();
+    }
     currentPage = 1;
     clearRandomSelection();
     filters.querySelector(".is-active")?.classList.remove("is-active");
