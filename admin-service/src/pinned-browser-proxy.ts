@@ -127,16 +127,58 @@ const connectTarget = (authority: string | undefined): URL | null => {
   }
 };
 
+const MAX_PENDING_TUNNEL_BYTES = 128 * 1024;
+
 export const destroyUpstreamOnClientDisconnect = (
   client: Duplex,
-  upstream: Socket,
+  upstream: Duplex,
 ): void => {
   const destroyUpstream = () => upstream.destroy();
   client.once("error", destroyUpstream);
   client.once("close", destroyUpstream);
   client.once("end", destroyUpstream);
   if (client.destroyed) destroyUpstream();
-  else client.resume();
+};
+
+export const bufferPendingTunnel = (
+  client: Duplex,
+  upstream: Duplex,
+  head: Buffer,
+): (() => void) => {
+  const pending = head.length ? [Buffer.from(head)] : [];
+  let pendingBytes = head.length;
+  let failed = pendingBytes > MAX_PENDING_TUNNEL_BYTES;
+  const buffer = (chunk: Buffer) => {
+    pendingBytes += chunk.length;
+    if (pendingBytes > MAX_PENDING_TUNNEL_BYTES) {
+      failed = true;
+      client.destroy();
+      upstream.destroy();
+      return;
+    }
+    pending.push(Buffer.from(chunk));
+  };
+  if (failed || client.destroyed) {
+    client.destroy();
+    upstream.destroy();
+  } else {
+    client.on("data", buffer);
+    client.resume();
+  }
+  return () => {
+    client.pause();
+    client.off("data", buffer);
+    if (failed || client.destroyed || upstream.destroyed) {
+      client.destroy();
+      upstream.destroy();
+      return;
+    }
+    client.write("HTTP/1.1 200 Connection Established\r\n\r\n");
+    pending.forEach((chunk) => upstream.write(chunk));
+    upstream.pipe(client);
+    client.pipe(upstream);
+    client.resume();
+  };
 };
 
 const handleConnect = async (
@@ -157,12 +199,8 @@ const handleConnect = async (
       family: pinned.family,
       port: 443,
     });
-    upstream.once("connect", () => {
-      client.write("HTTP/1.1 200 Connection Established\r\n\r\n");
-      if (head.length) upstream.write(head);
-      upstream.pipe(client);
-      client.pipe(upstream);
-    });
+    const connectTunnel = bufferPendingTunnel(client, upstream, head);
+    upstream.once("connect", connectTunnel);
     upstream.once("error", () => client.destroy());
     destroyUpstreamOnClientDisconnect(client, upstream);
   } catch {
