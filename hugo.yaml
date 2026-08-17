@@ -31,7 +31,7 @@ params:
   ShowCodeCopyButtons: true
   disableSpecial1stPost: true
   footer:
-      text: "v1.6.15 · [Admin](/admin) · [Confidentialité](/confidentialite/)"
+      text: "v1.6.16 · [Admin](/admin) · [Confidentialité](/confidentialite/)"
   label:
     text: "OOBLIK DIGEST"
   homeInfoParams:

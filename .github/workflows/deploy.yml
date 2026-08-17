@@ -63,7 +63,7 @@ jobs:
           python3 scripts/check_digest_consistency.py --site .
 
       - name: Build production site
-        run: hugo --gc --minify --baseURL https://digest.ooblik.com/
+        run: hugo --gc --minify --panicOnWarning --baseURL https://digest.ooblik.com/
 
       - name: Reject development URLs
         shell: bash
