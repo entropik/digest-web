@@ -357,6 +357,11 @@
           "Cette publication LinkedIn est déjà en cours dans un autre onglet.";
         return;
       }
+      if (error?.code === "LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN") {
+        feedback.textContent =
+          "LinkedIn a peut-être publié ce post, mais le Digest ne peut pas le confirmer. Vérifiez votre profil LinkedIn avant toute action. Si aucun post n’existe, suivez la procédure opérateur documentée pour autoriser un nouvel essai.";
+        return;
+      }
       feedback.textContent =
         "La publication LinkedIn a échoué. Aucun second post n’a été créé automatiquement.";
     } finally {
