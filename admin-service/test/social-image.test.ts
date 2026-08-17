@@ -185,7 +185,15 @@ test("the home loads its compact search index only when interaction needs it", a
   assert.match(script, /const withLinks = async \(task, onError = null\) =>/);
   assert.match(script, /search\.addEventListener\("input",[\s\S]*?withLinks/);
   assert.match(script, /const revision = \+\+searchRevision/);
-  assert.match(script, /if \(revision !== searchRevision\) return/);
+  assert.match(script, /let pendingSearchTask = null/);
+  assert.match(
+    script,
+    /if \(pendingSearchTask && pendingSearchTask !== task\) pendingSearchTask\(\)/,
+  );
+  assert.match(
+    script,
+    /revision !== searchRevision \|\| revision <= renderedSearchRevision/,
+  );
   assert.match(
     script,
     /if \(requestedCategory === "favorites"\)[\s\S]*?search\.value = ""[\s\S]*?void withLinks/,

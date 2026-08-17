@@ -77,6 +77,8 @@
   let isAdmin = false;
   let favorites = new Set();
   let searchRevision = 0;
+  let renderedSearchRevision = 0;
+  let pendingSearchTask = null;
   let calendarRequestedOpen = false;
   let currentPage = Math.max(
     1,
@@ -138,6 +140,7 @@
     }
     empty.textContent = emptyMessage;
     empty.hidden = true;
+    if (pendingSearchTask && pendingSearchTask !== task) pendingSearchTask();
     return task();
   };
 
@@ -476,12 +479,19 @@
 
   search.addEventListener("input", () => {
     const revision = ++searchRevision;
-    void withLinks(() => {
-      if (revision !== searchRevision) return;
+    const searchTask = () => {
+      if (revision !== searchRevision || revision <= renderedSearchRevision) {
+        if (pendingSearchTask === searchTask) pendingSearchTask = null;
+        return;
+      }
+      renderedSearchRevision = revision;
+      pendingSearchTask = null;
       currentPage = 1;
       clearRandomSelection();
       render({ urlMode: "replace" });
-    });
+    };
+    pendingSearchTask = searchTask;
+    void withLinks(searchTask);
   });
 
   dateToggle.addEventListener("click", () => {
