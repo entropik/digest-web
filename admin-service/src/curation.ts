@@ -20,6 +20,7 @@ import {
   addTagsToPublishedLink,
   GitHubResponseError,
   commitRepositoryFiles,
+  GitHubMutationOutcomeUnknownError,
   listRepositoryDirectory,
   readCachedRepositoryHead,
   readRepositoryHead,
@@ -119,6 +120,7 @@ const metadataInput = (
 };
 
 const editionPath = (date: string): string => `content/archives/${date}.md`;
+const AMBIGUOUS_COMMIT_GRACE_MS = 2 * 60 * 1_000;
 
 type PublicationDependencies = {
   readRepositoryHead: typeof readRepositoryHead;
@@ -456,6 +458,20 @@ export class CurationService {
           }
           return committed;
         } catch (error) {
+          if (error instanceof GitHubMutationOutcomeUnknownError) {
+            remoteCommitSucceeded = true;
+            try {
+              this.store.updatePublication(input.requestId, {
+                state: "committing",
+                errorCode: "GITHUB_COMMIT_OUTCOME_UNKNOWN",
+              });
+            } catch (persistenceError) {
+              console.error(
+                `Publication ${input.requestId} could not persist its GitHub ambiguity timestamp`,
+                persistenceError,
+              );
+            }
+          }
           if (
             attempt === 0 &&
             error instanceof GitHubResponseError &&
@@ -505,7 +521,22 @@ export class CurationService {
       editionPath(publication.digestDate),
       head.commitSha,
     );
-    if (!recovered || !archive) return publication;
+    if (!recovered || !archive) {
+      if (
+        publication.state === "committing" &&
+        !publication.commitSha &&
+        publication.errorCode === "GITHUB_COMMIT_OUTCOME_UNKNOWN"
+      ) {
+        const ambiguityAge = Date.now() - new Date(publication.updatedAt).valueOf();
+        if (ambiguityAge < AMBIGUOUS_COMMIT_GRACE_MS) return publication;
+        this.store.restorePublishingDrafts(publication.id);
+        return this.store.updatePublication(publication.id, {
+          state: "failed",
+          errorCode: "GITHUB_COMMIT_NOT_FOUND",
+        });
+      }
+      return publication;
+    }
     const linkIds = new Map(
       drafts.map((draft) => [
         draft.id,

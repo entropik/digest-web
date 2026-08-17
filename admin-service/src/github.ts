@@ -17,6 +17,11 @@ import {
   recordTiming,
   startTimer,
 } from "./observability.js";
+import {
+  fetchWithDeadline,
+  NetworkDeadlineError,
+  withDeadline,
+} from "./network.js";
 
 type GitHubRef = { object: { sha: string } };
 type GitHubCommit = { sha: string; tree: { sha: string } };
@@ -55,6 +60,8 @@ export const repositoryBlobBody = (content: string | Buffer) => {
 };
 
 const READ_CACHE_TTL_MS = 30_000;
+const GITHUB_READ_TIMEOUT_MS = 15_000;
+const GITHUB_WRITE_TIMEOUT_MS = 30_000;
 let cachedRepositoryHead:
   | { expiresAt: number; value: RepositoryHead }
   | undefined;
@@ -70,6 +77,13 @@ export class GitHubResponseError extends Error {
   }
 }
 
+export class GitHubMutationOutcomeUnknownError extends Error {
+  constructor(readonly operation: string) {
+    super(`GitHub mutation outcome is unknown: ${operation}`);
+    this.name = "GitHubMutationOutcomeUnknownError";
+  }
+}
+
 const appAuth = createAppAuth({
   appId: config.githubAppId,
   privateKey: config.githubPrivateKey,
@@ -77,14 +91,26 @@ const appAuth = createAppAuth({
 });
 
 const installationToken = async (): Promise<string> => {
-  const authentication = await measureTiming("github.auth", () =>
-    appAuth({
-      type: "installation",
-      installationId: config.githubInstallationId,
-      repositories: [config.repositoryName],
-      permissions: { contents: "write", actions: "read" },
-    }),
-  );
+  let authentication;
+  try {
+    authentication = await measureTiming("github.auth", () =>
+      withDeadline(
+        () =>
+          appAuth({
+            type: "installation",
+            installationId: config.githubInstallationId,
+            repositories: [config.repositoryName],
+            permissions: { contents: "write", actions: "read" },
+          }),
+        GITHUB_READ_TIMEOUT_MS,
+      ),
+    );
+  } catch (error) {
+    if (error instanceof NetworkDeadlineError) {
+      throw new GitHubResponseError("GitHub authentication timed out", 504);
+    }
+    throw error;
+  }
   return authentication.token;
 };
 
@@ -92,47 +118,80 @@ const request = async <T>(
   path: string,
   init: RequestInit = {},
   accept = "application/vnd.github+json",
+  outcomeUnknownOnTimeout = false,
 ): Promise<T> => {
   const token = await installationToken();
-  const response = await fetch(`https://api.github.com${path}`, {
-    ...init,
-    headers: {
-      Accept: accept,
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-      "User-Agent": "digest-admin-service",
-      "X-GitHub-Api-Version": "2026-03-10",
-      ...init.headers,
-    },
-  });
-  if (!response.ok) {
-    const detail = await response.text();
-    throw new GitHubResponseError(
-      `GitHub request failed (${response.status}): ${detail.slice(0, 500)}`,
-      response.status,
+  try {
+    return await fetchWithDeadline(
+      fetch,
+      `https://api.github.com${path}`,
+      {
+        ...init,
+        headers: {
+          Accept: accept,
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+          "User-Agent": "digest-admin-service",
+          "X-GitHub-Api-Version": "2026-03-10",
+          ...init.headers,
+        },
+      },
+      init.method && init.method !== "GET"
+        ? GITHUB_WRITE_TIMEOUT_MS
+        : GITHUB_READ_TIMEOUT_MS,
+      async (response) => {
+        if (!response.ok) {
+          throw new GitHubResponseError(
+            `GitHub request failed (${response.status})`,
+            response.status,
+          );
+        }
+        if (response.status === 204) return undefined as T;
+        return (await response.json()) as T;
+      },
     );
+  } catch (error) {
+    if (error instanceof NetworkDeadlineError) {
+      if (outcomeUnknownOnTimeout) {
+        throw new GitHubMutationOutcomeUnknownError(path);
+      }
+      throw new GitHubResponseError("GitHub request timed out", 504);
+    }
+    throw error;
   }
-  if (response.status === 204) return undefined as T;
-  return (await response.json()) as T;
 };
 
 const requestText = async (path: string): Promise<string> => {
   const token = await installationToken();
-  const response = await fetch(`https://api.github.com${path}`, {
-    headers: {
-      Accept: "application/vnd.github.raw+json",
-      Authorization: `Bearer ${token}`,
-      "User-Agent": "digest-admin-service",
-      "X-GitHub-Api-Version": "2026-03-10",
-    },
-  });
-  if (!response.ok) {
-    throw new GitHubResponseError(
-      `GitHub content read failed (${response.status})`,
-      response.status,
+  try {
+    return await fetchWithDeadline(
+      fetch,
+      `https://api.github.com${path}`,
+      {
+        headers: {
+          Accept: "application/vnd.github.raw+json",
+          Authorization: `Bearer ${token}`,
+          "User-Agent": "digest-admin-service",
+          "X-GitHub-Api-Version": "2026-03-10",
+        },
+      },
+      GITHUB_READ_TIMEOUT_MS,
+      async (response) => {
+        if (!response.ok) {
+          throw new GitHubResponseError(
+            `GitHub content read failed (${response.status})`,
+            response.status,
+          );
+        }
+        return response.text();
+      },
     );
+  } catch (error) {
+    if (error instanceof NetworkDeadlineError) {
+      throw new GitHubResponseError("GitHub content read timed out", 504);
+    }
+    throw error;
   }
-  return response.text();
 };
 
 const repositoryPath = `/repos/${encodeURIComponent(config.repositoryOwner)}/${encodeURIComponent(config.repositoryName)}`;
@@ -311,6 +370,8 @@ export const commitRepositoryFiles = async (
       method: "PATCH",
       body: JSON.stringify({ sha: commit.sha, force: false }),
     },
+    "application/vnd.github+json",
+    true,
   );
   invalidateRepositoryHeadCache();
   return commit.sha;

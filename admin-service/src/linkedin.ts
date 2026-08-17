@@ -7,6 +7,7 @@ import {
 import type Database from "better-sqlite3";
 import { config } from "./config.js";
 import { canonicalizePublicUrl } from "./urls.js";
+import { fetchWithDeadline, NetworkDeadlineError } from "./network.js";
 
 const LINKEDIN_AUTHORIZE_URL = "https://www.linkedin.com/oauth/v2/authorization";
 const LINKEDIN_TOKEN_URL = "https://www.linkedin.com/oauth/v2/accessToken";
@@ -17,6 +18,21 @@ const STATE_LIFETIME_MS = 10 * 60 * 1_000;
 const PUBLICATION_RESERVATION_LIFETIME_MS = 10 * 60 * 1_000;
 const PUBLICATION_RESERVATION_RENEWAL_MS = 60 * 1_000;
 const MAX_COMMENTARY_LENGTH = 3_000;
+const LINKEDIN_READ_TIMEOUT_MS = 15_000;
+const LINKEDIN_WRITE_TIMEOUT_MS = 30_000;
+const LINKEDIN_UPLOAD_TIMEOUT_MS = 60_000;
+
+type LinkedInDeadlines = {
+  read: number;
+  write: number;
+  upload: number;
+};
+
+const defaultDeadlines: LinkedInDeadlines = {
+  read: LINKEDIN_READ_TIMEOUT_MS,
+  write: LINKEDIN_WRITE_TIMEOUT_MS,
+  upload: LINKEDIN_UPLOAD_TIMEOUT_MS,
+};
 
 export type LinkedInErrorCode =
   | "LINKEDIN_NOT_CONFIGURED"
@@ -123,6 +139,7 @@ export class LinkedInService {
   constructor(
     private readonly database: Database.Database,
     private readonly fetcher: Fetch = fetch,
+    private readonly deadlines: LinkedInDeadlines = defaultDeadlines,
   ) {
     this.database.exec(`
       CREATE TABLE IF NOT EXISTS linkedin_oauth_states (
@@ -168,6 +185,29 @@ export class LinkedInService {
       this.database.exec(
         "ALTER TABLE linkedin_publication_reservations ADD COLUMN state TEXT NOT NULL DEFAULT 'reserved'",
       );
+    }
+  }
+
+  private async request<T>(
+    input: Parameters<Fetch>[0],
+    init: RequestInit,
+    timeoutMs: number,
+    timeoutCode: LinkedInErrorCode,
+    consume: (response: Response) => Promise<T>,
+  ): Promise<T> {
+    try {
+      return await fetchWithDeadline(
+        this.fetcher,
+        input,
+        init,
+        timeoutMs,
+        consume,
+      );
+    } catch (error) {
+      if (error instanceof NetworkDeadlineError) {
+        throw new LinkedInError(timeoutCode, 504, error.message);
+      }
+      throw error;
     }
   }
 
@@ -265,7 +305,7 @@ export class LinkedInService {
       throw new LinkedInError("LINKEDIN_INVALID_STATE", 400);
     }
 
-    const tokenResponse = await this.fetcher(LINKEDIN_TOKEN_URL, {
+    const token = await this.request(LINKEDIN_TOKEN_URL, {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams({
@@ -275,17 +315,19 @@ export class LinkedInService {
         client_id: credentials.clientId,
         client_secret: credentials.clientSecret,
       }),
-    });
-    const token = await json<{ access_token: string; expires_in: number }>(
-      tokenResponse,
-      "LINKEDIN_AUTHORIZATION_FAILED",
+    }, this.deadlines.write, "LINKEDIN_AUTHORIZATION_FAILED", (response) =>
+      json<{ access_token: string; expires_in: number }>(
+        response,
+        "LINKEDIN_AUTHORIZATION_FAILED",
+      ),
     );
-    const userInfoResponse = await this.fetcher(LINKEDIN_USERINFO_URL, {
+    const userInfo = await this.request(LINKEDIN_USERINFO_URL, {
       headers: { Authorization: `Bearer ${token.access_token}` },
-    });
-    const userInfo = await json<{ sub: string; name?: string }>(
-      userInfoResponse,
-      "LINKEDIN_AUTHORIZATION_FAILED",
+    }, this.deadlines.read, "LINKEDIN_AUTHORIZATION_FAILED", (response) =>
+      json<{ sub: string; name?: string }>(
+        response,
+        "LINKEDIN_AUTHORIZATION_FAILED",
+      ),
     );
     if (!userInfo.sub) {
       throw new LinkedInError("LINKEDIN_AUTHORIZATION_FAILED", 502);
@@ -412,19 +454,20 @@ export class LinkedInService {
       throw new LinkedInError("LINKEDIN_TOKEN_EXPIRED", 409);
     }
     const accessToken = decrypt(connection.encrypted_access_token);
-    const imageResponse = await this.fetcher(validated.imageUrl, {
+    const image = await this.request(validated.imageUrl, {
       headers: { "User-Agent": "digest-linkedin-publisher" },
+    }, this.deadlines.read, "LINKEDIN_IMAGE_UNAVAILABLE", async (response) => {
+      if (!response.ok) {
+        throw new LinkedInError("LINKEDIN_IMAGE_UNAVAILABLE", 502);
+      }
+      return response.arrayBuffer();
     });
-    if (!imageResponse.ok) {
-      throw new LinkedInError("LINKEDIN_IMAGE_UNAVAILABLE", 502);
-    }
-    const image = await imageResponse.arrayBuffer();
     if (!image.byteLength || image.byteLength > 10 * 1024 * 1024) {
       throw new LinkedInError("LINKEDIN_IMAGE_UNAVAILABLE", 502);
     }
 
     const author = `urn:li:person:${connection.member_id}`;
-    const registerResponse = await this.fetcher(LINKEDIN_ASSETS_URL, {
+    const registered = await this.request(LINKEDIN_ASSETS_URL, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -443,11 +486,11 @@ export class LinkedInService {
           ],
         },
       }),
-    });
-    if (registerResponse.status === 401) {
-      throw new LinkedInError("LINKEDIN_TOKEN_EXPIRED", 409);
-    }
-    const registered = await json<{
+    }, this.deadlines.write, "LINKEDIN_UPLOAD_FAILED", async (response) => {
+      if (response.status === 401) {
+        throw new LinkedInError("LINKEDIN_TOKEN_EXPIRED", 409);
+      }
+      return json<{
       value: {
         uploadMechanism: {
           "com.linkedin.digitalmedia.uploading.MediaUploadHttpRequest": {
@@ -456,7 +499,8 @@ export class LinkedInService {
         };
         asset: string;
       };
-    }>(registerResponse, "LINKEDIN_UPLOAD_FAILED");
+      }>(response, "LINKEDIN_UPLOAD_FAILED");
+    });
     const upload =
       registered.value?.uploadMechanism?.[
         "com.linkedin.digitalmedia.uploading.MediaUploadHttpRequest"
@@ -465,27 +509,28 @@ export class LinkedInService {
       throw new LinkedInError("LINKEDIN_UPLOAD_FAILED", 502);
     }
 
-    const uploadResponse = await this.fetcher(upload.uploadUrl, {
+    await this.request(upload.uploadUrl, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${accessToken}`,
         "Content-Type": "image/png",
       },
       body: image,
+    }, this.deadlines.upload, "LINKEDIN_UPLOAD_FAILED", async (response) => {
+      if (response.status === 401) {
+        throw new LinkedInError("LINKEDIN_TOKEN_EXPIRED", 409);
+      }
+      if (!response.ok) {
+        throw new LinkedInError(
+          "LINKEDIN_UPLOAD_FAILED",
+          502,
+          (await response.text()).slice(0, 500),
+        );
+      }
     });
-    if (uploadResponse.status === 401) {
-      throw new LinkedInError("LINKEDIN_TOKEN_EXPIRED", 409);
-    }
-    if (!uploadResponse.ok) {
-      throw new LinkedInError(
-        "LINKEDIN_UPLOAD_FAILED",
-        502,
-        (await uploadResponse.text()).slice(0, 500),
-      );
-    }
 
     beforeSubmit();
-    const postResponse = await this.fetcher(LINKEDIN_POSTS_URL, {
+    return this.request(LINKEDIN_POSTS_URL, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -512,28 +557,30 @@ export class LinkedInService {
           "com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC",
         },
       }),
+    }, this.deadlines.write, "LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN", async (response) => {
+      if (response.status === 401) {
+        throw new LinkedInError("LINKEDIN_TOKEN_EXPIRED", 409);
+      }
+      if (response.status !== 201) {
+        const outcomeUnknown =
+          response.status < 400 ||
+          response.status >= 500 ||
+          response.status === 408;
+        if (!outcomeUnknown) {
+          throw new LinkedInError("LINKEDIN_PUBLICATION_FAILED", 502);
+        }
+        throw new LinkedInError(
+          "LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN",
+          409,
+          (await response.text()).slice(0, 500),
+        );
+      }
+      const postUrn = response.headers.get("x-restli-id");
+      if (!postUrn) {
+        throw new LinkedInError("LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN", 409);
+      }
+      return postUrn;
     });
-    if (postResponse.status === 401) {
-      throw new LinkedInError("LINKEDIN_TOKEN_EXPIRED", 409);
-    }
-    if (postResponse.status !== 201) {
-      const outcomeUnknown =
-        postResponse.status < 400 ||
-        postResponse.status >= 500 ||
-        postResponse.status === 408;
-      throw new LinkedInError(
-        outcomeUnknown
-          ? "LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN"
-          : "LINKEDIN_PUBLICATION_FAILED",
-        outcomeUnknown ? 409 : 502,
-        (await postResponse.text()).slice(0, 500),
-      );
-    }
-    const postUrn = postResponse.headers.get("x-restli-id");
-    if (!postUrn) {
-      throw new LinkedInError("LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN", 409);
-    }
-    return postUrn;
   }
 
   private reservePublication(
