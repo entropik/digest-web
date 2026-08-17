@@ -5,6 +5,7 @@ import { join } from "node:path";
 import test from "node:test";
 import {
   pruneCaptureCache,
+  reserveCaptureForRead,
   withCaptureCacheLock,
 } from "../src/link-social-image.js";
 
@@ -141,6 +142,35 @@ test("capture cache never evicts the image protected by the current generation",
 
     await assert.rejects(readFile(join(directory, names[0]!)));
     assert.equal((await readFile(join(directory, names[1]!))).length, 40);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test("capture cache keeps a returned image reserved until local consumption", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "digest-capture-reserved-"));
+  try {
+    const now = new Date("2026-08-17T12:00:00.000Z");
+    await writeCachedImage(directory, names[0]!, 40, new Date("2026-08-16T00:00:00.000Z"));
+    await writeCachedImage(directory, names[1]!, 40, new Date("2026-08-17T00:00:00.000Z"));
+    const release = reserveCaptureForRead(directory, names[0]!, now.valueOf());
+
+    await pruneCaptureCache(directory, {
+      maxAgeMs: Number.POSITIVE_INFINITY,
+      maxBytes: 42,
+      nowMs: now.valueOf(),
+    });
+    assert.equal((await readFile(join(directory, names[0]!))).length, 40);
+    await assert.rejects(readFile(join(directory, names[1]!)));
+
+    release();
+    await writeCachedImage(directory, names[1]!, 40, now);
+    await pruneCaptureCache(directory, {
+      maxAgeMs: Number.POSITIVE_INFINITY,
+      maxBytes: 42,
+      nowMs: now.valueOf(),
+    });
+    await assert.rejects(readFile(join(directory, names[0]!)));
   } finally {
     await rm(directory, { recursive: true, force: true });
   }

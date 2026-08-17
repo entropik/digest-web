@@ -40,6 +40,7 @@ const CAPTURE_CACHE_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1_000;
 const CAPTURE_CACHE_MAX_BYTES = 100 * 1024 * 1024;
 const CAPTURE_CACHE_CLEANUP_INTERVAL_MS = 60 * 60 * 1_000;
 const CAPTURE_CACHE_TEMP_MAX_AGE_MS = 60 * 60 * 1_000;
+const CAPTURE_CACHE_RESERVATION_MS = 2 * 60 * 1_000;
 
 type CaptureCacheLimits = {
   maxAgeMs: number;
@@ -49,6 +50,53 @@ type CaptureCacheLimits = {
 
 const cacheLocks = new Map<string, Promise<void>>();
 const cacheCleanedAt = new Map<string, number>();
+const cacheReservations = new Map<
+  string,
+  Map<string, { count: number; expiresAt: number }>
+>();
+
+export const reserveCaptureForRead = (
+  directory: string,
+  name: string,
+  nowMs = Date.now(),
+): (() => void) => {
+  const key = resolve(directory);
+  const reservations =
+    cacheReservations.get(key) ??
+    new Map<string, { count: number; expiresAt: number }>();
+  const existing = reservations.get(name);
+  reservations.set(name, {
+    count: (existing?.count ?? 0) + 1,
+    expiresAt: nowMs + CAPTURE_CACHE_RESERVATION_MS,
+  });
+  cacheReservations.set(key, reservations);
+  return () => {
+    const current = cacheReservations.get(key);
+    const reservation = current?.get(name);
+    if (reservation && reservation.count > 1) {
+      reservation.count -= 1;
+    } else {
+      current?.delete(name);
+    }
+    if (!current?.size) cacheReservations.delete(key);
+  };
+};
+
+const reservedCaptureNames = (
+  directory: string,
+  nowMs: number,
+): Set<string> => {
+  const key = resolve(directory);
+  const reservations = cacheReservations.get(key);
+  const names = new Set<string>();
+  if (!reservations) return names;
+  for (const [name, reservation] of reservations) {
+    if (reservation.expiresAt > nowMs) names.add(name);
+    else reservations.delete(name);
+  }
+  if (!reservations.size) cacheReservations.delete(key);
+  return names;
+};
 
 export const withCaptureCacheLock = async <T>(
   directory: string,
@@ -137,9 +185,10 @@ export const pruneCaptureCache = async (
     .sort((left, right) => left.mtimeMs - right.mtimeMs);
   let totalBytes =
     temporaryBytes + retained.reduce((total, image) => total + image.size, 0);
+  const reservedNames = reservedCaptureNames(directory, limits.nowMs);
   for (const image of retained) {
     if (totalBytes <= limits.maxBytes) break;
-    if (protectedNames.has(image.name)) continue;
+    if (protectedNames.has(image.name) || reservedNames.has(image.name)) continue;
     await removeImage(image);
     totalBytes -= image.size;
   }
@@ -475,6 +524,7 @@ export class LinkSocialImageService {
           readFile(metadataPath, "utf8"),
         ]);
         const parsed = JSON.parse(metadata) as { source?: LinkSocialImageSource };
+        reserveCaptureForRead(this.directory, name);
         return {
           imageUrl: `/api/linkedin-images/${name}?v=${Math.trunc(info.mtimeMs)}`,
           source: parsed.source === "fallback" ? "fallback" : "screenshot",
@@ -485,7 +535,11 @@ export class LinkSocialImageService {
       }
     }
     const existing = this.pending.get(name);
-    if (existing) return existing;
+    if (existing) {
+      const result = await existing;
+      reserveCaptureForRead(this.directory, name);
+      return result;
+    }
     const generation = withCaptureCacheLock(this.directory, async () => {
       const result = await this.generate(link, name, path, metadataPath);
       await pruneCaptureCache(this.directory, undefined, new Set([name]));
@@ -493,7 +547,9 @@ export class LinkSocialImageService {
     });
     this.pending.set(name, generation);
     try {
-      return await generation;
+      const result = await generation;
+      reserveCaptureForRead(this.directory, name);
+      return result;
     } finally {
       this.pending.delete(name);
     }
@@ -505,6 +561,16 @@ export class LinkSocialImageService {
       return await readFile(join(this.directory, name));
     } catch {
       return null;
+    } finally {
+      const key = resolve(this.directory);
+      const reservations = cacheReservations.get(key);
+      const reservation = reservations?.get(name);
+      if (reservation && reservation.count > 1) {
+        reservation.count -= 1;
+      } else {
+        reservations?.delete(name);
+      }
+      if (!reservations?.size) cacheReservations.delete(key);
     }
   }
 
