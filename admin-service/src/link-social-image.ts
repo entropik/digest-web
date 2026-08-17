@@ -2,7 +2,9 @@ import { createHash } from "node:crypto";
 import {
   mkdir,
   readFile,
+  readdir,
   rename,
+  rm,
   stat,
   writeFile,
 } from "node:fs/promises";
@@ -33,6 +35,124 @@ const BLACK = "#0A0A0A";
 const PAPER = "#F4F2ED";
 const FILE_PATTERN = /^[0-9a-f-]{36}-[0-9a-f]{16}\.png$/;
 const RENDER_VERSION = "link-social-image-v2";
+const CAPTURE_CACHE_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1_000;
+const CAPTURE_CACHE_MAX_BYTES = 100 * 1024 * 1024;
+const CAPTURE_CACHE_CLEANUP_INTERVAL_MS = 60 * 60 * 1_000;
+
+type CaptureCacheLimits = {
+  maxAgeMs: number;
+  maxBytes: number;
+  nowMs: number;
+};
+
+const cacheLocks = new Map<string, Promise<void>>();
+const cacheCleanedAt = new Map<string, number>();
+
+export const withCaptureCacheLock = async <T>(
+  directory: string,
+  task: () => Promise<T>,
+): Promise<T> => {
+  const key = resolve(directory);
+  const previous = cacheLocks.get(key) ?? Promise.resolve();
+  let release!: () => void;
+  const current = new Promise<void>((resolveLock) => {
+    release = resolveLock;
+  });
+  const queued = previous.then(() => current);
+  cacheLocks.set(key, queued);
+  await previous;
+  try {
+    return await task();
+  } finally {
+    release();
+    if (cacheLocks.get(key) === queued) cacheLocks.delete(key);
+  }
+};
+
+export const pruneCaptureCache = async (
+  directory: string,
+  limits: CaptureCacheLimits = {
+    maxAgeMs: CAPTURE_CACHE_MAX_AGE_MS,
+    maxBytes: CAPTURE_CACHE_MAX_BYTES,
+    nowMs: Date.now(),
+  },
+): Promise<void> => {
+  await mkdir(directory, { recursive: true });
+  const entries = await readdir(directory, { withFileTypes: true });
+  const images = await Promise.all(
+    entries
+      .filter((entry) => entry.isFile() && FILE_PATTERN.test(entry.name))
+      .map(async (entry) => {
+        const path = join(directory, entry.name);
+        const info = await stat(path);
+        let metadataSize = 0;
+        try {
+          metadataSize = (await stat(`${path}.json`)).size;
+        } catch {
+          // Les métadonnées absentes seront recréées avec l'image si nécessaire.
+        }
+        return {
+          name: entry.name,
+          path,
+          mtimeMs: info.mtimeMs,
+          size: info.size + metadataSize,
+        };
+      }),
+  );
+  const removeImage = async (image: (typeof images)[number]) => {
+    await Promise.all([
+      rm(image.path, { force: true }),
+      rm(`${image.path}.json`, { force: true }),
+    ]);
+  };
+  const expired = images.filter(
+    (image) => limits.nowMs - image.mtimeMs > limits.maxAgeMs,
+  );
+  await Promise.all(expired.map(removeImage));
+  const expiredNames = new Set(expired.map((image) => image.name));
+  const retained = images
+    .filter((image) => !expiredNames.has(image.name))
+    .sort((left, right) => left.mtimeMs - right.mtimeMs);
+  let totalBytes = retained.reduce((total, image) => total + image.size, 0);
+  for (const image of retained) {
+    if (totalBytes <= limits.maxBytes) break;
+    await removeImage(image);
+    totalBytes -= image.size;
+  }
+  const knownMetadata = new Set(images.map((image) => `${image.name}.json`));
+  await Promise.all(
+    entries
+      .filter(
+        (entry) =>
+          entry.isFile() &&
+          entry.name.endsWith(".png.json") &&
+          !knownMetadata.has(entry.name),
+      )
+      .map((entry) => rm(join(directory, entry.name), { force: true })),
+  );
+};
+
+const maintainCaptureCache = async (
+  directory: string,
+  force = false,
+): Promise<void> =>
+  withCaptureCacheLock(directory, async () => {
+    const key = resolve(directory);
+    const now = Date.now();
+    if (
+      !force &&
+      now - (cacheCleanedAt.get(key) ?? 0) <
+        CAPTURE_CACHE_CLEANUP_INTERVAL_MS
+    ) {
+      return;
+    }
+    await pruneCaptureCache(directory, {
+      maxAgeMs: CAPTURE_CACHE_MAX_AGE_MS,
+      maxBytes: CAPTURE_CACHE_MAX_BYTES,
+      nowMs: now,
+    });
+    cacheCleanedAt.set(key, now);
+  });
 
 const renderBrandSvg = (svg: string): Buffer => {
   const fontDirectory = resolve(process.cwd(), "../static/fonts");
@@ -320,6 +440,7 @@ export class LinkSocialImageService {
     link: Pick<DigestLink, "id" | "title" | "url">,
     refresh = false,
   ): Promise<LinkSocialImageResult> {
+    await maintainCaptureCache(this.directory);
     const name = imageName(link);
     const path = join(this.directory, name);
     const metadataPath = `${path}.json`;
@@ -341,7 +462,11 @@ export class LinkSocialImageService {
     }
     const existing = this.pending.get(name);
     if (existing) return existing;
-    const generation = this.generate(link, name, path, metadataPath);
+    const generation = withCaptureCacheLock(this.directory, async () => {
+      const result = await this.generate(link, name, path, metadataPath);
+      await pruneCaptureCache(this.directory);
+      return result;
+    });
     this.pending.set(name, generation);
     try {
       return await generation;
