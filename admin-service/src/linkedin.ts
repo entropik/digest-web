@@ -639,8 +639,18 @@ export class LinkedInService {
     } catch {
       throw new LinkedInError("LINKEDIN_INVALID_PUBLICATION", 400);
     }
-    if (imageUrl.origin !== config.origin ||
-        !/^\/social\/\d{4}-\d{2}-\d{2}\.png$/.test(imageUrl.pathname)) {
+    const archiveImage = /^\/social\/\d{4}-\d{2}-\d{2}\.png$/.test(
+      imageUrl.pathname,
+    );
+    const linkImage =
+      allowCatalogUrl &&
+      /^\/api\/linkedin-images\/[0-9a-f-]{36}-[0-9a-f]{16}\.png$/.test(
+        imageUrl.pathname,
+      );
+    if (
+      imageUrl.origin !== config.origin ||
+      (allowCatalogUrl ? !linkImage : !archiveImage)
+    ) {
       throw new LinkedInError("LINKEDIN_INVALID_PUBLICATION", 400);
     }
     if (!allowCatalogUrl &&

@@ -120,6 +120,15 @@ Le premier clic sur « Publier sur LinkedIn » demande l’autorisation des scop
 `openid profile w_member_social`. Le jeton obtenu est chiffré dans SQLite avec
 une clé dérivée de `BETTER_AUTH_SECRET` et n’est jamais envoyé au navigateur.
 
+Pour un lien individuel, la modale demande au service une capture du premier
+écran du site. Chromium est piloté par Playwright avec un délai strict et les
+destinations privées sont bloquées, y compris pour les sous-ressources. La
+capture est recadrée en 1200 × 627, passée en noir et blanc, puis habillée avec
+le titre, le domaine et l’encre corail OOBLIK. Les PNG sont conservés dans
+`LINKEDIN_CAPTURE_DIRECTORY`; « Régénérer l’image » force une nouvelle prise.
+Si le site refuse la navigation automatisée, une carte typographique propre à
+ce lien remplace la capture — jamais l’affiche générique de son édition.
+
 #### Lectures GitHub et cache
 
 Une lecture froide du catalogue commence toujours par la référence fraîche de
@@ -164,6 +173,12 @@ Le service doit utiliser Node.js 22 ou supérieur et PM2. Le script
 `scripts/deploy-admin-cloudpanel.sh` conserve cinq releases, garde SQLite et
 les secrets dans `shared/`, exécute les migrations Better Auth puis redémarre
 le processus sans interrompre le site Hugo.
+
+Le même script installe le Chromium Playwright dans
+`/home/digest/apps/digest-admin/shared/playwright`. Lors de la première mise en
+service des captures, installer une fois les dépendances système indiquées par
+`npx playwright install-deps --dry-run chromium`; elles restent communes aux
+releases suivantes.
 
 Ajouter au vhost les routes fournies dans
 `deploy/cloudpanel-digest-admin.nginx.conf`, puis exécuter le déploiement

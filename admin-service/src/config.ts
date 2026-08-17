@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { resolve } from "node:path";
+import { dirname, resolve } from "node:path";
 
 const required = (name: string): string => {
   const value = process.env[name]?.trim();
@@ -65,6 +65,10 @@ export const config = {
   linkedinClientId,
   linkedinClientSecret,
   linkedinRedirectUri: `${base.origin}/api/admin/linkedin/callback`,
+  linkedinCaptureDirectory: resolve(
+    process.env.LINKEDIN_CAPTURE_DIRECTORY?.trim() ||
+      resolve(dirname(required("BETTER_AUTH_DATABASE")), "linkedin-captures"),
+  ),
   extensionOrigins,
   allowedOrigins: [base.origin, ...extensionOrigins],
 } as const;

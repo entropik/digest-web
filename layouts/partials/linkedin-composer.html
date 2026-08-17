@@ -7,13 +7,17 @@
       </div>
       <button type="button" class="linkedin-composer-close" data-linkedin-cancel aria-label="Fermer">×</button>
     </div>
-    <img
-      class="linkedin-composer-image"
-      data-linkedin-preview
-      {{ with .image }}src="{{ . | relURL }}"{{ end }}
-      width="1200"
-      height="627"
-      alt="Grande image qui accompagnera la publication LinkedIn">
+    <div class="linkedin-composer-visual" data-linkedin-visual>
+      <img
+        class="linkedin-composer-image"
+        data-linkedin-preview
+        {{ with .image }}src="{{ . | relURL }}"{{ end }}
+        width="1200"
+        height="627"
+        alt="Grande image qui accompagnera la publication LinkedIn">
+      <p class="linkedin-composer-image-status" data-linkedin-image-status role="status" aria-live="polite"></p>
+      <button class="linkedin-composer-regenerate" type="button" data-linkedin-regenerate hidden>Régénérer l’image</button>
+    </div>
     <label class="linkedin-composer-field">
       <span>Texte du post</span>
       <textarea data-linkedin-text rows="6" maxlength="1250" required></textarea>

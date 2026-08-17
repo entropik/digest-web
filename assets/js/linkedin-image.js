@@ -15,8 +15,11 @@
   const tagsNote = document.querySelector("[data-linkedin-tags-note]");
   const confirmButton = document.querySelector("[data-linkedin-confirm]");
   const preview = document.querySelector("[data-linkedin-preview]");
+  const imageStatus = document.querySelector("[data-linkedin-image-status]");
+  const regenerateButton = document.querySelector("[data-linkedin-regenerate]");
   if (!shareButtons.length || !feedback || !composer || !form || !textField || !hashtagsField) return;
   let activeButton = shareButtons[0];
+  let imageGeneration = 0;
 
   const api = async (path, options) => {
     const response = await fetch(path, options);
@@ -131,8 +134,46 @@
     cancel.addEventListener("click", () => composer.close("cancel"));
   });
   composer.addEventListener("close", () => {
+    imageGeneration += 1;
     if (activeButton.dataset.published !== "true") activeButton.disabled = false;
   });
+
+  const displayPreview = async (imageUrl) => {
+    preview.hidden = false;
+    preview.src = imageUrl;
+    await preview.decode().catch(() => undefined);
+    if (imageStatus) imageStatus.textContent = "";
+  };
+
+  const generateLinkPreview = async ({ refresh = false } = {}) => {
+    const generation = ++imageGeneration;
+    confirmButton.disabled = true;
+    if (regenerateButton) regenerateButton.disabled = true;
+    preview.hidden = true;
+    if (imageStatus) {
+      imageStatus.textContent = refresh
+        ? "Nouvelle capture et traitement graphique en cours…"
+        : "Capture du site et traitement noir et blanc en cours…";
+    }
+    const result = await api("/api/admin/linkedin/link-preview", {
+      method: "POST",
+      credentials: "same-origin",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        linkId: activeButton.dataset.linkId,
+        refresh,
+        confirm: true,
+      }),
+    });
+    if (generation !== imageGeneration || !composer.open) return;
+    activeButton.dataset.shareImage = result.imageUrl;
+    await displayPreview(result.imageUrl);
+    feedback.textContent = result.source === "fallback"
+      ? "Le site a refusé la capture. Une carte OOBLIK propre à ce lien a été créée."
+      : "Capture prête : noir et blanc, corail et titre du lien.";
+    confirmButton.disabled = false;
+    if (regenerateButton) regenerateButton.disabled = false;
+  };
 
   const openComposer = async (shareButton) => {
     activeButton = shareButton;
@@ -140,7 +181,8 @@
       imageUrl: shareButton.dataset.shareImage,
       url: shareButton.dataset.shareUrl || window.location.href,
     };
-    if (!imageUrl) return;
+    const isSingleLink = Boolean(shareButton.dataset.linkId);
+    if (!isSingleLink && !imageUrl) return;
     shareButton.disabled = true;
     feedback.textContent = "Vérification du compte LinkedIn…";
 
@@ -164,12 +206,28 @@
           ? `${hashtags.length} hashtags ont été ajoutés automatiquement. Ils restent modifiables.`
           : "Aucun hashtag automatique pour cette publication.";
       }
-      if (preview) preview.src = imageUrl;
+      if (regenerateButton) regenerateButton.hidden = !isSingleLink;
+      if (imageStatus) imageStatus.textContent = "";
+      if (!isSingleLink) await displayPreview(imageUrl);
       urlField.textContent = url;
       accountField.textContent = `Publication sur le compte ${status.memberName}`;
-      feedback.textContent = "Personnalisez le texte avant de confirmer.";
+      feedback.textContent = isSingleLink
+        ? "Préparation de l’image propre à ce lien…"
+        : "Personnalisez le texte avant de confirmer.";
       composer.showModal();
       textField.focus();
+      if (isSingleLink) {
+        try {
+          await generateLinkPreview();
+        } catch (error) {
+          if (error?.message === "AUTHENTICATION_REQUIRED") return;
+          if (imageStatus) {
+            imageStatus.textContent = "La création de l’image a échoué. Vous pouvez réessayer.";
+          }
+          feedback.textContent = "Impossible de préparer l’image LinkedIn.";
+          if (regenerateButton) regenerateButton.disabled = false;
+        }
+      }
     } catch (error) {
       if (error?.message === "AUTHENTICATION_REQUIRED") return;
       feedback.textContent = "La vérification du compte LinkedIn a échoué.";
@@ -179,6 +237,17 @@
 
   shareButtons.forEach((shareButton) => {
     shareButton.addEventListener("click", () => openComposer(shareButton));
+  });
+
+  regenerateButton?.addEventListener("click", async () => {
+    try {
+      await generateLinkPreview({ refresh: true });
+    } catch (error) {
+      if (error?.message === "AUTHENTICATION_REQUIRED") return;
+      if (imageStatus) imageStatus.textContent = "La nouvelle capture a échoué.";
+      feedback.textContent = "Impossible de régénérer l’image pour le moment.";
+      regenerateButton.disabled = false;
+    }
   });
 
   deleteButtons.forEach((deleteButton) => {
@@ -234,7 +303,7 @@
           credentials: "same-origin",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(isSingleLink
-            ? { linkId: data.linkId, text: data.text, imageUrl: data.imageUrl, confirm: true }
+            ? { linkId: data.linkId, text: data.text, confirm: true }
             : { ...data, confirm: true }),
         },
       );
