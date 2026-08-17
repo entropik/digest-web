@@ -1,8 +1,11 @@
 import { randomUUID } from "node:crypto";
 import {
   catalogTaxonomy,
+  changeVisibility,
   publicAdminLink,
+  serializeCatalog,
   type PublishedMetadata,
+  type VisibilityAction,
 } from "./catalog.js";
 import { config } from "./config.js";
 import { CurationStore } from "./curation-db.js";
@@ -132,6 +135,72 @@ export class CurationService {
     );
     if (!link) throw new CurationError("LINK_NOT_FOUND", 404);
     return link;
+  }
+
+  async updateLinkVisibility(id: string, action: VisibilityAction) {
+    const verb = action === "hide" ? "Masquer" : "Restaurer";
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+      const head = await readRepositoryHead();
+      let result;
+      try {
+        result = changeVisibility(head.links, id, action);
+      } catch (error) {
+        if (error instanceof Error && error.message === "LINK_NOT_FOUND") {
+          throw new CurationError("LINK_NOT_FOUND", 404);
+        }
+        throw error;
+      }
+      if (!result.changed) {
+        return {
+          changed: false,
+          commit: head.commitSha,
+          link: publicAdminLink(result.link),
+          state: action === "hide" ? "hidden" : "visible",
+        };
+      }
+      const date = result.link.added;
+      const source = await tryReadRepositoryFile(
+        editionPath(date),
+        head.commitSha,
+      );
+      if (!source) throw new CurationError("EDITION_NOT_FOUND", 404);
+      const edition = parseEdition(source);
+      const socialImage = await generateOptimizedSocialImage({
+        digestDate: date,
+        title: edition.title,
+        description: edition.description,
+        linkCount: result.links.filter(
+          (link) => link.added === date && link.visibility !== "hidden",
+        ).length,
+      });
+      try {
+        const commit = await commitRepositoryFiles(
+          head.commitSha,
+          head.treeSha,
+          {
+            "data/links.json": serializeCatalog(result.links),
+            [`static/social/${date}.png`]: socialImage,
+          },
+          `${verb} ${result.link.title}`,
+        );
+        return {
+          changed: true,
+          commit,
+          link: publicAdminLink(result.link),
+          state: action === "hide" ? "hidden" : "visible",
+        };
+      } catch (error) {
+        if (
+          attempt === 0 &&
+          error instanceof GitHubResponseError &&
+          [409, 422].includes(error.status)
+        ) {
+          continue;
+        }
+        throw error;
+      }
+    }
+    throw new Error("Unable to update link visibility after a concurrent change");
   }
 
   async bootstrap(rawUrl: string) {

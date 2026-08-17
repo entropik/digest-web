@@ -215,6 +215,11 @@
         connect();
         return;
       }
+      if (error?.code === "LINKEDIN_PUBLICATION_IN_PROGRESS") {
+        feedback.textContent =
+          "Cette publication LinkedIn est déjà en cours dans un autre onglet.";
+        return;
+      }
       feedback.textContent =
         "La publication LinkedIn a échoué. Aucun second post n’a été créé automatiquement.";
     } finally {

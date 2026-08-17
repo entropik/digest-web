@@ -24,7 +24,6 @@ import type {
 import {
   listAdminLinks,
   listHiddenLinks,
-  updateLinkVisibility,
 } from "./github.js";
 import {
   createRequestId,
@@ -406,7 +405,7 @@ const visibilityMutation = async (
     const id = context.req.param("id");
     if (!id) throw new CurationError("LINK_NOT_FOUND", 404);
     try {
-      return await updateLinkVisibility(id, action);
+      return await curation.updateLinkVisibility(id, action);
     } catch (error) {
       if (error instanceof Error && error.message === "LINK_NOT_FOUND") {
         throw new CurationError("LINK_NOT_FOUND", 404);

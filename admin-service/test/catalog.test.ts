@@ -52,6 +52,35 @@ test("published URL correction is included in change detection", () => {
   });
   assert.equal(mutation.changed, true);
   assert.equal(mutation.link.url, "https://example.org");
+  assert.deepEqual(mutation.link.previous_urls, ["https://example.com"]);
+});
+
+test("successive URL corrections retain every distinct public address", () => {
+  const original: DigestLink = {
+    ...link(),
+    previous_urls: ["https://old.example.com"],
+  };
+  const first = changePublishedMetadata([original], original.id, {
+    url: "https://example.org",
+    title: original.title,
+    category: original.category,
+    description: "",
+    tags: [],
+    reactivate: true,
+  });
+  const second = changePublishedMetadata(first.links, original.id, {
+    url: "https://example.net",
+    title: original.title,
+    category: original.category,
+    description: "",
+    tags: [],
+    reactivate: false,
+  });
+  assert.deepEqual(second.link.previous_urls, [
+    "https://old.example.com",
+    "https://example.com",
+    "https://example.org",
+  ]);
 });
 
 test("published URL correction rejects a URL already in the catalog", () => {

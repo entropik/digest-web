@@ -5,7 +5,7 @@ import {
   type SocialImageInput,
 } from "../src/social-image.js";
 
-type CatalogLink = { added?: string };
+type CatalogLink = { added?: string; visibility?: "hidden" };
 
 const argument = (name: string): string | undefined => {
   const index = process.argv.indexOf(name);
@@ -44,6 +44,7 @@ const withSocialImage = (source: string, digestDate: string): string => {
 const archiveDirectory = resolve("../content/archives");
 const socialDirectory = resolve("../static/social");
 const force = hasFlag("--force");
+const requestedDate = argument("--date");
 const requestedConcurrency = Number.parseInt(argument("--concurrency") ?? "6", 10);
 const concurrency = Number.isFinite(requestedConcurrency)
   ? Math.max(1, Math.min(12, requestedConcurrency))
@@ -51,13 +52,14 @@ const concurrency = Number.isFinite(requestedConcurrency)
 
 const archiveFiles = (await readdir(archiveDirectory))
   .filter((file) => /^\d{4}-\d{2}-\d{2}\.md$/.test(file))
+  .filter((file) => !requestedDate || file === `${requestedDate}.md`)
   .sort();
 const catalog = JSON.parse(
   await readFile(resolve("../data/links.json"), "utf8"),
 ) as CatalogLink[];
 const linksByDate = new Map<string, number>();
 for (const link of catalog) {
-  if (!link.added) continue;
+  if (!link.added || link.visibility === "hidden") continue;
   linksByDate.set(link.added, (linksByDate.get(link.added) ?? 0) + 1);
 }
 

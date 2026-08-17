@@ -167,6 +167,25 @@ test("publishing uploads the PNG then creates one native image post with its URL
     linkPost.specificContent["com.linkedin.ugc.ShareContent"].shareCommentary.text,
     "À lire. #Design\n\nhttps://example.com/une-ressource",
   );
+
+  const concurrentInput = {
+    title: "Publication réservée",
+    text: "Un seul post doit être créé.",
+    url: "https://example.com/publication-concurrente",
+    imageUrl: "/social/2026-08-16.png",
+  };
+  const firstPublication = service.publishLink("admin-2", concurrentInput);
+  await assert.rejects(
+    service.publishLink("admin-2", concurrentInput),
+    (error: unknown) =>
+      error instanceof LinkedInError &&
+      error.code === "LINKEDIN_PUBLICATION_IN_PROGRESS",
+  );
+  await firstPublication;
+  assert.equal(
+    calls.filter(({ url }) => url.endsWith("/v2/ugcPosts")).length,
+    3,
+  );
 });
 
 test("publication rejects external archive and image URLs before fetching", async () => {

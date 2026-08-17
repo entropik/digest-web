@@ -124,6 +124,16 @@
                 <a class="archive-stream" href="{{ printf "flux/%s/" . | relURL }}">Flux {{ humanize . }}</a>
               {{ end }}
               <span class="archive-url">{{ .url }}</span>
+              {{ with .previous_urls }}
+                <details class="archive-previous-urls">
+                  <summary>Anciennes adresses</summary>
+                  <ul>
+                    {{ range . }}
+                      <li><a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ . }}</a></li>
+                    {{ end }}
+                  </ul>
+                </details>
+              {{ end }}
               <div class="archive-item-actions">
                 <button
                   class="archive-favorite"
