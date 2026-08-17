@@ -175,8 +175,12 @@ export const pruneCaptureCache = async (
       rm(`${image.path}.json`, { force: true }),
     ]);
   };
+  const reservedNames = reservedCaptureNames(directory, limits.nowMs);
   const expired = images.filter(
-    (image) => limits.nowMs - image.mtimeMs > limits.maxAgeMs,
+    (image) =>
+      limits.nowMs - image.mtimeMs > limits.maxAgeMs &&
+      !protectedNames.has(image.name) &&
+      !reservedNames.has(image.name),
   );
   await Promise.all(expired.map(removeImage));
   const expiredNames = new Set(expired.map((image) => image.name));
@@ -185,7 +189,6 @@ export const pruneCaptureCache = async (
     .sort((left, right) => left.mtimeMs - right.mtimeMs);
   let totalBytes =
     temporaryBytes + retained.reduce((total, image) => total + image.size, 0);
-  const reservedNames = reservedCaptureNames(directory, limits.nowMs);
   for (const image of retained) {
     if (totalBytes <= limits.maxBytes) break;
     if (protectedNames.has(image.name) || reservedNames.has(image.name)) continue;

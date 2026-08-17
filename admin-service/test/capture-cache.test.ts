@@ -175,3 +175,29 @@ test("capture cache keeps a returned image reserved until local consumption", as
     await rm(directory, { recursive: true, force: true });
   }
 });
+
+test("capture cache does not expire an image while a local read is reserved", async () => {
+  const directory = await mkdtemp(join(tmpdir(), "digest-capture-reserved-age-"));
+  try {
+    const now = new Date("2026-08-17T12:00:00.000Z");
+    await writeCachedImage(directory, names[0]!, 40, new Date("2026-07-01T00:00:00.000Z"));
+    const release = reserveCaptureForRead(directory, names[0]!, now.valueOf());
+
+    await pruneCaptureCache(directory, {
+      maxAgeMs: 30 * 24 * 60 * 60 * 1_000,
+      maxBytes: 1_000,
+      nowMs: now.valueOf(),
+    });
+    assert.equal((await readFile(join(directory, names[0]!))).length, 40);
+
+    release();
+    await pruneCaptureCache(directory, {
+      maxAgeMs: 30 * 24 * 60 * 60 * 1_000,
+      maxBytes: 1_000,
+      nowMs: now.valueOf(),
+    });
+    await assert.rejects(readFile(join(directory, names[0]!)));
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
