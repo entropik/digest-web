@@ -278,7 +278,7 @@
     favicon.className = "link-favicon";
     favicon.src = faviconFallbackHosts.has(host)
       ? faviconFallbackSrc
-      : `https://www.google.com/s2/favicons?domain_url=${encodeURIComponent(link.url)}&sz=32`;
+      : `https://www.google.com/s2/favicons?domain=${encodeURIComponent(host)}&sz=32`;
     favicon.alt = "";
     favicon.width = 16;
     favicon.height = 16;

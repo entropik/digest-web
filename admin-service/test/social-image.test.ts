@@ -145,6 +145,23 @@ test("the root link modal exposes LinkedIn before tag editing for admins", async
   assert.match(script, /digest:linkedin-published/);
 });
 
+test("link icons never disclose catalog URLs to a third party", async () => {
+  const [partial, layout, script] = await Promise.all([
+    readFile(
+      new URL("../../layouts/partials/link-favicon.html", import.meta.url),
+      "utf8",
+    ),
+    readFile(new URL("../../layouts/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../../assets/js/digest.js", import.meta.url), "utf8"),
+  ]);
+  const implementation = `${partial}\n${layout}\n${script}`;
+  assert.doesNotMatch(implementation, /domain_url/i);
+  assert.doesNotMatch(implementation, /encodeURIComponent\(link\.url\)/);
+  assert.match(partial, /favicons\?domain=%s&sz=32" \(\$host \| urlquery\)/);
+  assert.match(script, /favicons\?domain=\$\{encodeURIComponent\(host\)\}&sz=32/);
+  assert.match(layout, /data-fallback-src=/);
+});
+
 test("social image counts follow public link visibility", async () => {
   const [backfill, curation] = await Promise.all([
     readFile(

@@ -2,7 +2,7 @@
 {{- $host := (urls.Parse $url).Host | strings.TrimPrefix "www." -}}
 {{- $fallbackHosts := hugo.Data.favicon_fallbacks | default (slice) -}}
 {{- $fallbackIcon := resources.Get "images/link-fallback.svg" | fingerprint -}}
-{{- $faviconSrc := printf "https://www.google.com/s2/favicons?domain_url=%s&sz=32" ($url | urlquery) -}}
+{{- $faviconSrc := printf "https://www.google.com/s2/favicons?domain=%s&sz=32" ($host | urlquery) -}}
 {{- if in $fallbackHosts $host -}}
   {{- $faviconSrc = $fallbackIcon.RelPermalink -}}
 {{- end -}}
