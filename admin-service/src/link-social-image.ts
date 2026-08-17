@@ -1,5 +1,4 @@
 import { createHash } from "node:crypto";
-import { lookup } from "node:dns/promises";
 import {
   mkdir,
   readFile,
@@ -9,10 +8,14 @@ import {
 } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { Resvg } from "@resvg/resvg-js";
-import { chromium, type Page, type Route } from "playwright";
+import { chromium, type Browser, type Page, type Route } from "playwright";
 import sharp from "sharp";
 import type { DigestLink } from "./catalog.js";
-import { canonicalizePublicUrl, isPrivateHost } from "./urls.js";
+import {
+  PinnedAddressBook,
+  startPinnedBrowserProxy,
+} from "./pinned-browser-proxy.js";
+import { canonicalizePublicUrl } from "./urls.js";
 
 const WIDTH = 1200;
 const HEIGHT = 627;
@@ -22,6 +25,7 @@ const CORAL = "#FF5C35";
 const BLACK = "#0A0A0A";
 const PAPER = "#F4F2ED";
 const FILE_PATTERN = /^[0-9a-f-]{36}-[0-9a-f]{16}\.png$/;
+const RENDER_VERSION = "link-social-image-v2";
 
 const renderBrandSvg = (svg: string): Buffer => {
   const fontDirectory = resolve(process.cwd(), "../static/fonts");
@@ -116,17 +120,17 @@ const fallbackImage = async (title: string, host: string): Promise<Buffer> => {
   return sharp(svg).png({ palette: true, colours: 64, compressionLevel: 9 }).toBuffer();
 };
 
-const assertPublicDestination = async (rawUrl: string): Promise<URL> => {
+const assertPublicDestination = async (
+  rawUrl: string,
+  addressBook: PinnedAddressBook,
+): Promise<URL> => {
   const url = new URL(canonicalizePublicUrl(rawUrl));
-  const addresses = await lookup(url.hostname, { all: true, verbatim: true });
-  if (!addresses.length || addresses.some(({ address }) => isPrivateHost(address))) {
-    throw new Error("UNSAFE_SCREENSHOT_DESTINATION");
-  }
+  await addressBook.resolve(url.hostname);
   return url;
 };
 
 const routeSafely = (
-  approvedHosts: Map<string, Promise<void>>,
+  addressBook: PinnedAddressBook,
   route: Route,
 ): Promise<void> => {
   const request = route.request();
@@ -136,18 +140,18 @@ const routeSafely = (
   if (["media", "websocket", "eventsource"].includes(request.resourceType())) {
     return route.abort();
   }
-  const host = new URL(rawUrl).hostname.toLowerCase();
-  let approval = approvedHosts.get(host);
-  if (!approval) {
-    approval = assertPublicDestination(rawUrl).then(() => undefined);
-    approvedHosts.set(host, approval);
-  }
-  return approval.then(() => route.continue(), () => route.abort());
+  return assertPublicDestination(rawUrl, addressBook).then(
+    () => route.continue(),
+    () => route.abort(),
+  );
 };
 
-const preparePage = async (page: Page, url: string): Promise<void> => {
-  const approvedHosts = new Map<string, Promise<void>>();
-  await page.route("**/*", (route) => routeSafely(approvedHosts, route));
+const preparePage = async (
+  page: Page,
+  url: string,
+  addressBook: PinnedAddressBook,
+): Promise<void> => {
+  await page.route("**/*", (route) => routeSafely(addressBook, route));
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 15_000 });
   await page.addStyleTag({
     content: "*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}",
@@ -159,12 +163,16 @@ export const capturePublicPage = async (
   rawUrl: string,
   executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE?.trim(),
 ): Promise<Buffer> => {
-  const url = await assertPublicDestination(rawUrl);
-  const browser = await chromium.launch({
-    headless: true,
-    ...(executablePath ? { executablePath } : {}),
-  });
+  const addressBook = new PinnedAddressBook();
+  const url = await assertPublicDestination(rawUrl, addressBook);
+  const proxy = await startPinnedBrowserProxy(addressBook);
+  let browser: Browser | undefined;
   try {
+    browser = await chromium.launch({
+      headless: true,
+      proxy: { server: proxy.url, bypass: "<-loopback>" },
+      ...(executablePath ? { executablePath } : {}),
+    });
     const context = await browser.newContext({
       viewport: { width: CAPTURE_WIDTH, height: CAPTURE_HEIGHT },
       deviceScaleFactor: 1,
@@ -175,14 +183,15 @@ export const capturePublicPage = async (
         "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/126 Safari/537.36 OOBLIK-Digest-Capture/1.0",
     });
     const page = await context.newPage();
-    await preparePage(page, url.toString());
+    await preparePage(page, url.toString(), addressBook);
     return await page.screenshot({
       type: "png",
       fullPage: false,
       animations: "disabled",
     });
   } finally {
-    await browser.close();
+    await browser?.close();
+    await proxy.close();
   }
 };
 
@@ -200,8 +209,17 @@ const stylizeScreenshot = async (
     .png({ palette: true, colours: 256, compressionLevel: 9, effort: 10 })
     .toBuffer();
 
-const imageName = (link: Pick<DigestLink, "id" | "url">): string => {
-  const hash = createHash("sha256").update(link.url).digest("hex").slice(0, 16);
+const imageName = (
+  link: Pick<DigestLink, "id" | "title" | "url">,
+): string => {
+  const hash = createHash("sha256")
+    .update(RENDER_VERSION)
+    .update("\0")
+    .update(link.url)
+    .update("\0")
+    .update(link.title)
+    .digest("hex")
+    .slice(0, 16);
   return `${link.id}-${hash}.png`;
 };
 

@@ -135,6 +135,8 @@
   });
   composer.addEventListener("close", () => {
     imageGeneration += 1;
+    confirmButton.disabled = false;
+    if (regenerateButton) regenerateButton.disabled = false;
     if (activeButton.dataset.published !== "true") activeButton.disabled = false;
   });
 
@@ -184,6 +186,7 @@
     const isSingleLink = Boolean(shareButton.dataset.linkId);
     if (!isSingleLink && !imageUrl) return;
     shareButton.disabled = true;
+    confirmButton.disabled = false;
     feedback.textContent = "Vérification du compte LinkedIn…";
 
     try {
