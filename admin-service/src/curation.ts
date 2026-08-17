@@ -509,7 +509,16 @@ export class CurationService {
       editionPath(publication.digestDate),
       head.commitSha,
     );
-    if (!recovered || !archive) return publication;
+    if (!recovered || !archive) {
+      if (publication.state === "committing" && !publication.commitSha) {
+        this.store.restorePublishingDrafts(publication.id);
+        return this.store.updatePublication(publication.id, {
+          state: "failed",
+          errorCode: "GITHUB_COMMIT_NOT_FOUND",
+        });
+      }
+      return publication;
+    }
     const linkIds = new Map(
       drafts.map((draft) => [
         draft.id,

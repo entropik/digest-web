@@ -23,12 +23,13 @@ export const withDeadline = async <T>(
   }
 };
 
-export const fetchWithDeadline = async (
+export const fetchWithDeadline = async <T>(
   fetcher: typeof globalThis.fetch,
   input: Parameters<typeof globalThis.fetch>[0],
   init: RequestInit = {},
   timeoutMs: number,
-): Promise<Response> => {
+  consume: (response: Response) => Promise<T>,
+): Promise<T> => {
   const deadline = new AbortController();
   let expired = false;
   const timer = setTimeout(() => {
@@ -39,7 +40,8 @@ export const fetchWithDeadline = async (
     ? AbortSignal.any([init.signal, deadline.signal])
     : deadline.signal;
   try {
-    return await fetcher(input, { ...init, signal });
+    const response = await fetcher(input, { ...init, signal });
+    return await consume(response);
   } catch (error) {
     if (expired) throw new NetworkDeadlineError(timeoutMs);
     throw error;

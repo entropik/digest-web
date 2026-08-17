@@ -17,7 +17,13 @@ test("network deadlines abort stalled requests with a typed error", async () => 
     });
 
   await assert.rejects(
-    fetchWithDeadline(stalled as typeof fetch, "https://example.test", {}, 10),
+    fetchWithDeadline(
+      stalled as typeof fetch,
+      "https://example.test",
+      {},
+      10,
+      async (response) => response,
+    ),
     (error: unknown) =>
       error instanceof NetworkDeadlineError && error.timeoutMs === 10,
   );
@@ -52,8 +58,36 @@ test("caller cancellation remains distinct from a deadline", async () => {
       "https://example.test",
       { signal: controller.signal },
       100,
+      async (response) => response,
     ),
     (error: unknown) =>
       error instanceof DOMException && error.name === "AbortError",
   );
+});
+
+test("the deadline remains active while consuming the response body", async () => {
+  let bodyAborted = false;
+  const fetcher = async (_input: string | URL | Request, init?: RequestInit) =>
+    new Response(
+      new ReadableStream({
+        start(controller) {
+          init?.signal?.addEventListener("abort", () => {
+            bodyAborted = true;
+            controller.error(new DOMException("Aborted", "AbortError"));
+          });
+        },
+      }),
+    );
+
+  await assert.rejects(
+    fetchWithDeadline(
+      fetcher as typeof fetch,
+      "https://example.test",
+      {},
+      10,
+      (response) => response.text(),
+    ),
+    NetworkDeadlineError,
+  );
+  assert.equal(bodyAborted, true);
 });

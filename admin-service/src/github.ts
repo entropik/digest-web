@@ -121,9 +121,8 @@ const request = async <T>(
   outcomeUnknownOnTimeout = false,
 ): Promise<T> => {
   const token = await installationToken();
-  let response: Response;
   try {
-    response = await fetchWithDeadline(
+    return await fetchWithDeadline(
       fetch,
       `https://api.github.com${path}`,
       {
@@ -140,6 +139,17 @@ const request = async <T>(
       init.method && init.method !== "GET"
         ? GITHUB_WRITE_TIMEOUT_MS
         : GITHUB_READ_TIMEOUT_MS,
+      async (response) => {
+        if (!response.ok) {
+          const detail = await response.text();
+          throw new GitHubResponseError(
+            `GitHub request failed (${response.status}): ${detail.slice(0, 500)}`,
+            response.status,
+          );
+        }
+        if (response.status === 204) return undefined as T;
+        return (await response.json()) as T;
+      },
     );
   } catch (error) {
     if (error instanceof NetworkDeadlineError) {
@@ -150,22 +160,12 @@ const request = async <T>(
     }
     throw error;
   }
-  if (!response.ok) {
-    const detail = await response.text();
-    throw new GitHubResponseError(
-      `GitHub request failed (${response.status}): ${detail.slice(0, 500)}`,
-      response.status,
-    );
-  }
-  if (response.status === 204) return undefined as T;
-  return (await response.json()) as T;
 };
 
 const requestText = async (path: string): Promise<string> => {
   const token = await installationToken();
-  let response: Response;
   try {
-    response = await fetchWithDeadline(
+    return await fetchWithDeadline(
       fetch,
       `https://api.github.com${path}`,
       {
@@ -177,6 +177,15 @@ const requestText = async (path: string): Promise<string> => {
         },
       },
       GITHUB_READ_TIMEOUT_MS,
+      async (response) => {
+        if (!response.ok) {
+          throw new GitHubResponseError(
+            `GitHub content read failed (${response.status})`,
+            response.status,
+          );
+        }
+        return response.text();
+      },
     );
   } catch (error) {
     if (error instanceof NetworkDeadlineError) {
@@ -184,13 +193,6 @@ const requestText = async (path: string): Promise<string> => {
     }
     throw error;
   }
-  if (!response.ok) {
-    throw new GitHubResponseError(
-      `GitHub content read failed (${response.status})`,
-      response.status,
-    );
-  }
-  return response.text();
 };
 
 const repositoryPath = `/repos/${encodeURIComponent(config.repositoryOwner)}/${encodeURIComponent(config.repositoryName)}`;

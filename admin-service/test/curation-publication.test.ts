@@ -153,16 +153,17 @@ test("an ambiguous GitHub branch update keeps the publication recoverable", asyn
     },
   };
   const service = new CurationService(store, dependencies);
+  const input = {
+    requestId: "22222222-2222-4222-8222-222222222222",
+    draftIds: [draft.id],
+    digestDate: "2026-08-18",
+    title: "Web Digest — 18 août 2026",
+    introduction: "Une publication au résultat distant incertain.",
+    seoDescription: "Test du délai GitHub.",
+  };
 
   await assert.rejects(
-    service.publish({
-      requestId: "22222222-2222-4222-8222-222222222222",
-      draftIds: [draft.id],
-      digestDate: "2026-08-18",
-      title: "Web Digest — 18 août 2026",
-      introduction: "Une publication au résultat distant incertain.",
-      seoDescription: "Test du délai GitHub.",
-    }),
+    service.publish(input),
     GitHubMutationOutcomeUnknownError,
   );
   assert.equal(
@@ -170,5 +171,10 @@ test("an ambiguous GitHub branch update keeps the publication recoverable", asyn
     "committing",
   );
   assert.equal(store.findDraft(draft.id)?.state, "publishing");
+
+  const reconciled = await new CurationService(store, dependencies).publish(input);
+  assert.equal(reconciled.state, "failed");
+  assert.equal(reconciled.errorCode, "GITHUB_COMMIT_NOT_FOUND");
+  assert.equal(store.findDraft(draft.id)?.state, "draft");
   database.close();
 });
