@@ -172,6 +172,10 @@ test("LinkedIn native publishing uses the authenticated server API", async () =>
   assert.match(script, /"\/api\/admin\/linkedin\/publish-link"/);
   assert.match(script, /"\/api\/admin\/linkedin\/link-preview"/);
   assert.match(script, /Régénérer l.image|generateLinkPreview/);
+  assert.match(
+    script,
+    /composer\.addEventListener\("close",[\s\S]*?confirmButton\.disabled = false/,
+  );
   assert.match(script, /"\/api\/admin\/linkedin\/publish"/);
   assert.match(script, /confirm: true/);
   assert.match(script, /composer\.showModal\(\)/);

@@ -47,8 +47,15 @@ test("a link screenshot becomes a cached 1200 by 627 editorial image", async () 
     assert.equal(cached.imageUrl, first.imageUrl);
     assert.equal(captures, 1);
 
-    await service.imageFor(link, true);
+    const retitled = await service.imageFor({
+      ...link,
+      title: "Design Better — nouveau titre",
+    });
+    assert.notEqual(retitled.imageUrl, first.imageUrl);
     assert.equal(captures, 2);
+
+    await service.imageFor(link, true);
+    assert.equal(captures, 3);
     assert.equal(await service.read("../../auth.sqlite"), null);
   } finally {
     await rm(directory, { recursive: true, force: true });
