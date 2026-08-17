@@ -576,16 +576,18 @@
   });
 
   pagePrev.addEventListener("click", () => {
-    if (currentPage === 1) return;
+    const displayedPage = renderedPage;
+    if (displayedPage === 1) return;
     void withLinks(() => {
-      currentPage -= 1;
+      currentPage = displayedPage - 1;
       render({ urlMode: "push", scroll: true });
     });
   });
 
   pageNext.addEventListener("click", () => {
+    const displayedPage = renderedPage;
     void withLinks(() => {
-      currentPage += 1;
+      currentPage = displayedPage + 1;
       render({ urlMode: "push", scroll: true });
     });
   });
