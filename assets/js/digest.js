@@ -526,7 +526,7 @@
     modalLinkedIn.disabled = false;
     delete modalLinkedIn.dataset.published;
     modalLinkedIn.dataset.linkId = link.id;
-    modalLinkedIn.dataset.shareImage = `/social/${String(link.added).slice(0, 10)}.png`;
+    delete modalLinkedIn.dataset.shareImage;
     modalLinkedIn.dataset.shareTitle = link.title;
     modalLinkedIn.dataset.shareTags = JSON.stringify(link.tags || []);
     modalLinkedIn.dataset.shareUrl = link.url;

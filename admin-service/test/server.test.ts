@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdtemp, rm } from "node:fs/promises";
+import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test, { after } from "node:test";
@@ -128,6 +128,19 @@ test("session endpoint is readable but mutations require authentication", async 
   );
   assert.equal(linkedinPublication.status, 401);
 
+  const linkedinPreview = await app.request(
+    "/api/admin/linkedin/link-preview",
+    {
+      method: "POST",
+      headers: {
+        Origin: "https://digest.ooblik.com",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ linkId: "not-authorized", confirm: true }),
+    },
+  );
+  assert.equal(linkedinPreview.status, 401);
+
   const linkedinConfiguration = await app.request(
     "/api/admin/linkedin/configure",
     {
@@ -144,4 +157,23 @@ test("session endpoint is readable but mutations require authentication", async 
     },
   );
   assert.equal(linkedinConfiguration.status, 401);
+});
+
+test("generated LinkedIn images use a strict public read-only route", async () => {
+  const directory = join(temporary, "linkedin-captures");
+  const name =
+    "3583bb99-c9f5-53fc-832c-9d92933c1ad4-0123456789abcdef.png";
+  const image = new Uint8Array([137, 80, 78, 71]);
+  await mkdir(directory, { recursive: true });
+  await writeFile(join(directory, name), image);
+
+  const response = await app.request(`/api/linkedin-images/${name}`);
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get("Content-Type"), "image/png");
+  assert.deepEqual(new Uint8Array(await response.arrayBuffer()), image);
+
+  const invalid = await app.request(
+    "/api/linkedin-images/not-a-capture.png",
+  );
+  assert.equal(invalid.status, 404);
 });

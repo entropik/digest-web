@@ -112,22 +112,19 @@
                   </svg>
                   <span>Favoris</span>
                 </button>
-                {{ if $socialImage }}
-                  <button
-                    class="archive-linkedin-share"
-                    type="button"
-                    hidden
-                    data-linkedin-link-share
-                    data-link-id="{{ .id }}"
-                    data-share-image="{{ $socialImage | relURL }}"
-                    data-share-title="{{ .title }}"
-                    data-share-tags="{{ $linkTags | jsonify }}"
-                    data-share-url="{{ .url }}"
-                    aria-label="Publier ce lien sur LinkedIn">
-                    <span aria-hidden="true">in</span>
-                    <span>LinkedIn</span>
-                  </button>
-                {{ end }}
+                <button
+                  class="archive-linkedin-share"
+                  type="button"
+                  hidden
+                  data-linkedin-link-share
+                  data-link-id="{{ .id }}"
+                  data-share-title="{{ .title }}"
+                  data-share-tags="{{ $linkTags | jsonify }}"
+                  data-share-url="{{ .url }}"
+                  aria-label="Publier ce lien sur LinkedIn">
+                  <span aria-hidden="true">in</span>
+                  <span>LinkedIn</span>
+                </button>
                 <button
                   class="archive-delete-link"
                   type="button"

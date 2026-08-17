@@ -30,6 +30,7 @@ import {
   runWithRequestContext,
 } from "./observability.js";
 import { LinkedInError, LinkedInService } from "./linkedin.js";
+import { LinkSocialImageService } from "./link-social-image.js";
 import { UnsafeUrlError } from "./urls.js";
 
 type Variables = {
@@ -40,6 +41,9 @@ const app = new Hono<{ Variables: Variables }>();
 const mutationAttempts = new Map<string, number[]>();
 const curation = new CurationService(new CurationStore(authDatabase));
 const linkedin = new LinkedInService(authDatabase);
+const linkSocialImages = new LinkSocialImageService(
+  config.linkedinCaptureDirectory,
+);
 
 const allowedOrigin = (origin: string | undefined): origin is string =>
   !!origin && config.allowedOrigins.includes(origin);
@@ -84,6 +88,16 @@ app.on(["GET", "POST"], "/api/auth/*", (context) =>
 );
 
 app.get("/health", (context) => context.json({ status: "ok" }));
+
+app.get("/api/linkedin-images/:name", async (context) => {
+  const image = await linkSocialImages.read(context.req.param("name"));
+  if (!image) return context.json({ error: "IMAGE_NOT_FOUND" }, 404);
+  return context.body(new Uint8Array(image), 200, {
+    "Content-Type": "image/png",
+    "Content-Length": String(image.length),
+    "Cache-Control": "public, max-age=3600",
+  });
+});
 
 app.get("/admin/style.css", (context) =>
   context.body(adminCss, 200, { "Content-Type": "text/css; charset=utf-8" }),
@@ -270,21 +284,34 @@ app.post("/api/admin/linkedin/publish", async (context) =>
   }),
 );
 
+app.post("/api/admin/linkedin/link-preview", async (context) =>
+  handle(context, async () => {
+    const body = await jsonBody<{
+      linkId: string;
+      refresh?: boolean;
+      confirm?: boolean;
+    }>(context);
+    requireConfirmation(body);
+    const link = await curation.publishedLink(String(body.linkId || ""));
+    return linkSocialImages.imageFor(link, body.refresh === true);
+  }),
+);
+
 app.post("/api/admin/linkedin/publish-link", async (context) =>
   handle(context, async () => {
     const body = await jsonBody<{
       linkId: string;
       text: string;
-      imageUrl: string;
       confirm?: boolean;
     }>(context);
     requireConfirmation(body);
     const link = await curation.publishedLink(String(body.linkId || ""));
+    const image = await linkSocialImages.imageFor(link);
     return linkedin.publishLink(context.get("admin").user.id, {
       title: link.title,
       text: body.text,
       url: link.url,
-      imageUrl: body.imageUrl,
+      imageUrl: image.imageUrl,
     });
   }),
 );

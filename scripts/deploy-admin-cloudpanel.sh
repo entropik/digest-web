@@ -6,6 +6,10 @@ base="/home/digest/apps/digest-admin"
 repository="https://github.com/entropik/digest-web.git"
 branch="main"
 
+mkdir -p "$base/releases" "$base/shared"
+exec 9>"$base/shared/deploy.lock"
+flock -n 9 || exit 0
+
 start_admin() {
   cd "$base/current"
   pm2 delete digest-admin >/dev/null 2>&1 || true
@@ -23,7 +27,6 @@ start_admin() {
   done
 }
 
-mkdir -p "$base/releases" "$base/shared"
 test -s "$base/shared/.env"
 
 remote_sha="$(
@@ -50,6 +53,8 @@ if [ ! -d "$release" ]; then
   cd "$temporary/admin-service"
   ln -s "$base/shared/.env" .env
   npm ci
+  PLAYWRIGHT_BROWSERS_PATH="$base/shared/playwright" \
+    npx playwright install chromium --only-shell
   npm run build
   npm run backup
   npm run migrate

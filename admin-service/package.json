@@ -23,7 +23,8 @@
     "better-auth": "1.6.25",
     "better-sqlite3": "12.11.1",
     "dotenv": "17.2.3",
-    "hono": "4.12.32",
+    "hono": "4.13.2",
+    "playwright": "1.62.1",
     "sharp": "0.35.3"
   },
   "devDependencies": {

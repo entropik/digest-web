@@ -113,6 +113,10 @@ test("archive pages expose a native LinkedIn publication with image, text and pe
   assert.match(composer, /data-linkedin-hashtags/);
   assert.match(layout, /data-linkedin-link-share/);
   assert.match(layout, /data-link-id="\{\{ \.id \}\}"/);
+  assert.doesNotMatch(
+    layout,
+    /data-linkedin-link-share[\s\S]{0,240}data-share-image/,
+  );
   assert.match(layout, /class="archive-item-actions"/);
   assert.match(layout, /\.previous_urls/);
   assert.match(layout, /Anciennes adresses/);
@@ -137,7 +141,7 @@ test("the root link modal exposes LinkedIn before tag editing for admins", async
   assert.match(layout, /data-linkedin-link-share/);
   assert.match(layout, /partial "linkedin-composer\.html"/);
   assert.match(script, /modalLinkedIn\.dataset\.linkId = link\.id/);
-  assert.match(script, /modalLinkedIn\.dataset\.shareImage/);
+  assert.match(script, /delete modalLinkedIn\.dataset\.shareImage/);
   assert.match(script, /digest:linkedin-published/);
 });
 
@@ -166,6 +170,8 @@ test("LinkedIn native publishing uses the authenticated server API", async () =>
   assert.match(script, /shareButtons\.forEach/);
   assert.match(script, /\/api\/admin\/linkedin\/connect\?returnTo=/);
   assert.match(script, /"\/api\/admin\/linkedin\/publish-link"/);
+  assert.match(script, /"\/api\/admin\/linkedin\/link-preview"/);
+  assert.match(script, /Régénérer l.image|generateLinkPreview/);
   assert.match(script, /"\/api\/admin\/linkedin\/publish"/);
   assert.match(script, /confirm: true/);
   assert.match(script, /composer\.showModal\(\)/);

@@ -53,6 +53,14 @@ authentifiée ou contenant des informations sensibles.
 - GitHub App limitée aux contenus du dépôt et à la lecture des Actions ;
 - sauvegardes avant migration et sauvegardes tournantes.
 
+La publication LinkedIn d’un lien demande également à ce service une capture
+Chromium isolée. Seule l’URL du catalogue peut être capturée; la résolution DNS
+et chaque sous-ressource sont refusées dès qu’elles visent un réseau privé. Le
+PNG 1200 × 627 transformé est mis en cache dans le répertoire partagé du
+service, puis exposé par un chemin public strict nécessaire au téléversement
+LinkedIn. Une composition typographique déterministe prend le relais quand le
+site bloque la capture.
+
 Un lien publié peut être corrigé sans perdre son identifiant, son URL, sa date
 ou son historique. Un retrait public modifie sa visibilité sans effacer la
 ressource.

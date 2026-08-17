@@ -100,6 +100,11 @@ test("publishing uploads the PNG then creates one native image post with its URL
         headers: { "Content-Type": "image/png" },
       });
     }
+    if (url.includes("/api/linkedin-images/")) {
+      return new Response(new Uint8Array([137, 80, 78, 71]), {
+        headers: { "Content-Type": "image/png" },
+      });
+    }
     if (url.includes("/v2/assets?action=registerUpload")) {
       return Response.json({
         value: {
@@ -158,7 +163,8 @@ test("publishing uploads the PNG then creates one native image post with its URL
     title: "Une ressource du Digest",
     text: "À lire. #Design",
     url: "https://example.com/une-ressource",
-    imageUrl: "/social/2026-08-16.png",
+    imageUrl:
+      "/api/linkedin-images/3583bb99-c9f5-53fc-832c-9d92933c1ad4-0123456789abcdef.png?v=1",
   });
   assert.equal(linkResult.alreadyPublished, false);
   const linkPostCall = calls.filter(({ url }) => url.endsWith("/v2/ugcPosts")).at(-1)!;
@@ -172,7 +178,8 @@ test("publishing uploads the PNG then creates one native image post with its URL
     title: "Publication réservée",
     text: "Un seul post doit être créé.",
     url: "https://example.com/publication-concurrente",
-    imageUrl: "/social/2026-08-16.png",
+    imageUrl:
+      "/api/linkedin-images/3583bb99-c9f5-53fc-832c-9d92933c1ad4-0123456789abcdef.png?v=1",
   };
   const firstPublication = service.publishLink("admin-2", concurrentInput);
   await assert.rejects(
