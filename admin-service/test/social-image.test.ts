@@ -221,6 +221,17 @@ test("the home loads its compact search index only when interaction needs it", a
   );
 });
 
+test("the tag explorer uses one fingerprinted Hugo asset", async () => {
+  const [layout, script] = await Promise.all([
+    readFile(new URL("../../layouts/tags/list.html", import.meta.url), "utf8"),
+    readFile(new URL("../../assets/js/tag-explorer.js", import.meta.url), "utf8"),
+  ]);
+  assert.match(layout, /resources\.Get "js\/tag-explorer\.js" \| minify \| fingerprint/);
+  assert.match(layout, /integrity="\{\{ \$tagExplorer\.Data\.Integrity \}\}"/);
+  assert.doesNotMatch(layout, /tag-explorer-\d+\.js|\?build=/);
+  assert.match(script, /document\.querySelector\("\[data-tag-explorer\]"\)/);
+});
+
 test("social image counts follow public link visibility", async () => {
   const [backfill, curation] = await Promise.all([
     readFile(
