@@ -170,6 +170,57 @@ test("link icons never disclose catalog URLs to a third party", async () => {
   assert.match(layout, /data-fallback-src=/);
 });
 
+test("the home loads its compact search index only when interaction needs it", async () => {
+  const [layout, script] = await Promise.all([
+    readFile(new URL("../../layouts/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../../assets/js/digest.js", import.meta.url), "utf8"),
+  ]);
+  assert.match(layout, /resources\.FromString "data\/digest-index\.json"/);
+  assert.match(layout, /data-index-url="\{\{ \$digestIndex\.RelPermalink \}\}"/);
+  assert.doesNotMatch(layout, /id="digest-data"/);
+  assert.match(layout, /class="digest-favorite"/);
+  assert.match(layout, /Page 1 sur \{\{ \$pageCount \}\}/);
+  assert.match(script, /const loadLinks = \(\) =>/);
+  assert.match(script, /fetch\(indexUrl,/);
+  assert.match(script, /const withLinks = async \(task, onError = null\) =>/);
+  assert.match(script, /search\.addEventListener\("input",[\s\S]*?withLinks/);
+  assert.match(script, /searchRevision \+= 1/);
+  assert.match(script, /if \(searchRevision > renderedSearchRevision\) \{/);
+  assert.match(script, /renderedSearchRevision = searchRevision/);
+  assert.match(script, /let renderedPage = 1/);
+  assert.match(script, /else if \(currentPage !== renderedPage\)/);
+  assert.match(script, /renderedPage = currentPage/);
+  assert.match(
+    script,
+    /pagePrev\.addEventListener[\s\S]*?const displayedPage = renderedPage[\s\S]*?const requestedSearchRevision = searchRevision[\s\S]*?if \(requestedSearchRevision !== searchRevision\) return;[\s\S]*?currentPage = displayedPage - 1/,
+  );
+  assert.match(
+    script,
+    /pageNext\.addEventListener[\s\S]*?const displayedPage = renderedPage[\s\S]*?const requestedSearchRevision = searchRevision[\s\S]*?if \(requestedSearchRevision !== searchRevision\) return;[\s\S]*?currentPage = displayedPage \+ 1/,
+  );
+  assert.match(
+    script,
+    /randomButton\.addEventListener[\s\S]*?const requestedSearchRevision = searchRevision[\s\S]*?if \(requestedSearchRevision !== searchRevision\) return;/,
+  );
+  assert.match(
+    script,
+    /if \(requestedCategory === "favorites"\)[\s\S]*?search\.value = ""[\s\S]*?void withLinks/,
+  );
+  assert.match(script, /calendarRequestedOpen = !calendarRequestedOpen/);
+  assert.match(script, /if \(!calendarRequestedOpen\) return/);
+  assert.match(
+    script,
+    /if \(calendarRequestedOpen && !event\.target\.closest\("\.digest-date"\)\)/,
+  );
+  assert.match(script, /empty\.textContent = emptyMessage/);
+  assert.match(script, /empty\.textContent = emptyMessage;\s*empty\.hidden = true/);
+  assert.match(script, /if \(currentPage > 1\) void withLinks\(\(\) => undefined\)/);
+  assert.doesNotMatch(
+    script,
+    /randomButton\.setAttribute\("aria-pressed", "false"\);\s*render\(/,
+  );
+});
+
 test("social image counts follow public link visibility", async () => {
   const [backfill, curation] = await Promise.all([
     readFile(
