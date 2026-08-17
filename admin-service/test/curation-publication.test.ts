@@ -15,8 +15,8 @@ process.env.GITHUB_APP_INSTALLATION_ID = "1";
 process.env.GITHUB_APP_PRIVATE_KEY_BASE64 = Buffer.from("unused").toString("base64");
 
 const { CurationStore } = await import("../src/curation-db.js");
-const { CurationService } = await import("../src/curation.js");
-const { GitHubMutationOutcomeUnknownError } = await import("../src/github.js");
+const { CurationError, CurationService } = await import("../src/curation.js");
+const { GitHubMutationOutcomeUnknownError, GitHubResponseError } = await import("../src/github.js");
 const { stableLinkId } = await import("../src/publication.js");
 
 class FailingPostCommitStore extends CurationStore {
@@ -187,5 +187,273 @@ test("an ambiguous GitHub branch update keeps the publication recoverable", asyn
   assert.equal(reconciled.state, "failed");
   assert.equal(reconciled.errorCode, "GITHUB_COMMIT_NOT_FOUND");
   assert.equal(store.findDraft(draft.id)?.state, "draft");
+  database.close();
+});
+
+test("a failure before the GitHub commit restores every reserved draft", async () => {
+  const database = new Database(":memory:");
+  const store = new CurationStore(database);
+  const draft = store.createDraft({
+    url: "https://example.com/pre-commit-failure",
+    title: "Échec avant commit",
+    category: "Développement web",
+    description: "Le brouillon redevient disponible.",
+    tags: ["Tests"],
+    privateNote: "reste privée",
+  });
+  const dependencies = {
+    readRepositoryHead: async () => ({
+      commitSha: "initial-sha",
+      treeSha: "initial-tree",
+      links: [{
+        id: "44444444-4444-5444-8444-444444444444",
+        title: "Lien initial",
+        url: "https://example.org/pre-commit-catalog",
+        category: "Développement web",
+        added: "2026-08-10",
+        description: "Catalogue initial",
+        tags: ["Tests"],
+      }],
+    }),
+    tryReadRepositoryFile: async () => null,
+    buildPublicationFiles: async () => ({
+      files: { "data/links.json": "[]" },
+      linkIdsByDraft: new Map([[draft.id, stableLinkId(draft.url)]]),
+    }),
+    commitRepositoryFiles: async () => {
+      throw new GitHubResponseError("upstream unavailable", 503);
+    },
+  };
+  const input = {
+    requestId: "44444444-4444-4444-8444-444444444444",
+    draftIds: [draft.id],
+    digestDate: "2026-08-19",
+    title: "Web Digest — 19 août 2026",
+    introduction: "Échec injecté avant commit.",
+    seoDescription: "Test avant commit.",
+  };
+
+  await assert.rejects(
+    new CurationService(store, dependencies).publish(input),
+    GitHubResponseError,
+  );
+  assert.equal(store.findPublication(input.requestId)?.state, "failed");
+  assert.equal(store.findPublication(input.requestId)?.errorCode, "PUBLISH_FAILED");
+  assert.equal(store.findDraft(draft.id)?.state, "draft");
+  assert.equal(store.findDraft(draft.id)?.publicationId, null);
+  database.close();
+});
+
+test("a timed-out GitHub update that lands is recovered after restart without a second commit", async () => {
+  const database = new Database(":memory:");
+  const store = new CurationStore(database);
+  const draft = store.createDraft({
+    url: "https://example.com/timeout-that-landed",
+    title: "Timeout appliqué",
+    category: "Développement web",
+    description: "La reprise retrouve le commit distant.",
+    tags: ["Tests"],
+    privateNote: "",
+  });
+  const publishedLink = {
+    id: stableLinkId(draft.url),
+    title: draft.title,
+    url: draft.url,
+    category: draft.category,
+    added: "2026-08-20",
+    description: draft.description,
+    tags: draft.tags,
+  };
+  let landed = false;
+  let commitCalls = 0;
+  const dependencies = {
+    readRepositoryHead: async () => ({
+      commitSha: landed ? "landed-sha" : "initial-sha",
+      treeSha: landed ? "landed-tree" : "initial-tree",
+      links: landed
+        ? [publishedLink]
+        : [{
+            ...publishedLink,
+            id: "55555555-5555-5555-8555-555555555555",
+            url: "https://example.org/timeout-catalog",
+            added: "2026-08-10",
+          }],
+    }),
+    tryReadRepositoryFile: async (path: string) =>
+      landed && path === "content/archives/2026-08-20.md" ? "archive" : null,
+    buildPublicationFiles: async () => ({
+      files: { "data/links.json": "[]" },
+      linkIdsByDraft: new Map([[draft.id, publishedLink.id]]),
+    }),
+    commitRepositoryFiles: async () => {
+      commitCalls += 1;
+      landed = true;
+      throw new GitHubMutationOutcomeUnknownError("update branch");
+    },
+  };
+  const input = {
+    requestId: "55555555-5555-4555-8555-555555555555",
+    draftIds: [draft.id],
+    digestDate: "2026-08-20",
+    title: "Web Digest — 20 août 2026",
+    introduction: "Timeout distant appliqué.",
+    seoDescription: "Test de reprise après timeout.",
+  };
+
+  await assert.rejects(
+    new CurationService(store, dependencies).publish(input),
+    GitHubMutationOutcomeUnknownError,
+  );
+  const recovered = await new CurationService(store, dependencies).publish(input);
+  assert.equal(recovered.state, "validating");
+  assert.equal(recovered.commitSha, "landed-sha");
+  assert.equal(store.findDraft(draft.id)?.state, "published");
+  assert.equal(commitCalls, 1);
+  database.close();
+});
+
+test("a concurrent GitHub update rebuilds once on the fresh repository head", async () => {
+  const database = new Database(":memory:");
+  const store = new CurationStore(database);
+  const draft = store.createDraft({
+    url: "https://example.com/concurrent-publication",
+    title: "Publication concurrente",
+    category: "Développement web",
+    description: "Le lot est reconstruit sur la nouvelle tête.",
+    tags: ["Tests"],
+    privateNote: "",
+  });
+  const initialLink = {
+    id: "66666666-6666-5666-8666-666666666666",
+    title: "Lien initial",
+    url: "https://example.org/concurrent-catalog",
+    category: "Développement web",
+    added: "2026-08-10",
+    description: "Catalogue initial",
+    tags: ["Tests"],
+  };
+  const competingLink = {
+    ...initialLink,
+    id: "77777777-7777-5777-8777-777777777777",
+    title: "Lien concurrent",
+    url: "https://example.org/competing-link",
+  };
+  let headReads = 0;
+  let builds = 0;
+  const parents: string[] = [];
+  const dependencies = {
+    readRepositoryHead: async () => {
+      headReads += 1;
+      return headReads === 1
+        ? { commitSha: "initial-sha", treeSha: "initial-tree", links: [initialLink] }
+        : { commitSha: "fresh-sha", treeSha: "fresh-tree", links: [competingLink, initialLink] };
+    },
+    tryReadRepositoryFile: async () => null,
+    buildPublicationFiles: async ({ currentLinks }: { currentLinks: unknown[] }) => {
+      builds += 1;
+      assert.equal(currentLinks.length, builds === 1 ? 1 : 2);
+      return {
+        files: { "data/links.json": "[]" },
+        linkIdsByDraft: new Map([[draft.id, stableLinkId(draft.url)]]),
+      };
+    },
+    commitRepositoryFiles: async (parentSha: string) => {
+      parents.push(parentSha);
+      if (parents.length === 1) {
+        throw new GitHubResponseError("ref changed", 422);
+      }
+      return "publication-sha";
+    },
+  };
+
+  const publication = await new CurationService(store, dependencies).publish({
+    requestId: "66666666-6666-4666-8666-666666666666",
+    draftIds: [draft.id],
+    digestDate: "2026-08-21",
+    title: "Web Digest — 21 août 2026",
+    introduction: "Concurrence GitHub injectée.",
+    seoDescription: "Test de reconstruction concurrente.",
+  });
+  assert.equal(publication.state, "validating");
+  assert.equal(publication.commitSha, "publication-sha");
+  assert.deepEqual(parents, ["initial-sha", "fresh-sha"]);
+  assert.equal(builds, 2);
+  assert.equal(store.findDraft(draft.id)?.state, "published");
+  database.close();
+});
+
+test("two concurrent requests cannot publish the same draft twice", async () => {
+  const database = new Database(":memory:");
+  const store = new CurationStore(database);
+  const draft = store.createDraft({
+    url: "https://example.com/same-draft-race",
+    title: "Brouillon concurrent",
+    category: "Développement web",
+    description: "Une seule requête atteint GitHub.",
+    tags: ["Tests"],
+    privateNote: "",
+  });
+  let releaseCommit!: () => void;
+  let signalCommitStarted!: () => void;
+  const commitStarted = new Promise<void>((resolve) => {
+    signalCommitStarted = resolve;
+  });
+  const commitReleased = new Promise<void>((resolve) => {
+    releaseCommit = resolve;
+  });
+  let commitCalls = 0;
+  const dependencies = {
+    readRepositoryHead: async () => ({
+      commitSha: "initial-sha",
+      treeSha: "initial-tree",
+      links: [{
+        id: "88888888-8888-5888-8888-888888888888",
+        title: "Lien initial",
+        url: "https://example.org/same-draft-catalog",
+        category: "Développement web",
+        added: "2026-08-10",
+        description: "Catalogue initial",
+        tags: ["Tests"],
+      }],
+    }),
+    tryReadRepositoryFile: async () => null,
+    buildPublicationFiles: async () => ({
+      files: { "data/links.json": "[]" },
+      linkIdsByDraft: new Map([[draft.id, stableLinkId(draft.url)]]),
+    }),
+    commitRepositoryFiles: async () => {
+      commitCalls += 1;
+      signalCommitStarted();
+      await commitReleased;
+      return "single-publication-sha";
+    },
+  };
+  const service = new CurationService(store, dependencies);
+  const baseInput = {
+    draftIds: [draft.id],
+    digestDate: "2026-08-22",
+    title: "Web Digest — 22 août 2026",
+    introduction: "Course applicative injectée.",
+    seoDescription: "Test de publication concurrente.",
+  };
+
+  const first = service.publish({
+    ...baseInput,
+    requestId: "88888888-8888-4888-8888-888888888888",
+  });
+  await commitStarted;
+  await assert.rejects(
+    service.publish({
+      ...baseInput,
+      requestId: "99999999-9999-4999-8999-999999999999",
+    }),
+    (error: unknown) =>
+      error instanceof CurationError && error.code === "DRAFT_NOT_AVAILABLE",
+  );
+  releaseCommit();
+  const published = await first;
+  assert.equal(published.commitSha, "single-publication-sha");
+  assert.equal(commitCalls, 1);
+  assert.equal(store.findDraft(draft.id)?.state, "published");
   database.close();
 });
