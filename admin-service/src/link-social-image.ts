@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import type { Stats } from "node:fs";
 import {
   mkdir,
   readFile,
@@ -255,6 +256,18 @@ export type LinkSocialImageResult = {
 };
 
 type Screenshotter = (url: string) => Promise<Buffer>;
+type CachedCaptureReader = (
+  path: string,
+  metadataPath: string,
+) => Promise<{ info: Stats; metadata: string }>;
+
+const readCachedCapture: CachedCaptureReader = async (path, metadataPath) => {
+  const [info, metadata] = await Promise.all([
+    stat(path),
+    readFile(metadataPath, "utf8"),
+  ]);
+  return { info, metadata };
+};
 
 const escapeXml = (value: string): string =>
   value
@@ -510,6 +523,7 @@ export class LinkSocialImageService {
   constructor(
     private readonly directory: string,
     private readonly screenshotter: Screenshotter = capturePublicPage,
+    private readonly cacheReader: CachedCaptureReader = readCachedCapture,
   ) {}
 
   async imageFor(
@@ -521,19 +535,17 @@ export class LinkSocialImageService {
     const path = join(this.directory, name);
     const metadataPath = `${path}.json`;
     if (!refresh) {
+      const releaseReservation = reserveCaptureForRead(this.directory, name);
       try {
-        const [info, metadata] = await Promise.all([
-          stat(path),
-          readFile(metadataPath, "utf8"),
-        ]);
+        const { info, metadata } = await this.cacheReader(path, metadataPath);
         const parsed = JSON.parse(metadata) as { source?: LinkSocialImageSource };
-        reserveCaptureForRead(this.directory, name);
         return {
           imageUrl: `/api/linkedin-images/${name}?v=${Math.trunc(info.mtimeMs)}`,
           source: parsed.source === "fallback" ? "fallback" : "screenshot",
           generatedAt: info.mtime.toISOString(),
         };
       } catch {
+        releaseReservation();
         // Une capture absente ou incomplète est régénérée.
       }
     }
