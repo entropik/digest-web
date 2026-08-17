@@ -25,6 +25,8 @@ Dernière mise à jour : 27 juillet 2026.
   commits, validations et déploiements.
 - [Procédure Chrome Web Store](../browser-extension/CHROME_WEB_STORE.md) :
   préparation et diffusion de l’extension.
+- [Exploitation de l’administration](operations.md) : récupération des états
+  de publication ambigus et opérations sensibles.
 
 ## Règle de maintenance
 
