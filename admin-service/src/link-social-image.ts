@@ -1,8 +1,11 @@
-import { createHash } from "node:crypto";
+import { createHash, randomBytes } from "node:crypto";
+import type { Stats } from "node:fs";
 import {
   mkdir,
   readFile,
+  readdir,
   rename,
+  rm,
   stat,
   writeFile,
 } from "node:fs/promises";
@@ -32,7 +35,202 @@ const CORAL = "#FF5C35";
 const BLACK = "#0A0A0A";
 const PAPER = "#F4F2ED";
 const FILE_PATTERN = /^[0-9a-f-]{36}-[0-9a-f]{16}\.png$/;
+const TEMP_FILE_PATTERN = /^[0-9a-f-]{36}-[0-9a-f]{16}\.png\.\d+\.tmp$/;
 const RENDER_VERSION = "link-social-image-v2";
+const CAPTURE_CACHE_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1_000;
+const CAPTURE_CACHE_MAX_BYTES = 100 * 1024 * 1024;
+const CAPTURE_CACHE_CLEANUP_INTERVAL_MS = 60 * 60 * 1_000;
+const CAPTURE_CACHE_TEMP_MAX_AGE_MS = 60 * 60 * 1_000;
+const CAPTURE_CACHE_RESERVATION_MS = 2 * 60 * 1_000;
+
+type CaptureCacheLimits = {
+  maxAgeMs: number;
+  maxBytes: number;
+  nowMs: number;
+};
+
+const cacheLocks = new Map<string, Promise<void>>();
+const cacheCleanedAt = new Map<string, number>();
+const cacheReservations = new Map<
+  string,
+  Map<string, Map<string, number>>
+>();
+
+type CaptureReservation = (() => void) & { token: string };
+
+export const reserveCaptureForRead = (
+  directory: string,
+  name: string,
+  nowMs = Date.now(),
+): CaptureReservation => {
+  const key = resolve(directory);
+  const reservations =
+    cacheReservations.get(key) ?? new Map<string, Map<string, number>>();
+  const tokens = reservations.get(name) ?? new Map<string, number>();
+  const token = randomBytes(24).toString("hex");
+  tokens.set(token, nowMs + CAPTURE_CACHE_RESERVATION_MS);
+  reservations.set(name, tokens);
+  cacheReservations.set(key, reservations);
+  const release = () => {
+    const current = cacheReservations.get(key);
+    const currentTokens = current?.get(name);
+    currentTokens?.delete(token);
+    if (!currentTokens?.size) current?.delete(name);
+    if (!current?.size) cacheReservations.delete(key);
+  };
+  return Object.assign(release, { token });
+};
+
+const reservedCaptureNames = (
+  directory: string,
+  nowMs: number,
+): Set<string> => {
+  const key = resolve(directory);
+  const reservations = cacheReservations.get(key);
+  const names = new Set<string>();
+  if (!reservations) return names;
+  for (const [name, tokens] of reservations) {
+    for (const [token, expiresAt] of tokens) {
+      if (expiresAt <= nowMs) tokens.delete(token);
+    }
+    if (tokens.size) names.add(name);
+    else reservations.delete(name);
+  }
+  if (!reservations.size) cacheReservations.delete(key);
+  return names;
+};
+
+export const withCaptureCacheLock = async <T>(
+  directory: string,
+  task: () => Promise<T>,
+): Promise<T> => {
+  const key = resolve(directory);
+  const previous = cacheLocks.get(key) ?? Promise.resolve();
+  let release!: () => void;
+  const current = new Promise<void>((resolveLock) => {
+    release = resolveLock;
+  });
+  const queued = previous.then(() => current);
+  cacheLocks.set(key, queued);
+  await previous;
+  try {
+    return await task();
+  } finally {
+    release();
+    if (cacheLocks.get(key) === queued) cacheLocks.delete(key);
+  }
+};
+
+export const pruneCaptureCache = async (
+  directory: string,
+  limits: CaptureCacheLimits = {
+    maxAgeMs: CAPTURE_CACHE_MAX_AGE_MS,
+    maxBytes: CAPTURE_CACHE_MAX_BYTES,
+    nowMs: Date.now(),
+  },
+  protectedNames: ReadonlySet<string> = new Set(),
+): Promise<void> => {
+  await mkdir(directory, { recursive: true });
+  const entries = await readdir(directory, { withFileTypes: true });
+  const temporaryFiles = await Promise.all(
+    entries
+      .filter((entry) => entry.isFile() && TEMP_FILE_PATTERN.test(entry.name))
+      .map(async (entry) => {
+        const path = join(directory, entry.name);
+        const info = await stat(path);
+        return { path, mtimeMs: info.mtimeMs, size: info.size };
+      }),
+  );
+  const staleTemporaryFiles = temporaryFiles.filter(
+    (file) => limits.nowMs - file.mtimeMs > CAPTURE_CACHE_TEMP_MAX_AGE_MS,
+  );
+  await Promise.all(staleTemporaryFiles.map((file) => rm(file.path, { force: true })));
+  const staleTemporaryPaths = new Set(
+    staleTemporaryFiles.map((file) => file.path),
+  );
+  const temporaryBytes = temporaryFiles
+    .filter((file) => !staleTemporaryPaths.has(file.path))
+    .reduce((total, file) => total + file.size, 0);
+  const images = await Promise.all(
+    entries
+      .filter((entry) => entry.isFile() && FILE_PATTERN.test(entry.name))
+      .map(async (entry) => {
+        const path = join(directory, entry.name);
+        const info = await stat(path);
+        let metadataSize = 0;
+        try {
+          metadataSize = (await stat(`${path}.json`)).size;
+        } catch {
+          // Les métadonnées absentes seront recréées avec l'image si nécessaire.
+        }
+        return {
+          name: entry.name,
+          path,
+          mtimeMs: info.mtimeMs,
+          size: info.size + metadataSize,
+        };
+      }),
+  );
+  const removeImage = async (image: (typeof images)[number]) => {
+    await Promise.all([
+      rm(image.path, { force: true }),
+      rm(`${image.path}.json`, { force: true }),
+    ]);
+  };
+  const reservedNames = reservedCaptureNames(directory, limits.nowMs);
+  const expired = images.filter(
+    (image) =>
+      limits.nowMs - image.mtimeMs > limits.maxAgeMs &&
+      !protectedNames.has(image.name) &&
+      !reservedNames.has(image.name),
+  );
+  await Promise.all(expired.map(removeImage));
+  const expiredNames = new Set(expired.map((image) => image.name));
+  const retained = images
+    .filter((image) => !expiredNames.has(image.name))
+    .sort((left, right) => left.mtimeMs - right.mtimeMs);
+  let totalBytes =
+    temporaryBytes + retained.reduce((total, image) => total + image.size, 0);
+  for (const image of retained) {
+    if (totalBytes <= limits.maxBytes) break;
+    if (protectedNames.has(image.name) || reservedNames.has(image.name)) continue;
+    await removeImage(image);
+    totalBytes -= image.size;
+  }
+  const knownMetadata = new Set(images.map((image) => `${image.name}.json`));
+  await Promise.all(
+    entries
+      .filter(
+        (entry) =>
+          entry.isFile() &&
+          entry.name.endsWith(".png.json") &&
+          !knownMetadata.has(entry.name),
+      )
+      .map((entry) => rm(join(directory, entry.name), { force: true })),
+  );
+};
+
+const maintainCaptureCache = async (
+  directory: string,
+  force = false,
+): Promise<void> =>
+  withCaptureCacheLock(directory, async () => {
+    const key = resolve(directory);
+    const now = Date.now();
+    if (
+      !force &&
+      now - (cacheCleanedAt.get(key) ?? 0) <
+        CAPTURE_CACHE_CLEANUP_INTERVAL_MS
+    ) {
+      return;
+    }
+    await pruneCaptureCache(directory, {
+      maxAgeMs: CAPTURE_CACHE_MAX_AGE_MS,
+      maxBytes: CAPTURE_CACHE_MAX_BYTES,
+      nowMs: now,
+    });
+    cacheCleanedAt.set(key, now);
+  });
 
 const renderBrandSvg = (svg: string): Buffer => {
   const fontDirectory = resolve(process.cwd(), "../static/fonts");
@@ -59,6 +257,18 @@ export type LinkSocialImageResult = {
 };
 
 type Screenshotter = (url: string) => Promise<Buffer>;
+type CachedCaptureReader = (
+  path: string,
+  metadataPath: string,
+) => Promise<{ info: Stats; metadata: string }>;
+
+const readCachedCapture: CachedCaptureReader = async (path, metadataPath) => {
+  const [info, metadata] = await Promise.all([
+    stat(path),
+    readFile(metadataPath, "utf8"),
+  ]);
+  return { info, metadata };
+};
 
 const escapeXml = (value: string): string =>
   value
@@ -314,49 +524,97 @@ export class LinkSocialImageService {
   constructor(
     private readonly directory: string,
     private readonly screenshotter: Screenshotter = capturePublicPage,
+    private readonly cacheReader: CachedCaptureReader = readCachedCapture,
   ) {}
 
   async imageFor(
     link: Pick<DigestLink, "id" | "title" | "url">,
     refresh = false,
   ): Promise<LinkSocialImageResult> {
+    await maintainCaptureCache(this.directory);
     const name = imageName(link);
     const path = join(this.directory, name);
     const metadataPath = `${path}.json`;
     if (!refresh) {
+      const releaseReservation = reserveCaptureForRead(this.directory, name);
       try {
-        const [info, metadata] = await Promise.all([
-          stat(path),
-          readFile(metadataPath, "utf8"),
-        ]);
+        const { info, metadata } = await this.cacheReader(path, metadataPath);
         const parsed = JSON.parse(metadata) as { source?: LinkSocialImageSource };
         return {
-          imageUrl: `/api/linkedin-images/${name}?v=${Math.trunc(info.mtimeMs)}`,
+          imageUrl: this.reservedImageUrl(
+            name,
+            Math.trunc(info.mtimeMs),
+            releaseReservation.token,
+          ),
           source: parsed.source === "fallback" ? "fallback" : "screenshot",
           generatedAt: info.mtime.toISOString(),
         };
       } catch {
+        releaseReservation();
         // Une capture absente ou incomplète est régénérée.
       }
     }
     const existing = this.pending.get(name);
-    if (existing) return existing;
-    const generation = this.generate(link, name, path, metadataPath);
+    if (existing) {
+      const result = await existing;
+      return this.reserveResult(name, result);
+    }
+    const generation = withCaptureCacheLock(this.directory, async () => {
+      const result = await this.generate(link, name, path, metadataPath);
+      await pruneCaptureCache(this.directory, undefined, new Set([name]));
+      return result;
+    });
     this.pending.set(name, generation);
     try {
-      return await generation;
+      const result = await generation;
+      return this.reserveResult(name, result);
     } finally {
       this.pending.delete(name);
     }
   }
 
-  async read(name: string): Promise<Buffer | null> {
+  async read(name: string, reservationToken?: string): Promise<Buffer | null> {
     if (!FILE_PATTERN.test(name)) return null;
     try {
       return await readFile(join(this.directory, name));
     } catch {
       return null;
+    } finally {
+      const key = resolve(this.directory);
+      const reservations = cacheReservations.get(key);
+      const tokens = reservations?.get(name);
+      if (reservationToken) tokens?.delete(reservationToken);
+      if (!tokens?.size) reservations?.delete(name);
+      if (!reservations?.size) cacheReservations.delete(key);
     }
+  }
+
+  private reserveResult(
+    name: string,
+    result: LinkSocialImageResult,
+  ): LinkSocialImageResult {
+    const reservation = reserveCaptureForRead(this.directory, name);
+    const imageUrl = new URL(result.imageUrl, "http://localhost");
+    return {
+      ...result,
+      imageUrl: this.reservedImageUrl(
+        name,
+        imageUrl.searchParams.get("v") ?? "0",
+        reservation.token,
+      ),
+    };
+  }
+
+  private reservedImageUrl(
+    name: string,
+    version: string | number,
+    reservationToken: string,
+  ): string {
+    const query = new URLSearchParams({
+      v: String(version),
+      reservation: reservationToken,
+    });
+    return `/api/linkedin-images/${name}?${query.toString()}`;
   }
 
   private async generate(
@@ -380,8 +638,12 @@ export class LinkSocialImageService {
       image = await fallbackImage(link.title, publicUrl.hostname);
     }
     const temporaryPath = `${path}.${process.pid}.tmp`;
-    await writeFile(temporaryPath, image, { mode: 0o640 });
-    await rename(temporaryPath, path);
+    try {
+      await writeFile(temporaryPath, image, { mode: 0o640 });
+      await rename(temporaryPath, path);
+    } finally {
+      await rm(temporaryPath, { force: true });
+    }
     await writeFile(metadataPath, JSON.stringify({ source }), { mode: 0o640 });
     const info = await stat(path);
     return {
