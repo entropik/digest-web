@@ -8,7 +8,13 @@ import {
 } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { Resvg } from "@resvg/resvg-js";
-import { chromium, type Browser, type Page, type Route } from "playwright";
+import {
+  chromium,
+  type Browser,
+  type BrowserServer,
+  type Page,
+  type Route,
+} from "playwright";
 import sharp from "sharp";
 import type { DigestLink } from "./catalog.js";
 import {
@@ -166,6 +172,27 @@ const CAPTURE_CLEANUP_TIMEOUT_MS = 5_000;
 type CaptureResources = {
   closeBrowser: () => Promise<void>;
   closeProxy: () => Promise<void>;
+  forceCloseBrowser: () => Promise<void>;
+  forceCloseProxy: () => Promise<void>;
+};
+
+const closeCaptureResource = async (
+  close: () => Promise<void>,
+  forceClose: () => Promise<void>,
+  timeoutMs: number,
+): Promise<void> => {
+  try {
+    await withDeadline(close, timeoutMs);
+  } catch (closeError) {
+    try {
+      await withDeadline(forceClose, timeoutMs);
+    } catch (forceError) {
+      throw new AggregateError(
+        [closeError, forceError],
+        "CAPTURE_FORCE_CLEANUP_FAILED",
+      );
+    }
+  }
 };
 
 export const withCaptureCleanup = async <T>(
@@ -181,8 +208,16 @@ export const withCaptureCleanup = async <T>(
     throw error;
   } finally {
     const results = await Promise.allSettled([
-      withDeadline(resources.closeBrowser, timeoutMs),
-      withDeadline(resources.closeProxy, timeoutMs),
+      closeCaptureResource(
+        resources.closeBrowser,
+        resources.forceCloseBrowser,
+        timeoutMs,
+      ),
+      closeCaptureResource(
+        resources.closeProxy,
+        resources.forceCloseProxy,
+        timeoutMs,
+      ),
     ]);
     const cleanupErrors = results.flatMap((result) =>
       result.status === "rejected" ? [result.reason] : [],
@@ -209,18 +244,26 @@ export const capturePublicPage = async (
   const url = await assertPublicDestination(rawUrl, addressBook);
   const proxy: PinnedBrowserProxy = await startPinnedBrowserProxy(addressBook);
   let browser: Browser | undefined;
+  let browserServer: BrowserServer | undefined;
   return withCaptureCleanup(
     {
       closeBrowser: async () => browser?.close(),
       closeProxy: proxy.close,
+      forceCloseBrowser: async () => browserServer?.kill(),
+      forceCloseProxy: async () => proxy.forceClose(),
     },
     async () => {
-      browser = await chromium.launch({
+      const launchedServer = await chromium.launchServer({
         headless: true,
         proxy: { server: proxy.url, bypass: "<-loopback>" },
         ...(executablePath ? { executablePath } : {}),
       });
-      const context = await browser.newContext({
+      browserServer = launchedServer;
+      const connectedBrowser = await chromium.connect(
+        launchedServer.wsEndpoint(),
+      );
+      browser = connectedBrowser;
+      const context = await connectedBrowser.newContext({
         viewport: { width: CAPTURE_WIDTH, height: CAPTURE_HEIGHT },
         deviceScaleFactor: 1,
         colorScheme: "light",
