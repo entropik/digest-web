@@ -170,6 +170,10 @@ test("an ambiguous GitHub branch update keeps the publication recoverable", asyn
     store.findPublication("22222222-2222-4222-8222-222222222222")?.state,
     "committing",
   );
+  assert.equal(
+    store.findPublication(input.requestId)?.errorCode,
+    "GITHUB_COMMIT_OUTCOME_UNKNOWN",
+  );
   assert.equal(store.findDraft(draft.id)?.state, "publishing");
 
   const stillAmbiguous = await new CurationService(store, dependencies).publish(input);

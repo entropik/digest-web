@@ -460,6 +460,17 @@ export class CurationService {
         } catch (error) {
           if (error instanceof GitHubMutationOutcomeUnknownError) {
             remoteCommitSucceeded = true;
+            try {
+              this.store.updatePublication(input.requestId, {
+                state: "committing",
+                errorCode: "GITHUB_COMMIT_OUTCOME_UNKNOWN",
+              });
+            } catch (persistenceError) {
+              console.error(
+                `Publication ${input.requestId} could not persist its GitHub ambiguity timestamp`,
+                persistenceError,
+              );
+            }
           }
           if (
             attempt === 0 &&
@@ -511,7 +522,11 @@ export class CurationService {
       head.commitSha,
     );
     if (!recovered || !archive) {
-      if (publication.state === "committing" && !publication.commitSha) {
+      if (
+        publication.state === "committing" &&
+        !publication.commitSha &&
+        publication.errorCode === "GITHUB_COMMIT_OUTCOME_UNKNOWN"
+      ) {
         const ambiguityAge = Date.now() - new Date(publication.updatedAt).valueOf();
         if (ambiguityAge < AMBIGUOUS_COMMIT_GRACE_MS) return publication;
         this.store.restorePublishingDrafts(publication.id);
