@@ -22,6 +22,7 @@
   const pagePrev = document.querySelector("#digest-page-prev");
   const pageNext = document.querySelector("#digest-page-next");
   const pageStatus = document.querySelector("#digest-page-status");
+  const emptyMessage = empty.textContent;
   const faviconFallbackData = document.querySelector("#digest-favicon-fallbacks");
   const rawFaviconFallbackHosts = JSON.parse(faviconFallbackData.textContent);
   const faviconFallbackHosts = new Set(
@@ -75,6 +76,8 @@
   let modalNavigationIndex = -1;
   let isAdmin = false;
   let favorites = new Set();
+  let searchRevision = 0;
+  let calendarRequestedOpen = false;
   let currentPage = Math.max(
     1,
     Number.parseInt(new URL(window.location.href).searchParams.get("page"), 10) || 1,
@@ -123,16 +126,18 @@
     return linksPromise;
   };
 
-  const withLinks = async (task) => {
+  const withLinks = async (task, onError = null) => {
     try {
       await loadLinks();
-      return task();
     } catch {
+      onError?.();
       empty.textContent =
         "L’index de recherche n’a pas pu être chargé. Réessaie dans un instant.";
       empty.hidden = false;
       return undefined;
     }
+    empty.textContent = emptyMessage;
+    return task();
   };
 
   try {
@@ -245,6 +250,7 @@
   };
 
   const closeCalendar = () => {
+    calendarRequestedOpen = false;
     calendar.hidden = true;
     dateToggle.setAttribute("aria-expanded", "false");
   };
@@ -448,6 +454,7 @@
   filters.addEventListener("click", (event) => {
     const button = event.target.closest("button[data-category-label]");
     if (!button) return;
+    searchRevision += 1;
     void withLinks(() => {
       category = button.dataset.categoryLabel;
       if (category === "favorites") {
@@ -466,7 +473,9 @@
   });
 
   search.addEventListener("input", () => {
+    const revision = ++searchRevision;
     void withLinks(() => {
+      if (revision !== searchRevision) return;
       currentPage = 1;
       clearRandomSelection();
       render({ urlMode: "replace" });
@@ -474,18 +483,29 @@
   });
 
   dateToggle.addEventListener("click", () => {
-    const willOpen = calendar.hidden;
-    if (!willOpen) {
+    calendarRequestedOpen = !calendarRequestedOpen;
+    if (!calendarRequestedOpen) {
       closeCalendar();
       return;
     }
-    void withLinks(() => {
-      const referenceDate = dateFilter.value ? parseDateKey(dateFilter.value) : today;
-      calendarMonth = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), 1, 12);
-      renderCalendar();
-      calendar.hidden = false;
-      dateToggle.setAttribute("aria-expanded", "true");
-    });
+    void withLinks(
+      () => {
+        if (!calendarRequestedOpen) return;
+        const referenceDate = dateFilter.value ? parseDateKey(dateFilter.value) : today;
+        calendarMonth = new Date(
+          referenceDate.getFullYear(),
+          referenceDate.getMonth(),
+          1,
+          12,
+        );
+        renderCalendar();
+        calendar.hidden = false;
+        dateToggle.setAttribute("aria-expanded", "true");
+      },
+      () => {
+        calendarRequestedOpen = false;
+      },
+    );
   });
 
   calendarPrev.addEventListener("click", () => {
@@ -816,7 +836,7 @@
     }
   });
   document.addEventListener("click", (event) => {
-    if (!calendar.hidden && !event.target.closest(".digest-date")) closeCalendar();
+    if (calendarRequestedOpen && !event.target.closest(".digest-date")) closeCalendar();
   });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && !calendar.hidden) {

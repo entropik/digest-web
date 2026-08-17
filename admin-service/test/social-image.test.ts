@@ -182,8 +182,17 @@ test("the home loads its compact search index only when interaction needs it", a
   assert.match(layout, /Page 1 sur \{\{ \$pageCount \}\}/);
   assert.match(script, /const loadLinks = \(\) =>/);
   assert.match(script, /fetch\(indexUrl,/);
-  assert.match(script, /const withLinks = async \(task\) =>/);
+  assert.match(script, /const withLinks = async \(task, onError = null\) =>/);
   assert.match(script, /search\.addEventListener\("input",[\s\S]*?withLinks/);
+  assert.match(script, /const revision = \+\+searchRevision/);
+  assert.match(script, /if \(revision !== searchRevision\) return/);
+  assert.match(script, /calendarRequestedOpen = !calendarRequestedOpen/);
+  assert.match(script, /if \(!calendarRequestedOpen\) return/);
+  assert.match(
+    script,
+    /if \(calendarRequestedOpen && !event\.target\.closest\("\.digest-date"\)\)/,
+  );
+  assert.match(script, /empty\.textContent = emptyMessage/);
   assert.match(script, /if \(currentPage > 1\) void withLinks/);
   assert.doesNotMatch(
     script,
