@@ -185,11 +185,11 @@ test("the home loads its compact search index only when interaction needs it", a
   assert.match(script, /const withLinks = async \(task, onError = null\) =>/);
   assert.match(script, /search\.addEventListener\("input",[\s\S]*?withLinks/);
   assert.match(script, /searchRevision \+= 1/);
-  assert.match(
-    script,
-    /if \(searchRevision > renderedSearchRevision\) render\(\{ urlMode: "replace" \}\)/,
-  );
+  assert.match(script, /if \(searchRevision > renderedSearchRevision\) \{/);
   assert.match(script, /renderedSearchRevision = searchRevision/);
+  assert.match(script, /let renderedPage = 1/);
+  assert.match(script, /else if \(currentPage !== renderedPage\)/);
+  assert.match(script, /renderedPage = currentPage/);
   assert.match(
     script,
     /if \(requestedCategory === "favorites"\)[\s\S]*?search\.value = ""[\s\S]*?void withLinks/,
@@ -202,7 +202,7 @@ test("the home loads its compact search index only when interaction needs it", a
   );
   assert.match(script, /empty\.textContent = emptyMessage/);
   assert.match(script, /empty\.textContent = emptyMessage;\s*empty\.hidden = true/);
-  assert.match(script, /if \(currentPage > 1\) void withLinks/);
+  assert.match(script, /if \(currentPage > 1\) void withLinks\(\(\) => undefined\)/);
   assert.doesNotMatch(
     script,
     /randomButton\.setAttribute\("aria-pressed", "false"\);\s*render\(/,

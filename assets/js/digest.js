@@ -78,6 +78,7 @@
   let favorites = new Set();
   let searchRevision = 0;
   let renderedSearchRevision = 0;
+  let renderedPage = 1;
   let calendarRequestedOpen = false;
   let currentPage = Math.max(
     1,
@@ -139,7 +140,11 @@
     }
     empty.textContent = emptyMessage;
     empty.hidden = true;
-    if (searchRevision > renderedSearchRevision) render({ urlMode: "replace" });
+    if (searchRevision > renderedSearchRevision) {
+      render({ urlMode: "replace" });
+    } else if (currentPage !== renderedPage) {
+      render({ urlMode: "replace" });
+    }
     return task();
   };
 
@@ -438,6 +443,7 @@
     pageNext.disabled = currentPage === pageCount;
     pageStatus.textContent = `Page ${currentPage} sur ${pageCount} · ${filteredLinks.length} liens`;
     renderedSearchRevision = searchRevision;
+    renderedPage = currentPage;
 
     if (urlMode) syncPageUrl(urlMode);
     if (scroll) {
@@ -589,7 +595,7 @@
       1,
       Number.parseInt(new URL(window.location.href).searchParams.get("page"), 10) || 1,
     );
-    void withLinks(() => render());
+    void withLinks(() => undefined);
   });
 
   const renderModalLink = (link) => {
@@ -864,5 +870,5 @@
   refreshFavoriteControls();
   refreshAdminSession();
   randomButton.setAttribute("aria-pressed", "false");
-  if (currentPage > 1) void withLinks(() => render({ urlMode: "replace" }));
+  if (currentPage > 1) void withLinks(() => undefined);
 })();
