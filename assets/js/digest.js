@@ -158,6 +158,14 @@
     }
   };
 
+  const getFaviconHost = (url) => {
+    try {
+      return new URL(url).hostname;
+    } catch {
+      return url;
+    }
+  };
+
   const getSearchableText = (link) =>
     normalize(
       [
@@ -232,6 +240,7 @@
 
   const createCard = (link) => {
     const host = getHost(link.url);
+    const faviconHost = getFaviconHost(link.url);
     const article = document.createElement("article");
     article.className = "digest-card";
     if (link.status === "dead") article.classList.add("is-dead");
@@ -278,7 +287,7 @@
     favicon.className = "link-favicon";
     favicon.src = faviconFallbackHosts.has(host)
       ? faviconFallbackSrc
-      : `https://www.google.com/s2/favicons?domain=${encodeURIComponent(host)}&sz=32`;
+      : `https://www.google.com/s2/favicons?domain=${encodeURIComponent(faviconHost)}&sz=32`;
     favicon.alt = "";
     favicon.width = 16;
     favicon.height = 16;
