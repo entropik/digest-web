@@ -555,7 +555,9 @@
   calendarToday.addEventListener("click", () => selectDate(toDateKey(today)));
 
   randomButton.addEventListener("click", () => {
+    const requestedSearchRevision = searchRevision;
     void withLinks(() => {
+      if (requestedSearchRevision !== searchRevision) return;
       const candidates = getFilteredLinks();
       currentPage = 1;
       if (candidates.length === 0) {
@@ -577,8 +579,10 @@
 
   pagePrev.addEventListener("click", () => {
     const displayedPage = renderedPage;
+    const requestedSearchRevision = searchRevision;
     if (displayedPage === 1) return;
     void withLinks(() => {
+      if (requestedSearchRevision !== searchRevision) return;
       currentPage = displayedPage - 1;
       render({ urlMode: "push", scroll: true });
     });
@@ -586,7 +590,9 @@
 
   pageNext.addEventListener("click", () => {
     const displayedPage = renderedPage;
+    const requestedSearchRevision = searchRevision;
     void withLinks(() => {
+      if (requestedSearchRevision !== searchRevision) return;
       currentPage = displayedPage + 1;
       render({ urlMode: "push", scroll: true });
     });

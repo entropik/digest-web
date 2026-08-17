@@ -192,11 +192,15 @@ test("the home loads its compact search index only when interaction needs it", a
   assert.match(script, /renderedPage = currentPage/);
   assert.match(
     script,
-    /pagePrev\.addEventListener[\s\S]*?const displayedPage = renderedPage[\s\S]*?currentPage = displayedPage - 1/,
+    /pagePrev\.addEventListener[\s\S]*?const displayedPage = renderedPage[\s\S]*?const requestedSearchRevision = searchRevision[\s\S]*?if \(requestedSearchRevision !== searchRevision\) return;[\s\S]*?currentPage = displayedPage - 1/,
   );
   assert.match(
     script,
-    /pageNext\.addEventListener[\s\S]*?const displayedPage = renderedPage[\s\S]*?currentPage = displayedPage \+ 1/,
+    /pageNext\.addEventListener[\s\S]*?const displayedPage = renderedPage[\s\S]*?const requestedSearchRevision = searchRevision[\s\S]*?if \(requestedSearchRevision !== searchRevision\) return;[\s\S]*?currentPage = displayedPage \+ 1/,
+  );
+  assert.match(
+    script,
+    /randomButton\.addEventListener[\s\S]*?const requestedSearchRevision = searchRevision[\s\S]*?if \(requestedSearchRevision !== searchRevision\) return;/,
   );
   assert.match(
     script,
