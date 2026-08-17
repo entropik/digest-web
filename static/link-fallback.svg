@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-labelledby="title">
+  <title id="title">Site web</title>
+  <rect width="32" height="32" rx="7" fill="#ece9e3"/>
+  <path
+    d="M13.2 18.8 11 21a4.2 4.2 0 0 1-6-6l3.2-3.2a4.2 4.2 0 0 1 5.9 0"
+    fill="none"
+    stroke="#56524c"
+    stroke-linecap="round"
+    stroke-width="2.4"
+  />
+  <path
+    d="m18.8 13.2 2.2-2.2a4.2 4.2 0 0 1 6 6l-3.2 3.2a4.2 4.2 0 0 1-5.9 0"
+    fill="none"
+    stroke="#56524c"
+    stroke-linecap="round"
+    stroke-width="2.4"
+  />
+  <path d="m11.8 20.2 8.4-8.4" fill="none" stroke="#ff5c35" stroke-linecap="round" stroke-width="2.4"/>
+</svg>
