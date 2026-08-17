@@ -145,6 +145,7 @@ test("publishing uploads the PNG then creates one native image post with its URL
   const post = JSON.parse(String(postCall.init!.body));
   const content = post.specificContent["com.linkedin.ugc.ShareContent"];
   assert.equal(content.shareMediaCategory, "IMAGE");
+  assert.equal("description" in content.media[0], false);
   assert.equal(
     content.shareCommentary.text,
     "IA, développement, design et création numérique.\n\nhttps://digest.ooblik.com/archives/2026-08-16/",
@@ -170,9 +171,31 @@ test("publishing uploads the PNG then creates one native image post with its URL
   const linkPostCall = calls.filter(({ url }) => url.endsWith("/v2/ugcPosts")).at(-1)!;
   const linkPost = JSON.parse(String(linkPostCall.init!.body));
   assert.equal(
+    "description" in
+      linkPost.specificContent["com.linkedin.ugc.ShareContent"].media[0],
+    false,
+  );
+  assert.equal(
     linkPost.specificContent["com.linkedin.ugc.ShareContent"].shareCommentary.text,
     "À lire. #Design\n\nhttps://example.com/une-ressource",
   );
+
+  const longText = `${"x".repeat(2_900)}...`;
+  await service.publishLink("admin-2", {
+    title: "Une longue publication",
+    text: longText,
+    url: "https://example.com/longue-publication",
+    imageUrl:
+      "/api/linkedin-images/3583bb99-c9f5-53fc-832c-9d92933c1ad4-0123456789abcdef.png?v=1",
+  });
+  const longPostCall = calls.filter(({ url }) => url.endsWith("/v2/ugcPosts")).at(-1)!;
+  const longPost = JSON.parse(String(longPostCall.init!.body));
+  const longContent = longPost.specificContent["com.linkedin.ugc.ShareContent"];
+  assert.equal(
+    longContent.shareCommentary.text,
+    `${longText}\n\nhttps://example.com/longue-publication`,
+  );
+  assert.equal("description" in longContent.media[0], false);
 
   const concurrentInput = {
     title: "Publication réservée",
@@ -191,7 +214,7 @@ test("publishing uploads the PNG then creates one native image post with its URL
   await firstPublication;
   assert.equal(
     calls.filter(({ url }) => url.endsWith("/v2/ugcPosts")).length,
-    3,
+    4,
   );
 });
 

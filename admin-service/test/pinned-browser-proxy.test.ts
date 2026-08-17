@@ -1,9 +1,10 @@
 import assert from "node:assert/strict";
 import { once } from "node:events";
 import { connect, Socket } from "node:net";
-import { PassThrough } from "node:stream";
+import { Duplex, PassThrough } from "node:stream";
 import test from "node:test";
 import {
+  bufferPendingTunnel,
   destroyUpstreamOnClientDisconnect,
   PinnedAddressBook,
   startPinnedBrowserProxy,
@@ -71,6 +72,32 @@ test("an upstream socket is destroyed when its client already disconnected", asy
 
   await upstreamClosed;
   assert.equal(upstream.destroyed, true);
+});
+
+test("CONNECT bytes received before the upstream connection are buffered in order", async () => {
+  const client = new PassThrough();
+  const received: Buffer[] = [];
+  const upstream = new Duplex({
+    read() {},
+    write(chunk: Buffer, _encoding, callback) {
+      received.push(Buffer.from(chunk));
+      callback();
+    },
+  });
+  const connectTunnel = bufferPendingTunnel(
+    client,
+    upstream,
+    Buffer.from("head-"),
+  );
+  client.write("after-head");
+  await new Promise((resolve) => setImmediate(resolve));
+  assert.equal(received.length, 0);
+
+  connectTunnel();
+
+  assert.equal(Buffer.concat(received).toString(), "head-after-head");
+  client.destroy();
+  upstream.destroy();
 });
 
 test("an idle proxy closes without missing the server close event", async () => {

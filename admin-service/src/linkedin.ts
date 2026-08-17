@@ -466,7 +466,6 @@ export class LinkedInService {
             media: [
               {
                 status: "READY",
-                description: { text: validated.text },
                 media: registered.value.asset,
                 title: { text: validated.title },
               },
