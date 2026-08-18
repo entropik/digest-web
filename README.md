@@ -107,8 +107,8 @@ GitHub avant de redéployer le service.
 ### Publication LinkedIn native
 
 Le bouton des pages d’archive publie un post LinkedIn natif avec le texte, le
-permalien et le PNG 1200 × 627. Il ne repose pas sur la miniature d’un partage
-de lien.
+permalien et le PNG carré 1200 × 1200 dédié à LinkedIn. Il ne repose pas sur la
+miniature d’un partage de lien.
 
 Créer une application dans le portail LinkedIn Developers, puis activer les
 produits **Sign In with LinkedIn using OpenID Connect** et
@@ -129,7 +129,7 @@ une clé dérivée de `BETTER_AUTH_SECRET` et n’est jamais envoyé au navigate
 Pour un lien individuel, la modale demande au service une capture du premier
 écran du site. Chromium est piloté par Playwright avec un délai strict et les
 destinations privées sont bloquées, y compris pour les sous-ressources. La
-capture est recadrée en 1200 × 627, passée en noir et blanc, puis habillée avec
+capture est composée dans un carré 1200 × 1200, passée en noir et blanc, puis habillée avec
 le titre, le domaine et l’encre corail OOBLIK. Les PNG sont conservés dans
 `LINKEDIN_CAPTURE_DIRECTORY`; « Régénérer l’image » force une nouvelle prise.
 Si le site refuse la navigation automatisée, une carte typographique propre à

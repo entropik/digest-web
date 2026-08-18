@@ -132,7 +132,8 @@ publication native avec image.
 ### Un lien individuel possède sa propre image sociale
 
 Pour partager une ressource précise, le service capture son premier écran,
-l’uniformise en noir et blanc et ajoute l’habillage éditorial OOBLIK. Si le
+l’intègre dans un carré 1200 × 1200, l’uniformise en noir et blanc et ajoute
+l’habillage éditorial OOBLIK. Si le
 site refuse la capture, une carte typographique propre au lien remplace la page
 plutôt que de réutiliser l’affiche générique de l’édition.
 

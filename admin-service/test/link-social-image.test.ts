@@ -15,7 +15,7 @@ const link = {
   url: "https://db-periodic-table.vercel.app/",
 };
 
-test("a link screenshot becomes a cached 1200 by 627 editorial image", async () => {
+test("a link screenshot becomes a cached 1200 by 1200 editorial image", async () => {
   const directory = await mkdtemp(join(tmpdir(), "digest-link-image-"));
   let captures = 0;
   try {
@@ -47,7 +47,7 @@ test("a link screenshot becomes a cached 1200 by 627 editorial image", async () 
     assert.ok(image);
     const metadata = await sharp(image).metadata();
     assert.equal(metadata.width, 1200);
-    assert.equal(metadata.height, 627);
+    assert.equal(metadata.height, 1200);
     assert.equal(metadata.format, "png");
 
     const cached = await service.imageFor(link);
@@ -88,7 +88,7 @@ test("a blocked screenshot produces a link-specific branded fallback", async () 
     assert.ok(image);
     const metadata = await sharp(image).metadata();
     assert.equal(metadata.width, 1200);
-    assert.equal(metadata.height, 627);
+    assert.equal(metadata.height, 1200);
     assert.ok(image.length < 500_000);
   } finally {
     await rm(directory, { recursive: true, force: true });

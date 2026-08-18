@@ -58,7 +58,7 @@ Chromium isolée. Seule l’URL du catalogue peut être capturée ; la résoluti
 DNS est épinglée par un proxy local pendant toute la navigation et chaque
 sous-ressource est refusée dès qu’elle vise un réseau privé. Les tunnels sont
 fermés avec leur client et leur tampon d’attente est borné. Le
-PNG 1200 × 627 transformé est mis en cache dans le répertoire partagé du
+PNG 1200 × 1200 transformé est mis en cache dans le répertoire partagé du
 service, puis exposé par un chemin public strict nécessaire au téléversement
 LinkedIn. Une composition typographique déterministe prend le relais quand le
 site bloque la capture.

@@ -1,6 +1,7 @@
 import { mkdir, readFile, readdir, stat, writeFile } from "node:fs/promises";
 import { basename, resolve } from "node:path";
 import {
+  generateOptimizedLinkedInImage,
   generateOptimizedSocialImage,
   type SocialImageInput,
 } from "../src/social-image.js";
@@ -85,26 +86,35 @@ const worker = async (): Promise<void> => {
       linkCount: linksByDate.get(digestDate) ?? 0,
     };
     const destination = resolve(socialDirectory, `${digestDate}.png`);
+    const linkedInDestination = resolve(
+      socialDirectory,
+      `${digestDate}-linkedin.png`,
+    );
 
-    let exists = false;
-    try {
-      const metadata = await stat(destination);
-      exists = metadata.isFile();
-      if (exists && !force) totalBytes += metadata.size;
-    } catch {
-      exists = false;
-    }
-
-    if (!exists || force) {
-      const image = await generateOptimizedSocialImage(input);
-      await writeFile(destination, image);
-      totalBytes += image.length;
-      generated += 1;
-      if (generated % 50 === 0) {
-        console.log(`Generated ${generated} of ${archiveFiles.length} images…`);
+    for (const [path, generate] of [
+      [destination, generateOptimizedSocialImage],
+      [linkedInDestination, generateOptimizedLinkedInImage],
+    ] as const) {
+      let exists = false;
+      try {
+        const metadata = await stat(path);
+        exists = metadata.isFile();
+        if (exists && !force) totalBytes += metadata.size;
+      } catch {
+        exists = false;
       }
-    } else {
-      preserved += 1;
+
+      if (!exists || force) {
+        const image = await generate(input);
+        await writeFile(path, image);
+        totalBytes += image.length;
+        generated += 1;
+        if (generated % 50 === 0) {
+          console.log(`Generated ${generated} social images…`);
+        }
+      } else {
+        preserved += 1;
+      }
     }
 
     const updatedSource = withSocialImage(source, digestDate);
