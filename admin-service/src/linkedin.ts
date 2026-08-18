@@ -759,7 +759,7 @@ export class LinkedInService {
     } catch {
       throw new LinkedInError("LINKEDIN_INVALID_PUBLICATION", 400);
     }
-    const archiveImage = /^\/social\/\d{4}-\d{2}-\d{2}\.png$/.test(
+    const archiveImage = /^\/social\/\d{4}-\d{2}-\d{2}(?:-linkedin)?\.png$/.test(
       imageUrl.pathname,
     );
     const linkImage =
