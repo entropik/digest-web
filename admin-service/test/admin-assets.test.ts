@@ -39,6 +39,16 @@ test("the private dashboard links to the unlisted Chrome extension", () => {
   );
 });
 
+test("the private dashboard displays the current site version after logout", () => {
+  const page = dashboardPage("Marc");
+
+  assert.match(
+    page,
+    /<button id="admin-logout" type="button">Se déconnecter<\/button>\s*<span class="admin-version" aria-label="Version v1\.7\.2">v1\.7\.2<\/span>/,
+  );
+  assert.match(adminCss, /\.admin-version\{/);
+});
+
 test("publication wording uses Publier throughout the dashboard", () => {
   const page = dashboardPage("Marc");
 

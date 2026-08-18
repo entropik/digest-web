@@ -60,6 +60,7 @@ export const dashboardPage = (name: string) =>
         <a href="https://chromewebstore.google.com/detail/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer">Installer l’extension</a>
         <a href="/">Voir le Digest</a>
         <button id="admin-logout" type="button">Se déconnecter</button>
+        <span class="admin-version" aria-label="Version v1.7.2">v1.7.2</span>
       </div>
     </header>
     <nav class="admin-nav" aria-label="Administration">
@@ -166,6 +167,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .primary{border-color:var(--accent);background:var(--accent);color:#111}
 .header-actions,.toolbar,.form-actions{display:flex;flex-wrap:wrap;gap:.6rem}
 .header-actions a{padding:.8rem 1rem}
+.admin-version{align-self:center;color:var(--muted);font-size:.78rem;font-weight:700;letter-spacing:.08em}
 .feedback{min-height:1.5em;color:var(--accent-text)}
 .admin-nav{display:flex;gap:.35rem;overflow:auto;padding:1rem 0;border-bottom:1px solid var(--line)}
 .admin-nav button{white-space:nowrap;border:0}
