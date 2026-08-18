@@ -60,7 +60,7 @@
     }
   };
 
-  const showPost = (postUrl, alreadyPublished) => {
+  const showPost = (postUrl, alreadyPublished, retry) => {
     feedback.replaceChildren(
       document.createTextNode(
         alreadyPublished
@@ -74,6 +74,20 @@
     link.rel = "noopener noreferrer";
     link.textContent = "Voir sur LinkedIn ↗";
     feedback.append(link);
+    if (alreadyPublished && retry) {
+      feedback.append(document.createTextNode(" "));
+      const retryButton = document.createElement("button");
+      retryButton.type = "button";
+      retryButton.textContent = "Republier si le post est inaccessible";
+      retryButton.addEventListener("click", async () => {
+        if (!window.confirm(
+          "Confirmez uniquement après avoir vérifié que le post LinkedIn est inaccessible. Un nouveau post sera créé.",
+        )) return;
+        retryButton.disabled = true;
+        await retry();
+      });
+      feedback.append(retryButton);
+    }
   };
 
   if (new URLSearchParams(window.location.search).get("linkedin") === "connected") {
@@ -332,8 +346,7 @@
     });
   });
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
+  const submitPublication = async (retry = false) => {
     const data = publicationData();
     if (!data.text) {
       textField.focus();
@@ -352,12 +365,16 @@
           credentials: "same-origin",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(isSingleLink
-            ? { linkId: data.linkId, text: data.text, confirm: true }
-            : { ...data, confirm: true }),
+            ? { linkId: data.linkId, text: data.text, retry, confirm: true }
+            : { ...data, retry, confirm: true }),
         },
       );
       composer.close("published");
-      showPost(publication.postUrl, publication.alreadyPublished);
+      showPost(
+        publication.postUrl,
+        publication.alreadyPublished,
+        () => submitPublication(true),
+      );
       window.dispatchEvent(new CustomEvent("digest:linkedin-published", {
         detail: { alreadyPublished: publication.alreadyPublished },
       }));
@@ -391,5 +408,10 @@
       confirmButton.disabled = false;
       if (activeButton.dataset.published !== "true") activeButton.disabled = false;
     }
+  };
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    await submitPublication();
   });
 })();
