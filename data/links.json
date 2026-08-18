@@ -1,5 +1,149 @@
 [
   {
+    "id": "cbb49758-a9ab-5ad6-ba50-7eb3b78efaae",
+    "title": "Sulla Desktop — The AI Assistant That Handles Your Busywork",
+    "url": "https://sulladesktop.com/",
+    "category": "IA & Agents",
+    "added": "2026-08-18",
+    "description": "The perfect virtual assistant — on your computer. She drafts your replies, writes your content, chases your invoices, and runs the procedures you already know by heart. Free, private, no subscription.",
+    "tags": [
+      "Ai-assistant"
+    ]
+  },
+  {
+    "id": "401d4688-4ae6-5804-a089-5f3f3e7dde79",
+    "title": "provision-org/provision-core: Open-source AI workforce platform. Agents with tasks, tools, browsers, and email.",
+    "url": "https://github.com/provision-org/provision-core",
+    "category": "IA & Agents",
+    "added": "2026-08-18",
+    "description": "Open-source AI workforce platform. Agents with tasks, tools, browsers, and email. - provision-org/provision-core",
+    "tags": [
+      "AI workforce platform"
+    ]
+  },
+  {
+    "id": "90f3e6b8-d446-570e-acbc-d4701b9d576d",
+    "title": "Provision — Hire AI agents for Slack, Telegram & email",
+    "url": "https://provision.ai/",
+    "category": "IA & Agents",
+    "added": "2026-08-18",
+    "description": "Hire AI agents that get a dedicated runtime, a sandboxed browser, a real email inbox, and a seat in Slack, Telegram & Discord. $299 per agent / mo, 48-hour free trial. Open-source core.",
+    "tags": [
+      "Ai-assitant"
+    ]
+  },
+  {
+    "id": "852bc9ae-96e5-561d-8dd9-0195d542b1a9",
+    "title": "Portfolio de Louis Eveillard | Couvertures génératives",
+    "url": "https://louiseveillard.com/projets/couvertures-generatives",
+    "category": "Design & Création",
+    "added": "2026-08-18",
+    "description": "Portfolio de Louis Eveillard, designer graphique et d’interaction indépendant à Paris.",
+    "tags": [
+      "artgénératif"
+    ]
+  },
+  {
+    "id": "c960df00-e289-592d-8f11-10bd24c1806b",
+    "title": "pocketpaw/pocketpaw: Your AI agent in 30 seconds. Not 30 hours. Self-hosted, open-source personal AI with desktop installer, multi-agent Command Center(Deep Work), and 7-layer security. Anthropic, OpenAI, or Ollama.",
+    "url": "https://github.com/pocketpaw/pocketpaw",
+    "category": "IA & Agents",
+    "added": "2026-08-18",
+    "description": "Your AI agent in 30 seconds. Not 30 hours. Self-hosted, open-source personal AI with desktop installer, multi-agent Command Center(Deep Work), and 7-layer security. Anthropic, OpenAI, or Ollama. - pocketpaw/pocketpaw",
+    "tags": [
+      "AI workforce platform"
+    ]
+  },
+  {
+    "id": "ea96ab84-ed93-5c4d-b346-80a7604fb9f4",
+    "title": "plasma-ai/fractal: Hierarchical agent loops with recursive self-organization.",
+    "url": "https://github.com/plasma-ai/fractal",
+    "category": "IA & Agents",
+    "added": "2026-08-18",
+    "description": "Hierarchical agent loops with recursive self-organization. - plasma-ai/fractal",
+    "tags": [
+      "poésie"
+    ]
+  },
+  {
+    "id": "d6da3dc7-daea-5e67-8ebc-fc7c58eeb560",
+    "title": "Mikrodystopies, l'intégrale",
+    "url": "https://www.mikrodystopies.com/",
+    "category": "Design & Création",
+    "added": "2026-08-18",
+    "description": "L'intégrale des Mikrodystopies publiées sur Twitter entre août 2018 et février 2023",
+    "tags": [
+      "poésie"
+    ]
+  },
+  {
+    "id": "69551e95-ab3d-5622-823a-67ef708de15f",
+    "title": "Les 7 erreurs qui pourrissent vos PDF d'impression ! - Cloître Imprimeurs",
+    "url": "https://www.cloitre-imp.fr/blog/les-7-erreurs-qui-pourrissent-vos-pdf-impression",
+    "category": "Design & Création",
+    "added": "2026-08-18",
+    "description": "On vous le dit, vos fichiers et PDF d'impression ne sont pas conformes ! Découvrez dès maintenant les 7 erreurs les plus courantes et apprenez à les éviter.",
+    "tags": [
+      "PDF-X",
+      "PDF"
+    ]
+  },
+  {
+    "id": "38bb1626-001b-516c-86aa-78bde0337870",
+    "title": "La Bible du Vibe Coding",
+    "url": "https://labibleduvibecoding.fr/",
+    "category": "IA & Agents",
+    "added": "2026-08-18",
+    "description": "La Bible du Vibe Coding - Le guide ultime : outils, modèles, workflows, tout ce que vous avez toujours voulu savoir sur le code sans oser le demander.",
+    "tags": [
+      "vibe-coding"
+    ]
+  },
+  {
+    "id": "fe9b7aff-52f9-5f36-8974-51573dcf1ec9",
+    "title": "jhk482001/Holons: Your AI company, on your own machine. A multi-agent platform where you hire named agents, chat with a Lead to design workflows, and watch them run — desktop app or self-hosted server.",
+    "url": "https://github.com/jhk482001/Holons",
+    "category": "IA & Agents",
+    "added": "2026-08-18",
+    "description": "Your AI company, on your own machine. A multi-agent platform where you hire named agents, chat with a Lead to design workflows, and watch them run — desktop app or self-hosted server. - jhk482001/Holons",
+    "tags": [
+      "AI workforce platform"
+    ]
+  },
+  {
+    "id": "b5f52802-a3ac-5412-9a59-1dbaf68a6495",
+    "title": "hivementality-ai/hivemind: Hivemind — Multi-agent AI team platform",
+    "url": "https://github.com/hivementality-ai/hivemind",
+    "category": "IA & Agents",
+    "added": "2026-08-18",
+    "description": "Hivemind — Multi-agent AI team platform. Contribute to hivementality-ai/hivemind development by creating an account on GitHub.",
+    "tags": [
+      "AI workforce platform"
+    ]
+  },
+  {
+    "id": "d8041082-f34f-5940-bb39-c0ce79b98026",
+    "title": "cmux — Le terminal conçu pour le multitâche",
+    "url": "https://cmux.com/fr",
+    "category": "IA & Agents",
+    "added": "2026-08-18",
+    "description": "cmux - Le terminal conçu pour le multitâche. Conçu pour les agents de codage IA et les workflows multitâches sur macOS.",
+    "tags": [
+      "terminal"
+    ]
+  },
+  {
+    "id": "d890b9e1-8e30-591e-ac08-4399982362d7",
+    "title": "C & F Éditions",
+    "url": "https://cfeditions.com/mikrodystopies",
+    "category": "Design & Création",
+    "added": "2026-08-18",
+    "description": "Mikrodystopies\nFrançois Houste\n\nphotographies de Nicolas Taffin\n\nMikrodystopies et pédagogie\nComment utiliser le principe des Mikrodystopies dans des classes (français, anglais, arts plastiques) ou dans des ateliers de design thinking ?",
+    "tags": [
+      "édition"
+    ]
+  },
+  {
     "id": "b90cbd16-ebad-508e-8aeb-7c4213093001",
     "title": "www.cmp-color.fr",
     "url": "https://www.cmp-color.fr/index.html",
