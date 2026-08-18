@@ -287,6 +287,8 @@ test("social image counts follow public link visibility", async () => {
   ]);
   assert.match(backfill, /link\.visibility === "hidden"/);
   assert.match(backfill, /argument\("--date"\)/);
+  assert.match(backfill, /generateOptimizedLinkedInImage/);
+  assert.match(backfill, /`\$\{digestDate\}-linkedin\.png`/);
   assert.match(curation, /async updateLinkVisibility/);
   assert.match(curation, /link\.visibility !== "hidden"/);
   assert.match(curation, /\[`static\/social\/\$\{date\}\.png`\]: socialImage/);
@@ -336,6 +338,8 @@ test("LinkedIn native publishing uses the authenticated server API", async () =>
   assert.match(script, /hashtagsField\.value = hashtags\.join/);
   assert.match(script, /automaticHashtags/);
   assert.match(script, /\.slice\(0, 5\)/);
+  assert.match(script, /preview\.naturalWidth === preview\.naturalHeight/);
+  assert.match(script, /preview\.classList\.toggle\("is-square", isSquare\)/);
   assert.match(script, /Retirer « \$\{title\} » du Digest/);
   assert.doesNotMatch(script, /navigator\.share/);
   assert.match(headPartial, /resources\.Get "js\/linkedin-image\.js"/);

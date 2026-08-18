@@ -28,7 +28,8 @@ import { withDeadline } from "./network.js";
 import { canonicalizePublicUrl } from "./urls.js";
 
 const WIDTH = 1200;
-const HEIGHT = 627;
+const HEIGHT = 1200;
+const SCREENSHOT_HEIGHT = 760;
 const CAPTURE_WIDTH = 1440;
 const CAPTURE_HEIGHT = 752;
 const CORAL = "#FF5C35";
@@ -36,7 +37,7 @@ const BLACK = "#0A0A0A";
 const PAPER = "#F4F2ED";
 const FILE_PATTERN = /^[0-9a-f-]{36}-[0-9a-f]{16}\.png$/;
 const TEMP_FILE_PATTERN = /^[0-9a-f-]{36}-[0-9a-f]{16}\.png\.\d+\.tmp$/;
-const RENDER_VERSION = "link-social-image-v2";
+const RENDER_VERSION = "link-social-image-v3";
 const CAPTURE_CACHE_MAX_AGE_MS = 30 * 24 * 60 * 60 * 1_000;
 const CAPTURE_CACHE_MAX_BYTES = 100 * 1024 * 1024;
 const CAPTURE_CACHE_CLEANUP_INTERVAL_MS = 60 * 60 * 1_000;
@@ -300,21 +301,22 @@ const wrapTitle = (value: string, limit = 42, maxLines = 2): string[] => {
 };
 
 const titleText = (title: string): string =>
-  wrapTitle(title)
+  wrapTitle(title, 40, 3)
     .map(
       (line, index) =>
-        `<text x="48" y="${518 + index * 44}" fill="${PAPER}" font-family="Bricolage Grotesque" font-size="38" font-weight="800">${escapeXml(line)}</text>`,
+        `<text x="54" y="${862 + index * 58}" fill="${PAPER}" font-family="Bricolage Grotesque" font-size="50" font-weight="800">${escapeXml(line)}</text>`,
     )
     .join("");
 
 const editorialOverlay = (title: string, host: string): Buffer =>
   renderBrandSvg(`<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}">
     <rect width="${WIDTH}" height="14" fill="${CORAL}"/>
-    <rect x="0" y="438" width="${WIDTH}" height="189" fill="${BLACK}" fill-opacity=".92"/>
+    <rect x="0" y="${SCREENSHOT_HEIGHT}" width="${WIDTH}" height="${HEIGHT - SCREENSHOT_HEIGHT}" fill="${BLACK}"/>
     <rect x="956" y="14" width="244" height="86" fill="${CORAL}"/>
     <text x="1168" y="68" text-anchor="end" fill="${BLACK}" font-family="Bricolage Grotesque" font-size="22" font-weight="800">OOBLIK DIGEST</text>
     ${titleText(title)}
-    <text x="48" y="604" fill="${CORAL}" font-family="Bricolage Grotesque" font-size="18" font-weight="700">${escapeXml(host.toLocaleUpperCase("fr-FR"))}</text>
+    <rect x="54" y="1132" width="760" height="2" fill="${PAPER}"/>
+    <text x="54" y="1174" fill="${CORAL}" font-family="Bricolage Grotesque" font-size="20" font-weight="700">${escapeXml(host.toLocaleUpperCase("fr-FR"))}</text>
   </svg>`);
 
 const fallbackImage = async (title: string, host: string): Promise<Buffer> => {
@@ -322,17 +324,17 @@ const fallbackImage = async (title: string, host: string): Promise<Buffer> => {
   const text = lines
     .map(
       (line, index) =>
-        `<text x="54" y="${238 + index * 72}" fill="${PAPER}" font-family="Bricolage Grotesque" font-size="62" font-weight="800">${escapeXml(line.toLocaleUpperCase("fr-FR"))}</text>`,
+        `<text x="54" y="${390 + index * 84}" fill="${PAPER}" font-family="Bricolage Grotesque" font-size="68" font-weight="800">${escapeXml(line.toLocaleUpperCase("fr-FR"))}</text>`,
     )
     .join("");
   const svg = renderBrandSvg(`<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}">
     <rect width="${WIDTH}" height="${HEIGHT}" fill="${BLACK}"/>
-    <circle cx="1030" cy="130" r="210" fill="none" stroke="${CORAL}" stroke-width="72"/>
-    <rect x="780" y="414" width="420" height="213" fill="${CORAL}"/>
+    <circle cx="1030" cy="170" r="250" fill="none" stroke="${CORAL}" stroke-width="82"/>
+    <rect x="780" y="820" width="420" height="380" fill="${CORAL}"/>
     <text x="54" y="64" fill="${CORAL}" font-family="Bricolage Grotesque" font-size="22" font-weight="700">OOBLIK DIGEST / LIEN</text>
     ${text}
-    <rect x="54" y="566" width="650" height="2" fill="${PAPER}"/>
-    <text x="54" y="606" fill="${PAPER}" font-family="Bricolage Grotesque" font-size="18" font-weight="700">${escapeXml(host.toLocaleUpperCase("fr-FR"))}</text>
+    <rect x="54" y="1086" width="650" height="2" fill="${PAPER}"/>
+    <text x="54" y="1130" fill="${PAPER}" font-family="Bricolage Grotesque" font-size="20" font-weight="700">${escapeXml(host.toLocaleUpperCase("fr-FR"))}</text>
   </svg>`);
   return sharp(svg).png({ palette: true, colours: 64, compressionLevel: 9 }).toBuffer();
 };
@@ -494,15 +496,28 @@ const stylizeScreenshot = async (
   screenshot: Buffer,
   title: string,
   host: string,
-): Promise<Buffer> =>
-  sharp(screenshot)
-    .resize(WIDTH, HEIGHT, { fit: "cover", position: "north" })
+): Promise<Buffer> => {
+  const capture = await sharp(screenshot)
+    .resize(WIDTH, SCREENSHOT_HEIGHT, { fit: "cover", position: "north" })
     .grayscale()
     .normalize()
     .linear(1.06, -6)
-    .composite([{ input: editorialOverlay(title, host) }])
+    .toBuffer();
+  return sharp({
+    create: {
+      width: WIDTH,
+      height: HEIGHT,
+      channels: 3,
+      background: BLACK,
+    },
+  })
+    .composite([
+      { input: capture, top: 0, left: 0 },
+      { input: editorialOverlay(title, host), top: 0, left: 0 },
+    ])
     .png({ palette: true, colours: 256, compressionLevel: 9, effort: 10 })
     .toBuffer();
+};
 
 const imageName = (
   link: Pick<DigestLink, "id" | "title" | "url">,

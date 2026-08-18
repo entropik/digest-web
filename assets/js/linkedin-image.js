@@ -173,7 +173,16 @@
   const displayPreview = async (imageUrl) => {
     preview.hidden = false;
     preview.src = imageUrl;
-    await preview.decode().catch(() => undefined);
+    const decoded = await preview.decode().then(
+      () => true,
+      () => false,
+    );
+    if (decoded) {
+      const isSquare = preview.naturalWidth === preview.naturalHeight;
+      preview.classList.toggle("is-square", isSquare);
+      preview.width = 1200;
+      preview.height = isSquare ? 1200 : 627;
+    }
     if (imageStatus) imageStatus.textContent = "";
   };
 
