@@ -255,6 +255,8 @@ select {
   background: var(--digest-page-bg);
   color: var(--digest-ink);
   font-size: .86rem;
+  font-feature-settings: "liga" 0, "calt" 0;
+  font-variant-ligatures: none;
   line-height: 1.6;
 }
 
