@@ -141,6 +141,14 @@ test("publishing uploads the PNG then creates one native image post with its URL
   });
   assert.equal(result.alreadyPublished, false);
   assert.equal(result.postUrl, "https://www.linkedin.com/feed/update/urn:li:share:post-123");
+  const registerCall = calls.find(({ url }) =>
+    url.includes("/v2/assets?action=registerUpload"),
+  )!;
+  const registration = JSON.parse(String(registerCall.init!.body));
+  assert.deepEqual(
+    registration.registerUploadRequest.supportedUploadMechanism,
+    ["SYNCHRONOUS_UPLOAD"],
+  );
   const postCall = calls.find(({ url }) => url.endsWith("/v2/ugcPosts"))!;
   const post = JSON.parse(String(postCall.init!.body));
   const content = post.specificContent["com.linkedin.ugc.ShareContent"];
