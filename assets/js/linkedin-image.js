@@ -3,9 +3,9 @@
   const linkButtons = [...document.querySelectorAll("[data-linkedin-link-share]")];
   const shareButtons = [button, ...linkButtons].filter(Boolean);
   const deleteButtons = [...document.querySelectorAll("[data-archive-delete-link]")];
+  const pageFeedback = document.querySelector("[data-linkedin-feedback]");
   const feedback =
-    document.querySelector("[data-linkedin-feedback]") ||
-    document.querySelector("[data-linkedin-composer-feedback]");
+    pageFeedback || document.querySelector("[data-linkedin-composer-feedback]");
   const composer = document.querySelector("[data-linkedin-composer]");
   const form = document.querySelector("[data-linkedin-form]");
   const textField = document.querySelector("[data-linkedin-text]");
@@ -80,9 +80,6 @@
       retryButton.type = "button";
       retryButton.textContent = "Republier si le post est inaccessible";
       retryButton.addEventListener("click", async () => {
-        if (!window.confirm(
-          "Confirmez uniquement après avoir vérifié que le post LinkedIn est inaccessible. Un nouveau post sera créé.",
-        )) return;
         retryButton.disabled = true;
         await retry();
       });
@@ -377,7 +374,10 @@
       window.dispatchEvent(new CustomEvent("digest:linkedin-published", {
         detail: { alreadyPublished: publication.alreadyPublished },
       }));
-      if (publication.alreadyPublished) return;
+      if (publication.alreadyPublished) {
+        if (pageFeedback) composer.close("published");
+        return;
+      }
       composer.close("published");
       activeButton.dataset.published = "true";
       if (isSingleLink) {
