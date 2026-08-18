@@ -92,8 +92,7 @@ const inspectOutput = async (directory) => {
     }
     if (!entry.isFile()) continue;
     const contents = await readFile(target);
-    if (contents.includes(0)) continue;
-    const text = contents.toString("utf8");
+    const text = contents.toString("latin1");
     if (developmentUrl.test(text)) matches.push(path.relative(root, target));
   }
 };

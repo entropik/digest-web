@@ -257,6 +257,8 @@ test("local, CI and deployment verification share one cross-platform command", a
   assert.match(verification, /process\.platform === "win32" \? "npm\.cmd" : "npm"/);
   assert.match(verification, /"python3", "python"/);
   assert.match(verification, /Development URL found in production output/);
+  assert.match(verification, /contents\.toString\("latin1"\)/);
+  assert.doesNotMatch(verification, /contents\.includes\(0\)/);
   assert.doesNotMatch(`${ci}\n${deployment}`, /npm test|check_digest_consistency|grep -R/);
 });
 
