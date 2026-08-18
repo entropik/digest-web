@@ -173,6 +173,10 @@ select {
   background: #0a0a0a;
 }
 
+.linkedin-composer-image.is-square {
+  aspect-ratio: 1;
+}
+
 .linkedin-composer-visual {
   position: relative;
   min-height: 220px;

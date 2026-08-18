@@ -121,7 +121,9 @@ trame interne : les aplats parfaitement lisses sont réservés à la typographie
 aux zones fonctionnelles qui protègent les métadonnées.
 
 La sortie sociale reste un PNG 1200 × 627 pour la compatibilité des aperçus de
-liens. Elle est quantifiée à 256 couleurs, compressée au niveau maximal et doit
+liens. Une seconde composition 1200 × 1200, dédiée aux publications LinkedIn
+natives, reprend la même identité sans ajouter de marges artificielles. Les deux
+images sont quantifiées à 256 couleurs, compressées au niveau maximal et doivent
 rester sous un budget de 500 Ko. WebP n’est produit que si une image est un jour
 affichée directement dans une page, jamais comme unique source `og:image`.
 

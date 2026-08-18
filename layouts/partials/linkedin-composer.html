@@ -9,11 +9,11 @@
     </div>
     <div class="linkedin-composer-visual" data-linkedin-visual>
       <img
-        class="linkedin-composer-image"
+        class="linkedin-composer-image{{ if eq .format "square" }} is-square{{ end }}"
         data-linkedin-preview
         {{ with .image }}src="{{ . | relURL }}"{{ end }}
         width="1200"
-        height="627"
+        height="{{ if eq .format "square" }}1200{{ else }}627{{ end }}"
         alt="Grande image qui accompagnera la publication LinkedIn">
       <p class="linkedin-composer-image-status" data-linkedin-image-status role="status" aria-live="polite"></p>
       <button class="linkedin-composer-regenerate" type="button" data-linkedin-regenerate hidden>Régénérer l’image</button>

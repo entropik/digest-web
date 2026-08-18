@@ -5,8 +5,17 @@
 {{ $categories := slice }}
 {{ $tags := slice }}
 {{ $socialImage := "" }}
+{{ $linkedinImage := "" }}
+{{ $linkedinFormat := "landscape" }}
 {{ with .Params.images }}
   {{ with index . 0 }}{{ $socialImage = . }}{{ end }}
+{{ end }}
+{{ $linkedinImagePath := printf "static/social/%s-linkedin.png" $digestDate }}
+{{ if fileExists $linkedinImagePath }}
+  {{ $linkedinImage = printf "/social/%s-linkedin.png" $digestDate }}
+  {{ $linkedinFormat = "square" }}
+{{ else }}
+  {{ $linkedinImage = $socialImage }}
 {{ end }}
 {{ range $links }}
   {{ $categories = $categories | append .category }}
@@ -24,7 +33,7 @@
     <div class="archive-single-actions">
       <div class="archive-single-count"><strong>{{ len $links }}</strong><span>liens documentés</span></div>
       <div class="archive-linkedin-actions">
-        {{ with $socialImage }}
+        {{ with $linkedinImage }}
           <button
             class="archive-linkedin-image"
             type="button"
@@ -40,7 +49,7 @@
         <span class="archive-linkedin-feedback" data-linkedin-feedback role="status" aria-live="polite"></span>
       </div>
     </div>
-    {{ if $socialImage }}{{ partial "linkedin-composer.html" (dict "image" $socialImage) }}{{ end }}
+    {{ if $linkedinImage }}{{ partial "linkedin-composer.html" (dict "image" $linkedinImage "format" $linkedinFormat) }}{{ end }}
   </header>
 
   {{ with $socialImage }}
