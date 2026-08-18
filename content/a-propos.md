@@ -42,6 +42,10 @@ Partager simultanément un texte, une URL et une grande image s’est révélé 
 
 Le Digest utilise donc directement l’API LinkedIn : l’affiche est téléversée comme un véritable média, puis associée au texte et à l’URL de l’édition. Avant l’envoi, une fenêtre permet de rédiger le post, de modifier les hashtags calculés à partir des tags du Digest et de confirmer explicitement la publication.
 
+Cette affiche possède désormais une version carrée de 1200 × 1200 pixels, distincte de l’image Open Graph rectangulaire. Elle occupe toute la largeur du fil. Dans la grande visionneuse de bureau, LinkedIn peut ajouter deux bandes gris sombre pour centrer le carré dans une colonne plus haute : elles appartiennent à l’interface LinkedIn, pas à l’image.
+
+Le téléversement est synchrone afin que le post ne soit créé qu’une fois l’image réellement traitée. Et si un ancien identifiant mène malgré tout à un post inaccessible, une action de récupération permet de republier volontairement la même ressource sans affaiblir la protection habituelle contre les doublons.
+
 ## Geek, imprimeur et photographe
 
 Je suis Marc Tallec, geek depuis suffisamment longtemps pour avoir connu plusieurs Web, mais aussi imprimeur et photographe. J’aime autant comprendre comment fonctionne un outil que voir ce qu’il permet de fabriquer : une image, un livre, une interface, un service ou une nouvelle manière de travailler.

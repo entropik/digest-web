@@ -11,6 +11,7 @@ chaque journée ayant produit une évolution du projet.
 | 27 juillet 2026 | [Administration et curation depuis Chrome](2026-07-27.md) | 15 | Admin, extension, publication et Web Store |
 | 16 août 2026 | [Publication, identité visuelle et partage LinkedIn](2026-08-16.md) | 33 | Publication progressive, images sociales et diffusion LinkedIn |
 | 17 août 2026 | [Actions éditoriales et captures LinkedIn durcies](2026-08-17.md) | 11 | Administration des liens, favicons et captures sécurisées |
+| 18 août 2026 | [Le carré LinkedIn, du faux succès au post visible](2026-08-18.md) | 17 | Images carrées, upload synchrone et récupération des posts invisibles |
 
 ## Provenance
 

@@ -61,7 +61,14 @@ fermés avec leur client et leur tampon d’attente est borné. Le
 PNG 1200 × 1200 transformé est mis en cache dans le répertoire partagé du
 service, puis exposé par un chemin public strict nécessaire au téléversement
 LinkedIn. Une composition typographique déterministe prend le relais quand le
-site bloque la capture.
+site bloque la capture. Les affiches d’édition possèdent elles aussi une
+variante LinkedIn carrée distincte de leur image Open Graph 1200 × 627.
+
+L’asset est enregistré en upload synchrone : le service attend la fin du
+traitement de l’image avant de demander la création du post. SQLite conserve
+l’URN retournée pour empêcher les doublons. Une republication de récupération
+peut supprimer cette association uniquement après une action propriétaire
+explicite signalant que le post correspondant est inaccessible.
 
 Un lien publié peut être corrigé sans perdre son identifiant, son URL, sa date
 ou son historique. Un retrait public modifie sa visibilité sans effacer la

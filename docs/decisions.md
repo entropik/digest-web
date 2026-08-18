@@ -149,3 +149,26 @@ tunnels dès que le navigateur abandonne la connexion.
 Les actions d’administration permettent de modifier, masquer ou restaurer un
 lien en conservant son identifiant et son histoire. Les favoris et les filtres
 publics restent purement locaux au navigateur.
+
+## 18 août 2026
+
+### LinkedIn reçoit un carré distinct de l’image Open Graph
+
+L’image Open Graph des éditions reste en 1200 × 627 pour les aperçus de liens.
+La publication native LinkedIn utilise une variante 1200 × 1200, comme les
+captures des liens individuels. Le carré remplit le fil ; les éventuelles
+bandes gris sombre de la visionneuse agrandie appartiennent à LinkedIn et ne
+doivent pas être compensées dans le fichier source.
+
+### La création du post attend le traitement de l’image
+
+L’API LinkedIn peut accepter un post avant que son image asynchrone soit prête,
+puis rendre ce post invisible. Le Digest demande donc un upload synchrone et
+ne soumet le post qu’après son succès.
+
+### Un post inaccessible peut être republié sans banaliser les doublons
+
+La déduplication par URL reste la règle. Lorsqu’un ancien URN mémorisé mène à
+un post inaccessible, l’interface le signale et propose une action de
+récupération explicite. Le clic sur ce libellé sans ambiguïté suffit : aucune
+seconde boîte de confirmation ne s’interpose.
