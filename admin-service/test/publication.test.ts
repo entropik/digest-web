@@ -32,6 +32,7 @@ test("publication produces the catalog, archive and social image", async () => {
   assert.deepEqual(Object.keys(result.files).sort(), [
     "content/archives/2026-07-27.md",
     "data/links.json",
+    "static/social/2026-07-27-linkedin.png",
     "static/social/2026-07-27.png",
   ]);
   assert.equal(
@@ -47,6 +48,10 @@ test("publication produces the catalog, archive and social image", async () => {
   const image = result.files["static/social/2026-07-27.png"];
   assert.ok(Buffer.isBuffer(image));
   assert.deepEqual(image.subarray(0, 8), Buffer.from("89504e470d0a1a0a", "hex"));
+  const linkedInImage = result.files["static/social/2026-07-27-linkedin.png"];
+  assert.ok(Buffer.isBuffer(linkedInImage));
+  assert.equal(linkedInImage.readUInt32BE(16), 1200);
+  assert.equal(linkedInImage.readUInt32BE(20), 1200);
 });
 
 test("stable link ids match UUID v5 URL namespace", () => {

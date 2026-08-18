@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 import {
+  generateLinkedInImage,
+  generateOptimizedLinkedInImage,
   generateSocialImage,
   generateOptimizedSocialImage,
   MAX_SOCIAL_IMAGE_BYTES,
@@ -33,6 +35,16 @@ test("social PNG optimization stays deterministic and under its byte budget", as
   assert.ok(first.length < MAX_SOCIAL_IMAGE_BYTES);
   assert.ok(first.length < generateSocialImage(input).length);
   assert.deepEqual(first.subarray(0, 8), Buffer.from("89504e470d0a1a0a", "hex"));
+});
+
+test("LinkedIn image generation is deterministic and produces a square PNG", async () => {
+  const first = generateLinkedInImage(input);
+  const second = generateLinkedInImage(input);
+  assert.deepEqual(first, second);
+  assert.equal(first.readUInt32BE(16), 1200);
+  assert.equal(first.readUInt32BE(20), 1200);
+  const optimized = await generateOptimizedLinkedInImage(input);
+  assert.ok(optimized.length < MAX_SOCIAL_IMAGE_BYTES);
 });
 
 test("the seeded system reaches every composition family", () => {
@@ -107,6 +119,9 @@ test("archive pages expose a native LinkedIn publication with image, text and pe
   assert.doesNotMatch(layout, /linkedin\.com\/feed\/\?shareActive=true/);
   assert.match(layout, /data-linkedin-feedback/);
   assert.match(layout, /partial "linkedin-composer\.html"/);
+  assert.match(layout, /-linkedin\.png/);
+  assert.match(layout, /\$linkedinFormat = "square"/);
+  assert.match(layout, /"format" \$linkedinFormat/);
   assert.match(composer, /data-linkedin-composer/);
   assert.match(composer, /data-linkedin-text/);
   assert.match(composer, /data-linkedin-tags-note/);
@@ -124,7 +139,7 @@ test("archive pages expose a native LinkedIn publication with image, text and pe
   assert.match(layout, /archive-social-visual/);
   assert.match(layout, /\.Params\.images/);
   assert.match(composer, /width="1200"/);
-  assert.match(composer, /height="627"/);
+  assert.match(composer, /1200\{\{ else \}\}627/);
   assert.match(layout, /data-archive-delete-link/);
   assert.match(layout, /class="archive-delete-link"/);
   assert.match(layout, /Retirer/);
@@ -275,6 +290,10 @@ test("social image counts follow public link visibility", async () => {
   assert.match(curation, /async updateLinkVisibility/);
   assert.match(curation, /link\.visibility !== "hidden"/);
   assert.match(curation, /\[`static\/social\/\$\{date\}\.png`\]: socialImage/);
+  assert.match(
+    curation,
+    /\[`static\/social\/\$\{date\}-linkedin\.png`\]: linkedInImage/,
+  );
 });
 
 test("LinkedIn native publishing uses the authenticated server API", async () => {

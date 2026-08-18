@@ -31,7 +31,10 @@ import {
 import { recordTiming, startTimer } from "./observability.js";
 import { buildPublicationFiles } from "./publication.js";
 import { deploymentWorkflowProgress } from "./publication-workflow.js";
-import { generateOptimizedSocialImage } from "./social-image.js";
+import {
+  generateOptimizedLinkedInImage,
+  generateOptimizedSocialImage,
+} from "./social-image.js";
 import { canonicalizePublicUrl } from "./urls.js";
 
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
@@ -184,14 +187,18 @@ export class CurationService {
       );
       if (!source) throw new CurationError("EDITION_NOT_FOUND", 404);
       const edition = parseEdition(source);
-      const socialImage = await generateOptimizedSocialImage({
+      const socialInput = {
         digestDate: date,
         title: edition.title,
         description: edition.description,
         linkCount: result.links.filter(
           (link) => link.added === date && link.visibility !== "hidden",
         ).length,
-      });
+      };
+      const [socialImage, linkedInImage] = await Promise.all([
+        generateOptimizedSocialImage(socialInput),
+        generateOptimizedLinkedInImage(socialInput),
+      ]);
       try {
         const commit = await commitRepositoryFiles(
           head.commitSha,
@@ -199,6 +206,7 @@ export class CurationService {
           {
             "data/links.json": serializeCatalog(result.links),
             [`static/social/${date}.png`]: socialImage,
+            [`static/social/${date}-linkedin.png`]: linkedInImage,
           },
           `${verb} ${result.link.title}`,
         );
@@ -698,14 +706,18 @@ export class CurationService {
       if (next === source) {
         return { changed: false, commit: head.commitSha, edition: current };
       }
-      const socialImage = await generateOptimizedSocialImage({
+      const socialInput = {
         digestDate: date,
         title,
         description,
         linkCount: head.links.filter(
           (link) => link.added === date && link.visibility !== "hidden",
         ).length,
-      });
+      };
+      const [socialImage, linkedInImage] = await Promise.all([
+        generateOptimizedSocialImage(socialInput),
+        generateOptimizedLinkedInImage(socialInput),
+      ]);
       try {
         const commit = await commitRepositoryFiles(
           head.commitSha,
@@ -713,6 +725,7 @@ export class CurationService {
           {
             [editionPath(date)]: next,
             [`static/social/${date}.png`]: socialImage,
+            [`static/social/${date}-linkedin.png`]: linkedInImage,
           },
           `Corriger le Digest du ${date}`,
         );

@@ -2,7 +2,10 @@ import { createHash } from "node:crypto";
 import { serializeCatalog, type DigestLink } from "./catalog.js";
 import type { CurationDraft } from "./curation-types.js";
 import { renderEdition } from "./editions.js";
-import { generateOptimizedSocialImage } from "./social-image.js";
+import {
+  generateOptimizedLinkedInImage,
+  generateOptimizedSocialImage,
+} from "./social-image.js";
 
 const URL_NAMESPACE = "6ba7b811-9dad-11d1-80b4-00c04fd430c8";
 const uuidBytes = (uuid: string): Buffer =>
@@ -50,6 +53,16 @@ export const buildPublicationFiles = async (input: {
       tags: [...draft.tags],
     };
   });
+  const socialInput = {
+    digestDate: input.digestDate,
+    title: input.title,
+    description: input.seoDescription,
+    linkCount: newLinks.length,
+  };
+  const [socialImage, linkedInImage] = await Promise.all([
+    generateOptimizedSocialImage(socialInput),
+    generateOptimizedLinkedInImage(socialInput),
+  ]);
   return {
     files: {
       "data/links.json": serializeCatalog(
@@ -61,12 +74,8 @@ export const buildPublicationFiles = async (input: {
         description: input.seoDescription,
         introduction: input.introduction,
       }),
-      [`static/social/${input.digestDate}.png`]: await generateOptimizedSocialImage({
-        digestDate: input.digestDate,
-        title: input.title,
-        description: input.seoDescription,
-        linkCount: newLinks.length,
-      }),
+      [`static/social/${input.digestDate}.png`]: socialImage,
+      [`static/social/${input.digestDate}-linkedin.png`]: linkedInImage,
     },
     linkIdsByDraft,
   };

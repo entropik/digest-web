@@ -14,6 +14,7 @@ export type SocialImageInput = {
 
 const WIDTH = 1200;
 const HEIGHT = 627;
+const LINKEDIN_HEIGHT = 1200;
 export const MAX_SOCIAL_IMAGE_BYTES = 500_000;
 const RED = "#E10600";
 const BLACK = "#0A0A0A";
@@ -192,6 +193,7 @@ const definitions = (
   lineGap: number,
   background: readonly [string, string, string],
   gradientAngle: number,
+  canvasHeight = HEIGHT,
 ): string => `
   <defs>
     <linearGradient id="background" x1="0" y1="0" x2="1" y2="1" gradientTransform="rotate(${gradientAngle} .5 .5)">
@@ -212,8 +214,20 @@ const definitions = (
     ${inkTexture("texture-black", BLACK, PAPER)}
     ${inkTexture("texture-accent", accent, BLACK)}
     ${inkTexture("texture-primary", primaryInk, primaryInk === BLACK ? PAPER : BLACK)}
-    <clipPath id="canvas"><rect width="${WIDTH}" height="${HEIGHT}"/></clipPath>
+    <clipPath id="canvas"><rect width="${WIDTH}" height="${canvasHeight}"/></clipPath>
   </defs>`;
+
+const typography = `
+    <style>
+      text { font-family: "Bricolage Grotesque"; font-kerning: normal; }
+      .display { font-size: 116px; font-weight: 800; letter-spacing: -4px; }
+      .display-small { font-size: 92px; font-weight: 800; letter-spacing: -3px; }
+      .mega { font-size: 238px; font-weight: 800; letter-spacing: -10px; }
+      .giant { font-size: 470px; font-weight: 800; letter-spacing: -18px; }
+      .repeat { font-size: 112px; font-weight: 800; letter-spacing: -4px; }
+      .topic { font-size: 25px; font-weight: 750; letter-spacing: -.5px; }
+      .label { font-size: 22px; font-weight: 750; letter-spacing: .5px; }
+    </style>`;
 
 const commonMetadata = (
   input: SocialImageInput,
@@ -403,23 +417,103 @@ export const socialImageSvg = (
       background,
       integer(-55, 55, random),
     )}
-    <style>
-      text { font-family: "Bricolage Grotesque"; font-kerning: normal; }
-      .display { font-size: 116px; font-weight: 800; letter-spacing: -4px; }
-      .display-small { font-size: 92px; font-weight: 800; letter-spacing: -3px; }
-      .mega { font-size: 238px; font-weight: 800; letter-spacing: -10px; }
-      .giant { font-size: 470px; font-weight: 800; letter-spacing: -18px; }
-      .repeat { font-size: 112px; font-weight: 800; letter-spacing: -4px; }
-      .topic { font-size: 25px; font-weight: 750; letter-spacing: -.5px; }
-      .label { font-size: 22px; font-weight: 750; letter-spacing: .5px; }
-    </style>
+    ${typography}
     <g clip-path="url(#canvas)">${content}</g>
   </svg>`;
   return { svg, family, accent };
 };
 
+export const linkedInImageSvg = (
+  input: SocialImageInput,
+): { svg: string; family: SocialImageFamily; accent: string } => {
+  const landscape = socialImageSvg(input);
+  const random = mulberry32(
+    seedFrom(`${input.digestDate}:${input.title}:${input.description}:linkedin`),
+  );
+  const accent = landscape.accent;
+  const primaryInk = choose([RED, accent, accent, accent], random);
+  const backgrounds = [
+    [accent, RED, BLACK],
+    [BLACK, accent, RED],
+    [RED, BLACK, accent],
+    [accent, accent, BLACK],
+  ] as const;
+  const background = choose(backgrounds, random);
+  const day = input.digestDate.slice(-2).replace(/^0/, "");
+  const rotation = integer(-7, 7, random);
+  const topic = wrap(input.description || input.title, 34, 3);
+  const dotsX = integer(70, 240, random);
+  const circleX = integer(850, 1030, random);
+  const specks = Array.from({ length: 260 }, () => {
+    const x = integer(0, WIDTH, random);
+    const y = integer(0, LINKEDIN_HEIGHT, random);
+    const radius = integer(1, 4, random);
+    const opacity = (0.04 + random() * 0.1).toFixed(2);
+    return `<circle cx="${x}" cy="${y}" r="${radius}" fill="${random() > 0.35 ? BLACK : PAPER}" opacity="${opacity}"/>`;
+  }).join("");
+  const waveY = integer(190, 330, random);
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${LINKEDIN_HEIGHT}" viewBox="0 0 ${WIDTH} ${LINKEDIN_HEIGHT}">
+    ${definitions(
+      accent,
+      primaryInk,
+      integer(2, 5, random),
+      integer(8, 16, random),
+      background,
+      integer(-55, 55, random),
+      LINKEDIN_HEIGHT,
+    )}
+    ${typography}
+    <style>
+      .square-brand { font-size: 28px; font-weight: 800; letter-spacing: 1px; }
+      .square-display { font-size: 136px; font-weight: 800; letter-spacing: -6px; }
+      .square-giant { font-size: 640px; font-weight: 800; letter-spacing: -24px; }
+      .square-topic { font-size: 38px; font-weight: 750; letter-spacing: -.8px; }
+      .square-label { font-size: 28px; font-weight: 750; letter-spacing: .6px; }
+    </style>
+    <g clip-path="url(#canvas)">
+      <rect width="${WIDTH}" height="${LINKEDIN_HEIGHT}" fill="url(#background)"/>
+      <g aria-hidden="true">${specks}</g>
+      <rect x="${dotsX}" y="95" width="360" height="390" fill="url(#dots)" transform="rotate(${rotation} ${dotsX + 180} 290)"/>
+      <circle cx="${circleX}" cy="245" r="300" fill="none" stroke="url(#texture-primary)" stroke-width="175"/>
+      <path d="${wavePath(waveY, integer(28, 70, random), integer(170, 280, random))}" fill="none" stroke="${PAPER}" stroke-width="${integer(18, 38, random)}" opacity=".78"/>
+      <rect x="0" y="770" width="${WIDTH}" height="430" fill="${BLACK}"/>
+      <text x="35" y="665" class="square-giant" fill="${RED}" transform="rotate(${rotation} 270 470)">${day}</text>
+      <text x="52" y="735" class="square-display" fill="${BLACK}">OOBLIK</text>
+      <text x="545" y="735" class="square-display" fill="${PAPER}">DIGEST</text>
+      <text x="52" y="62" class="square-brand" fill="${BLACK}">OOBLIK DIGEST</text>
+      <g transform="translate(1135 75) rotate(90)">
+        <text x="0" y="0" class="repeat" fill="${PAPER}">${day} ${day} ${day} ${day}</text>
+      </g>
+      ${textLines(topic, 54, 850, 50, `class="square-topic" fill="${PAPER}"`)}
+      <text x="54" y="1135" class="square-label" fill="${PAPER}">${escapeXml(formattedDate(input.digestDate))}</text>
+      <text x="1145" y="1135" text-anchor="end" class="square-label" fill="${PAPER}">${input.linkCount} LIENS</text>
+    </g>
+  </svg>`;
+  return { svg, family: landscape.family, accent };
+};
+
 export const generateSocialImage = (input: SocialImageInput): Buffer => {
   const { svg } = socialImageSvg(input);
+  const fontPath = resolve(
+    process.cwd(),
+    "../static/fonts/bricolage-grotesque-variable.ttf",
+  );
+  return Buffer.from(
+    new Resvg(svg, {
+      fitTo: { mode: "width", value: WIDTH },
+      font: {
+        fontFiles: [fontPath],
+        loadSystemFonts: false,
+        defaultFontFamily: "Bricolage Grotesque",
+      },
+    })
+      .render()
+      .asPng(),
+  );
+};
+
+export const generateLinkedInImage = (input: SocialImageInput): Buffer => {
+  const { svg } = linkedInImageSvg(input);
   const fontPath = resolve(
     process.cwd(),
     "../static/fonts/bricolage-grotesque-variable.ttf",
@@ -459,3 +553,7 @@ export const optimizeSocialImage = async (image: Buffer): Promise<Buffer> => {
 export const generateOptimizedSocialImage = async (
   input: SocialImageInput,
 ): Promise<Buffer> => optimizeSocialImage(generateSocialImage(input));
+
+export const generateOptimizedLinkedInImage = async (
+  input: SocialImageInput,
+): Promise<Buffer> => optimizeSocialImage(generateLinkedInImage(input));
