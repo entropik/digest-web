@@ -44,7 +44,7 @@ bannière 1400 × 560.
   le texte sélectionné dans cet onglet.
 - `storage` : restaurer pendant 24 heures au maximum une saisie interrompue.
   Ces données restent dans `chrome.storage.local` sur la machine courante et
-  sont écrites seulement après activation explicite de la reprise locale, puis
+  sont enregistrées automatiquement pour les pages publiques admissibles, puis
   effacées après un enregistrement réussi.
 - `https://digest.ooblik.com/*` : vérifier la session propriétaire et enregistrer
   le brouillon dans le service d’administration.

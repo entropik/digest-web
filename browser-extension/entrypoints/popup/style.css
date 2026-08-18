@@ -177,16 +177,3 @@ button:disabled {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-
-.local-draft-option {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--muted);
-  font-size: 11px;
-}
-
-.local-draft-option input {
-  width: auto;
-  margin: 0;
-}

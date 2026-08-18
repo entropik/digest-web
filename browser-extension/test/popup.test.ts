@@ -348,9 +348,6 @@ describe("états asynchrones du popup", () => {
       expect(
         element<HTMLButtonElement>("#discard-local").hidden,
       ).toBe(false);
-      expect(
-        element<HTMLInputElement>("#local-persistence").checked,
-      ).toBe(true);
     });
 
     pending.resolve(
@@ -476,7 +473,6 @@ describe("états asynchrones du popup", () => {
       expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
     });
 
-    element<HTMLInputElement>("#local-persistence").click();
     input("title").value = "Dernière correction";
     input("title").dispatchEvent(new Event("input", { bubbles: true }));
     window.dispatchEvent(new PageTransitionEvent("pagehide"));
@@ -520,7 +516,7 @@ describe("états asynchrones du popup", () => {
     expect(browserMock.storage.local.set).not.toHaveBeenCalled();
   });
 
-  test("signale une sauvegarde locale impossible et désactive la reprise", async () => {
+  test("signale une sauvegarde locale automatique impossible", async () => {
     browserMock.storage.local.set.mockRejectedValueOnce(
       new Error("STORAGE_UNAVAILABLE"),
     );
@@ -530,12 +526,10 @@ describe("états asynchrones du popup", () => {
       expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
     });
 
-    element<HTMLInputElement>("#local-persistence").click();
+    input("title").value = "Correction locale";
+    input("title").dispatchEvent(new Event("input", { bubbles: true }));
 
     await vi.waitFor(() => {
-      expect(element<HTMLInputElement>("#local-persistence").checked).toBe(
-        false,
-      );
       expect(element("#feedback").textContent).toBe(
         "Reprise locale impossible : cette saisie n’a pas été enregistrée sur l’appareil.",
       );
@@ -549,15 +543,14 @@ describe("états asynchrones du popup", () => {
       expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
     });
 
-    element<HTMLInputElement>("#local-persistence").click();
     input("url").value = "https://example.com/autre-brouillon";
     input("url").dispatchEvent(new Event("input", { bubbles: true }));
     await new Promise((resolve) => setTimeout(resolve, 350));
-    element<HTMLInputElement>("#local-persistence").click();
+    element<HTMLButtonElement>("#discard-local").click();
 
     await vi.waitFor(() => {
       expect(element("#feedback").textContent).toBe(
-        "Reprise locale désactivée.",
+        "La saisie reste affichée, mais ne sera plus restaurée.",
       );
     });
     expect(browserMock.storage.local.remove).toHaveBeenCalledWith(
@@ -584,7 +577,6 @@ describe("états asynchrones du popup", () => {
       expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
     });
 
-    element<HTMLInputElement>("#local-persistence").click();
     element<HTMLFormElement>("#capture-form").dispatchEvent(
       new Event("submit", { bubbles: true, cancelable: true }),
     );
@@ -610,7 +602,6 @@ describe("états asynchrones du popup", () => {
       expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
     });
 
-    element<HTMLInputElement>("#local-persistence").click();
     input("title").value = "Correction locale";
     input("title").dispatchEvent(new Event("input", { bubbles: true }));
     await new Promise((resolve) => setTimeout(resolve, 350));
@@ -646,18 +637,24 @@ describe("états asynchrones du popup", () => {
     });
   });
 
-  test("ne persiste rien sans consentement local explicite", async () => {
+  test("persiste automatiquement une saisie locale", async () => {
     vi.stubGlobal("fetch", vi.fn(async () => response(bootstrap())));
     await loadPopup();
     await vi.waitFor(() => {
       expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
     });
 
-    input("title").value = "Correction non persistée";
+    input("title").value = "Correction sauvegardée automatiquement";
     input("title").dispatchEvent(new Event("input", { bubbles: true }));
     window.dispatchEvent(new PageTransitionEvent("pagehide"));
 
-    expect(browserMock.storage.local.set).not.toHaveBeenCalled();
+    expect(browserMock.storage.local.set).toHaveBeenCalledWith({
+      [localDraftStorageKey(capture.url)]: expect.objectContaining({
+        fields: expect.objectContaining({
+          title: "Correction sauvegardée automatiquement",
+        }),
+      }),
+    });
   });
 
   test("désactive la reprise locale pour l’URL réelle d’un onglet authentifié", async () => {
@@ -673,13 +670,10 @@ describe("états asynchrones du popup", () => {
 
     await vi.waitFor(() => {
       expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
-      expect(element<HTMLInputElement>("#local-persistence").disabled).toBe(
-        true,
-      );
     });
-    expect(element<HTMLInputElement>("#local-persistence").title).toBe(
-      "Reprise locale indisponible pour cette page privée ou authentifiée.",
-    );
+    input("title").value = "Correction privée";
+    input("title").dispatchEvent(new Event("input", { bubbles: true }));
+    window.dispatchEvent(new PageTransitionEvent("pagehide"));
     expect(browserMock.storage.local.set).not.toHaveBeenCalled();
   });
 });
