@@ -369,7 +369,6 @@
             : { ...data, retry, confirm: true }),
         },
       );
-      composer.close("published");
       showPost(
         publication.postUrl,
         publication.alreadyPublished,
@@ -378,6 +377,8 @@
       window.dispatchEvent(new CustomEvent("digest:linkedin-published", {
         detail: { alreadyPublished: publication.alreadyPublished },
       }));
+      if (publication.alreadyPublished) return;
+      composer.close("published");
       activeButton.dataset.published = "true";
       if (isSingleLink) {
         const label = activeButton.querySelector("span:last-child");
