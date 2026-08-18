@@ -47,10 +47,16 @@ refuse une nouvelle entrée morte qui n’a pas encore été vérifiée.
 ## Build de production
 
 ```shell
-hugo --gc --minify
+node scripts/verify.mjs
 ```
 
-Les fichiers statiques sont générés dans `public/`. L’URL canonique de
+Cette commande multiplateforme installe les dépendances verrouillées, exécute
+les tests et builds du service et de l’extension, valide les données, construit
+Hugo sans avertissement et refuse les URL de développement. C’est exactement la
+même commande qu’en CI et avant chaque déploiement. Elle nécessite Node.js 22,
+Python 3 et Hugo Extended 0.164.0 ou plus récent.
+
+Les fichiers statiques validés sont générés dans `public/`. L’URL canonique de
 production est <https://digest.ooblik.com/>.
 
 ## Déploiement

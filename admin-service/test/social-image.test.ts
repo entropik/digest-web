@@ -244,6 +244,22 @@ test("Hugo language metadata uses the current APIs", async () => {
   assert.doesNotMatch(`${base}\n${rss}\n${openGraph}`, /LanguageDirection|LanguageCode/);
 });
 
+test("local, CI and deployment verification share one cross-platform command", async () => {
+  const [verification, ci, deployment, readme] = await Promise.all([
+    readFile(new URL("../../scripts/verify.mjs", import.meta.url), "utf8"),
+    readFile(new URL("../../.github/workflows/ci.yml", import.meta.url), "utf8"),
+    readFile(new URL("../../.github/workflows/deploy.yml", import.meta.url), "utf8"),
+    readFile(new URL("../../README.md", import.meta.url), "utf8"),
+  ]);
+  for (const consumer of [ci, deployment, readme]) {
+    assert.match(consumer, /node scripts\/verify\.mjs/);
+  }
+  assert.match(verification, /process\.platform === "win32" \? "npm\.cmd" : "npm"/);
+  assert.match(verification, /"python3", "python"/);
+  assert.match(verification, /Development URL found in production output/);
+  assert.doesNotMatch(`${ci}\n${deployment}`, /npm test|check_digest_consistency|grep -R/);
+});
+
 test("social image counts follow public link visibility", async () => {
   const [backfill, curation] = await Promise.all([
     readFile(
