@@ -21,6 +21,8 @@
   if (!shareButtons.length || !feedback || !composer || !form || !textField || !hashtagsField) return;
   let activeButton = shareButtons[0];
   let imageGeneration = 0;
+  let suspendedDialog = null;
+  let suspendedDialogBodyClass = false;
   const maxCommentaryLength = 3000;
 
   const api = async (path, options) => {
@@ -160,6 +162,12 @@
     confirmButton.disabled = false;
     if (regenerateButton) regenerateButton.disabled = false;
     if (activeButton.dataset.published !== "true") activeButton.disabled = false;
+    if (suspendedDialog && !suspendedDialog.open) {
+      suspendedDialog.showModal();
+      if (suspendedDialogBodyClass) document.body.classList.add("digest-modal-open");
+    }
+    suspendedDialog = null;
+    suspendedDialogBodyClass = false;
   });
 
   const displayPreview = async (imageUrl) => {
@@ -240,6 +248,12 @@
       feedback.textContent = isSingleLink
         ? "Préparation de l’image propre à ce lien…"
         : "Personnalisez le texte avant de confirmer.";
+      const parentDialog = shareButton.closest("dialog[open]");
+      if (parentDialog && parentDialog !== composer) {
+        suspendedDialog = parentDialog;
+        suspendedDialogBodyClass = document.body.classList.contains("digest-modal-open");
+        parentDialog.close();
+      }
       composer.showModal();
       textField.focus();
       if (isSingleLink) {
