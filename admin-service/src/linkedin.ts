@@ -478,6 +478,7 @@ export class LinkedInService {
         registerUploadRequest: {
           recipes: ["urn:li:digitalmediaRecipe:feedshare-image"],
           owner: author,
+          supportedUploadMechanism: ["SYNCHRONOUS_UPLOAD"],
           serviceRelationships: [
             {
               relationshipType: "OWNER",
