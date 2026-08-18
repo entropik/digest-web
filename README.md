@@ -110,6 +110,11 @@ Le bouton des pages d’archive publie un post LinkedIn natif avec le texte, le
 permalien et le PNG carré 1200 × 1200 dédié à LinkedIn. Il ne repose pas sur la
 miniature d’un partage de lien.
 
+Le carré remplit la largeur du fil LinkedIn. Dans la visionneuse agrandie de
+bureau, LinkedIn le centre parfois dans une colonne plus haute que large : les
+bandes gris sombre visibles au-dessus et au-dessous appartiennent à cette
+interface et ne sont pas intégrées au PNG.
+
 Créer une application dans le portail LinkedIn Developers, puis activer les
 produits **Sign In with LinkedIn using OpenID Connect** et
 **Share on LinkedIn**. Déclarer exactement cette URL de redirection :
@@ -134,6 +139,13 @@ le titre, le domaine et l’encre corail OOBLIK. Les PNG sont conservés dans
 `LINKEDIN_CAPTURE_DIRECTORY`; « Régénérer l’image » force une nouvelle prise.
 Si le site refuse la navigation automatisée, une carte typographique propre à
 ce lien remplace la capture — jamais l’affiche générique de son édition.
+
+L’image est enregistrée auprès de LinkedIn avec le mécanisme d’upload
+synchrone avant la création du post. Si une ancienne publication mémorisée par
+le Digest est pourtant inaccessible sur LinkedIn, l’interface affiche une
+action explicite « Republier si le post est inaccessible ». Cette action
+autorise un nouvel essai pour la même URL sans désactiver la protection normale
+contre les doublons.
 
 #### Lectures GitHub et cache
 

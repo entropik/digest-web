@@ -6,12 +6,12 @@ sur l’installation et l’exploitation.
 
 ## État documenté
 
-Dernière mise à jour : 17 août 2026.
+Dernière mise à jour : 18 août 2026.
 
-- 3 992 liens dans le catalogue ;
-- 836 éditions archivées ;
+- 4 005 liens dans le catalogue ;
+- 837 éditions archivées ;
 - 937 pages de tags ;
-- journal couvrant six journées actives, du 24 juillet au 17 août 2026 ;
+- journal couvrant sept journées actives, du 24 juillet au 18 août 2026 ;
 - site public Hugo, administration propriétaire et extension Chrome de
   curation, images sociales et publication LinkedIn native.
 
