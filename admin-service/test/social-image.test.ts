@@ -232,6 +232,18 @@ test("the tag explorer uses one fingerprinted Hugo asset", async () => {
   assert.match(script, /document\.querySelector\("\[data-tag-explorer\]"\)/);
 });
 
+test("Hugo language metadata uses the current APIs", async () => {
+  const [base, rss, openGraph] = await Promise.all([
+    readFile(new URL("../../layouts/baseof.html", import.meta.url), "utf8"),
+    readFile(new URL("../../layouts/rss.xml", import.meta.url), "utf8"),
+    readFile(new URL("../../layouts/partials/templates/opengraph.html", import.meta.url), "utf8"),
+  ]);
+  assert.match(base, /\.Language\.Direction/);
+  assert.match(rss, /site\.Language\.Locale/);
+  assert.match(openGraph, /site\.Language\.Locale/);
+  assert.doesNotMatch(`${base}\n${rss}\n${openGraph}`, /LanguageDirection|LanguageCode/);
+});
+
 test("social image counts follow public link visibility", async () => {
   const [backfill, curation] = await Promise.all([
     readFile(
