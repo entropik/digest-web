@@ -74,6 +74,15 @@ test("draft toolbar exposes an accessible select-all toggle", () => {
   );
 });
 
+test("draft saves render the persisted server response without a stale reload", () => {
+  assert.match(adminJs, /Tags, séparés par des virgules/);
+  assert.match(
+    adminJs,
+    /drafts=drafts\.map\(\(draft\)=>draft\.id===data\.draft\.id\?data\.draft:draft\);renderDrafts\(\)/,
+  );
+  assert.match(adminJs, /data\.draft\.tags\.length\+" tag"/);
+});
+
 test("publication uses one count-aware action and keeps server validation implicit", () => {
   const page = dashboardPage("Marc");
 
