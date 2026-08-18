@@ -95,7 +95,7 @@ test("publishing uploads the PNG then creates one native image post with its URL
         name: "Compte de publication",
       });
     }
-    if (url.endsWith("/social/2026-08-16.png")) {
+    if (url.endsWith("/social/2026-08-16-linkedin.png")) {
       return new Response(new Uint8Array([137, 80, 78, 71]), {
         headers: { "Content-Type": "image/png" },
       });
@@ -137,7 +137,7 @@ test("publishing uploads the PNG then creates one native image post with its URL
     title: "Web Digest — 16 août 2026",
     text: "IA, développement, design et création numérique.",
     url: "https://digest.ooblik.com/archives/2026-08-16/",
-    imageUrl: "/social/2026-08-16.png",
+    imageUrl: "/social/2026-08-16-linkedin.png",
   });
   assert.equal(result.alreadyPublished, false);
   assert.equal(result.postUrl, "https://www.linkedin.com/feed/update/urn:li:share:post-123");
@@ -155,7 +155,7 @@ test("publishing uploads the PNG then creates one native image post with its URL
     title: "Web Digest — 16 août 2026",
     text: "IA, développement, design et création numérique.",
     url: "https://digest.ooblik.com/archives/2026-08-16/",
-    imageUrl: "/social/2026-08-16.png",
+    imageUrl: "/social/2026-08-16-linkedin.png",
   });
   assert.equal(repeated.alreadyPublished, true);
   assert.equal(calls.filter(({ url }) => url.endsWith("/v2/ugcPosts")).length, 1);

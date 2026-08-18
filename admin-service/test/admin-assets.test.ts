@@ -44,7 +44,7 @@ test("the private dashboard displays the current site version after logout", () 
 
   assert.match(
     page,
-    /<button id="admin-logout" type="button">Se déconnecter<\/button>\s*<span class="admin-version" aria-label="Version v1\.8\.1">v1\.8\.1<\/span>/,
+    /<button id="admin-logout" type="button">Se déconnecter<\/button>\s*<span class="admin-version" aria-label="Version v1\.8\.2">v1\.8\.2<\/span>/,
   );
   assert.match(adminCss, /\.admin-version\{/);
 });
