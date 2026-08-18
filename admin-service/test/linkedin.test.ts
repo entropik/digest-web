@@ -168,6 +168,15 @@ test("publishing uploads the PNG then creates one native image post with its URL
   assert.equal(repeated.alreadyPublished, true);
   assert.equal(calls.filter(({ url }) => url.endsWith("/v2/ugcPosts")).length, 1);
 
+  const retried = await service.publish("admin-2", {
+    title: "Web Digest — 16 août 2026",
+    text: "IA, développement, design et création numérique.",
+    url: "https://digest.ooblik.com/archives/2026-08-16/",
+    imageUrl: "/social/2026-08-16-linkedin.png",
+  }, true);
+  assert.equal(retried.alreadyPublished, false);
+  assert.equal(calls.filter(({ url }) => url.endsWith("/v2/ugcPosts")).length, 2);
+
   const linkResult = await service.publishLink("admin-2", {
     title: "Une ressource du Digest",
     text: "À lire. #Design",
@@ -222,7 +231,7 @@ test("publishing uploads the PNG then creates one native image post with its URL
   await firstPublication;
   assert.equal(
     calls.filter(({ url }) => url.endsWith("/v2/ugcPosts")).length,
-    4,
+    5,
   );
 });
 

@@ -325,6 +325,8 @@ test("LinkedIn native publishing uses the authenticated server API", async () =>
   assert.match(script, /"\/api\/admin\/linkedin\/publish"/);
   assert.match(script, /LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN/);
   assert.match(script, /Vérifiez votre profil LinkedIn avant toute action/);
+  assert.match(script, /Republier si le post est inaccessible/);
+  assert.match(script, /submitPublication\(true\)/);
   assert.match(script, /confirm: true/);
   assert.match(script, /composer\.showModal\(\)/);
   assert.match(script, /shareButton\.closest\("dialog\[open\]"\)/);

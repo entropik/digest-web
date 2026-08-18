@@ -280,10 +280,15 @@ app.post("/api/admin/linkedin/publish", async (context) =>
       text: string;
       url: string;
       imageUrl: string;
+      retry?: boolean;
       confirm?: boolean;
     }>(context);
     requireConfirmation(body);
-    return linkedin.publish(context.get("admin").user.id, body);
+    return linkedin.publish(
+      context.get("admin").user.id,
+      body,
+      body.retry === true,
+    );
   }),
 );
 
@@ -305,17 +310,22 @@ app.post("/api/admin/linkedin/publish-link", async (context) =>
     const body = await jsonBody<{
       linkId: string;
       text: string;
+      retry?: boolean;
       confirm?: boolean;
     }>(context);
     requireConfirmation(body);
     const link = await curation.publishedLink(String(body.linkId || ""));
     const image = await linkSocialImages.imageFor(link);
-    return linkedin.publishLink(context.get("admin").user.id, {
-      title: link.title,
-      text: body.text,
-      url: link.url,
-      imageUrl: image.imageUrl,
-    });
+    return linkedin.publishLink(
+      context.get("admin").user.id,
+      {
+        title: link.title,
+        text: body.text,
+        url: link.url,
+        imageUrl: image.imageUrl,
+      },
+      body.retry === true,
+    );
   }),
 );
 

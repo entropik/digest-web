@@ -359,26 +359,29 @@ export class LinkedInService {
     return row.return_to;
   }
 
-  async publish(adminUserId: string, input: PublicationInput) {
+  async publish(adminUserId: string, input: PublicationInput, retry = false) {
     return this.publishValidated(
       adminUserId,
       this.validatePublication(input),
+      retry,
     );
   }
 
-  async publishLink(adminUserId: string, input: PublicationInput) {
+  async publishLink(adminUserId: string, input: PublicationInput, retry = false) {
     return this.publishValidated(
       adminUserId,
       this.validatePublication(input, true),
+      retry,
     );
   }
 
   private async publishValidated(
     adminUserId: string,
     validated: PublicationInput,
+    retry: boolean,
   ) {
     this.requireConfiguration(adminUserId);
-    const reservation = this.reservePublication(adminUserId, validated.url);
+    const reservation = this.reservePublication(adminUserId, validated.url, retry);
     if (reservation.previousPostUrn) {
       return {
         postUrn: reservation.previousPostUrn,
@@ -587,6 +590,7 @@ export class LinkedInService {
   private reservePublication(
     adminUserId: string,
     publicationUrl: string,
+    retry: boolean,
   ): { token?: string; previousPostUrn?: string; outcomeUnknown?: boolean } {
     return this.database.transaction(() => {
       const now = Date.now();
@@ -596,10 +600,6 @@ export class LinkedInService {
            WHERE expires_at <= ? AND state = 'reserved'`,
         )
         .run(now);
-      const previous = this.database
-        .prepare("SELECT post_urn FROM linkedin_publications WHERE archive_url = ?")
-        .get(publicationUrl) as { post_urn: string } | undefined;
-      if (previous) return { previousPostUrn: previous.post_urn };
       const unresolved = this.database
         .prepare(
           `SELECT state FROM linkedin_publication_reservations
@@ -607,6 +607,18 @@ export class LinkedInService {
         )
         .get(publicationUrl) as { state: string } | undefined;
       if (unresolved?.state === "submitting") return { outcomeUnknown: true };
+      const previous = this.database
+        .prepare("SELECT post_urn FROM linkedin_publications WHERE archive_url = ?")
+        .get(publicationUrl) as { post_urn: string } | undefined;
+      if (previous && !retry) return { previousPostUrn: previous.post_urn };
+      if (previous) {
+        this.database
+          .prepare(
+            `DELETE FROM linkedin_publications
+             WHERE archive_url = ? AND admin_user_id = ?`,
+          )
+          .run(publicationUrl, adminUserId);
+      }
       const token = randomBytes(24).toString("base64url");
       const inserted = this.database
         .prepare(
