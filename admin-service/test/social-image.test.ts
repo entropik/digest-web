@@ -302,6 +302,9 @@ test("LinkedIn native publishing uses the authenticated server API", async () =>
   assert.match(script, /Vérifiez votre profil LinkedIn avant toute action/);
   assert.match(script, /confirm: true/);
   assert.match(script, /composer\.showModal\(\)/);
+  assert.match(script, /shareButton\.closest\("dialog\[open\]"\)/);
+  assert.match(script, /parentDialog\.close\(\)/);
+  assert.match(script, /suspendedDialog\.showModal\(\)/);
   assert.match(script, /textField\.value\.trim\(\)/);
   assert.match(script, /textField\.value = ""/);
   assert.match(script, /maxCommentaryLength = 3000/);
