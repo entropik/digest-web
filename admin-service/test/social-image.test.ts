@@ -278,11 +278,15 @@ test("social image counts follow public link visibility", async () => {
 });
 
 test("LinkedIn native publishing uses the authenticated server API", async () => {
-  const [script, headPartial, composer] = await Promise.all([
+  const [script, headPartial, composer, stylesheet] = await Promise.all([
     readFile(new URL("../../assets/js/linkedin-image.js", import.meta.url), "utf8"),
     readFile(new URL("../../layouts/_partials/extend_head.html", import.meta.url), "utf8"),
     readFile(
       new URL("../../layouts/partials/linkedin-composer.html", import.meta.url),
+      "utf8",
+    ),
+    readFile(
+      new URL("../../assets/css/extended/digest.css", import.meta.url),
       "utf8",
     ),
   ]);
@@ -319,6 +323,8 @@ test("LinkedIn native publishing uses the authenticated server API", async () =>
   assert.match(headPartial, /\$linkedinImage\.RelPermalink/);
   assert.match(composer, /data-linkedin-character-count/);
   assert.doesNotMatch(composer, /maxlength="1250"|maxlength="200"/);
+  assert.match(stylesheet, /font-variant-ligatures: none/);
+  assert.match(stylesheet, /font-feature-settings: "liga" 0, "calt" 0/);
 });
 
 test("archive Open Graph images declare their large preview dimensions", async () => {
