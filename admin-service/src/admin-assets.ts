@@ -268,7 +268,7 @@ const renderDrafts=()=>{
       '<label>Titre<input name="title" value="'+esc(draft.title)+'"></label>'+
       '<label>Catégorie<select name="category">'+categoryOptions(draft.category)+'</select></label>'+
       '<label class="wide">Résumé<textarea name="description" rows="3">'+esc(draft.description)+'</textarea></label>'+
-      '<label class="wide">Tags existants, séparés par des virgules<input name="tags" value="'+esc(draft.tags.join(", "))+'" list="known-tags"></label>'+
+      '<label class="wide">Tags, séparés par des virgules<input name="tags" value="'+esc(draft.tags.join(", "))+'" list="known-tags"></label>'+
       '<label class="wide">Note privée<textarea name="privateNote" rows="2">'+esc(draft.privateNote)+'</textarea></label></div>'+
       '<div class="card-actions"><span class="'+(gaps.length?'missing':'complete')+'">'+(gaps.length?'Manque : '+esc(gaps.join(", ")):'Prêt à publier')+'</span><div><button type="button" data-delete-draft>Supprimer</button> <button type="button" data-save-draft>Enregistrer</button></div></div></div></article>';
   }).join("")+'<datalist id="known-tags">'+options.tags.map((tag)=>'<option value="'+esc(tag)+'"></option>').join("")+'</datalist>';
@@ -283,9 +283,8 @@ document.querySelector("#draft-list")?.addEventListener("click",async(event)=>{
   if(!save&&!remove)return;
   event.target.disabled=true;
   try{
-    if(remove){await api("/api/admin/curation/drafts/"+encodeURIComponent(card.dataset.draftId),{method:"DELETE",body:JSON.stringify({confirm:true})});selected.delete(card.dataset.draftId);show("Brouillon supprimé.")}
-    else{await api("/api/admin/curation/drafts/"+encodeURIComponent(card.dataset.draftId),{method:"PATCH",body:JSON.stringify(draftBody(card))});show("Brouillon enregistré.")}
-    await loadDrafts();
+    if(remove){await api("/api/admin/curation/drafts/"+encodeURIComponent(card.dataset.draftId),{method:"DELETE",body:JSON.stringify({confirm:true})});selected.delete(card.dataset.draftId);show("Brouillon supprimé.");await loadDrafts()}
+    else{const data=await api("/api/admin/curation/drafts/"+encodeURIComponent(card.dataset.draftId),{method:"PATCH",body:JSON.stringify(draftBody(card))});drafts=drafts.map((draft)=>draft.id===data.draft.id?data.draft:draft);renderDrafts();show("Brouillon enregistré · "+data.draft.tags.length+" tag"+(data.draft.tags.length>1?"s":"")+".")}
   }catch(error){event.target.disabled=false;show("Erreur : "+error.message)}
 });
 const filterDrafts=()=>{
