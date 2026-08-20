@@ -67,6 +67,11 @@ catégorie portent en revanche sur tous ses liens publics : une catégorie comme
 « Mémoire du web social » peut donc ouvrir ses archives Twitter, Instagram,
 Tumblr et blog sans transformer la page d’accueil en flux continu.
 
+Après un changement de folio, le début de la nouvelle grille doit être aligné
+juste sous l’en-tête et le cartouche de filtres sticky. Le calcul de défilement
+s’ancre sur la position naturelle de la grille, jamais sur la position visuelle
+du cartouche devenu collant.
+
 La description est un court texte d’orientation éditoriale, pas une suite de
 mots-clés. En son absence, l’interface peut afficher une phrase de repli sobre,
 mais le texte administré reste prioritaire.

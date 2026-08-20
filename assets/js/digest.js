@@ -477,9 +477,17 @@
     if (urlMode) syncPageUrl(urlMode);
     if (scroll) {
       window.requestAnimationFrame(() => {
-        const header = document.querySelector(".header");
-        const top = Math.max(0, tools.offsetTop - (header?.offsetHeight || 0));
-        window.scrollTo({ top, behavior: "smooth" });
+        window.requestAnimationFrame(() => {
+          const header = document.querySelector(".header");
+          const headerHeight = header?.offsetHeight || 0;
+          const gridTop = window.scrollY + grid.getBoundingClientRect().top;
+          const stickyToolsHeight =
+            window.getComputedStyle(tools).position === "sticky"
+              ? tools.getBoundingClientRect().height
+              : 0;
+          const top = Math.max(0, gridTop - headerHeight - stickyToolsHeight);
+          window.scrollTo({ top, behavior: "smooth" });
+        });
       });
     }
   };

@@ -201,7 +201,9 @@ test("the home loads its compact search index only when interaction needs it", a
   assert.match(script, /const loadLinks = \(\) =>/);
   assert.match(script, /stream: entry\.m \|\| ""/);
   assert.match(script, /category === "all" && !link\.stream/);
-  assert.match(script, /tools\.offsetTop - \(header\?\.offsetHeight \|\| 0\)/);
+  assert.match(script, /gridTop - headerHeight - stickyToolsHeight/);
+  assert.match(script, /getComputedStyle\(tools\)\.position === "sticky"/);
+  assert.match(script, /requestAnimationFrame\(\(\) => \{\s*window\.requestAnimationFrame/);
   assert.match(script, /fetch\(indexUrl,/);
   assert.match(script, /const withLinks = async \(task, onError = null\) =>/);
   assert.match(script, /search\.addEventListener\("input",[\s\S]*?withLinks/);
