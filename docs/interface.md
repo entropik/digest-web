@@ -67,6 +67,11 @@ catégorie portent en revanche sur tous ses liens publics : une catégorie comme
 « Mémoire du web social » peut donc ouvrir ses archives Twitter, Instagram,
 Tumblr et blog sans transformer la page d’accueil en flux continu.
 
+Les cartes issues des « Archives du blog OOBLIK » peuvent recevoir un bandeau
+photographique 16:9 local. L’image réserve sa hauteur avant chargement, garde
+des angles droits et un filet inférieur. La même image ouvre la modale ; une
+carte sans image conserve exactement la composition typographique habituelle.
+
 Après un changement de folio, le début de la nouvelle grille doit être aligné
 juste sous l’en-tête et le cartouche de filtres sticky. Le calcul de défilement
 s’ancre sur la position naturelle de la grille, jamais sur la position visuelle

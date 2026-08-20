@@ -49,9 +49,11 @@
   const modalTitle = document.querySelector("#digest-modal-title");
   const modalCategory = document.querySelector("#digest-modal-category");
   const modalDescription = document.querySelector("#digest-modal-description");
+  const modalImage = document.querySelector("#digest-modal-image");
   const modalTags = document.querySelector("#digest-modal-tags");
   const modalUrl = document.querySelector("#digest-modal-url");
   const modalLink = document.querySelector("#digest-modal-link");
+  const modalOrigin = document.querySelector("#digest-modal-origin");
   const modalFavorite = document.querySelector("#digest-modal-favorite");
   const modalAdminTools = document.querySelector("#digest-modal-admin-tools");
   const modalTagEditor = document.querySelector("#digest-modal-tag-editor");
@@ -105,6 +107,9 @@
     status_note: entry.n || "",
     archive_url: entry.r || "",
     archive_scope: entry.o || "",
+    image: entry.p || "",
+    image_alt: entry.l || "",
+    origin_url: entry.q || "",
   });
 
   const loadLinks = () => {
@@ -333,7 +338,25 @@
     trigger.dataset.tags = (link.tags || []).join("|");
     trigger.dataset.status = link.status || "";
     trigger.dataset.statusNote = link.status_note || "";
+    trigger.dataset.image = link.image || "";
+    trigger.dataset.imageAlt = link.image_alt || "";
+    trigger.dataset.originUrl = link.origin_url || "";
     trigger.setAttribute("aria-label", `${link.title} — afficher le résumé`);
+
+    if (link.image) {
+      const image = document.createElement("img");
+      image.className = "digest-card-image";
+      image.src = link.image;
+      image.alt = link.image_alt || "";
+      image.width = 960;
+      image.height = 540;
+      image.loading = "lazy";
+      image.decoding = "async";
+      trigger.append(image);
+    }
+
+    const content = document.createElement("div");
+    content.className = "digest-card-content";
 
     const top = document.createElement("div");
     top.className = "digest-card-top";
@@ -381,7 +404,8 @@
     date.textContent = dateFormatter.format(new Date(`${link.added}T12:00:00`));
     meta.append(hostLabel, date);
 
-    trigger.append(top, title, meta);
+    content.append(top, title, meta);
+    trigger.append(content);
     const favorite = document.createElement("button");
     favorite.className = "digest-favorite";
     favorite.type = "button";
@@ -668,6 +692,16 @@
     modalDescription.textContent =
       [link.status_note, link.description].filter(Boolean).join(" ") ||
       "Aucun résumé n’est encore disponible pour cette ressource.";
+    modalImage.hidden = !link.image;
+    if (link.image) {
+      modalImage.src = link.image;
+      modalImage.alt = link.image_alt || "";
+    } else {
+      modalImage.removeAttribute("src");
+      modalImage.alt = "";
+    }
+    modalOrigin.hidden = !link.origin_url;
+    if (link.origin_url) modalOrigin.href = link.origin_url;
     modalUrl.textContent = link.url;
     modalLink.href = isDead && archiveUrl ? archiveUrl : link.url;
     modalLink.textContent = isDead ? "Tester l’URL" : "Visiter le site";

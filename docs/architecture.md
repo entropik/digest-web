@@ -44,6 +44,30 @@ destination de consultation.
 Cette conservation ne s’applique jamais à une URL privée, locale,
 authentifiée ou contenant des informations sensibles.
 
+## Import ponctuel du Blog OOBLIK
+
+L’ancien blog est repris à partir d’un export WordPress WXR conservé hors Git,
+dans `import/wordpress/`. La commande `npm --prefix admin-service run
+import:wordpress -- --input <export.xml>` produit d’abord `report.json` et
+`ready.json` sans toucher au catalogue. Elle n’écrit dans `data/links.json` et
+`static/media/blog-ooblik/` qu’avec `--apply`.
+
+Chaque billet publié doit posséder une source externe publique non ambiguë. Les
+exceptions restent dans le rapport et peuvent être résolues dans un petit
+`overrides.json` indexé par identifiant WordPress. Les images du seul domaine du
+blog sont copiées avant son arrêt, débarrassées de leurs métadonnées et
+converties en WebP 960 × 540. L’opération est idempotente : une destination déjà
+présente dans le Digest gagne toujours.
+
+Quand l’hébergeur bloque les téléchargements automatisés, la copie FTP locale
+`import-blog/uploads` est détectée automatiquement ; `--media-root
+<wp-content/uploads>` permet d’en choisir une autre. L’importeur fait
+correspondre les URL du WXR à cette arborescence.
+La résolution refuse tout chemin sortant de ce répertoire et conserve le même
+traitement WebP déterministe. Les 2,7 Go de sources FTP restent ignorés par Git :
+seuls les médias réellement associés aux cartes sont recadrés, compressés avec
+l’effort WebP maximal et copiés dans le site.
+
 ## Administration propriétaire
 
 `admin-service/` est un service Node.js séparé du site statique :

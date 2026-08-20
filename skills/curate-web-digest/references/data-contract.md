@@ -31,6 +31,12 @@ historical address displayed to readers and used for deduplication.
 - `stream`: optional slug for a historical source stream kept outside the
   editorial homepage, such as `twitter`, `instagram`, `tumblr-ooblik`, or
   `blog-ooblik`.
+- `image`: optional local public path below `/media/blog-ooblik/` for an
+  imported Blog OOBLIK illustration.
+- `image_alt`: WordPress alternative text for `image`, or an empty string when
+  the illustration is decorative.
+- `origin_url`: optional original WordPress permalink retained as provenance;
+  `url` remains the external destination of the card.
 
 Example:
 

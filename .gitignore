@@ -2,6 +2,7 @@
 /resources/_gen/
 /.hugo_build.lock
 /import/
+/import-blog/
 __pycache__/
 *.py[cod]
 /admin-service/dist/

@@ -60,7 +60,7 @@ export const dashboardPage = (name: string) =>
         <a href="https://chromewebstore.google.com/detail/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer">Installer l’extension</a>
         <a href="/">Voir le Digest</a>
         <button id="admin-logout" type="button">Se déconnecter</button>
-        <span class="admin-version" aria-label="Version v1.11.3">v1.11.3</span>
+        <span class="admin-version" aria-label="Version v1.12.0">v1.12.0</span>
       </div>
     </header>
     <nav class="admin-nav" aria-label="Administration">

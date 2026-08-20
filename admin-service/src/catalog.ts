@@ -1,3 +1,5 @@
+import { canonicalizePublicUrl } from "./urls.js";
+
 export type DigestLink = {
   id: string;
   title: string;
@@ -6,6 +8,10 @@ export type DigestLink = {
   added: string;
   description?: string;
   tags?: string[];
+  image?: string;
+  image_alt?: string;
+  origin_url?: string;
+  stream?: string;
   visibility?: "hidden";
   hidden_at?: string;
   previous_urls?: string[];
@@ -38,6 +44,27 @@ export const parseCatalog = (text: string): DigestLink[] => {
     }
     if (ids.has(link.id)) throw new Error(`Duplicate link id: ${link.id}`);
     ids.add(link.id);
+    if (
+      link.image !== undefined &&
+      (typeof link.image !== "string" ||
+        !link.image.startsWith("/media/blog-ooblik/") ||
+        link.image.includes(".."))
+    ) {
+      throw new Error(`Catalog item ${index} has an invalid image`);
+    }
+    if (
+      link.image_alt !== undefined &&
+      (typeof link.image_alt !== "string" || link.image === undefined)
+    ) {
+      throw new Error(`Catalog item ${index} has an invalid image_alt`);
+    }
+    if (link.origin_url !== undefined) {
+      try {
+        canonicalizePublicUrl(link.origin_url);
+      } catch {
+        throw new Error(`Catalog item ${index} has an invalid origin_url`);
+      }
+    }
     if (link.visibility && link.visibility !== "hidden") {
       throw new Error(`Unsupported visibility for link ${link.id}`);
     }

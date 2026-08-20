@@ -33,6 +33,8 @@
     "a" .added
     "m" (.stream | default "")
   }}
+  {{ if .image }}{{ $entry = merge $entry (dict "p" .image "l" (.image_alt | default "")) }}{{ end }}
+  {{ with .origin_url }}{{ $entry = merge $entry (dict "q" .) }}{{ end }}
   {{ with .status }}{{ $entry = merge $entry (dict "s" .) }}{{ end }}
   {{ with .status_note }}{{ $entry = merge $entry (dict "n" .) }}{{ end }}
   {{ with .archive_url }}{{ $entry = merge $entry (dict "r" .) }}{{ end }}
@@ -153,21 +155,29 @@
         data-tags="{{ with $link.tags }}{{ delimit . "|" }}{{ end }}"
         data-status="{{ $link.status | default "" }}"
         data-status-note="{{ $link.status_note | default "" }}"
+        data-image="{{ $link.image | default "" }}"
+        data-image-alt="{{ $link.image_alt | default "" }}"
+        data-origin-url="{{ $link.origin_url | default "" }}"
         aria-label="{{ $link.title }} — afficher le résumé">
-        <div class="digest-card-top">
-          <div class="digest-card-labels">
-            <span class="digest-category">{{ $link.category }}</span>
-            {{ if eq ($link.status | default "") "dead" }}<span class="digest-status">Lien mort · conservé pour mémoire</span>{{ end }}
+        {{ with $link.image }}
+          <img class="digest-card-image" src="{{ . }}" alt="{{ $link.image_alt | default "" }}" width="960" height="540" loading="lazy" decoding="async">
+        {{ end }}
+        <div class="digest-card-content">
+          <div class="digest-card-top">
+            <div class="digest-card-labels">
+              <span class="digest-category">{{ $link.category }}</span>
+              {{ if eq ($link.status | default "") "dead" }}<span class="digest-status">Lien mort · conservé pour mémoire</span>{{ end }}
+            </div>
+            <span class="digest-arrow" aria-hidden="true">＋</span>
           </div>
-          <span class="digest-arrow" aria-hidden="true">＋</span>
-        </div>
-        <h2 class="link-title">
-          {{ partial "link-favicon.html" $link.url }}
-          <span>{{ $link.title }}</span>
-        </h2>
-        <div class="digest-meta">
-          <span>{{ $host.Host | strings.TrimPrefix "www." }}</span>
-          <time datetime="{{ $link.added }}">{{ time.Format "02 Jan 2006" $link.added }}</time>
+          <h2 class="link-title">
+            {{ partial "link-favicon.html" $link.url }}
+            <span>{{ $link.title }}</span>
+          </h2>
+          <div class="digest-meta">
+            <span>{{ $host.Host | strings.TrimPrefix "www." }}</span>
+            <time datetime="{{ $link.added }}">{{ time.Format "02 Jan 2006" $link.added }}</time>
+          </div>
         </div>
       </button>
       <button
@@ -204,6 +214,7 @@
         <path d="M6 6 18 18M18 6 6 18"></path>
       </svg>
     </button>
+    <img class="digest-modal-image" id="digest-modal-image" alt="" width="960" height="540" hidden>
     <p class="digest-kicker" id="digest-modal-category"></p>
     <h2 id="digest-modal-title"></h2>
     <p class="digest-modal-description" id="digest-modal-description"></p>
@@ -216,6 +227,7 @@
         </svg>
         <span>Favoris</span>
       </button>
+      <a class="digest-modal-origin" id="digest-modal-origin" target="_blank" rel="noopener noreferrer" hidden>Billet d’origine</a>
       <a id="digest-modal-link" target="_blank" rel="noopener noreferrer">Visiter le site</a>
     </div>
     <div class="digest-modal-admin-tools" id="digest-modal-admin-tools" hidden>

@@ -267,6 +267,19 @@ def normalize_item(
         if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", stream):
             raise ValueError(f"invalid stream slug: {stream}")
         normalized["stream"] = stream
+    image = str(item.get("image", "")).strip()
+    if image:
+        if not image.startswith("/media/blog-ooblik/") or ".." in image:
+            raise ValueError("image must be a local Blog OOBLIK media path")
+        normalized["image"] = image
+        normalized["image_alt"] = str(item.get("image_alt", "")).strip()
+    elif item.get("image_alt"):
+        raise ValueError("image_alt requires image")
+    origin_url = str(item.get("origin_url", "")).strip()
+    if origin_url:
+        normalized["origin_url"] = canonicalize(
+            origin_url, reject_sensitive=reject_sensitive
+        )
     visibility = str(item.get("visibility", "")).strip().lower()
     if visibility:
         if visibility != "hidden":
