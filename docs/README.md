@@ -6,19 +6,22 @@ sur l’installation et l’exploitation.
 
 ## État documenté
 
-Dernière mise à jour : 18 août 2026.
+Dernière mise à jour : 20 août 2026.
 
 - 4 005 liens dans le catalogue ;
 - 837 éditions archivées ;
 - 937 pages de tags ;
-- journal couvrant sept journées actives, du 24 juillet au 18 août 2026 ;
+- journal couvrant huit journées actives, du 24 juillet au 20 août 2026 ;
 - site public Hugo, administration propriétaire et extension Chrome de
-  curation, images sociales et publication LinkedIn native.
+  curation, taxonomie administrable, images sociales et publication LinkedIn
+  native.
 
 ## Parcours de lecture
 
 - [Architecture](architecture.md) : composants, données et flux de
   publication.
+- [Principes d’interface](interface.md) : identité suisse, cartouches,
+  interactions et accessibilité.
 - [Décisions](decisions.md) : choix structurants et raisons de ces choix.
 - [Journal du projet](journal/README.md) : billets quotidiens, conversations,
   commits, validations et déploiements.

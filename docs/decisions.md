@@ -172,3 +172,31 @@ La déduplication par URL reste la règle. Lorsqu’un ancien URN mémorisé mè
 un post inaccessible, l’interface le signale et propose une action de
 récupération explicite. Le clic sur ce libellé sans ambiguïté suffit : aucune
 seconde boîte de confirmation ne s’interpose.
+
+## 20 août 2026
+
+### La taxonomie devient une donnée éditoriale administrable
+
+Les grandes catégories ne sont plus implicites dans les seuls liens publiés.
+`data/categories.json` conserve leur nom et leur description, tandis que
+l’administration permet de les créer, modifier et supprimer avec les garde-fous
+nécessaires. Une catégorie vide reste visible : elle existe comme intention
+éditoriale avant de recevoir son premier lien.
+
+### L’interface suit une rigueur suisse et des cartouches d’architecte
+
+La navigation des catégories abandonne les pilules arrondies pour un registre
+typographique rectangulaire, numéroté et construit par filets. Cette direction
+cherche la densité, la lisibilité et une hiérarchie explicite plutôt qu’un
+habillage décoratif. Le rouge reste une encre d’accent, pas un remplissage
+systématique. La pagination reprend le même vocabulaire sous la forme d’un
+cartouche à trois cellules autour d’un folio compact.
+
+### La description s’ouvre comme le volet d’un plan
+
+La sélection d’une catégorie produit une transition spatiale : son cartouche
+reste seul à gauche et une fiche descriptive apparaît à droite. Les deux zones
+s’empilent sur mobile. Le retour à l’index restaure toutes les catégories et le
+focus clavier ; les animations respectent la préférence de mouvement réduit.
+Le détail de ces conventions se trouve dans le
+[guide d’interface](interface.md).

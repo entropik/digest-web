@@ -9,9 +9,9 @@ Le site est construit avec [Hugo](https://gohugo.io/) et le thème
 ## Documentation du projet
 
 La documentation durable se trouve dans [`docs/`](docs/README.md). Elle
-comprend l’architecture, les décisions structurantes et un
-[journal chronologique](docs/journal/README.md) avec un billet pour chaque
-journée active du projet.
+comprend l’architecture, les principes d’interface, les décisions structurantes
+et un [journal chronologique](docs/journal/README.md) avec un billet pour
+chaque journée active du projet.
 
 ## Développement
 

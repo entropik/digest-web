@@ -181,9 +181,13 @@
 <p class="digest-empty" id="digest-empty" hidden>Aucun lien ne correspond à cette recherche.</p>
 
 <nav class="digest-pagination" id="digest-pagination" aria-label="Pagination des liens"{{ if le $pageCount 1 }} hidden{{ end }}>
-  <button id="digest-page-prev" type="button" disabled>← Précédent</button>
-  <span id="digest-page-status" aria-live="polite">Page 1 sur {{ $pageCount }} · {{ len $links }} liens</span>
-  <button id="digest-page-next" type="button">Suivant →</button>
+  <button id="digest-page-prev" type="button" disabled>
+    <span aria-hidden="true">←</span><span>Précédent</span>
+  </button>
+  <span id="digest-page-status" aria-live="polite">Folio 01/{{ printf "%02d" $pageCount }} · {{ len $links }} liens</span>
+  <button id="digest-page-next" type="button">
+    <span>Suivant</span><span aria-hidden="true">→</span>
+  </button>
 </nav>
 
 <dialog class="digest-modal" id="digest-modal" aria-labelledby="digest-modal-title">

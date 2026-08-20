@@ -194,7 +194,7 @@ test("the home loads its compact search index only when interaction needs it", a
   assert.match(layout, /data-index-url="\{\{ \$digestIndex\.RelPermalink \}\}"/);
   assert.doesNotMatch(layout, /id="digest-data"/);
   assert.match(layout, /class="digest-favorite"/);
-  assert.match(layout, /Page 1 sur \{\{ \$pageCount \}\}/);
+  assert.match(layout, /Folio 01\/\{\{ printf "%02d" \$pageCount \}\}/);
   assert.match(script, /const loadLinks = \(\) =>/);
   assert.match(script, /fetch\(indexUrl,/);
   assert.match(script, /const withLinks = async \(task, onError = null\) =>/);

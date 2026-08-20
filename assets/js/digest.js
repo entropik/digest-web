@@ -467,7 +467,9 @@
     pagination.hidden = pageCount <= 1;
     pagePrev.disabled = currentPage === 1;
     pageNext.disabled = currentPage === pageCount;
-    pageStatus.textContent = `Page ${currentPage} sur ${pageCount} · ${filteredLinks.length} liens`;
+    const folio = String(currentPage).padStart(2, "0");
+    const folioCount = String(pageCount).padStart(2, "0");
+    pageStatus.textContent = `Folio ${folio}/${folioCount} · ${filteredLinks.length} liens`;
     renderedSearchRevision = searchRevision;
     renderedPage = currentPage;
 

@@ -42,3 +42,29 @@
 - Après fusion et déploiement, créer le tag Git annoté correspondant sur le
   commit effectivement déployé, puis vérifier que la même version apparaît dans
   le pied de page public et dans l’en-tête de l’administration.
+
+## Direction de l’interface
+
+- L’identité visuelle s’inspire de la rigueur du style typographique suisse et
+  des cartouches de plans d’architecte : grille explicite, filets fins,
+  numérotation, hiérarchie nette et densité maîtrisée.
+- Éviter les effets décoratifs génériques. La navigation des catégories ne doit
+  pas reprendre la forme de pilules arrondies : préférer des cellules
+  rectangulaires structurées. Réserver les formes rondes aux contrôles dont la
+  fonction les justifie, comme les favoris.
+- Les commandes `Précédent` et `Suivant` appartiennent au même langage : elles
+  forment avec le folio central un cartouche compact à filets partagés, sans
+  boutons arrondis isolés.
+- Les interactions doivent prolonger cette logique spatiale. Lorsqu’une
+  catégorie est sélectionnée, son cartouche reste à gauche, les autres
+  s’effacent et sa fiche descriptive apparaît à droite ; sur petit écran, les
+  deux éléments s’empilent.
+- `data/categories.json` est la source de vérité de la taxonomie publique et
+  privée. Afficher aussi les catégories sans lien, conserver leur description
+  administrable et ne jamais coder leurs noms en dur dans les gabarits.
+- Toute animation doit rester brève, informative et désactivable via
+  `prefers-reduced-motion`. Préserver le focus clavier, les états
+  `aria-pressed`, un retour explicite à toutes les catégories et l’absence de
+  débordement horizontal.
+- Vérifier les évolutions visuelles dans un navigateur réel sur ordinateur et
+  mobile. Le guide durable se trouve dans `docs/interface.md`.

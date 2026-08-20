@@ -23,9 +23,11 @@ branche main ── GitHub Actions ── branche production
 ## Site public
 
 Le site est construit avec Hugo et PaperMod. Le catalogue éditorial réside
-dans `data/links.json`; les éditions sont décrites dans
+dans `data/links.json`; la taxonomie et ses descriptions résident dans
+`data/categories.json`; les éditions sont décrites dans
 `content/archives/YYYY-MM-DD.md`. Les catégories puis les titres sont triés
-alphabétiquement.
+alphabétiquement. Une catégorie configurée reste disponible dans le registre
+public même lorsqu’aucun lien ne l’utilise encore.
 
 La branche `main` contient les sources. GitHub Actions valide les données et
 construit le site, puis force la branche `production` sur la sortie statique.
@@ -49,6 +51,7 @@ authentifiée ou contenant des informations sensibles.
 - authentification GitHub avec Better Auth ;
 - autorisation limitée à l’identité GitHub propriétaire ;
 - lecture et modification contrôlée du catalogue ;
+- création, renommage, description et suppression contrôlée des catégories ;
 - SQLite privée pour les brouillons et le suivi des publications ;
 - GitHub App limitée aux contenus du dépôt et à la lecture des Actions ;
 - sauvegardes avant migration et sauvegardes tournantes.
