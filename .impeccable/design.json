@@ -1,58 +1,273 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-16T00:00:00.000Z",
+  "generatedAt": "2026-08-20T15:24:21Z",
   "title": "Design System: OOBLIK Digest",
   "extensions": {
     "colorMeta": {
+      "interface-coral": {
+        "role": "primary",
+        "displayName": "Corail de repérage",
+        "canonical": "#FF5C35",
+        "tonalRamp": ["#3B0B02", "#681405", "#961F0B", "#C72F17", "#FF5C35", "#FF8569", "#FFB4A2", "#FFE3DA"]
+      },
       "ooblik-red": {
         "role": "primary",
         "displayName": "Rouge OOBLIK",
         "canonical": "#E10600",
         "tonalRamp": ["#3B0000", "#650000", "#900000", "#BA0200", "#E10600", "#F43A2C", "#FF7469", "#FFD8D4"]
       },
-      "absolute-black": {
+      "registry-ink": {
         "role": "neutral",
-        "displayName": "Noir absolu",
-        "canonical": "#0A0A0A",
-        "tonalRamp": ["#0A0A0A", "#242424", "#3E3E3E", "#5B5B5B", "#777777", "#969696", "#C8C8C8", "#F4F2ED"]
+        "displayName": "Encre de registre",
+        "canonical": "#161616",
+        "tonalRamp": ["#0A0A0A", "#161616", "#303030", "#4D4D4D", "#6B6B6B", "#919191", "#C4C4C4", "#F2F2F2"]
       },
-      "process-cyan": { "role": "secondary", "displayName": "Cyan process", "canonical": "#00AEEF", "tonalRamp": ["#002B3B", "#004C68", "#006D94", "#008EC1", "#00AEEF", "#49C4F4", "#91DCF9", "#D9F4FE"] },
-      "process-yellow": { "role": "secondary", "displayName": "Jaune process", "canonical": "#FFD500", "tonalRamp": ["#3D3300", "#665500", "#907800", "#B99B00", "#FFD500", "#FFE24A", "#FFED91", "#FFF8D5"] },
-      "process-magenta": { "role": "secondary", "displayName": "Magenta process", "canonical": "#EC008C", "tonalRamp": ["#3B0023", "#64003C", "#8D0054", "#B6006C", "#EC008C", "#F143A8", "#F78ACB", "#FDD5EB"] },
-      "primary-blue": { "role": "secondary", "displayName": "Bleu primaire", "canonical": "#1646D8", "tonalRamp": ["#071238", "#0A2062", "#0E2D8C", "#123AB5", "#1646D8", "#5476E4", "#93A8EF", "#D9E1FB"] }
+      "archive-paper": {
+        "role": "neutral",
+        "displayName": "Papier d’archive",
+        "canonical": "#F5F2EC",
+        "tonalRamp": ["#26231F", "#4C4841", "#746F66", "#9D978D", "#C2BDB4", "#DEDAD2", "#EEEAE3", "#F5F2EC"]
+      },
+      "page-gray": {
+        "role": "neutral",
+        "displayName": "Gris de page",
+        "canonical": "#F5F5F5",
+        "tonalRamp": ["#262626", "#4A4A4A", "#707070", "#989898", "#BDBDBD", "#D9D9D9", "#EAEAEA", "#F5F5F5"]
+      },
+      "muted-stone": {
+        "role": "neutral",
+        "displayName": "Pierre atténuée",
+        "canonical": "#77736D",
+        "tonalRamp": ["#24211E", "#3B3833", "#54504A", "#77736D", "#97928B", "#B8B3AC", "#D9D5CE", "#F2EFEA"]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Filet pâle",
+        "canonical": "#DEDBD5",
+        "tonalRamp": ["#25231F", "#4A4741", "#706C65", "#97928A", "#BAB6AF", "#D2CEC7", "#DEDBD5", "#F3F0EB"]
+      },
+      "dark-paper": {
+        "role": "neutral",
+        "displayName": "Papier sombre",
+        "canonical": "#1C1C1A",
+        "tonalRamp": ["#10100F", "#1C1C1A", "#393936", "#575753", "#777771", "#9D9D96", "#C9C9C2", "#F1F1EA"]
+      },
+      "dark-line": {
+        "role": "neutral",
+        "displayName": "Filet sombre",
+        "canonical": "#3A3936",
+        "tonalRamp": ["#171614", "#292825", "#3A3936", "#5A5853", "#7B7872", "#A09D96", "#CAC7C0", "#F1EEE8"]
+      },
+      "chalk-white": {
+        "role": "neutral",
+        "displayName": "Blanc craie",
+        "canonical": "#F4F2ED",
+        "tonalRamp": ["#25231F", "#4B4841", "#736F67", "#9B978E", "#C0BCB4", "#DDD9D2", "#ECE9E3", "#F4F2ED"]
+      },
+      "process-cyan": {
+        "role": "secondary",
+        "displayName": "Cyan process",
+        "canonical": "#00AEEF",
+        "tonalRamp": ["#002B3B", "#004C68", "#006D94", "#008EC1", "#00AEEF", "#49C4F4", "#91DCF9", "#D9F4FE"]
+      },
+      "process-yellow": {
+        "role": "secondary",
+        "displayName": "Jaune process",
+        "canonical": "#FFD500",
+        "tonalRamp": ["#3D3300", "#665500", "#907800", "#B99B00", "#FFD500", "#FFE24A", "#FFED91", "#FFF8D5"]
+      },
+      "process-magenta": {
+        "role": "secondary",
+        "displayName": "Magenta process",
+        "canonical": "#EC008C",
+        "tonalRamp": ["#3B0023", "#64003C", "#8D0054", "#B6006C", "#EC008C", "#F143A8", "#F78ACB", "#FDD5EB"]
+      },
+      "primary-blue": {
+        "role": "secondary",
+        "displayName": "Bleu primaire",
+        "canonical": "#1646D8",
+        "tonalRamp": ["#071238", "#0A2062", "#0E2D8C", "#123AB5", "#1646D8", "#5476E4", "#93A8EF", "#D9E1FB"]
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Grotesque monumentale", "purpose": "Titres, dates et matière graphique." },
-      "body": { "displayName": "Mono éditoriale", "purpose": "Descriptions et contenu courant." },
-      "label": { "displayName": "Mono signalétique", "purpose": "Métadonnées et actions courtes." }
+      "display": {
+        "displayName": "Grotesque monumentale",
+        "purpose": "Héros publics, grands titres et en-têtes d’archives."
+      },
+      "title": {
+        "displayName": "Grotesque de registre",
+        "purpose": "Titres de cartes, panneaux et éléments éditoriaux."
+      },
+      "body": {
+        "displayName": "Mono éditoriale",
+        "purpose": "Descriptions, contenu courant et champs de saisie."
+      },
+      "label": {
+        "displayName": "Mono signalétique",
+        "purpose": "Indices, métadonnées, compteurs et actions courtes."
+      }
     },
-    "shadows": [],
-    "motion": [],
+    "shadows": [
+      {
+        "name": "modal-layer",
+        "value": "0 24px 80px rgb(0 0 0 / 24%)",
+        "purpose": "Dialogue public au-dessus du registre."
+      },
+      {
+        "name": "composer-layer",
+        "value": "0 24px 80px rgb(0 0 0 / 35%)",
+        "purpose": "Éditeur de publication LinkedIn."
+      },
+      {
+        "name": "context-layer",
+        "value": "0 18px 45px rgb(0 0 0 / 18%)",
+        "purpose": "Calendrier et panneaux contextuels temporaires."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-fast",
+        "value": "160ms ease",
+        "purpose": "Inversions de couleur et retours d’état immédiats."
+      },
+      {
+        "name": "spatial-panel",
+        "value": "320ms cubic-bezier(.2, .75, .25, 1)",
+        "purpose": "Déplacement du cartouche et arrivée de la fiche de catégorie."
+      },
+      {
+        "name": "poster-reveal",
+        "value": "450ms cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Révélation contrôlée de la palette d’une affiche d’archive."
+      }
+    ],
     "breakpoints": [
-      { "name": "mobile", "value": "640px" },
-      { "name": "desktop", "value": "1024px" }
+      { "name": "compact", "value": "520px" },
+      { "name": "modal-mobile", "value": "650px" },
+      { "name": "tablet", "value": "800px" },
+      { "name": "navigation-mobile", "value": "900px" },
+      { "name": "admin-mobile", "value": "760px" }
     ]
   },
   "components": [
     {
-      "name": "Lien de partage",
+      "name": "Cellule de catégorie",
+      "kind": "nav",
+      "refersTo": "category-cell",
+      "description": "Cellule numérotée d’un registre jointif, avec compteur et inversion complète à l’état actif.",
+      "html": "<button class=\"ds-category\" type=\"button\" aria-pressed=\"false\"><span>03</span><strong>Design &amp; Création</strong><span>142</span></button>",
+      "css": ".ds-category{display:grid;min-height:4rem;grid-template-columns:1.75rem minmax(0,1fr) auto;align-items:center;gap:.45rem;padding:.7rem .65rem;border:0;border-right:1px solid var(--digest-ink,#161616);border-bottom:1px solid var(--digest-ink,#161616);border-radius:0;background:transparent;color:var(--digest-ink,#161616);font:700 .72rem var(--digest-font-body,'JetBrains Mono',monospace);text-align:left;cursor:pointer}.ds-category span{color:var(--digest-muted,#77736d);font-size:.66rem}.ds-category:hover,.ds-category:focus-visible,.ds-category[aria-pressed='true']{background:var(--digest-ink,#161616);color:var(--digest-paper,#f5f2ec);outline:0}.ds-category:hover span,.ds-category:focus-visible span,.ds-category[aria-pressed='true'] span{color:inherit;opacity:.62}"
+    },
+    {
+      "name": "Carte de ressource",
+      "kind": "card",
+      "refersTo": "digest-card",
+      "description": "Carte rectangulaire de la grille publique, structurée par titre, catégorie, domaine et date.",
+      "html": "<article class=\"ds-card\"><button type=\"button\"><small>DESIGN &amp; CRÉATION <span>＋</span></small><strong>Une ressource à garder</strong><small>example.org <time>20 AOÛT 2026</time></small></button></article>",
+      "css": ".ds-card{border-right:1px solid var(--digest-line,#dedbd5);border-bottom:1px solid var(--digest-line,#dedbd5)}.ds-card button{display:flex;width:100%;min-height:240px;flex-direction:column;padding:1.35rem;border:0;border-radius:0;background:transparent;color:var(--digest-ink,#161616);font-family:var(--digest-font-body,'JetBrains Mono',monospace);text-align:left;cursor:pointer;transition:background .18s ease,color .18s ease}.ds-card small{display:flex;justify-content:space-between;color:var(--digest-muted,#77736d);font-size:.72rem}.ds-card strong{margin:2rem 0 auto;font:650 clamp(1.25rem,2vw,1.65rem)/1.12 var(--digest-font-heading,'Bricolage Grotesque',sans-serif);letter-spacing:-.035em}.ds-card button:hover,.ds-card button:focus-visible{background:var(--digest-accent,#ff5c35);color:#111;outline:0}"
+    },
+    {
+      "name": "Action principale",
       "kind": "button",
-      "refersTo": "share-link",
-      "description": "Action rectangulaire, contrastée et sans effet de volume.",
-      "html": "<a class=\"ds-share\" href=\"#\">Partager sur LinkedIn ↗</a>",
-      "css": ".ds-share{display:inline-flex;min-height:44px;align-items:center;padding:0 16px;background:#0A0A0A;color:#F4F2ED;font:700 .78rem 'JetBrains Mono',monospace;text-decoration:none}.ds-share:hover,.ds-share:focus-visible{background:#E10600;color:#fff;outline:2px solid #0A0A0A;outline-offset:2px}"
+      "refersTo": "primary-action",
+      "description": "Action autonome corail, compacte et sans relief décoratif.",
+      "html": "<button class=\"ds-primary\" type=\"button\">ENREGISTRER</button>",
+      "css": ".ds-primary{min-height:44px;padding:.8rem 1rem;border:1px solid var(--digest-accent,#ff5c35);border-radius:.25rem;background:var(--digest-accent,#ff5c35);color:#111;font:700 .72rem var(--digest-font-body,'JetBrains Mono',monospace);letter-spacing:.04em;cursor:pointer}.ds-primary:hover{border-color:var(--digest-ink,#161616);background:var(--digest-ink,#161616);color:var(--digest-paper,#f5f2ec)}.ds-primary:focus-visible{outline:3px solid #b72e10;outline-offset:2px}.ds-primary:active{filter:brightness(.92)}"
+    },
+    {
+      "name": "Champ éditorial",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Champ monospace clair, bordé et conçu pour des formulaires éditoriaux denses.",
+      "html": "<label class=\"ds-field\">TITRE<input value=\"Une ressource à garder\"></label>",
+      "css": ".ds-field{display:grid;gap:.4rem;color:var(--digest-muted,#77736d);font:700 .72rem var(--digest-font-body,'JetBrains Mono',monospace);letter-spacing:.04em}.ds-field input{width:100%;box-sizing:border-box;padding:.72rem;border:1px solid var(--digest-line,#dedbd5);border-radius:.25rem;background:#fff;color:var(--digest-ink,#161616);font:400 1rem/1.6 var(--digest-font-body,'JetBrains Mono',monospace)}.ds-field input:hover{border-color:var(--digest-muted,#77736d)}.ds-field input:focus-visible{outline:3px solid #b72e10;outline-offset:2px}"
+    },
+    {
+      "name": "Cartouche de pagination",
+      "kind": "nav",
+      "description": "Trois cellules jointives qui conservent précédent, folio et suivant à toutes les largeurs.",
+      "html": "<nav class=\"ds-folio\" aria-label=\"Pagination\"><button type=\"button\">← PRÉCÉDENT</button><span>FOLIO 01/21 · 1045 LIENS</span><button type=\"button\">SUIVANT →</button></nav>",
+      "css": ".ds-folio{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.6fr) minmax(0,.7fr);border-top:1px solid var(--digest-ink,#161616);border-left:1px solid var(--digest-ink,#161616);font-family:var(--digest-font-body,'JetBrains Mono',monospace)}.ds-folio button,.ds-folio span{display:flex;min-height:3.15rem;align-items:center;justify-content:center;padding:.65rem .8rem;border:0;border-right:1px solid var(--digest-ink,#161616);border-bottom:1px solid var(--digest-ink,#161616);border-radius:0;background:transparent;color:var(--digest-ink,#161616);font:650 .68rem inherit}.ds-folio button{justify-content:space-between;cursor:pointer}.ds-folio button:hover,.ds-folio button:focus-visible{background:var(--digest-ink,#161616);color:var(--digest-paper,#f5f2ec);outline:0}.ds-folio button:active{background:var(--digest-accent,#ff5c35);color:#111}"
+    },
+    {
+      "name": "Contrôle favori",
+      "kind": "button",
+      "refersTo": "favorite-control",
+      "description": "Cercle fonctionnel réservé à la mémorisation locale d’une ressource.",
+      "html": "<button class=\"ds-favorite\" type=\"button\" aria-pressed=\"false\" aria-label=\"Ajouter aux favoris\">♡</button>",
+      "css": ".ds-favorite{display:grid;width:2rem;height:2rem;place-items:center;padding:0;border:1px solid var(--digest-line,#dedbd5);border-radius:50%;background:var(--digest-paper,#f5f2ec);color:var(--digest-muted,#77736d);font:400 1.15rem/1 var(--digest-font-body,'JetBrains Mono',monospace);cursor:pointer}.ds-favorite:hover,.ds-favorite:focus-visible,.ds-favorite[aria-pressed='true']{border-color:var(--digest-ink,#161616);color:#a33a2b;outline:0}.ds-favorite:active{background:var(--digest-accent,#ff5c35)}"
+    },
+    {
+      "name": "Tag éditorial",
+      "kind": "chip",
+      "description": "Petite pilule informative ; cette forme ne doit pas être étendue à la navigation des catégories.",
+      "html": "<button class=\"ds-tag\" type=\"button\">TYPOGRAPHIE ×</button>",
+      "css": ".ds-tag{padding:.25rem .5rem;border:1px solid var(--digest-line,#dedbd5);border-radius:999px;background:#fff;color:var(--digest-ink,#161616);font:700 .65rem var(--digest-font-body,'JetBrains Mono',monospace);letter-spacing:.05em;cursor:pointer}.ds-tag:hover,.ds-tag:focus-visible{border-color:var(--digest-accent,#ff5c35);color:#b72e10;outline:0}.ds-tag:active{background:var(--digest-accent,#ff5c35);color:#111}"
+    },
+    {
+      "name": "Carte d’archive",
+      "kind": "custom",
+      "description": "Affiche éditoriale corail au repos qui révèle sa palette générative au survol ou au focus.",
+      "html": "<a class=\"ds-archive\" href=\"#\"><span>ARCHIVE · 20 AOÛT 2026</span><strong>Ce qui mérite d’être gardé</strong><span>24 LIENS ↗</span></a>",
+      "css": ".ds-archive{display:flex;min-height:260px;flex-direction:column;padding:1.5rem;background:linear-gradient(145deg,rgba(10,10,10,.25),rgba(10,10,10,.78)),var(--digest-accent,#ff5c35);color:#fff;text-decoration:none;transition:filter .25s ease,transform .45s cubic-bezier(.16,1,.3,1)}.ds-archive span{font:700 .76rem var(--digest-font-body,'JetBrains Mono',monospace);letter-spacing:.06em}.ds-archive strong{margin:2.2rem 0 auto;font:750 clamp(1.8rem,4vw,3rem)/.98 var(--digest-font-heading,'Bricolage Grotesque',sans-serif);letter-spacing:-.045em}.ds-archive:hover{filter:saturate(1.25);transform:scale(1.015)}.ds-archive:focus-visible{outline:4px solid var(--digest-accent,#ff5c35);outline-offset:-4px}.ds-archive:active{filter:saturate(.8)}"
     }
   ],
   "narrative": {
     "northStar": "La grille insoumise",
-    "overview": "Une discipline suisse visible, localement sabotée par la typographie, les formes et les trames. Le chaos reste dirigé et le contenu conserve toujours une zone de lecture nette.",
-    "keyCharacteristics": ["Grille structurelle perceptible", "Typographie monumentale", "Chaos local et hiérarchie globale", "Trames d’impression", "Rouge et noir permanents"],
-    "rules": [
-      { "name": "Two-Ink Rule", "body": "Rouge et noir, puis au maximum deux encres d’accent.", "section": "colors" },
-      { "name": "Protected Copy Rule", "body": "Une lettre décorative peut être coupée ; un texte informatif ne l’est jamais.", "section": "typography" },
-      { "name": "Flat Print Rule", "body": "La profondeur vient des recouvrements et des aplats, jamais des ombres.", "section": "elevation" }
+    "overview": "OOBLIK Digest ressemble à un registre éditorial construit avec la discipline d’une composition suisse et la précision d’un cartouche d’architecte. Les grilles, indices, folios et filets partagés rendent l’information dense mais lisible ; ils donnent au site public, à l’administration et à l’extension la même sensation d’outil durable plutôt que d’interface SaaS générique.\n\nL’insoumission apparaît dans les écarts maîtrisés : titres monumentaux, affiches génératives, trames d’impression, compositions asymétriques et quelques formes rondes strictement fonctionnelles. Le chaos reste local. Les parcours, les métadonnées et le contenu éditorial conservent toujours une zone de lecture stable.",
+    "keyCharacteristics": [
+      "grille et filets structurels visibles ;",
+      "typographie grotesque monumentale associée à une monospace signalétique ;",
+      "cartouches rectangulaires numérotés et folios compacts ;",
+      "corail d’interface rare, noir structurant et papier chaud ;",
+      "accidents graphiques réservés aux affiches et aux moments éditoriaux."
     ],
-    "dos": ["Montrer la grille avant de la briser", "Employer des formes élémentaires", "Rendre l’aléatoire déterministe"],
-    "donts": ["Pas de dégradés IA", "Pas de glassmorphism ni de 3D molle", "Pas de bruit sans structure", "Ne jamais sacrifier la lisibilité"]
+    "rules": [
+      {
+        "name": "Accent-Is-a-Signal",
+        "body": "Le corail indique une action, un état ou un repère ; il ne remplit pas systématiquement les surfaces.",
+        "section": "colors"
+      },
+      {
+        "name": "Two-Ink",
+        "body": "Une affiche conserve rouge et noir comme signature puis choisit une seule encre process dominante.",
+        "section": "colors"
+      },
+      {
+        "name": "Protected Copy",
+        "body": "Une lettre décorative peut être coupée ; un titre informatif, une métadonnée ou une commande ne l’est jamais.",
+        "section": "typography"
+      },
+      {
+        "name": "Shared-Rule",
+        "body": "Des éléments appartenant au même registre partagent leurs filets ; ils ne deviennent pas des boutons isolés avec des marges entre eux.",
+        "section": "layout"
+      },
+      {
+        "name": "Flat-By-Default",
+        "body": "Une surface au repos n’a pas d’ombre ; une ombre signifie qu’une couche temporaire est réellement passée au-dessus du contenu.",
+        "section": "elevation"
+      },
+      {
+        "name": "Functional-Radius",
+        "body": "Un arrondi doit signaler une fonction ou une couche distincte ; la taxonomie et la pagination restent strictement rectangulaires.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "**Do** montrer la grille et les filets avant de les briser localement.",
+      "**Do** associer catégories, pagination et navigation à des indices, noms et métadonnées stables.",
+      "**Do** employer le corail comme signal rare et conserver un contraste WCAG AA pour toute information essentielle.",
+      "**Do** rendre les compositions génératives déterministes et protéger les titres, dates et compteurs.",
+      "**Do** empiler les relations spatiales sur mobile sans changer leur ordre ni créer de débordement horizontal.",
+      "**Do** désactiver transitions et animations avec `prefers-reduced-motion`."
+    ],
+    "donts": [
+      "**Don't** transformer les catégories ou la pagination en pilules ou boutons arrondis isolés.",
+      "**Don't** employer glassmorphism, 3D molle, ombres diffuses décoratives ou dégradés violet-bleu génériques.",
+      "**Don't** utiliser les encres process comme une palette arc-en-ciel dans l’interface fonctionnelle.",
+      "**Don't** confondre un état de chargement avec une progression fictive.",
+      "**Don't** sacrifier une information, un focus clavier ou la lisibilité à une collision, une trame ou une animation."
+    ]
   }
 }
