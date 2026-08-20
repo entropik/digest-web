@@ -12,6 +12,12 @@
   {{ $categories = $categories | append .category }}
 {{ end }}
 {{ $categories = uniq $categories | sort }}
+{{ $categoryDescriptions := dict }}
+{{ range hugo.Data.categories }}
+  {{ $categories = $categories | append .name }}
+  {{ $categoryDescriptions = merge $categoryDescriptions (dict .name (.description | default "")) }}
+{{ end }}
+{{ $categories = uniq $categories | sort }}
 {{ $initialLinks := first 51 $links }}
 {{ $pageCount := div (add (len $links) 50) 51 }}
 {{ $compactIndex := slice }}
@@ -80,16 +86,45 @@
       </div>
     </div>
   </div>
-  <div class="digest-filters" id="digest-filters">
-    <button class="is-active" type="button" data-category-label="all">Tout <span>{{ len $links }}</span></button>
-    <button class="digest-random" id="digest-random" type="button">Aléatoire</button>
-    {{ range $categories }}
-      {{ $category := . }}
-      <button type="button" data-category-label="{{ $category }}">{{ $category }} <span>{{ len (where $links "category" $category) }}</span></button>
-    {{ end }}
-    <button type="button" data-category-label="favorites">
-      ♥ Favoris <span id="digest-favorites-count">0</span>
-    </button>
+  <div class="digest-category-browser" id="digest-category-browser">
+    <div class="digest-filters" id="digest-filters" aria-label="Catégories">
+      <button class="is-active" type="button" data-category-label="all" aria-pressed="true">
+        <span class="digest-filter-index" aria-hidden="true">00</span>
+        <span class="digest-filter-name">Tout</span>
+        <span class="digest-filter-count">{{ len $links }}</span>
+      </button>
+      <button class="digest-random" id="digest-random" type="button" aria-pressed="false">
+        <span class="digest-filter-index" aria-hidden="true">R</span>
+        <span class="digest-filter-name">Aléatoire</span>
+        <span class="digest-filter-mark" aria-hidden="true">↗</span>
+      </button>
+      {{ range $index, $category := $categories }}
+        <button
+          type="button"
+          data-category-label="{{ $category }}"
+          data-category-description="{{ index $categoryDescriptions $category | default "" }}"
+          aria-pressed="false">
+          <span class="digest-filter-index" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
+          <span class="digest-filter-name">{{ $category }}</span>
+          <span class="digest-filter-count">{{ len (where $links "category" $category) }}</span>
+        </button>
+      {{ end }}
+      <button type="button" data-category-label="favorites" aria-pressed="false">
+        <span class="digest-filter-index" aria-hidden="true">F</span>
+        <span class="digest-filter-name">Favoris</span>
+        <span class="digest-filter-count" id="digest-favorites-count">0</span>
+      </button>
+    </div>
+    <aside class="digest-category-detail" id="digest-category-detail" aria-labelledby="digest-category-detail-title" hidden>
+      <div class="digest-category-detail-copy">
+        <p class="digest-category-detail-kicker">Catégorie sélectionnée</p>
+        <h2 id="digest-category-detail-title"></h2>
+        <p id="digest-category-detail-description"></p>
+      </div>
+      <button class="digest-category-reset" id="digest-category-reset" type="button">
+        <span aria-hidden="true">←</span> Toutes les catégories
+      </button>
+    </aside>
   </div>
 </section>
 

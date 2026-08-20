@@ -13,6 +13,13 @@
   const calendarClear = document.querySelector("#digest-calendar-clear");
   const calendarToday = document.querySelector("#digest-calendar-today");
   const filters = document.querySelector("#digest-filters");
+  const categoryBrowser = document.querySelector("#digest-category-browser");
+  const categoryDetail = document.querySelector("#digest-category-detail");
+  const categoryDetailTitle = document.querySelector("#digest-category-detail-title");
+  const categoryDetailDescription = document.querySelector(
+    "#digest-category-detail-description",
+  );
+  const categoryReset = document.querySelector("#digest-category-reset");
   const randomButton = document.querySelector("#digest-random");
   const favoritesCount = document.querySelector("#digest-favorites-count");
   const tools = document.querySelector(".digest-tools");
@@ -404,6 +411,25 @@
     randomButton.setAttribute("aria-pressed", "false");
   };
 
+  const syncCategoryBrowser = (button, requestedCategory) => {
+    filters.querySelectorAll("button[data-category-label]").forEach((filterButton) => {
+      const active = filterButton === button;
+      filterButton.classList.toggle("is-active", active);
+      filterButton.setAttribute("aria-pressed", String(active));
+    });
+
+    const hasDetail = requestedCategory !== "all" && requestedCategory !== "favorites";
+    categoryBrowser.classList.toggle("has-category-detail", hasDetail);
+    categoryDetail.hidden = !hasDetail;
+    if (!hasDetail) return;
+
+    const label = button.dataset.categoryLabel;
+    categoryDetailTitle.textContent = label;
+    categoryDetailDescription.textContent =
+      button.dataset.categoryDescription.trim() ||
+      `Une sélection de liens consacrés à « ${label} ».`;
+  };
+
   const getDisplayState = () => {
     const filteredLinks = getFilteredLinks();
     const randomLink = randomLinkUrl
@@ -477,9 +503,20 @@
       category = requestedCategory;
       currentPage = 1;
       clearRandomSelection();
-      filters.querySelector(".is-active")?.classList.remove("is-active");
-      button.classList.add("is-active");
+      syncCategoryBrowser(button, requestedCategory);
       render({ urlMode: "replace" });
+    });
+  });
+
+  categoryReset.addEventListener("click", () => {
+    const allButton = filters.querySelector('button[data-category-label="all"]');
+    void withLinks(() => {
+      category = "all";
+      currentPage = 1;
+      clearRandomSelection();
+      syncCategoryBrowser(allButton, "all");
+      render({ urlMode: "replace" });
+      allButton.focus();
     });
   });
 
