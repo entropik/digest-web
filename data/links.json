@@ -3576,7 +3576,9 @@
       "ooblik",
       "développement"
     ],
-    "id": "602f1c37-f82e-51dc-a3db-3373adbd486c"
+    "id": "602f1c37-f82e-51dc-a3db-3373adbd486c",
+    "visibility": "hidden",
+    "hidden_at": "2026-08-20T13:17:00.386Z"
   },
   {
     "id": "ba32b4d5-a2f0-5f4f-a786-0f190a085519",
