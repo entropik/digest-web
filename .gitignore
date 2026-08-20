@@ -9,6 +9,7 @@ __pycache__/
 /admin-service/*.sqlite
 /admin-service/*.sqlite-*
 /admin-service/.env
+/admin-service/src/graphify-out/
 /browser-extension/.output/
 /browser-extension/.wxt/
 /browser-extension/node_modules/
