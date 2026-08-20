@@ -1,9 +1,30 @@
 [
-  "Cultures & Combats",
-  "Design & Création",
-  "Développement",
-  "IA & Agents",
-  "Médias & Veille",
-  "Mémoire du web social",
-  "Photographie"
+  {
+    "name": "Cultures & Combats",
+    "description": ""
+  },
+  {
+    "name": "Design & Création",
+    "description": ""
+  },
+  {
+    "name": "Développement",
+    "description": ""
+  },
+  {
+    "name": "IA & Agents",
+    "description": ""
+  },
+  {
+    "name": "Médias & Veille",
+    "description": ""
+  },
+  {
+    "name": "Mémoire du web social",
+    "description": ""
+  },
+  {
+    "name": "Photographie",
+    "description": ""
+  }
 ]

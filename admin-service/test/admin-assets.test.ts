@@ -44,7 +44,7 @@ test("the private dashboard displays the current site version after logout", () 
 
   assert.match(
     page,
-    /<button id="admin-logout" type="button">Se déconnecter<\/button>\s*<span class="admin-version" aria-label="Version v1\.9\.0">v1\.9\.0<\/span>/,
+    /<button id="admin-logout" type="button">Se déconnecter<\/button>\s*<span class="admin-version" aria-label="Version v1\.10\.0">v1\.10\.0<\/span>/,
   );
   assert.match(adminCss, /\.admin-version\{/);
 });
@@ -55,6 +55,9 @@ test("categories can be created, renamed and deleted from a dedicated panel", ()
   assert.match(page, /data-panel-button="categories">Catégories/);
   assert.match(page, /id="category-create-form"/);
   assert.match(page, /id="category-list"/);
+  assert.match(page, /name="description" maxlength="500"/);
+  assert.match(adminJs, /name="categoryDescription"/);
+  assert.match(adminJs, /description:form\.elements\.description\.value/);
   assert.match(adminJs, /POST/);
   assert.match(adminJs, /PATCH/);
   assert.match(adminJs, /DELETE/);

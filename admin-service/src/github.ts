@@ -8,6 +8,7 @@ import {
   publicAdminLink,
   serializeCatalog,
   type DigestLink,
+  type DigestCategory,
   type PublishedMetadata,
   type VisibilityAction,
 } from "./catalog.js";
@@ -41,7 +42,7 @@ type RepositoryHead = {
   commitSha: string;
   treeSha: string;
   links: DigestLink[];
-  categories?: string[];
+  categories?: DigestCategory[];
 };
 type RepositoryHeadDependencies = {
   readRef: () => Promise<string>;

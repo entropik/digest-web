@@ -339,17 +339,29 @@ app.get("/api/admin/categories", (context) =>
 
 app.post("/api/admin/categories", async (context) =>
   handle(context, async () => {
-    const body = await jsonBody<{ name?: unknown; confirm?: boolean }>(context);
+    const body = await jsonBody<{
+      name?: unknown;
+      description?: unknown;
+      confirm?: boolean;
+    }>(context);
     requireConfirmation(body);
-    return curation.addCategory(body.name);
+    return curation.addCategory(body.name, body.description);
   }),
 );
 
 app.patch("/api/admin/categories/:name", async (context) =>
   handle(context, async () => {
-    const body = await jsonBody<{ name?: unknown; confirm?: boolean }>(context);
+    const body = await jsonBody<{
+      name?: unknown;
+      description?: unknown;
+      confirm?: boolean;
+    }>(context);
     requireConfirmation(body);
-    return curation.renameCategory(context.req.param("name"), body.name);
+    return curation.renameCategory(
+      context.req.param("name"),
+      body.name,
+      body.description,
+    );
   }),
 );
 

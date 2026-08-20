@@ -60,7 +60,7 @@ export const dashboardPage = (name: string) =>
         <a href="https://chromewebstore.google.com/detail/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer">Installer l’extension</a>
         <a href="/">Voir le Digest</a>
         <button id="admin-logout" type="button">Se déconnecter</button>
-        <span class="admin-version" aria-label="Version v1.9.0">v1.9.0</span>
+        <span class="admin-version" aria-label="Version v1.10.0">v1.10.0</span>
       </div>
     </header>
     <nav class="admin-nav" aria-label="Administration">
@@ -149,6 +149,7 @@ export const dashboardPage = (name: string) =>
       <form id="category-create-form" class="category-create-form">
         <label>Nouvelle catégorie<input name="name" required maxlength="100" autocomplete="off" placeholder="Ex. Culture numérique"></label>
         <button class="primary" type="submit">Ajouter</button>
+        <label class="wide">Description<textarea name="description" maxlength="500" rows="3" placeholder="Le périmètre éditorial de cette catégorie…"></textarea></label>
       </form>
       <p class="intro">Un renommage met à jour les liens publiés et les brouillons concernés. Une catégorie utilisée doit être renommée avant de pouvoir être supprimée.</p>
       <div id="category-list"><p class="loading">Chargement…</p></div>
@@ -192,6 +193,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .draft-card,.admin-link,.publication-card,.published-card{border-top:1px solid var(--line);padding:1.35rem 0}
 .category-create-form{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:.8rem;max-width:760px;margin-bottom:1rem}
 .category-create-form label{display:grid;gap:.4rem;color:var(--muted);font-size:.78rem}
+.category-create-form label.wide{grid-column:1/-1}
 .category-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:1rem;border-top:1px solid var(--line);padding:1rem 0}
 .category-row label{display:grid;gap:.35rem;color:var(--muted);font-size:.72rem}
 .category-row-meta{margin:.35rem 0 0;color:var(--muted);font-size:.75rem}
@@ -285,12 +287,12 @@ const categoryErrorLabel=(error)=>{
 const renderCategories=(categories)=>{
   const target=document.querySelector("#category-list");if(!target)return;
   if(!categories.length){target.innerHTML='<p class="empty">Aucune catégorie.</p>';return}
-  target.innerHTML=categories.map((category)=>'<article class="category-row" data-category-name="'+esc(category.name)+'"><div><label>Nom<input name="categoryName" maxlength="100" required value="'+esc(category.name)+'"></label><p class="category-row-meta">'+category.linkCount+' lien(s) publié(s) · '+category.draftCount+' brouillon(s)</p></div><div class="category-actions"><button type="button" data-rename-category>Enregistrer</button><button class="danger" type="button" data-delete-category '+(category.linkCount||category.draftCount?'disabled title="Catégorie utilisée"':'')+'>Supprimer</button></div></article>').join("");
+  target.innerHTML=categories.map((category)=>'<article class="category-row" data-category-name="'+esc(category.name)+'"><div><label>Nom<input name="categoryName" maxlength="100" required value="'+esc(category.name)+'"></label><label>Description<textarea name="categoryDescription" maxlength="500" rows="3" placeholder="Le périmètre éditorial de cette catégorie…">'+esc(category.description)+'</textarea></label><p class="category-row-meta">'+category.linkCount+' lien(s) publié(s) · '+category.draftCount+' brouillon(s)</p></div><div class="category-actions"><button type="button" data-rename-category>Enregistrer</button><button class="danger" type="button" data-delete-category '+(category.linkCount||category.draftCount?'disabled title="Catégorie utilisée"':'')+'>Supprimer</button></div></article>').join("");
 };
 const loadCategories=async()=>{const data=await api("/api/admin/categories");renderCategories(data.categories);return data.categories};
 const refreshCategories=async()=>{options=await api("/api/admin/curation/options");await Promise.all([loadCategories(),loadDrafts()]);const published=document.querySelector("#published-links");if(published)published.innerHTML='<p class="empty">Recherche un lien pour modifier ses métadonnées.</p>'};
-document.querySelector("#category-create-form")?.addEventListener("submit",async(event)=>{event.preventDefault();const form=event.currentTarget,button=event.submitter;button.disabled=true;try{await api("/api/admin/categories",{method:"POST",body:JSON.stringify({name:form.elements.name.value,confirm:true})});form.reset();await refreshCategories();show("Catégorie ajoutée. Un nouveau déploiement est lancé.")}catch(error){show(categoryErrorLabel(error))}finally{button.disabled=false}});
-document.querySelector("#category-list")?.addEventListener("click",async(event)=>{const rename=event.target.closest("[data-rename-category]"),remove=event.target.closest("[data-delete-category]");if(!rename&&!remove)return;const row=event.target.closest("[data-category-name]"),current=row.dataset.categoryName;event.target.disabled=true;try{if(remove){if(!confirm('Supprimer la catégorie « '+current+' » ?'))return;await api("/api/admin/categories/"+encodeURIComponent(current),{method:"DELETE",body:JSON.stringify({confirm:true})});await refreshCategories();show("Catégorie supprimée. Un nouveau déploiement est lancé.")}else{const replacement=row.querySelector('[name="categoryName"]').value;const data=await api("/api/admin/categories/"+encodeURIComponent(current),{method:"PATCH",body:JSON.stringify({name:replacement,confirm:true})});await refreshCategories();show(data.changed?"Catégorie renommée. "+data.migrated.links+" lien(s) et "+data.migrated.drafts+" brouillon(s) mis à jour.":"Le nom de la catégorie est inchangé.")}}catch(error){event.target.disabled=false;show(categoryErrorLabel(error))}});
+document.querySelector("#category-create-form")?.addEventListener("submit",async(event)=>{event.preventDefault();const form=event.currentTarget,button=event.submitter;button.disabled=true;try{await api("/api/admin/categories",{method:"POST",body:JSON.stringify({name:form.elements.name.value,description:form.elements.description.value,confirm:true})});form.reset();await refreshCategories();show("Catégorie ajoutée. Un nouveau déploiement est lancé.")}catch(error){show(categoryErrorLabel(error))}finally{button.disabled=false}});
+document.querySelector("#category-list")?.addEventListener("click",async(event)=>{const rename=event.target.closest("[data-rename-category]"),remove=event.target.closest("[data-delete-category]");if(!rename&&!remove)return;const row=event.target.closest("[data-category-name]"),current=row.dataset.categoryName;event.target.disabled=true;try{if(remove){if(!confirm('Supprimer la catégorie « '+current+' » ?'))return;await api("/api/admin/categories/"+encodeURIComponent(current),{method:"DELETE",body:JSON.stringify({confirm:true})});await refreshCategories();show("Catégorie supprimée. Un nouveau déploiement est lancé.")}else{const replacement=row.querySelector('[name="categoryName"]').value,description=row.querySelector('[name="categoryDescription"]').value;const data=await api("/api/admin/categories/"+encodeURIComponent(current),{method:"PATCH",body:JSON.stringify({name:replacement,description,confirm:true})});await refreshCategories();show(data.changed?(current===replacement?"Description de la catégorie enregistrée.":"Catégorie renommée. "+data.migrated.links+" lien(s) et "+data.migrated.drafts+" brouillon(s) mis à jour."):"Aucune modification à enregistrer.")}}catch(error){event.target.disabled=false;show(categoryErrorLabel(error))}});
 const missing=(draft)=>[!draft.title&&"titre",!draft.category&&"catégorie",!draft.description&&"résumé",!draft.tags.length&&"tag"].filter(Boolean);
 const renderDrafts=()=>{
   const list=document.querySelector("#draft-list");if(!list)return;

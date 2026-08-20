@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 import {
-  catalogCategories,
+  catalogCategoryDefinitions,
   catalogTaxonomy,
   categoryUsage,
   changeVisibility,
@@ -156,31 +156,34 @@ export class CurationService {
 
   async categories() {
     const head = await readCachedRepositoryHead();
-    const categories = catalogCategories(head.links, head.categories);
+    const categories = catalogCategoryDefinitions(head.links, head.categories);
     return {
-      categories: categories.map((name) => ({
-        name,
-        linkCount: categoryUsage(head.links, name),
-        draftCount: this.store.countActiveDraftsByCategory(name),
+      categories: categories.map((category) => ({
+        ...category,
+        linkCount: categoryUsage(head.links, category.name),
+        draftCount: this.store.countActiveDraftsByCategory(category.name),
       })),
     };
   }
 
-  async addCategory(value: unknown) {
+  async addCategory(value: unknown, descriptionValue: unknown) {
     const name = cleanText(value, 100);
+    const description = cleanText(descriptionValue, 500);
     if (!name) throw new CurationError("INVALID_CATEGORY_NAME");
     for (let attempt = 0; attempt < 2; attempt += 1) {
       const head = await readRepositoryHead();
-      const categories = catalogCategories(head.links, head.categories);
+      const categories = catalogCategoryDefinitions(head.links, head.categories);
       if (
         categories.some(
           (category) =>
-            category.localeCompare(name, "fr", { sensitivity: "base" }) === 0,
+            category.name.localeCompare(name, "fr", { sensitivity: "base" }) === 0,
         )
       ) {
         throw new CurationError("CATEGORY_ALREADY_EXISTS", 409);
       }
-      const next = [...categories, name].sort((a, b) => a.localeCompare(b, "fr"));
+      const next = [...categories, { name, description }].sort((a, b) =>
+        a.name.localeCompare(b.name, "fr"),
+      );
       try {
         const commit = await commitRepositoryFiles(
           head.commitSha,
@@ -188,7 +191,12 @@ export class CurationService {
           { "data/categories.json": serializeCategories(next) },
           `Ajouter la catégorie ${name}`,
         );
-        return { changed: true, commit, category: name, categories: next };
+        return {
+          changed: true,
+          commit,
+          category: { name, description },
+          categories: next,
+        };
       } catch (error) {
         if (attempt === 0 && error instanceof GitHubResponseError && [409, 422].includes(error.status)) continue;
         throw error;
@@ -197,27 +205,39 @@ export class CurationService {
     throw new Error("CONCURRENT_UPDATE");
   }
 
-  async renameCategory(currentValue: unknown, replacementValue: unknown) {
+  async renameCategory(
+    currentValue: unknown,
+    replacementValue: unknown,
+    descriptionValue: unknown,
+  ) {
     const current = cleanText(currentValue, 100);
     const replacement = cleanText(replacementValue, 100);
+    const description = cleanText(descriptionValue, 500);
     if (!current || !replacement) throw new CurationError("INVALID_CATEGORY_NAME");
     for (let attempt = 0; attempt < 2; attempt += 1) {
       const head = await readRepositoryHead();
-      const categories = catalogCategories(head.links, head.categories);
-      if (!categories.includes(current)) {
+      const categories = catalogCategoryDefinitions(head.links, head.categories);
+      const existing = categories.find((category) => category.name === current);
+      if (!existing) {
         throw new CurationError("CATEGORY_NOT_FOUND", 404);
       }
-      if (current === replacement) {
+      if (current === replacement && existing.description === description) {
         return {
           changed: false,
-          category: current,
+          category: existing,
           categories,
           migrated: { links: 0, drafts: 0 },
         };
       }
       let mutation;
       try {
-        mutation = renameCategory(head.links, categories, current, replacement);
+        mutation = renameCategory(
+          head.links,
+          categories,
+          current,
+          replacement,
+          description,
+        );
       } catch (error) {
         if (error instanceof Error && error.message === "CATEGORY_NOT_FOUND") {
           throw new CurationError("CATEGORY_NOT_FOUND", 404);
@@ -231,17 +251,24 @@ export class CurationService {
         const commit = await commitRepositoryFiles(
           head.commitSha,
           head.treeSha,
-          {
-            "data/categories.json": serializeCategories(mutation.categories),
-            "data/links.json": serializeCatalog(mutation.links),
-          },
-          `Renommer la catégorie ${current} en ${replacement}`,
+          current === replacement
+            ? { "data/categories.json": serializeCategories(mutation.categories) }
+            : {
+                "data/categories.json": serializeCategories(mutation.categories),
+                "data/links.json": serializeCatalog(mutation.links),
+              },
+          current === replacement
+            ? `Décrire la catégorie ${current}`
+            : `Renommer la catégorie ${current} en ${replacement}`,
         );
-        const draftCount = this.store.renameActiveDraftCategory(current, replacement);
+        const draftCount =
+          current === replacement
+            ? 0
+            : this.store.renameActiveDraftCategory(current, replacement);
         return {
           changed: true,
           commit,
-          category: replacement,
+          category: { name: replacement, description },
           categories: mutation.categories,
           migrated: {
             links: categoryUsage(head.links, current),
@@ -261,14 +288,16 @@ export class CurationService {
     if (!name) throw new CurationError("INVALID_CATEGORY_NAME");
     for (let attempt = 0; attempt < 2; attempt += 1) {
       const head = await readRepositoryHead();
-      const categories = catalogCategories(head.links, head.categories);
-      if (!categories.includes(name)) throw new CurationError("CATEGORY_NOT_FOUND", 404);
+      const categories = catalogCategoryDefinitions(head.links, head.categories);
+      if (!categories.some((category) => category.name === name)) {
+        throw new CurationError("CATEGORY_NOT_FOUND", 404);
+      }
       const linkCount = categoryUsage(head.links, name);
       const draftCount = this.store.countActiveDraftsByCategory(name);
       if (linkCount || draftCount) {
         throw new CurationError("CATEGORY_IN_USE", 409, { linkCount, draftCount });
       }
-      const next = categories.filter((category) => category !== name);
+      const next = categories.filter((category) => category.name !== name);
       try {
         const commit = await commitRepositoryFiles(
           head.commitSha,

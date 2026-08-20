@@ -109,12 +109,12 @@ createServer((request, response) => {
   if (url.pathname === "/api/admin/categories") {
     json(response, {
       categories: [
-        { name: "Développement", linkCount: 1240, draftCount: 1 },
-        { name: "Design & Création", linkCount: 1768, draftCount: 0 },
-        { name: "IA & Agents", linkCount: 612, draftCount: 0 },
-        { name: "Médias & Veille", linkCount: 498, draftCount: 0 },
-        { name: "Mémoire du web social", linkCount: 27, draftCount: 0 },
-        { name: "Culture numérique", linkCount: 0, draftCount: 0 },
+        { name: "Développement", description: "Code, outils et cultures techniques.", linkCount: 1240, draftCount: 1 },
+        { name: "Design & Création", description: "Design graphique, édition et pratiques créatives.", linkCount: 1768, draftCount: 0 },
+        { name: "IA & Agents", description: "Intelligence artificielle et systèmes agentiques.", linkCount: 612, draftCount: 0 },
+        { name: "Médias & Veille", description: "Médias, analyses et signaux contemporains.", linkCount: 498, draftCount: 0 },
+        { name: "Mémoire du web social", description: "Traces et histoires des plateformes sociales.", linkCount: 27, draftCount: 0 },
+        { name: "Krisis", description: "Séparation, discernement, jugement et décision.", linkCount: 0, draftCount: 0 },
       ],
     });
     return;

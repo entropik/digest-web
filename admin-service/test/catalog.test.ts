@@ -9,6 +9,7 @@ import {
   parseCatalog,
   parseCategories,
   renameCategory,
+  serializeCategories,
   serializeCatalog,
   type DigestLink,
 } from "../src/catalog.js";
@@ -211,7 +212,7 @@ test("catalog parsing rejects duplicate ids", () => {
 });
 
 test("configured categories remain available before they contain links", () => {
-  assert.deepEqual(catalogCategories([link()], ["Culture numérique"]), [
+  assert.deepEqual(catalogCategories([link()], [{ name: "Culture numérique", description: "Arts, pratiques et enjeux numériques." }]), [
     "Culture numérique",
     "Développement",
   ]);
@@ -221,12 +222,32 @@ test("category renaming migrates every published link", () => {
   const second = { ...link(), id: "link-2", url: "https://example.org" };
   const mutation = renameCategory(
     [link(), second],
-    ["Développement", "Design"],
+    [
+      { name: "Développement", description: "Code et outils." },
+      { name: "Design", description: "Création visuelle." },
+    ],
     "Développement",
     "Code",
+    "Programmation et cultures techniques.",
   );
-  assert.deepEqual(mutation.categories, ["Code", "Design"]);
+  assert.deepEqual(mutation.categories, [
+    { name: "Code", description: "Programmation et cultures techniques." },
+    { name: "Design", description: "Création visuelle." },
+  ]);
   assert.deepEqual(mutation.links.map((item) => item.category), ["Code", "Code"]);
+});
+
+test("category descriptions round trip while legacy names remain readable", () => {
+  assert.deepEqual(parseCategories('["Design"]'), [
+    { name: "Design", description: "" },
+  ]);
+  const categories = [
+    {
+      name: "Krisis",
+      description: "Discernement, jugement et décision.",
+    },
+  ];
+  assert.deepEqual(parseCategories(serializeCategories(categories)), categories);
 });
 
 test("category catalog rejects case-insensitive duplicates", () => {

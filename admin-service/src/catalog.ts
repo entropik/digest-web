@@ -84,41 +84,76 @@ export const changeVisibility = (
 export const serializeCatalog = (links: DigestLink[]): string =>
   `${JSON.stringify(links, null, 2)}\n`;
 
-export const parseCategories = (text: string): string[] => {
-  const value: unknown = JSON.parse(text);
-  if (!Array.isArray(value)) throw new Error("The category catalog must be an array");
-  const categories: string[] = [];
-  const seen = new Set<string>();
-  for (const candidate of value) {
-    if (typeof candidate !== "string" || !candidate.trim() || candidate.length > 100) {
-      throw new Error("The category catalog contains an invalid category");
-    }
-    const category = candidate.trim();
-    const key = category.toLocaleLowerCase("fr");
-    if (seen.has(key)) throw new Error(`Duplicate category: ${category}`);
-    seen.add(key);
-    categories.push(category);
-  }
-  return categories.sort((a, b) => a.localeCompare(b, "fr"));
+export type DigestCategory = {
+  name: string;
+  description: string;
 };
 
-export const serializeCategories = (categories: string[]): string =>
+export const parseCategories = (text: string): DigestCategory[] => {
+  const value: unknown = JSON.parse(text);
+  if (!Array.isArray(value)) throw new Error("The category catalog must be an array");
+  const categories: DigestCategory[] = [];
+  const seen = new Set<string>();
+  for (const candidate of value) {
+    const record =
+      candidate && typeof candidate === "object" && !Array.isArray(candidate)
+        ? (candidate as Record<string, unknown>)
+        : null;
+    const name =
+      typeof candidate === "string"
+        ? candidate.trim()
+        : record
+          ? String(record.name ?? "").trim()
+          : "";
+    const description =
+      record && typeof record.description === "string"
+        ? record.description.trim()
+        : "";
+    if (
+      !name ||
+      name.length > 100 ||
+      description.length > 500 ||
+      (record?.description !== undefined && typeof record.description !== "string")
+    ) {
+      throw new Error("The category catalog contains an invalid category");
+    }
+    const key = name.toLocaleLowerCase("fr");
+    if (seen.has(key)) throw new Error(`Duplicate category: ${name}`);
+    seen.add(key);
+    categories.push({ name, description });
+  }
+  return categories.sort((a, b) => a.name.localeCompare(b.name, "fr"));
+};
+
+export const serializeCategories = (categories: DigestCategory[]): string =>
   `${JSON.stringify(categories, null, 2)}\n`;
 
-export const catalogCategories = (links: DigestLink[], configured: string[] = []) => {
-  const categories: string[] = [];
+export const catalogCategoryDefinitions = (
+  links: DigestLink[],
+  configured: DigestCategory[] = [],
+) => {
+  const categories: DigestCategory[] = [];
   const seen = new Set<string>();
-  for (const category of [...configured, ...links.map((link) => link.category)]) {
-    const key = category.toLocaleLowerCase("fr");
+  const candidates = [
+    ...configured,
+    ...links.map((link) => ({ name: link.category, description: "" })),
+  ];
+  for (const category of candidates) {
+    const key = category.name.toLocaleLowerCase("fr");
     if (!seen.has(key)) {
       seen.add(key);
       categories.push(category);
     }
   }
-  return categories.sort((a, b) => a.localeCompare(b, "fr"));
+  return categories.sort((a, b) => a.name.localeCompare(b.name, "fr"));
 };
 
-export const catalogTaxonomy = (links: DigestLink[], configured: string[] = []) => ({
+export const catalogCategories = (
+  links: DigestLink[],
+  configured: DigestCategory[] = [],
+) => catalogCategoryDefinitions(links, configured).map((category) => category.name);
+
+export const catalogTaxonomy = (links: DigestLink[], configured: DigestCategory[] = []) => ({
   categories: catalogCategories(links, configured),
   tags: [
     ...new Set(
@@ -134,16 +169,19 @@ export const categoryUsage = (links: DigestLink[], category: string): number =>
 
 export const renameCategory = (
   links: DigestLink[],
-  categories: string[],
+  categories: DigestCategory[],
   current: string,
   replacement: string,
+  description: string,
 ) => {
-  if (!categories.includes(current)) throw new Error("CATEGORY_NOT_FOUND");
+  if (!categories.some((category) => category.name === current)) {
+    throw new Error("CATEGORY_NOT_FOUND");
+  }
   if (
     categories.some(
       (category) =>
-        category !== current &&
-        category.localeCompare(replacement, "fr", { sensitivity: "base" }) === 0,
+        category.name !== current &&
+        category.name.localeCompare(replacement, "fr", { sensitivity: "base" }) === 0,
     )
   ) {
     throw new Error("CATEGORY_ALREADY_EXISTS");
@@ -153,8 +191,12 @@ export const renameCategory = (
       link.category === current ? { ...link, category: replacement } : link,
     ),
     categories: categories
-      .map((category) => (category === current ? replacement : category))
-      .sort((a, b) => a.localeCompare(b, "fr")),
+      .map((category) =>
+        category.name === current
+          ? { name: replacement, description }
+          : category,
+      )
+      .sort((a, b) => a.name.localeCompare(b.name, "fr")),
   };
 };
 
