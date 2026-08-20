@@ -60,7 +60,7 @@ export const dashboardPage = (name: string) =>
         <a href="https://chromewebstore.google.com/detail/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer">Installer l’extension</a>
         <a href="/">Voir le Digest</a>
         <button id="admin-logout" type="button">Se déconnecter</button>
-        <span class="admin-version" aria-label="Version v1.12.3">v1.12.3</span>
+        <span class="admin-version" aria-label="Version v1.13.0">v1.13.0</span>
       </div>
     </header>
     <nav class="admin-nav" aria-label="Administration">
@@ -253,7 +253,7 @@ const show=(message)=>{if(feedback)feedback.textContent=message||""};
 const linkedinReturn=sessionStorage.getItem("digest-linkedin-return");
 if(linkedinReturn&&document.querySelector("[data-panel]")){sessionStorage.removeItem("digest-linkedin-return");location.assign(linkedinReturn)}
 const esc=(value)=>String(value??"").replace(/[&<>"']/g,(character)=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[character]));
-const correctionErrorLabel=(code)=>({INVALID_URL:"Saisissez une URL complète.",UNSUPPORTED_SCHEME:"Utilisez une adresse HTTP ou HTTPS.",URL_CREDENTIALS:"Retirez les identifiants intégrés à l’URL.",PRIVATE_URL:"Cette adresse privée ou locale ne peut pas être publiée.",AUTHENTICATED_PAGE:"Une page d’administration ou de connexion ne peut pas être publiée.",SENSITIVE_QUERY:"Retirez les paramètres sensibles de l’URL.",DUPLICATE_LINK_URL:"Cette URL est déjà utilisée par un autre lien."}[code]||code);
+const correctionErrorLabel=(code)=>({INVALID_URL:"Saisissez une URL complète.",UNSUPPORTED_SCHEME:"Utilisez une adresse HTTP ou HTTPS.",URL_CREDENTIALS:"Retirez les identifiants intégrés à l’URL.",PRIVATE_URL:"Cette adresse privée ou locale ne peut pas être publiée.",AUTHENTICATED_PAGE:"Une page d’administration ou de connexion ne peut pas être publiée.",SENSITIVE_QUERY:"Retirez les paramètres sensibles de l’URL.",DUPLICATE_LINK_URL:"Cette URL est déjà utilisée par un autre lien.",UNKNOWN_TAG:"Choisissez un tag existant dans les suggestions."}[code]||code);
 const api=async(path,options={})=>{
   const response=await fetch(path,{credentials:"same-origin",...options,headers:{Accept:"application/json",...(options.body?{"Content-Type":"application/json"}:{}),...(options.headers||{})}});
   if(response.status===401||response.status===403){location.assign("/admin");throw new Error("AUTHENTICATION_REQUIRED")}

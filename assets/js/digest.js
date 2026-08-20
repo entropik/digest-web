@@ -51,6 +51,7 @@
   const modalDescription = document.querySelector("#digest-modal-description");
   const modalImage = document.querySelector("#digest-modal-image");
   const modalTags = document.querySelector("#digest-modal-tags");
+  const modalTagRoutes = document.querySelector("#digest-tag-routes");
   const modalUrl = document.querySelector("#digest-modal-url");
   const modalLink = document.querySelector("#digest-modal-link");
   const modalOrigin = document.querySelector("#digest-modal-origin");
@@ -225,8 +226,16 @@
   const normalize = (value = "") =>
     String(value).normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase().trim();
 
-  const slugifyTag = (value) =>
-    normalize(value).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const tagRoutes = (() => {
+    try {
+      return new Map(
+        Object.entries(JSON.parse(modalTagRoutes?.textContent || "{}"))
+          .map(([tag, route]) => [normalize(tag), route]),
+      );
+    } catch {
+      return new Map();
+    }
+  })();
 
   const getHost = (url) => {
     try {
@@ -736,9 +745,10 @@
 
     modalTags.replaceChildren();
     (link.tags || []).forEach((tag) => {
-      const chip = document.createElement("a");
+      const route = tagRoutes.get(normalize(tag));
+      const chip = document.createElement(route ? "a" : "span");
       chip.textContent = `#${tag}`;
-      chip.href = `${modalTags.dataset.base}${slugifyTag(tag)}/`;
+      if (route) chip.href = route;
       modalTags.append(chip);
     });
     modalTags.hidden = modalTags.childElementCount === 0;
@@ -876,7 +886,11 @@
           modalAdminTools.hidden = true;
           throw new Error("La session propriétaire a expiré. Reconnecte-toi sur /admin.");
         }
-        throw new Error(result.error || "Les tags n’ont pas pu être enregistrés.");
+        throw new Error(
+          result.error === "UNKNOWN_TAG"
+            ? "Choisis un tag existant dans l’index."
+            : result.error || "Les tags n’ont pas pu être enregistrés.",
+        );
       }
 
       link.tags = [...result.link.tags];

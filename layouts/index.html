@@ -1,5 +1,11 @@
 {{ define "main" }}
 {{ $publicLinks := partialCached "public-links.html" hugo.Data.links "public-links" }}
+{{ $tagRoutes := dict }}
+{{ range where site.RegularPages "Section" "tags" }}
+  {{ $tagRoute := .RelPermalink }}
+  {{ $pageTags := .Params.tags | default (slice .Params.tag) }}
+  {{ range $pageTags }}{{ $tagRoutes = merge $tagRoutes (dict . $tagRoute) }}{{ end }}
+{{ end }}
 {{ $allLinks := sort $publicLinks "added" "desc" }}
 {{ $editorialLinks := slice }}
 {{ range $allLinks }}
@@ -218,7 +224,8 @@
     <p class="digest-kicker" id="digest-modal-category"></p>
     <h2 id="digest-modal-title"></h2>
     <p class="digest-modal-description" id="digest-modal-description"></p>
-    <div class="archive-tags digest-modal-tags" id="digest-modal-tags" data-base="{{ "tags/" | relURL }}" aria-label="Tags"></div>
+    <div class="archive-tags digest-modal-tags" id="digest-modal-tags" aria-label="Tags"></div>
+    <script id="digest-tag-routes" type="application/json">{{ $tagRoutes | jsonify | safeJS }}</script>
     <div class="digest-modal-footer">
       <span class="digest-modal-url" id="digest-modal-url"></span>
       <button class="digest-modal-favorite" id="digest-modal-favorite" type="button" aria-pressed="false">

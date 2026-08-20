@@ -7,12 +7,28 @@ import argparse
 import json
 import re
 import sys
+import unicodedata
 from collections import Counter
 from pathlib import Path
 
 
 DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 FRONT_MATTER_PATTERN = re.compile(r"^---\s*$")
+
+
+def tag_slug(value: str) -> str:
+    normalized = unicodedata.normalize("NFKD", value)
+    ascii_value = "".join(
+        character for character in normalized if not unicodedata.combining(character)
+    )
+    return re.sub(r"^-|-$", "", re.sub(r"[^a-z0-9]+", "-", ascii_value.lower()))
+
+
+def tag_key(value: str) -> str:
+    normalized = unicodedata.normalize("NFKD", value)
+    return "".join(
+        character for character in normalized if not unicodedata.combining(character)
+    ).lower().strip()
 
 
 def parse_front_matter(path: Path) -> dict[str, str]:
@@ -36,6 +52,7 @@ def validate(site: Path) -> list[str]:
     errors: list[str] = []
     links_path = site / "data" / "links.json"
     archives_dir = site / "content" / "archives"
+    tags_dir = site / "content" / "tags"
 
     try:
         links = json.loads(links_path.read_text(encoding="utf-8"))
@@ -46,6 +63,8 @@ def validate(site: Path) -> list[str]:
         return [f"{links_path}: la racine JSON doit être une liste"]
 
     link_dates: Counter[str] = Counter()
+    tag_usage: Counter[str] = Counter()
+    tag_labels: dict[str, str] = {}
     for index, link in enumerate(links, start=1):
         if not isinstance(link, dict):
             errors.append(f"{links_path}: entrée {index} invalide")
@@ -54,6 +73,17 @@ def validate(site: Path) -> list[str]:
         if not DATE_PATTERN.fullmatch(added):
             errors.append(f"{links_path}: entrée {index}, date added invalide: {added!r}")
             continue
+        if str(link.get("visibility", "")).strip() != "hidden":
+            raw_tags = link.get("tags", [])
+            if not isinstance(raw_tags, list):
+                errors.append(f"{links_path}: entrée {index}, tags invalides")
+            else:
+                for raw_tag in raw_tags:
+                    tag = str(raw_tag).strip()
+                    if tag:
+                        key = tag_key(tag)
+                        tag_usage[key] += 1
+                        tag_labels.setdefault(key, tag)
         if (
             str(link.get("stream", "")).strip() == "blog-ooblik"
             and str(link.get("origin_url", "")).strip()
@@ -99,11 +129,39 @@ def validate(site: Path) -> list[str]:
             f"édition orpheline: content/archives/{orphan_date}.md ne possède aucun lien"
         )
 
+    registered_tags: set[str] = set()
+    for tag_path in tags_dir.glob("*.md"):
+        if tag_path.name == "_index.md":
+            continue
+        try:
+            params = parse_front_matter(tag_path)
+            variants = json.loads(params.get("tags", "[]"))
+        except (OSError, ValueError, json.JSONDecodeError) as exc:
+            errors.append(f"{tag_path}: taxonomie illisible ({exc})")
+            continue
+        if not isinstance(variants, list):
+            errors.append(f"{tag_path}: tags doit être une liste")
+            continue
+        canonical = params.get("tag", "").strip()
+        for variant in [canonical, *variants]:
+            if str(variant).strip():
+                registered_tags.add(tag_key(str(variant)))
+
+    for missing_key in sorted(set(tag_usage) - registered_tags):
+        label = tag_labels[missing_key]
+        errors.append(
+            f"tag sans destination: {label!r} (/tags/{tag_slug(label)}/, "
+            f"{tag_usage[missing_key]} occurrence(s))"
+        )
+
     if not errors:
         summary = ", ".join(
             f"{date}: {link_dates[date]} liens" for date in sorted(link_dates, reverse=True)
         )
-        print(f"OK: {len(link_dates)} éditions cohérentes — {summary}")
+        print(
+            f"OK: {len(link_dates)} éditions et {len(tag_usage)} routes de tags "
+            f"cohérentes — {summary}"
+        )
 
     return errors
 

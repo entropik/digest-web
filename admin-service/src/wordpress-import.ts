@@ -5,6 +5,7 @@ import sharp from "sharp";
 import type { DigestLink } from "./catalog.js";
 import { sortCatalog, stableLinkId } from "./publication.js";
 import { canonicalizePublicUrl, UnsafeUrlError } from "./urls.js";
+import { canonicalizeTags } from "./tag-taxonomy.js";
 
 export const BLOG_ARCHIVE_CATEGORY = "Archives du blog OOBLIK";
 export const BLOG_ARCHIVE_STREAM = "blog-ooblik";
@@ -289,6 +290,11 @@ export const buildWordpressImportPreview = (input: {
       .map((probe) => [probe.url!, probe]),
   );
   const currentByUrl = new Map(input.currentLinks.map((link) => [link.url, link]));
+  const knownTags = unique(
+    input.currentLinks.flatMap((link) =>
+      Array.isArray(link.tags) ? link.tags.map(String) : [],
+    ),
+  );
   const occupied = new Set(currentByUrl.keys());
   const ready: WordpressReadyItem[] = [];
   const review: WordpressReviewItem[] = [];
@@ -358,10 +364,19 @@ export const buildWordpressImportPreview = (input: {
       });
       continue;
     }
+    const importedTags = canonicalizeTags(post.tags, knownTags);
+    if (importedTags.unknown.length) {
+      review.push({
+        ...base,
+        reason: "unknown_tags",
+        candidates: importedTags.unknown,
+      });
+      continue;
+    }
     occupied.add(url);
     const tags = probe?.definitive_dead
-      ? unique([...post.tags, "lien-mort"]).slice(0, 12)
-      : post.tags;
+      ? unique([...importedTags.tags, "lien-mort"]).slice(0, 12)
+      : importedTags.tags;
     ready.push({
       wordpress_id: post.wordpressId,
       image_url: override?.image_url ?? post.imageUrl,

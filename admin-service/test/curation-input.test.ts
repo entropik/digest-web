@@ -18,10 +18,10 @@ const { CurationError, normalizeDraftInput } = await import(
 
 const taxonomy = {
   categories: ["Design"],
-  tags: ["photo"],
+  tags: ["photo", "stiegler"],
 };
 
-test("a draft accepts a new tag while keeping existing tags as suggestions", () => {
+test("a draft canonicalizes aliases and keeps only registered tags", () => {
   const draft = normalizeDraftInput(
     {
       url: "https://example.com/calibration",
@@ -29,12 +29,30 @@ test("a draft accepts a new tag while keeping existing tags as suggestions", () 
       category: "Design",
       description: "Matériel de calibration",
       privateNote: "",
-      tags: ["photo", "#sténopé", "STÉNOPÉ"],
+      tags: ["photo", "#PHOTO", "Bernard STIEGLER"],
     },
     taxonomy,
   );
 
-  assert.deepEqual(draft.tags, ["photo", "sténopé"]);
+  assert.deepEqual(draft.tags, ["photo", "stiegler"]);
+});
+
+test("a draft rejects an unregistered free-form tag", () => {
+  assert.throws(
+    () =>
+      normalizeDraftInput(
+        {
+          url: "https://example.com/calibration",
+          title: "Calibration",
+          category: "Design",
+          description: "Matériel de calibration",
+          privateNote: "",
+          tags: ["sténopé"],
+        },
+        taxonomy,
+      ),
+    (error) => error instanceof CurationError && error.code === "UNKNOWN_TAG",
+  );
 });
 
 test("a draft still rejects an unknown category", () => {
@@ -47,7 +65,7 @@ test("a draft still rejects an unknown category", () => {
           category: "Inconnue",
           description: "Matériel de calibration",
           privateNote: "",
-          tags: ["sténopé"],
+          tags: ["photo"],
         },
         taxonomy,
       ),

@@ -26,6 +26,7 @@ const duplicate: DigestLink = {
   url: "https://duplicate.example/",
   category: "Médias & Veille",
   added: "2020-01-01",
+  tags: ["photographie", "livre", "blog-ooblik", "lien-mort"],
 };
 
 test("WXR parsing keeps published posts, sources, taxonomy and image priority", async () => {
@@ -56,6 +57,7 @@ test("preview separates safe imports, duplicates and editorial review", async ()
   );
   const normal = preview.ready[0]?.link;
   assert.equal(normal?.category, "Photographie");
+  assert.deepEqual(normal?.tags, ["photographie", "livre", "blog-ooblik"]);
   assert.equal(normal?.stream, BLOG_ARCHIVE_STREAM);
   assert.equal(normal?.origin_url, "https://blog.ooblik.com/2025/normal/");
   const dead = preview.ready.find((item) => item.wordpress_id === "107")?.link;

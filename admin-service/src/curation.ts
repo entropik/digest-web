@@ -40,6 +40,7 @@ import {
   generateOptimizedSocialImage,
 } from "./social-image.js";
 import { canonicalizePublicUrl } from "./urls.js";
+import { canonicalizeTags } from "./tag-taxonomy.js";
 
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -59,19 +60,16 @@ const cleanText = (value: unknown, maximum: number): string =>
     .trim()
     .slice(0, maximum);
 
-const cleanTags = (value: unknown): string[] => {
+const cleanTags = (value: unknown, knownTags?: string[]): string[] => {
   if (!Array.isArray(value)) return [];
-  const seen = new Set<string>();
-  const tags: string[] = [];
-  for (const candidate of value) {
-    const tag = cleanText(candidate, 80).replace(/^#+/, "");
-    const key = tag.toLocaleLowerCase("fr");
-    if (tag && !seen.has(key)) {
-      seen.add(key);
-      tags.push(tag);
-    }
+  const candidates = value.map((candidate) => cleanText(candidate, 80));
+  const normalized = canonicalizeTags(candidates, knownTags);
+  if (normalized.unknown.length) {
+    throw new CurationError("UNKNOWN_TAG", 400, {
+      tags: normalized.unknown,
+    });
   }
-  return tags.slice(0, 12);
+  return normalized.tags.slice(0, 12);
 };
 
 const validDate = (value: string): boolean => {
@@ -89,7 +87,7 @@ export const normalizeDraftInput = (
   const category = cleanText(input.category, 100);
   const description = cleanText(input.description, 1_200);
   const privateNote = cleanText(input.privateNote, 8_000);
-  const tags = cleanTags(input.tags);
+  const tags = cleanTags(input.tags, taxonomy?.tags);
 
   if (taxonomy && category && !taxonomy.categories.includes(category)) {
     throw new CurationError("INVALID_CATEGORY");
@@ -115,7 +113,7 @@ const metadataInput = (
   const title = cleanText(body.title, 240);
   const category = cleanText(body.category, 100);
   const description = cleanText(body.description, 1_200);
-  const tags = cleanTags(body.tags);
+  const tags = cleanTags(body.tags, taxonomy.tags);
   const reactivate = body.reactivate === true;
   if (!title || !category || !description || !tags.length) {
     throw new CurationError("INCOMPLETE_LINK");
@@ -808,7 +806,8 @@ export class CurationService {
 
   async addTagsToPublishedLink(id: string, body: unknown) {
     const input = (body ?? {}) as Record<string, unknown>;
-    const tags = cleanTags(input.tags);
+    const head = await readRepositoryHead();
+    const tags = cleanTags(input.tags, catalogTaxonomy(head.links, head.categories).tags);
     if (!tags.length) throw new CurationError("INVALID_TAG");
     try {
       return await addTagsToPublishedLink(id, tags);

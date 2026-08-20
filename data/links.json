@@ -7,7 +7,7 @@
     "added": "2026-08-18",
     "description": "The perfect virtual assistant — on your computer. She drafts your replies, writes your content, chases your invoices, and runs the procedures you already know by heart. Free, private, no subscription.",
     "tags": [
-      "Ai-assistant"
+      "agents"
     ]
   },
   {
@@ -18,7 +18,7 @@
     "added": "2026-08-18",
     "description": "Open-source AI workforce platform. Agents with tasks, tools, browsers, and email. - provision-org/provision-core",
     "tags": [
-      "AI workforce platform"
+      "agents"
     ]
   },
   {
@@ -29,7 +29,7 @@
     "added": "2026-08-18",
     "description": "Hire AI agents that get a dedicated runtime, a sandboxed browser, a real email inbox, and a seat in Slack, Telegram & Discord. $299 per agent / mo, 48-hour free trial. Open-source core.",
     "tags": [
-      "Ai-assitant"
+      "agents"
     ]
   },
   {
@@ -40,7 +40,7 @@
     "added": "2026-08-18",
     "description": "Portfolio de Louis Eveillard, designer graphique et d’interaction indépendant à Paris.",
     "tags": [
-      "artgénératif"
+      "design-génératif"
     ]
   },
   {
@@ -51,7 +51,7 @@
     "added": "2026-08-18",
     "description": "Your AI agent in 30 seconds. Not 30 hours. Self-hosted, open-source personal AI with desktop installer, multi-agent Command Center(Deep Work), and 7-layer security. Anthropic, OpenAI, or Ollama. - pocketpaw/pocketpaw",
     "tags": [
-      "AI workforce platform"
+      "agents"
     ]
   },
   {
@@ -96,7 +96,7 @@
     "added": "2026-08-18",
     "description": "La Bible du Vibe Coding - Le guide ultime : outils, modèles, workflows, tout ce que vous avez toujours voulu savoir sur le code sans oser le demander.",
     "tags": [
-      "vibe-coding"
+      "code"
     ]
   },
   {
@@ -107,7 +107,7 @@
     "added": "2026-08-18",
     "description": "Your AI company, on your own machine. A multi-agent platform where you hire named agents, chat with a Lead to design workflows, and watch them run — desktop app or self-hosted server. - jhk482001/Holons",
     "tags": [
-      "AI workforce platform"
+      "agents"
     ]
   },
   {
@@ -118,7 +118,7 @@
     "added": "2026-08-18",
     "description": "Hivemind — Multi-agent AI team platform. Contribute to hivementality-ai/hivemind development by creating an account on GitHub.",
     "tags": [
-      "AI workforce platform"
+      "agents"
     ]
   },
   {
@@ -162,8 +162,8 @@
     "added": "2026-08-16",
     "description": "An Ode to Water's Myriad States.",
     "tags": [
-      "IA générative",
-      "art numérique"
+      "IA",
+      "art-numérique"
     ]
   },
   {
@@ -175,7 +175,7 @@
     "description": "Reverse-engineer any HTTP API and generate MCP tools for AI agents. Browse normally, Spectral does the rest.",
     "tags": [
       "dev",
-      "mcp",
+      "agents",
       "IA"
     ]
   },
@@ -200,9 +200,8 @@
     "added": "2026-08-16",
     "description": "An open-source cross-platform alternative to AirDrop - localsend/localsend",
     "tags": [
-      "selfhosted",
-      "alternative",
-      "messaging"
+      "auto-hébergement",
+      "transfert-de-fichiers"
     ]
   },
   {
@@ -241,7 +240,7 @@
       "tmux",
       "terminal",
       "agents",
-      "ia"
+      "IA"
     ]
   },
   {
@@ -304,7 +303,7 @@
     "tags": [
       "web_development",
       "IA",
-      "selfhosted"
+      "auto-hébergement"
     ]
   },
   {
@@ -1076,7 +1075,7 @@
       "UI",
       "référence",
       "méthode",
-      "interview"
+      "entretien"
     ],
     "id": "3583bb99-c9f5-53fc-832c-9d92933c1ad4"
   },
@@ -1284,7 +1283,7 @@
     "added": "2025-02-28",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2025/liste-atlas-des-regions-naturelles/",
@@ -1298,8 +1297,8 @@
     "added": "2025-02-27",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Éditeur",
-      "Livre / Book",
+      "éditeur",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2025/cafe-royal-books-2/",
@@ -1313,7 +1312,7 @@
     "added": "2025-02-27",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2025/90s-archive-volume-two-marc-vallee/",
@@ -1327,7 +1326,7 @@
     "added": "2024-12-06",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2024/jean-yves-bart-photographie-strasbourg-sk/",
@@ -1341,8 +1340,8 @@
     "added": "2024-11-15",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Graphisme",
-      "Letterpress",
+      "graphisme",
+      "letterpress",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2024/une-qualite-essentielle-de-la-typographie-reapparait-apres-50-ans-doubli-cafe-typo/",
@@ -1356,8 +1355,8 @@
     "added": "2024-11-15",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Éditeur",
-      "Livre / Book",
+      "éditeur",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2024/room-book-edition/",
@@ -1371,8 +1370,8 @@
     "added": "2024-11-15",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Éditeur",
-      "Livre / Book",
+      "éditeur",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2024/objet-papier-accueil/",
@@ -1386,8 +1385,8 @@
     "added": "2024-11-12",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Éditeur",
-      "Livre / Book",
+      "éditeur",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2024/motto-books-online-store/",
@@ -1401,8 +1400,8 @@
     "added": "2024-10-24",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Éditeur",
-      "Livre / Book",
+      "éditeur",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2024/sons-of-the-living-presale-trespasser/",
@@ -1416,7 +1415,7 @@
     "added": "2024-04-17",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Éditeur",
+      "éditeur",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2024/13_a-lorigine-g-chevrier-edition-sur-la-crete/",
@@ -1430,7 +1429,7 @@
     "added": "2024-04-15",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2024/classicpress-stable-lightweight-instantly-familiar/",
@@ -1444,7 +1443,7 @@
     "added": "2024-03-28",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2024/impact-rudy-burbant-photographie/",
@@ -1458,7 +1457,7 @@
     "added": "2024-03-27",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2024/lucie-belarbi/",
@@ -1472,7 +1471,7 @@
     "added": "2023-10-20",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2023/meriol-lehmann-chemin-du-troisieme-rang-du-bic/",
@@ -1486,7 +1485,7 @@
     "added": "2023-09-15",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Typos",
+      "typos",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2023/osp-open-source-publishing-%e2%86%92/",
@@ -1500,7 +1499,7 @@
     "added": "2023-09-14",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Typos",
+      "typos",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2023/garet-font/",
@@ -1514,7 +1513,7 @@
     "added": "2023-08-31",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Typos",
+      "typos",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2023/lineto-com/",
@@ -1528,8 +1527,8 @@
     "added": "2023-06-26",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Éditeur",
-      "Livre / Book",
+      "éditeur",
+      "livre",
       "blog-ooblik",
       "lien-mort"
     ],
@@ -1550,8 +1549,8 @@
     "added": "2023-06-22",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
-      "Photographes",
+      "livre",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2023/rades-guillaumeblot-com/",
@@ -1565,7 +1564,7 @@
     "added": "2023-06-22",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2023/file-juggler-keep-your-desktop-clean-and-organized/",
@@ -1579,8 +1578,8 @@
     "added": "2023-06-08",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
-      "Photographes",
+      "livre",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2023/bernard-plossu-paris-matic/",
@@ -1594,7 +1593,7 @@
     "added": "2023-06-01",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2023/paragraphica-bjorn-karmann/",
@@ -1608,7 +1607,7 @@
     "added": "2023-06-01",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Éditeur",
+      "éditeur",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2023/hacker-protester-geoffrey-dorne-%f0%9f%8f%b4%e2%98%a0/",
@@ -1622,8 +1621,8 @@
     "added": "2023-05-23",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Éditeur",
-      "Livre / Book",
+      "éditeur",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2023/joselito-verschaeve-if-i-call-stones-blue-it-is-because-blue-is-the-precise-word-photobook-void/",
@@ -1637,8 +1636,8 @@
     "added": "2023-05-09",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Éditeur",
-      "Livre / Book",
+      "éditeur",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2023/tx-ca-17-stanley-barker/",
@@ -1652,7 +1651,7 @@
     "added": "2023-05-02",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2023/bilateral-poursuite/",
@@ -1666,7 +1665,7 @@
     "added": "2023-04-03",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2023/les-maisons-endormies-maxime-voidy/",
@@ -1680,7 +1679,7 @@
     "added": "2023-03-21",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Typos",
+      "typos",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2023/fragment-a-powerful-and-versatile-complete-font-free-to-try-pangram-pangram-foundry/",
@@ -1694,7 +1693,7 @@
     "added": "2023-03-21",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2023/brand-colors-we-need-to-do-better-and-yes-we-can-project-bbcg/",
@@ -1708,7 +1707,7 @@
     "added": "2023-01-31",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2023/to-photograph-is-to-learn-how-to-die/",
@@ -1722,7 +1721,7 @@
     "added": "2023-01-20",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Graphisme",
+      "graphisme",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2023/ne-pas-plier-epicerie-dart-frais/",
@@ -1736,7 +1735,7 @@
     "added": "2022-11-25",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/paysages-pluriels-exposition-de-nicolas-coutable-maison-gutenberg/",
@@ -1750,7 +1749,7 @@
     "added": "2022-09-28",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/verra-la-morte-e-avra-i-tuoi-occhi-la-serie-piu-intima-di-mario-giacomelli/",
@@ -1764,7 +1763,7 @@
     "added": "2022-09-26",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/mythologies-iii-les-metamorphoses-letizia-le-fur/",
@@ -1778,7 +1777,7 @@
     "added": "2022-09-16",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/pourquoi-photographier-atelier-exb/",
@@ -1792,7 +1791,7 @@
     "added": "2022-09-16",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/george-w-gardner-the-art-institute-of-chicago/",
@@ -1806,7 +1805,7 @@
     "added": "2022-09-16",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/francoise-evenou-las-reinas-del-bosque/",
@@ -1820,7 +1819,7 @@
     "added": "2022-09-14",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/ape/",
@@ -1834,7 +1833,7 @@
     "added": "2022-09-06",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/tomoya-fujimoto-rien-que-la-mer-seconde-edition-amers/",
@@ -1848,8 +1847,8 @@
     "added": "2022-09-05",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
-      "wordpress",
+      "geek",
+      "WordPress",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/ainoblocks-fse-wordpress-themes-patterns-blocks/",
@@ -1863,7 +1862,7 @@
     "added": "2022-08-26",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/writer-ia/",
@@ -1877,7 +1876,7 @@
     "added": "2022-08-26",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Typos",
+      "typos",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/letterform-archive/",
@@ -1891,7 +1890,7 @@
     "added": "2022-08-25",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Typos",
+      "typos",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/n27-atipo-foundry/",
@@ -1905,7 +1904,7 @@
     "added": "2022-08-25",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/generateur-didees-pour-le-pass-contre-culture-par-geoffrey-dorne/",
@@ -1919,7 +1918,7 @@
     "added": "2022-08-24",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/film-documentaire-sur-dolores-marat/",
@@ -1933,9 +1932,7 @@
     "added": "2022-06-24",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "outil riso",
-      "RISO",
-      "séparation",
+      "riso",
       "soft",
       "blog-ooblik"
     ],
@@ -1950,7 +1947,7 @@
     "added": "2022-06-21",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Riso",
+      "riso",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/super-banco/",
@@ -1964,7 +1961,7 @@
     "added": "2022-06-21",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Riso",
+      "riso",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/printing-publishing-jan-van-eyck-academie/",
@@ -1978,8 +1975,8 @@
     "added": "2022-06-21",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
-      "Riso",
+      "photographie",
+      "riso",
       "blog-ooblik",
       "lien-mort"
     ],
@@ -2000,7 +1997,7 @@
     "added": "2022-06-21",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Riso",
+      "riso",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/impression-riso-riso-on-the-moon/",
@@ -2014,7 +2011,7 @@
     "added": "2022-06-21",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Riso",
+      "riso",
       "blog-ooblik",
       "lien-mort"
     ],
@@ -2035,8 +2032,8 @@
     "added": "2022-06-21",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Imprimerie &amp; technique",
-      "Riso",
+      "impression",
+      "riso",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/exploriso-des-beaux-arts-low-tech/",
@@ -2050,7 +2047,7 @@
     "added": "2022-06-21",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Riso",
+      "riso",
       "blog-ooblik",
       "lien-mort"
     ],
@@ -2071,9 +2068,8 @@
     "added": "2022-06-16",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
-      "Photographes",
-      "Thomas Boivin",
+      "livre",
+      "photographie",
       "blog-ooblik",
       "lien-mort"
     ],
@@ -2094,7 +2090,7 @@
     "added": "2022-04-25",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Imprimerie &amp; technique",
+      "impression",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/book-elements/",
@@ -2108,7 +2104,7 @@
     "description": "Ressource « Tinos - Google Fonts » archivée depuis fonts.google.com dans la collection historique du Digest.",
     "tags": [
       "fonts",
-      "google-fonts",
+      "Google-Fonts",
       "création"
     ],
     "id": "09cfa2ec-7159-5a54-85eb-0e913bd1e427"
@@ -2134,7 +2130,7 @@
     "added": "2022-04-14",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Éditeur",
+      "éditeur",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/conveyor-studio/",
@@ -2203,8 +2199,8 @@
     "added": "2022-04-08",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Education",
-      "Geek",
+      "éducation",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/narratopias-library/",
@@ -2240,7 +2236,7 @@
     "added": "2022-04-08",
     "description": "Ressource « Create PDF Viewer and PDF Flipbook in WordPress - DearPDF » archivée depuis dearpdf.com dans la collection historique du Digest.",
     "tags": [
-      "pdf",
+      "PDF",
       "création"
     ],
     "id": "d3271204-93af-572e-9d31-039d478aa8c1"
@@ -2264,7 +2260,7 @@
     "added": "2022-04-07",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/photographies-ludmilla-cerveny/",
@@ -2278,7 +2274,7 @@
     "added": "2022-04-06",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Letterpress",
+      "letterpress",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/super-marche-noir/",
@@ -2292,7 +2288,7 @@
     "added": "2022-03-28",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Exposition",
+      "exposition",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/icones-by-susan-kare-micg/",
@@ -2306,8 +2302,8 @@
     "added": "2022-03-28",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Design",
-      "Livre / Book",
+      "design",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/design-la-troupe/",
@@ -2321,7 +2317,7 @@
     "added": "2022-03-26",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/roma-filigranes-editions/",
@@ -2335,7 +2331,7 @@
     "added": "2022-03-26",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/ii-bryan-schutmaat/",
@@ -2349,7 +2345,6 @@
     "added": "2022-03-26",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Actualités",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/atelier-luma/",
@@ -2363,7 +2358,7 @@
     "added": "2022-03-23",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/zone-i-image-environnement/",
@@ -2377,8 +2372,8 @@
     "added": "2022-03-23",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
-      "Photographes",
+      "livre",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/the-eclipse-sun-sun/",
@@ -2406,7 +2401,7 @@
     "added": "2022-03-22",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2022/themes-alexandre-buffet/",
@@ -2420,13 +2415,13 @@
     "description": "Ressource « Free WordPress Themes – Anders Norén » archivée depuis andersnoren.se dans la collection historique du Digest.",
     "tags": [
       "wp",
-      "themes",
+      "thèmes",
       "dooo",
       "domains",
       "webdesign",
       "via:dtatem",
       "création",
-      "wordpress"
+      "WordPress"
     ],
     "id": "75bebbc3-9ecd-55f7-b798-58a9cf93b6a4"
   },
@@ -2450,7 +2445,7 @@
     "added": "2021-04-19",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2021/wall-pieces-johan-deckmann/",
@@ -2464,8 +2459,8 @@
     "added": "2021-04-19",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
-      "Imprimerie &amp; technique",
+      "geek",
+      "impression",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2021/resources-prepostprint/",
@@ -2479,7 +2474,7 @@
     "added": "2021-04-19",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2021/fukushima-ses-invisibles-les-editions-des-mondes-a-faire/",
@@ -2493,7 +2488,7 @@
     "added": "2020-06-01",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2020/decor-export-poursuite/",
@@ -2507,7 +2502,7 @@
     "added": "2020-05-11",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2020/photographe-france-insitu/",
@@ -2521,7 +2516,7 @@
     "added": "2020-03-30",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Design",
+      "design",
       "blog-ooblik",
       "lien-mort"
     ],
@@ -2542,8 +2537,8 @@
     "added": "2020-03-19",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
-      "Photographes",
+      "livre",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2020/turista-we-make-photobooks-about-places/",
@@ -2557,7 +2552,7 @@
     "added": "2020-03-19",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2020/thomas-sauvin-17-18-19/",
@@ -2571,7 +2566,7 @@
     "added": "2020-03-19",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Typos",
+      "typos",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2020/fabrikat-normal-hvd-fonts/",
@@ -2585,7 +2580,7 @@
     "added": "2020-03-19",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2020/brae-hubertfischer-graphic-design-art-direction-visual-communication/",
@@ -2599,7 +2594,7 @@
     "added": "2020-03-18",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2020/napoli-nord-case-rom-vincenzo-pagliuca/",
@@ -2613,7 +2608,7 @@
     "added": "2020-03-12",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2020/preto-magazine-issue-10-preto/",
@@ -2627,7 +2622,7 @@
     "added": "2020-03-11",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2020/a-les-8-al-bar-eusebi-by-salvi-danes-dalpine/",
@@ -2641,7 +2636,7 @@
     "added": "2020-02-24",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2020/mrdurian/",
@@ -2669,7 +2664,7 @@
     "added": "2020-02-19",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Typos",
+      "typos",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2020/oh-no-type-company/",
@@ -2683,8 +2678,8 @@
     "added": "2020-02-19",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
-      "Livre / Book",
+      "geek",
+      "livre",
       "blog-ooblik",
       "lien-mort"
     ],
@@ -2705,7 +2700,7 @@
     "added": "2020-02-03",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Typos",
+      "typos",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2020/%e3%83%89%e3%83%83%e3%83%88%e3%82%b3%e3%83%ad%e3%83%b3-%e3%83%95%e3%82%a9%e3%83%b3%e3%83%88-route-159/",
@@ -2719,7 +2714,7 @@
     "added": "2020-02-03",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2020/xhbtr-create-publish-an-artist-website-in-five-minutes/",
@@ -2733,7 +2728,7 @@
     "added": "2020-01-30",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2020/the-deep-sea/",
@@ -2747,7 +2742,6 @@
     "added": "2020-01-30",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Actualités",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2020/first-image-from-nsfs-inouye-solar-telescope-nso-national-solar-observatory/",
@@ -2761,7 +2755,7 @@
     "added": "2020-01-27",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2020/une-odyssee-siberienne-claudine-doury/",
@@ -2775,7 +2769,7 @@
     "added": "2020-01-13",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2020/daniel-arnold/",
@@ -2789,7 +2783,7 @@
     "added": "2020-01-07",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Design",
+      "design",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2020/formes-des-luttes/",
@@ -2803,7 +2797,7 @@
     "added": "2020-01-07",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2020/campagnes-francaises-thibaut-cuisset-steidl-verlag/",
@@ -2817,7 +2811,7 @@
     "added": "2019-12-18",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2019/sophie-ebrard-2/",
@@ -2831,7 +2825,7 @@
     "added": "2019-12-13",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2019/impressions-siciliennes-leila-garfield/",
@@ -2845,7 +2839,7 @@
     "added": "2019-11-16",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2019/dslr-film-scanning-the-secret-to-perfect-color-negatives/",
@@ -2859,7 +2853,7 @@
     "added": "2019-11-15",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2019/7-zip/",
@@ -2873,7 +2867,7 @@
     "added": "2019-11-14",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2019/negative-lab-pro/",
@@ -2887,8 +2881,8 @@
     "added": "2019-10-28",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
-      "Livre / Book",
+      "geek",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2019/le-tiers-livre-web-litterature-et-si-vous-preferez-les-podcasts/",
@@ -2902,7 +2896,7 @@
     "added": "2019-10-23",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2019/systeme-detalonnage-i1display-pro-x-rite/",
@@ -2916,7 +2910,7 @@
     "added": "2019-10-01",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2019/le-tremblet-romain-philippon/",
@@ -2930,7 +2924,7 @@
     "added": "2019-09-23",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2019/le-catalogue-de-la-mort-editions-b42/",
@@ -2984,7 +2978,7 @@
     "added": "2019-06-24",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2019/bemojake-schoolcraft/",
@@ -2998,7 +2992,7 @@
     "added": "2019-06-06",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2019/the-shade-of-monuments-out-of-place-books/",
@@ -3012,7 +3006,7 @@
     "added": "2019-06-06",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2019/francois-halard-papa-libraryman/",
@@ -3026,7 +3020,7 @@
     "added": "2019-05-22",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2019/photography-by-daichi-koda-untitledtree/",
@@ -3040,7 +3034,7 @@
     "added": "2019-05-15",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2019/high-garden-tom-spach/",
@@ -3054,7 +3048,7 @@
     "added": "2019-04-26",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2019/michael-wolf/",
@@ -3068,7 +3062,7 @@
     "added": "2019-04-23",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2019/vahan-soghomonian/",
@@ -3082,7 +3076,7 @@
     "added": "2019-04-07",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2019/476149/",
@@ -3096,7 +3090,7 @@
     "added": "2019-03-15",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2019/karol-palka/",
@@ -3110,8 +3104,8 @@
     "added": "2019-03-14",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
-      "Livre / Book",
+      "geek",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2019/making-of-dune-collection-liberee-addictions-sur-ordonnance-polylogue/",
@@ -3125,7 +3119,7 @@
     "added": "2019-03-14",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2019/a-bower-for-sisters-read-that-image/",
@@ -3139,7 +3133,7 @@
     "added": "2018-12-21",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2018/my-shadows-reflection-edmund-clark/",
@@ -3153,7 +3147,7 @@
     "added": "2018-12-21",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2018/here-press/",
@@ -3167,7 +3161,7 @@
     "added": "2018-12-21",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2018/editions-fpcf/",
@@ -3180,7 +3174,7 @@
     "added": "2018-09-10",
     "description": "Ressource « Les zones de page PDF - NormaPrint » archivée depuis normaprint.fr dans la collection historique du Digest.",
     "tags": [
-      "pdf",
+      "PDF",
       "&quot;zone",
       "de",
       "page&quot;",
@@ -3218,7 +3212,7 @@
       "typography",
       "font-pairing",
       "pairing",
-      "google-fonts",
+      "Google-Fonts",
       "web",
       "création"
     ],
@@ -3232,7 +3226,7 @@
     "added": "2018-08-21",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2018/rationale-resources/",
@@ -3246,8 +3240,8 @@
     "added": "2018-08-21",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "éditions",
-      "Livre / Book",
+      "editions",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2018/editions-dasein/",
@@ -3261,7 +3255,7 @@
     "added": "2018-06-28",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2018/yatromanolakis-yorgos/",
@@ -3275,9 +3269,8 @@
     "added": "2018-06-28",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "zine",
-      "zines",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2018/myop-myopzine-france-keyser-francais-dislam/",
@@ -3291,7 +3284,7 @@
     "added": "2018-06-28",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2018/brave-books-tique-art-paper/",
@@ -3305,7 +3298,7 @@
     "added": "2018-06-12",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Typos",
+      "typos",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2018/faune-alice-savoie-cnap/",
@@ -3319,7 +3312,7 @@
     "added": "2018-06-04",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2018/une-respiration-de-combat-camille-szklorz/",
@@ -3333,7 +3326,7 @@
     "added": "2018-05-31",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2018/elena-anosova-photography/",
@@ -3347,8 +3340,8 @@
     "added": "2018-05-17",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
-      "Photographes",
+      "livre",
+      "photographie",
       "blog-ooblik",
       "lien-mort"
     ],
@@ -3399,7 +3392,7 @@
     "added": "2018-03-21",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2018/publishing-void/",
@@ -3413,7 +3406,7 @@
     "added": "2018-03-19",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2018/a-ravens-dream-stavros-stamatiou/",
@@ -3427,7 +3420,7 @@
     "added": "2018-03-17",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2018/robert-frank-chad-tobin/",
@@ -3441,7 +3434,7 @@
     "added": "2018-03-17",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2018/publications-the-eriskay-connection/",
@@ -3455,7 +3448,7 @@
     "added": "2018-03-15",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2018/roman-nvmerals-books/",
@@ -3484,7 +3477,7 @@
     "added": "2018-03-01",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2018/bookmaker-macmillans-bookmaking-tool/",
@@ -3498,7 +3491,7 @@
     "added": "2018-02-02",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2018/mayumi-suzuki-photography/",
@@ -3512,7 +3505,7 @@
     "added": "2018-02-01",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2018/burning-with-pleasure-project-archipelago/",
@@ -3526,7 +3519,7 @@
     "added": "2017-12-27",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/satura-yardpress/",
@@ -3540,7 +3533,7 @@
     "added": "2017-12-18",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/%e2%98%85-beijing-silvermine-%e2%98%86-%e5%8c%97%e4%ba%ac%e9%93%b6%e7%9f%bf-%e2%98%85-beijing_silvermine/",
@@ -3554,8 +3547,7 @@
     "added": "2017-12-11",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Riso",
-      "risographie",
+      "riso",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/stencil-wiki/",
@@ -3569,8 +3561,7 @@
     "added": "2017-12-11",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "RISO",
-      "risographie",
+      "riso",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/o-oo-com/",
@@ -3584,8 +3575,7 @@
     "added": "2017-12-11",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "RISO",
-      "risographie",
+      "riso",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/maisonriso/",
@@ -3599,7 +3589,7 @@
     "added": "2017-12-11",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Letterpress",
+      "letterpress",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/les-caracterres/",
@@ -3613,7 +3603,7 @@
     "added": "2017-12-11",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Imprimerie &amp; technique",
+      "impression",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/huv-offset-printing-cassochrome/",
@@ -3627,8 +3617,7 @@
     "added": "2017-12-11",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "RISO",
-      "risographie",
+      "riso",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/friends-make-books-studio/",
@@ -3642,8 +3631,7 @@
     "added": "2017-12-11",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "RISO",
-      "risographie",
+      "riso",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/constance-erik-kiesewetter-risograph-printing-new-orleans/",
@@ -3657,7 +3645,7 @@
     "description": "Ressource « Silvio Lorusso . com » archivée depuis silviolorusso.com dans la collection historique du Digest.",
     "tags": [
       "Graphic",
-      "Design",
+      "design",
       "création"
     ],
     "id": "b557838d-7faa-5435-ba43-f9791fd1e9d9"
@@ -3670,7 +3658,7 @@
     "description": "Ressource « Niels Vrijdag - Graphic Design » archivée depuis nielsvrijdag.nl dans la collection historique du Digest.",
     "tags": [
       "Graphic",
-      "Design",
+      "design",
       "création"
     ],
     "id": "c0374cb9-5ab8-580d-8375-99846755c893"
@@ -3684,7 +3672,7 @@
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
       "typographie",
-      "Typos",
+      "typos",
       "blog-ooblik",
       "lien-mort"
     ],
@@ -3703,7 +3691,7 @@
     "added": "2017-11-08",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/selfcontrol/",
@@ -3717,7 +3705,7 @@
     "added": "2017-11-07",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/ca-lisidret-edicions-juan-diego-valera-tuetano/",
@@ -3783,7 +3771,7 @@
     "added": "2017-11-05",
     "description": "Les Éditions HYX (prononcer X), maison d'édition associative, entendent participer, en France et à l'international, au développement d'une édition culturelle prospective. À Orléans depuis 1993, HYX publie des ouvrages - pour la plupart bilingues - dans les domaines de l'architecture, de l'art contemporain, de la philosophie, des cultures numériques et de la littérature.",
     "tags": [
-      "edition",
+      "édition",
       "livre",
       "numérique",
       "editions",
@@ -3799,7 +3787,7 @@
     "description": "Ressource « WordPress Themes | Visualmodo Premium Responsive Website Builder » archivée depuis visualmodo.com dans la collection historique du Digest.",
     "tags": [
       "theme",
-      "wordpress",
+      "WordPress",
       "développement"
     ],
     "id": "08b3b056-3bdb-5810-ac63-6a4186b069f7"
@@ -3812,7 +3800,7 @@
     "added": "2017-10-27",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Camera Porn",
+      "matériel",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/photo-cine-reparation/",
@@ -3826,7 +3814,7 @@
     "added": "2017-10-27",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/order-of-appearance-by-jim-jocoy/",
@@ -3840,7 +3828,7 @@
     "added": "2017-10-27",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/atlas-of-forms-poursuite/",
@@ -3854,7 +3842,7 @@
     "added": "2017-10-23",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/toscane-primitive-julien-magre/",
@@ -3868,7 +3856,7 @@
     "added": "2017-10-15",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/future-%e2%86%92-open-source-publishing-relearn/",
@@ -3882,8 +3870,8 @@
     "added": "2017-10-15",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
-      "Livre / Book",
+      "geek",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/e-book-backup-jesse-england/",
@@ -3898,7 +3886,7 @@
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
       "typographie",
-      "Typos",
+      "typos",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/optimo-type-foundry-typefaces/",
@@ -3912,7 +3900,7 @@
     "added": "2017-10-13",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Letterpress",
+      "letterpress",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/fag-swiss-proof-40-proofpress-ch/",
@@ -3926,7 +3914,7 @@
     "added": "2017-10-13",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/editions-macula-une-histoire-contrariee-le-musee-de-photographie-en-france-1839-1945/",
@@ -3940,7 +3928,7 @@
     "added": "2017-10-13",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Imprimerie &amp; technique",
+      "impression",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/atelier-idem-paris/",
@@ -3954,7 +3942,7 @@
     "added": "2017-10-09",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/revue-pli/",
@@ -3968,7 +3956,7 @@
     "added": "2017-10-09",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/baldingervu-huu-stephane-couturier-sc/",
@@ -3982,7 +3970,7 @@
     "added": "2017-09-28",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/deflagrations-anamosa/",
@@ -3996,7 +3984,7 @@
     "added": "2017-07-18",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/jouer-contre-les-appareils-marc-lenot/",
@@ -4010,8 +3998,7 @@
     "added": "2017-07-11",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
-      "up",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/nona-faustine/",
@@ -4025,10 +4012,9 @@
     "added": "2017-07-11",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Camera Porn",
-      "Livre / Book",
-      "Photographes",
-      "up",
+      "matériel",
+      "livre",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/bibliotheque-numerique-musee-de-lelysee/",
@@ -4042,7 +4028,7 @@
     "added": "2017-05-12",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/archives-grothendieck/",
@@ -4056,7 +4042,7 @@
     "added": "2017-04-24",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/domo-a-inspiration-blog/",
@@ -4070,7 +4056,7 @@
     "added": "2017-04-20",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/same-tense-caimi-piccinni/",
@@ -4098,7 +4084,7 @@
     "added": "2017-04-20",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/nager-nuit-marine-lanier/",
@@ -4112,7 +4098,7 @@
     "added": "2017-04-20",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/ets-malaxe-souhaite-bienvenue/",
@@ -4174,7 +4160,7 @@
       "piano",
       "composition",
       "Brésil",
-      "YouTube"
+      "youtube"
     ],
     "id": "7839c386-55a5-530b-be51-62da8085c581"
   },
@@ -4276,7 +4262,7 @@
     "description": "Un carnet visuel suisse consacré au graphisme, à l’édition, aux formes imprimées et aux références typographiques.",
     "tags": [
       "design-graphique",
-      "Tumblr",
+      "tumblr",
       "inspiration",
       "édition",
       "Suisse"
@@ -4556,7 +4542,7 @@
       "design-system",
       "UX",
       "UI",
-      "Google",
+      "google",
       "interface"
     ],
     "id": "bb8c53f8-86ff-58e4-b737-a51bf427245f"
@@ -5263,7 +5249,7 @@
     "tags": [
       "design",
       "développement",
-      "Twitter",
+      "twitter",
       "veille"
     ],
     "id": "a8ee719a-4722-57e4-a96a-6a0c8bbedbe4"
@@ -5402,7 +5388,7 @@
     "description": "Un Tumblr de photographie et d’inspirations visuelles.",
     "tags": [
       "photographie",
-      "Tumblr",
+      "tumblr",
       "inspiration",
       "images"
     ],
@@ -5565,7 +5551,7 @@
     "added": "2017-03-21",
     "description": "Un ancien carnet Tumblr consacré à des images, éditions et inspirations visuelles.",
     "tags": [
-      "Tumblr",
+      "tumblr",
       "photographie",
       "édition",
       "inspiration"
@@ -5882,7 +5868,7 @@
     "tags": [
       "édition",
       "humour",
-      "Tumblr",
+      "tumblr",
       "livre"
     ],
     "id": "6b5c9f41-a01a-5d68-926d-d29ddb25bd0b"
@@ -5930,7 +5916,7 @@
     "description": "Un ancien thème WordPress minimal destiné aux boutiques et portfolios visuels.",
     "tags": [
       "WordPress",
-      "thème",
+      "theme",
       "e-commerce",
       "design-web"
     ],
@@ -6043,7 +6029,7 @@
     "added": "2017-03-16",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/the-theatre-of-apparitions-roger-ballen-photography/",
@@ -6121,7 +6107,7 @@
     "added": "2017-03-08",
     "description": "Un CMS de portfolio simple et orienté fichiers, publié en open source par AREA 17.",
     "tags": [
-      "CMS",
+      "cms",
       "portfolio",
       "opensource",
       "PHP"
@@ -6555,7 +6541,7 @@
     "added": "2017-02-24",
     "description": "Un CMS et framework de gestion de contenu libre, centré sur une API souple, les champs personnalisés et une structure de pages arborescente.",
     "tags": [
-      "CMS",
+      "cms",
       "opensource",
       "PHP",
       "développement-web"
@@ -6777,7 +6763,7 @@
     "added": "2017-01-21",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/principe-de-realite-alex-cretey-systermans/",
@@ -6791,7 +6777,7 @@
     "added": "2017-01-21",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/guillaume-martial-sportokino/",
@@ -6805,8 +6791,8 @@
     "added": "2017-01-17",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
-      "Photographes",
+      "livre",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/paris-patrick-messina/",
@@ -6820,8 +6806,7 @@
     "added": "2017-01-15",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Actualités",
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/buy-books-not-gear/",
@@ -6835,8 +6820,7 @@
     "added": "2017-01-11",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Actualités",
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/workshops-patrick-bescont/",
@@ -6850,7 +6834,7 @@
     "added": "2017-01-09",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Camera Porn",
+      "matériel",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2017/intrepid-camera-the-intrepid-camera-company/",
@@ -6864,7 +6848,7 @@
     "added": "2016-12-28",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/reves-de-maison-reves-de-territoire-mtp/",
@@ -7038,7 +7022,7 @@
     "added": "2016-12-15",
     "description": "Je viens d'ajouter « NAKED NOTES » à partage & impression sur #Vimeo :",
     "tags": [
-      "Vimeo",
+      "vimeo",
       "création",
       "lien-mort"
     ],
@@ -7057,7 +7041,7 @@
     "added": "2016-12-15",
     "description": "Je viens de mettre en ligne « NAKED NOTES » sur #Vimeo :",
     "tags": [
-      "Vimeo",
+      "vimeo",
       "création",
       "lien-mort"
     ],
@@ -7120,7 +7104,7 @@
     "added": "2016-12-15",
     "description": "Je viens de mettre en ligne « NAKED NOTES » sur #Vimeo :",
     "tags": [
-      "Vimeo",
+      "vimeo",
       "création"
     ],
     "id": "b1ce0d90-47a7-5fb2-a718-e7179a9bee14"
@@ -7750,7 +7734,7 @@
     "added": "2016-12-03",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/srdx-photoshop-plugin/",
@@ -8030,8 +8014,8 @@
     "added": "2016-11-29",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
-      "Photographes",
+      "livre",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/dominique-lambert-_-stephanie-solinas/",
@@ -8296,7 +8280,7 @@
     "added": "2016-11-23",
     "description": "Tirage pour Laurent Champoussin 50x75cm HFA Matt 200g #Hahnemühle…",
     "tags": [
-      "Hahnem",
+      "hahnem",
       "instagram",
       "mémoire-web"
     ],
@@ -8392,7 +8376,7 @@
     "tags": [
       "Platine",
       "Canson",
-      "cansoninfinity",
+      "Cansoninfinity",
       "instagram",
       "mémoire-web"
     ],
@@ -8492,7 +8476,7 @@
     "added": "2016-11-20",
     "description": "RT @julienachard: Copé entouré de tous ses électeurs #laprimaire",
     "tags": [
-      "laprimaire",
+      "Laprimaire",
       "twitter",
       "mémoire-web",
       "lien-mort"
@@ -8881,7 +8865,7 @@
     "added": "2016-11-08",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/on1-photo-raw-live-event/",
@@ -9075,8 +9059,8 @@
     "added": "2016-11-06",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
-      "Photographes",
+      "livre",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/ralph-gibson-how-to-make-a-book-nowness/",
@@ -9215,7 +9199,7 @@
     "added": "2016-11-04",
     "description": "Tirage d'un Modulor de Guillaume Martial Canson mat 210gr #cansoninfinity @ Atelier Ooblik",
     "tags": [
-      "cansoninfinity",
+      "Cansoninfinity",
       "instagram",
       "mémoire-web"
     ],
@@ -9296,7 +9280,7 @@
     "description": "La nouvelle table palette de l'atelier... Avant petit vernis ((: #diy #palette @ Atelier Ooblik",
     "tags": [
       "palette",
-      "diy",
+      "DIY",
       "instagram",
       "mémoire-web"
     ],
@@ -9470,7 +9454,7 @@
     "added": "2016-11-02",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/elements-volume-9/",
@@ -9484,7 +9468,7 @@
     "added": "2016-11-02",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/bright-torment-federica-landi/",
@@ -9511,7 +9495,7 @@
     "added": "2016-10-31",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/saisons-noires/",
@@ -10617,8 +10601,8 @@
     "added": "2016-10-12",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
-      "Photographes",
+      "livre",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/far-from-home-youqine-lefevre/",
@@ -11057,7 +11041,7 @@
     "added": "2016-10-04",
     "description": "Un service qui tente d’identifier le système de gestion de contenu utilisé par un site web.",
     "tags": [
-      "CMS",
+      "cms",
       "détection",
       "analyse",
       "web"
@@ -11189,7 +11173,7 @@
     "added": "2016-10-04",
     "description": "Un CMS sans base de données, centré sur les fichiers et apprécié pour sa souplesse éditoriale.",
     "tags": [
-      "CMS",
+      "cms",
       "fichiers",
       "publication",
       "web"
@@ -11246,7 +11230,7 @@
     "description": "Le service d’hébergement statique de GitHub, qui publie un site directement depuis un dépôt et reste une porte d’entrée simple vers le web statique.",
     "tags": [
       "GitHub",
-      "hébergement",
+      "hebergement",
       "site-statique",
       "publication"
     ],
@@ -11259,7 +11243,7 @@
     "added": "2016-10-04",
     "description": "Le dépôt du CMS open source Ghost, devenu une plateforme complète de publication, d’abonnement et de newsletter.",
     "tags": [
-      "CMS",
+      "cms",
       "opensource",
       "publication",
       "newsletter"
@@ -11399,7 +11383,7 @@
     "added": "2016-10-04",
     "description": "Un utilitaire en ligne pour compresser une feuille de styles en supprimant les caractères inutiles.",
     "tags": [
-      "CSS",
+      "css",
       "compression",
       "performance",
       "outil"
@@ -11469,7 +11453,7 @@
     "added": "2016-10-04",
     "description": "Un CMS de portfolio minimaliste conçu pour permettre aux créatifs de composer et publier facilement leur site.",
     "tags": [
-      "CMS",
+      "cms",
       "portfolio",
       "design",
       "publication"
@@ -12063,7 +12047,7 @@
     "added": "2016-09-28",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/filip-dujardin/",
@@ -12324,7 +12308,7 @@
     "added": "2016-09-23",
     "description": "Un classique d'alignement... #canon #photokina @ photokina",
     "tags": [
-      "photokina",
+      "Photokina",
       "canon",
       "instagram",
       "mémoire-web"
@@ -12719,7 +12703,7 @@
     "description": "Mise à journée notre site... Maj !!! #Web #ooblik @ Atelier Ooblik",
     "tags": [
       "ooblik",
-      "Web",
+      "web",
       "instagram",
       "mémoire-web"
     ],
@@ -12747,7 +12731,7 @@
     "description": "Mise à journée notre site... Maj !!! #Web #ooblik @ Atelier Ooblik",
     "tags": [
       "ooblik",
-      "Web",
+      "web",
       "développement"
     ],
     "id": "072644bf-d7a3-5bc0-80d8-59d4aa4e5c4f"
@@ -13003,7 +12987,6 @@
     "added": "2016-09-16",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Actualités",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/soviet-movies-in-english-online/",
@@ -13043,8 +13026,8 @@
     "added": "2016-09-16",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Camera Porn",
-      "Livre / Book",
+      "matériel",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/les-editions-du-paon/",
@@ -13084,7 +13067,7 @@
     "added": "2016-09-16",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/guerillagrafik-com/",
@@ -13124,7 +13107,7 @@
     "added": "2016-09-16",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/bildband-berlin/",
@@ -13151,7 +13134,7 @@
     "added": "2016-09-16",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/atelier-de-reliure-franck-michel-grenoble/",
@@ -13272,7 +13255,7 @@
     "added": "2016-09-15",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/libre-desktop-publishing-scribus/",
@@ -13455,8 +13438,8 @@
     "added": "2016-09-14",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Camera Porn",
-      "technique",
+      "matériel",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/cours-ligne-videos-photographie-marc-levoy/",
@@ -14061,7 +14044,7 @@
     "added": "2016-09-09",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/tim-carpenter/",
@@ -14190,7 +14173,7 @@
     "added": "2016-09-09",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/arnaud-delrue-photographie/",
@@ -14366,7 +14349,7 @@
     "added": "2016-09-08",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/the-angry-bats-nice-photobooks/",
@@ -14464,8 +14447,8 @@
     "added": "2016-09-08",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
-      "Photographes",
+      "livre",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/draw-down-lets-get-together/",
@@ -14518,7 +14501,7 @@
     "added": "2016-09-08",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/chad-moore-bridge-of-sighs-oodee-photography-books-posters/",
@@ -15022,7 +15005,7 @@
     "added": "2016-09-05",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/books-twin-palms-publishers/",
@@ -15255,7 +15238,7 @@
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
       "cms",
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/visual-cms-to-power-content-first-design-webflow/",
@@ -15640,7 +15623,7 @@
     "added": "2016-09-02",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/bookroom-the-book-is-alive/",
@@ -15693,7 +15676,7 @@
     "added": "2016-09-02",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/16-photos-nai-prises-poursuite/",
@@ -16388,7 +16371,7 @@
     "added": "2016-08-24",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/xyz-books-lisbon/",
@@ -16699,7 +16682,7 @@
     "description": "help ;)) @subfolio",
     "tags": [
       "développement",
-      "github"
+      "GitHub"
     ],
     "id": "0cf7b130-95ae-5cdc-a124-8728839c1ef0"
   },
@@ -17430,8 +17413,7 @@
     "added": "2016-07-19",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Actualités",
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/i-burning-with-pleasure-archipelago/",
@@ -17458,7 +17440,7 @@
     "added": "2016-07-19",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/gerry-johansson-hemsida-homepage/",
@@ -17485,7 +17467,7 @@
     "added": "2016-07-19",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/editions-yellow-now/",
@@ -17512,7 +17494,7 @@
     "added": "2016-07-19",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Camera Porn",
+      "matériel",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/color-logic-special-effects-for-print/",
@@ -17618,7 +17600,7 @@
     "tags": [
       "KirbyCMS",
       "développement",
-      "github"
+      "GitHub"
     ],
     "id": "3401ecd4-6a9a-5fd6-92d0-999ae362e10b"
   },
@@ -17670,7 +17652,7 @@
     "added": "2016-07-15",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/works-per-christian-brown/",
@@ -17843,7 +17825,7 @@
     "added": "2016-07-15",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/lise-dua/",
@@ -18048,7 +18030,7 @@
     "added": "2016-07-11",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/kieran-cudlip/",
@@ -18075,7 +18057,7 @@
     "description": "Reprise à l'atelier... Avec Eric Tabuchi Canson Platine fibre #cansonpaper #cansoninfinity @…",
     "tags": [
       "cansonpaper",
-      "cansoninfinity",
+      "Cansoninfinity",
       "instagram",
       "mémoire-web"
     ],
@@ -18508,7 +18490,7 @@
     "tags": [
       "bookshop",
       "libraire",
-      "arles",
+      "Arles",
       "libre",
       "twitter",
       "mémoire-web",
@@ -18564,7 +18546,7 @@
     "added": "2016-07-04",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/lindifference-des-etoiles-poursuite/",
@@ -19328,7 +19310,7 @@
     "added": "2016-06-25",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/jeffrey-ladd/",
@@ -19445,9 +19427,8 @@
     "added": "2016-06-25",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "zine",
-      "zines",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/alex-cretey-systermans/",
@@ -19501,7 +19482,7 @@
     "added": "2016-06-22",
     "description": "Tirages coréens du Nord ce matin... Photo d'Hélène Veilleux #Hahnemühle @ Atelier Ooblik",
     "tags": [
-      "Hahnem",
+      "hahnem",
       "instagram",
       "mémoire-web"
     ],
@@ -19578,7 +19559,7 @@
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
       "typographie",
-      "Typos",
+      "typos",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/lyon-text-and-display-carvalho-bernau/",
@@ -19825,7 +19806,7 @@
     "description": "Tirages pour exposition d'Emilie Mathiaux Canson Platine fibre #Canson #cansoninfinity @…",
     "tags": [
       "Canson",
-      "cansoninfinity",
+      "Cansoninfinity",
       "instagram",
       "mémoire-web"
     ],
@@ -20244,7 +20225,7 @@
     "added": "2016-06-10",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/pataphysics-magazine-world-food-books/",
@@ -20319,7 +20300,7 @@
     "added": "2016-06-10",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/bemojake-books/",
@@ -20415,7 +20396,7 @@
     "description": "Live from #drupa2016: mapping #HPLatex on social media.",
     "tags": [
       "drupa2016",
-      "HPLatex",
+      "hplatex",
       "création",
       "youtube"
     ],
@@ -20429,7 +20410,7 @@
     "description": "Venez voir parce @ooblik fait des affiches pour les musées-galléries-photographes avec #HPLatex #drupa2016 Hall 17",
     "tags": [
       "drupa2016",
-      "HPLatex",
+      "hplatex",
       "twitter",
       "mémoire-web"
     ],
@@ -20443,7 +20424,7 @@
     "added": "2016-06-06",
     "description": "Retirage pour France Dubois Livre #ricoh @ Atelier Ooblik",
     "tags": [
-      "ricoh",
+      "Ricoh",
       "instagram",
       "mémoire-web"
     ],
@@ -20623,7 +20604,7 @@
       "livret",
       "illustrations",
       "cartes",
-      "ricoh",
+      "Ricoh",
       "instagram",
       "mémoire-web"
     ],
@@ -21144,8 +21125,8 @@
     "added": "2016-05-12",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
-      "Photographes",
+      "livre",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/book-pauline-alioua/",
@@ -21321,8 +21302,8 @@
     "added": "2016-05-09",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
-      "Photographes",
+      "livre",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/julien-magre-filigranes-editions/",
@@ -21604,7 +21585,7 @@
     "description": "When #diditalprint becomes art! H.Mandell creates art with #HPLatex",
     "tags": [
       "diditalprint",
-      "HPLatex",
+      "hplatex",
       "twitter",
       "mémoire-web"
     ],
@@ -21619,7 +21600,7 @@
     "description": "When #diditalprint becomes art! H.Mandell creates art with #HPLatex",
     "tags": [
       "diditalprint",
-      "HPLatex",
+      "hplatex",
       "création",
       "lien-mort"
     ],
@@ -21694,7 +21675,7 @@
     "description": "When #diditalprint becomes art! H.Mandell creates art with #HPLatex",
     "tags": [
       "diditalprint",
-      "HPLatex",
+      "hplatex",
       "création"
     ],
     "id": "fc3f80d8-8d20-5e2c-8fd8-00642f0d6664"
@@ -22028,7 +22009,7 @@
     "added": "2016-04-26",
     "description": "Avec Antonio Fichestti de #charliehebdo a Longwy pour faire un meeting sur la laïcité et la Liberté#d",
     "tags": [
-      "charliehebdo",
+      "CharlieHebdo",
       "twitter",
       "mémoire-web"
     ],
@@ -22076,7 +22057,7 @@
     "added": "2016-04-26",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/chrystel-mukeba-works-american-story/",
@@ -22110,7 +22091,7 @@
     "added": "2016-04-26",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/beatrix-von-conta-frances-territoire-liquide/",
@@ -22233,7 +22214,7 @@
     "added": "2016-04-23",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik",
       "lien-mort"
     ],
@@ -22352,7 +22333,7 @@
     "added": "2016-04-22",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/der-greif/",
@@ -22365,7 +22346,7 @@
     "added": "2016-04-21",
     "description": "RT @monoskop: All 21 numbers of ulm: Journal of the Ulm School for #Design (1958–68) [DE/EN/FR]",
     "tags": [
-      "Design",
+      "design",
       "création"
     ],
     "id": "91c7e0e3-7c48-528b-83b4-f28ea7b48b07"
@@ -22377,7 +22358,7 @@
     "added": "2016-04-21",
     "description": "RT @monoskop: All 21 numbers of ulm: Journal of the Ulm School for #Design (1958–68) [DE/EN/FR]",
     "tags": [
-      "Design",
+      "design",
       "twitter",
       "mémoire-web"
     ],
@@ -22917,8 +22898,8 @@
     "added": "2016-04-04",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
-      "Photographes",
+      "livre",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/terres-dexil-filigranes-editions/",
@@ -23357,7 +23338,7 @@
     "added": "2016-03-23",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/darktable-2-0-2-released-darktable/",
@@ -23603,7 +23584,7 @@
     "added": "2016-03-21",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/imrich-veber-blok-62/",
@@ -24058,7 +24039,7 @@
     "added": "2016-03-10",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/les-douces-nuits-des-voitures-bachees-la-boite-verte/",
@@ -24211,7 +24192,7 @@
     "added": "2016-03-09",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/marc-chatelain/",
@@ -24271,7 +24252,7 @@
     "added": "2016-03-09",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/folio-i-julie-hascoet-les-editions-croque-madame/",
@@ -24638,8 +24619,8 @@
     "added": "2016-03-08",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
-      "Photographes",
+      "livre",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/the-book-is-alive-studio-mothership/",
@@ -24783,7 +24764,7 @@
     "added": "2016-03-08",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/chapter-ii-incorruptible-bodies-emilie-hallard/",
@@ -24946,7 +24927,7 @@
     "added": "2016-03-05",
     "description": "On range tout et on fait de la place... La presse arrive cette semaine \"normalement\" !!! #ricoh…",
     "tags": [
-      "ricoh",
+      "Ricoh",
       "instagram",
       "mémoire-web"
     ],
@@ -24994,7 +24975,7 @@
     "added": "2016-03-04",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/karen-faurie/",
@@ -25054,7 +25035,7 @@
     "tags": [
       "ooblik",
       "Canson",
-      "mep",
+      "MEP",
       "instagram",
       "mémoire-web"
     ],
@@ -25278,7 +25259,7 @@
     "added": "2016-02-25",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/un-hiver-sans-brume-julienmagre-fr/",
@@ -25451,7 +25432,7 @@
     "added": "2016-02-25",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/lea-habourdin-and-everything-becomes-nothing-again/",
@@ -25491,7 +25472,7 @@
     "added": "2016-02-25",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/anne-sophie-costenoble-photographie/",
@@ -26790,7 +26771,7 @@
     "added": "2016-01-28",
     "description": "Chez Artprint guest star #cprint @ CTCO",
     "tags": [
-      "cprint",
+      "CPrint",
       "instagram",
       "mémoire-web"
     ],
@@ -26844,7 +26825,7 @@
     "added": "2016-01-27",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/wilder-mann-charles-freger/",
@@ -26950,7 +26931,7 @@
     "added": "2016-01-27",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/cols-alpins-arnaud-teicher/",
@@ -27216,7 +27197,7 @@
     "added": "2016-01-22",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/emigre-books-palm-desert/",
@@ -27283,7 +27264,7 @@
     "added": "2016-01-21",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/retour-sur-le-danube-des-images-et-des-mots/",
@@ -27310,7 +27291,7 @@
     "added": "2016-01-21",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/josef-schulz-fotografische-arbeiten/",
@@ -27973,7 +27954,7 @@
     "tags": [
       "editor",
       "web_development",
-      "javascript",
+      "JavaScript",
       "programmers",
       "twitter",
       "mémoire-web"
@@ -28216,7 +28197,7 @@
     "added": "2016-01-07",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2016/15-ans-apres-kristof-guez/",
@@ -28590,7 +28571,7 @@
     "added": "2015-12-29",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/gregoire-eloy-photography/",
@@ -28968,7 +28949,7 @@
     "tags": [
       "editor",
       "web_development",
-      "javascript",
+      "JavaScript",
       "programmers",
       "twitter",
       "mémoire-web"
@@ -29077,7 +29058,7 @@
     "tags": [
       "editor",
       "web_development",
-      "javascript",
+      "JavaScript",
       "programmers",
       "développement",
       "lien-mort"
@@ -29512,7 +29493,7 @@
     "added": "2015-12-07",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/tout-est-normal-julienmagre-fr/",
@@ -29585,7 +29566,7 @@
     "added": "2015-12-05",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/block-portfolio-aapo-huhta/",
@@ -29645,8 +29626,8 @@
     "added": "2015-12-04",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Camera Porn",
-      "Geek",
+      "matériel",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/canons-new-pro-printer-line-teased-at-canon-expo/",
@@ -29753,7 +29734,7 @@
     "added": "2015-12-03",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/stephane-vigny/",
@@ -30647,7 +30628,7 @@
     "added": "2015-11-16",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/typology-marie-mons/",
@@ -30722,7 +30703,7 @@
     "tags": [
       "papier",
       "love",
-      "paper",
+      "Paper",
       "twitter",
       "mémoire-web",
       "lien-mort"
@@ -31771,7 +31752,7 @@
     "added": "2015-11-02",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/costa-_-jose-pedro-cortes/",
@@ -31811,7 +31792,7 @@
     "added": "2015-11-02",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/champs-de-bataille-yan-morvan/",
@@ -31851,7 +31832,7 @@
     "added": "2015-11-02",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/beotie-kristof-guez/",
@@ -31891,7 +31872,7 @@
     "added": "2015-11-02",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/ana-cuba-on-healing-faith-phases-magazine/",
@@ -32505,7 +32486,7 @@
     "added": "2015-10-22",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/louise-fili-ltd/",
@@ -33957,7 +33938,7 @@
     "added": "2015-10-01",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/matteo-di-giovanni/",
@@ -35257,7 +35238,7 @@
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
       "cms",
-      "Geek",
+      "geek",
       "blog-ooblik",
       "lien-mort"
     ],
@@ -35452,7 +35433,6 @@
     "added": "2015-09-14",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Actualités",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/tipis-www-atelier-morse-fr/",
@@ -35712,7 +35692,7 @@
     "added": "2015-09-10",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/phocus-2-9-hasselblad/",
@@ -36493,7 +36473,7 @@
     "added": "2015-09-01",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/nous-vieillirons-ensemble-suite-julien-magre/",
@@ -37395,8 +37375,7 @@
     "added": "2015-08-14",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Actualités",
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/arles-2015-une-page-sest-tournee/",
@@ -37878,9 +37857,9 @@
     "added": "2015-07-20",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Camera Porn",
-      "Geek",
-      "technique",
+      "matériel",
+      "geek",
+      "photographie",
       "blog-ooblik",
       "lien-mort"
     ],
@@ -38214,7 +38193,7 @@
     "added": "2015-07-14",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/vincent-bordet-melamcholic-memories/",
@@ -38306,7 +38285,7 @@
     "added": "2015-07-14",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/pauline-barzilai-dessins-des-fesses/",
@@ -38566,7 +38545,7 @@
     "added": "2015-07-14",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/incident-le-numero/",
@@ -38847,7 +38826,7 @@
     "description": "Photo: Arles 2015 c'est fait… A VOIR ! #Arles #arles2015",
     "tags": [
       "Arles",
-      "arles2015",
+      "Arles2015",
       "tumblr",
       "mémoire-web"
     ],
@@ -38992,7 +38971,7 @@
     "description": "Photo: Prospectus ready… #ooblik #arles",
     "tags": [
       "ooblik",
-      "arles",
+      "Arles",
       "tumblr",
       "mémoire-web"
     ],
@@ -39053,7 +39032,7 @@
     "description": "Prospectus ready... #ooblik #arles",
     "tags": [
       "ooblik",
-      "arles",
+      "Arles",
       "instagram",
       "mémoire-web"
     ],
@@ -39469,7 +39448,7 @@
     "added": "2015-07-06",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/bretagne-vous-etes-beaux/",
@@ -39503,7 +39482,7 @@
     "added": "2015-07-05",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/marc-beckmann-photography/",
@@ -39709,7 +39688,7 @@
     "added": "2015-06-30",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/session-press/",
@@ -39989,7 +39968,7 @@
     "added": "2015-06-25",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/dedale-laurent-chardon/",
@@ -41870,7 +41849,7 @@
     "added": "2015-06-04",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/delphine-arnaud-the-archivists/",
@@ -41910,8 +41889,8 @@
     "added": "2015-06-04",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
-      "Photographes",
+      "livre",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/celine-clanet-tharoul/",
@@ -42271,7 +42250,7 @@
     "added": "2015-06-03",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/celine-guichard-les-betes/",
@@ -42311,8 +42290,7 @@
     "added": "2015-06-03",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Actualités",
-      "Geek",
+      "geek",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/cabin-porn/",
@@ -42353,7 +42331,7 @@
     "added": "2015-06-03",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/benoit-chailleux/",
@@ -42559,7 +42537,7 @@
     "added": "2015-06-02",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/habitat-en-region_volume-2-www-tempsmachine-com/",
@@ -43369,8 +43347,7 @@
     "added": "2015-05-27",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Camera Porn",
-      "Hasselblad",
+      "matériel",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/cfv-50c-hasselblad/",
@@ -43410,7 +43387,7 @@
     "added": "2015-05-26",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
+      "livre",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/the-angry-bat/",
@@ -43804,7 +43781,7 @@
     "added": "2015-05-22",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Camera Porn",
+      "matériel",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/blackmagic-design-cinema-cameras/",
@@ -44251,8 +44228,8 @@
     "added": "2015-05-15",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Livre / Book",
-      "Photographes",
+      "livre",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/julia-borissova-books/",
@@ -44615,7 +44592,7 @@
     "added": "2015-05-12",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/julia-geiservajont-calamitaa/",
@@ -44933,7 +44910,7 @@
     "added": "2015-05-10",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Photographes",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/david-stephenson/",
@@ -45310,7 +45287,6 @@
     "added": "2015-05-04",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Actualités",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/nordic-countryside-lundsverige-2015/",
@@ -45631,8 +45607,6 @@
     "added": "2015-04-30",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Actualités",
-      "concours",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/qpn-quinzaine-photographique-nantaise/",
@@ -45896,8 +45870,8 @@
     "added": "2015-04-29",
     "description": "Référence archivée depuis le Blog OOBLIK.",
     "tags": [
-      "Camera Porn",
-      "technique",
+      "matériel",
+      "photographie",
       "blog-ooblik"
     ],
     "origin_url": "https://blog.ooblik.com/2015/graphics-atlas-guided-tour/",
@@ -46989,7 +46963,7 @@
     "added": "2015-04-02",
     "description": "RT @HSBC_FR: Bravo à Maia Flore et Guillaume Martial, les lauréats du @PrixHSBC pour la #Photographie!",
     "tags": [
-      "Photographie",
+      "photographie",
       "création",
       "lien-mort"
     ],
@@ -47032,7 +47006,7 @@
     "added": "2015-04-02",
     "description": "RT @HSBC_FR: Bravo à Maia Flore et Guillaume Martial, les lauréats du @PrixHSBC pour la #Photographie!",
     "tags": [
-      "Photographie",
+      "photographie",
       "twitter",
       "mémoire-web",
       "lien-mort"
@@ -47257,7 +47231,7 @@
     "added": "2015-03-26",
     "description": "Photo: Tirages pour Hellène Veilleux, Corée du Nord, sur Photorag 308 #Hahnemühle",
     "tags": [
-      "Hahnem",
+      "hahnem",
       "tumblr",
       "mémoire-web"
     ],
@@ -47284,7 +47258,7 @@
     "added": "2015-03-26",
     "description": "Tirages pour Hellène Veilleux, Corée du Nord, sur Photorag 308 #Hahnemühle",
     "tags": [
-      "Hahnem",
+      "hahnem",
       "instagram",
       "mémoire-web"
     ],
@@ -48571,7 +48545,7 @@
     "added": "2015-02-25",
     "description": "Photo: Série de Guillaume Martial, Canson RAG 210, 110x155 cm, prix HSBC #canon #ipf8400 #canson",
     "tags": [
-      "canson",
+      "Canson",
       "ipf8400",
       "canon",
       "tumblr",
@@ -48600,7 +48574,7 @@
     "added": "2015-02-25",
     "description": "Série de Guillaume Martial, Canson RAG 210, 110x155 cm, prix HSBC #canon #ipf8400 #canson",
     "tags": [
-      "canson",
+      "Canson",
       "ipf8400",
       "canon",
       "instagram",
@@ -48679,7 +48653,7 @@
     "added": "2015-02-24",
     "description": "Affiche ELEPHANT by Laurent Champoussin, expo au Point Éphémère, Paris. #Printbyooblik",
     "tags": [
-      "Printbyooblik",
+      "printbyooblik",
       "instagram",
       "mémoire-web"
     ],
@@ -48736,7 +48710,7 @@
     "added": "2015-02-24",
     "description": "Photo: Affiche ELEPHANT by Laurent Champoussin, expo au Point Éphémère, Paris. #Printbyooblik",
     "tags": [
-      "Printbyooblik",
+      "printbyooblik",
       "tumblr",
       "mémoire-web"
     ],
@@ -49460,7 +49434,7 @@
     "added": "2015-02-08",
     "description": "RT @lemondefr: #swissleaks : en attendant plus de révélations demain, voici une infographie sur les pays et personnalités concernés",
     "tags": [
-      "swissleaks",
+      "SwissLeaks",
       "création"
     ],
     "id": "b27cb07a-734a-57a0-a311-bb524602c9a5"
@@ -50262,7 +50236,7 @@
       "création",
       "youtube",
       "philo",
-      "Bernard STIEGLER"
+      "stiegler"
     ],
     "id": "78f1424b-154a-5ced-9aca-81fbde9e8605"
   },
@@ -53070,7 +53044,7 @@
     "description": "Chat selfie comme ça ...#wtf #dontfeedthecat",
     "tags": [
       "dontfeedthecat",
-      "wtf",
+      "WTF",
       "instagram",
       "mémoire-web"
     ],
@@ -53208,7 +53182,7 @@
     "added": "2014-11-18",
     "description": "Photo: Tirage pour les Amis du Musée Niepce, résidence BMW 2014 de Natasha Caruana #ipf8400 #canson #baryta...",
     "tags": [
-      "canson",
+      "Canson",
       "ipf8400",
       "baryta",
       "tumblr",
@@ -55047,7 +55021,7 @@
     "description": "C'est dredi, c'est #wtf, c'est pliage a l'atelier !!! #ooblik #hplatex",
     "tags": [
       "ooblik",
-      "wtf",
+      "WTF",
       "hplatex",
       "instagram",
       "mémoire-web"
@@ -56097,8 +56071,8 @@
     "added": "2014-09-13",
     "description": "Un ancien carnet de notes proposant notamment des thèmes et ressources pour le CMS Kirby.",
     "tags": [
-      "Kirby",
-      "CMS",
+      "kirby",
+      "cms",
       "thèmes",
       "archive",
       "lien-mort"
@@ -58056,9 +58030,9 @@
     "added": "2014-08-02",
     "description": "Ressource « Internet.org » archivée depuis internet.org dans la collection historique du Digest.",
     "tags": [
-      "internet",
+      "Internet",
       "fondation",
-      "facebook",
+      "Facebook",
       "création",
       "lien-mort"
     ],
@@ -58112,7 +58086,7 @@
     "tags": [
       "imprimerie",
       "imprimeur",
-      "lyon",
+      "Lyon",
       "création"
     ],
     "id": "be5d01b1-2f3d-5bc7-a98b-769dcec8bd3c"
@@ -58512,7 +58486,7 @@
     "description": "Ressource « MoMA – Christoph Niemann, Visual Storyteller » archivée depuis christophniemann.com dans la collection historique du Digest.",
     "tags": [
       "art",
-      "digest",
+      "Digest",
       "création"
     ],
     "id": "44c9b851-36d8-5353-9134-5683198ca2d9"
@@ -58642,7 +58616,7 @@
     "added": "2014-07-20",
     "description": "Ressource « WordPress › Simone « Free WordPress Themes » archivée depuis wordpress.org dans la collection historique du Digest.",
     "tags": [
-      "wordpress",
+      "WordPress",
       "theme",
       "développement"
     ],
@@ -58906,7 +58880,7 @@
     "tags": [
       "photobook",
       "livre",
-      "edition",
+      "édition",
       "photo",
       "création"
     ],
@@ -59215,8 +59189,8 @@
     "added": "2014-07-13",
     "description": "Static Site Generator",
     "tags": [
-      "Static",
-      "Site",
+      "static",
+      "site",
       "Generator",
       "cms",
       "développement"
@@ -59347,7 +59321,7 @@
     "added": "2014-07-12",
     "description": "RT @ClaxtonProjects: Les Rencontres d'Arles 2014 reviewed by Sean O'Hagan and Francis Hodgson #Photography",
     "tags": [
-      "Photography",
+      "photography",
       "création"
     ],
     "id": "a8b03a7b-4224-5dc5-9358-6d3d3d1dd3d8"
@@ -59359,7 +59333,7 @@
     "added": "2014-07-12",
     "description": "RT @ClaxtonProjects: Les Rencontres d'Arles 2014 reviewed by Sean O'Hagan and Francis Hodgson #Photography",
     "tags": [
-      "Photography",
+      "photography",
       "création"
     ],
     "id": "5bfed7cf-8193-5651-92c9-335ca77eee50"
@@ -59408,7 +59382,7 @@
       "NDDL",
       "hplatex360",
       "latex",
-      "HPLATEX",
+      "hplatex",
       "ooblik"
     ],
     "id": "d6057a74-7932-541d-8b19-210504fbd370"
@@ -60265,7 +60239,7 @@
     "description": "RT @SANSTITRELYON: #sanstitre #lyon",
     "tags": [
       "sanstitre",
-      "lyon",
+      "Lyon",
       "twitter",
       "mémoire-web"
     ],
@@ -60348,7 +60322,7 @@
     "added": "2014-05-19",
     "description": "RT @ynfab: Belle initiative, contribuons !! >> Appel à participation >> #SANSTITRE — Manifesto(s)",
     "tags": [
-      "SANSTITRE",
+      "sanstitre",
       "création"
     ],
     "id": "f24e5f50-149c-554f-9f28-2948176e57bf"
@@ -60551,7 +60525,7 @@
     "added": "2014-05-10",
     "description": "RT @pierrezep: Bref, Boutin a regardé l'Autriche. #Eurovisionfr",
     "tags": [
-      "Eurovisionfr",
+      "EurovisionFR",
       "twitter",
       "mémoire-web",
       "lien-mort"
@@ -61688,7 +61662,7 @@
     "tags": [
       "statamic",
       "développement",
-      "github"
+      "GitHub"
     ],
     "id": "c69db5a0-4de3-5c4c-9ace-387fb93ec733"
   },
@@ -61846,7 +61820,7 @@
     "added": "2014-03-06",
     "description": "Try free #seo crawling tool via @TheSEOCrawler",
     "tags": [
-      "seo",
+      "SEO",
       "développement",
       "lien-mort"
     ],
@@ -62027,7 +62001,7 @@
       "BHL",
       "mème",
       "photomontage",
-      "Tumblr"
+      "tumblr"
     ],
     "id": "3e583af5-4c04-528b-a0bc-ea96a3c3375f"
   },
@@ -62158,7 +62132,7 @@
       "BHL",
       "mème",
       "photomontage",
-      "Tumblr"
+      "tumblr"
     ],
     "id": "301064f6-40f5-567b-a624-2ddc68f38d50"
   },
@@ -62216,7 +62190,7 @@
       "BHL",
       "mème",
       "photomontage",
-      "Tumblr"
+      "tumblr"
     ],
     "id": "712306bc-6f6c-5eaa-ac70-aa9cf4ef14b3"
   },
@@ -62356,7 +62330,7 @@
     "added": "2014-02-22",
     "description": "RT @MelleBene: L'office de tourisme de #Nantes saccagé avec des tags \"Nantes nécropole\"... #nddl",
     "tags": [
-      "nddl",
+      "NDDL",
       "Nantes",
       "twitter",
       "mémoire-web",
@@ -62430,7 +62404,7 @@
     "added": "2014-02-22",
     "description": "RT @AlexHervaud: Local de la TAN en feu #nddl",
     "tags": [
-      "nddl",
+      "NDDL",
       "twitter",
       "mémoire-web"
     ],
@@ -62501,7 +62475,7 @@
     "tags": [
       "photographie",
       "tirage",
-      "platine",
+      "Platine",
       "impression"
     ],
     "id": "bbe3242d-6bea-5592-ac6e-51d4227b9799"
@@ -62528,7 +62502,7 @@
     "description": "Une ancienne édition de veille publiée sur l’Atelier Ooblik.",
     "tags": [
       "Digest",
-      "Ooblik",
+      "ooblik",
       "veille",
       "archive",
       "lien-mort"

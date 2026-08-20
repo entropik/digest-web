@@ -160,6 +160,18 @@ test("the root link modal exposes LinkedIn before tag editing for admins", async
   assert.match(script, /digest:linkedin-published/);
 });
 
+test("the root modal links only registered tag destinations", async () => {
+  const [layout, script] = await Promise.all([
+    readFile(new URL("../../layouts/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../../assets/js/digest.js", import.meta.url), "utf8"),
+  ]);
+  assert.match(layout, /id="digest-tag-routes" type="application\/json"/);
+  assert.match(layout, /where site\.RegularPages "Section" "tags"/);
+  assert.match(script, /document\.createElement\(route \? "a" : "span"\)/);
+  assert.match(script, /if \(route\) chip\.href = route/);
+  assert.doesNotMatch(script, /slugifyTag|dataset\.base/);
+});
+
 test("link icons never disclose catalog URLs to a third party", async () => {
   const [partial, layout, script] = await Promise.all([
     readFile(

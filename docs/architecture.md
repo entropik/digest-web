@@ -29,6 +29,15 @@ dans `data/links.json`; la taxonomie et ses descriptions résident dans
 alphabétiquement. Une catégorie configurée reste disponible dans le registre
 public même lorsqu’aucun lien ne l’utilise encore.
 
+Les pages de tags sous `content/tags/` constituent le registre des thèmes
+navigables. L’administration canonicalise les variantes connues vers ce
+registre et refuse les mots-clés libres qui inventeraient une nouvelle
+taxonomie. Les imports appliquent les mêmes regroupements et placent en revue
+toute taxonomie inconnue. Côté public, la modale reçoit directement les routes
+Hugo enregistrées : un libellé sans destination reste du texte et ne peut donc
+jamais fabriquer un lien 404. Le contrôle de cohérence bloque en plus tout tag
+public sans page enregistrée.
+
 La branche `main` contient les sources. GitHub Actions valide les données et
 construit le site, puis force la branche `production` sur la sortie statique.
 CloudPanel relève cette branche, crée une release locale et bascule un lien
