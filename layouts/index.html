@@ -232,15 +232,19 @@
     <div class="archive-tags digest-modal-tags" id="digest-modal-tags" aria-label="Tags"></div>
     <script id="digest-tag-routes" type="application/json">{{ $tagRoutes | jsonify | safeJS }}</script>
     <div class="digest-modal-footer">
-      <span class="digest-modal-url" id="digest-modal-url"></span>
-      <button class="digest-modal-favorite" id="digest-modal-favorite" type="button" aria-pressed="false">
-        <svg aria-hidden="true" viewBox="0 0 24 24">
-          <path d="M12 20.5 4.7 13.8A5.4 5.4 0 0 1 12 5.9a5.4 5.4 0 0 1 7.3 7.9Z"></path>
-        </svg>
-        <span>Favoris</span>
-      </button>
-      <a class="digest-modal-origin" id="digest-modal-origin" target="_blank" rel="noopener noreferrer" hidden>Billet d’origine</a>
-      <a id="digest-modal-link" target="_blank" rel="noopener noreferrer">Visiter le site</a>
+      <div class="digest-modal-primary-actions">
+        <span class="digest-modal-url" id="digest-modal-url"></span>
+        <button class="digest-modal-favorite" id="digest-modal-favorite" type="button" aria-pressed="false">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M12 20.5 4.7 13.8A5.4 5.4 0 0 1 12 5.9a5.4 5.4 0 0 1 7.3 7.9Z"></path>
+          </svg>
+          <span>Favoris</span>
+        </button>
+        <a id="digest-modal-link" target="_blank" rel="noopener noreferrer">Visiter le site</a>
+      </div>
+      <div class="digest-modal-origin-row" id="digest-modal-origin-row" hidden>
+        <a class="digest-modal-origin" id="digest-modal-origin" target="_blank" rel="noopener noreferrer">Billet d’origine</a>
+      </div>
     </div>
     <div class="digest-modal-admin-tools" id="digest-modal-admin-tools" hidden>
       <button

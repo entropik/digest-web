@@ -1465,7 +1465,7 @@ html {
 }
 
 .digest-modal-image[hidden],
-.digest-modal-origin[hidden] {
+.digest-modal-origin-row[hidden] {
   display: none;
 }
 
@@ -1608,13 +1608,18 @@ html {
 .digest-modal-footer {
   display: flex;
   min-width: 0;
-  flex-wrap: wrap;
-  align-items: end;
-  justify-content: space-between;
-  gap: 1.5rem;
+  flex-direction: column;
   margin-top: 2.5rem;
   padding-top: 1.25rem;
   border-top: 1px solid var(--digest-line);
+}
+
+.digest-modal-primary-actions {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(8rem, 1fr) auto auto;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .digest-modal-url {
@@ -1627,7 +1632,7 @@ html {
   white-space: nowrap;
 }
 
-.digest-modal-footer a {
+.digest-modal-primary-actions > a {
   flex: 0 0 auto;
   max-width: 100%;
   padding: .8rem 1rem;
@@ -1638,12 +1643,24 @@ html {
   text-decoration: none;
 }
 
-.digest-modal-footer .digest-modal-origin {
-  border: 1px solid var(--digest-line);
-  border-radius: 0;
+.digest-modal-origin-row {
+  margin-top: 1.25rem;
+  padding-top: .9rem;
+  border-top: 1px solid var(--digest-line);
+}
+
+.digest-modal-origin {
+  display: inline-block;
+  padding: 0;
+  border: 0;
   background: transparent;
-  color: var(--digest-ink);
-  font-weight: 600;
+  color: var(--digest-muted);
+  font-size: .72rem;
+  font-weight: 400;
+  letter-spacing: .035em;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .22em;
 }
 
 .digest-modal-favorite {
@@ -1870,10 +1887,16 @@ html {
   outline: 0;
 }
 
-.digest-modal-footer a:hover,
-.digest-modal-footer a:focus-visible {
+.digest-modal-primary-actions > a:hover,
+.digest-modal-primary-actions > a:focus-visible {
   background: var(--digest-ink);
   color: var(--theme);
+  outline: 0;
+}
+
+.digest-modal-origin:hover,
+.digest-modal-origin:focus-visible {
+  color: var(--digest-accent);
   outline: 0;
 }
 
@@ -3010,9 +3033,9 @@ body.digest-modal-open {
     min-height: 205px;
   }
 
-  .digest-modal-footer {
+  .digest-modal-primary-actions {
+    grid-template-columns: 1fr;
     align-items: stretch;
-    flex-direction: column;
   }
 
   .digest-modal-url {
@@ -3020,7 +3043,7 @@ body.digest-modal-open {
     width: 100%;
   }
 
-  .digest-modal-footer a {
+  .digest-modal-primary-actions > a {
     text-align: center;
   }
 

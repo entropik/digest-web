@@ -160,6 +160,25 @@ test("the root link modal exposes LinkedIn before tag editing for admins", async
   assert.match(script, /digest:linkedin-published/);
 });
 
+test("the root link modal keeps provenance below its primary actions", async () => {
+  const [layout, script] = await Promise.all([
+    readFile(new URL("../../layouts/index.html", import.meta.url), "utf8"),
+    readFile(new URL("../../assets/js/digest.js", import.meta.url), "utf8"),
+  ]);
+  const urlPosition = layout.indexOf('id="digest-modal-url"');
+  const favoritePosition = layout.indexOf('id="digest-modal-favorite"');
+  const visitPosition = layout.indexOf('id="digest-modal-link"');
+  const originPosition = layout.indexOf('id="digest-modal-origin"');
+  assert.ok(
+    urlPosition > 0 &&
+      urlPosition < favoritePosition &&
+      favoritePosition < visitPosition &&
+      visitPosition < originPosition,
+  );
+  assert.match(layout, /id="digest-modal-origin-row" hidden/);
+  assert.match(script, /modalOriginRow\.hidden = !link\.origin_url/);
+});
+
 test("the root modal links only registered tag destinations", async () => {
   const [layout, script] = await Promise.all([
     readFile(new URL("../../layouts/index.html", import.meta.url), "utf8"),

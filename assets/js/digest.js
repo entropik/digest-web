@@ -57,6 +57,7 @@
   const modalUrl = document.querySelector("#digest-modal-url");
   const modalLink = document.querySelector("#digest-modal-link");
   const modalOrigin = document.querySelector("#digest-modal-origin");
+  const modalOriginRow = document.querySelector("#digest-modal-origin-row");
   const modalFavorite = document.querySelector("#digest-modal-favorite");
   const modalAdminTools = document.querySelector("#digest-modal-admin-tools");
   const modalTagEditor = document.querySelector("#digest-modal-tag-editor");
@@ -715,7 +716,7 @@
       modalImage.removeAttribute("src");
       modalImage.alt = "";
     }
-    modalOrigin.hidden = !link.origin_url;
+    modalOriginRow.hidden = !link.origin_url;
     if (link.origin_url) modalOrigin.href = link.origin_url;
     modalUrl.textContent = link.url;
     modalLink.href = isDead && archiveUrl ? archiveUrl : link.url;
