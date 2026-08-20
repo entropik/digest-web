@@ -11,6 +11,7 @@ import {
   buildWordpressImportPreview,
   optimizeWordpressImage,
   parseWordpressExport,
+  wordpressDigestCategory,
   wordpressMediaRelativePath,
   wordpressImagePath,
 } from "../src/wordpress-import.js";
@@ -54,12 +55,19 @@ test("preview separates safe imports, duplicates and editorial review", async ()
     ["ambiguous_source", "missing_source", "unsafe_source:PRIVATE_URL"],
   );
   const normal = preview.ready[0]?.link;
-  assert.equal(normal?.category, BLOG_ARCHIVE_CATEGORY);
+  assert.equal(normal?.category, "Photographie");
   assert.equal(normal?.stream, BLOG_ARCHIVE_STREAM);
   assert.equal(normal?.origin_url, "https://blog.ooblik.com/2025/normal/");
   const dead = preview.ready.find((item) => item.wordpress_id === "107")?.link;
   assert.equal(dead?.status, "dead");
   assert.equal(dead?.tags?.includes("lien-mort"), true);
+});
+
+test("WordPress photography categories map to the Digest taxonomy", () => {
+  assert.equal(wordpressDigestCategory(["Photographes", "Livre"]), "Photographie");
+  assert.equal(wordpressDigestCategory(["Livre / Book", "Geek"]), "Design & Création");
+  assert.equal(wordpressDigestCategory(["Livre / Book", "Camera Porn"]), "Photographie");
+  assert.equal(wordpressDigestCategory(["Geek"]), BLOG_ARCHIVE_CATEGORY);
 });
 
 test("overrides resolve one exception, skip another and remain idempotent", async () => {

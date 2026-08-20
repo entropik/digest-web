@@ -204,7 +204,7 @@ test("the home loads its compact search index only when interaction needs it", a
   assert.match(script, /stream: entry\.m \|\| ""/);
   assert.match(script, /image: entry\.p \|\| ""/);
   assert.match(script, /origin_url: entry\.q \|\| ""/);
-  assert.match(script, /category === "all" && !link\.stream/);
+  assert.match(script, /category === "all" && \(!link\.stream \|\| \(link\.stream === "blog-ooblik" && link\.origin_url\)\)/);
   assert.match(script, /gridTop - headerHeight - stickyToolsHeight/);
   assert.match(script, /getComputedStyle\(tools\)\.position === "sticky"/);
   assert.match(script, /requestAnimationFrame\(\(\) => \{\s*window\.requestAnimationFrame/);

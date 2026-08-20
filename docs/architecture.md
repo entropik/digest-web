@@ -62,6 +62,13 @@ présente dans le Digest gagne toujours.
 Ces références appartiennent à une collection historique et non aux éditions
 quotidiennes du Digest : le contrôle de cohérence valide leur date originale,
 mais ne fabrique pas de page `content/archives/YYYY-MM-DD.md` pour elles.
+Elles restent identifiables dans le flux `blog-ooblik`, mais les billets issus
+du WXR et munis d’une provenance `origin_url` rejoignent aussi le filtre
+principal `Tout`. Les catégories WordPress `Photo`, `Photographes`,
+`Argentique`, `Camera Porn` et `Exposition` sont explicitement converties en
+catégorie Digest `Photographie`; `Livre / Book` rejoint `Design & Création`.
+Une catégorie photographique est prioritaire sur le format livre. Les
+taxonomies sans correspondance restent dans `Archives du blog OOBLIK`.
 
 Quand l’hébergeur bloque les téléchargements automatisés, la copie FTP locale
 `import-blog/uploads` est détectée automatiquement ; `--media-root

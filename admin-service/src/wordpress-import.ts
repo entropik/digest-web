@@ -10,6 +10,16 @@ export const BLOG_ARCHIVE_CATEGORY = "Archives du blog OOBLIK";
 export const BLOG_ARCHIVE_STREAM = "blog-ooblik";
 const MAX_DESCRIPTION_LENGTH = 300;
 
+const WORDPRESS_PHOTOGRAPHY_CATEGORIES = new Set([
+  "photo",
+  "photographie",
+  "photographes",
+  "argentique",
+  "camera porn",
+  "exposition",
+]);
+const WORDPRESS_DESIGN_CATEGORIES = new Set(["livre/book"]);
+
 type XmlNode = Record<string, unknown>;
 
 export type WordpressOverride = {
@@ -98,6 +108,21 @@ const unique = (values: string[]): string[] => {
     seen.add(key);
     return true;
   });
+};
+
+export const wordpressDigestCategory = (tags: string[]): string => {
+  const normalized = new Set(
+    tags.map((tag) =>
+      tag.toLocaleLowerCase("fr").trim().replace(/\s*\/\s*/g, "/"),
+    ),
+  );
+  if ([...normalized].some((tag) => WORDPRESS_PHOTOGRAPHY_CATEGORIES.has(tag))) {
+    return "Photographie";
+  }
+  if ([...normalized].some((tag) => WORDPRESS_DESIGN_CATEGORIES.has(tag))) {
+    return "Design & Création";
+  }
+  return BLOG_ARCHIVE_CATEGORY;
 };
 
 export const normalizedHost = (value: string): string => {
@@ -314,15 +339,14 @@ export const buildWordpressImportPreview = (input: {
     const existing = currentByUrl.get(url);
     if (
       existing?.origin_url === post.originUrl &&
-      existing.stream === BLOG_ARCHIVE_STREAM &&
-      existing.category === BLOG_ARCHIVE_CATEGORY
+      existing.stream === BLOG_ARCHIVE_STREAM
     ) {
       ready.push({
         wordpress_id: post.wordpressId,
         image_url: override?.image_url ?? post.imageUrl,
         image_alt: post.imageAlt,
         existing: true,
-        link: { ...existing },
+        link: { ...existing, category: wordpressDigestCategory(post.tags) },
       });
       continue;
     }
@@ -347,7 +371,7 @@ export const buildWordpressImportPreview = (input: {
         id: stableLinkId(url),
         title: post.title,
         url,
-        category: BLOG_ARCHIVE_CATEGORY,
+        category: wordpressDigestCategory(post.tags),
         added: post.added,
         description: post.description,
         tags,
@@ -357,13 +381,14 @@ export const buildWordpressImportPreview = (input: {
       },
     });
   }
+  const importedById = new Map(ready.map((item) => [item.link.id, item.link]));
   return {
     ready,
     review,
     duplicates,
     skipped,
     catalog: sortCatalog([
-      ...input.currentLinks,
+      ...input.currentLinks.map((link) => importedById.get(link.id) ?? link),
       ...ready.filter((item) => !item.existing).map((item) => item.link),
     ]),
   };

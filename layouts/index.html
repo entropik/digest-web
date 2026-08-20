@@ -3,7 +3,7 @@
 {{ $allLinks := sort $publicLinks "added" "desc" }}
 {{ $editorialLinks := slice }}
 {{ range $allLinks }}
-  {{ if not (.stream | default "") }}
+  {{ if or (not (.stream | default "")) (and (eq (.stream | default "") "blog-ooblik") .origin_url) }}
     {{ $editorialLinks = $editorialLinks | append . }}
   {{ end }}
 {{ end }}

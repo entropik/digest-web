@@ -126,7 +126,7 @@
         .then((entries) => {
           if (!Array.isArray(entries)) throw new Error("INDEX_INVALID");
           links = entries.map(decodeLink);
-          linkCountByDate = links.filter((link) => !link.stream).reduce((counts, link) => {
+          linkCountByDate = links.filter((link) => !link.stream || (link.stream === "blog-ooblik" && link.origin_url)).reduce((counts, link) => {
             const dateKey = String(link.added || "").slice(0, 10);
             if (dateKey) counts.set(dateKey, (counts.get(dateKey) || 0) + 1);
             return counts;
@@ -421,7 +421,7 @@
     const selectedDate = dateFilter.value;
     return links.filter((link) => {
       const matchesCategory =
-        (category === "all" && !link.stream) ||
+        (category === "all" && (!link.stream || (link.stream === "blog-ooblik" && link.origin_url))) ||
         (category === "favorites" ? isFavorite(link.url) : link.category === category);
       const searchableText = getSearchableText(link);
       const matchesQuery = terms.every((term) => searchableText.includes(term));
