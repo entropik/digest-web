@@ -41,6 +41,13 @@ body {
   font-family: var(--digest-font-body);
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
 h1,
 h2,
 h3,
@@ -1832,8 +1839,20 @@ body.digest-modal-open {
 }
 
 .archive-single-header {
+  min-width: 0;
   padding: 5rem 0 3.5rem;
   border-bottom: 1px solid var(--digest-line);
+}
+
+.archive-single,
+.archive-group,
+.archive-link-list {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.tag-archive-header h1 {
+  overflow-wrap: anywhere;
 }
 
 .archive-single-count {
@@ -1901,10 +1920,15 @@ body.digest-modal-open {
 
 .archive-link {
   display: grid;
+  min-width: 0;
   grid-template-columns: minmax(210px, .8fr) minmax(0, 1.5fr);
   gap: 2rem;
   padding: 1.6rem 0;
   border-bottom: 1px solid var(--digest-line);
+}
+
+.archive-link > div {
+  min-width: 0;
 }
 
 .archive-link h3 {
@@ -1914,9 +1938,15 @@ body.digest-modal-open {
 }
 
 .archive-link h3 a {
+  max-width: 100%;
   color: var(--digest-ink);
   text-decoration-thickness: 1px;
   text-underline-offset: .2em;
+}
+
+.archive-link .link-title > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .archive-url {
@@ -2118,8 +2148,11 @@ body.digest-modal-open {
 
 .archive-link-description {
   margin: 0;
+  overflow-wrap: anywhere;
   color: var(--digest-muted);
   line-height: 1.55;
+  text-align: start;
+  text-wrap: pretty;
 }
 
 .archive-tags {
@@ -2131,12 +2164,15 @@ body.digest-modal-open {
 
 .archive-tags span,
 .archive-tags a {
+  max-width: 100%;
   padding: .2rem .45rem;
   border: 1px solid var(--digest-line);
   border-radius: .25rem;
   color: var(--digest-muted);
   font-size: .72rem;
+  overflow-wrap: anywhere;
   text-decoration: none;
+  white-space: normal;
 }
 
 .archive-tags a:hover {
@@ -2584,6 +2620,14 @@ body.digest-modal-open {
     gap: 1rem;
   }
 
+  .archive-link h3 {
+    line-height: 1.18;
+  }
+
+  .archive-link-description {
+    max-width: 65ch;
+  }
+
 }
 
 @media (max-width: 650px) {
@@ -2658,6 +2702,27 @@ body.digest-modal-open {
   .archive-pagination > span {
     grid-column: 1 / -1;
     grid-row: 1;
+  }
+
+  .archive-link {
+    gap: 1.15rem;
+    padding: 1.4rem 0;
+  }
+
+  .archive-link .link-title {
+    display: flex;
+    width: 100%;
+  }
+
+  .archive-url {
+    overflow-wrap: anywhere;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
+  .archive-item-actions {
+    justify-content: flex-start;
+    gap: .65rem .9rem;
   }
 
   .flux-grid {
