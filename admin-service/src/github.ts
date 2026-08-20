@@ -14,6 +14,10 @@ import {
 } from "./catalog.js";
 import { config } from "./config.js";
 import {
+  parseTagDefinitions,
+  type DigestTagDefinition,
+} from "./tag-taxonomy.js";
+import {
   measureTiming,
   measureTimingSync,
   recordTiming,
@@ -43,12 +47,14 @@ type RepositoryHead = {
   treeSha: string;
   links: DigestLink[];
   categories?: DigestCategory[];
+  tags?: DigestTagDefinition[];
 };
 type RepositoryHeadDependencies = {
   readRef: () => Promise<string>;
   readCommit: (sha: string) => Promise<GitHubCommit>;
   readCatalog: (sha: string) => Promise<string>;
   readCategories?: (sha: string) => Promise<string | null>;
+  readTags?: (sha: string) => Promise<string | null>;
 };
 type RepositoryHeadReader = {
   invalidate: () => void;
@@ -223,7 +229,7 @@ export const createRepositoryHeadReader = (
       const commitSha = await measureTiming("github.ref", dependencies.readRef);
       if (snapshot?.commitSha === commitSha) return snapshot;
 
-      const [commit, catalog, categoryCatalog] = await Promise.all([
+      const [commit, catalog, categoryCatalog, tagCatalog] = await Promise.all([
         measureTiming("github.commit", () =>
           dependencies.readCommit(commitSha),
         ),
@@ -233,6 +239,11 @@ export const createRepositoryHeadReader = (
         dependencies.readCategories
           ? measureTiming("github.categories.download", () =>
               dependencies.readCategories!(commitSha),
+            )
+          : Promise.resolve(null),
+        dependencies.readTags
+          ? measureTiming("github.tags.download", () =>
+              dependencies.readTags!(commitSha),
             )
           : Promise.resolve(null),
       ]);
@@ -245,6 +256,11 @@ export const createRepositoryHeadReader = (
         categories: categoryCatalog
           ? measureTimingSync("github.categories.parse", () =>
               parseCategories(categoryCatalog),
+            )
+          : undefined,
+        tags: tagCatalog
+          ? measureTimingSync("github.tags.parse", () =>
+              parseTagDefinitions(tagCatalog),
             )
           : undefined,
       };
@@ -269,6 +285,14 @@ const repositoryHeadReader = createRepositoryHeadReader({
   readCategories: async (sha) => {
     try {
       return await requestText(contentPath("data/categories.json", sha));
+    } catch (error) {
+      if (error instanceof GitHubResponseError && error.status === 404) return null;
+      throw error;
+    }
+  },
+  readTags: async (sha) => {
+    try {
+      return await requestText(contentPath("data/tags.json", sha));
     } catch (error) {
       if (error instanceof GitHubResponseError && error.status === 404) return null;
       throw error;
@@ -355,11 +379,15 @@ export const listRepositoryDirectory = (
 export const commitRepositoryFiles = async (
   parentSha: string,
   treeSha: string,
-  files: Record<string, string | Buffer>,
+  files: Record<string, string | Buffer | null>,
   message: string,
 ): Promise<string> => {
   const entries = [];
   for (const [path, content] of Object.entries(files)) {
+    if (content === null) {
+      entries.push({ path, mode: "100644", type: "blob", sha: null });
+      continue;
+    }
     const blob = await request<GitHubBlob>(`${repositoryPath}/git/blobs`, {
       method: "POST",
       body: JSON.stringify(repositoryBlobBody(content)),

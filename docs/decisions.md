@@ -175,6 +175,16 @@ seconde boîte de confirmation ne s’interpose.
 
 ## 20 août 2026
 
+### Les thèmes actifs sont séparés des tags historiques
+
+Les 937 tags accumulés ne constituent plus le vocabulaire de saisie. Un registre
+court dans `data/tags.json` définit les thèmes actifs et leurs alias, tandis que
+`content/tags/` conserve les routes historiques. Les thèmes deviennent
+facultatifs et limités à trois par lien. Une fusion migre les liens vers le nom
+canonique sans supprimer l’ancienne adresse publique ; l’archivage retire
+seulement le thème des suggestions et garde sa définition inactive pour empêcher
+la réutilisation accidentelle d’une ancienne route.
+
 ### La taxonomie devient une donnée éditoriale administrable
 
 Les grandes catégories ne sont plus implicites dans les seuls liens publiés.

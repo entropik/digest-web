@@ -1,0 +1,232 @@
+[
+  {
+    "name": "agents",
+    "description": "Agents logiciels, orchestration et assistants capables d’agir.",
+    "aliases": ["AI workforce platform", "AI assistant", "AI assitant", "MCP"]
+  },
+  {
+    "name": "art",
+    "description": "Pratiques, œuvres et démarches artistiques.",
+    "aliases": []
+  },
+  {
+    "name": "art-numérique",
+    "description": "Création artistique avec des outils, supports ou systèmes numériques.",
+    "aliases": []
+  },
+  {
+    "name": "auto-hébergement",
+    "description": "Services et infrastructures hébergés sous son propre contrôle.",
+    "aliases": ["selfhosted"]
+  },
+  {
+    "name": "automobile",
+    "description": "Culture, design et techniques de l’automobile.",
+    "aliases": ["car"]
+  },
+  {
+    "name": "automatisation",
+    "description": "Automatisation de tâches, flux et systèmes.",
+    "aliases": []
+  },
+  {
+    "name": "code",
+    "description": "Programmation, pratiques de développement et culture du code.",
+    "aliases": ["vibe coding"]
+  },
+  {
+    "name": "culture-libre",
+    "description": "Communs, partage des savoirs et licences libres.",
+    "aliases": []
+  },
+  {
+    "name": "cybersécurité",
+    "description": "Sécurité des systèmes, des données et des usages numériques.",
+    "aliases": []
+  },
+  {
+    "name": "design",
+    "description": "Conception visuelle, fonctionnelle et éditoriale.",
+    "aliases": []
+  },
+  {
+    "name": "design-génératif",
+    "description": "Systèmes de création fondés sur des règles et des variations.",
+    "aliases": ["artgeneratif"]
+  },
+  {
+    "name": "design-graphique",
+    "description": "Graphisme, identité visuelle et composition.",
+    "aliases": []
+  },
+  {
+    "name": "design-system",
+    "description": "Systèmes de conception, composants et règles d’interface.",
+    "aliases": []
+  },
+  {
+    "name": "développement",
+    "description": "Construction et maintenance de produits numériques.",
+    "aliases": ["dev", "web_development"]
+  },
+  {
+    "name": "DevOps",
+    "description": "Intégration, livraison et exploitation des logiciels.",
+    "aliases": ["CI-CD"]
+  },
+  {
+    "name": "édition",
+    "description": "Édition, publication et fabrication de contenus.",
+    "aliases": ["éditeur", "editions"]
+  },
+  {
+    "name": "entretien",
+    "description": "Entretiens, conversations et témoignages.",
+    "aliases": ["interview"]
+  },
+  {
+    "name": "frontend",
+    "description": "Interfaces web, intégration et développement côté navigateur.",
+    "aliases": []
+  },
+  {
+    "name": "IA",
+    "description": "Intelligence artificielle, modèles et usages.",
+    "aliases": ["IA générative"]
+  },
+  {
+    "name": "IA-locale",
+    "description": "Modèles et outils d’intelligence artificielle exécutés localement.",
+    "aliases": []
+  },
+  {
+    "name": "illustration",
+    "description": "Illustration, dessin et image narrative.",
+    "aliases": []
+  },
+  {
+    "name": "impression",
+    "description": "Techniques, procédés et cultures de l’impression.",
+    "aliases": ["imprimerie & technique"]
+  },
+  {
+    "name": "JavaScript",
+    "description": "Langage JavaScript et son écosystème.",
+    "aliases": []
+  },
+  {
+    "name": "livre",
+    "description": "Livres, lecture et objets éditoriaux.",
+    "aliases": ["Livre / Book", "book"]
+  },
+  {
+    "name": "livre-d’artiste",
+    "description": "Livres conçus comme œuvres ou espaces de création.",
+    "aliases": []
+  },
+  {
+    "name": "livre-photo",
+    "description": "Livres photographiques et édition de la photographie.",
+    "aliases": ["photobook"]
+  },
+  {
+    "name": "LLM",
+    "description": "Grands modèles de langage, usages et techniques.",
+    "aliases": []
+  },
+  {
+    "name": "matériel",
+    "description": "Machines, appareils et équipements techniques.",
+    "aliases": ["Camera Porn", "Hasselblad"]
+  },
+  {
+    "name": "multimédia",
+    "description": "Créations et contenus combinant plusieurs médias.",
+    "aliases": []
+  },
+  {
+    "name": "opensource",
+    "description": "Logiciels et projets dont le code est ouvert.",
+    "aliases": ["open source", "logiciel-libre"]
+  },
+  {
+    "name": "outils",
+    "description": "Outils pratiques pour créer, chercher ou produire.",
+    "aliases": ["outil"]
+  },
+  {
+    "name": "philosophie",
+    "description": "Pensée, concepts et histoire de la philosophie.",
+    "aliases": ["Bernard Stiegler"]
+  },
+  {
+    "name": "photographie",
+    "description": "Pratiques, œuvres, techniques et histoire de la photographie.",
+    "aliases": ["photo", "photographes", "technique", "Thomas Boivin"]
+  },
+  {
+    "name": "politique",
+    "description": "Pouvoir, institutions, conflits et vie collective.",
+    "aliases": []
+  },
+  {
+    "name": "RAG",
+    "description": "Génération augmentée par recherche et systèmes documentaires.",
+    "aliases": []
+  },
+  {
+    "name": "recherche",
+    "description": "Recherche scientifique, documentaire et exploratoire.",
+    "aliases": []
+  },
+  {
+    "name": "riso",
+    "description": "Risographie, techniques et pratiques associées.",
+    "aliases": ["risographie", "outil riso", "separation"]
+  },
+  {
+    "name": "Royaume-Uni",
+    "description": "Culture, création et ressources liées au Royaume-Uni.",
+    "aliases": ["uk"]
+  },
+  {
+    "name": "société",
+    "description": "Questions sociales, usages, structures et transformations collectives.",
+    "aliases": ["sociologie"]
+  },
+  {
+    "name": "transfert-de-fichiers",
+    "description": "Échange, synchronisation et transport de fichiers.",
+    "aliases": ["alternative", "messaging"]
+  },
+  {
+    "name": "typographie",
+    "description": "Création, usage et histoire des caractères typographiques.",
+    "aliases": ["typo", "font", "police"]
+  },
+  {
+    "name": "UI",
+    "description": "Conception et fonctionnement des interfaces utilisateur.",
+    "aliases": []
+  },
+  {
+    "name": "vidéo",
+    "description": "Image animée, film et publication vidéo.",
+    "aliases": []
+  },
+  {
+    "name": "web",
+    "description": "Culture, histoire et pratiques du Web.",
+    "aliases": []
+  },
+  {
+    "name": "web-to-print",
+    "description": "Chaînes éditoriales reliant interfaces web et production imprimée.",
+    "aliases": ["WebToPrint"]
+  },
+  {
+    "name": "zine",
+    "description": "Fanzines, microédition et publications indépendantes.",
+    "aliases": ["zines"]
+  }
+]

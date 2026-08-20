@@ -1,4 +1,8 @@
 import { canonicalizePublicUrl } from "./urls.js";
+import {
+  activeTagNames,
+  type DigestTagDefinition,
+} from "./tag-taxonomy.js";
 
 export type DigestLink = {
   id: string;
@@ -195,19 +199,47 @@ export const catalogCategories = (
   configured: DigestCategory[] = [],
 ) => catalogCategoryDefinitions(links, configured).map((category) => category.name);
 
-export const catalogTaxonomy = (links: DigestLink[], configured: DigestCategory[] = []) => ({
-  categories: catalogCategories(links, configured),
-  tags: [
+export const catalogTagNames = (links: DigestLink[]): string[] => [
     ...new Set(
       links.flatMap((link) =>
         Array.isArray(link.tags) ? link.tags.map(String) : [],
       ),
     ),
-  ].sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" })),
+  ].sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" }));
+
+export const catalogTaxonomy = (
+  links: DigestLink[],
+  configured: DigestCategory[] = [],
+  configuredTags?: DigestTagDefinition[],
+) => ({
+  categories: catalogCategories(links, configured),
+  tags: configuredTags ? activeTagNames(configuredTags) : catalogTagNames(links),
+  tagDefinitions:
+    configuredTags?.filter((definition) => definition.active !== false) ??
+    catalogTagNames(links).map((name) => ({ name, description: "", aliases: [] })),
+  legacyTags: catalogTagNames(links),
 });
 
 export const categoryUsage = (links: DigestLink[], category: string): number =>
   links.filter((link) => link.category === category).length;
+
+export const tagUsage = (links: DigestLink[], tag: string): number =>
+  links.filter((link) => link.tags?.includes(tag)).length;
+
+export const replaceCatalogTag = (
+  links: DigestLink[],
+  current: string,
+  replacement: string,
+): { links: DigestLink[]; migrated: number } => {
+  let migrated = 0;
+  const next = links.map((link) => {
+    if (!link.tags?.includes(current)) return link;
+    migrated += 1;
+    const tags = [...new Set(link.tags.map((tag) => tag === current ? replacement : tag))];
+    return { ...link, tags };
+  });
+  return { links: next, migrated };
+};
 
 export const renameCategory = (
   links: DigestLink[],

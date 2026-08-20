@@ -19,6 +19,10 @@ const { CurationError, normalizeDraftInput } = await import(
 const taxonomy = {
   categories: ["Design"],
   tags: ["photo", "stiegler"],
+  tagDefinitions: [
+    { name: "photo", description: "", aliases: [] },
+    { name: "stiegler", description: "", aliases: ["Bernard STIEGLER"] },
+  ],
 };
 
 test("a draft canonicalizes aliases and keeps only registered tags", () => {
@@ -52,6 +56,44 @@ test("a draft rejects an unregistered free-form tag", () => {
         taxonomy,
       ),
     (error) => error instanceof CurationError && error.code === "UNKNOWN_TAG",
+  );
+});
+
+test("a draft can be saved and published without a tag", () => {
+  const draft = normalizeDraftInput(
+    {
+      url: "https://example.com/sans-theme",
+      title: "Sans thème",
+      category: "Design",
+      description: "La catégorie suffit au classement.",
+      privateNote: "",
+      tags: [],
+    },
+    taxonomy,
+  );
+  assert.deepEqual(draft.tags, []);
+});
+
+test("the server rejects more than three active themes", () => {
+  const expandedTaxonomy = {
+    ...taxonomy,
+    tags: ["photo", "stiegler", "web", "outils"],
+    tagDefinitions: [
+      ...taxonomy.tagDefinitions,
+      { name: "web", description: "", aliases: [] },
+      { name: "outils", description: "", aliases: [] },
+    ],
+  };
+  assert.throws(
+    () => normalizeDraftInput({
+      url: "https://example.com/quatre-themes",
+      title: "Quatre thèmes",
+      category: "Design",
+      description: "Cette saisie doit être refusée.",
+      privateNote: "",
+      tags: expandedTaxonomy.tags,
+    }, expandedTaxonomy),
+    (error) => error instanceof CurationError && error.code === "TOO_MANY_THEMES",
   );
 });
 

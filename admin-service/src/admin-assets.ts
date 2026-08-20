@@ -60,18 +60,19 @@ export const dashboardPage = (name: string) =>
         <a href="https://chromewebstore.google.com/detail/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer">Installer l’extension</a>
         <a href="/">Voir le Digest</a>
         <button id="admin-logout" type="button">Se déconnecter</button>
-        <span class="admin-version" aria-label="Version v1.15.2">v1.15.2</span>
+        <span class="admin-version" aria-label="Version v1.16.0">v1.16.0</span>
       </div>
     </header>
     <nav class="admin-nav" aria-label="Administration">
-      <button class="is-active" type="button" data-panel-button="drafts">Brouillons <span id="draft-count">0</span></button>
-      <button type="button" data-panel-button="publish">Publier <span id="selected-count">0</span></button>
-      <button type="button" data-panel-button="publications">Publications</button>
-      <button type="button" data-panel-button="links">Liens publiés</button>
-      <button type="button" data-panel-button="editions">Éditions</button>
-      <button type="button" data-panel-button="categories">Catégories</button>
-      <button type="button" data-panel-button="linkedin">LinkedIn</button>
-      <button type="button" data-panel-button="hidden">Retirés</button>
+      <button class="is-active" type="button" data-panel-button="drafts" aria-pressed="true">Brouillons <span id="draft-count">0</span></button>
+      <button type="button" data-panel-button="publish" aria-pressed="false">Publier <span id="selected-count">0</span></button>
+      <button type="button" data-panel-button="publications" aria-pressed="false">Publications</button>
+      <button type="button" data-panel-button="links" aria-pressed="false">Liens publiés</button>
+      <button type="button" data-panel-button="editions" aria-pressed="false">Éditions</button>
+      <button type="button" data-panel-button="categories" aria-pressed="false">Catégories</button>
+      <button type="button" data-panel-button="themes" aria-pressed="false">Thèmes</button>
+      <button type="button" data-panel-button="linkedin" aria-pressed="false">LinkedIn</button>
+      <button type="button" data-panel-button="hidden" aria-pressed="false">Retirés</button>
     </nav>
     <p class="feedback" id="admin-feedback" role="status" aria-live="polite"></p>
 
@@ -155,6 +156,21 @@ export const dashboardPage = (name: string) =>
       <div id="category-list"><p class="loading">Chargement…</p></div>
     </section>
 
+    <section class="admin-panel" data-panel="themes">
+      <div class="section-heading">
+        <div><h2>Thèmes actifs</h2><p class="intro">Un vocabulaire court pour qualifier les liens. Les anciens tags restent consultables dans les archives, sans encombrer la saisie.</p></div>
+        <div class="theme-register-summary"><strong id="theme-count">0</strong><span>thèmes actifs</span></div>
+      </div>
+      <form id="theme-create-form" class="theme-create-form">
+        <label>Nom<input name="name" required maxlength="80" autocomplete="off" placeholder="Ex. architecture"></label>
+        <label>Description<input name="description" maxlength="500" placeholder="Périmètre éditorial du thème"></label>
+        <label>Alias<input name="aliases" maxlength="500" placeholder="Variantes séparées par des virgules"></label>
+        <button class="primary" type="submit">Ajouter le thème</button>
+      </form>
+      <div class="toolbar"><input id="theme-search" type="search" placeholder="Rechercher un thème ou un alias" aria-label="Rechercher un thème ou un alias"></div>
+      <div id="theme-list"><p class="loading">Chargement…</p></div>
+    </section>
+
     <section class="admin-panel" data-panel="hidden">
       <div class="section-heading"><div><p class="kicker">Mémoire éditoriale</p><h2>Liens retirés</h2></div></div>
       <div id="hidden-links"><p class="loading">Chargement…</p></div>
@@ -181,8 +197,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .header-actions a{padding:.8rem 1rem}
 .admin-version{align-self:center;color:var(--muted);font-size:.78rem;font-weight:700;letter-spacing:.08em}
 .feedback{min-height:1.5em;color:var(--accent-text)}
-.admin-nav{display:flex;gap:.35rem;overflow:auto;padding:1rem 0;border-bottom:1px solid var(--line)}
-.admin-nav button{white-space:nowrap;border:0}
+.admin-nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(7.5rem,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.admin-nav button{min-width:0;border:0;border-radius:0;background:var(--paper);white-space:normal}
 .admin-nav button.is-active{background:var(--ink);color:var(--paper)}
 .admin-nav span{color:var(--accent-text)}
 .admin-panel{display:none;padding:2.5rem 0}
@@ -199,6 +215,15 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .category-row-meta{margin:.35rem 0 0;color:var(--muted);font-size:.75rem}
 .category-actions{display:flex;gap:.6rem}
 .danger{color:var(--error)}
+.theme-register-summary{display:grid;min-width:9rem;border:1px solid var(--line);text-align:right}
+.theme-register-summary strong{padding:.7rem .8rem .15rem;font-family:Arial,Helvetica,sans-serif;font-size:2rem;line-height:1}
+.theme-register-summary span{padding:.15rem .8rem .7rem;color:var(--muted);font-size:.7rem;text-transform:uppercase}
+.theme-create-form{display:grid;grid-template-columns:.7fr 1.3fr 1fr auto;align-items:end;gap:.7rem;margin-bottom:1.4rem}
+.theme-create-form label,.theme-row label{display:grid;gap:.35rem;color:var(--muted);font-size:.72rem}
+.theme-row{display:grid;grid-template-columns:.65fr 1.2fr 1fr auto;align-items:end;gap:.7rem;border-top:1px solid var(--line);padding:1rem 0}
+.theme-row.is-filtered{display:none}
+.theme-actions{display:flex;gap:.4rem}
+.theme-usage{margin:.4rem 0 0;color:var(--muted);font-size:.68rem}
 .draft-card{display:grid;grid-template-columns:auto minmax(0,1fr);gap:1rem}
 .draft-card.is-filtered{display:none}
 .draft-select{width:1.2rem;height:1.2rem;margin-top:.4rem}
@@ -208,6 +233,23 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .published-grid label.reactivate-control{display:flex;grid-column:1/-1;align-items:start;gap:.65rem;padding:.8rem;border:1px solid var(--line);color:var(--ink);line-height:1.45}
 .reactivate-control input{width:1.15rem;height:1.15rem;margin:.05rem 0 0}
 .draft-grid label.wide,.published-grid label.wide{grid-column:1/-1}
+.theme-field{display:grid;grid-column:1/-1;gap:.4rem;color:var(--muted);font-size:.78rem}
+.theme-picker{position:relative;border:1px solid var(--line);background:#fff;padding:.55rem}
+.theme-selection{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.45rem}
+.theme-selection:empty{display:none}
+.theme-token{display:inline-flex;align-items:center;gap:.45rem;min-height:2rem;border:1px solid var(--ink);padding:.3rem .5rem;background:var(--paper);color:var(--ink);font-size:.72rem}
+.theme-token button{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;margin:-.45rem -.5rem -.45rem 0;border:0;padding:.35rem;color:var(--muted);font-size:.62rem;line-height:1;text-transform:uppercase}
+.theme-picker input[type="search"]{border:0;padding:.4rem .25rem;outline:0}
+.theme-picker input[type="search"]:focus-visible{outline:0}
+.theme-picker:focus-within{outline:3px solid var(--accent-text);outline-offset:2px}
+.theme-suggestions{position:absolute;z-index:4;top:calc(100% + .25rem);right:-1px;left:-1px;display:grid;max-height:16rem;overflow:auto;border:1px solid var(--ink);background:var(--paper)}
+.theme-suggestions:empty{display:none}
+.theme-option{display:grid;gap:.15rem;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:.65rem;text-align:left}
+.theme-option:last-child{border-bottom:0}
+.theme-option:hover,.theme-option:focus-visible{background:var(--ink);color:var(--paper);outline:0}
+.theme-option small{color:inherit;font-weight:400;opacity:.72}
+.theme-help{margin:0;color:var(--muted);font-size:.68rem;line-height:1.45}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
 .draft-url,.admin-link p{overflow-wrap:anywhere;color:var(--muted);font-size:.8rem}
 .card-actions{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:1rem}
 .missing{color:var(--warn);font-size:.78rem}
@@ -243,7 +285,7 @@ input,select,textarea{width:100%;border:1px solid var(--line);border-radius:.25r
 .empty,.loading{padding:2rem 0;color:var(--muted)}
 .is-hidden{display:none!important}
 @keyframes progress-scan{from{transform:translateX(-110%)}to{transform:translateX(225%)}}
-@media(max-width:760px){header,.section-heading,.publication-card,.admin-link,.category-row,.category-create-form{display:grid;grid-template-columns:1fr}.draft-grid,.published-grid,.field-row{grid-template-columns:1fr}.header-actions{margin-top:0}.toolbar input,.toolbar select{min-width:0}.progress-steps{font-size:.62rem}}
+@media(max-width:760px){header,.section-heading,.publication-card,.admin-link,.category-row,.category-create-form,.theme-row,.theme-create-form{display:grid;grid-template-columns:1fr}.admin-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.draft-grid,.published-grid,.field-row{grid-template-columns:1fr}.header-actions{margin-top:0}.toolbar input,.toolbar select{min-width:0}.theme-register-summary{width:100%;text-align:left}.progress-steps{font-size:.62rem}}
 @media(prefers-reduced-motion:reduce){.progress-segment.is-active::after{width:100%;animation:none;opacity:.72}}
 `;
 
@@ -253,7 +295,7 @@ const show=(message)=>{if(feedback)feedback.textContent=message||""};
 const linkedinReturn=sessionStorage.getItem("digest-linkedin-return");
 if(linkedinReturn&&document.querySelector("[data-panel]")){sessionStorage.removeItem("digest-linkedin-return");location.assign(linkedinReturn)}
 const esc=(value)=>String(value??"").replace(/[&<>"']/g,(character)=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[character]));
-const correctionErrorLabel=(code)=>({INVALID_URL:"Saisissez une URL complète.",UNSUPPORTED_SCHEME:"Utilisez une adresse HTTP ou HTTPS.",URL_CREDENTIALS:"Retirez les identifiants intégrés à l’URL.",PRIVATE_URL:"Cette adresse privée ou locale ne peut pas être publiée.",AUTHENTICATED_PAGE:"Une page d’administration ou de connexion ne peut pas être publiée.",SENSITIVE_QUERY:"Retirez les paramètres sensibles de l’URL.",DUPLICATE_LINK_URL:"Cette URL est déjà utilisée par un autre lien.",UNKNOWN_TAG:"Choisissez un tag existant dans les suggestions."}[code]||code);
+const correctionErrorLabel=(code)=>({INVALID_URL:"Saisissez une URL complète.",UNSUPPORTED_SCHEME:"Utilisez une adresse HTTP ou HTTPS.",URL_CREDENTIALS:"Retirez les identifiants intégrés à l’URL.",PRIVATE_URL:"Cette adresse privée ou locale ne peut pas être publiée.",AUTHENTICATED_PAGE:"Une page d’administration ou de connexion ne peut pas être publiée.",SENSITIVE_QUERY:"Retirez les paramètres sensibles de l’URL.",DUPLICATE_LINK_URL:"Cette URL est déjà utilisée par un autre lien.",UNKNOWN_TAG:"Choisissez un thème existant dans les suggestions.",TOO_MANY_THEMES:"Choisissez au maximum trois thèmes."}[code]||code);
 const api=async(path,options={})=>{
   const response=await fetch(path,{credentials:"same-origin",...options,headers:{Accept:"application/json",...(options.body?{"Content-Type":"application/json"}:{}),...(options.headers||{})}});
   if(response.status===401||response.status===403){location.assign("/admin");throw new Error("AUTHENTICATION_REQUIRED")}
@@ -270,10 +312,10 @@ document.querySelector("#admin-logout")?.addEventListener("click",async()=>{awai
 
 const panels=[...document.querySelectorAll("[data-panel]")];
 const panelButtons=[...document.querySelectorAll("[data-panel-button]")];
-const openPanel=(name)=>{panels.forEach((panel)=>panel.classList.toggle("is-active",panel.dataset.panel===name));panelButtons.forEach((button)=>button.classList.toggle("is-active",button.dataset.panelButton===name))};
+const openPanel=(name)=>{panels.forEach((panel)=>panel.classList.toggle("is-active",panel.dataset.panel===name));panelButtons.forEach((button)=>{const active=button.dataset.panelButton===name;button.classList.toggle("is-active",active);button.setAttribute("aria-pressed",String(active))})};
 panelButtons.forEach((button)=>button.addEventListener("click",()=>openPanel(button.dataset.panelButton)));
 
-let options={categories:[],tags:[]};
+let options={categories:[],tags:[],themes:[]};
 let drafts=[];
 const selected=new Set();
 const categoryOptions=(value)=>'<option value=""></option>'+options.categories.map((category)=>'<option '+(category===value?'selected':'')+'>'+esc(category)+'</option>').join("");
@@ -290,10 +332,29 @@ const renderCategories=(categories)=>{
   target.innerHTML=categories.map((category)=>'<article class="category-row" data-category-name="'+esc(category.name)+'"><div><label>Nom<input name="categoryName" maxlength="100" required value="'+esc(category.name)+'"></label><label>Description<textarea name="categoryDescription" maxlength="500" rows="3" placeholder="Le périmètre éditorial de cette catégorie…">'+esc(category.description)+'</textarea></label><p class="category-row-meta">'+category.linkCount+' lien(s) publié(s) · '+category.draftCount+' brouillon(s)</p></div><div class="category-actions"><button type="button" data-rename-category>Enregistrer</button><button class="danger" type="button" data-delete-category '+(category.linkCount||category.draftCount?'disabled title="Catégorie utilisée"':'')+'>Supprimer</button></div></article>').join("");
 };
 const loadCategories=async()=>{const data=await api("/api/admin/categories");renderCategories(data.categories);return data.categories};
-const refreshCategories=async()=>{options=await api("/api/admin/curation/options");await Promise.all([loadCategories(),loadDrafts()]);const published=document.querySelector("#published-links");if(published)published.innerHTML='<p class="empty">Recherche un lien pour modifier ses métadonnées.</p>'};
+const renderThemes=(themes=options.themes)=>{const target=document.querySelector("#theme-list");if(!target)return;document.querySelector("#theme-count").textContent=String(themes.length);target.innerHTML=themes.map((theme)=>'<article class="theme-row" data-theme-row data-theme-name="'+esc(theme.name)+'" data-theme-search-text="'+esc((theme.name+" "+theme.aliases.join(" ")).toLocaleLowerCase("fr"))+'"><label>Nom<input name="themeName" maxlength="80" value="'+esc(theme.name)+'"></label><label>Description<input name="themeDescription" maxlength="500" value="'+esc(theme.description)+'"></label><label>Alias<input name="themeAliases" maxlength="500" value="'+esc(theme.aliases.join(", "))+'"><span class="theme-usage">'+(theme.linkCount??0)+' lien(s) actif(s)</span></label><div class="theme-actions"><button type="button" data-save-theme>Enregistrer</button><button class="danger" type="button" data-archive-theme>Archiver</button></div></article>').join("");filterThemes()};
+const filterThemes=()=>{const query=(document.querySelector("#theme-search")?.value||"").trim().toLocaleLowerCase("fr");document.querySelectorAll('[data-theme-row]').forEach((row)=>row.classList.toggle("is-filtered",Boolean(query)&&!row.dataset.themeSearchText.includes(query)))};
+document.querySelector("#theme-search")?.addEventListener("input",filterThemes);
+const loadThemes=async()=>{const data=await api("/api/admin/themes");options.themes=data.themes;options.tags=data.themes.map((theme)=>theme.name);renderThemes(data.themes);return data.themes};
+const refreshTaxonomy=async()=>{options=await api("/api/admin/curation/options");await Promise.all([loadCategories(),loadThemes(),loadDrafts()]);const published=document.querySelector("#published-links");if(published)published.innerHTML='<p class="empty">Recherche un lien pour modifier ses métadonnées.</p>'};
+const refreshCategories=refreshTaxonomy;
+const themeAliases=(value)=>value.split(",").map((alias)=>alias.trim()).filter(Boolean);
+document.querySelector("#theme-create-form")?.addEventListener("submit",async(event)=>{event.preventDefault();const form=event.currentTarget,button=event.submitter;button.disabled=true;try{await api("/api/admin/themes",{method:"POST",body:JSON.stringify({name:form.elements.name.value,description:form.elements.description.value,aliases:themeAliases(form.elements.aliases.value),confirm:true})});form.reset();await refreshTaxonomy();show("Thème ajouté. Un nouveau déploiement est lancé.")}catch(error){show("Thème impossible à ajouter : "+error.message)}finally{button.disabled=false}});
+document.querySelector("#theme-list")?.addEventListener("click",async(event)=>{const save=event.target.closest('[data-save-theme]'),archive=event.target.closest('[data-archive-theme]');if(!save&&!archive)return;const row=event.target.closest('[data-theme-name]'),current=row.dataset.themeName;event.target.disabled=true;try{if(archive){if(!confirm('Archiver le thème « '+current+' » ? Ses liens et son ancienne route seront conservés. Le thème sera retiré des brouillons en cours.'))return;const data=await api("/api/admin/themes/"+encodeURIComponent(current),{method:"DELETE",body:JSON.stringify({confirm:true})});await refreshTaxonomy();show("Thème archivé · "+data.preservedLinks+" lien(s) historique(s) conservé(s) · thème retiré de "+data.removedDrafts+" brouillon(s).") }else{const data=await api("/api/admin/themes/"+encodeURIComponent(current),{method:"PATCH",body:JSON.stringify({name:row.querySelector('[name="themeName"]').value,description:row.querySelector('[name="themeDescription"]').value,aliases:themeAliases(row.querySelector('[name="themeAliases"]').value),confirm:true})});await refreshTaxonomy();show((data.merged?"Thèmes fusionnés":"Thème enregistré")+" · "+data.migrated+" lien(s) et "+data.migratedDrafts+" brouillon(s) migré(s).")}}catch(error){show("Modification du thème impossible : "+error.message)}finally{event.target.disabled=false}});
 document.querySelector("#category-create-form")?.addEventListener("submit",async(event)=>{event.preventDefault();const form=event.currentTarget,button=event.submitter;button.disabled=true;try{await api("/api/admin/categories",{method:"POST",body:JSON.stringify({name:form.elements.name.value,description:form.elements.description.value,confirm:true})});form.reset();await refreshCategories();show("Catégorie ajoutée. Un nouveau déploiement est lancé.")}catch(error){show(categoryErrorLabel(error))}finally{button.disabled=false}});
 document.querySelector("#category-list")?.addEventListener("click",async(event)=>{const rename=event.target.closest("[data-rename-category]"),remove=event.target.closest("[data-delete-category]");if(!rename&&!remove)return;const row=event.target.closest("[data-category-name]"),current=row.dataset.categoryName;event.target.disabled=true;try{if(remove){if(!confirm('Supprimer la catégorie « '+current+' » ?'))return;await api("/api/admin/categories/"+encodeURIComponent(current),{method:"DELETE",body:JSON.stringify({confirm:true})});await refreshCategories();show("Catégorie supprimée. Un nouveau déploiement est lancé.")}else{const replacement=row.querySelector('[name="categoryName"]').value,description=row.querySelector('[name="categoryDescription"]').value;const data=await api("/api/admin/categories/"+encodeURIComponent(current),{method:"PATCH",body:JSON.stringify({name:replacement,description,confirm:true})});await refreshCategories();show(data.changed?(current===replacement?"Description de la catégorie enregistrée.":"Catégorie renommée. "+data.migrated.links+" lien(s) et "+data.migrated.drafts+" brouillon(s) mis à jour."):"Aucune modification à enregistrer.")}}catch(error){event.target.disabled=false;show(categoryErrorLabel(error))}});
-const missing=(draft)=>[!draft.title&&"titre",!draft.category&&"catégorie",!draft.description&&"résumé",!draft.tags.length&&"tag"].filter(Boolean);
+const themeTokens=(tags)=>tags.map((tag)=>'<span class="theme-token">'+esc(tag)+'<button type="button" data-remove-theme="'+esc(tag)+'" aria-label="Retirer le thème '+esc(tag)+'">Retirer</button></span>').join("");
+const themePickerMarkup=(tags,key)=>'<div class="theme-field"><label id="theme-label-'+esc(key)+'" for="theme-search-'+esc(key)+'">Thèmes <small>· facultatifs · 3 maximum</small></label><div class="theme-picker" data-theme-picker><div class="theme-selection">'+themeTokens(tags)+'</div><input id="theme-search-'+esc(key)+'" type="search" data-theme-search role="combobox" aria-labelledby="theme-label-'+esc(key)+'" aria-expanded="false" aria-autocomplete="list" aria-haspopup="listbox" aria-controls="theme-options-'+esc(key)+'" autocomplete="off" placeholder="Ajouter un thème…"><div class="theme-suggestions" id="theme-options-'+esc(key)+'" role="listbox"></div><p class="sr-only" data-theme-status role="status" aria-live="polite"></p><input type="hidden" name="tags" value="'+esc(JSON.stringify(tags))+'"></div><p class="theme-help">Recherche uniquement dans le registre actif. Les anciens tags déjà publiés restent conservés.</p></div>';
+const pickerTags=(picker)=>{try{return JSON.parse(picker.querySelector('[name="tags"]').value)}catch{return[]}};
+const closeThemeSuggestions=(picker)=>{const search=picker.querySelector('[data-theme-search]');picker.dataset.activeThemeIndex="-1";search.setAttribute("aria-expanded","false");search.removeAttribute("aria-activedescendant");picker.querySelector('.theme-suggestions').innerHTML=""};
+const setActiveThemeOption=(picker,index)=>{const search=picker.querySelector('[data-theme-search]'),items=[...picker.querySelectorAll('[data-add-theme]')];if(!items.length){search.removeAttribute("aria-activedescendant");picker.dataset.activeThemeIndex="-1";return}const active=(index+items.length)%items.length;picker.dataset.activeThemeIndex=String(active);items.forEach((item,itemIndex)=>item.setAttribute("aria-selected",String(itemIndex===active)));search.setAttribute("aria-activedescendant",items[active].id);items[active].scrollIntoView({block:"nearest"})};
+const updateThemePicker=(picker,tags)=>{picker.querySelector('[name="tags"]').value=JSON.stringify(tags);picker.querySelector('.theme-selection').innerHTML=themeTokens(tags);const search=picker.querySelector('[data-theme-search]');search.value="";closeThemeSuggestions(picker);picker.querySelector('[data-theme-status]').textContent=tags.length?tags.length+" thème"+(tags.length>1?"s":"")+" sélectionné"+(tags.length>1?"s":"")+".":"Aucun thème sélectionné."};
+const renderThemeSuggestions=(picker,query="")=>{const selected=pickerTags(picker),needle=query.trim().toLocaleLowerCase("fr"),target=picker.querySelector('.theme-suggestions'),search=picker.querySelector('[data-theme-search]'),status=picker.querySelector('[data-theme-status]');if(selected.length>=3){closeThemeSuggestions(picker);status.textContent="Maximum de trois thèmes atteint.";return}const matches=options.themes.filter((theme)=>!selected.includes(theme.name)&&(!needle||(theme.name+" "+theme.aliases.join(" ")).toLocaleLowerCase("fr").includes(needle))).slice(0,8);target.innerHTML=matches.map((theme,index)=>'<button id="'+target.id+'-option-'+index+'" class="theme-option" type="button" role="option" aria-selected="false" data-add-theme="'+esc(theme.name)+'"><strong>'+esc(theme.name)+'</strong>'+(theme.description?'<small>'+esc(theme.description)+'</small>':'')+'</button>').join("");search.setAttribute("aria-expanded",String(Boolean(matches.length)));status.textContent=matches.length?matches.length+" résultat"+(matches.length>1?"s":"")+" disponible"+(matches.length>1?"s":"")+".":"Aucun thème trouvé.";if(matches.length)setActiveThemeOption(picker,0);else search.removeAttribute("aria-activedescendant")};
+document.addEventListener("input",(event)=>{if(event.target.matches('[data-theme-search]'))renderThemeSuggestions(event.target.closest('[data-theme-picker]'),event.target.value)});
+document.addEventListener("focusin",(event)=>{if(event.target.matches('[data-theme-search]'))renderThemeSuggestions(event.target.closest('[data-theme-picker]'),event.target.value)});
+document.addEventListener("keydown",(event)=>{if(!event.target.matches('[data-theme-search]'))return;const picker=event.target.closest('[data-theme-picker]'),items=[...picker.querySelectorAll('[data-add-theme]')];if(event.key==="Escape"){event.preventDefault();closeThemeSuggestions(picker);return}if(event.key==="ArrowDown"||event.key==="ArrowUp"){event.preventDefault();if(!items.length){renderThemeSuggestions(picker,event.target.value);return}const current=Number(picker.dataset.activeThemeIndex||0);setActiveThemeOption(picker,current+(event.key==="ArrowDown"?1:-1));return}if(event.key==="Enter"){const active=items[Number(picker.dataset.activeThemeIndex||0)];if(active){event.preventDefault();active.click()}}});
+document.addEventListener("click",(event)=>{const add=event.target.closest('[data-add-theme]'),remove=event.target.closest('[data-remove-theme]');if(add){const picker=add.closest('[data-theme-picker]');updateThemePicker(picker,[...pickerTags(picker),add.dataset.addTheme]);picker.querySelector('[data-theme-search]').focus();return}if(remove){const picker=remove.closest('[data-theme-picker]');updateThemePicker(picker,pickerTags(picker).filter((tag)=>tag!==remove.dataset.removeTheme));picker.querySelector('[data-theme-search]').focus();return}if(!event.target.closest('[data-theme-picker]'))document.querySelectorAll('[data-theme-picker]').forEach(closeThemeSuggestions)});
+const missing=(draft)=>[!draft.title&&"titre",!draft.category&&"catégorie",!draft.description&&"résumé"].filter(Boolean);
 const renderDrafts=()=>{
   const list=document.querySelector("#draft-list");if(!list)return;
   document.querySelector("#draft-count").textContent=String(drafts.length);
@@ -306,14 +367,14 @@ const renderDrafts=()=>{
       '<label>Titre<input name="title" value="'+esc(draft.title)+'"></label>'+
       '<label>Catégorie<select name="category">'+categoryOptions(draft.category)+'</select></label>'+
       '<label class="wide">Résumé<textarea name="description" rows="3">'+esc(draft.description)+'</textarea></label>'+
-      '<label class="wide">Tags, séparés par des virgules<input name="tags" value="'+esc(draft.tags.join(", "))+'" list="known-tags"></label>'+
+      themePickerMarkup(draft.tags,"draft-"+draft.id)+
       '<label class="wide">Note privée<textarea name="privateNote" rows="2">'+esc(draft.privateNote)+'</textarea></label></div>'+
       '<div class="card-actions"><span class="'+(gaps.length?'missing':'complete')+'">'+(gaps.length?'Manque : '+esc(gaps.join(", ")):'Prêt à publier')+'</span><div><button type="button" data-delete-draft>Supprimer</button> <button type="button" data-save-draft>Enregistrer</button></div></div></div></article>';
-  }).join("")+'<datalist id="known-tags">'+options.tags.map((tag)=>'<option value="'+esc(tag)+'"></option>').join("")+'</datalist>';
+  }).join("");
   filterDrafts();updateSelection();
 };
 const loadDrafts=async()=>{const data=await api("/api/admin/curation/drafts");drafts=data.drafts;for(const id of [...selected])if(!drafts.some((draft)=>draft.id===id))selected.delete(id);renderDrafts()};
-const draftBody=(card)=>({title:card.querySelector('[name="title"]').value,category:card.querySelector('[name="category"]').value,description:card.querySelector('[name="description"]').value,tags:card.querySelector('[name="tags"]').value.split(",").map((tag)=>tag.trim()).filter(Boolean),privateNote:card.querySelector('[name="privateNote"]').value,confirm:true});
+const draftBody=(card)=>({title:card.querySelector('[name="title"]').value,category:card.querySelector('[name="category"]').value,description:card.querySelector('[name="description"]').value,tags:pickerTags(card.querySelector('[data-theme-picker]')),privateNote:card.querySelector('[name="privateNote"]').value,confirm:true});
 document.querySelector("#draft-list")?.addEventListener("click",async(event)=>{
   const card=event.target.closest("[data-draft-id]");if(!card)return;
   if(event.target.matches(".draft-select")){event.target.checked?selected.add(card.dataset.draftId):selected.delete(card.dataset.draftId);updateSelection();return}
@@ -453,10 +514,10 @@ document.querySelector("#publication-form")?.addEventListener("submit",async(eve
 const renderPublishedLinks=(links)=>{
   const target=document.querySelector("#published-links");
   if(!links.length){target.innerHTML='<p class="empty">Aucun lien trouvé.</p>';return}
-  target.innerHTML=links.map((link)=>'<article class="published-card" data-link-id="'+esc(link.id)+'"><h3 data-link-title>'+esc(link.title)+'</h3><p class="draft-url">Ajouté le '+esc(link.added)+' · identifiant conservé</p><div class="published-grid"><label class="wide">URL publique<input name="url" type="url" inputmode="url" autocomplete="url" required value="'+esc(link.url)+'" aria-describedby="url-help-'+esc(link.id)+'"><small id="url-help-'+esc(link.id)+'">L’adresse sera normalisée. L’identifiant et la date d’ajout ne changeront pas.</small></label><label>Titre<input name="title" value="'+esc(link.title)+'"></label><label>Catégorie<select name="category">'+categoryOptions(link.category)+'</select></label><label class="wide">Résumé<textarea name="description" rows="3">'+esc(link.description)+'</textarea></label><label class="wide">Tags existants<input name="tags" value="'+esc(link.tags.join(", "))+'"></label>'+(link.status==="dead"?'<label class="reactivate-control"><input name="reactivate" type="checkbox" checked><span>Cette adresse correspond bien à la ressource. Retirer le statut « lien mort » et la marquer active.</span></label>':'')+'</div><div class="card-actions"><span data-link-status>'+esc(link.status||"")+'</span><button type="button" data-save-link>Enregistrer la correction</button></div></article>').join("");
+  target.innerHTML=links.map((link)=>'<article class="published-card" data-link-id="'+esc(link.id)+'"><h3 data-link-title>'+esc(link.title)+'</h3><p class="draft-url">Ajouté le '+esc(link.added)+' · identifiant conservé</p><div class="published-grid"><label class="wide">URL publique<input name="url" type="url" inputmode="url" autocomplete="url" required value="'+esc(link.url)+'" aria-describedby="url-help-'+esc(link.id)+'"><small id="url-help-'+esc(link.id)+'">L’adresse sera normalisée. L’identifiant et la date d’ajout ne changeront pas.</small></label><label>Titre<input name="title" value="'+esc(link.title)+'"></label><label>Catégorie<select name="category">'+categoryOptions(link.category)+'</select></label><label class="wide">Résumé<textarea name="description" rows="3">'+esc(link.description)+'</textarea></label>'+themePickerMarkup(link.tags,"link-"+link.id)+(link.status==="dead"?'<label class="reactivate-control"><input name="reactivate" type="checkbox" checked><span>Cette adresse correspond bien à la ressource. Retirer le statut « lien mort » et la marquer active.</span></label>':'')+'</div><div class="card-actions"><span data-link-status>'+esc(link.status||"")+'</span><button type="button" data-save-link>Enregistrer la correction</button></div></article>').join("");
 };
 document.querySelector("#link-search-form")?.addEventListener("submit",async(event)=>{event.preventDefault();show("Recherche…");try{const query=document.querySelector("#link-search").value;const data=await api("/api/admin/links?q="+encodeURIComponent(query)+"&limit=100");renderPublishedLinks(data.links);show(data.links.length+" résultat(s).")}catch(error){show(error.message)}});
-document.querySelector("#published-links")?.addEventListener("click",async(event)=>{const button=event.target.closest("[data-save-link]");if(!button)return;const card=button.closest("[data-link-id]");const urlInput=card.querySelector('[name="url"]');if(!urlInput.checkValidity()){urlInput.reportValidity();return}button.disabled=true;try{const reactivateControl=card.querySelector('[name="reactivate"]');const body={url:urlInput.value,title:card.querySelector('[name="title"]').value,category:card.querySelector('[name="category"]').value,description:card.querySelector('[name="description"]').value,tags:card.querySelector('[name="tags"]').value.split(",").map((tag)=>tag.trim()).filter(Boolean),reactivate:Boolean(reactivateControl?.checked),confirm:true};const data=await api("/api/admin/links/"+encodeURIComponent(card.dataset.linkId),{method:"PATCH",body:JSON.stringify(body)});urlInput.value=data.link.url;card.querySelector('[name="tags"]').value=data.link.tags.join(", ");card.querySelector("[data-link-title]").textContent=data.link.title;card.querySelector("[data-link-status]").textContent=data.link.status||"";if(data.reactivated)reactivateControl?.closest(".reactivate-control")?.remove();show(data.reactivated?"Lien corrigé et réactivé. Le statut « lien mort » a été retiré ; un nouveau déploiement est lancé.":data.changed?"Lien corrigé. Un nouveau déploiement est lancé.":"Aucune modification à enregistrer.")}catch(error){show("Correction impossible : "+correctionErrorLabel(error.message))}finally{button.disabled=false}});
+document.querySelector("#published-links")?.addEventListener("click",async(event)=>{const button=event.target.closest("[data-save-link]");if(!button)return;const card=button.closest("[data-link-id]");const urlInput=card.querySelector('[name="url"]');if(!urlInput.checkValidity()){urlInput.reportValidity();return}button.disabled=true;try{const reactivateControl=card.querySelector('[name="reactivate"]');const body={url:urlInput.value,title:card.querySelector('[name="title"]').value,category:card.querySelector('[name="category"]').value,description:card.querySelector('[name="description"]').value,tags:pickerTags(card.querySelector('[data-theme-picker]')),reactivate:Boolean(reactivateControl?.checked),confirm:true};const data=await api("/api/admin/links/"+encodeURIComponent(card.dataset.linkId),{method:"PATCH",body:JSON.stringify(body)});urlInput.value=data.link.url;updateThemePicker(card.querySelector('[data-theme-picker]'),data.link.tags);card.querySelector("[data-link-title]").textContent=data.link.title;card.querySelector("[data-link-status]").textContent=data.link.status||"";if(data.reactivated)reactivateControl?.closest(".reactivate-control")?.remove();show(data.reactivated?"Lien corrigé et réactivé. Le statut « lien mort » a été retiré ; un nouveau déploiement est lancé.":data.changed?"Lien corrigé. Un nouveau déploiement est lancé.":"Aucune modification à enregistrer.")}catch(error){show("Correction impossible : "+correctionErrorLabel(error.message))}finally{button.disabled=false}});
 
 const loadEditions=async()=>{const data=await api("/api/admin/editions");const select=document.querySelector("#edition-select");select.innerHTML='<option value="">Choisir une date</option>'+data.editions.map((date)=>'<option>'+esc(date)+'</option>').join("")};
 document.querySelector("#edition-select")?.addEventListener("change",async(event)=>{const form=document.querySelector("#edition-form");if(!event.target.value){form.classList.add("is-hidden");return}try{const data=await api("/api/admin/editions?date="+encodeURIComponent(event.target.value));form.elements.title.value=data.edition.title;form.elements.introduction.value=data.edition.introduction;form.elements.seoDescription.value=data.edition.description;form.dataset.date=event.target.value;form.classList.remove("is-hidden")}catch(error){show(error.message)}});
@@ -478,7 +539,7 @@ const initialize=async()=>{
   const today=new Date().toISOString().slice(0,10);document.querySelector("#publication-date").value=today;
   document.querySelector("#publication-title").value=new Intl.DateTimeFormat("fr-FR",{day:"numeric",month:"long",year:"numeric",timeZone:"Europe/Paris"}).format(new Date(today+"T12:00:00Z"));
   document.querySelector("#publication-date").addEventListener("change",(event)=>{document.querySelector("#publication-title").value=new Intl.DateTimeFormat("fr-FR",{day:"numeric",month:"long",year:"numeric",timeZone:"Europe/Paris"}).format(new Date(event.target.value+"T12:00:00Z"))});
-  try{options=await api("/api/admin/curation/options");const publications=loadPublications().then((items)=>{resumePublicationPolling(items);return items});await Promise.all([loadDrafts(),publications,loadEditions(),loadCategories(),loadHidden(),loadLinkedIn()]);if(new URLSearchParams(location.search).get("linkedin")==="connected"){openPanel("linkedin");show("Compte LinkedIn connecté.");history.replaceState(null,"","/admin")}}catch(error){show("Initialisation impossible : "+error.message)}
+  try{options=await api("/api/admin/curation/options");const publications=loadPublications().then((items)=>{resumePublicationPolling(items);return items});await Promise.all([loadDrafts(),publications,loadEditions(),loadCategories(),loadThemes(),loadHidden(),loadLinkedIn()]);if(new URLSearchParams(location.search).get("linkedin")==="connected"){openPanel("linkedin");show("Compte LinkedIn connecté.");history.replaceState(null,"","/admin")}}catch(error){show("Initialisation impossible : "+error.message)}
 };
 initialize();
 `;

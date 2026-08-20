@@ -70,3 +70,17 @@ test("active draft categories can be counted and renamed", () => {
   assert.equal(store.listDrafts()[0]?.category, "Code");
   database.close();
 });
+
+test("active draft themes can be renamed, merged and removed", () => {
+  const database = new Database(":memory:");
+  const store = new CurationStore(database);
+  const draft = store.createDraft({ ...draftInput, tags: ["car", "web"] });
+
+  assert.equal(store.replaceActiveDraftTag("car", "automobile"), 1);
+  assert.deepEqual(store.findDraft(draft.id)?.tags, ["automobile", "web"]);
+  assert.equal(store.replaceActiveDraftTag("automobile", "web"), 1);
+  assert.deepEqual(store.findDraft(draft.id)?.tags, ["web"]);
+  assert.equal(store.replaceActiveDraftTag("web", null), 1);
+  assert.deepEqual(store.findDraft(draft.id)?.tags, []);
+  database.close();
+});

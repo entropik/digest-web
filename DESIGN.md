@@ -270,8 +270,9 @@ un focus clavier explicite.
 
 ### Chips
 
-- **Style:** petites formes arrondies réservées aux tags et statuts, avec filet
-  et fond discret.
+- **Style:** petites formes arrondies réservées aux tags publics et statuts,
+  avec filet et fond discret. Dans l’administration, un thème sélectionné reste
+  au contraire un cartouche rectangulaire de registre, jamais une pilule.
 - **State:** un chip informe ou filtre ; il ne remplace jamais une cellule de
   navigation taxonomique.
 
@@ -293,6 +294,10 @@ un focus clavier explicite.
   renforcé sur le site public.
 - **Error / Disabled:** texte sémantique explicite en plus de la couleur ; état
   désactivé par opacité sans effacer le libellé.
+- **Recherche de thèmes:** combobox sur le seul registre actif, avec liste
+  rectangulaire jointive. Les flèches déplacent l’option active, `Entrée` la
+  sélectionne, `Échap` ferme la liste et le nombre de résultats comme la limite
+  de trois sont annoncés aux technologies d’assistance.
 
 ### Navigation
 
@@ -323,6 +328,8 @@ identité, sans marges artificielles ni dépendance à une police système.
   titres, dates et compteurs.
 - **Do** empiler les relations spatiales sur mobile sans changer leur ordre ni
   créer de débordement horizontal.
+- **Do** distinguer les cartouches de thèmes administratifs des chips de tags
+  publics et préserver le parcours clavier complet de leur combobox.
 - **Do** désactiver transitions et animations avec `prefers-reduced-motion`.
 
 ### Don't:

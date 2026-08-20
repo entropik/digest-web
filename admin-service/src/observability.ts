@@ -11,7 +11,9 @@ type TimingEvent =
   | "github.catalog.download"
   | "github.catalog.parse"
   | "github.commit"
-  | "github.ref";
+  | "github.ref"
+  | "github.tags.download"
+  | "github.tags.parse";
 
 type TimingFields = {
   cache?: "hit" | "miss" | "shared";
