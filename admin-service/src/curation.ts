@@ -5,9 +5,11 @@ import {
   categoryUsage,
   changeVisibility,
   publicAdminLink,
+  replaceCatalogTag,
   renameCategory,
   serializeCategories,
   serializeCatalog,
+  tagUsage,
   type PublishedMetadata,
   type VisibilityAction,
 } from "./catalog.js";
@@ -40,7 +42,13 @@ import {
   generateOptimizedSocialImage,
 } from "./social-image.js";
 import { canonicalizePublicUrl } from "./urls.js";
-import { canonicalizeTags } from "./tag-taxonomy.js";
+import {
+  activeTagNames,
+  canonicalizeTags,
+  parseTagDefinitions,
+  serializeTagDefinitions,
+  type DigestTagDefinition,
+} from "./tag-taxonomy.js";
 
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -60,16 +68,34 @@ const cleanText = (value: unknown, maximum: number): string =>
     .trim()
     .slice(0, maximum);
 
-const cleanTags = (value: unknown, knownTags?: string[]): string[] => {
+type CurationTaxonomy = {
+  categories: string[];
+  tags: string[];
+  tagDefinitions?: DigestTagDefinition[];
+  legacyTags?: string[];
+};
+
+const cleanTags = (
+  value: unknown,
+  taxonomy?: CurationTaxonomy,
+  preservedTags: string[] = [],
+): string[] => {
   if (!Array.isArray(value)) return [];
   const candidates = value.map((candidate) => cleanText(candidate, 80));
-  const normalized = canonicalizeTags(candidates, knownTags);
+  const definitions =
+    taxonomy?.tagDefinitions ??
+    (taxonomy?.tags ?? []).map((name) => ({ name, description: "", aliases: [] }));
+  const normalized = canonicalizeTags(candidates, definitions, preservedTags);
   if (normalized.unknown.length) {
     throw new CurationError("UNKNOWN_TAG", 400, {
       tags: normalized.unknown,
     });
   }
-  return normalized.tags.slice(0, 12);
+  const active = new Set(activeTagNames(definitions));
+  if (normalized.tags.filter((tag) => active.has(tag)).length > 3) {
+    throw new CurationError("TOO_MANY_THEMES", 400);
+  }
+  return normalized.tags;
 };
 
 const validDate = (value: string): boolean => {
@@ -80,14 +106,14 @@ const validDate = (value: string): boolean => {
 
 export const normalizeDraftInput = (
   input: DraftInput,
-  taxonomy?: { categories: string[]; tags: string[] },
+  taxonomy?: CurationTaxonomy,
 ): Required<DraftInput> => {
   const url = canonicalizePublicUrl(input.url);
   const title = cleanText(input.title, 240);
   const category = cleanText(input.category, 100);
   const description = cleanText(input.description, 1_200);
   const privateNote = cleanText(input.privateNote, 8_000);
-  const tags = cleanTags(input.tags, taxonomy?.tags);
+  const tags = cleanTags(input.tags, taxonomy);
 
   if (taxonomy && category && !taxonomy.categories.includes(category)) {
     throw new CurationError("INVALID_CATEGORY");
@@ -100,22 +126,22 @@ export const missingPublicationFields = (draft: CurationDraft): string[] => {
   if (!draft.title) missing.push("title");
   if (!draft.category) missing.push("category");
   if (!draft.description) missing.push("description");
-  if (!draft.tags.length) missing.push("tags");
   return missing;
 };
 
 const metadataInput = (
   value: unknown,
-  taxonomy: { categories: string[]; tags: string[] },
+  taxonomy: CurationTaxonomy,
+  preservedTags: string[] = [],
 ): PublishedMetadata => {
   const body = (value ?? {}) as Record<string, unknown>;
   const url = canonicalizePublicUrl(String(body.url ?? ""));
   const title = cleanText(body.title, 240);
   const category = cleanText(body.category, 100);
   const description = cleanText(body.description, 1_200);
-  const tags = cleanTags(body.tags, taxonomy.tags);
+  const tags = cleanTags(body.tags, taxonomy, preservedTags);
   const reactivate = body.reactivate === true;
-  if (!title || !category || !description || !tags.length) {
+  if (!title || !category || !description) {
     throw new CurationError("INCOMPLETE_LINK");
   }
   if (!taxonomy.categories.includes(category)) {
@@ -125,6 +151,24 @@ const metadataInput = (
 };
 
 const editionPath = (date: string): string => `content/archives/${date}.md`;
+const tagSlug = (value: string): string =>
+  value.normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("fr")
+    .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const tagPage = (definition: DigestTagDefinition): string => {
+  const aliases = definition.aliases
+    .map((alias) => `"/tags/${tagSlug(alias)}/"`)
+    .filter((route) => route !== `"/tags/${tagSlug(definition.name)}/"`);
+  return [
+    "---",
+    `title: "#${definition.name.replaceAll('"', '\\"')}"`,
+    `tag: ${JSON.stringify(definition.name)}`,
+    `tags: ${JSON.stringify([definition.name])}`,
+    ...(aliases.length ? [`aliases: [${aliases.join(", ")}]`] : []),
+    'generated_by: "digest-admin"',
+    "---",
+    "",
+  ].join("\n");
+};
 const AMBIGUOUS_COMMIT_GRACE_MS = 2 * 60 * 1_000;
 
 type PublicationDependencies = {
@@ -149,7 +193,12 @@ export class CurationService {
 
   async options() {
     const head = await readCachedRepositoryHead();
-    return catalogTaxonomy(head.links, head.categories);
+    const taxonomy = catalogTaxonomy(head.links, head.categories, head.tags);
+    return {
+      categories: taxonomy.categories,
+      tags: taxonomy.tags,
+      themes: taxonomy.tagDefinitions,
+    };
   }
 
   async categories() {
@@ -312,6 +361,170 @@ export class CurationService {
     throw new Error("CONCURRENT_UPDATE");
   }
 
+  async themes() {
+    const head = await readCachedRepositoryHead();
+    return {
+      themes: (head.tags ?? []).filter((theme) => theme.active !== false).map((theme) => ({
+        ...theme,
+        linkCount: tagUsage(head.links, theme.name),
+      })),
+    };
+  }
+
+  async addTheme(value: unknown) {
+    const body = (value ?? {}) as Record<string, unknown>;
+    const name = cleanText(body.name, 80);
+    const description = cleanText(body.description, 500);
+    const aliases = Array.isArray(body.aliases)
+      ? body.aliases.map((alias) => cleanText(alias, 80)).filter(Boolean)
+      : [];
+    if (!name) throw new CurationError("INVALID_THEME_NAME");
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+      const head = await readRepositoryHead();
+      const definitions = head.tags ?? [];
+      let next: DigestTagDefinition[];
+      try {
+        next = parseTagDefinitions(serializeTagDefinitions([
+          ...definitions,
+          { name, description, aliases },
+        ]));
+      } catch (error) {
+        if (error instanceof Error && /Duplicate tag label/.test(error.message)) {
+          throw new CurationError("THEME_ALREADY_EXISTS", 409);
+        }
+        throw new CurationError("INVALID_THEME");
+      }
+      const definition = next.find((theme) => theme.name === name)!;
+      try {
+        const commit = await commitRepositoryFiles(
+          head.commitSha,
+          head.treeSha,
+          {
+            "data/tags.json": serializeTagDefinitions(next),
+            [`content/tags/${tagSlug(name)}.md`]: tagPage(definition),
+          },
+          `Ajouter le thème ${name}`,
+        );
+        return { changed: true, commit, theme: definition };
+      } catch (error) {
+        if (attempt === 0 && error instanceof GitHubResponseError && [409, 422].includes(error.status)) continue;
+        throw error;
+      }
+    }
+    throw new Error("CONCURRENT_UPDATE");
+  }
+
+  async updateTheme(currentValue: unknown, value: unknown) {
+    const current = cleanText(currentValue, 80);
+    const body = (value ?? {}) as Record<string, unknown>;
+    const requestedName = cleanText(body.name, 80);
+    const requestedDescription = cleanText(body.description, 500);
+    const requestedAliases = Array.isArray(body.aliases)
+      ? body.aliases.map((alias) => cleanText(alias, 80)).filter(Boolean)
+      : [];
+    if (!current || !requestedName) throw new CurationError("INVALID_THEME_NAME");
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+      const head = await readRepositoryHead();
+      const definitions = head.tags ?? [];
+      const source = definitions.find((theme) => theme.active !== false && theme.name === current);
+      if (!source) throw new CurationError("THEME_NOT_FOUND", 404);
+      const target = definitions.find(
+        (theme) => theme.active !== false && theme.name !== current &&
+          theme.name.localeCompare(requestedName, "fr", { sensitivity: "base" }) === 0,
+      );
+      const replacement = target?.name ?? requestedName;
+      const aliases = [...new Set([
+        ...(target?.aliases ?? []),
+        ...source.aliases,
+        ...requestedAliases,
+        ...(replacement === current ? [] : [current]),
+      ])].filter(
+        (alias) => alias.localeCompare(replacement, "fr", { sensitivity: "base" }) !== 0,
+      );
+      const definition = {
+        name: replacement,
+        description: target?.description || requestedDescription,
+        aliases,
+      };
+      let next: DigestTagDefinition[];
+      try {
+        next = parseTagDefinitions(serializeTagDefinitions([
+          ...definitions.filter((theme) => theme.name !== current && theme.name !== target?.name),
+          definition,
+        ]));
+      } catch {
+        throw new CurationError("INVALID_THEME");
+      }
+      const mutation = replaceCatalogTag(head.links, current, replacement);
+      try {
+        const files: Record<string, string | null> = {
+          "data/tags.json": serializeTagDefinitions(next),
+          [`content/tags/${tagSlug(replacement)}.md`]: tagPage(definition),
+        };
+        if (tagSlug(replacement) !== tagSlug(current)) {
+          files[`content/tags/${tagSlug(current)}.md`] = null;
+        }
+        if (mutation.migrated) files["data/links.json"] = serializeCatalog(mutation.links);
+        const commit = await commitRepositoryFiles(
+          head.commitSha,
+          head.treeSha,
+          files,
+          target ? `Fusionner le thème ${current} avec ${replacement}` : `Modifier le thème ${current}`,
+        );
+        const migratedDrafts = replacement === current
+          ? 0
+          : this.store.replaceActiveDraftTag(current, replacement);
+        return {
+          changed: true,
+          commit,
+          theme: definition,
+          merged: Boolean(target),
+          migrated: mutation.migrated,
+          migratedDrafts,
+        };
+      } catch (error) {
+        if (attempt === 0 && error instanceof GitHubResponseError && [409, 422].includes(error.status)) continue;
+        throw error;
+      }
+    }
+    throw new Error("CONCURRENT_UPDATE");
+  }
+
+  async archiveTheme(value: unknown) {
+    const name = cleanText(value, 80);
+    if (!name) throw new CurationError("INVALID_THEME_NAME");
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+      const head = await readRepositoryHead();
+      const definitions = head.tags ?? [];
+      if (!definitions.some((theme) => theme.active !== false && theme.name === name)) {
+        throw new CurationError("THEME_NOT_FOUND", 404);
+      }
+      const next = definitions.map((theme) =>
+        theme.name === name ? { ...theme, active: false as const } : theme,
+      );
+      try {
+        const commit = await commitRepositoryFiles(
+          head.commitSha,
+          head.treeSha,
+          { "data/tags.json": serializeTagDefinitions(next) },
+          `Archiver le thème ${name}`,
+        );
+        const removedDrafts = this.store.replaceActiveDraftTag(name, null);
+        return {
+          changed: true,
+          commit,
+          theme: name,
+          preservedLinks: tagUsage(head.links, name),
+          removedDrafts,
+        };
+      } catch (error) {
+        if (attempt === 0 && error instanceof GitHubResponseError && [409, 422].includes(error.status)) continue;
+        throw error;
+      }
+    }
+    throw new Error("CONCURRENT_UPDATE");
+  }
+
   async publishedLink(id: string) {
     const head = await readCachedRepositoryHead();
     const link = head.links.find(
@@ -399,7 +612,7 @@ export class CurationService {
       const url = canonicalizePublicUrl(rawUrl);
       const draft = this.store.findDraftByUrl(url);
       const head = await readCachedRepositoryHead();
-      const options = catalogTaxonomy(head.links, head.categories);
+      const options = catalogTaxonomy(head.links, head.categories, head.tags);
 
       if (draft?.state === "draft") {
         outcome = "draft";
@@ -457,7 +670,7 @@ export class CurationService {
 
   async saveDraft(input: DraftInput) {
     const head = await readRepositoryHead();
-    const taxonomy = catalogTaxonomy(head.links, head.categories);
+    const taxonomy = catalogTaxonomy(head.links, head.categories, head.tags);
     const normalized = normalizeDraftInput(input, taxonomy);
     const existingDraft = this.store.findDraftByUrl(normalized.url);
     if (existingDraft) {
@@ -536,9 +749,13 @@ export class CurationService {
     ) {
       throw new CurationError("EDITION_EXISTS", 409);
     }
-    const taxonomy = catalogTaxonomy(head.links, head.categories);
+    const taxonomy = catalogTaxonomy(head.links, head.categories, head.tags);
     const categories = new Set(taxonomy.categories);
-    for (const draft of concreteDrafts) {
+    const normalizedDrafts = concreteDrafts.map((draft) => ({
+      ...draft,
+      tags: head.tags ? cleanTags(draft.tags, taxonomy) : draft.tags,
+    }));
+    for (const draft of normalizedDrafts) {
       if (!categories.has(draft.category)) {
         throw new CurationError("INVALID_CATEGORY", 400, { id: draft.id });
       }
@@ -546,10 +763,10 @@ export class CurationService {
         throw new CurationError("ALREADY_PUBLISHED", 409, { id: draft.id });
       }
     }
-    if (new Set(concreteDrafts.map((draft) => draft.url)).size !== concreteDrafts.length) {
+    if (new Set(normalizedDrafts.map((draft) => draft.url)).size !== normalizedDrafts.length) {
       throw new CurationError("DUPLICATE_DRAFT_URL", 409);
     }
-    return { head, taxonomy, drafts: concreteDrafts };
+    return { head, taxonomy, drafts: normalizedDrafts };
   }
 
   async publish(input: PublicationInput): Promise<DigestPublication> {
@@ -790,7 +1007,13 @@ export class CurationService {
 
   async editPublishedLink(id: string, body: unknown) {
     const head = await readRepositoryHead();
-    const metadata = metadataInput(body, catalogTaxonomy(head.links, head.categories));
+    const current = head.links.find((link) => link.id === id);
+    if (!current) throw new CurationError("LINK_NOT_FOUND", 404);
+    const metadata = metadataInput(
+      body,
+      catalogTaxonomy(head.links, head.categories, head.tags),
+      current.tags ?? [],
+    );
     try {
       return await updatePublishedLink(id, metadata);
     } catch (error) {
@@ -807,7 +1030,14 @@ export class CurationService {
   async addTagsToPublishedLink(id: string, body: unknown) {
     const input = (body ?? {}) as Record<string, unknown>;
     const head = await readRepositoryHead();
-    const tags = cleanTags(input.tags, catalogTaxonomy(head.links, head.categories).tags);
+    const current = head.links.find((link) => link.id === id);
+    if (!current) throw new CurationError("LINK_NOT_FOUND", 404);
+    const requested = Array.isArray(input.tags) ? input.tags : [];
+    const tags = cleanTags(
+      [...(current.tags ?? []), ...requested],
+      catalogTaxonomy(head.links, head.categories, head.tags),
+      current.tags ?? [],
+    );
     if (!tags.length) throw new CurationError("INVALID_TAG");
     try {
       return await addTagsToPublishedLink(id, tags);

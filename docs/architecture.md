@@ -29,14 +29,18 @@ dans `data/links.json`; la taxonomie et ses descriptions résident dans
 alphabétiquement. Une catégorie configurée reste disponible dans le registre
 public même lorsqu’aucun lien ne l’utilise encore.
 
-Les pages de tags sous `content/tags/` constituent le registre des thèmes
-navigables. L’administration canonicalise les variantes connues vers ce
-registre et refuse les mots-clés libres qui inventeraient une nouvelle
-taxonomie. Les imports appliquent les mêmes regroupements et placent en revue
-toute taxonomie inconnue. Côté public, la modale reçoit directement les routes
-Hugo enregistrées : un libellé sans destination reste du texte et ne peut donc
-jamais fabriquer un lien 404. Le contrôle de cohérence bloque en plus tout tag
-public sans page enregistrée.
+`data/tags.json` constitue le registre des thèmes éditoriaux. Il porte leur nom
+canonique, leur description, leurs alias et conserve les définitions archivées
+avec `active: false` afin de réserver leurs anciennes routes ; seule sa partie
+active, volontairement courte, est proposée à la saisie. Les pages sous
+`content/tags/` forment un registre historique plus large : elles conservent
+les anciennes routes même lorsqu’un tag n’est plus proposé à la saisie.
+L’administration canonicalise les variantes connues vers le registre actif,
+refuse les mots-clés libres et autorise un lien sans thème. Une publication
+revalide les brouillons juste avant le commit afin qu’un ancien alias ne puisse
+plus faire échouer le build après coup. Les imports placent en revue toute
+taxonomie inconnue. Côté public, la modale reçoit directement les routes Hugo
+enregistrées ; le contrôle de cohérence bloque tout tag public sans destination.
 
 La branche `main` contient les sources. GitHub Actions valide les données et
 construit le site, puis force la branche `production` sur la sortie statique.

@@ -234,6 +234,31 @@ export class CurationStore {
       .run(replacement, new Date().toISOString(), current).changes;
   }
 
+  replaceActiveDraftTag(current: string, replacement: string | null): number {
+    const rows = this.database
+      .prepare(
+        `SELECT id, tags_json FROM curation_drafts
+         WHERE state IN ('draft', 'publishing')`,
+      )
+      .all() as Array<{ id: string; tags_json: string }>;
+    const update = this.database.prepare(
+      `UPDATE curation_drafts SET tags_json = ?, updated_at = ? WHERE id = ?`,
+    );
+    return this.database.transaction(() => {
+      let changed = 0;
+      const now = new Date().toISOString();
+      for (const row of rows) {
+        const tags = parseTags(row.tags_json);
+        if (!tags.includes(current)) continue;
+        const next = replacement
+          ? [...new Set(tags.map((tag) => tag === current ? replacement : tag))]
+          : tags.filter((tag) => tag !== current);
+        changed += update.run(JSON.stringify(next), now, row.id).changes;
+      }
+      return changed;
+    })();
+  }
+
   markDraftsPublishing(ids: string[], publicationId: string): void {
     const update = this.database.prepare(
       `UPDATE curation_drafts

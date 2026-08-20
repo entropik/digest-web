@@ -373,6 +373,34 @@ app.delete("/api/admin/categories/:name", async (context) =>
   }),
 );
 
+app.get("/api/admin/themes", (context) =>
+  handle(context, () => curation.themes()),
+);
+
+app.post("/api/admin/themes", async (context) =>
+  handle(context, async () => {
+    const body = await jsonBody<Record<string, unknown> & { confirm?: boolean }>(context);
+    requireConfirmation(body);
+    return curation.addTheme(body);
+  }),
+);
+
+app.patch("/api/admin/themes/:name", async (context) =>
+  handle(context, async () => {
+    const body = await jsonBody<Record<string, unknown> & { confirm?: boolean }>(context);
+    requireConfirmation(body);
+    return curation.updateTheme(context.req.param("name"), body);
+  }),
+);
+
+app.delete("/api/admin/themes/:name", async (context) =>
+  handle(context, async () => {
+    const body = await jsonBody<{ confirm?: boolean }>(context);
+    requireConfirmation(body);
+    return curation.archiveTheme(context.req.param("name"));
+  }),
+);
+
 app.get("/api/admin/curation/bootstrap", (context) =>
   handle(context, () => {
     const url = context.req.query("url");

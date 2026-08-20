@@ -44,7 +44,7 @@ test("the private dashboard displays the current site version after logout", () 
 
   assert.match(
     page,
-      /<button id="admin-logout" type="button">Se déconnecter<\/button>\s*<span class="admin-version" aria-label="Version v1\.15\.2">v1\.15\.2<\/span>/,
+      /<button id="admin-logout" type="button">Se déconnecter<\/button>\s*<span class="admin-version" aria-label="Version v1\.16\.0">v1\.16\.0<\/span>/,
   );
   assert.match(adminCss, /\.admin-version\{/);
 });
@@ -52,7 +52,7 @@ test("the private dashboard displays the current site version after logout", () 
 test("categories can be created, renamed and deleted from a dedicated panel", () => {
   const page = dashboardPage("Marc");
 
-  assert.match(page, /data-panel-button="categories">Catégories/);
+  assert.match(page, /data-panel-button="categories" aria-pressed="false">Catégories/);
   assert.match(page, /id="category-create-form"/);
   assert.match(page, /id="category-list"/);
   assert.match(page, /name="description" maxlength="500"/);
@@ -101,13 +101,41 @@ test("draft toolbar exposes an accessible select-all toggle", () => {
   );
 });
 
-test("draft saves render the persisted server response without a stale reload", () => {
-  assert.match(adminJs, /Tags, séparés par des virgules/);
+test("drafts use a compact optional theme picker instead of the historical tag list", () => {
+  assert.doesNotMatch(adminJs, /Tags, séparés par des virgules|known-tags|datalist/);
+  assert.match(adminJs, /Thèmes <small>· facultatifs · 3 maximum/);
+  assert.match(adminJs, /role="combobox"/);
+  assert.match(adminJs, /role="listbox"/);
+  assert.match(adminJs, /aria-autocomplete="list"/);
+  assert.match(adminJs, /aria-activedescendant/);
+  assert.match(adminJs, /event\.key==="ArrowDown"\|\|event\.key==="ArrowUp"/);
+  assert.match(adminJs, /data-theme-status role="status" aria-live="polite"/);
+  assert.match(adminCss, /min-width:44px;min-height:44px/);
+  assert.match(adminJs, /options\.themes\.filter/);
+  assert.match(adminJs, /pickerTags\(card\.querySelector/);
   assert.match(
     adminJs,
     /drafts=drafts\.map\(\(draft\)=>draft\.id===data\.draft\.id\?data\.draft:draft\);renderDrafts\(\)/,
   );
   assert.match(adminJs, /data\.draft\.tags\.length\+" tag"/);
+});
+
+test("the admin exposes the intentionally short active theme register", () => {
+  const page = dashboardPage("Marc");
+  assert.match(page, /data-panel-button="themes" aria-pressed="false">Thèmes/);
+  assert.match(page, /id="theme-search"/);
+  assert.match(page, /id="theme-count"/);
+  assert.match(page, /id="theme-create-form"/);
+  assert.match(page, /Les anciens tags restent consultables dans les archives/);
+  assert.match(adminJs, /renderThemes/);
+  assert.match(adminJs, /data-save-theme/);
+  assert.match(adminJs, /data-archive-theme/);
+  assert.match(adminJs, /Thèmes fusionnés/);
+  assert.match(adminJs, /\/api\/admin\/themes/);
+  assert.match(adminCss, /\.theme-row/);
+  assert.match(adminCss, /\.admin-nav\{display:grid;grid-template-columns:repeat\(auto-fit/);
+  assert.match(adminCss, /\.admin-nav\{grid-template-columns:repeat\(2/);
+  assert.match(adminJs, /button\.setAttribute\("aria-pressed",String\(active\)\)/);
 });
 
 test("publication uses one count-aware action and keeps server validation implicit", () => {
@@ -181,5 +209,5 @@ test("dead links can be explicitly revalidated and report reactivation", () => {
   assert.match(adminJs, /reactivate:Boolean\(reactivateControl\?\.checked\)/);
   assert.match(adminJs, /Lien corrigé et réactivé/);
   assert.match(adminJs, /if\(data\.reactivated\)/);
-  assert.match(adminJs, /data\.link\.tags\.join\(", "\)/);
+  assert.match(adminJs, /updateThemePicker\(card\.querySelector/);
 });

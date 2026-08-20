@@ -190,6 +190,57 @@ test("an ambiguous GitHub branch update keeps the publication recoverable", asyn
   database.close();
 });
 
+test("publication revalidates stale aliases and accepts an empty theme list", async () => {
+  const database = new Database(":memory:");
+  const store = new CurationStore(database);
+  const aliased = store.createDraft({
+    url: "https://example.com/automobile",
+    title: "Automobile",
+    category: "Design",
+    description: "Un brouillon créé avant le registre actif.",
+    tags: ["car"],
+    privateNote: "",
+  });
+  const untagged = store.createDraft({
+    url: "https://example.com/sans-theme",
+    title: "Sans thème",
+    category: "Design",
+    description: "La catégorie suffit.",
+    tags: [],
+    privateNote: "",
+  });
+  let publishedTags: string[][] = [];
+  const dependencies = {
+    readRepositoryHead: async () => ({
+      commitSha: "initial-sha",
+      treeSha: "initial-tree",
+      links: [],
+      categories: [{ name: "Design", description: "" }],
+      tags: [{ name: "automobile", description: "", aliases: ["car"] }],
+    }),
+    tryReadRepositoryFile: async () => null,
+    buildPublicationFiles: async (input: { drafts: Array<{ id: string; tags: string[] }> }) => {
+      publishedTags = input.drafts.map((draft) => draft.tags);
+      return {
+        files: { "data/links.json": "[]", "content/archives/2026-08-20.md": "archive" },
+        linkIdsByDraft: new Map(input.drafts.map((draft) => [draft.id, draft.id])),
+      };
+    },
+    commitRepositoryFiles: async () => "committed-sha",
+  };
+  const publication = await new CurationService(store, dependencies).publish({
+    requestId: "77777777-7777-4777-8777-777777777777",
+    draftIds: [aliased.id, untagged.id],
+    digestDate: "2026-08-20",
+    title: "20 août 2026",
+    introduction: "Une édition avec des thèmes facultatifs.",
+    seoDescription: "Une édition de test.",
+  });
+  assert.equal(publication.state, "validating");
+  assert.deepEqual(publishedTags, [["automobile"], []]);
+  database.close();
+});
+
 test("a failure before the GitHub commit restores every reserved draft", async () => {
   const database = new Database(":memory:");
   const store = new CurationStore(database);

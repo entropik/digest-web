@@ -90,6 +90,13 @@ La description est un court texte d’orientation éditoriale, pas une suite de
 mots-clés. En son absence, l’interface peut afficher une phrase de repli sobre,
 mais le texte administré reste prioritaire.
 
+Dans l’administration, les thèmes sont facultatifs et limités à trois par lien.
+La saisie utilise une recherche dans le seul registre actif de `data/tags.json`,
+jamais une liste déroulante contenant les tags historiques. Les sélections
+prennent la forme de cartouches rectangulaires supprimables au clavier. Le
+panneau `Thèmes` permet de créer, renommer, fusionner et archiver un thème ; une
+ancienne route reste conservée après fusion ou archivage.
+
 ## Mouvement et accessibilité
 
 Le mouvement explique un changement d’état : retrait de l’index, déplacement

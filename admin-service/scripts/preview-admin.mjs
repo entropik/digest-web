@@ -18,6 +18,9 @@ const popupCss = readFileSync(
   new URL("../../browser-extension/entrypoints/popup/style.css", import.meta.url),
   "utf8",
 );
+const themeDefinitions = JSON.parse(
+  readFileSync(new URL("../../data/tags.json", import.meta.url), "utf8"),
+);
 
 const sampleDrafts = [
   {
@@ -98,7 +101,8 @@ createServer((request, response) => {
         "Médias & Veille",
         "Mémoire du web social",
       ],
-      tags: ["IA", "outils", "web"],
+      tags: themeDefinitions.map((theme) => theme.name),
+      themes: themeDefinitions,
     });
     return;
   }
@@ -116,6 +120,15 @@ createServer((request, response) => {
         { name: "Mémoire du web social", description: "Traces et histoires des plateformes sociales.", linkCount: 27, draftCount: 0 },
         { name: "Krisis", description: "Séparation, discernement, jugement et décision.", linkCount: 0, draftCount: 0 },
       ],
+    });
+    return;
+  }
+  if (url.pathname === "/api/admin/themes") {
+    json(response, {
+      themes: themeDefinitions.map((theme, index) => ({
+        ...theme,
+        linkCount: Math.max(0, 41 - index),
+      })),
     });
     return;
   }

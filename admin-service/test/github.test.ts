@@ -182,3 +182,18 @@ test("loads a new snapshot when main advances", async () => {
   assert.deepEqual(commits, ["commit-a", "commit-b"]);
   assert.deepEqual(catalogs, ["commit-a", "commit-b"]);
 });
+
+test("loads the short active theme registry with the repository snapshot", async () => {
+  const reader = createRepositoryHeadReader({
+    readRef: async () => "commit-a",
+    readCommit: async () => ({ sha: "commit-a", tree: { sha: "tree-a" } }),
+    readCatalog: async () => catalog,
+    readTags: async () => JSON.stringify([
+      { name: "automobile", description: "Mobilité", aliases: ["car"] },
+    ]),
+  });
+  const head = await reader.read();
+  assert.deepEqual(head.tags, [
+    { name: "automobile", description: "Mobilité", aliases: ["car"] },
+  ]);
+});
