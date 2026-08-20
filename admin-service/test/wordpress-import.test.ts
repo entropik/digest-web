@@ -106,6 +106,83 @@ test("overrides resolve one exception, skip another and remain idempotent", asyn
   assert.equal(second.duplicates.length, 1);
 });
 
+test("a recovered destination replaces its self-archived card", async () => {
+  const xml = await fixture();
+  const selfArchived: DigestLink = {
+    id: "old-self-id",
+    title: "Sans source",
+    url: "https://blog.ooblik.com/2023/sans-source",
+    origin_url: "https://blog.ooblik.com/2023/sans-source/",
+    category: BLOG_ARCHIVE_CATEGORY,
+    added: "2023-01-01",
+    stream: BLOG_ARCHIVE_STREAM,
+  };
+  const overrides = { "103": { source_url: "https://resolved.example/project" } };
+  const first = buildWordpressImportPreview({
+    xml,
+    currentLinks: [selfArchived],
+    overrides,
+  });
+  const recovered = first.ready.find((item) => item.wordpress_id === "103");
+  assert.equal(recovered?.existing, true);
+  assert.equal(recovered?.previous_id, "old-self-id");
+  assert.equal(recovered?.link.url, "https://resolved.example/project");
+  assert.equal(
+    first.catalog.some((link) => link.url === selfArchived.url),
+    false,
+  );
+  const second = buildWordpressImportPreview({
+    xml,
+    currentLinks: first.catalog,
+    overrides,
+  });
+  assert.deepEqual(second.catalog, first.catalog);
+});
+
+test("two archived posts cannot be recovered onto the same destination", async () => {
+  const xml = await fixture();
+  const archived = ["103", "104"].map((wordpressId) => ({
+    id: `old-self-${wordpressId}`,
+    title: `Archive ${wordpressId}`,
+    url:
+      wordpressId === "103"
+        ? "https://blog.ooblik.com/2023/sans-source"
+        : "https://blog.ooblik.com/2023/deux",
+    origin_url:
+      wordpressId === "103"
+        ? "https://blog.ooblik.com/2023/sans-source/"
+        : "https://blog.ooblik.com/2023/deux/",
+    category: BLOG_ARCHIVE_CATEGORY,
+    added: "2023-01-01",
+    stream: BLOG_ARCHIVE_STREAM,
+  } satisfies DigestLink));
+  const sharedDestination = "https://resolved.example/project";
+  const preview = buildWordpressImportPreview({
+    xml,
+    currentLinks: archived,
+    overrides: {
+      "103": { source_url: sharedDestination },
+      "104": { source_url: sharedDestination },
+    },
+  });
+
+  assert.equal(
+    preview.ready.filter((item) => ["103", "104"].includes(item.wordpress_id))
+      .length,
+    1,
+  );
+  assert.equal(
+    preview.duplicates.filter((item) => ["103", "104"].includes(item.wordpress_id))
+      .length,
+    1,
+  );
+  assert.equal(
+    preview.catalog.filter((link) => link.url === sharedDestination).length,
+    1,
+  );
+  assert.equal(new Set(preview.catalog.map((link) => link.id)).size, 2);
+});
+
 test("image conversion is deterministic, 16:9 and strips metadata", async () => {
   const source = await sharp({
     create: { width: 1200, height: 900, channels: 3, background: "#d4422f" },

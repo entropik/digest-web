@@ -67,6 +67,7 @@ export type WordpressReadyItem = {
   image_url: string;
   image_alt: string;
   existing: boolean;
+  previous_id?: string;
   link: DigestLink;
 };
 
@@ -353,13 +354,30 @@ export const buildWordpressImportPreview = (input: {
       .filter((probe) => probe.url)
       .map((probe) => [probe.url!, probe]),
   );
-  const currentByUrl = new Map(input.currentLinks.map((link) => [link.url, link]));
+  const existingUrlKey = (rawUrl: string): string => {
+    try {
+      return canonicalizePublicUrl(rawUrl);
+    } catch (error) {
+      if (!(error instanceof UnsafeUrlError)) throw error;
+      // Historical catalog entries are preserved even when their old URL no
+      // longer satisfies the stricter rules applied to new destinations.
+      return rawUrl;
+    }
+  };
+  const currentByUrl = new Map(
+    input.currentLinks.map((link) => [existingUrlKey(link.url), link]),
+  );
+  const currentByOrigin = new Map(
+    input.currentLinks
+      .filter((link) => link.stream === BLOG_ARCHIVE_STREAM && link.origin_url)
+      .map((link) => [canonicalizePublicUrl(link.origin_url!), link]),
+  );
   const knownTags = unique(
     input.currentLinks.flatMap((link) =>
       Array.isArray(link.tags) ? link.tags.map(String) : [],
     ),
   );
-  const occupied = new Set(currentByUrl.keys());
+  const occupied = new Map(currentByUrl.entries());
   const ready: WordpressReadyItem[] = [];
   const review: WordpressReviewItem[] = [];
   const duplicates: WordpressReviewItem[] = [];
@@ -407,26 +425,37 @@ export const buildWordpressImportPreview = (input: {
       continue;
     }
     const existing = currentByUrl.get(url);
-    if (
-      existing?.origin_url === post.originUrl &&
-      existing.stream === BLOG_ARCHIVE_STREAM
-    ) {
+    const imported = currentByOrigin.get(canonicalizePublicUrl(post.originUrl));
+    if (imported) {
+      const claimedBy = occupied.get(url);
+      if (claimedBy && claimedBy.id !== imported.id) {
+        duplicates.push({
+          ...base,
+          reason: "duplicate_destination",
+          candidates: [url],
+        });
+        continue;
+      }
       ready.push({
         wordpress_id: post.wordpressId,
         image_url: override?.image_url ?? post.imageUrl,
         image_alt: post.imageAlt,
         existing: true,
+        previous_id: imported.id,
         link: {
-          ...existing,
+          ...imported,
+          id: stableLinkId(url),
+          url,
           category: wordpressDigestCategory(post.tags),
           description: post.description,
           ...(post.archiveText ? { archive_text: post.archiveText } : {}),
           archive_tags: post.tags.filter((tag) => tag !== BLOG_ARCHIVE_STREAM),
         },
       });
+      occupied.set(url, imported);
       continue;
     }
-    if (existing) {
+    if (existing || occupied.has(url)) {
       duplicates.push({
         ...base,
         reason: "duplicate_destination",
@@ -444,7 +473,14 @@ export const buildWordpressImportPreview = (input: {
       });
       continue;
     }
-    occupied.add(url);
+    occupied.set(url, {
+      id: stableLinkId(url),
+      title: post.title,
+      url,
+      category: wordpressDigestCategory(post.tags),
+      added: post.added,
+      description: post.description,
+    });
     const tags = probe?.definitive_dead
       ? unique([...importedTags.tags, "lien-mort"]).slice(0, 12)
       : importedTags.tags;
@@ -469,7 +505,9 @@ export const buildWordpressImportPreview = (input: {
       },
     });
   }
-  const importedById = new Map(ready.map((item) => [item.link.id, item.link]));
+  const importedById = new Map(
+    ready.map((item) => [item.previous_id ?? item.link.id, item.link]),
+  );
   return {
     ready,
     review,

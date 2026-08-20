@@ -88,6 +88,12 @@ Cette page mémorise les décisions dans le navigateur et exporte un
 `overrides.json` compatible avec l’importeur. Elle ne publie et ne modifie
 aucune donnée du Digest.
 
+La recherche web complémentaire ne peut qualifier une proposition de
+`confiance haute` que si le score lexical est accompagné d’un indice d’identité
+fort : au moins trois termes distinctifs concordants ou un nom reconnaissable
+dans le domaine. Les titres génériques restent en revue même si leur premier
+résultat de recherche reprend exactement les mêmes mots.
+
 Le texte intégral nettoyé de chaque billet WXR est conservé dans le champ
 facultatif `archive_text`, y compris lors de la mise à jour d’un billet déjà
 importé. Le résumé de carte reste limité à 300 caractères ; le texte complet
@@ -109,6 +115,17 @@ destination externe ne sont plus bloquantes. L’option
 permalink, y compris ceux dont la destination externe existe déjà dans le
 Digest. Seul le billet WordPress automatique « Bonjour tout le monde » est
 ignoré.
+
+Une passe locale distincte peut ensuite rechercher les destinations actuelles
+des billets archivés sous leur propre permalink. La commande
+`recover:wordpress-destinations` interroge Brave Search avec une clé conservée
+dans `import/wordpress/.env`, exclut les domaines OOBLIK et toutes les URL non
+publiques, normalise les paramètres de suivi, signale les résultats déjà
+présents dans le catalogue et met ses réponses en cache. Elle ne modifie jamais
+le Digest directement : une page HTML autonome présente jusqu’à cinq candidats
+classés par correspondance de titre, d’auteur et de sujet, puis exporte les
+seules décisions humaines dans `overrides.json`. Une nouvelle exécution reprend
+le cache et reste ainsi idempotente et économe en requêtes.
 
 Quand l’hébergeur bloque les téléchargements automatisés, la copie FTP locale
 `import-blog/uploads` est détectée automatiquement ; `--media-root

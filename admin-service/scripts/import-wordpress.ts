@@ -168,10 +168,10 @@ if (!skipImages) {
   await Promise.all(Array.from({ length: 4 }, () => processImages()));
 }
 
-const importedById = new Map(preview.ready.map((item) => [item.link.id, item.link]));
-const finalCatalog: DigestLink[] = preview.catalog.map(
-  (link) => importedById.get(link.id) ?? link,
-);
+// `preview.catalog` contains the same link objects as `preview.ready`, so image
+// enrichment above is already reflected there. Remapping by the destination ID
+// would collapse two WordPress posts if they resolve to the same URL.
+const finalCatalog: DigestLink[] = preview.catalog;
 const report = {
   mode: apply ? "apply" : "preview",
   input: inputPath,
