@@ -9932,7 +9932,9 @@
     "archive_timestamp": "20170520184952",
     "archive_scope": "url",
     "archive_checked_at": "2026-07-27",
-    "id": "f9c51246-915b-585c-b8a5-f6c9efaa7aaf"
+    "id": "f9c51246-915b-585c-b8a5-f6c9efaa7aaf",
+    "visibility": "hidden",
+    "hidden_at": "2026-08-20T13:33:24.264Z"
   },
   {
     "title": "205TF",
