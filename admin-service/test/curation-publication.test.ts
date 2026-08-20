@@ -241,6 +241,69 @@ test("publication revalidates stale aliases and accepts an empty theme list", as
   database.close();
 });
 
+test("a failed publication is reconciled when its archive is already live", async () => {
+  const database = new Database(":memory:");
+  const store = new CurationStore(database);
+  const id = "88888888-8888-4888-8888-888888888888";
+  store.createPublication({
+    id,
+    digestDate: "2026-08-20",
+    title: "20 août 2026",
+    introduction: "Une édition finalement mise en ligne.",
+    seoDescription: "Une édition de test.",
+  });
+  store.updatePublication(id, {
+    state: "failed",
+    commitSha: "failed-workflow-sha",
+    deployUrl: "https://github.com/example/actions/runs/1",
+    errorCode: "WORKFLOW_FAILED",
+  });
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async () =>
+    new Response("<main><h1>20 août 2026</h1></main>", { status: 200 });
+
+  try {
+    const publication = await new CurationService(store).refreshPublication(id);
+
+    assert.equal(publication.state, "live");
+    assert.equal(publication.errorCode, null);
+    assert.equal(publication.deployUrl, "https://github.com/example/actions/runs/1");
+  } finally {
+    globalThis.fetch = originalFetch;
+    database.close();
+  }
+});
+
+test("a failed publication stays failed when the expected archive is absent", async () => {
+  const database = new Database(":memory:");
+  const store = new CurationStore(database);
+  const id = "99999999-9999-4999-8999-999999999999";
+  store.createPublication({
+    id,
+    digestDate: "2026-08-21",
+    title: "21 août 2026",
+    introduction: "Une édition encore absente.",
+    seoDescription: "Une édition de test.",
+  });
+  store.updatePublication(id, {
+    state: "failed",
+    commitSha: "failed-workflow-sha",
+    errorCode: "WORKFLOW_FAILED",
+  });
+  const originalFetch = globalThis.fetch;
+  globalThis.fetch = async () => new Response("Not found", { status: 404 });
+
+  try {
+    const publication = await new CurationService(store).refreshPublication(id);
+
+    assert.equal(publication.state, "failed");
+    assert.equal(publication.errorCode, "WORKFLOW_FAILED");
+  } finally {
+    globalThis.fetch = originalFetch;
+    database.close();
+  }
+});
+
 test("a failure before the GitHub commit restores every reserved draft", async () => {
   const database = new Database(":memory:");
   const store = new CurationStore(database);

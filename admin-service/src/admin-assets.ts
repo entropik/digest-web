@@ -60,7 +60,7 @@ export const dashboardPage = (name: string) =>
         <a href="https://chromewebstore.google.com/detail/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer">Installer l’extension</a>
         <a href="/">Voir le Digest</a>
         <button id="admin-logout" type="button">Se déconnecter</button>
-        <span class="admin-version" aria-label="Version v1.16.0">v1.16.0</span>
+        <span class="admin-version" aria-label="Version v1.16.1">v1.16.1</span>
       </div>
     </header>
     <nav class="admin-nav" aria-label="Administration">
@@ -266,7 +266,7 @@ input,select,textarea{width:100%;border:1px solid var(--line);border-radius:.25r
 .publication-copy{margin:.65rem 0 0;color:var(--muted);line-height:1.55}
 .publication-error{color:var(--error)}
 .publication-links{display:flex;flex-wrap:wrap;gap:.5rem;margin:.8rem 0 0}
-.publication-links a{padding:.45rem .65rem;font-size:.75rem}
+.publication-links a,.publication-links button{padding:.45rem .65rem;font-size:.75rem}
 .publication-progress{margin-top:.85rem}
 .progress-track{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.35rem}
 .progress-segment{position:relative;height:.4rem;overflow:hidden;border-radius:1rem;background:#ded9d0}
@@ -440,6 +440,7 @@ const publicationLinksMarkup=(item)=>{
   const workflowUrl=item.deployUrl||item.validateUrl;
   if(workflowUrl)links.push('<a href="'+esc(workflowUrl)+'" target="_blank" rel="noopener">GitHub Actions</a>');
   if(item.state==="live")links.push('<a href="/archives/'+encodeURIComponent(item.digestDate)+'/">Voir l’édition</a>');
+  if(item.state==="failed")links.push('<button type="button" data-refresh-publication>Revérifier</button>');
   return links.length?'<p class="publication-links">'+links.join("")+'</p>':"";
 };
 const renderPublications=(items)=>{
@@ -447,9 +448,16 @@ const renderPublications=(items)=>{
   if(!items.length){list.innerHTML='<p class="empty">Aucune publication initiée depuis cet atelier.</p>';return}
   const activeIndex=items.findIndex((item)=>activePublicationStates.has(item.state));
   const detailedIndex=activeIndex>=0?activeIndex:0;
-  list.innerHTML=items.map((item,index)=>'<article class="publication-card"><div><p class="kicker">'+esc(item.digestDate)+'</p><h3>'+esc(item.title)+'</h3><p class="draft-url">'+esc(item.commitSha||"Commit en préparation")+'</p>'+publicationLinksMarkup(item)+'</div><div><span class="status status-'+esc(item.state)+'">'+esc(publicationStateLabels[item.state]||item.state)+'</span></div>'+(index===detailedIndex?publicationProgressMarkup(item):'')+'</article>').join("");
+  list.innerHTML=items.map((item,index)=>'<article class="publication-card" data-publication-id="'+esc(item.id)+'"><div><p class="kicker">'+esc(item.digestDate)+'</p><h3>'+esc(item.title)+'</h3><p class="draft-url">'+esc(item.commitSha||"Commit en préparation")+'</p>'+publicationLinksMarkup(item)+'</div><div><span class="status status-'+esc(item.state)+'">'+esc(publicationStateLabels[item.state]||item.state)+'</span></div>'+(index===detailedIndex?publicationProgressMarkup(item):'')+'</article>').join("");
 };
 const loadPublications=async()=>{const data=await api("/api/admin/curation/publications");renderPublications(data.publications);return data.publications};
+document.querySelector("#publication-list")?.addEventListener("click",async(event)=>{
+  const button=event.target.closest("[data-refresh-publication]");if(!button)return;
+  const card=button.closest("[data-publication-id]"),id=card.dataset.publicationId;button.disabled=true;show("Vérification de l’édition publique…");
+  try{const data=await api("/api/admin/curation/publications/"+encodeURIComponent(id));await loadPublications();announcePublicationState(data.publication);show(data.publication.state==="live"?"Édition confirmée en ligne.":"L’édition publique n’est pas encore confirmée.")}
+  catch(error){show("Vérification impossible : "+error.message)}
+  finally{if(button.isConnected)button.disabled=false}
+});
 
 let publicationPollTimer=null;
 let publicationPollInFlight=false;
