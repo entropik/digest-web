@@ -400,21 +400,40 @@ test("archive Open Graph images declare their large preview dimensions", async (
 });
 
 test("the archive index uses social images as lazily loaded edition posters", async () => {
-  const layout = await readFile(
-    new URL("../../layouts/archives/list.html", import.meta.url),
-    "utf8",
-  );
-  const loader = await readFile(
-    new URL("../../assets/js/archive-posters.js", import.meta.url),
-    "utf8",
-  );
+  const [layout, loader, stylesheet] = await Promise.all([
+    readFile(
+      new URL("../../layouts/archives/list.html", import.meta.url),
+      "utf8",
+    ),
+    readFile(
+      new URL("../../assets/js/archive-posters.js", import.meta.url),
+      "utf8",
+    ),
+    readFile(
+      new URL("../../assets/css/extended/digest.css", import.meta.url),
+      "utf8",
+    ),
+  ]);
 
   assert.match(layout, /archive-edition-poster/);
   assert.match(layout, /\.Paginate \.Pages\.ByDate\.Reverse 24/);
   assert.match(layout, /archive-pagination/);
-  assert.match(layout, /Page {{ \$paginator\.PageNumber }} \/ {{ \$paginator\.TotalPages }}/);
+  assert.match(layout, /Folio {{ printf "%02d" \$paginator\.PageNumber }}\/{{ printf "%02d" \$paginator\.TotalPages }}/);
+  assert.match(layout, /\$paginator\.TotalNumberOfElements }} éditions/);
   assert.match(layout, /data-src="{{ \. \| relURL }}"/);
   assert.match(layout, /archive-posters\.js/);
   assert.match(loader, /IntersectionObserver/);
   assert.match(loader, /rootMargin: "600px 0px"/);
+  assert.match(
+    stylesheet,
+    /\.archive-editions\s*\{[^}]*grid-template-columns:\s*repeat\(3, minmax\(0, 1fr\)\)/s,
+  );
+  assert.match(
+    stylesheet,
+    /\.archive-edition-poster::before\s*\{[^}]*background:\s*var\(--digest-accent\);[^}]*mix-blend-mode:\s*color/s,
+  );
+  assert.match(
+    stylesheet,
+    /\.archive-edition a:hover \.archive-edition-poster::before,\s*\.archive-edition a:focus-visible \.archive-edition-poster::before\s*\{[^}]*opacity:\s*0/s,
+  );
 });

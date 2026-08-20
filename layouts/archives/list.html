@@ -41,15 +41,15 @@
 {{ if gt $paginator.TotalPages 1 }}
   <nav class="archive-pagination" aria-label="Pagination des archives">
     {{ with $paginator.Prev }}
-      <a href="{{ .URL }}" rel="prev">← Éditions plus récentes</a>
+      <a href="{{ .URL }}" rel="prev"><span aria-hidden="true">←</span><span>Précédent</span></a>
     {{ else }}
-      <span aria-hidden="true"></span>
+      <span class="archive-pagination-disabled" aria-hidden="true"><span>←</span><span>Précédent</span></span>
     {{ end }}
-    <span>Page {{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
+    <span class="archive-pagination-folio">Folio {{ printf "%02d" $paginator.PageNumber }}/{{ printf "%02d" $paginator.TotalPages }} · {{ $paginator.TotalNumberOfElements }} éditions</span>
     {{ with $paginator.Next }}
-      <a href="{{ .URL }}" rel="next">Éditions plus anciennes →</a>
+      <a href="{{ .URL }}" rel="next"><span>Suivant</span><span aria-hidden="true">→</span></a>
     {{ else }}
-      <span aria-hidden="true"></span>
+      <span class="archive-pagination-disabled" aria-hidden="true"><span>Suivant</span><span>→</span></span>
     {{ end }}
   </nav>
 {{ end }}

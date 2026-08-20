@@ -1910,7 +1910,7 @@ body.digest-modal-open {
 
 .archive-editions {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   border-left: 1px solid var(--digest-line);
 }
 
@@ -1968,18 +1968,35 @@ body.digest-modal-open {
   position: absolute;
   z-index: 0;
   inset: -10%;
+  background: var(--digest-accent);
+  isolation: isolate;
   transform: translate(var(--poster-x), var(--poster-y)) rotate(var(--poster-angle)) scale(1.08);
   transition: transform .45s cubic-bezier(.16, 1, .3, 1);
 }
 
+.archive-edition-poster::before,
 .archive-edition-poster::after {
   position: absolute;
   content: "";
   inset: 0;
+  pointer-events: none;
+}
+
+.archive-edition-poster::before {
+  z-index: 1;
+  background: var(--digest-accent);
+  mix-blend-mode: color;
+  transition: opacity .25s ease;
+}
+
+.archive-edition-poster::after {
+  z-index: 2;
   background: linear-gradient(145deg, rgba(10, 10, 10, .34), rgba(10, 10, 10, .82));
 }
 
 .archive-edition-poster img {
+  position: relative;
+  z-index: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -2006,6 +2023,11 @@ body.digest-modal-open {
   transform: translate(var(--poster-x), var(--poster-y)) rotate(calc(var(--poster-angle) * .25)) scale(1.14);
 }
 
+.archive-edition a:hover .archive-edition-poster::before,
+.archive-edition a:focus-visible .archive-edition-poster::before {
+  opacity: 0;
+}
+
 .archive-edition a:focus-visible {
   outline: 4px solid var(--digest-accent);
   outline-offset: -4px;
@@ -2013,6 +2035,7 @@ body.digest-modal-open {
 
 @media (prefers-reduced-motion: reduce) {
   .archive-edition-poster,
+  .archive-edition-poster::before,
   .archive-edition-poster img {
     transition: none;
   }
@@ -2051,28 +2074,67 @@ body.digest-modal-open {
 
 .archive-pagination {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: minmax(120px, .7fr) minmax(180px, 1.6fr) minmax(120px, .7fr);
+  margin: 1.5rem 0 5rem;
+  border-top: 1px solid var(--digest-ink);
+  border-left: 1px solid var(--digest-ink);
+}
+
+.archive-pagination a,
+.archive-pagination-disabled {
+  display: flex;
+  min-width: 0;
+  min-height: 3.15rem;
   align-items: center;
-  gap: 1rem;
-  padding: 2rem 0;
-  font-size: .84rem;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-}
-
-.archive-pagination a {
+  justify-content: space-between;
+  gap: .75rem;
+  padding: .65rem .8rem;
+  border-right: 1px solid var(--digest-ink);
+  border-bottom: 1px solid var(--digest-ink);
   color: var(--digest-ink);
-  text-decoration-thickness: 2px;
-  text-underline-offset: .28em;
+  font-size: .72rem;
+  font-weight: 650;
+  letter-spacing: .02em;
+  text-decoration: none;
+  transition: background .16s ease, color .16s ease;
 }
 
-.archive-pagination a:last-child {
-  text-align: right;
+.archive-pagination a span[aria-hidden] {
+  color: var(--digest-accent);
+  font-size: .78rem;
 }
 
-.archive-pagination > span {
+.archive-pagination a:hover,
+.archive-pagination a:focus-visible {
+  background: var(--digest-ink);
+  color: var(--digest-paper);
+  outline: 0;
+}
+
+.archive-pagination a:hover span[aria-hidden],
+.archive-pagination a:focus-visible span[aria-hidden] {
+  color: inherit;
+}
+
+.archive-pagination-disabled {
+  cursor: default;
   color: var(--digest-muted);
+  opacity: .42;
+}
+
+.archive-pagination-folio {
+  display: grid;
+  min-width: 0;
+  min-height: 3.15rem;
+  place-items: center;
+  padding: .65rem .8rem;
+  border-right: 1px solid var(--digest-ink);
+  border-bottom: 1px solid var(--digest-ink);
+  color: var(--digest-muted);
+  font-size: .68rem;
+  letter-spacing: .045em;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .archive-single-header {
@@ -2796,6 +2858,10 @@ body.digest-modal-open {
 }
 
 @media (max-width: 800px) {
+  .archive-editions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .header-nav {
     align-items: center;
     column-gap: 1rem;
@@ -2987,12 +3053,25 @@ body.digest-modal-open {
   }
 
   .archive-pagination {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, 1fr);
+    margin-top: 1rem;
   }
 
-  .archive-pagination > span {
-    grid-column: 1 / -1;
-    grid-row: 1;
+  .archive-pagination a,
+  .archive-pagination-disabled,
+  .archive-pagination-folio {
+    min-height: 3rem;
+    padding: .55rem .6rem;
+  }
+
+  .archive-pagination a,
+  .archive-pagination-disabled {
+    gap: .4rem;
+    font-size: .64rem;
+  }
+
+  .archive-pagination-folio {
+    font-size: .58rem;
   }
 
   .archive-link {

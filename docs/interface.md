@@ -54,6 +54,15 @@ Le cartouche conserve ses trois cellules sur mobile. Les dimensions et la
 typographie se resserrent, mais l’ordre et les libellés restent stables afin de
 ne pas transformer la pagination en une autre interface selon la largeur.
 
+## Grille des archives
+
+Sur grand écran, les éditions archivées forment un registre de trois colonnes ;
+la grille passe à deux colonnes sur tablette puis à une seule sur mobile. Les
+affiches sont unifiées par l’encre corail au repos et retrouvent leur palette
+d’origine au survol comme au focus clavier. Le folio des archives reprend le
+même cartouche à trois cellules jointives que la pagination des liens, y compris
+sur petit écran.
+
 ## Taxonomie et contenu
 
 `data/categories.json` est la source de vérité. Chaque entrée possède un `name`
