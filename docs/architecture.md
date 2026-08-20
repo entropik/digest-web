@@ -109,6 +109,15 @@ piste, de saisir une URL, d’archiver le billet sous son permalink ou de
 l’ignorer. Son export fusionne les nouvelles décisions avec les overrides déjà
 acquis afin de ne jamais perdre une passe précédente.
 
+Après l’archivage, `recover:wordpress -- --restore-detected-sources` réexamine
+uniquement les fiches qui pointent encore vers leur permalink WordPress. Une
+source explicite unique est restaurée ; un lien ordinaire ne l’est que si son
+libellé, son URL et le titre apportent une identité suffisamment forte. Les
+destinations déjà occupées restent des doublons signalés et les cas incertains
+ne sont jamais modifiés automatiquement. La commande produit aussi
+`source-gap-review.html`, limité aux archives qui possèdent encore au moins une
+piste externe : les billets réellement sans lien n’encombrent plus la revue.
+
 Lorsque le billet WordPress lui-même devient l’objet archivé, les ambiguïtés de
 destination externe ne sont plus bloquantes. L’option
 `--archive-all-remaining` conserve alors chaque billet restant sous son

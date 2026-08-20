@@ -1,10 +1,12 @@
 import type { DigestLink } from "./catalog.js";
 import {
+  BLOG_ARCHIVE_STREAM,
   buildWordpressImportPreview,
   parseWordpressExport,
   type WordpressOverride,
   type WordpressProbe,
 } from "./wordpress-import.js";
+import { canonicalizePublicUrl, UnsafeUrlError } from "./urls.js";
 
 export type WordpressRecoveryItem = {
   wordpress_id: string;
@@ -33,9 +35,169 @@ export type WordpressValidationReport = {
   base_overrides: Record<string, WordpressOverride>;
 };
 
+export type WordpressDetectedSourceRecovery = {
+  overrides: Record<string, WordpressOverride>;
+  accepted: number;
+  explicit: number;
+  embedded: number;
+  duplicates: WordpressRecoveryItem[];
+  review: WordpressRecoveryItem[];
+};
+
+const SOURCE_STOP_WORDS = new Set([
+  "accueil", "atelier", "avec", "blog", "book", "chez", "dans", "depuis",
+  "digest", "edition", "editions", "elle", "entre", "home", "leurs", "livre",
+  "mais", "ooblik", "page", "photographe", "photographie", "pour", "site",
+  "source", "sous", "tout", "tous", "une", "vers", "with",
+]);
+
+const sourceWords = (value: string): string[] =>
+  [...new Set(
+    value
+      .normalize("NFKD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLocaleLowerCase("fr")
+      .replace(/[^a-z0-9]+/g, " ")
+      .trim()
+      .split(/\s+/),
+  )].filter(
+    (word) =>
+      word.length >= 4 &&
+      /[a-z]/.test(word) &&
+      !SOURCE_STOP_WORDS.has(word),
+  );
+
+const sourceIdentity = (rawUrl: string): string => {
+  const url = new URL(canonicalizePublicUrl(rawUrl));
+  url.hash = "";
+  return url.toString().replace(/\/$/, "");
+};
+
+const safeSourceIdentity = (rawUrl: string): string => {
+  try {
+    return sourceIdentity(rawUrl);
+  } catch (error) {
+    if (error instanceof UnsafeUrlError || error instanceof TypeError) return "";
+    throw error;
+  }
+};
+
+const strongEmbeddedSource = (
+  title: string,
+  url: string,
+  labels: string[],
+): boolean => {
+  const wanted = sourceWords(title);
+  const evidence = new Set(sourceWords(`${labels.join(" ")} ${url}`));
+  const hits = wanted.filter((word) => evidence.has(word)).length;
+  const coverage = hits / Math.max(1, wanted.length);
+  const host = new URL(url).hostname.replace(/^www\./, "").replace(/[^a-z0-9]/g, "");
+  const identityInHost = wanted.some(
+    (word, index) =>
+      index + 1 < wanted.length && host.includes(`${word}${wanted[index + 1]}`),
+  );
+  return (
+    (wanted.length >= 3 && coverage >= 0.6) ||
+    (wanted.length === 2 && coverage === 1) ||
+    (wanted.length === 1 && hits === 1 && wanted[0]!.length >= 5) ||
+    identityInHost
+  );
+};
+
 const isWordpressDefaultPost = (item: WordpressRecoveryItem): boolean =>
   item.wordpress_id === "1" &&
   item.title.toLocaleLowerCase("fr").includes("bonjour tout le monde");
+
+export const restoreDetectedWordpressSources = (input: {
+  xml: string;
+  currentLinks: DigestLink[];
+  overrides?: Record<string, WordpressOverride>;
+}): WordpressDetectedSourceRecovery => {
+  const linksByOrigin = new Map(
+    input.currentLinks
+      .filter((link) => link.stream === BLOG_ARCHIVE_STREAM && link.origin_url)
+      .map((link) => [safeSourceIdentity(link.origin_url!), link]),
+  );
+  const occupied = new Map(
+    input.currentLinks
+      .map((link) => [safeSourceIdentity(link.url), link] as const)
+      .filter(([identity]) => Boolean(identity)),
+  );
+  const overrides = { ...(input.overrides ?? {}) };
+  const duplicates: WordpressRecoveryItem[] = [];
+  const review: WordpressRecoveryItem[] = [];
+  let explicit = 0;
+  let embedded = 0;
+
+  for (const post of parseWordpressExport(input.xml)) {
+    const originIdentity = safeSourceIdentity(post.originUrl);
+    const current = linksByOrigin.get(originIdentity);
+    if (!current || safeSourceIdentity(current.url) !== originIdentity) continue;
+    const item = (): WordpressRecoveryItem => ({
+      wordpress_id: post.wordpressId,
+      title: post.title,
+      origin_url: post.originUrl,
+      added: post.added,
+      description: post.contentExcerpt || post.description,
+      tags: post.tags.filter((tag) => tag !== BLOG_ARCHIVE_STREAM),
+      candidates: post.sourceUrls.length
+        ? post.sourceUrls
+        : post.fallbackSourceUrls,
+    });
+    const explicitSources = [
+      ...new Set(post.sourceUrls.map(safeSourceIdentity).filter(Boolean)),
+    ];
+    let destination = explicitSources.length === 1 ? explicitSources[0]! : "";
+    let kind: "explicit" | "embedded" | "" = destination ? "explicit" : "";
+
+    if (!post.sourceUrls.length) {
+      const evidence = new Map<string, string[]>();
+      for (const candidate of post.fallbackSourceEvidence) {
+        const identity = safeSourceIdentity(candidate.url);
+        if (!identity) continue;
+        evidence.set(identity, [
+          ...(evidence.get(identity) ?? []),
+          ...candidate.labels,
+        ]);
+      }
+      if (evidence.size === 1) {
+        const [identity, labels] = [...evidence.entries()][0]!;
+        if (strongEmbeddedSource(post.title, identity, labels)) {
+          destination = identity;
+          kind = "embedded";
+        }
+      }
+    }
+
+    if (!destination) {
+      review.push(item());
+      continue;
+    }
+    const claimed = occupied.get(destination);
+    if (claimed && claimed.id !== current.id) {
+      duplicates.push(item());
+      continue;
+    }
+    const override = { ...(overrides[post.wordpressId] ?? {}) };
+    override.source_url = destination;
+    delete override.skip;
+    overrides[post.wordpressId] = override;
+    occupied.set(destination, current);
+    if (kind === "explicit") explicit += 1;
+    else embedded += 1;
+  }
+
+  return {
+    overrides: Object.fromEntries(
+      Object.entries(overrides).sort(([left], [right]) => Number(left) - Number(right)),
+    ),
+    accepted: explicit + embedded,
+    explicit,
+    embedded,
+    duplicates,
+    review,
+  };
+};
 
 export const buildWordpressRecoveryReport = (input: {
   xml: string;

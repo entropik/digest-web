@@ -50,8 +50,14 @@ export type WordpressPostCandidate = {
   tags: string[];
   sourceUrls: string[];
   fallbackSourceUrls: string[];
+  fallbackSourceEvidence: WordpressSourceEvidence[];
   imageUrl: string;
   imageAlt: string;
+};
+
+export type WordpressSourceEvidence = {
+  url: string;
+  labels: string[];
 };
 
 export type WordpressReviewItem = {
@@ -216,19 +222,38 @@ const recoveryUrl = (rawValue: string, blogHost: string): string => {
   }
 };
 
+export const wordpressFallbackSourceEvidence = (
+  html: string,
+  blogHost: string,
+): WordpressSourceEvidence[] => {
+  const root = parseHtml(html);
+  const candidates = new Map<string, Set<string>>();
+  const add = (url: string, label: string): void => {
+    if (!url) return;
+    const labels = candidates.get(url) ?? new Set<string>();
+    const normalized = normalizeSpace(label);
+    if (normalized) labels.add(normalized);
+    candidates.set(url, labels);
+  };
+  for (const anchor of root.querySelectorAll("a")) {
+    add(
+      recoveryUrl(anchor.getAttribute("href") ?? "", blogHost),
+      anchor.textContent,
+    );
+  }
+  const rawUrls = root.textContent.match(/https?:\/\/[^\s<>"']+/g) ?? [];
+  for (const url of rawUrls) add(recoveryUrl(url, blogHost), url);
+  return [...candidates.entries()].map(([url, labels]) => ({
+    url,
+    labels: [...labels],
+  }));
+};
+
 export const wordpressFallbackSourceLinks = (
   html: string,
   blogHost: string,
-): string[] => {
-  const root = parseHtml(html);
-  const candidates = root
-    .querySelectorAll("a")
-    .map((anchor) => recoveryUrl(anchor.getAttribute("href") ?? "", blogHost))
-    .filter(Boolean);
-  const rawUrls = root.textContent.match(/https?:\/\/[^\s<>"']+/g) ?? [];
-  candidates.push(...rawUrls.map((url) => recoveryUrl(url, blogHost)).filter(Boolean));
-  return unique(candidates);
-};
+): string[] =>
+  wordpressFallbackSourceEvidence(html, blogHost).map((candidate) => candidate.url);
 
 const firstContentImage = (html: string): { url: string; alt: string } => {
   const image = parseHtml(html).querySelector("img");
@@ -293,6 +318,7 @@ export const parseWordpressExport = (xml: string): WordpressPostCandidate[] => {
       })
       .filter(Boolean);
     const archiveText = archivedPlainText(content);
+    const fallbackSourceEvidence = wordpressFallbackSourceEvidence(content, blogHost);
     posts.push({
       wordpressId,
       slug: nodeText(item["wp:post_name"]).trim() || `billet-${wordpressId}`,
@@ -306,7 +332,8 @@ export const parseWordpressExport = (xml: string): WordpressPostCandidate[] => {
       archiveText,
       tags: unique([...categories, "blog-ooblik"]).slice(0, 12),
       sourceUrls: sourceLinks(content, blogHost),
-      fallbackSourceUrls: wordpressFallbackSourceLinks(content, blogHost),
+      fallbackSourceUrls: fallbackSourceEvidence.map((candidate) => candidate.url),
+      fallbackSourceEvidence,
       imageUrl: featured?.url || fallbackImage.url,
       imageAlt: featured?.alt || fallbackImage.alt,
     });
@@ -349,11 +376,15 @@ export const buildWordpressImportPreview = (input: {
   probes?: WordpressProbe[];
 }): WordpressImportPreview => {
   const overrides = validateOverrides(input.overrides ?? {});
-  const probes = new Map(
-    (input.probes ?? [])
-      .filter((probe) => probe.url)
-      .map((probe) => [probe.url!, probe]),
-  );
+  const probes = new Map<string, WordpressProbe>();
+  for (const probe of input.probes ?? []) {
+    if (!probe.url) continue;
+    try {
+      probes.set(canonicalizePublicUrl(probe.url), probe);
+    } catch (error) {
+      if (!(error instanceof UnsafeUrlError || error instanceof TypeError)) throw error;
+    }
+  }
   const existingUrlKey = (rawUrl: string): string => {
     try {
       return canonicalizePublicUrl(rawUrl);
@@ -450,6 +481,10 @@ export const buildWordpressImportPreview = (input: {
           description: post.description,
           ...(post.archiveText ? { archive_text: post.archiveText } : {}),
           archive_tags: post.tags.filter((tag) => tag !== BLOG_ARCHIVE_STREAM),
+          ...(probe?.definitive_dead
+            ? { tags: unique([...(imported.tags ?? []), "lien-mort"]).slice(0, 12) }
+            : {}),
+          ...deadMetadata(probe ?? {}),
         },
       });
       occupied.set(url, imported);

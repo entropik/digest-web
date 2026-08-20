@@ -12,6 +12,7 @@ import {
   buildWordpressValidationReport,
   renderWordpressRecoveryHtml,
   renderWordpressValidationHtml,
+  restoreDetectedWordpressSources,
 } from "../src/wordpress-recovery.js";
 import {
   BLOG_ARCHIVE_CATEGORY,
@@ -122,11 +123,18 @@ test("a recovered destination replaces its self-archived card", async () => {
     xml,
     currentLinks: [selfArchived],
     overrides,
+    probes: [{
+      url: "https://resolved.example/project/",
+      status: 410,
+      definitive_dead: true,
+    }],
   });
   const recovered = first.ready.find((item) => item.wordpress_id === "103");
   assert.equal(recovered?.existing, true);
   assert.equal(recovered?.previous_id, "old-self-id");
   assert.equal(recovered?.link.url, "https://resolved.example/project");
+  assert.equal(recovered?.link.status, "dead");
+  assert.equal(recovered?.link.tags?.includes("lien-mort"), true);
   assert.equal(
     first.catalog.some((link) => link.url === selfArchived.url),
     false,
@@ -135,6 +143,11 @@ test("a recovered destination replaces its self-archived card", async () => {
     xml,
     currentLinks: first.catalog,
     overrides,
+    probes: [{
+      url: "https://resolved.example/project/",
+      status: 410,
+      definitive_dead: true,
+    }],
   });
   assert.deepEqual(second.catalog, first.catalog);
 });
@@ -246,6 +259,44 @@ test("fallback recovery finds ordinary links and cleans legacy embeds", () => {
       "blog.ooblik.com",
     ),
     [],
+  );
+});
+
+test("detected explicit and strongly labelled embedded sources replace self archives", async () => {
+  const xml = (await fixture())
+    .replace("<title>Sans source</title>", "<title>Projet typographique retrouvé</title>")
+    .replace(
+      "<p>Texte seul.</p>",
+      '<p><a href="https://candidate.example/sans-source">Projet typographique retrouvé</a></p>',
+    );
+  const selfArchived = (id: string, title: string, origin_url: string): DigestLink => ({
+    id,
+    title,
+    url: origin_url.replace(/\/$/, ""),
+    origin_url,
+    category: BLOG_ARCHIVE_CATEGORY,
+    added: "2023-01-01",
+    stream: BLOG_ARCHIVE_STREAM,
+  });
+  const recovered = restoreDetectedWordpressSources({
+    xml,
+    currentLinks: [
+      selfArchived("normal", "Projet normal", "https://blog.ooblik.com/2025/normal/"),
+      selfArchived(
+        "missing",
+        "Projet typographique retrouvé",
+        "https://blog.ooblik.com/2023/sans-source/",
+      ),
+    ],
+  });
+
+  assert.equal(recovered.accepted, 2);
+  assert.equal(recovered.explicit, 1);
+  assert.equal(recovered.embedded, 1);
+  assert.equal(recovered.overrides["101"]?.source_url, "https://normal.example/project");
+  assert.equal(
+    recovered.overrides["103"]?.source_url,
+    "https://candidate.example/sans-source",
   );
 });
 

@@ -1679,9 +1679,9 @@
     "stream": "blog-ooblik"
   },
   {
-    "id": "bb2db774-1148-5db9-8fe2-93fe74e3f6ef",
+    "id": "1bb69cdb-8333-51ec-9212-615f2b2e5e62",
     "title": "ÉSAD Pyrénées – Ateliers web – Ressources – CTRL + Alt + print",
-    "url": "https://blog.ooblik.com/2023/esad-pyrenees-ateliers-web-ressources-ctrl-alt-print",
+    "url": "https://radicalweb.design/ressources/ctrl-alt-print",
     "category": "Archives du blog OOBLIK",
     "added": "2023-06-19",
     "description": "Pourquoi et comment créer des documents imprimés avec des outils alternatifs – et notamment avec les langages du web.\n\nSource : ÉSAD Pyrénées – Ateliers web – Ressources – CTRL + Alt + print",
@@ -2705,9 +2705,9 @@
     ]
   },
   {
-    "id": "27b0a7f5-fcc6-5072-8849-42a56a9494a6",
+    "id": "49f91ccb-aa63-5e14-b843-11b41d5b7076",
     "title": "Le voyage",
-    "url": "https://blog.ooblik.com/2022/le-voyage",
+    "url": "https://yannickvallet.com/fr/portfolio-109853-le-voyage",
     "category": "Design & Création",
     "added": "2022-06-17",
     "description": "Le voyage\n\nSource : Le voyage\n\nbeau...et imprimé par nous ;)",
@@ -2789,9 +2789,9 @@
     "stream": "blog-ooblik"
   },
   {
-    "id": "0fd0684f-9ce5-5bc6-b590-0ff7bfac5ba2",
+    "id": "c1660c08-f224-5867-bec7-6e2778af9fbb",
     "title": "Colophon Foundry",
-    "url": "https://blog.ooblik.com/2022/colophon-foundry",
+    "url": "https://www.colophon-foundry.org/typefaces/apta",
     "category": "Archives du blog OOBLIK",
     "added": "2022-05-18",
     "description": "A p t a A p t a A p t a Standard A design language of resistance, mass, line, space, memory, human movement and moods. Functional value, both utilitarian and emotive; beauty without ornament, UNSELF-CONSCIOUS IN ITS DESIGN, and relatable to physical conditions and experiences. AMN Ggatj Stylistic…",
@@ -2801,10 +2801,17 @@
     ],
     "tags": [
       "typos",
-      "blog-ooblik"
+      "blog-ooblik",
+      "lien-mort"
     ],
     "origin_url": "https://blog.ooblik.com/2022/colophon-foundry/",
-    "stream": "blog-ooblik"
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "La destination renvoie aujourd’hui une erreur HTTP 404. L’adresse publique d’origine est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_url": "https://web.archive.org/web/20250323035307/https://www.colophon-foundry.org/typefaces/apta",
+    "archive_timestamp": "20250323035307",
+    "archive_scope": "url"
   },
   {
     "id": "cfcbc476-b966-5d00-8da5-e4f74abca08e",
@@ -2919,9 +2926,9 @@
     "id": "98d34863-d248-56bd-acea-315f923e0608"
   },
   {
-    "id": "ab66a657-d5f1-5fc6-a7a1-535861866d35",
+    "id": "b98d0f8f-a1ef-50ff-ab9f-43e39ad906b6",
     "title": "Atlas of Places",
-    "url": "https://blog.ooblik.com/2022/atlas-of-places",
+    "url": "https://web.archive.org/web/20240329004716/https:/atlasofplaces.com",
     "category": "Archives du blog OOBLIK",
     "added": "2022-04-11",
     "description": "Atlas of Places is a public educational collection of Academia, Architecture, Cartography, Cinema, Essays, Painting, Photography, Research.\n\nSource : Atlas of Places",
@@ -3180,9 +3187,9 @@
     "stream": "blog-ooblik"
   },
   {
-    "id": "150c2835-2af8-5b3d-af84-8f0b0c346126",
+    "id": "12e1fa04-2555-5786-98b9-26a3f957337e",
     "title": "The Filmomat Filmprocessor",
-    "url": "https://blog.ooblik.com/2022/the-filmomat-filmprocessor",
+    "url": "https://www.filmomat.eu/shop/filmomat-film-processor",
     "category": "Photographie",
     "added": "2022-03-31",
     "description": "Fully automatic film processing machine for 35mm up to 4x5\".\n\nSource : The Filmomat Filmprocessor — Shop\n\nBon, je ne suis pas objectif...j'adore l'idée depuis le début (2015...) et je trouve la réalisation de cette machine superbe!\n\nLe genre de projet dingue d'un passionné, j'adore vraiment...",
@@ -3206,9 +3213,9 @@
     "stream": "blog-ooblik"
   },
   {
-    "id": "323a0392-945f-5ed9-9d57-011e61bd1d30",
+    "id": "a62be558-681e-5a1f-9d09-614bd6b88a50",
     "title": "FontBase",
-    "url": "https://blog.ooblik.com/2022/fontbase-font-manager",
+    "url": "https://fontba.se/",
     "category": "Archives du blog OOBLIK",
     "added": "2022-03-31",
     "description": "FontBase is a font manager made by designers, for designers. Lightning fast, with beautiful interface, and totally free. Works on Mac and Windows.\n\nSource : FontBase — a Free, Beautiful, and Fast Font Manager",
@@ -3359,9 +3366,9 @@
     ]
   },
   {
-    "id": "8d031408-743a-5330-9f88-8ec1e1692167",
+    "id": "a50c23f2-dcba-5014-81be-1fb172995546",
     "title": "Do Pause – COUNTER-PRINT",
-    "url": "https://blog.ooblik.com/2022/do-pause-counter-print",
+    "url": "https://www.counter-print.co.uk/products/do-pause",
     "category": "Design & Création",
     "added": "2022-03-26",
     "description": "Machines are designed to run constantly; people aren't. Our coping mechanisms are meditation apps, weekend breaks and annual holidays, but things soon revert. To prosper, we need a more sustainable approach – an ability to pause. Do Pause looks at the importance of this subtle yet powerful idea to…",
@@ -3394,9 +3401,9 @@
     ]
   },
   {
-    "id": "ca7e9e39-c296-529b-9e6d-370e5a0abd04",
+    "id": "f1063709-d943-5289-bb06-f7f6c14a5171",
     "title": "RVB Books",
-    "url": "https://blog.ooblik.com/2022/rvb-books",
+    "url": "https://rvb-books.com/",
     "category": "Design & Création",
     "added": "2022-03-24",
     "description": "RVB Books is both an independent publisher dedicated to designing and printing unique fine arts books and a gallery featuring exhibitions on new editorial practices.\n\nSource : rvb-books | RVB Books",
@@ -3782,9 +3789,9 @@
     ]
   },
   {
-    "id": "bef22cd6-97ba-5035-8533-6e17754f45e6",
+    "id": "031e67e7-46f9-52e0-862a-40ca09547e78",
     "title": "l'Autre, exposition de cendrine genin",
-    "url": "https://blog.ooblik.com/2020/lautre-exposition-de-cendrine-genin",
+    "url": "http://www.cendrinegenin.com/",
     "category": "Photographie",
     "added": "2020-10-15",
     "description": "Exposition du 13/10 > 14/11 Médiathèque Jean Prévost à Bron\n\nCe titre “L’Autre”, tout droit sorti d’un passage d’Emmanuel Levinas, est une invitation à la fraternité. Pour Cendrine Genin, la confiance se manifeste dans l’abandon d’un geste, un regard, une posture. Les photographies présentées ici…",
@@ -3801,9 +3808,9 @@
     "stream": "blog-ooblik"
   },
   {
-    "id": "56d8e0d0-9df4-5dc8-96fb-3d2877ffe523",
+    "id": "26b956f0-fd85-5732-9fc8-a29aea3bd951",
     "title": "MUNKEN SANS - typo",
-    "url": "https://blog.ooblik.com/2020/munken-sans-typo",
+    "url": "https://colab.munken.com/munken-sans",
     "category": "Archives du blog OOBLIK",
     "added": "2020-10-03",
     "description": "Le papetier MUNKEN nous donne sa typographie…elle est superbe, classique, basée sur la typo Tratex du Suédois Kåge Gustafson crée dans les années 60 pour la signalisation routière de son pays.\n\nen libre téléchargement ici : https://colab.munken.com/munken-sans/",
@@ -4177,9 +4184,9 @@
     ]
   },
   {
-    "id": "ecd14302-6643-586a-afa8-55004dbd8260",
+    "id": "a55e4a24-6c68-5def-b577-518818081ef6",
     "title": "RoboFont ● RoboFont",
-    "url": "https://blog.ooblik.com/2020/robofont-%e2%97%8f-robofont",
+    "url": "https://robofont.com/",
     "category": "Archives du blog OOBLIK",
     "added": "2020-02-17",
     "description": "RoboFont, The UFO Editor You Have Been Waiting For\n\nSource : RoboFont ● RoboFont",
@@ -4748,9 +4755,9 @@
     "stream": "blog-ooblik"
   },
   {
-    "id": "ea8205cb-a92d-51ac-aefb-895245827a85",
+    "id": "a1666a11-0a15-5a3a-9d52-5b38900d1843",
     "title": "Firefox Send",
-    "url": "https://blog.ooblik.com/2019/firefox-send",
+    "url": "https://send.firefox.com/",
     "category": "Archives du blog OOBLIK",
     "added": "2019-10-23",
     "description": "Firefox Send vous permet de partager des fichiers chiffrés de bout en bout ainsi qu’un lien qui expire automatiquement. Ainsi, vous pouvez garder ce que vous partagez en privé et vous assurer que vos contenus ne restent pas en ligne pour toujours.\n\nhttps://send.firefox.com/\n\nUn \"nouveau\" service…",
@@ -4760,10 +4767,17 @@
     ],
     "tags": [
       "geek",
-      "blog-ooblik"
+      "blog-ooblik",
+      "lien-mort"
     ],
     "origin_url": "https://blog.ooblik.com/2019/firefox-send/",
-    "stream": "blog-ooblik"
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "Firefox Send a été arrêté par Mozilla. L’adresse d’origine redirige désormais vers la page générale de Mozilla et reste conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_url": "https://web.archive.org/web/20200916092154/https://send.firefox.com/",
+    "archive_timestamp": "20200916092154",
+    "archive_scope": "url"
   },
   {
     "id": "f3d7ebff-960e-5bc4-8754-dfa97731ef65",
@@ -4837,9 +4851,9 @@
     "stream": "blog-ooblik"
   },
   {
-    "id": "ad67f523-ef17-5618-bf95-103f08d80546",
+    "id": "27055af0-caec-569d-878d-f133edc8ba73",
     "title": "Scriptopolis",
-    "url": "https://blog.ooblik.com/2019/scriptopolis",
+    "url": "https://editions-non-standard.com/books/scriptopolis",
     "category": "Design & Création",
     "added": "2019-09-27",
     "description": "Scriptopolis est un assemblage de microenquêtes sur l’écriture, équipées par la photographie. S’y déploie une documentation sur le long cours de la multitude des formes scripturales que nous côtoyons, produisons et manipulons au jour le jour.\n\nSource : Scriptopolis",
@@ -4947,9 +4961,9 @@
     "stream": "blog-ooblik"
   },
   {
-    "id": "101154ea-df6e-5407-afd0-68cfc874216a",
+    "id": "3300e8b1-36ea-54ca-9ad3-923a36f5dd69",
     "title": "2018 - Théo Gosselin - Photographie",
-    "url": "https://blog.ooblik.com/2019/2018-theo-gosselin-photographie",
+    "url": "https://theogosselin.format.com/5205501-2018",
     "category": "Photographie",
     "added": "2019-09-20",
     "description": "Théo Gosselin is a French photographer represented by LGA Paris.\n\nSource : 2018 - Théo Gosselin - Photographie",
@@ -4983,9 +4997,9 @@
     "stream": "blog-ooblik"
   },
   {
-    "id": "bbff2c86-3ed6-5690-9283-d7c21267dc3f",
+    "id": "7ea8c02b-4c01-5ab7-a9ce-d117d191903c",
     "title": "Creatio ex nihilo",
-    "url": "https://blog.ooblik.com/2019/creatio-ex-nihilo",
+    "url": "https://www.designmadeingermany.de/2013/105908",
     "category": "Design & Création",
     "added": "2019-06-27",
     "description": "Doch nicht aus dem Nichts … Natürlich sind Kommunikationsdesigner kreative Menschen – oder etwas nicht? Die Masterarbeit „Creatio ex nihilo“ stellt sich der Frage, inwieweit Originalität eine Illusion ist. Gestalter kennen das Problem, alles ist irgendwie schon einmal da gewesen und Picasso hatte…",
@@ -5191,9 +5205,9 @@
     ]
   },
   {
-    "id": "e6272777-9d48-5526-9097-f3d6c3bfa7c5",
+    "id": "5e4b2629-fb6e-515e-8c39-5d15e89a77b3",
     "title": "paesaggi marginali • filippo cavalli",
-    "url": "https://blog.ooblik.com/2019/paesaggi-marginali-filippo-cavalli",
+    "url": "https://web.archive.org/web/20220518031940/https:/filippocavalli.it/portfolio_page/paesaggi-marginali",
     "category": "Photographie",
     "added": "2019-05-27",
     "description": "photographer\n\nSource : paesaggi marginali • filippo cavalli :filippo cavalli",
@@ -5280,9 +5294,9 @@
     "stream": "blog-ooblik"
   },
   {
-    "id": "d660403c-fdce-5949-984e-fb6dc1cb001b",
+    "id": "e3172f29-75f8-536d-945f-9d16c93978ff",
     "title": "Une double absence",
-    "url": "https://blog.ooblik.com/2019/une-double-absence",
+    "url": "http://exb.fr/fr/home/371-double-absence.html",
     "category": "Design & Création",
     "added": "2019-05-21",
     "description": "Relié, 25,5 x 19 cm140 pages60 photographies N&B et couleur Texte (bilingue français – anglais)Akihito Yoshida\n\nSource : Une double absence - Editions Xavier Barral\n\nmagnifique...",
@@ -5316,9 +5330,9 @@
     ]
   },
   {
-    "id": "e483b1a5-fe69-5587-ba51-be5b2a443a70",
+    "id": "5c946b80-e183-556d-935c-c3b59a39d678",
     "title": "Unraveling The JPEG",
-    "url": "https://blog.ooblik.com/2019/unraveling-the-jpeg",
+    "url": "https://parametric.press/issue-01/unraveling-the-jpeg",
     "category": "Archives du blog OOBLIK",
     "added": "2019-05-10",
     "description": "JPEG images are everywhere in our digital lives, but behind the veil of familiarity lie algorithms that remove details that are imperceptible to the human eye. This produces the highest visual quality with the smallest file size—but what does that look like? Let's see what our eyes can't see!…",
@@ -5352,9 +5366,9 @@
     "stream": "blog-ooblik"
   },
   {
-    "id": "8ed877d0-7691-5849-ba9d-b8cc89cdd911",
+    "id": "fcdbc554-a7d1-5162-bed2-49cbb11cbdc2",
     "title": "Timeline",
-    "url": "https://blog.ooblik.com/2019/timeline",
+    "url": "https://timeline.knightlab.com/",
     "category": "Archives du blog OOBLIK",
     "added": "2019-05-06",
     "description": "Javacript pour faire des Timelines !\n\nEasy-to-make, beautiful timelines.\n\nSource : Timeline",
@@ -5496,9 +5510,9 @@
     ]
   },
   {
-    "id": "af220ede-eda0-5e7b-bf06-2eddf414fbde",
+    "id": "e3b8bd89-587f-5794-9d75-b14a8d49d8df",
     "title": "Cutting Paper",
-    "url": "https://blog.ooblik.com/2019/cutting-paper",
+    "url": "http://www.editions77.fr/galeries/cuttingpaper/cuttingpaper.html",
     "category": "Photographie",
     "added": "2019-04-11",
     "description": "Editions 77 is an independent publisher based in Paris, dedicated to photography and visual arts.\n\nSource : Cutting Paper",
@@ -5552,9 +5566,9 @@
     "stream": "blog-ooblik"
   },
   {
-    "id": "5c14f193-673f-5207-9831-65020c220365",
+    "id": "750ff9e3-caab-5ea0-95bb-4fd6c2bdd879",
     "title": "Destruction | Massimo Vitali",
-    "url": "https://blog.ooblik.com/2019/destruction-massimo-vitali",
+    "url": "https://www.massimovitali.com/",
     "category": "Photographie",
     "added": "2019-04-07",
     "description": "\"What we need is absolute proof of the destruction of the original print (a photographic proof accompanied by a small piece of the center of the picture) or the returning of the entire damaged print, whichever is more convenient for you.\" - Guarantee\n\nSource : Destruction | Massimo Vitali\n\nTout…",
@@ -5989,9 +6003,9 @@
     "stream": "blog-ooblik"
   },
   {
-    "id": "bc63c9f9-088f-579c-84e1-d3e355bf30e8",
+    "id": "b556d990-9339-510f-b593-ff2ea88be27c",
     "title": "Avara - VTF",
-    "url": "https://blog.ooblik.com/2019/avara-vtf",
+    "url": "http://velvetyne.fr/fonts/avara",
     "category": "Archives du blog OOBLIK",
     "added": "2019-01-15",
     "description": "Avara is a libre transitional serif curveless type family. The placement of its nodes is exclusively based on a rough square grid. The original reason of this design choice was to facilitate collaboration on the font, and it now results in the radical and highly constrained shapes of this type…",
@@ -6024,9 +6038,9 @@
     "stream": "blog-ooblik"
   },
   {
-    "id": "4733280a-4886-53eb-949e-ae79c42eb885",
+    "id": "0bbd3892-e7fe-5b49-b378-f2ebbb37f690",
     "title": "SIGMA X3F Plug-in for Photoshop® | Cameras | Download | SIGMA GLOBAL VISION",
-    "url": "https://blog.ooblik.com/2019/sigma-x3f-plug-in-for-photoshop-cameras-download-sigma-global-vision",
+    "url": "https://www.sigma-global.com/en/support/software/sigma-x3f-plug-in-for-photoshop",
     "category": "Photographie",
     "added": "2019-01-14",
     "description": "Global Web site of SIGMA.\n\nSource : SIGMA X3F Plug-in for Photoshop® | Cameras | Download | SIGMA GLOBAL VISION\n\nPour ouvrir les X3F de Sigma directement dans Photoshop !",
@@ -6110,9 +6124,9 @@
     "stream": "blog-ooblik"
   },
   {
-    "id": "85bf7ec5-82d8-530f-9b1d-3c4a2c6a4001",
+    "id": "1beaaf3d-8776-5ff4-8533-d0a45f9208e1",
     "title": "HOMESICK",
-    "url": "https://blog.ooblik.com/2019/homesick",
+    "url": "http://francedubois.eu/portfolio/homesick",
     "category": "Archives du blog OOBLIK",
     "added": "2019-01-14",
     "description": "France Dubois\n\nA5 horizontal\n\nédition de 100 exemplaires\n\nsite : http://francedubois.eu/portfolio/homesick/",
@@ -6287,9 +6301,9 @@
     ]
   },
   {
-    "id": "babc5ea7-7a5a-5692-a063-c35d72b3744d",
+    "id": "862b870c-bb09-515d-aadb-0d3250d59bc1",
     "title": "Technical Specifications — PIXII",
-    "url": "https://blog.ooblik.com/2018/technical-specifications-pixii",
+    "url": "https://pixii.fr/specifications",
     "category": "Photographie",
     "added": "2018-10-22",
     "description": "We are creating a new camera.\n\nSource : Technical Specifications — PIXII\n\nJoli et radical concept...à suivre !",
@@ -6451,9 +6465,9 @@
     ]
   },
   {
-    "id": "f394bd7f-6502-5211-8da8-a2ed82b2664b",
+    "id": "2e79c4b9-1e15-5f1c-91fc-4dc8b7592cc4",
     "title": "revue faire",
-    "url": "https://blog.ooblik.com/2018/revue-faire",
+    "url": "http://revue-faire.eu/fr",
     "category": "Design & Création",
     "added": "2018-06-12",
     "description": "Source : revue faire",
@@ -6681,9 +6695,9 @@
     ]
   },
   {
-    "id": "78c0f845-5f4a-5921-934a-2a548168c0ba",
+    "id": "1c24997f-0994-57b1-89c0-60352613e08e",
     "title": "Black[Foundry] | The Type+Tech® company",
-    "url": "https://blog.ooblik.com/2018/blackfoundry-the-typetech-company",
+    "url": "https://black-foundry.com/",
     "category": "Archives du blog OOBLIK",
     "added": "2018-03-20",
     "description": "Identity fonts. Global fonts. Seamless fonts. We make fonts that perform.\n\nSource : Black[Foundry] | The Type+Tech® company",
@@ -6701,9 +6715,9 @@
     "stream": "blog-ooblik"
   },
   {
-    "id": "ec59f86a-fab8-5551-a608-7dfd67fc0f5f",
+    "id": "afa40a64-6335-5fc8-9173-5a6fce3985dd",
     "title": "Antimémoires",
-    "url": "https://blog.ooblik.com/2018/antimemoires",
+    "url": "http://www.antimemoires.fr/",
     "category": "Photographie",
     "added": "2018-03-20",
     "description": "Antimémoires. Journal photographique de Romain Philippon\n\nSource : Antimémoires",
@@ -6713,10 +6727,17 @@
     ],
     "tags": [
       "photographie",
-      "blog-ooblik"
+      "blog-ooblik",
+      "lien-mort"
     ],
     "origin_url": "https://blog.ooblik.com/2018/antimemoires/",
-    "stream": "blog-ooblik"
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "Le domaine public d’origine ne répond plus au DNS. L’adresse est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_url": "https://web.archive.org/web/20251106122648/http://www.antimemoires.fr/",
+    "archive_timestamp": "20251106122648",
+    "archive_scope": "url"
   },
   {
     "id": "2ba5b4a8-6566-5a1b-84b7-86b2dc2824ff",
@@ -6737,9 +6758,9 @@
     "stream": "blog-ooblik"
   },
   {
-    "id": "e9bf745a-043c-54d9-8fd9-1e1d43001c96",
+    "id": "c9d136af-0a94-5dd3-aa35-c9c850b8d093",
     "title": "Manifesto for future European photo festivals – MRS.DEANE",
-    "url": "https://blog.ooblik.com/2018/manifesto-for-future-european-photo-festivals-mrs-deane",
+    "url": "https://web.archive.org/web/20220706074153/http:/www.beikey.net/mrs-deane?p=9233",
     "category": "Archives du blog OOBLIK",
     "added": "2018-03-19",
     "description": "If photography wants to stake a claim at being ahead of the curve, in being innovative and of the present moment, I feel it has a lot of catching up to do in understanding itself, the developments it is part of, and how the changes it is entangled in affect our very being as humans. Coming in from…",
@@ -6924,9 +6945,9 @@
     ]
   },
   {
-    "id": "ba61b6d2-853b-5a8a-9f03-52921667330f",
+    "id": "e59e607b-d7dc-52d4-9bf0-bedaa79b6c1a",
     "title": "Elizabeth Bick",
-    "url": "https://blog.ooblik.com/2018/elizabeth-bick",
+    "url": "http://www.erbick.com/",
     "category": "Photographie",
     "added": "2018-03-15",
     "description": "Elizabeth Bick is a photographer and artist based in New York City, influenced by dance.\n\nSource : Elizabeth Bick",
@@ -7054,9 +7075,9 @@
     ]
   },
   {
-    "id": "64947645-33ed-5c82-b77b-c1b2247c3294",
+    "id": "40e2253c-ba0f-5d5e-a3c3-6be74c262f44",
     "title": "Syncthing",
-    "url": "https://blog.ooblik.com/2017/syncthing",
+    "url": "https://syncthing.net/",
     "category": "Archives du blog OOBLIK",
     "added": "2017-12-27",
     "description": "Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.\n\nSource : Syncthing",
@@ -7705,9 +7726,9 @@
     ]
   },
   {
-    "id": "51caee53-b101-57ee-a78f-c48ea2739e1b",
+    "id": "4a0f935b-b9e2-5fc3-b141-6a528e7fef39",
     "title": "POLYCOPIES",
-    "url": "https://blog.ooblik.com/2017/polycopies",
+    "url": "http://www.polycopies.net/",
     "category": "Design & Création",
     "added": "2017-10-25",
     "description": "<\n\np align=\"justify\">> Polycopies accueille chaque année depuis 2014 une sélection de 40 éditeurs et libraires internationaux spécialisés en photographie.\n\nFondée et dirigée par Laurent Chardon et Sebastian Hau, Polycopies est une association de diffusion et de promotion de l’édition…",
@@ -7838,9 +7859,9 @@
     ]
   },
   {
-    "id": "5b6b6aca-44b2-5222-959d-56f7c48111ec",
+    "id": "f5a0d427-7015-581b-9314-12427390aadc",
     "title": "IMATAG",
-    "url": "https://blog.ooblik.com/2017/imatag",
+    "url": "https://imatag.com/",
     "category": "Archives du blog OOBLIK",
     "added": "2017-10-13",
     "description": "Protection des données EXIF images pro\n\nSource : Bienvenue sur IMATAG",
@@ -8078,9 +8099,9 @@
     "stream": "blog-ooblik"
   },
   {
-    "id": "7838e7c4-258e-5704-9399-c5e289f6b48d",
+    "id": "607effc5-bd33-5f89-a227-c3717447fde1",
     "title": "Gabriel - Laurent Deglicourt",
-    "url": "https://blog.ooblik.com/2017/gabriel-laurent-deglicourt",
+    "url": "https://www.laurentdeglicourt.com/gabriel",
     "category": "Photographie",
     "added": "2017-09-25",
     "description": "Laurent Deglicourt photographies\n\nSource : Gabriel - Laurent Deglicourt",
@@ -8090,10 +8111,17 @@
     ],
     "tags": [
       "photographie",
-      "blog-ooblik"
+      "blog-ooblik",
+      "lien-mort"
     ],
     "origin_url": "https://blog.ooblik.com/2017/gabriel-laurent-deglicourt/",
-    "stream": "blog-ooblik"
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "Le domaine public d’origine ne répond plus au DNS. L’adresse est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_url": "https://web.archive.org/web/20240526123736/https://www.laurentdeglicourt.com/gabriel",
+    "archive_timestamp": "20240526123736",
+    "archive_scope": "url"
   },
   {
     "id": "9274530b-d4c1-5133-afd4-ebbbdf8dcae8",
@@ -8188,9 +8216,9 @@
     ]
   },
   {
-    "id": "12f577bc-d8e8-5eb5-8236-aa1352126a16",
+    "id": "d29faf0b-010c-5b15-bc0a-04bfe1039ef7",
     "title": "La chute d'Attica (WIP) Sophie Knittel",
-    "url": "https://blog.ooblik.com/2017/la-chute-dattica-wip-sophie-knittel",
+    "url": "http://www.sophieknittel.com/fr/portfolio-56785-0-40-la-chute-d-attica-wip.html",
     "category": "Photographie",
     "added": "2017-07-26",
     "description": "La chute d'Attica (WIP)\n\nLa Grèce, berceau de la civilisation européenne et de la démocratie, s’effondre lentement. Son économie et les mesures d’austérité demandées par l’Union Européenne la pousse au bord du gouffre. Elle accueille aussi, généreuse et digne, une grande partie de la vague…",
@@ -8207,9 +8235,9 @@
     "stream": "blog-ooblik"
   },
   {
-    "id": "cbcab6ca-8f7a-5cf2-ba68-7ebf1f519bda",
+    "id": "c0cb635d-c215-5016-8b8b-0313d512fe83",
     "title": "une conversation - Thomas Boivin",
-    "url": "https://blog.ooblik.com/2017/une-conversation-thomas-boivin",
+    "url": "http://www.thomasboivin.com/",
     "category": "Photographie",
     "added": "2017-07-24",
     "description": "2011-2016 /\n\nSource : une conversation - Thomas Boivin",
@@ -8477,9 +8505,9 @@
     ]
   },
   {
-    "id": "c8e69c47-0ea1-5098-879d-c2a9165a7e7a",
+    "id": "cc7ee646-dfe2-5548-a174-8b61583b8b51",
     "title": "tombolo presses",
-    "url": "https://blog.ooblik.com/2017/tombolo-presses",
+    "url": "http://presses.t-o-m-b-o-l-o.eu/",
     "category": "Design & Création",
     "added": "2017-04-22",
     "description": "Maison d’édition sensible aux affinités du graphisme liée à la revue en ligne Tombolo.\n\nSource : tombolo presses",
@@ -8649,9 +8677,9 @@
     "id": "62fdc065-22d3-5c99-82eb-614d6e99c4f6"
   },
   {
-    "id": "d3d48160-6c9d-53fc-9224-9e94760ae4f4",
+    "id": "5012b117-8d50-56b5-b5b9-e7cb7386b2a8",
     "title": "Photographic & Digital printing papers | Felix Schoeller Group",
-    "url": "https://blog.ooblik.com/2017/photographic-digital-printing-papers-felix-schoeller-group",
+    "url": "https://digital-media.felix-schoeller.com/startseite",
     "category": "Photographie",
     "added": "2017-04-20",
     "description": "Felix Schoeller Group\n\nSource : Photographic & Digital printing papers | Felix Schoeller Group",
@@ -8705,9 +8733,9 @@
     ]
   },
   {
-    "id": "63ab8406-c6f3-55de-961a-c9c4d8b37b2b",
+    "id": "f3c6f010-0b6a-55b9-9165-28e6eb0c7e2d",
     "title": "Forever France - Notre métier la numérisation de vos souvenirs",
-    "url": "https://blog.ooblik.com/2017/forever-france-metier-numerisation-de-vos-souvenirs",
+    "url": "https://fr.for-ever.com/fr/accueil",
     "category": "Photographie",
     "added": "2017-04-20",
     "description": "Numérisation de films (bobines Super8, 8mm), cassettes (VHS, MiniDV, VHS-C, Hi8, Digital8, ...), diapositives, photos et négatifs. Transfert sur DVD, disque dur, clé USB ou par lien de téléchargement de vos souvenirs de famille.\n\nSource : Forever France - Notre métier la numérisation de vos…",
@@ -11692,9 +11720,9 @@
     ]
   },
   {
-    "id": "a2a46399-e9c6-53b7-9a38-57e3302819e6",
+    "id": "c553e307-a6d1-5e11-afe4-0ec3d7ce9bdf",
     "title": "reMarkable",
-    "url": "https://blog.ooblik.com/2017/remarkable",
+    "url": "https://getremarkable.com/",
     "category": "Archives du blog OOBLIK",
     "added": "2017-01-04",
     "description": "The paper tablet\n\nSource : reMarkable",
@@ -11710,9 +11738,9 @@
     "stream": "blog-ooblik"
   },
   {
-    "id": "78fca343-d91b-5534-90e2-f75b37e07fa6",
+    "id": "d51e4fc1-d0be-57ad-bc98-b9fca8239ac7",
     "title": "New York Businessmen - Eui-Jip Hwang Photography",
-    "url": "https://blog.ooblik.com/2017/new-york-businessmen-eui-jip-hwang-photography",
+    "url": "http://www.euijip.com/",
     "category": "Photographie",
     "added": "2017-01-04",
     "description": "Eui Jip Hwang is an artist based in NY\n\nSource : New York Businessmen - Eui-Jip Hwang Photography",
@@ -11764,9 +11792,9 @@
     ]
   },
   {
-    "id": "c95b3493-1509-5dd3-8a04-6f6a59795a5e",
+    "id": "214b0ea1-2e64-54c6-9c41-ce490b4aa9f2",
     "title": "book market | Fiebre Photobook",
-    "url": "https://blog.ooblik.com/2017/book-market-fiebre-photobook",
+    "url": "http://www.fiebrephotobook.com/",
     "category": "Design & Création",
     "added": "2017-01-04",
     "description": "The pioner fair of photobooks in spain, Fiebre Photobook.\n\nSource : book market | Fiebre Photobook",
@@ -13691,9 +13719,9 @@
     "id": "43e5d1b8-02b4-53dc-a407-7818969d3a53"
   },
   {
-    "id": "9dba04a6-284a-5d81-ad34-faca3a03757c",
+    "id": "482cd9cd-fcec-540b-a890-f61ea3c10cab",
     "title": "Peter Watkins",
-    "url": "https://blog.ooblik.com/2016/peter-watkins",
+    "url": "http://peterwatkins.co.uk/",
     "category": "Photographie",
     "added": "2016-11-21",
     "description": "Recent works, updates, and exhibitions by London based artist Peter Watkins.\n\nSource : Peter Watkins",
@@ -13939,9 +13967,9 @@
     "id": "7fd17325-67e0-51dc-aa3f-9c94fd26acf7"
   },
   {
-    "id": "a476a2c8-0633-577b-854c-2120c5d65296",
+    "id": "bddd857a-85a8-5ab6-b0c2-823dd001cddc",
     "title": "Tom Heatley - DIY Dreams",
-    "url": "https://blog.ooblik.com/2016/tom-heatley-diy-dreams",
+    "url": "http://www.tomheatley.co.uk/3591218-diy-dreams",
     "category": "Photographie",
     "added": "2016-11-15",
     "description": "TOM HEATLEY PHOTOGRAPHER\n\nSource : Tom Heatley - DIY Dreams",
@@ -14467,9 +14495,9 @@
     "id": "0ab5e07a-7339-54f7-9562-7450d6769984"
   },
   {
-    "id": "461ee487-fa72-50e2-a9dc-e22c0dfde27a",
+    "id": "060ca767-bc02-5de8-8ea0-017d8512661b",
     "title": "LA BOISSE - Secteur Lambda",
-    "url": "https://blog.ooblik.com/2016/boisse-secteur-lambda",
+    "url": "http://www.secteurlambda.fr/koken/albums/cotiere/content/la-boisse-1",
     "category": "Photographie",
     "added": "2016-11-06",
     "description": "Autoroute et voie ferrée qui marquent, avec le gestionnaire de réseau ERDF, la frontière de notre secteur en direction de Lyon\n\nSource : LA BOISSE - Secteur Lambda\n\nEn souvenir du garage de mon papa sous le pilier à droite de l'image...",
@@ -14806,9 +14834,9 @@
     "id": "c01f3a73-cc80-5b7e-beb7-4c115a3bb894"
   },
   {
-    "id": "ecd8b945-10bf-5b1d-b517-3f3cc76db27b",
+    "id": "a8e82f42-d6b3-5bc2-9541-0b2f82d2d8b2",
     "title": "The Pyte Foundry | Home",
-    "url": "https://blog.ooblik.com/2016/the-pyte-foundry-home",
+    "url": "http://thepytefoundry.net/",
     "category": "Archives du blog OOBLIK",
     "added": "2016-11-02",
     "description": "The Pyte Foundry — Typographic Pleasure since 2016\n\nSource : The Pyte Foundry | Home\n\nune typo par semaine...\n\nEnregistrer",
@@ -14839,9 +14867,9 @@
     "id": "7fae3a68-d2cc-5ffe-be3b-06436cf646c0"
   },
   {
-    "id": "f9a98366-4a88-53d7-99ac-192bacb0a34f",
+    "id": "12166dda-1f32-5110-9e49-446a131b2777",
     "title": "Secure email: ProtonMail is free encrypted email.",
-    "url": "https://blog.ooblik.com/2016/secure-email-protonmail-is-free-encrypted-email",
+    "url": "https://protonmail.com/",
     "category": "Archives du blog OOBLIK",
     "added": "2016-11-02",
     "description": "ProtonMail is the world's largest secure email service, developed by CERN and MIT scientists. We are open source and protected by Swiss privacy law\n\nSource : Secure email: ProtonMail is free encrypted email.\n\nEnregistrer",
@@ -15795,9 +15823,9 @@
     "id": "11e83f27-2f65-5625-96b1-0a857e12aec3"
   },
   {
-    "id": "84410352-0c7f-5997-bf13-017746405caf",
+    "id": "cefc459e-00d8-5607-bb30-76bf9eea35aa",
     "title": "Air Sickness | Index Grafik",
-    "url": "https://blog.ooblik.com/2016/air-sickness-index-grafik",
+    "url": "http://indexgrafik.fr/air-sickness",
     "category": "Photographie",
     "added": "2016-10-18",
     "description": "Pour tous les émétoaérosagophile ! → www.airsicknessbags.com\n\nSource : Air Sickness | Index Grafik\n\nEnregistrer",
@@ -16086,9 +16114,9 @@
     "id": "f9c4031f-1116-5087-9536-33397c075c92"
   },
   {
-    "id": "b4b74076-7dfb-5446-ada1-ad5ec605972e",
+    "id": "f15f8f53-d422-5811-8656-ba4c72e7ac5f",
     "title": "Paul Graham",
-    "url": "https://blog.ooblik.com/2016/paul-graham",
+    "url": "https://web.archive.org/web/20200218171146/http:/paulgrahamarchive.com:80/index.html",
     "category": "Photographie",
     "added": "2016-10-13",
     "description": "A resource site for the artist-photographer Paul Graham.\n\nSource : Paul Graham Photography Archive",
@@ -16143,9 +16171,9 @@
     "id": "b071ea37-9efe-5105-8dfa-a06cac90587c"
   },
   {
-    "id": "53c853d1-f931-5d2f-a642-161e2615b681",
+    "id": "eabd7bee-8c85-57ea-86e1-9efc41ab60b7",
     "title": "Dinamo Typefaces",
-    "url": "https://blog.ooblik.com/2016/dinamo-typefaces",
+    "url": "http://www.abcdinamo.com/",
     "category": "Archives du blog OOBLIK",
     "added": "2016-10-13",
     "description": "Dinamo is a Swiss type design practice established by Johannes Breyer and Fabian Harb. Our typefaces are used by some of the most forward thinking cultural as well as commercial enterprises.\n\nSource : Dinamo Typefaces",
@@ -16539,9 +16567,9 @@
     "id": "bd34a34b-a89d-5b94-9c25-7d0b685fe607"
   },
   {
-    "id": "149ea204-6939-500f-8b66-27b4c3a70244",
+    "id": "fe05eb66-86e1-57f8-82cd-db9dcae2c148",
     "title": "Eden Lai / Monochrome",
-    "url": "https://blog.ooblik.com/2016/eden-lai-monochrome",
+    "url": "http://theunknownbooks.tumblr.com/post/151097324664/title-monochrome-author-eden-lai-publisher-wob",
     "category": "Design & Création",
     "added": "2016-10-08",
     "description": "http://theunknownbooks.tumblr.com/post/151097324664/title-monochrome-author-eden-lai-publisher-wob",
@@ -16570,9 +16598,9 @@
     "id": "966060c5-659e-53db-9949-0316f7b6fa79"
   },
   {
-    "id": "8a225730-0c03-53c0-81a9-767657a289f6",
+    "id": "3b89e58f-d488-5835-9ee9-66d996bc08ff",
     "title": "Cozy - Dégooglisez votre vie numérique.",
-    "url": "https://blog.ooblik.com/2016/cozy-degooglisez-votre-vie-numerique",
+    "url": "https://cozy.io/fr/ungoogle-your-life",
     "category": "Archives du blog OOBLIK",
     "added": "2016-10-08",
     "description": "Ne laissez pas Google posséder votre vie privée\n\nSource : Cozy - Dégooglisez votre vie numérique.",
@@ -16582,10 +16610,17 @@
     ],
     "tags": [
       "geek",
-      "blog-ooblik"
+      "blog-ooblik",
+      "lien-mort"
     ],
     "origin_url": "https://blog.ooblik.com/2016/cozy-degooglisez-votre-vie-numerique/",
-    "stream": "blog-ooblik"
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "La destination renvoie aujourd’hui une erreur HTTP 404. L’adresse publique d’origine est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_url": "https://web.archive.org/web/20161204201147/http://cozy.io:80/fr/ungoogle-your-life/",
+    "archive_timestamp": "20161204201147",
+    "archive_scope": "url"
   },
   {
     "title": "Aglaé Bory — MERS INTÉRIEURES | - LE BLOOG -",
@@ -18414,9 +18449,9 @@
     "id": "1bc8d322-507a-5094-af01-e92ce2ebcfa6"
   },
   {
-    "id": "f7d02656-554c-5923-a311-ed7bb01b0c10",
+    "id": "79dbb762-40a7-58b2-83ff-34cc2ddb2c96",
     "title": "Elegante Press - Custom Letterpress Printing",
-    "url": "https://blog.ooblik.com/2016/elegante-press-custom-letterpress-printing",
+    "url": "http://www.elegantepress.com/",
     "category": "Photographie",
     "added": "2016-09-21",
     "description": "We design and print elegant letterpress invitations, luxury letterpress business cards, custom announcements and stationery.\n\nSource : Elegante Press - Custom Letterpress Printing",
@@ -18838,9 +18873,9 @@
     "id": "e92a9449-22a3-59b0-997a-23288d507868"
   },
   {
-    "id": "872fe568-5971-5e69-926c-05fe5a8e4d27",
+    "id": "793f622d-8dca-5c25-b8a8-07b7687684e6",
     "title": "Smash",
-    "url": "https://blog.ooblik.com/2016/smash",
+    "url": "https://www.fromsmash.com/",
     "category": "Archives du blog OOBLIK",
     "added": "2016-09-16",
     "description": "Smash, the file transfer service for the 21st century.\n\nSource : Smash\n\nAlternative (lyonnaise :)) dans le transfert de fichiers numérique en ligne",
@@ -19448,9 +19483,9 @@
     "id": "a7711e6a-029a-542d-9788-9a6fe58d05cc"
   },
   {
-    "id": "808292c2-fc84-51b4-bb7b-77a8c76e2aa3",
+    "id": "1886e0cb-23fc-5207-951c-e34bf10ee8ac",
     "title": "Sebastien Staub Photographie – Suisse",
-    "url": "https://blog.ooblik.com/2016/sebastien-staub-photographie-suisse",
+    "url": "http://sebastienstaub.com/",
     "category": "Photographie",
     "added": "2016-09-13",
     "description": "Landscape, commercial & adventurous photography\n\nSource : Sebastien Staub Photographie – Suisse",
@@ -19998,9 +20033,9 @@
     "id": "2f0dbdd0-b33f-5f97-8c94-b18f4beeefc8"
   },
   {
-    "id": "48ab093d-b59c-5671-9589-f57d7b5dacd4",
+    "id": "f421a566-248c-5396-a174-71dcec48f4db",
     "title": "Lewis Bush | Shadows of the State book",
-    "url": "https://blog.ooblik.com/2016/lewis-bush-shadows-of-the-state-book",
+    "url": "https://web.archive.org/web/20180808002505/http:/www.lewisbush.com:80/shadow-of-the-state-book",
     "category": "Photographie",
     "added": "2016-09-09",
     "description": "A book of images and texts based on Shadows of State, a project exploring the covert radio broadcasts known as 'numbers stations'.\n\nSource : Lewis Bush » Blog Archive Shadows of the State book - Lewis Bush\n\nEnregistrer",
@@ -20171,9 +20206,9 @@
     "id": "32c51f54-21be-58ed-b737-a6a68c3fe038"
   },
   {
-    "id": "97d1c2d5-e52e-5041-a5c2-e58ae54291ea",
+    "id": "3f740e6b-3de0-5abd-96f2-3131ab3e2557",
     "title": "We'd Feel Safer Without Police poster",
-    "url": "https://blog.ooblik.com/2016/wed-feel-safer-without-police-poster",
+    "url": "http://www.halfletterpress.com/",
     "category": "Photographie",
     "added": "2016-09-08",
     "description": "In the wake of the police shootings of Philando Castile and Alton Sterling, among many other police murders, these posters were created for use during a protest in Chicago on July 11, 2016.\n\nSource : We'd Feel Safer Without Police poster\n\nEnregistrer",
@@ -20637,9 +20672,9 @@
     "id": "cbb6c780-c9ed-58e4-9f23-79ad4577bbbf"
   },
   {
-    "id": "34aa0fa7-cfd6-5e0c-83e3-14f7d5827cfa",
+    "id": "3c3c45de-fdd6-5e48-84b8-62df0c0e5c0f",
     "title": "Wolfgang ~ Skinnerboox :: Independent publisher",
-    "url": "https://blog.ooblik.com/2016/wolfgang-skinnerboox-independent-publisher",
+    "url": "http://www.skinnerboox.com/books/wolfgang",
     "category": "Design & Création",
     "added": "2016-09-07",
     "description": "Wolfgang is the new book by French artist David Fathi. Using the photographic archives of the CERN laboratory he has manipulated and recontextualized images to tell the strange tale of the Pauli Effect; the myth that Wolfgang Pauli, one of the founders of quantum mechanics, would just by his…",
@@ -21013,9 +21048,9 @@
     "id": "97a256b1-a3ed-52be-94a3-588957e7a06f"
   },
   {
-    "id": "ef581030-9cc2-57b4-983a-3c7492125625",
+    "id": "7ea584ef-283f-5d34-9e4f-7fa3278197fb",
     "title": "TIS books",
-    "url": "https://blog.ooblik.com/2016/tis-books",
+    "url": "http://www.tisbooks.pub/",
     "category": "Design & Création",
     "added": "2016-09-05",
     "description": "Brooklyn-based publisher of photobooks and base for discussing the intersection of photography and life – music, literature, sports, movies, stuff that matters.\n\nSource : TIS books",
@@ -21200,9 +21235,9 @@
     "id": "4e0466bf-35df-5a45-95e5-3fdc6ede490b"
   },
   {
-    "id": "ce84b783-6fb8-5120-8b7a-f01292ba0f7a",
+    "id": "059a443d-a850-5a92-96e8-0b5788f274ab",
     "title": "dlignes, atelier de reliure artisanale, cartonnage et encadrement",
-    "url": "https://blog.ooblik.com/2016/dlignes-atelier-de-reliure-artisanale-cartonnage-encadrement",
+    "url": "https://lesrelieuses.ch/",
     "category": "Design & Création",
     "added": "2016-09-05",
     "description": "Reliure, cartonnage, packaging et encadrement sont les quatre savoir-faire artisanal de latelier Dlignes\n\nSource : dlignes, atelier de reliure artisanale, cartonnage et encadrement",
@@ -21840,9 +21875,9 @@
     "id": "7d82b46d-0cee-5cd0-967a-092d0b2e24f1"
   },
   {
-    "id": "51319e0e-8c57-55b3-b443-42037b11c480",
+    "id": "a34df9c5-4584-55d5-a5ee-7ea6d1b9cad7",
     "title": "Photography - Idea Books",
-    "url": "https://blog.ooblik.com/2016/photography-idea-books",
+    "url": "http://www.ideabooks.nl/",
     "category": "Design & Création",
     "added": "2016-09-02",
     "description": "_ Idea Books is an international wholesaler and distributor of high quality books and catalogues on contemporary architecture, art, photography, design, fashion, and film. You can find our books at specialised bookshops, museum stores, and web retailers throughout the world.\n\nSource : Photography…",
@@ -21878,9 +21913,9 @@
     "id": "ee138726-0b1e-59ee-bb46-c0ac9e435594"
   },
   {
-    "id": "e4a9a507-dc92-5a68-9c86-430516d59d80",
+    "id": "6ac523cc-986e-5a31-a762-29520a04523e",
     "title": "Matthieu Litt - Photography - Horsehead Nebula Book",
-    "url": "https://blog.ooblik.com/2016/matthieu-litt-photography-horsehead-nebula-book",
+    "url": "http://matthieulitt.com/horsehead-nebula-book",
     "category": "Design & Création",
     "added": "2016-09-02",
     "description": "Photographer - Living & working in Liège, Belgium.\n\nSource : Matthieu Litt - Photography - Horsehead Nebula Book",
@@ -21909,9 +21944,9 @@
     "id": "479e4e5e-f3cb-526c-b971-bf2c2ffe3740"
   },
   {
-    "id": "a1a28e40-1372-516c-a8cd-57135def2f95",
+    "id": "66e676c0-4a47-5158-b6e4-05aa08634f87",
     "title": "L’Imagerie - Imagerie Lannion",
-    "url": "https://blog.ooblik.com/2016/limagerie-imagerie-lannion",
+    "url": "https://web.archive.org/web/20220409132402/https:/galerie-imagerie.fr",
     "category": "Archives du blog OOBLIK",
     "added": "2016-09-02",
     "description": "Lieu permanent d’exposition consacré à la Photographie , la galerie L’Imagerie de Lannion a vu le jour en 1984 sur les pas du Festival Photographique (...)\n\nSource : L’Imagerie - Imagerie Lannion",
@@ -23614,9 +23649,9 @@
     "id": "f6deee7e-6ed0-52b8-9e93-9105b2eeacb0"
   },
   {
-    "id": "52a381b2-4c9b-5a37-b36f-7a5f2fb7ca4e",
+    "id": "d6b9579d-d820-5bb6-89ae-af7767307c5a",
     "title": "L'ATELIER — BULK",
-    "url": "https://blog.ooblik.com/2016/latelier-bulk",
+    "url": "http://www.bulkclassic.com/",
     "category": "Archives du blog OOBLIK",
     "added": "2016-07-29",
     "description": "Source : L'ATELIER — BULK\n\nLetterpress, à l'ancienne...",
@@ -23627,10 +23662,17 @@
     ],
     "tags": [
       "letterpress",
-      "blog-ooblik"
+      "blog-ooblik",
+      "lien-mort"
     ],
     "origin_url": "https://blog.ooblik.com/2016/latelier-bulk/",
-    "stream": "blog-ooblik"
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "Le domaine de BULK a été repris par un service de revente de domaines. L’adresse originale est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_url": "https://web.archive.org/web/20240729063812/https://www.bulkclassic.com/",
+    "archive_timestamp": "20240729063812",
+    "archive_scope": "url"
   },
   {
     "title": "Zatara Press | A Unique Photobook Publisher | Richmond, VA | - LE BLOOG -",
@@ -24096,9 +24138,9 @@
     "id": "a7bf517e-bc0b-55eb-a6a5-1d1dda7cb179"
   },
   {
-    "id": "f8390862-08b2-57e7-b4a2-fed31de5c3e2",
+    "id": "9e9a5e81-1a0e-56f9-b26e-3d647cf68953",
     "title": "Atelier de reliure - LES RELIURES",
-    "url": "https://blog.ooblik.com/2016/atelier-de-reliure-reliures",
+    "url": "http://www.reliureamiens.sitew.fr/",
     "category": "Design & Création",
     "added": "2016-07-18",
     "description": "reliure amiens, relieur amiens, atelier de reliure amiens, Reliure d'art, cours de reliure, restauration de livres anciens.\n\nSource : Atelier de reliure - LES RELIURES",
@@ -24827,9 +24869,9 @@
     "id": "f1555b27-0dc9-53d6-a456-dc396b8d612b"
   },
   {
-    "id": "90e7f361-9212-50be-b6ff-5bca60e4359e",
+    "id": "52dbc069-63d9-5e47-a361-cd237e7e5212",
     "title": "Exhibition Views - Heikki Kaski",
-    "url": "https://blog.ooblik.com/2016/exhibition-views-heikki-kaski",
+    "url": "http://www.heikkikaski.com/Exhibition-Views",
     "category": "Photographie",
     "added": "2016-07-11",
     "description": "Heikki Kaski Photography\n\nSource : Exhibition Views - Heikki Kaski",
@@ -25648,9 +25690,9 @@
     "id": "f3a8334a-5ab6-5d3b-abc4-2f314d88115d"
   },
   {
-    "id": "47a3f4e6-29b5-5076-bd10-9a3dcf589bce",
+    "id": "63ccc2c6-801a-57f0-9489-412a2423ff63",
     "title": "Coal miner's child",
-    "url": "https://blog.ooblik.com/2016/coal-miners-child",
+    "url": "https://www.icp.org/browse/archive/objects/coal-miners-child-taking-home-kerosene-for-lamps-company-houses-coal-tipple-0",
     "category": "Photographie",
     "added": "2016-06-30",
     "description": "RA/FSA; Depression; Coal mining; poverty; child labor;\n\nSource : Coal miner's child taking home kerosene for lamps. Company houses, coal tipple in background, Pursglove, Scotts Run, West Virginia | International Center of Photography",
@@ -25868,9 +25910,9 @@
     "id": "f5acdfa2-02ba-5e64-a28c-c53f0fdd2610"
   },
   {
-    "id": "b6db1420-36d3-5be2-84ce-1d33e325b26e",
+    "id": "6fa06bba-ea3f-5b56-b51d-5e60a63932f7",
     "title": "a shimmer of books",
-    "url": "https://blog.ooblik.com/2016/a-shimmer-of-books",
+    "url": "http://a-shimmer-of-books.tumblr.com/post/140637014620/dana-lixenberg-imperial-courts",
     "category": "Design & Création",
     "added": "2016-06-26",
     "description": "http://a-shimmer-of-books.tumblr.com/post/140637014620/dana-lixenberg-imperial-courts",
@@ -25880,10 +25922,15 @@
     ],
     "tags": [
       "livre",
-      "blog-ooblik"
+      "blog-ooblik",
+      "lien-mort"
     ],
     "origin_url": "https://blog.ooblik.com/2016/a-shimmer-of-books/",
-    "stream": "blog-ooblik"
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "La destination renvoie aujourd’hui une erreur HTTP 404. L’adresse publique d’origine est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_status": "missing"
   },
   {
     "title": "Twitter",
@@ -26198,9 +26245,9 @@
     "id": "c32a735a-a75a-5c9b-990e-77f188dfa94b"
   },
   {
-    "id": "7c18690f-ea5a-51e7-bc3e-f23e8a4ee910",
+    "id": "dbaae923-87d8-5b58-8ecb-5b0984e8ce2b",
     "title": "La suite numérique - transfert et numérisation de films 8mm, super 8 ,9.5mm et 16mm",
-    "url": "https://blog.ooblik.com/2016/la-suite-numerique-transfert-et-numerisation-de-films-8mm-super-8-9-5mm-et-16mm",
+    "url": "http://www.lasuitenumerique.com/",
     "category": "Photographie",
     "added": "2016-06-25",
     "description": "Studio spécialisé dans la numérisation, le transfert et la sauvegarde des formats d'enregistrement audiovisuel. Notre studio est équipé afin de convertir tout les supports obsolètes aux normes actuelles. Nous prenons en charge une multitude de formats amateurs et professionnels, analogiques et…",
@@ -26371,9 +26418,9 @@
     "id": "e1f2382e-72f5-5861-826f-5387cd49aa9a"
   },
   {
-    "id": "b4da18cc-2e49-5ada-b790-f6048193c9ba",
+    "id": "144822d7-50ca-5af0-ad19-dba57c92e5db",
     "title": "Fragments #1 / La Revue | Fragments",
-    "url": "https://blog.ooblik.com/2016/fragments-1-la-revue-fragments",
+    "url": "http://www.fragments.re/",
     "category": "Design & Création",
     "added": "2016-06-25",
     "description": "regards photographiques sur l'océan indien\n\nSource : Fragments #1 / La Revue | Fragments",
@@ -27099,9 +27146,9 @@
     "id": "4f0a6507-5e9f-51e3-bf70-360f2a7ba232"
   },
   {
-    "id": "4e0c7a8b-3d7f-598e-b368-af1e9420d44e",
+    "id": "e52ff3d8-d74d-5a31-89f1-f973f6f68b86",
     "title": "Monsanto: A photographic Investigation (ongoing) — Mathieu Asselin",
-    "url": "https://blog.ooblik.com/2016/monsanto-a-photographic-investigation-ongoing-mathieu-asselin",
+    "url": "http://mathieuasselin.com/monsanto",
     "category": "Design & Création",
     "added": "2016-06-14",
     "description": "Photography, Mathieu, Asselin, Documentary, photo essay, Portrait\n\nSource : Monsanto: A photographic Investigation (ongoing) — Mathieu Asselin\n\nDUMMY AWARD KASSEL 2016 – The winning books!\n\nEnregistrer",
@@ -27416,9 +27463,9 @@
     "id": "23b19d64-3ec8-5bd3-b2d3-16e223382f9f"
   },
   {
-    "id": "59c7235b-f758-5981-9a7e-c6d22b566407",
+    "id": "9e671629-8168-5a36-aed7-f852690be305",
     "title": "L’Usure du Monde",
-    "url": "https://blog.ooblik.com/2016/lusure-du-monde",
+    "url": "http://www.fredericlecloux.com/portfolio/lusure-du-monde",
     "category": "Photographie",
     "added": "2016-06-10",
     "description": "Hommage à Nicolas Bouvier On croit qu’on va lire L’Usage du Monde, et bientôt c’est L’Usage du Monde qui vous lie. Ça commence comme ça : dans un premier temps vous ne pouvez plus rien lire d’autre, passe encore… mais bientôt vous ne pouvez plus rien lire du tout. Il y a chez Bouvier cette manière…",
@@ -27462,9 +27509,9 @@
     "id": "8fff6ca1-e8fa-51c6-b191-f3f8fef467b7"
   },
   {
-    "id": "d05c1919-9f96-547d-a02b-1c454bf0c0c4",
+    "id": "4c09afa5-e0fc-5761-a61a-68531d61aad0",
     "title": "Early Times – Édition standard « Chose Commune",
-    "url": "https://blog.ooblik.com/2016/early-times-edition-standard-chose-commune",
+    "url": "http://www.chosecommune.com/fr/book/early-times-edition-standard",
     "category": "Design & Création",
     "added": "2016-06-10",
     "description": "Source : Early Times – Édition standard « Chose Commune",
@@ -27869,9 +27916,9 @@
     "id": "22b10004-613f-5a43-9f75-86670e516e7d"
   },
   {
-    "id": "3a1d301e-440f-58f6-aed8-f959805f2588",
+    "id": "707bb389-6d83-5675-9150-ad6f79079666",
     "title": "Nacht auf der Sonne",
-    "url": "https://blog.ooblik.com/2016/nacht-auf-der-sonne",
+    "url": "http://www.phasesmag.com/jonas-feige/nacht-auf-der-sonne",
     "category": "Photographie",
     "added": "2016-05-24",
     "description": "Jonas Feige\n\nSource : Nacht auf der Sonne",
@@ -28280,9 +28327,9 @@
     "id": "1193fa07-7542-5959-9eb8-9ff5b7237587"
   },
   {
-    "id": "25cab9ca-bc70-5acb-bd52-e98de991b011",
+    "id": "1e3c47f2-1ffe-5568-9e45-f5d8f492c995",
     "title": "Tiago Casanova / Exhibition Views",
-    "url": "https://blog.ooblik.com/2016/tiago-casanova-exhibition-views",
+    "url": "http://www.tiagocasanova.com/",
     "category": "Photographie",
     "added": "2016-05-12",
     "description": "Photographic and Artistic Work\n\nSource : Tiago Casanova / Exhibition Views\n\nMagnifique...",
@@ -29837,9 +29884,9 @@
     "id": "103c567f-1086-58bc-917c-2fbf409d7832"
   },
   {
-    "id": "4adebb3b-483d-51b8-9a4b-6566dde31e72",
+    "id": "d2cd0691-254c-5cc8-976b-8e67694a1b80",
     "title": "Flux - Laurent Deglicourt",
-    "url": "https://blog.ooblik.com/2016/flux-laurent-deglicourt",
+    "url": "http://laurentdeglicourt.com/",
     "category": "Photographie",
     "added": "2016-04-21",
     "description": "Laurent Deglicourt photographies\n\nSource : Flux - Laurent Deglicourt",
@@ -29849,10 +29896,15 @@
     ],
     "tags": [
       "photographie",
-      "blog-ooblik"
+      "blog-ooblik",
+      "lien-mort"
     ],
     "origin_url": "https://blog.ooblik.com/2016/flux-laurent-deglicourt/",
-    "stream": "blog-ooblik"
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "Le domaine public d’origine ne répond plus au DNS. L’adresse est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_status": "missing"
   },
   {
     "title": "Twitter",
@@ -30405,9 +30457,9 @@
     "id": "16a86566-6a4e-5fc3-88c4-63cebbb472e2"
   },
   {
-    "id": "29fb5202-ee2f-59c6-b969-fd866f748531",
+    "id": "96c09271-3454-51bc-a1aa-002228966983",
     "title": "Le Petit Didier | blog",
-    "url": "https://blog.ooblik.com/2016/le-petit-didier-blog",
+    "url": "http://lepetitdidier-blog.tumblr.com/post/3103087528",
     "category": "Photographie",
     "added": "2016-04-04",
     "description": "http://lepetitdidier-blog.tumblr.com/post/3103087528",
@@ -30482,9 +30534,9 @@
     "id": "6c14c480-bff2-506b-8a92-6669af1758a9"
   },
   {
-    "id": "893fafbe-2652-57cd-8c56-35d74a9ce1d9",
+    "id": "d91d4202-1dfb-5fa6-8048-01167ee7a927",
     "title": "3 jours à Tharoul | 2014",
-    "url": "https://blog.ooblik.com/2016/3-jours-a-tharoul-2014",
+    "url": "http://www.pinomusi.com/3_jours_a_tharoul_2014-r7041",
     "category": "Design & Création",
     "added": "2016-04-04",
     "description": "Pino Musi - www.pinomusi.com\n\nhttp://www.pinomusi.com/3_jours_a_tharoul_2014-r7041",
@@ -30773,9 +30825,9 @@
     "id": "eb408213-35a6-562d-81a3-e1d230c4ad33"
   },
   {
-    "id": "d077d0a0-e20b-54df-a4f1-03cb9daaf87d",
+    "id": "2878ee67-e676-5a6f-9998-85604ebf2d00",
     "title": "Canon imagePROGRAF PRO-4000",
-    "url": "https://blog.ooblik.com/2016/canon-imageprograf-pro-4000",
+    "url": "http://www.canon.fr/for_work/products/professional_print/large_format/imageprograf_pro-4000",
     "category": "Photographie",
     "added": "2016-03-25",
     "description": "http://www.canon.fr/for_work/products/professional_print/large_format/imageprograf_pro-4000/\n\nLa prochaine belle à l'atelier...\n\nPoints forts\n\nL'utilisation des 12 encres LUCIA PRO produit à l'impression des couleurs plus riches et des noirs plus denses fidèles à vos images.\n\nUne nouvelle tête…",
@@ -31114,9 +31166,9 @@
     "id": "633e4f8e-db77-5aed-a17a-0cb71bd92940"
   },
   {
-    "id": "342daee9-b032-53d7-a9c2-ee085a7baf42",
+    "id": "b5dac26a-68af-59a7-b099-6ec7d88556c4",
     "title": "Mission & Vision | The Manuel Rivera-Ortiz Foundation for Documentary Photography",
-    "url": "https://blog.ooblik.com/2016/mission-vision-the-manuel-rivera-ortiz-foundation-for-documentary-photography",
+    "url": "http://mrofoundation.org/",
     "category": "Photographie",
     "added": "2016-03-21",
     "description": "The Manuel Rivera-Ortiz Foundation For Documentary Photography & Film Mission & Vision\n\nSource : Mission & Vision | The Manuel Rivera-Ortiz Foundation for Documentary Photography & FilmThe Manuel Rivera-Ortiz Foundation for Documentary Photography & Film",
@@ -31319,9 +31371,9 @@
     "id": "542034d5-d8a3-5924-ab1c-2187e1367a37"
   },
   {
-    "id": "884004f8-8a2b-5767-a3ac-d7b82c7a1514",
+    "id": "1c4c64ac-64d7-54d2-80b2-c92c1d9042a1",
     "title": "Mariya Ustymenko",
-    "url": "https://blog.ooblik.com/2016/mariya-ustymenko",
+    "url": "http://www.mariyaustymenko.com/",
     "category": "Design & Création",
     "added": "2016-03-20",
     "description": "Fear of Disappearance is a project that presents a very personal response to the fast changing landscape of London. It exists as an artist book (edition of 40), a zine (edition of 100), and a book sculpture (mild steel, concrete, laser engraved perspex, edition of 3).\n\nSource : Mariya Ustymenko",
@@ -31772,9 +31824,9 @@
     "id": "4ee9e641-0023-5b3a-9dcf-dde4c0e7e8b5"
   },
   {
-    "id": "35ed92d8-1cb9-540e-8417-0362f3e8aa48",
+    "id": "fd156e92-baef-52af-b49d-cc400252c931",
     "title": "Café Royal Books",
-    "url": "https://blog.ooblik.com/2016/cafe-royal-books",
+    "url": "http://www.caferoyalbooks.com/",
     "category": "Design & Création",
     "added": "2016-03-10",
     "description": "Café Royal Books. Photobooks, Photographic publications generally focussing on British Documentary from 1970.\n\nSource : Café Royal Books\n\nMagnifique maison d'édition de combat photographiques, suis fan...",
@@ -32020,9 +32072,9 @@
     "id": "1bf41dde-a0d9-5f4d-87b9-38a49a5b9269"
   },
   {
-    "id": "eceb349a-cb25-58dc-8fbc-9720c004a338",
+    "id": "7685a4d0-948c-5c4c-a5d3-148032025551",
     "title": "WARM INSIDE",
-    "url": "https://blog.ooblik.com/2016/warm-inside",
+    "url": "http://romyalizee.tumblr.com/",
     "category": "Photographie",
     "added": "2016-03-08",
     "description": "Source : WARM INSIDE",
@@ -32673,9 +32725,9 @@
     "id": "2d7e1eca-3d2b-5b5f-8aa5-8fd01a089db3"
   },
   {
-    "id": "96bc60ed-8af2-50bc-97ba-e01fec85a14c",
+    "id": "8ee8c3bb-33a1-58ad-9728-bb5daf4f6522",
     "title": "Bertrand Cavalier - On Paper",
-    "url": "https://blog.ooblik.com/2016/bertrand-cavalier-on-paper",
+    "url": "http://bertrandcavalier.com/",
     "category": "Photographie",
     "added": "2016-03-08",
     "description": "Bertrand Cavalier is a french photographer living and working in Belgium\n\nSource : Bertrand Cavalier - On Paper",
@@ -33879,9 +33931,9 @@
     "id": "7170ac66-201f-5c45-a7d3-f5394d2c4334"
   },
   {
-    "id": "4c742ef2-fea4-5dc6-888c-3ed93f8f66c0",
+    "id": "ddb3f390-8acf-5edb-bf10-4c9f8e5e70f2",
     "title": "roadside america - gaetan rossier photographer",
-    "url": "https://blog.ooblik.com/2016/roadside-america-gaetan-rossier-photographer",
+    "url": "http://gaetanrossier.tictail.com/product/marfa-tx",
     "category": "Photographie",
     "added": "2016-02-16",
     "description": "Source : roadside america - gaetan rossier photographer\n\nun livre photo est disponible ici : http://gaetanrossier.tictail.com/product/marfa-tx",
@@ -33891,10 +33943,17 @@
     ],
     "tags": [
       "photographie",
-      "blog-ooblik"
+      "blog-ooblik",
+      "lien-mort"
     ],
     "origin_url": "https://blog.ooblik.com/2016/roadside-america-gaetan-rossier-photographer/",
-    "stream": "blog-ooblik"
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "Le domaine public d’origine ne répond plus au DNS. L’adresse est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_url": "https://web.archive.org/web/20160330063254/http://gaetanrossier.tictail.com:80/product/marfa-tx",
+    "archive_timestamp": "20160330063254",
+    "archive_scope": "url"
   },
   {
     "title": "Instagram",
@@ -34141,9 +34200,9 @@
     "id": "a121b2ea-f47b-5f96-8ff7-c77de8c8afad"
   },
   {
-    "id": "58431dab-8934-5959-9c64-99fb59f76815",
+    "id": "8ccff1ce-8960-55b4-a783-0d626f0f6de3",
     "title": "\"La vie d'une femme née en 1939...\" - Annabel Werbrouck",
-    "url": "https://blog.ooblik.com/2016/la-vie-dune-femme-nee-en-1939-annabel-werbrouck",
+    "url": "http://www.annabelwerbrouck.be/projects/la-vie-dune-femme-nee-en-1939",
     "category": "Photographie",
     "added": "2016-02-15",
     "description": "\"La vie d'une femme née en 1939...\" - Annabel Werbrouck\n\nhttp://www.annabelwerbrouck.be/projects/la-vie-dune-femme-nee-en-1939/",
@@ -34153,10 +34212,15 @@
     ],
     "tags": [
       "photographie",
-      "blog-ooblik"
+      "blog-ooblik",
+      "lien-mort"
     ],
     "origin_url": "https://blog.ooblik.com/2016/la-vie-dune-femme-nee-en-1939-annabel-werbrouck/",
-    "stream": "blog-ooblik"
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "La destination renvoie aujourd’hui une erreur HTTP 404. L’adresse publique d’origine est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_status": "missing"
   },
   {
     "title": "Subfolio",
@@ -37393,9 +37457,9 @@
     "id": "7c5618dc-4c69-58c5-ae70-98e03e0fc397"
   },
   {
-    "id": "329b0ddb-0988-5887-9ae0-d2aec90675d3",
+    "id": "68e808d7-663e-5f80-a89b-a224ac185f90",
     "title": "REGRETS",
-    "url": "https://blog.ooblik.com/2015/regrets",
+    "url": "https://web.archive.org/web/20200126103745/http:/www.stefanomarchionini.com:80/regrets",
     "category": "Photographie",
     "added": "2015-12-17",
     "description": "personal website\n\nSource : REGRETS\n\nj'aime beaucoup...",
@@ -37813,9 +37877,9 @@
     "id": "ef2f26d7-f12d-5307-9f20-c7354f43d547"
   },
   {
-    "id": "b5f6c6fe-187d-5e6e-9d6b-87fc87f3b0e6",
+    "id": "995fedf4-66ce-575c-a5eb-312f22f7b128",
     "title": "WordPress › WordPress 4.4 “Clifford”",
-    "url": "https://blog.ooblik.com/2015/wordpress-wordpress-4-4-clifford",
+    "url": "https://wordpress.org/news/2015/12/clifford",
     "category": "Archives du blog OOBLIK",
     "added": "2015-12-09",
     "description": "4.4 of WordPress, named “Clifford”\n\nSource : WordPress › WordPress 4.4 “Clifford”\n\nClifford est là... 4.4 pour Wordpress",
@@ -38394,9 +38458,9 @@
     "id": "2fb35acc-b86b-5e8b-8720-ccbf3b48f4f9"
   },
   {
-    "id": "0b96eaa1-c3eb-5d5e-b8b3-2be972a920cb",
+    "id": "b4e846b4-bb82-5765-aac0-b742c45c649c",
     "title": "Gilles Berquet",
-    "url": "https://blog.ooblik.com/2015/gilles-berquet",
+    "url": "http://gillesberquet.tumblr.com/",
     "category": "Photographie",
     "added": "2015-12-03",
     "description": "La photographie ultime, montrer sans voir, masquer en transparence, évoquer plus que montrer, ombre et lumière, érotisme visuel total.\n\nSon univers est monstrueusement beau, à découvrir sur son site : http://gillesberquet.tumblr.com/",
@@ -38710,9 +38774,9 @@
     "id": "166e9bfe-fa13-51b7-ac3e-7a29894c2475"
   },
   {
-    "id": "a21f473b-b6ae-55f6-b702-31c22bc5b858",
+    "id": "28593645-3b43-5dc2-9b59-006a92686afa",
     "title": "WordPress.com - A control panel for your desktop",
-    "url": "https://blog.ooblik.com/2015/wordpress-com-a-control-panel-for-your-desktop",
+    "url": "https://desktop.wordpress.com/",
     "category": "Archives du blog OOBLIK",
     "added": "2015-11-24",
     "description": "A control panel for your desktop\n\nSource : WordPress.com - A control panel for your desktop\n\nUne application pour publier sur son blog Wordpress!\n\nUniquement pour Mac pour l'instant...",
@@ -39054,9 +39118,9 @@
     "id": "846b6f28-90ab-5fff-b59c-9bda1034f72c"
   },
   {
-    "id": "a54d390b-219c-5a24-9dae-f7a1212e0e93",
+    "id": "016b0ae3-f87d-5abe-acf4-1c2f534852d3",
     "title": "amanasalto",
-    "url": "https://blog.ooblik.com/2015/amanasalto",
+    "url": "http://amanasalto.com/fr/portfolio-prints-fr",
     "category": "Photographie",
     "added": "2015-11-20",
     "description": "アマナサルトは、世界最大級のプラチナプリント工房を構え、著名作家や企業との高品質ポートフォリオ、エディションプリント、写真集の企画、制作、販売等を行なうプレミアム出版事業を展開しています。\n\nSource : PORTFOLIO / PRINTS | amanasalto\n\nle nec plus ultra en tirage...",
@@ -42021,9 +42085,9 @@
     "id": "b7d1cd71-bdcf-5e97-8587-f929379667ae"
   },
   {
-    "id": "6ad0113e-5d3d-5b9a-bcf0-2f6f85b50732",
+    "id": "a03508c6-57e4-592b-a91f-17b27a7d67c2",
     "title": "Sony RX1R II",
-    "url": "https://blog.ooblik.com/2015/sony-rx1r-ii",
+    "url": "http://www.focus-numerique.com/test-2692/compact-sony-rx1r-II-presentation-caracteristiques-1.html",
     "category": "Photographie",
     "added": "2015-10-14",
     "description": "> http://www.focus-numerique.com/test-2692/compact-sony-rx1r-II-presentation-caracteristiques-1.html\n\nbon, Sony a encore innové & amélioré sa gamme RX avec ce nouveau petit bijoux...capteur 35mm, 42 Megapixel, focale fixe 35 mm f/2, avec un prix \"expert\" aussi, à suivre en novembre!\n\nSENSOR TYPE35…",
@@ -43844,9 +43908,9 @@
     "id": "b097d956-2d94-5a51-b7ed-b280d7f7c207"
   },
   {
-    "id": "145ccd04-5f63-5ed6-af53-8c6001a03507",
+    "id": "316f298b-1556-5ac7-9fc4-65f18fd61960",
     "title": "Atelier du Cartonnage",
-    "url": "https://blog.ooblik.com/2015/atelier-du-cartonnage",
+    "url": "http://atelierducartonnage.fr/",
     "category": "Design & Création",
     "added": "2015-09-23",
     "description": "Atelier du Cartonnage, Justine Delval\n\nSource : Atelier du Cartonnage\n\nPour faire de magnifique boite/portfolio sur mesure....",
@@ -44391,9 +44455,9 @@
     "id": "e538613e-7c01-5d23-802d-ffde4203182e"
   },
   {
-    "id": "9acf651f-9f21-5dd3-82c3-da7bebfd5b5d",
+    "id": "b36cd17b-59fd-598f-a98d-a519f018cd03",
     "title": "Autour du Tracé: Prespa : Stephanos Mangriotis",
-    "url": "https://blog.ooblik.com/2015/stephanos-mangriotis",
+    "url": "https://web.archive.org/web/20220203153713/http:/www.stephanosmangriotis.com",
     "category": "Photographie",
     "added": "2015-09-17",
     "description": "site de Stephanos Mangriotis\n\nSource : Autour du Tracé: Prespa : Stephanos Mangriotis",
@@ -44658,9 +44722,9 @@
     "id": "c000c517-08ad-5121-8b70-9bd38a082403"
   },
   {
-    "id": "c064bffa-cc1b-588c-ae70-bb7e334a9a8d",
+    "id": "fbb70306-d599-5657-8a8b-9226b8378a6f",
     "title": "Trevor Paglen :::: WORK :: DRONES",
-    "url": "https://blog.ooblik.com/2015/trevor-paglen-work-drones",
+    "url": "http://www.paglen.com/",
     "category": "Photographie",
     "added": "2015-09-14",
     "description": "www.facebook.com/paglen\n\nSource : Trevor Paglen :::: WORK :: DRONES",
@@ -45098,9 +45162,9 @@
     "id": "c367b4d2-b051-5183-96c5-bbd2065c4b9f"
   },
   {
-    "id": "7a2ec9fd-42ee-5cbe-a03e-0040c2dbb9e8",
+    "id": "2235a9eb-aa77-5e61-90c7-144424de24ca",
     "title": "KIBLIND",
-    "url": "https://blog.ooblik.com/2015/kiblind",
+    "url": "http://www.kiblind.com/",
     "category": "Archives du blog OOBLIK",
     "added": "2015-09-09",
     "description": "on aime KIBLIND !",
@@ -45265,9 +45329,9 @@
     "id": "727815ca-50eb-54b1-ade2-fabfe86a9b4b"
   },
   {
-    "id": "842c50e2-a925-5871-8c68-674a6c0ed8bf",
+    "id": "2fff4f42-06a9-5657-8815-f88f2ec03c0c",
     "title": "imaginary of a bay",
-    "url": "https://blog.ooblik.com/2015/imaginary-of-a-bay",
+    "url": "http://clairedorn.com/index.php/projects/imaginary-of-a-bay",
     "category": "Photographie",
     "added": "2015-09-08",
     "description": "claire dorn\n\nSource : imaginary of a bay : www.clairedorn.com\n\nmagnifique...",
@@ -45277,10 +45341,17 @@
     ],
     "tags": [
       "photographie",
-      "blog-ooblik"
+      "blog-ooblik",
+      "lien-mort"
     ],
     "origin_url": "https://blog.ooblik.com/2015/imaginary-of-a-bay/",
-    "stream": "blog-ooblik"
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "La destination renvoie aujourd’hui une erreur HTTP 404. L’adresse publique d’origine est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_url": "https://web.archive.org/web/20240622154138/http://clairedorn.com/index.php/projects/imaginary-of-a-bay/",
+    "archive_timestamp": "20240622154138",
+    "archive_scope": "url"
   },
   {
     "title": "Chris ✈ on Twitter: \"Sur l'image, il y a quelqu'un qui fait marrer les français à chaque prise de parole. Et au 1er plan,il y a @Guy_Bedos http://t.co/d3Fh3ieZBF\"",
@@ -45814,9 +45885,9 @@
     "id": "2ed4bf7f-052f-53b2-882e-24d9ea4beeb6"
   },
   {
-    "id": "267f06ae-5f61-5aa2-806d-5d8a0ca32803",
+    "id": "1afb5487-66a4-52bc-a519-c4232a28ca41",
     "title": "Fontstand",
-    "url": "https://blog.ooblik.com/2015/fontstand",
+    "url": "https://fontstand.com/",
     "category": "Archives du blog OOBLIK",
     "added": "2015-09-02",
     "description": "Fontstand allows trying fonts for free or renting them by the month for desktop use for just a fraction of the regular price.\n\nSource : Fontstand — try fonts for free or rent them\n\nNouvel outil de gestion des typos sur OS X",
@@ -46894,9 +46965,9 @@
     "id": "53e04e48-c1a0-5007-8e4b-2d2fbbfd6a6b"
   },
   {
-    "id": "e7584250-bc03-5312-8608-0edbbfd9cffc",
+    "id": "13f75d36-5267-562c-ab38-f2426c1709a4",
     "title": "Beautiful calculator for Mac",
-    "url": "https://blog.ooblik.com/2015/beautiful-calculator-for-mac",
+    "url": "http://numi.io/",
     "category": "Archives du blog OOBLIK",
     "added": "2015-08-19",
     "description": "Numi is a beautiful text calculator for Mac.\n\nSource : http://numi.io ‒ Beautiful calculator for Mac",
@@ -48389,9 +48460,9 @@
     "id": "648b3a69-cf81-5085-8054-12d5441f4380"
   },
   {
-    "id": "1f1fe362-7bad-58c3-9761-fd2c9624a5cc",
+    "id": "59b9cadf-e382-5953-be80-56c48412fd82",
     "title": "FANZINE PARADE",
-    "url": "https://blog.ooblik.com/2015/fanzine-parade",
+    "url": "http://paradeparadeparade.tumblr.com/",
     "category": "Photographie",
     "added": "2015-07-14",
     "description": "Edition dessinée paradefanzine@gmail.com☺ PARADE est une revue dessinée, un espace d’expérimentation autour du dessin, de la bande dessiné et de l’illustration.\n\nSource : FANZINE PARADE",
@@ -48478,9 +48549,9 @@
     "id": "aa8e8174-a59d-5d77-b8dc-4a89a4b68a6a"
   },
   {
-    "id": "3f2ca4b7-3b0a-52ee-8fba-19cf777b510a",
+    "id": "1b1b080f-6039-5757-b12c-6704fd4b98e6",
     "title": "Fables — Altérité",
-    "url": "https://blog.ooblik.com/2015/fables-alterite",
+    "url": "http://studiofables.com/",
     "category": "Photographie",
     "added": "2015-07-14",
     "description": "Design graphique d’un objet éditorial présentant la charte méthodologique et conceptuelle pour la réalisation des futurs spas Evian.\n\nSource : Fables — Altérité",
@@ -49067,9 +49138,9 @@
     "id": "773ad63a-4042-5a76-808e-58273f2ec62a"
   },
   {
-    "id": "1dbf4cfb-d2be-508d-bfbf-695154a20c3f",
+    "id": "4b7a09ae-3b3c-5ff8-84fe-fc03dd832e94",
     "title": "VTF Bluu, bold typeface - jbmorizot",
-    "url": "https://blog.ooblik.com/2015/vtf-bluu-bold-typeface-jbmorizot",
+    "url": "https://github.com/velvetyne/BluuNext",
     "category": "Archives du blog OOBLIK",
     "added": "2015-07-07",
     "description": "Jean-Baptiste Morizot typography graphic design\n\nSource : VTF Bluu, bold typeface - jbmorizot\n\n+ le site du créateur de la typo BLUU (utilisée pour 11 Médaillons)",
@@ -49286,9 +49357,9 @@
     "id": "82f93306-0f27-5c94-b3a9-b479b8ded924"
   },
   {
-    "id": "8bda2dec-2a18-5049-8536-0eaa922aa017",
+    "id": "530d2f42-54fc-5b2b-b392-18a653551417",
     "title": "The Man Who Saw America",
-    "url": "https://blog.ooblik.com/2015/the-man-who-saw-america",
+    "url": "http://www.nytimes.com/2015/07/05/magazine/robert-franks-america.html",
     "category": "Photographie",
     "added": "2015-07-06",
     "description": "Looking back with Robert Frank, the most influential photographer alive.\n\nSource : The Man Who Saw America - The New York Times\n\nUn très beau papier sur un très grand photographe...",
@@ -51828,9 +51899,9 @@
     "id": "00dc2569-4868-5a39-a808-1bdf13d94380"
   },
   {
-    "id": "8da7b932-8cf5-56e3-a966-8ff07ee0d061",
+    "id": "71e13de0-6640-55a5-b1ce-f17e2e66e526",
     "title": "LA GARE - Cyprien Mouchel",
-    "url": "https://blog.ooblik.com/2015/la-gare-cyprien-mouchel",
+    "url": "http://cyprienmouchel.fr/LA-GARE",
     "category": "Archives du blog OOBLIK",
     "added": "2015-06-11",
     "description": "Cyprien Mouchel - Artisan ébéniste créateur de mobilier / saint malo\n\nSource : LA GARE - Cyprien Mouchel - Artisan ébéniste créateur de mobilier / Saint Malo\n\nQuand la typo INFINI sublime une table magnifique...",
@@ -53488,9 +53559,9 @@
     "id": "c1967a25-0917-5a74-99cf-f185b504f5ce"
   },
   {
-    "id": "71deee7a-4662-57c2-b2a1-f14112999b3b",
+    "id": "1c8de9dd-00eb-554d-9838-63538a200708",
     "title": "Nice architects",
-    "url": "https://blog.ooblik.com/2015/nice-architects",
+    "url": "http://www.nicearchitects.sk/",
     "category": "Archives du blog OOBLIK",
     "added": "2015-05-28",
     "description": "Source : Nice architects\n\nle comble du camping...",
@@ -53585,9 +53656,9 @@
     "id": "ae58c596-24f7-5258-9445-7eae08d99729"
   },
   {
-    "id": "3a7e8047-8c47-582d-b45a-cdb89ecd612f",
+    "id": "ef3b1c18-9aae-5c80-aced-910203a7bec1",
     "title": "Le métier de photographe",
-    "url": "https://blog.ooblik.com/2015/le-metier-de-photographe",
+    "url": "https://web.archive.org/web/20160816015327/http:/www.culturecommunication.gouv.fr:80/Politiques-ministerielles/Etudes-et-statistiques/Publications/Collections-de-synthese/Culture-etudes-2007-2015/Le-metier-de-photographe-CE-2015-3",
     "category": "Photographie",
     "added": "2015-05-28",
     "description": "Claude VAUCLARE, Rémi DEBEAUVAIS\n\nmai 2015 / 22 pages.\n\nSource : Le métier de photographe [CE-2015-3] - Études et statistiques - Ministère de la Culture et de la Communication\n\nLE rapport sur le métier de photographe, par le Ministère de la Culture.",
@@ -54658,9 +54729,9 @@
     "id": "f91481d6-a26a-5aa0-b170-fb2b6050dc75"
   },
   {
-    "id": "76791305-2aff-5faf-8769-d494a01d48c6",
+    "id": "bd8033f0-a30a-5121-b6d1-8eaa28276001",
     "title": "Atem | YARDPRESS",
-    "url": "https://blog.ooblik.com/2015/atem-yardpress",
+    "url": "http://www.yardpress.it/atem",
     "category": "Design & Création",
     "added": "2015-05-20",
     "description": "In agreement with the author, who does not feel his production strictly related to the book format and who thinks photography is a mutable and manifold matter, we publish a book free of the precepts that habitually regulate the flux of its content and the usual relations between the photographs…",
@@ -54786,9 +54857,9 @@
     "id": "7a7d8827-7e02-5b35-8fa3-6114407a8dbe"
   },
   {
-    "id": "d8ef0b94-ba65-525c-92f4-cca4587ac689",
+    "id": "4f40e8ce-ffdb-530c-99e8-680fe28f75fe",
     "title": "Adwares sous Mac OS X",
-    "url": "https://blog.ooblik.com/2015/adwares-sous-mac-os-x",
+    "url": "http://www.commentcamarche.net/faq/42627-adwares-pubs-intempestives-sous-mac-os-x",
     "category": "Photographie",
     "added": "2015-05-19",
     "description": "Source : Adwares, Pubs intempestives sous Mac OS X\n\nJe me suis fais \"pourrir\" le mac par Spigot ... j'ai du ruser pour le traquer et le supprimer...du coup, un petit tuto pratique à suivre si ça vous arrive !\n\nUn utilitaire super pratique Adwaremedic (donationware) à télécharger ici :…",
@@ -55725,9 +55796,9 @@
     "id": "09d548e0-055e-55e0-97fa-695050acc39a"
   },
   {
-    "id": "dbab2ce0-309d-5788-8baa-73f617c4d253",
+    "id": "0e23c933-5f1e-5e5b-8a42-45b95907f77b",
     "title": "Vincent Serbin",
-    "url": "https://blog.ooblik.com/2015/vincent-serbin",
+    "url": "http://www.vincentserbinphotography.com/",
     "category": "Photographie",
     "added": "2015-05-11",
     "description": "Site : vincent-serbin--5 | architecture 1997 - 2003\n\nJ'aime...",
@@ -55737,10 +55808,15 @@
     ],
     "tags": [
       "photographie",
-      "blog-ooblik"
+      "blog-ooblik",
+      "lien-mort"
     ],
     "origin_url": "https://blog.ooblik.com/2015/vincent-serbin/",
-    "stream": "blog-ooblik"
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "La destination renvoie aujourd’hui une erreur HTTP 404. L’adresse publique d’origine est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_status": "missing"
   },
   {
     "title": "VERSUS THE END. THE CONVERSATION CAN BEGIN - Atelier OOBLIK",
@@ -56551,9 +56627,9 @@
     "id": "aedbce71-5e6e-53b3-87fc-54595646a373"
   },
   {
-    "id": "cfd32503-5aca-5db3-b753-03b518f79d20",
+    "id": "2ccd7afd-65a8-566c-8672-defef3e12be2",
     "title": "Please Hold the Line - Laurent Millet - Phases Magazine",
-    "url": "https://blog.ooblik.com/2015/please-hold-the-line-laurent-millet-phases-magazine",
+    "url": "http://www.phasesmag.com/please-hold-the-line",
     "category": "Photographie",
     "added": "2015-05-03",
     "description": "Laurent Millet\n\nSource : Please Hold the Line - Laurent Millet - Phases Magazine\n\npoésie pure.",
@@ -56828,9 +56904,9 @@
     "id": "eba8adf1-5aa9-585d-bb21-1afb89fc9e0c"
   },
   {
-    "id": "8ed48d88-fe7b-52b9-9abc-f30dad80d0f0",
+    "id": "ee7496dc-f960-52d5-b922-37b440ec0e99",
     "title": "RUMEUR: Sony A7R II 59MP",
-    "url": "https://blog.ooblik.com/2015/rumeur-sony-a7r-ii-59mp",
+    "url": "http://www.eoshd.com/2015/04/update-sony-a7r-ii-confirmed-by-exif-data-full-resolution-is-9440x6300-59mp",
     "category": "Photographie",
     "added": "2015-04-30",
     "description": "On the EOSHD forum a second image, supposibly from the A7R II has been pointed out. This one has full EXIF data and shows the camera model as A7R II, resolution 59MP and the lens used in this case is the 55mm F1.8 FE mount. The image certainly looks like a real 59MP image.\n\nSource : UPDATE: Sony…",
@@ -56952,9 +57028,9 @@
     "id": "8d74ac05-e931-5a7e-9bbe-af71d37c6f36"
   },
   {
-    "id": "444d27c7-1330-5028-b0e8-55542ad6f59e",
+    "id": "67c72551-a27c-5d8b-aab2-e4cb9227ff2c",
     "title": "Leica M Monochrom (new)",
-    "url": "https://blog.ooblik.com/2015/leica-m-monochrom-new",
+    "url": "http://fr.leica-camera.com/",
     "category": "Photographie",
     "added": "2015-04-30",
     "description": "Root Corposite Photographie LEICA M LEICA M MONOCHROM\n\nSource : Leica M Monochrom // LEICA M // Photographie - Leica Camera AG\n\nLe comble du luxe numérique, un appareil télémétrique sans pastille rouge…je le VEUX!",
@@ -57413,9 +57489,9 @@
     ]
   },
   {
-    "id": "43907295-9ac9-590b-a6b4-79c449c0d867",
+    "id": "60aac53b-6435-55ca-ab10-9731343a41a2",
     "title": "Comparaison V750 / iQsmart 3",
-    "url": "https://blog.ooblik.com/2015/comparaison-v750-iqsmart-3",
+    "url": "http://atelier.ooblik.com/actualites/comparaison-v750-iqsmart-3",
     "category": "Photographie",
     "added": "2015-04-28",
     "description": "\"Comparaison n'est pas raison\"...mais quand même, de temps en temps, il est bon de rappeler qu'une numérisation de film argentique peut s'avérer désastreuse vu les limitations des scanners utilisés.\n\nEn l'occurrence, à l'atelier nous avons un iQsmart3 et un V750 sous la main, pour deux usages très…",
