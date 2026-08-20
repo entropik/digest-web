@@ -49,6 +49,8 @@
   const modalTitle = document.querySelector("#digest-modal-title");
   const modalCategory = document.querySelector("#digest-modal-category");
   const modalDescription = document.querySelector("#digest-modal-description");
+  const modalArchive = document.querySelector("#digest-modal-archive");
+  const modalArchiveText = document.querySelector("#digest-modal-archive-text");
   const modalImage = document.querySelector("#digest-modal-image");
   const modalTags = document.querySelector("#digest-modal-tags");
   const modalTagRoutes = document.querySelector("#digest-tag-routes");
@@ -101,6 +103,7 @@
     url: entry.u,
     category: entry.c,
     description: entry.d || "",
+    archive_text: entry.x || "",
     tags: entry.g || [],
     added: entry.a,
     stream: entry.m || "",
@@ -261,6 +264,7 @@
         link.url,
         getHost(link.url),
         link.description,
+        link.archive_text,
         link.status,
         link.status_note,
         ...(link.tags || []),
@@ -701,6 +705,8 @@
     modalDescription.textContent =
       [link.status_note, link.description].filter(Boolean).join(" ") ||
       "Aucun résumé n’est encore disponible pour cette ressource.";
+    modalArchive.hidden = !link.archive_text;
+    modalArchiveText.textContent = link.archive_text || "";
     modalImage.hidden = !link.image;
     if (link.image) {
       modalImage.src = link.image;

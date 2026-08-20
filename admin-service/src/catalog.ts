@@ -7,6 +7,8 @@ export type DigestLink = {
   category: string;
   added: string;
   description?: string;
+  archive_text?: string;
+  archive_tags?: string[];
   tags?: string[];
   image?: string;
   image_alt?: string;
@@ -57,6 +59,19 @@ export const parseCatalog = (text: string): DigestLink[] => {
       (typeof link.image_alt !== "string" || link.image === undefined)
     ) {
       throw new Error(`Catalog item ${index} has an invalid image_alt`);
+    }
+    if (
+      link.archive_text !== undefined &&
+      (typeof link.archive_text !== "string" || !link.archive_text.trim())
+    ) {
+      throw new Error(`Catalog item ${index} has an invalid archive_text`);
+    }
+    if (
+      link.archive_tags !== undefined &&
+      (!Array.isArray(link.archive_tags) ||
+        link.archive_tags.some((tag) => typeof tag !== "string" || !tag.trim()))
+    ) {
+      throw new Error(`Catalog item ${index} has invalid archive_tags`);
     }
     if (link.origin_url !== undefined) {
       try {

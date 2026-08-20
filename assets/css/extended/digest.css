@@ -1578,6 +1578,29 @@ html {
   line-height: 1.6;
 }
 
+.digest-modal-archive {
+  max-width: 760px;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--digest-line);
+}
+
+.digest-modal-archive-label {
+  margin: 0 0 1rem;
+  color: var(--digest-accent);
+  font-family: var(--digest-font-body);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.digest-modal-archive-text {
+  color: var(--digest-ink);
+  font-size: 1rem;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
 .digest-modal-tags {
   margin-top: 1.4rem;
 }

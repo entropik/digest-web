@@ -6,12 +6,21 @@ import sharp from "sharp";
 
 import type { DigestLink } from "../src/catalog.js";
 import {
+  archiveAllRemainingWordpressPosts,
+  archiveUnresolvedWordpressPosts,
+  buildWordpressRecoveryReport,
+  buildWordpressValidationReport,
+  renderWordpressRecoveryHtml,
+  renderWordpressValidationHtml,
+} from "../src/wordpress-recovery.js";
+import {
   BLOG_ARCHIVE_CATEGORY,
   BLOG_ARCHIVE_STREAM,
   buildWordpressImportPreview,
   optimizeWordpressImage,
   parseWordpressExport,
   wordpressDigestCategory,
+  wordpressFallbackSourceLinks,
   wordpressMediaRelativePath,
   wordpressImagePath,
 } from "../src/wordpress-import.js";
@@ -34,6 +43,7 @@ test("WXR parsing keeps published posts, sources, taxonomy and image priority", 
   assert.equal(posts.length, 7);
   const normal = posts.find((post) => post.wordpressId === "101");
   assert.deepEqual(normal?.sourceUrls, ["https://normal.example/project"]);
+  assert.match(normal?.archiveText ?? "", /Source : Projet normal/);
   assert.equal(normal?.imageUrl.endsWith("featured.jpg"), true);
   assert.equal(normal?.imageAlt, "Alt WordPress");
   assert.equal(normal?.description, "Une description propre.");
@@ -143,4 +153,119 @@ test("FTP media paths stay inside wp-content uploads", () => {
       ),
     /(UNSAFE_IMAGE_PATH|IMAGE_OUTSIDE_UPLOADS)/,
   );
+});
+
+test("fallback recovery finds ordinary links and cleans legacy embeds", () => {
+  assert.deepEqual(
+    wordpressFallbackSourceLinks(
+      '<p><a href="https://example.com/page?utm_source=blog">Voir</a></p><p>https://vimeo.com/42[/embed]</p>',
+      "blog.ooblik.com",
+    ),
+    ["https://example.com/page", "https://vimeo.com/42"],
+  );
+  assert.deepEqual(
+    wordpressFallbackSourceLinks(
+      '<a href="http://127.0.0.1/admin">Privé</a><a href="https://blog.ooblik.com/interne/">Interne</a>',
+      "blog.ooblik.com",
+    ),
+    [],
+  );
+});
+
+test("recovery report separates unique suggestions from unresolved review", async () => {
+  const xml = (await fixture()).replace(
+    "<p>Texte seul.</p>",
+    '<p><a href="https://candidate.example/projet">Projet probable</a></p>',
+  );
+  const report = buildWordpressRecoveryReport({
+    xml,
+    currentLinks: [duplicate],
+  });
+  assert.equal(report.missing_source, 1);
+  assert.equal(report.unique[0]?.wordpress_id, "103");
+  assert.deepEqual(report.unique[0]?.candidates, ["https://candidate.example/projet"]);
+  assert.equal(report.unresolved.length, 0);
+  const html = renderWordpressRecoveryHtml({
+    ...report,
+    unique: [],
+    unresolved: report.unique,
+  });
+  assert.match(html, /Billets sans source/);
+  assert.match(html, /Exporter overrides\.json/);
+  assert.match(html, /candidate\.example/);
+  assert.doesNotMatch(html, /<script[^>]*>[^<]*<\/script><script>/);
+});
+
+test("unresolved posts can be archived under their WordPress permalink", async () => {
+  const xml = (await fixture()).replace(
+    "<wp:post_id>103</wp:post_id>",
+    '<category domain="post_tag"><![CDATA[Ancien tag libre]]></category><wp:post_id>103</wp:post_id>',
+  );
+  const report = buildWordpressRecoveryReport({ xml, currentLinks: [] });
+  const overrides = archiveUnresolvedWordpressPosts(report);
+  assert.deepEqual(overrides, {
+    "103": { source_url: "https://blog.ooblik.com/2023/sans-source/" },
+  });
+  const preview = buildWordpressImportPreview({
+    xml,
+    currentLinks: [],
+    overrides,
+  });
+  assert.deepEqual(
+    preview.ready.find((item) => item.wordpress_id === "103")?.link.archive_tags,
+    ["Ancien tag libre"],
+  );
+  assert.equal(
+    preview.review.some((item) => item.wordpress_id === "103"),
+    false,
+  );
+  assert.equal(
+    parseWordpressExport(xml).find((post) => post.wordpressId === "103")
+      ?.description,
+    "Texte seul.",
+  );
+});
+
+test("validation review combines detected candidates and existing overrides", async () => {
+  const xml = (await fixture()).replace(
+    "<p>Texte seul.</p>",
+    '<p><a href="https://candidate.example/projet">Projet probable</a></p>',
+  );
+  const report = buildWordpressValidationReport({
+    xml,
+    currentLinks: [duplicate],
+    overrides: { "999": { skip: true } },
+  });
+  const candidate = report.items.find((item) => item.wordpress_id === "103");
+  assert.deepEqual(candidate?.candidates, ["https://candidate.example/projet"]);
+  assert.deepEqual(report.base_overrides, { "999": { skip: true } });
+  const html = renderWordpressValidationHtml(report);
+  assert.match(html, /Destinations à valider/);
+  assert.match(html, /Archiver tel quel/);
+  assert.match(html, /candidate\.example/);
+  assert.match(html, /merged=\{\.\.\.base,\.\.\.decisions\}/);
+  const scripts = [...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)];
+  assert.doesNotThrow(() => new Function(scripts.at(-1)?.[1] ?? ""));
+});
+
+test("all remaining real posts can be archived while the WordPress sample is skipped", async () => {
+  const xml = (await fixture()).replace(
+    "<wp:post_id>103</wp:post_id>",
+    '<category domain="post_tag"><![CDATA[Ancien tag libre]]></category><wp:post_id>103</wp:post_id>',
+  );
+  const withDefault = xml.replace(
+    "</channel>",
+    '<item><title>Bonjour tout le monde !</title><link>https://blog.ooblik.com/bonjour/</link><content:encoded><![CDATA[Bienvenue.]]></content:encoded><excerpt:encoded><![CDATA[]]></excerpt:encoded><wp:post_id>1</wp:post_id><wp:post_name>bonjour</wp:post_name><wp:post_date>2023-01-01 10:00:00</wp:post_date><wp:post_type>post</wp:post_type><wp:status>publish</wp:status></item></channel>',
+  );
+  const overrides = archiveAllRemainingWordpressPosts({
+    xml: withDefault,
+    currentLinks: [duplicate],
+  });
+  assert.deepEqual(overrides["1"], { skip: true });
+  assert.deepEqual(overrides["103"], {
+    source_url: "https://blog.ooblik.com/2023/sans-source/",
+  });
+  assert.deepEqual(overrides["106"], {
+    source_url: "https://blog.ooblik.com/2023/doublon/",
+  });
 });

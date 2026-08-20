@@ -22,6 +22,7 @@ const valueAfter = (name: string): string | undefined => {
 };
 
 const apply = args.includes("--apply");
+const skipImages = args.includes("--skip-images");
 const inputPath = resolve(valueAfter("--input") ?? "../import/wordpress/export.xml");
 const workDirectory = resolve(valueAfter("--workdir") ?? dirname(inputPath));
 const siteRoot = resolve(valueAfter("--site") ?? "..");
@@ -163,7 +164,9 @@ const processImages = async (): Promise<void> => {
     }
   }
 };
-await Promise.all(Array.from({ length: 4 }, () => processImages()));
+if (!skipImages) {
+  await Promise.all(Array.from({ length: 4 }, () => processImages()));
+}
 
 const importedById = new Map(preview.ready.map((item) => [item.link.id, item.link]));
 const finalCatalog: DigestLink[] = preview.catalog.map(
@@ -173,6 +176,7 @@ const report = {
   mode: apply ? "apply" : "preview",
   input: inputPath,
   media_root: mediaRoot,
+  images_skipped: skipImages,
   ready: preview.ready.length,
   new_links: preview.ready.filter((item) => !item.existing).length,
   existing_imports: preview.ready.filter((item) => item.existing).length,

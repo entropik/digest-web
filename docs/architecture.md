@@ -79,6 +79,37 @@ catégorie Digest `Photographie`; `Livre / Book` rejoint `Design & Création`.
 Une catégorie photographique est prioritaire sur le format livre. Les
 taxonomies sans correspondance restent dans `Archives du blog OOBLIK`.
 
+Pour les billets sans bloc « Source », la commande `npm --prefix
+admin-service run recover:wordpress -- --input <export.xml>` analyse les liens
+externes encore présents dans le contenu. Elle sépare les destinations uniques,
+les cas ambigus et les billets sans aucune piste, puis produit
+`recovery-report.json` et une revue locale autonome `recovery-review.html`.
+Cette page mémorise les décisions dans le navigateur et exporte un
+`overrides.json` compatible avec l’importeur. Elle ne publie et ne modifie
+aucune donnée du Digest.
+
+Le texte intégral nettoyé de chaque billet WXR est conservé dans le champ
+facultatif `archive_text`, y compris lors de la mise à jour d’un billet déjà
+importé. Le résumé de carte reste limité à 300 caractères ; le texte complet
+est affiché séparément dans la modale. Les billets réellement dépourvus de
+destination externe peuvent être archivés sous leur permalink WordPress avec
+`recover:wordpress -- --archive-unresolved`. Le billet WordPress d’exemple
+reste exclu.
+
+La même commande produit `validation-review.html` pour tous les billets encore
+bloqués. Cette seconde revue présente les destinations détectées, les
+redirections inter-domaines et les sources ambiguës. Elle permet de choisir une
+piste, de saisir une URL, d’archiver le billet sous son permalink ou de
+l’ignorer. Son export fusionne les nouvelles décisions avec les overrides déjà
+acquis afin de ne jamais perdre une passe précédente.
+
+Lorsque le billet WordPress lui-même devient l’objet archivé, les ambiguïtés de
+destination externe ne sont plus bloquantes. L’option
+`--archive-all-remaining` conserve alors chaque billet restant sous son
+permalink, y compris ceux dont la destination externe existe déjà dans le
+Digest. Seul le billet WordPress automatique « Bonjour tout le monde » est
+ignoré.
+
 Quand l’hébergeur bloque les téléchargements automatisés, la copie FTP locale
 `import-blog/uploads` est détectée automatiquement ; `--media-root
 <wp-content/uploads>` permet d’en choisir une autre. L’importeur fait

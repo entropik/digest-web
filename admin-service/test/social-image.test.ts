@@ -207,6 +207,7 @@ test("the home loads its compact search index only when interaction needs it", a
   assert.match(layout, /"m" \(\.stream \| default ""\)/);
   assert.match(layout, /dict "p" \.image "l" \(\.image_alt/);
   assert.match(layout, /"q" \./);
+  assert.match(layout, /dict "x" \./);
   assert.match(layout, /where \$allLinks "category" \$category/);
   assert.match(layout, /data-index-url="\{\{ \$digestIndex\.RelPermalink \}\}"/);
   assert.doesNotMatch(layout, /id="digest-data"/);
@@ -216,6 +217,8 @@ test("the home loads its compact search index only when interaction needs it", a
   assert.match(script, /stream: entry\.m \|\| ""/);
   assert.match(script, /image: entry\.p \|\| ""/);
   assert.match(script, /origin_url: entry\.q \|\| ""/);
+  assert.match(script, /archive_text: entry\.x \|\| ""/);
+  assert.match(script, /modalArchiveText\.textContent = link\.archive_text \|\| ""/);
   assert.match(script, /category === "all" && \(!link\.stream \|\| \(link\.stream === "blog-ooblik" && link\.origin_url\)\)/);
   assert.match(script, /gridTop - headerHeight - stickyToolsHeight/);
   assert.match(script, /getComputedStyle\(tools\)\.position === "sticky"/);

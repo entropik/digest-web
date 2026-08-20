@@ -12,6 +12,7 @@
     "preview": "npm run build && node scripts/preview-admin.mjs",
     "restore": "node dist/src/restore-backup.js",
     "import:wordpress": "tsx scripts/import-wordpress.ts",
+    "recover:wordpress": "tsx scripts/recover-wordpress.ts",
     "social:archives": "tsx scripts/social-archive-preview.ts",
     "social:backfill": "node --import tsx scripts/social-backfill.ts",
     "social:preview": "tsx scripts/social-preview.ts",

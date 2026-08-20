@@ -39,6 +39,7 @@
     "a" .added
     "m" (.stream | default "")
   }}
+  {{ with .archive_text }}{{ $entry = merge $entry (dict "x" .) }}{{ end }}
   {{ if .image }}{{ $entry = merge $entry (dict "p" .image "l" (.image_alt | default "")) }}{{ end }}
   {{ with .origin_url }}{{ $entry = merge $entry (dict "q" .) }}{{ end }}
   {{ with .status }}{{ $entry = merge $entry (dict "s" .) }}{{ end }}
@@ -224,6 +225,10 @@
     <p class="digest-kicker" id="digest-modal-category"></p>
     <h2 id="digest-modal-title"></h2>
     <p class="digest-modal-description" id="digest-modal-description"></p>
+    <section class="digest-modal-archive" id="digest-modal-archive" hidden>
+      <p class="digest-modal-archive-label">Texte archivé</p>
+      <div class="digest-modal-archive-text" id="digest-modal-archive-text"></div>
+    </section>
     <div class="archive-tags digest-modal-tags" id="digest-modal-tags" aria-label="Tags"></div>
     <script id="digest-tag-routes" type="application/json">{{ $tagRoutes | jsonify | safeJS }}</script>
     <div class="digest-modal-footer">

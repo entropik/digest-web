@@ -45,8 +45,11 @@ export type WordpressPostCandidate = {
   originUrl: string;
   added: string;
   description: string;
+  contentExcerpt: string;
+  archiveText: string;
   tags: string[];
   sourceUrls: string[];
+  fallbackSourceUrls: string[];
   imageUrl: string;
   imageAlt: string;
 };
@@ -94,6 +97,19 @@ const normalizeSpace = (value: string): string =>
 
 const plainText = (value: string): string =>
   normalizeSpace(parseHtml(value).textContent);
+
+const archivedPlainText = (value: string): string => {
+  const withParagraphs = value
+    .replace(/<br\s*\/?\s*>/gi, "\n")
+    .replace(/<\/(?:p|div|h[1-6]|li|blockquote|figure|figcaption)>/gi, "\n\n")
+    .replace(/\[(?:\/?(?:caption|embed)|gallery)[^\]]*\]/gi, "");
+  return parseHtml(withParagraphs)
+    .textContent.replaceAll("\u00a0", " ")
+    .split(/\n+/)
+    .map(normalizeSpace)
+    .filter(Boolean)
+    .join("\n\n");
+};
 
 const truncate = (value: string, length = MAX_DESCRIPTION_LENGTH): string => {
   if (value.length <= length) return value;
@@ -171,6 +187,48 @@ const sourceLinks = (html: string, blogHost: string): string[] => {
   return unique(candidates);
 };
 
+const recoveryUrl = (rawValue: string, blogHost: string): string => {
+  const cleaned = rawValue
+    .trim()
+    .replace(/\[\/embed\].*$/i, "")
+    .replace(/[),.;]+$/, "");
+  if (!cleaned) return "";
+  const absolute = cleaned.startsWith("//") ? `https:${cleaned}` : cleaned;
+  try {
+    const canonical = canonicalizePublicUrl(absolute);
+    return normalizedHost(canonical) === blogHost ? "" : canonical;
+  } catch (error) {
+    if (error instanceof UnsafeUrlError && error.code === "SENSITIVE_QUERY") {
+      try {
+        const url = new URL(absolute);
+        if (normalizedHost(url.toString()).endsWith("slideshare.net")) {
+          url.search = "";
+          const canonical = canonicalizePublicUrl(url.toString());
+          return normalizedHost(canonical) === blogHost ? "" : canonical;
+        }
+      } catch {
+        return "";
+      }
+    }
+    if (error instanceof UnsafeUrlError || error instanceof TypeError) return "";
+    throw error;
+  }
+};
+
+export const wordpressFallbackSourceLinks = (
+  html: string,
+  blogHost: string,
+): string[] => {
+  const root = parseHtml(html);
+  const candidates = root
+    .querySelectorAll("a")
+    .map((anchor) => recoveryUrl(anchor.getAttribute("href") ?? "", blogHost))
+    .filter(Boolean);
+  const rawUrls = root.textContent.match(/https?:\/\/[^\s<>"']+/g) ?? [];
+  candidates.push(...rawUrls.map((url) => recoveryUrl(url, blogHost)).filter(Boolean));
+  return unique(candidates);
+};
+
 const firstContentImage = (html: string): { url: string; alt: string } => {
   const image = parseHtml(html).querySelector("img");
   return {
@@ -233,15 +291,21 @@ export const parseWordpressExport = (xml: string): WordpressPostCandidate[] => {
           : "";
       })
       .filter(Boolean);
+    const archiveText = archivedPlainText(content);
     posts.push({
       wordpressId,
       slug: nodeText(item["wp:post_name"]).trim() || `billet-${wordpressId}`,
       title: plainText(nodeText(item.title)),
       originUrl,
       added: nodeText(item["wp:post_date"]).trim().slice(0, 10),
-      description: truncate(excerpt || "Référence archivée depuis le Blog OOBLIK."),
+      description: truncate(
+        excerpt || archiveText || "Référence archivée depuis le Blog OOBLIK.",
+      ),
+      contentExcerpt: truncate(archiveText, 600),
+      archiveText,
       tags: unique([...categories, "blog-ooblik"]).slice(0, 12),
       sourceUrls: sourceLinks(content, blogHost),
+      fallbackSourceUrls: wordpressFallbackSourceLinks(content, blogHost),
       imageUrl: featured?.url || fallbackImage.url,
       imageAlt: featured?.alt || fallbackImage.alt,
     });
@@ -352,7 +416,13 @@ export const buildWordpressImportPreview = (input: {
         image_url: override?.image_url ?? post.imageUrl,
         image_alt: post.imageAlt,
         existing: true,
-        link: { ...existing, category: wordpressDigestCategory(post.tags) },
+        link: {
+          ...existing,
+          category: wordpressDigestCategory(post.tags),
+          description: post.description,
+          ...(post.archiveText ? { archive_text: post.archiveText } : {}),
+          archive_tags: post.tags.filter((tag) => tag !== BLOG_ARCHIVE_STREAM),
+        },
       });
       continue;
     }
@@ -365,7 +435,8 @@ export const buildWordpressImportPreview = (input: {
       continue;
     }
     const importedTags = canonicalizeTags(post.tags, knownTags);
-    if (importedTags.unknown.length) {
+    const isSelfArchive = url === canonicalizePublicUrl(post.originUrl);
+    if (importedTags.unknown.length && !isSelfArchive) {
       review.push({
         ...base,
         reason: "unknown_tags",
@@ -389,6 +460,8 @@ export const buildWordpressImportPreview = (input: {
         category: wordpressDigestCategory(post.tags),
         added: post.added,
         description: post.description,
+        ...(post.archiveText ? { archive_text: post.archiveText } : {}),
+        archive_tags: post.tags.filter((tag) => tag !== BLOG_ARCHIVE_STREAM),
         tags,
         origin_url: post.originUrl,
         stream: BLOG_ARCHIVE_STREAM,
