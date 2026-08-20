@@ -191,11 +191,17 @@ test("the home loads its compact search index only when interaction needs it", a
     readFile(new URL("../../assets/js/digest.js", import.meta.url), "utf8"),
   ]);
   assert.match(layout, /resources\.FromString "data\/digest-index\.json"/);
+  assert.match(layout, /\$allLinks := sort \$publicLinks "added" "desc"/);
+  assert.match(layout, /"m" \(\.stream \| default ""\)/);
+  assert.match(layout, /where \$allLinks "category" \$category/);
   assert.match(layout, /data-index-url="\{\{ \$digestIndex\.RelPermalink \}\}"/);
   assert.doesNotMatch(layout, /id="digest-data"/);
   assert.match(layout, /class="digest-favorite"/);
   assert.match(layout, /Folio 01\/\{\{ printf "%02d" \$pageCount \}\}/);
   assert.match(script, /const loadLinks = \(\) =>/);
+  assert.match(script, /stream: entry\.m \|\| ""/);
+  assert.match(script, /category === "all" && !link\.stream/);
+  assert.match(script, /tools\.offsetTop - \(header\?\.offsetHeight \|\| 0\)/);
   assert.match(script, /fetch\(indexUrl,/);
   assert.match(script, /const withLinks = async \(task, onError = null\) =>/);
   assert.match(script, /search\.addEventListener\("input",[\s\S]*?withLinks/);

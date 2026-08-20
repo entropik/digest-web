@@ -61,6 +61,12 @@ et une `description`. Les gabarits publics utilisent cette donnée même si aucu
 lien ne porte encore la catégorie ; les noms ne doivent donc jamais être codés
 en dur.
 
+Le filtre `Tout` reste limité à la sélection éditoriale principale et n’absorbe
+pas les publications classées dans les flux. Le compteur et le filtre d’une
+catégorie portent en revanche sur tous ses liens publics : une catégorie comme
+« Mémoire du web social » peut donc ouvrir ses archives Twitter, Instagram,
+Tumblr et blog sans transformer la page d’accueil en flux continu.
+
 La description est un court texte d’orientation éditoriale, pas une suite de
 mots-clés. En son absence, l’interface peut afficher une phrase de repli sobre,
 mais le texte administré reste prioritaire.

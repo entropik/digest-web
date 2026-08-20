@@ -100,6 +100,7 @@
     description: entry.d || "",
     tags: entry.g || [],
     added: entry.a,
+    stream: entry.m || "",
     status: entry.s || "",
     status_note: entry.n || "",
     archive_url: entry.r || "",
@@ -120,7 +121,7 @@
         .then((entries) => {
           if (!Array.isArray(entries)) throw new Error("INDEX_INVALID");
           links = entries.map(decodeLink);
-          linkCountByDate = links.reduce((counts, link) => {
+          linkCountByDate = links.filter((link) => !link.stream).reduce((counts, link) => {
             const dateKey = String(link.added || "").slice(0, 10);
             if (dateKey) counts.set(dateKey, (counts.get(dateKey) || 0) + 1);
             return counts;
@@ -396,7 +397,7 @@
     const selectedDate = dateFilter.value;
     return links.filter((link) => {
       const matchesCategory =
-        category === "all" ||
+        (category === "all" && !link.stream) ||
         (category === "favorites" ? isFavorite(link.url) : link.category === category);
       const searchableText = getSearchableText(link);
       const matchesQuery = terms.every((term) => searchableText.includes(term));
@@ -475,7 +476,11 @@
 
     if (urlMode) syncPageUrl(urlMode);
     if (scroll) {
-      window.requestAnimationFrame(() => tools.scrollIntoView({ behavior: "smooth", block: "start" }));
+      window.requestAnimationFrame(() => {
+        const header = document.querySelector(".header");
+        const top = Math.max(0, tools.offsetTop - (header?.offsetHeight || 0));
+        window.scrollTo({ top, behavior: "smooth" });
+      });
     }
   };
 

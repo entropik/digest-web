@@ -1,7 +1,8 @@
 {{ define "main" }}
 {{ $publicLinks := partialCached "public-links.html" hugo.Data.links "public-links" }}
+{{ $allLinks := sort $publicLinks "added" "desc" }}
 {{ $editorialLinks := slice }}
-{{ range $publicLinks }}
+{{ range $allLinks }}
   {{ if not (.stream | default "") }}
     {{ $editorialLinks = $editorialLinks | append . }}
   {{ end }}
@@ -21,7 +22,7 @@
 {{ $initialLinks := first 51 $links }}
 {{ $pageCount := div (add (len $links) 50) 51 }}
 {{ $compactIndex := slice }}
-{{ range $links }}
+{{ range $allLinks }}
   {{ $entry := dict
     "i" .id
     "t" .title
@@ -30,6 +31,7 @@
     "d" (.description | default "")
     "g" (.tags | default (slice))
     "a" .added
+    "m" (.stream | default "")
   }}
   {{ with .status }}{{ $entry = merge $entry (dict "s" .) }}{{ end }}
   {{ with .status_note }}{{ $entry = merge $entry (dict "n" .) }}{{ end }}
@@ -106,7 +108,7 @@
           aria-pressed="false">
           <span class="digest-filter-index" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
           <span class="digest-filter-name">{{ $category }}</span>
-          <span class="digest-filter-count">{{ len (where $links "category" $category) }}</span>
+          <span class="digest-filter-count">{{ len (where $allLinks "category" $category) }}</span>
         </button>
       {{ end }}
       <button type="button" data-category-label="favorites" aria-pressed="false">
