@@ -1277,6 +1277,830 @@
     "id": "f5720f42-a2df-5994-84a2-b292b8137492"
   },
   {
+    "id": "b7cea7c4-33ae-53af-8927-a60c9b80a61e",
+    "title": "Atlas Des Régions Naturelles",
+    "url": "https://www.archive-arn.fr/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2025-02-28",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2025/liste-atlas-des-regions-naturelles/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "810bb132-34bf-59d4-a09d-ed62fc450621",
+    "title": "Café Royal Books",
+    "url": "https://www.caferoyalbooks.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2025-02-27",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Éditeur",
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2025/cafe-royal-books-2/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "3c39a44c-8e91-5ad0-ae12-8dec1bad231b",
+    "title": "90s Archive: Volume Two | Marc Vallée",
+    "url": "https://marcvallee.bigcartel.com/product/90s-archive-volume-two",
+    "category": "Archives du blog OOBLIK",
+    "added": "2025-02-27",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2025/90s-archive-volume-two-marc-vallee/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "e2c8e25b-4c0f-555b-bac1-adaeb9a0f812",
+    "title": "Jean-Yves Bart - Photographie / Strasbourg, SK",
+    "url": "https://jybart.berta.me/strasbourg-sk",
+    "category": "Archives du blog OOBLIK",
+    "added": "2024-12-06",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2024/jean-yves-bart-photographie-strasbourg-sk/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "1d9ccc30-c770-561d-8319-5de70aa4d398",
+    "title": "Une qualité essentielle de la typographie réapparaît après 50 ans d’oubli - Café Typô",
+    "url": "https://brunobernard.com/une-qualite-essentielle-de-la-typographie-reapparait-apres-50-ans-doubli",
+    "category": "Archives du blog OOBLIK",
+    "added": "2024-11-15",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Graphisme",
+      "Letterpress",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2024/une-qualite-essentielle-de-la-typographie-reapparait-apres-50-ans-doubli-cafe-typo/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "b5ee06ef-fb94-5a6e-a8ed-267ad908a97c",
+    "title": "ROOM BOOK EDITION",
+    "url": "https://www.roombookedition.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2024-11-15",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Éditeur",
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2024/room-book-edition/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "abfc4bbf-76ce-593a-9964-062bc2e1eba0",
+    "title": "Objet Papier - Accueil",
+    "url": "https://objetpapier.fr/home",
+    "category": "Archives du blog OOBLIK",
+    "added": "2024-11-15",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Éditeur",
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2024/objet-papier-accueil/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "23fc7353-356c-5055-b278-afced6b50738",
+    "title": "Motto Books - Online Store",
+    "url": "https://www.mottodistribution.com/shop",
+    "category": "Archives du blog OOBLIK",
+    "added": "2024-11-12",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Éditeur",
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2024/motto-books-online-store/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "a7a49c12-f3dd-5667-a8a5-81a12a3c9b33",
+    "title": "Sons of the Living (PRESALE) — TRESPASSER",
+    "url": "https://trespasser.co/shop/sons-of-the-living",
+    "category": "Archives du blog OOBLIK",
+    "added": "2024-10-24",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Éditeur",
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2024/sons-of-the-living-presale-trespasser/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "f134ed0a-fe13-519a-8f80-2b29c8b98b3d",
+    "title": "13_A l'origine / G. CHEVRIER - Edition Sur la crête",
+    "url": "https://editionsurlacrete.com/13_A-l-origine-G-CHEVRIER",
+    "category": "Archives du blog OOBLIK",
+    "added": "2024-04-17",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Éditeur",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2024/13_a-lorigine-g-chevrier-edition-sur-la-crete/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "d263b6da-3a78-5a8f-9ca0-1170cea664f0",
+    "title": "ClassicPress | Stable. Lightweight. Instantly Familiar.",
+    "url": "https://www.classicpress.net/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2024-04-15",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2024/classicpress-stable-lightweight-instantly-familiar/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "916b96fd-2e74-5272-8824-83f36bcdb5f1",
+    "title": "Impact – Rudy BURBANT Photographie",
+    "url": "https://www.rudyburbant.fr/impact",
+    "category": "Archives du blog OOBLIK",
+    "added": "2024-03-28",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2024/impact-rudy-burbant-photographie/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "c45a79b1-0e3a-5d31-84df-b17efbc6b6b8",
+    "title": "Lucie Belarbi",
+    "url": "https://luciebelarbi.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2024-03-27",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2024/lucie-belarbi/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "c8e3b9fb-41c2-58f8-b05e-7290f8b7c48b",
+    "title": "Mériol Lehmann - chemin du troisième-rang-du-bic",
+    "url": "https://mlehmann.ca/chemin-du-troisieme-rang-du-bic",
+    "category": "Archives du blog OOBLIK",
+    "added": "2023-10-20",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2023/meriol-lehmann-chemin-du-troisieme-rang-du-bic/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "6d0f0acc-0bfb-539a-a2c3-e9be92861d25",
+    "title": "OSP (Open Source Publishing) →",
+    "url": "http://osp.kitchen/foundry",
+    "category": "Archives du blog OOBLIK",
+    "added": "2023-09-15",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Typos",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2023/osp-open-source-publishing-%e2%86%92/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "404d73dd-794f-58e8-bb7b-a7187ce0b53d",
+    "title": "Garet Font",
+    "url": "https://garet.typeforward.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2023-09-14",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Typos",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2023/garet-font/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "ebaf5e66-4a8c-5442-a775-04734288da47",
+    "title": "Lineto.com",
+    "url": "https://lineto.com/typefaces/unica77/technical?font=L3l-qxAYPaV",
+    "category": "Archives du blog OOBLIK",
+    "added": "2023-08-31",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Typos",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2023/lineto-com/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "861efd40-9d34-5473-9263-f92fc57295ff",
+    "title": "Gwel — Daniel Molinier | editionsautonomes",
+    "url": "https://editionsautonomes.bigcartel.com/product/gwel-daniel-molinier",
+    "category": "Archives du blog OOBLIK",
+    "added": "2023-06-26",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Éditeur",
+      "Livre / Book",
+      "blog-ooblik",
+      "lien-mort"
+    ],
+    "origin_url": "https://blog.ooblik.com/2023/gwel-daniel-molinier-editionsautonomes/",
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "La destination renvoie aujourd’hui une erreur HTTP 404. L’adresse publique d’origine est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_url": "https://web.archive.org/web/20231001094757/https://editionsautonomes.bigcartel.com/product/gwel-daniel-molinier",
+    "archive_timestamp": "20231001094757",
+    "archive_scope": "url"
+  },
+  {
+    "id": "f3fdd87b-513a-5498-91a1-2221cef03340",
+    "title": "Rades - guillaumeblot.com",
+    "url": "https://guillaumeblot.com/Rades",
+    "category": "Archives du blog OOBLIK",
+    "added": "2023-06-22",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2023/rades-guillaumeblot-com/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "3ace334c-3507-5f84-a2ae-3bfadf896e64",
+    "title": "File Juggler - Keep your desktop clean and organized",
+    "url": "https://www.filejuggler.com/staying-organized/keep-your-desktop-clean-and-organized",
+    "category": "Archives du blog OOBLIK",
+    "added": "2023-06-22",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2023/file-juggler-keep-your-desktop-clean-and-organized/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "e13936c5-71b3-55bd-94db-e2b5182651da",
+    "title": "Bernard Plossu \"Paris-Matic\"",
+    "url": "https://www.ruevisconti-editions.com/pages/edition/livre-bernard-plossu-album-de-travail.html",
+    "category": "Archives du blog OOBLIK",
+    "added": "2023-06-08",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2023/bernard-plossu-paris-matic/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "9a05e775-3bfc-5df4-8889-5deca910ece1",
+    "title": "Paragraphica - Bjørn Karmann",
+    "url": "https://bjoernkarmann.dk/project/paragraphica",
+    "category": "Archives du blog OOBLIK",
+    "added": "2023-06-01",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2023/paragraphica-bjorn-karmann/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "3b9c0a8c-0528-593d-bc48-901e209f1404",
+    "title": "Hacker Protester – Geoffrey Dorne 🏴‍☠",
+    "url": "https://hckr.fr/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2023-06-01",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Éditeur",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2023/hacker-protester-geoffrey-dorne-%f0%9f%8f%b4%e2%98%a0/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "7e7266c6-7805-5311-b5d9-94ccbddc3c62",
+    "title": "Joselito Verschaeve – If I call stones blue it is because blue is the precise word PHOTOBOOK — Void",
+    "url": "https://void.photo/store/p/if-i-call-stones-blue-it-is-because-blue-is-the-precise-word",
+    "category": "Archives du blog OOBLIK",
+    "added": "2023-05-23",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Éditeur",
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2023/joselito-verschaeve-if-i-call-stones-blue-it-is-because-blue-is-the-precise-word-photobook-void/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "b5e16506-93ed-51d8-98fa-b2c2d68aece6",
+    "title": "TX | CA 17 — STANLEY/BARKER",
+    "url": "https://www.stanleybarker.co.uk/products/tx-ca-717",
+    "category": "Archives du blog OOBLIK",
+    "added": "2023-05-09",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Éditeur",
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2023/tx-ca-17-stanley-barker/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "7ecfedc9-b414-5e12-a361-b64f33767bac",
+    "title": "Bilateral – Poursuite",
+    "url": "https://www.poursuite-editions.org/produit/bilateral",
+    "category": "Archives du blog OOBLIK",
+    "added": "2023-05-02",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2023/bilateral-poursuite/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "7b1e7565-1079-5786-b89f-024600e0d435",
+    "title": "Les maisons endormies - Maxime Voidy",
+    "url": "https://www.maximevoidy.com/les-maisons-endormies",
+    "category": "Archives du blog OOBLIK",
+    "added": "2023-04-03",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2023/les-maisons-endormies-maxime-voidy/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "372ede4b-0b56-585c-9569-3956ff61f4e8",
+    "title": "Fragment - A Powerful and Versatile complete Font - Free to Try – Pangram Pangram Foundry",
+    "url": "https://pangrampangram.com/products/fragment",
+    "category": "Archives du blog OOBLIK",
+    "added": "2023-03-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Typos",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2023/fragment-a-powerful-and-versatile-complete-font-free-to-try-pangram-pangram-foundry/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "334e0f3d-fd63-5fd4-acbf-9cb9a06fabe0",
+    "title": "Brand colors: we need to do better… and, yes we can! - Project BBCG",
+    "url": "https://www.projectbbcg.guide/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2023-03-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2023/brand-colors-we-need-to-do-better-and-yes-we-can-project-bbcg/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "7064dfe4-455b-5d0b-ae0a-ae8b33bf119f",
+    "title": "To Photograph Is To Learn How To Die",
+    "url": "https://theiceplant.cc/product/to-photograph-is-to-learn-how-to-die",
+    "category": "Archives du blog OOBLIK",
+    "added": "2023-01-31",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2023/to-photograph-is-to-learn-how-to-die/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "e91cb7f3-8d28-5392-a8fb-23a21744902f",
+    "title": "Ne Pas Plier : épicerie d’art frais",
+    "url": "https://www.nepasplier.fr/epicerie.htm",
+    "category": "Archives du blog OOBLIK",
+    "added": "2023-01-20",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Graphisme",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2023/ne-pas-plier-epicerie-dart-frais/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "e2464fe7-6257-5701-bdda-5039fd703988",
+    "title": "Paysages Pluriels — Exposition de Nicolas Coutable - Maison Gutenberg",
+    "url": "https://maison-gutenberg.com/paysages-pluriels-exposition-de-nicolas-coutable",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-11-25",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/paysages-pluriels-exposition-de-nicolas-coutable-maison-gutenberg/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "7238a1d5-d315-5979-9afc-e0fb6d9cc484",
+    "title": "Verrà la morte e avrà i tuoi occhi, la serie più intima di Mario Giacomelli",
+    "url": "https://www.archiviomariogiacomelli.it/verra-la-morte-e-avra-i-tuoi-occhi-1966-1968",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-09-28",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/verra-la-morte-e-avra-i-tuoi-occhi-la-serie-piu-intima-di-mario-giacomelli/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "391fd708-2bcd-5e2d-bcad-4e2b3d91c0d2",
+    "title": "MYTHOLOGIES III. LES MÉTAMORPHOSES | Letizia Le Fur",
+    "url": "https://www.ruedubouquet.fr/product/les-metamorphoses-letizia-le-fur",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-09-26",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/mythologies-iii-les-metamorphoses-letizia-le-fur/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "cbe6d033-991e-5c69-86fb-f872d9ceefbe",
+    "title": "Pourquoi photographier - Atelier EXB",
+    "url": "https://exb.fr/fr/le-catalogue/546-pourquoi-photographier.html",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-09-16",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/pourquoi-photographier-atelier-exb/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "58b401cb-f74c-5457-b40d-913d5fe7eee3",
+    "title": "George W. Gardner | The Art Institute of Chicago",
+    "url": "https://www.artic.edu/artists/34604/george-w-gardner",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-09-16",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/george-w-gardner-the-art-institute-of-chicago/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "00d00fba-4946-566b-8623-5ff67c60b8cf",
+    "title": "Francoise Evenou - LAS REINAS DEL BOSQUE",
+    "url": "https://francoiseevenou.com/part2",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-09-16",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/francoise-evenou-las-reinas-del-bosque/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "be0df80f-36f5-535a-8441-d947edb022e0",
+    "title": "APE",
+    "url": "https://artpapereditions.org/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-09-14",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/ape/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "fd03f7e6-36e7-58eb-a661-3e06f68b2afe",
+    "title": "Tomoya Fujimoto - Rien que la mer (Seconde édition) — Amers",
+    "url": "https://amers.fr/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-09-06",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/tomoya-fujimoto-rien-que-la-mer-seconde-edition-amers/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "e55deec3-45ed-528a-b13b-14209372cb94",
+    "title": "AinoBlocks - FSE WordPress Themes, Patterns & Blocks",
+    "url": "https://web.archive.org/web/20241101195831/https:/ainoblocks.io",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-09-05",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "wordpress",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/ainoblocks-fse-wordpress-themes-patterns-blocks/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "0b091932-6f82-5bd5-9970-6347768a8f6e",
+    "title": "Writer – iA",
+    "url": "https://ia.net/writer",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-08-26",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/writer-ia/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "b88eb0c4-9f00-5c65-a177-d5512279d00d",
+    "title": "Letterform Archive",
+    "url": "https://letterformarchive.org/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-08-26",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Typos",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/letterform-archive/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "7ce5916b-0974-560e-9986-445ec0cc6060",
+    "title": "n27 | atipo foundry",
+    "url": "https://www.atipofoundry.com/fonts/n27",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-08-25",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Typos",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/n27-atipo-foundry/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "d2a96ac0-c2a9-520a-b34c-cdf19fe0f478",
+    "title": "Générateur d’idées pour le Pass (contre) Culture — Par Geoffrey Dorne",
+    "url": "https://geoffreydorne.com/passculture/index.html",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-08-25",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/generateur-didees-pour-le-pass-contre-culture-par-geoffrey-dorne/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "972bf28f-793b-5b56-824b-7ca01c67a88d",
+    "title": "film Documentaire sur Dolorès Marat",
+    "url": "https://www.thedarkroomrumour.com/fr/film/dolores-un-film-documentaire-de-thomas-goupille-sur-la-photographe-dolores-marat",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-08-24",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/film-documentaire-sur-dolores-marat/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "6561e782-b0f5-51bc-bbb9-12f3411ee957",
+    "title": "Spectrolite",
+    "url": "https://spectrolite.app/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-06-24",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "outil riso",
+      "RISO",
+      "séparation",
+      "soft",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/spectrolite/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "c16edab4-be42-5c06-960f-12f90f4982c5",
+    "title": "Super Banco",
+    "url": "https://super-banco.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-06-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Riso",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/super-banco/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "936622b2-80d9-534a-b2a0-6da450b51b6b",
+    "title": "Printing & Publishing • Jan van Eyck Academie",
+    "url": "https://www.janvaneyck.nl/postacademy/printing-publishing-lab",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-06-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Riso",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/printing-publishing-jan-van-eyck-academie/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "971adc96-b8f7-5c90-95f5-a72fc0d1286c",
+    "title": "PRINT — a83",
+    "url": "https://www.a83.site/print",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-06-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "Riso",
+      "blog-ooblik",
+      "lien-mort"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/print-a83/",
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "La destination renvoie aujourd’hui une erreur HTTP 404. L’adresse publique d’origine est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_url": "https://web.archive.org/web/20251213163107/https://www.a83.site/print",
+    "archive_timestamp": "20251213163107",
+    "archive_scope": "url"
+  },
+  {
+    "id": "d5c8ad72-955e-5d3a-b08b-988afd777618",
+    "title": "Impression Riso — Riso on the Moon",
+    "url": "https://www.risoonthemoon.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-06-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Riso",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/impression-riso-riso-on-the-moon/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "c0d352af-c252-5f12-b3fa-26147f3640b4",
+    "title": "Guide d’impression riso – L'abricot",
+    "url": "http://creationsabricot.com/guide-dimpression-riso",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-06-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Riso",
+      "blog-ooblik",
+      "lien-mort"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/guide-dimpression-riso-labricot/",
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "La destination renvoie aujourd’hui une erreur HTTP 404. L’adresse publique d’origine est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_url": "https://web.archive.org/web/20260213092539/https://creationsabricot.com/guide-dimpression-riso",
+    "archive_timestamp": "20260213092539",
+    "archive_scope": "url"
+  },
+  {
+    "id": "2390d802-a962-5d59-afc4-262646f7f1b2",
+    "title": "Exploriso : des beaux-arts low-tech",
+    "url": "https://de.exploriso.info/exploriso",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-06-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Imprimerie &amp; technique",
+      "Riso",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/exploriso-des-beaux-arts-low-tech/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "baad1cdf-0134-54c3-adb1-1b398a2b93c8",
+    "title": "[color/shift] - How to use",
+    "url": "https://colorshift.theretherenow.com/how-to-use",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-06-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Riso",
+      "blog-ooblik",
+      "lien-mort"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/color-shift-how-to-use/",
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "Le domaine public d’origine ne répond plus au DNS. L’adresse est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_url": "https://web.archive.org/web/20260417025734/https://colorshift.theretherenow.com/how-to-use",
+    "archive_timestamp": "20260417025734",
+    "archive_scope": "url"
+  },
+  {
+    "id": "66e942f5-80c5-5f23-a8dd-e258f341e302",
+    "title": "Belleville - thomas boivin",
+    "url": "http://thomasboivin.com/Belleville",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-06-16",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "Photographes",
+      "Thomas Boivin",
+      "blog-ooblik",
+      "lien-mort"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/belleville-thomas-boivin/",
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "La destination renvoie aujourd’hui une erreur HTTP 404. L’adresse publique d’origine est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_url": "https://web.archive.org/web/20260107044449/https://thomasboivin.com/Belleville",
+    "archive_timestamp": "20260107044449",
+    "archive_scope": "url"
+  },
+  {
+    "id": "5987ff7c-0f7a-5b01-80c4-f5f77417ba1b",
+    "title": "BOOK elements",
+    "url": "https://www.design-research.be/book-elements",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-04-25",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Imprimerie &amp; technique",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/book-elements/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Tinos - Google Fonts",
     "url": "https://fonts.google.com/specimen/Tinos",
     "category": "Design & Création",
@@ -1301,6 +2125,20 @@
       "création"
     ],
     "id": "98f80085-fa03-5d75-8d85-9ff80a7e39ab"
+  },
+  {
+    "id": "103edf16-7e22-502a-83a2-c7182420c833",
+    "title": "Conveyor Studio",
+    "url": "https://www.conveyor.studio/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-04-14",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Éditeur",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/conveyor-studio/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Enfocus",
@@ -1358,6 +2196,21 @@
     "id": "4959b261-2bdb-5758-86ae-f9a7eaecc3d6"
   },
   {
+    "id": "abc0b4f8-1f53-5b79-9edf-243669f027c5",
+    "title": "Narratopias' Library",
+    "url": "https://platform.plurality-university.org/narratopia",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-04-08",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Education",
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/narratopias-library/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Ma connexion internet | Arcep",
     "url": "https://cartefibre.arcep.fr/index.html?lng=4.833636432065873&lat=46.471638858455606&zoom=15.663776821097517&mode=normal&legende=true&filter=true&trimestre=2021T4",
     "category": "Design & Création",
@@ -1404,6 +2257,162 @@
     "id": "9e829375-02d7-50cf-8a4f-6a0190c97860"
   },
   {
+    "id": "39ed10ab-1d9b-5c5e-90f1-e3b860142e8f",
+    "title": "photographies – ludmilla cerveny",
+    "url": "https://ludmillacerveny.com/index.php/photographie",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-04-07",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/photographies-ludmilla-cerveny/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "04dd6caf-b6fd-5e3a-9169-0420480d8b34",
+    "title": "Super Marché noir",
+    "url": "https://www.supermarchenoir.fr/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-04-06",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Letterpress",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/super-marche-noir/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "ec9b2ec9-a0be-525e-b95d-d6f9f16b8269",
+    "title": "Icônes by Susan Kare | MICG",
+    "url": "https://www.imprimerie.lyon.fr/fr/node/362",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-03-28",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Exposition",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/icones-by-susan-kare-micg/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "708d3f49-bab1-54d0-bebf-79b4754b5078",
+    "title": "Design - La Troupe",
+    "url": "https://la-troupe.com/Design",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-03-28",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Design",
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/design-la-troupe/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "051bc390-2c89-53ee-8fee-3ca85913fbab",
+    "title": "Roma - Filigranes Editions",
+    "url": "https://www.filigranes.com/livre/roma",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-03-26",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/roma-filigranes-editions/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "8de40730-3482-5eea-af44-659b6df46f8f",
+    "title": "II — Bryan Schutmaat",
+    "url": "https://www.bryanschutmaat.co/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-03-26",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/ii-bryan-schutmaat/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "eb1396da-5988-583b-ad41-e7208b00ba8c",
+    "title": "atelier LUMA",
+    "url": "https://atelier-luma.org/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-03-26",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Actualités",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/atelier-luma/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "6506af91-38c8-525b-8da3-dd791c22feca",
+    "title": "Zone i – Image & Environnement",
+    "url": "https://www.zone-i.org/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-03-23",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/zone-i-image-environnement/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "0446a7b6-cc54-5f2c-ae60-cbe042d6e597",
+    "title": "The Eclipse - sun/sun",
+    "url": "https://sunsun.fr/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-03-23",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/the-eclipse-sun-sun/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "9dbcfeaf-07bd-5253-bfd0-0a860fb4beb6",
+    "title": "Ruissellements Δ | Error | Antirevue des courts-circuits",
+    "url": "https://www.error.re/ruissellements-delta",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-03-23",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "poésie",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/ruissellements-%ce%b4-error-antirevue-des-courts-circuits/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "4d62a224-80df-5cd9-8bfa-022495214c7b",
+    "title": "Themes - Alexandre Buffet",
+    "url": "https://www.alexandrebuffet.fr/mes-themes",
+    "category": "Archives du blog OOBLIK",
+    "added": "2022-03-22",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2022/themes-alexandre-buffet/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Free WordPress Themes – Anders Norén",
     "url": "https://andersnoren.se/teman",
     "category": "Design & Création",
@@ -1434,6 +2443,211 @@
     "id": "602f1c37-f82e-51dc-a3db-3373adbd486c"
   },
   {
+    "id": "6ee12c26-cc26-56c9-8deb-2971002c6b20",
+    "title": "Wall pieces - Johan Deckmann",
+    "url": "https://johandeckmann.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2021-04-19",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2021/wall-pieces-johan-deckmann/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "e9d830ec-27ee-5c3b-854a-5cb03007c287",
+    "title": "Resources - PrePostPrint",
+    "url": "https://prepostprint.org/resources",
+    "category": "Archives du blog OOBLIK",
+    "added": "2021-04-19",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "Imprimerie &amp; technique",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2021/resources-prepostprint/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "351a00c7-3ea3-59c2-8347-4b0955142560",
+    "title": "Fukushima & ses invisibles - Les Éditions des mondes à faire",
+    "url": "https://leseditionsdesmondesafaire.net/produit/fukushima-et-ses-invisibles",
+    "category": "Archives du blog OOBLIK",
+    "added": "2021-04-19",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2021/fukushima-ses-invisibles-les-editions-des-mondes-a-faire/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "74ccb3ce-e3fa-5b0b-8539-53a02c29f75d",
+    "title": "DECOR-EXPORT : POURSUITE",
+    "url": "http://www.poursuite-editions.org/index.php?%2Fparutions%2Fdecor-export%2F=",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-06-01",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/decor-export-poursuite/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "de835364-cf10-5304-b921-94d6aa32400c",
+    "title": "Photographe France - inSitu",
+    "url": "https://sebastien-siraudeau.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-05-11",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/photographe-france-insitu/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "70d47cf9-3964-5d20-9a64-e401baf8d2b0",
+    "title": "OH YOU PRETTY THINGS",
+    "url": "https://www.ohyouprettythings.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-03-30",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Design",
+      "blog-ooblik",
+      "lien-mort"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/oh-you-pretty-things/",
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "Le domaine public d’origine ne répond plus au DNS. L’adresse est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_url": "https://web.archive.org/web/20251215065827/https://www.ohyouprettythings.com/",
+    "archive_timestamp": "20251215065827",
+    "archive_scope": "url"
+  },
+  {
+    "id": "6d6e566c-cc17-53ae-8d54-d1c354ef7286",
+    "title": "Turista – we make photobooks about places",
+    "url": "https://www.outofplacebooks.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-03-19",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/turista-we-make-photobooks-about-places/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "89f99c45-5232-5d1c-8a97-79d5d7de6354",
+    "title": "Thomas Sauvin – 17 18 19",
+    "url": "https://void.photo/171819",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-03-19",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/thomas-sauvin-17-18-19/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "1ba305d2-29c6-50db-92ca-f2e437946442",
+    "title": "Fabrikat Normal | HvD Fonts",
+    "url": "https://www.hvdfonts.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-03-19",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Typos",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/fabrikat-normal-hvd-fonts/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "0c6fe600-c559-513c-8f49-01d28f32ffa6",
+    "title": "Brae - hubertfischer |",
+    "url": "https://hfs-studio.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-03-19",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/brae-hubertfischer-graphic-design-art-direction-visual-communication/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "1f0302dc-7e10-5698-a58f-e0c391ba8d6c",
+    "title": "napoli nord • case rom - Vincenzo Pagliuca",
+    "url": "https://www.vincenzopagliuca.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-03-18",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/napoli-nord-case-rom-vincenzo-pagliuca/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "19177b3c-b70f-5930-8bd4-5eb8b3520187",
+    "title": "Preto Magazine Issue #10 - Preto",
+    "url": "https://pretobooks.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-03-12",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/preto-magazine-issue-10-preto/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "b421d7ca-b6ae-51ce-ad55-31f778eaf8f4",
+    "title": "A les 8 al bar Eusebi by Salvi Danés | Dalpine",
+    "url": "https://www.dalpine.com/products/a-les-8-al-bar-eusebi",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-03-11",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/a-les-8-al-bar-eusebi-by-salvi-danes-dalpine/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "f6cfcdb1-2c7f-553f-b334-e8a03eb67d8f",
+    "title": "mrdurian",
+    "url": "https://www.mrdurian.co/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-02-24",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/mrdurian/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Public Sans: It's official. The US government released its own free font | TypeRoom",
     "url": "https://www.typeroom.eu/article/public-sans-its-official-us-government-released-its-own-free-font",
     "category": "Design & Création",
@@ -1446,6 +2660,281 @@
       "création"
     ],
     "id": "cedfed0e-6646-56c3-8c7e-358c8dd8242b"
+  },
+  {
+    "id": "a79431b9-ae01-5a13-80ac-1d3a471464d1",
+    "title": "OH no Type Company",
+    "url": "https://ohnotype.co/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-02-19",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Typos",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/oh-no-type-company/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "788c9e9e-d7c7-5b54-a77f-a40ae3c6c237",
+    "title": "Manuel d’Affinity Photo",
+    "url": "https://affinity.serif.com/en-gb/photo/workbook",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-02-19",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "Livre / Book",
+      "blog-ooblik",
+      "lien-mort"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/manuel-daffinity-photo/",
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "La destination renvoie aujourd’hui une erreur HTTP 404. L’adresse publique d’origine est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_url": "https://web.archive.org/web/20220122020714/https://affinity.serif.com/en-gb/photo/workbook/",
+    "archive_timestamp": "20220122020714",
+    "archive_scope": "url"
+  },
+  {
+    "id": "eccc1df3-2551-56b4-91af-aa1b3e1b4785",
+    "title": "ドットコロン - フォント: Route 159",
+    "url": "https://dotcolon.net/font/route159",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-02-03",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Typos",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/%e3%83%89%e3%83%83%e3%83%88%e3%82%b3%e3%83%ad%e3%83%b3-%e3%83%95%e3%82%a9%e3%83%b3%e3%83%88-route-159/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "bb4621e2-2d32-5a85-9003-fae2b804fa98",
+    "title": "xhbtr | Create & publish an artist website in five minutes.",
+    "url": "https://xhbtr.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-02-03",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/xhbtr-create-publish-an-artist-website-in-five-minutes/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "da3fc808-1322-5c49-9b2d-1d3318bd472e",
+    "title": "The Deep Sea",
+    "url": "https://neal.fun/deep-sea",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-01-30",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/the-deep-sea/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "b491e71e-376d-53e7-9ad7-1249c1bad6df",
+    "title": "First Image from NSF's Inouye Solar Telescope! - NSO - National Solar Observatory",
+    "url": "https://www.nso.edu/telescopes/dkist/first-light-full-image",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-01-30",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Actualités",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/first-image-from-nsfs-inouye-solar-telescope-nso-national-solar-observatory/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "6b75072c-439f-5572-9394-a2376fbc646b",
+    "title": "Une Odyssée Sibérienne - Claudine Doury",
+    "url": "https://www.claudinedoury.com/une-odyssee-siberienne#6",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-01-27",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/une-odyssee-siberienne-claudine-doury/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "93b46622-749a-5d8a-9a15-a04bf78479a7",
+    "title": "Daniel Arnold",
+    "url": "http://www.daniel-arnold.org/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-01-13",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/daniel-arnold/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "f919e096-dcd9-518a-886a-9d57a02ba806",
+    "title": "Formes des luttes",
+    "url": "http://formesdesluttes.org/#affiches",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-01-07",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Design",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/formes-des-luttes/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "09173fad-6020-591e-9fdc-1aa8e067aa4e",
+    "title": "Campagnes françaises - Thibaut Cuisset - Steidl Verlag",
+    "url": "https://steidl.de/Books/Campagnes-francaises-3336394860.html",
+    "category": "Archives du blog OOBLIK",
+    "added": "2020-01-07",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2020/campagnes-francaises-thibaut-cuisset-steidl-verlag/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "c07335ef-4dc0-5034-81ce-87cc50d9fac7",
+    "title": "Sophie Ebrard",
+    "url": "https://www.sophieebrard.com/projects/2217-2",
+    "category": "Archives du blog OOBLIK",
+    "added": "2019-12-18",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2019/sophie-ebrard-2/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "f174a3df-196f-50f5-97ac-a9840071ff2b",
+    "title": "Impressions siciliennes - Leïla Garfield",
+    "url": "https://leilagarfield.carbonmade.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2019-12-13",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2019/impressions-siciliennes-leila-garfield/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "f660177a-56f1-5d56-a9c8-c05f2918f6fc",
+    "title": "DSLR Film Scanning: The Secret to Perfect Color Negatives",
+    "url": "http://natephotographic.com/dslr-film-scanning-perfect-color-negatives",
+    "category": "Archives du blog OOBLIK",
+    "added": "2019-11-16",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2019/dslr-film-scanning-the-secret-to-perfect-color-negatives/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "e8447b3e-480f-5e29-9180-2e408c59b4fd",
+    "title": "7-Zip",
+    "url": "https://www.7-zip.org/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2019-11-15",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2019/7-zip/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "b1ee04fd-d1a2-50f2-9656-7f99f85bc0af",
+    "title": "Negative Lab Pro",
+    "url": "https://www.negativelabpro.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2019-11-14",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2019/negative-lab-pro/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "0743ace4-37b5-548a-8bf5-b2e98856d756",
+    "title": "le tiers livre, web & littérature : et si vous préférez les podcasts !",
+    "url": "http://www.tierslivre.net/spip/spip.php?article4856=#numerique",
+    "category": "Archives du blog OOBLIK",
+    "added": "2019-10-28",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2019/le-tiers-livre-web-litterature-et-si-vous-preferez-les-podcasts/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "391f1b33-3b19-58d0-96af-cda50415752a",
+    "title": "Système d’étalonnage i1Display Pro X-Rite",
+    "url": "https://www.xrite.com/categories/calibration-profiling/i1display-pro",
+    "category": "Archives du blog OOBLIK",
+    "added": "2019-10-23",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2019/systeme-detalonnage-i1display-pro-x-rite/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "1353d02d-a88a-5438-8498-5639698a0de7",
+    "title": "Le Tremblet - Romain Philippon",
+    "url": "https://www.romainphilippon.com/tremblet-fragments#19",
+    "category": "Archives du blog OOBLIK",
+    "added": "2019-10-01",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2019/le-tremblet-romain-philippon/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "577b6274-4f27-5d9e-964a-4b18551c0943",
+    "title": "LE CATALOGUE DE LA MORT – Éditions B42",
+    "url": "https://editions-b42.com/produit/le-catalogue-de-la-mort",
+    "category": "Archives du blog OOBLIK",
+    "added": "2019-09-23",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2019/le-catalogue-de-la-mort-editions-b42/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "TATA | Marc Tallec",
@@ -1486,6 +2975,203 @@
       "création"
     ],
     "id": "53146134-4d9f-5de3-a0a8-f1e2b625a342"
+  },
+  {
+    "id": "92ae874a-c7ac-533a-84dd-ebb716617ef6",
+    "title": "Bemojake - SCHOOLCRAFT",
+    "url": "https://web.archive.org/web/20200807151536/https:/www.bemojake.eu/schoolcraft_description.html",
+    "category": "Archives du blog OOBLIK",
+    "added": "2019-06-24",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2019/bemojake-schoolcraft/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "aa12cf3e-ab66-555a-a972-ec9382265f0d",
+    "title": "The Shade of Monuments – Out of Place Books",
+    "url": "http://www.outofplacebooks.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2019-06-06",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2019/the-shade-of-monuments-out-of-place-books/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "d17921b4-7f8a-50cf-af77-64719777b61c",
+    "title": "François Halard — Papa — Libraryman",
+    "url": "https://www.libraryman.se/francois-halard-papa",
+    "category": "Archives du blog OOBLIK",
+    "added": "2019-06-06",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2019/francois-halard-papa-libraryman/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "4ab1d3cf-9a34-5f57-b2af-a541d9a24cc3",
+    "title": "Photography by DAICHI KODA -Untitled(tree)",
+    "url": "http://daichikoda.com/pf/forest/index.html",
+    "category": "Archives du blog OOBLIK",
+    "added": "2019-05-22",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2019/photography-by-daichi-koda-untitledtree/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "8fb7c765-259b-5b11-8e81-6111d21d2585",
+    "title": "High garden - Tom Spach",
+    "url": "https://www.tomspach.com/High-garden",
+    "category": "Archives du blog OOBLIK",
+    "added": "2019-05-15",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2019/high-garden-tom-spach/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "b1ce07cc-d254-5fbd-b94d-63e2eda50ece",
+    "title": "MICHAEL WOLF",
+    "url": "http://photomichaelwolf.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2019-04-26",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2019/michael-wolf/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "c09ba218-68f6-5647-a05a-5ed45fa350bf",
+    "title": "Vahan Soghomonian",
+    "url": "http://www.vahansoghomonian.net/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2019-04-23",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2019/vahan-soghomonian/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "99cf8eeb-773d-5463-95fc-071d151d412a",
+    "title": "Jens Olof Lasthein",
+    "url": "https://www.lasthein.se/momentsinbetween/image/13",
+    "category": "Archives du blog OOBLIK",
+    "added": "2019-04-07",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2019/476149/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "95eb564b-5fc6-57c5-b43a-f23b68e56ffd",
+    "title": "Karol Palka",
+    "url": "http://www.karolpalka.com/brothers.php",
+    "category": "Archives du blog OOBLIK",
+    "added": "2019-03-15",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2019/karol-palka/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "837df1b9-cc7e-5e3c-9850-2a11f27fa721",
+    "title": "Making-of d’une collection libérée : Addictions sur ordonnance | Polylogue",
+    "url": "https://polylogue.org/addictions-sur-ordonnance-making-of-dune-collection-liberee",
+    "category": "Archives du blog OOBLIK",
+    "added": "2019-03-14",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2019/making-of-dune-collection-liberee-addictions-sur-ordonnance-polylogue/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "2d733b02-4137-5d62-8901-6ca52931455b",
+    "title": "A Bower for Sisters — Read That Image",
+    "url": "https://web.archive.org/web/20171211195001/http:/www.readthatimage.org:80/books/a-bower-for-sisters",
+    "category": "Archives du blog OOBLIK",
+    "added": "2019-03-14",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2019/a-bower-for-sisters-read-that-image/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "7f5db210-6a7f-5f5d-a315-97aa4c3b97db",
+    "title": "My Shadow's Reflection — Edmund Clark",
+    "url": "https://www.edmundclark.com/books/my-shadows-reflection",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-12-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/my-shadows-reflection-edmund-clark/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "3739b0f9-09c1-513f-b97f-722a39e6b4a7",
+    "title": "Here Press",
+    "url": "http://www.herepress.org/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-12-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/here-press/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "507dbd7f-d686-5ce1-90d6-c82fdab72607",
+    "title": "Editions FP&CF",
+    "url": "http://www.editionsfpcf.com/index.php/books-zines/fascinus",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-12-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/editions-fpcf/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Les zones de page PDF - NormaPrint",
@@ -1539,6 +3225,431 @@
     "id": "4c3a1bd7-2c5b-57c4-bca6-7cefe41ee079"
   },
   {
+    "id": "81b85bce-79f1-535c-9889-4eea452ecba7",
+    "title": "Rationale – Resources",
+    "url": "https://rationale-design.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-08-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/rationale-resources/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "c254d930-4af3-5b99-9e51-b804aa8b6851",
+    "title": "Éditions dasein",
+    "url": "https://web.archive.org/web/20241213205218/https:/www.co-bay.com/dasein",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-08-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "éditions",
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/editions-dasein/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "ca43ea0d-c2e6-5c2a-ade6-0099ec05d1a7",
+    "title": "Yatromanolakis Yorgos",
+    "url": "https://www.yatrom.net/thesplittingofthechrysalis",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-06-28",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/yatromanolakis-yorgos/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "f31508ef-8592-5c4d-b4f8-3495b02cc7ee",
+    "title": "Myop — MYOPZINE - France Keyser / Français d'islam",
+    "url": "http://myop.bigcartel.com/product/myopzine-france-keyser-francais-d-islam",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-06-28",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "zine",
+      "zines",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/myop-myopzine-france-keyser-francais-dislam/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "ecde3d7f-a44c-5d61-a0d1-56a203b0201b",
+    "title": "Brave Books - Tique | art paper",
+    "url": "https://www.tique.art/paper/the-publisher/brave-books",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-06-28",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/brave-books-tique-art-paper/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "bbe0c633-b6ca-5f93-a04e-c40ca9f24edc",
+    "title": "Faune, Alice Savoie / Cnap",
+    "url": "https://www.cnap.fr/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-06-12",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Typos",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/faune-alice-savoie-cnap/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "9fa05dfb-1ea5-52e9-9b5a-8a09c82a43a5",
+    "title": "Une respiration de combat - camille.szklorz",
+    "url": "https://cargocollective.com/camilleszklorz",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-06-04",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/une-respiration-de-combat-camille-szklorz/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "17473b40-5a7f-571b-9a97-1069fea8403f",
+    "title": "Elena Anosova | photography",
+    "url": "http://anosova.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-05-31",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/elena-anosova-photography/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "2dd10870-1dc0-58c5-b124-f8f9505b2502",
+    "title": "Chroniques d'un absolu : Frédérick Carnet",
+    "url": "https://web.archive.org/web/20241107061312/http:/www.frederickcarnet.com/index.php?%2Fchroniques-dun-absolu%2F=",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-05-17",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "Photographes",
+      "blog-ooblik",
+      "lien-mort"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/chroniques-dun-absolu-frederick-carnet/",
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "La destination renvoie aujourd’hui une erreur HTTP 404. L’adresse publique d’origine est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_url": "https://web.archive.org/web/20260819170310/https://web.archive.org/",
+    "archive_timestamp": "20260819170310",
+    "archive_scope": "site"
+  },
+  {
+    "id": "e3085a4d-7027-5c04-b54f-e5b00d39167f",
+    "title": "Typefaces | parachutefonts.com",
+    "url": "https://www.parachutefonts.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-04-18",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "typographie",
+      "typos",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/typefaces-parachutefonts-com/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "daa5100d-9106-54da-a6c0-de944fbce3e3",
+    "title": "Rektorat - Nouvelle Noire: Use Nice Fonts!",
+    "url": "https://www.nouvellenoire.ch/type-collection",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-04-18",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "typographie",
+      "typos",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/rektorat-nouvelle-noire-use-nice-fonts/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "78e6c7b5-abcc-5905-9d70-9f8811f0f90a",
+    "title": "Publishing — Void",
+    "url": "https://void.photo/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-03-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/publishing-void/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "ec72f8cc-ad0b-50a8-ba6b-d9ce3829bc8f",
+    "title": "a raven's dream - Stavros Stamatiou",
+    "url": "http://stavrosstam.weebly.com/a-ravens-dream.html",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-03-19",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/a-ravens-dream-stavros-stamatiou/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "b6a9d9b6-a208-5d90-be3e-2e8e769f1270",
+    "title": "Robert Frank — Chad Tobin",
+    "url": "http://www.chadtobin.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-03-17",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/robert-frank-chad-tobin/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "2ac68784-1b70-5f8e-b5ef-c2ef838c2652",
+    "title": "Publications - The Eriskay Connection",
+    "url": "https://www.eriskayconnection.com/18-books",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-03-17",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/publications-the-eriskay-connection/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "2b309d62-6f53-53c9-8062-991abe78d77f",
+    "title": "ROMAN NVMERALS BOOKS",
+    "url": "https://roman-nvmerals.myshopify.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-03-15",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/roman-nvmerals-books/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "43c0875f-67c2-5b7c-b66a-a671e949c990",
+    "title": "Le Murmure - Murmure",
+    "url": "https://murmure.me/projet/le-murmure",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-03-08",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "typographie",
+      "typos",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/le-murmure-murmure/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "c81f5cda-eb1f-5e1e-901c-281aca7cb013",
+    "title": "Bookmaker: Macmillan's bookmaking tool",
+    "url": "http://macmillanpublishers.github.io/bookmaker",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-03-01",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/bookmaker-macmillans-bookmaking-tool/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "26e8f80a-a58a-57d1-b7de-ddb2d0869ce6",
+    "title": "Mayumi Suzuki Photography",
+    "url": "https://www.mayumisuzuki.jp/therestorationwill",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-02-02",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/mayumi-suzuki-photography/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "4a626bbc-c222-5b7d-b6b1-8ef55db77964",
+    "title": "burning with pleasure - Project - archipelago",
+    "url": "http://archipelagoprojects.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2018-02-01",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2018/burning-with-pleasure-project-archipelago/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "aaa56301-cb1c-5662-b557-2745392a93c5",
+    "title": "Satura | YARDPRESS",
+    "url": "http://www.yardpress.it/satura",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-12-27",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/satura-yardpress/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "bbf3cce7-b6d7-5e9c-99d1-7500cdea69d1",
+    "title": "★ Beijing Silvermine ☆ 北京银矿 ★ (@beijing_silvermine)",
+    "url": "https://www.instagram.com/beijing_silvermine",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-12-18",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/%e2%98%85-beijing-silvermine-%e2%98%86-%e5%8c%97%e4%ba%ac%e9%93%b6%e7%9f%bf-%e2%98%85-beijing_silvermine/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "e40634e6-3453-579b-8575-70daec188809",
+    "title": "stencil.wiki",
+    "url": "http://stencil.wiki/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-12-11",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Riso",
+      "risographie",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/stencil-wiki/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "09db59ce-8792-531b-8b78-0a42ffc2cc10",
+    "title": "O.OO.COM",
+    "url": "http://odotoo.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-12-11",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "RISO",
+      "risographie",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/o-oo-com/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "ca4ae398-2a5d-528a-b4fc-5b4926f60161",
+    "title": "Maisonriso",
+    "url": "http://maisonriso.fr/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-12-11",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "RISO",
+      "risographie",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/maisonriso/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "a2a6cdc3-a5fa-5902-b9e3-bc8d63e41c21",
+    "title": "Les Caracterres",
+    "url": "https://lescaracterres.fr/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-12-11",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Letterpress",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/les-caracterres/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "1554cdeb-aa7a-53ce-9cf1-3c1f8782446c",
+    "title": "HUV Offset Printing - Cassochrome",
+    "url": "https://www.csc.be/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-12-11",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Imprimerie &amp; technique",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/huv-offset-printing-cassochrome/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "f82fa78d-9ae1-52ec-9499-508646e35a98",
+    "title": "Friends Make Books — Studio",
+    "url": "http://www.friendsmakebooks.com/FMB/studio",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-12-11",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "RISO",
+      "risographie",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/friends-make-books-studio/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "aadaf4b0-8c6f-530c-b61d-0b85883e23ee",
+    "title": "Constance — Erik Kiesewetter. Risograph Printing New Orleans.",
+    "url": "http://www.weareconstance.org/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-12-11",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "RISO",
+      "risographie",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/constance-erik-kiesewetter-risograph-printing-new-orleans/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Silvio Lorusso . com",
     "url": "http://silviolorusso.com/",
     "category": "Design & Création",
@@ -1563,6 +3674,54 @@
       "création"
     ],
     "id": "c0374cb9-5ab8-580d-8375-99846755c893"
+  },
+  {
+    "id": "3782b81c-3b6d-5dbe-9cc3-c4c68d23d3ca",
+    "title": "Une intrusion dans l'univers des fontes",
+    "url": "http://www.bonjourjesuis.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-11-08",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "typographie",
+      "Typos",
+      "blog-ooblik",
+      "lien-mort"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/une-intrusion-dans-lunivers-des-fontes/",
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "Le domaine public d’origine ne répond plus au DNS. L’adresse est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_status": "missing"
+  },
+  {
+    "id": "b468728e-2262-5706-9be7-5d8c2289f803",
+    "title": "SelfControl",
+    "url": "http://selfcontrolapp.com/index.html",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-11-08",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/selfcontrol/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "91e5578c-677b-5997-acc9-0dd75f46f58d",
+    "title": "Ca l'Isidret Edicions - Juan Diego Valera - Tuétano",
+    "url": "https://web.archive.org/web/20200806151159/https:/calisidretedicions.cat/14-tuetano.html",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-11-07",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/ca-lisidret-edicions-juan-diego-valera-tuetano/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Papirmass Art Subscription | Your Monthly Creative Surprise",
@@ -1646,6 +3805,278 @@
     "id": "08b3b056-3bdb-5810-ac63-6a4186b069f7"
   },
   {
+    "id": "8496abc8-d864-5f19-b32c-382b5406c710",
+    "title": "photo-cine-reparation.com",
+    "url": "http://www.photo-cine-reparation.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-10-27",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Camera Porn",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/photo-cine-reparation/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "9a24c5bd-3386-51d4-ad37-336a88a55f35",
+    "title": "Order of Appearance by Jim Jocoy - TBW Books",
+    "url": "https://www.tbwbooks.com/collections/single-titles/products/order-of-appearance",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-10-27",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/order-of-appearance-by-jim-jocoy/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "35391fa4-3ffb-5f61-a1cf-336af3a1fbb8",
+    "title": "ATLAS OF FORMS : POURSUITE",
+    "url": "http://www.poursuite-editions.org/index.php?%2Fparutions%2Fatlas-of-forms%2F=",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-10-27",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/atlas-of-forms-poursuite/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "f01876dd-dd11-5ff2-8661-69bf7ae93d1a",
+    "title": "Toscane primitive : Julien Magre",
+    "url": "http://julienmagre.fr/personalwork/un-miroir-trop-mince",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-10-23",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/toscane-primitive-julien-magre/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "8693fa1c-e510-57a4-8433-b34180cf529f",
+    "title": "future → Open Source Publishing, Relearn",
+    "url": "https://web.archive.org/web/20220511202516/http:/f-u-t-u-r-e.org/r/02_OSP_Relearn_FR.md",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-10-15",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/future-%e2%86%92-open-source-publishing-relearn/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "37d5f20e-6959-5916-8a0e-9dd5eb601bba",
+    "title": "E-Book backup : Jesse England",
+    "url": "http://jesseengland.net/project/e-book-backup",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-10-15",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/e-book-backup-jesse-england/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "d3570516-9277-5905-b159-a279dee189ce",
+    "title": "Optimo Type Foundry Typefaces",
+    "url": "https://optimo.ch/typefaces.html",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-10-13",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "typographie",
+      "Typos",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/optimo-type-foundry-typefaces/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "33619ef7-fd9a-58a9-898a-9e8444ecd65e",
+    "title": "FAG Swiss Proof 40 « proofpress.ch",
+    "url": "https://web.archive.org/web/20181021232747/http:/proofpress.ch:80/fag-swiss-proof-40",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-10-13",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Letterpress",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/fag-swiss-proof-40-proofpress-ch/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "4ef65a64-608f-5c16-a53b-eead245b6915",
+    "title": "Éditions Macula - Une histoire contrariée. Le musée de photographie en France (1839-1945)",
+    "url": "http://www.editionsmacula.com/livre/132.html",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-10-13",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/editions-macula-une-histoire-contrariee-le-musee-de-photographie-en-france-1839-1945/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "742c5192-fc6e-5aba-a053-9fcfeb2170ef",
+    "title": "Atelier : Idem Paris",
+    "url": "http://idemparis.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-10-13",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Imprimerie &amp; technique",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/atelier-idem-paris/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "ff18cd31-f54f-5826-a0e9-52068044aace",
+    "title": "REVUE PLI",
+    "url": "http://revuepli.blogspot.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-10-09",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/revue-pli/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "914fee16-5615-53e2-9f8a-007bf7f7db1f",
+    "title": "baldinger•vu-huu | Stéphane Couturier, SC",
+    "url": "http://www.baldingervuhuu.com/projets/stephan-couturie/client:stphane-couturier#&gid=1&pid=6",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-10-09",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/baldingervu-huu-stephane-couturier-sc/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "3d9a794d-dfa4-5b95-9cfb-002665188129",
+    "title": "Déflagrations - Anamosa",
+    "url": "http://anamosa.fr/produit/deflagrations",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-09-28",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/deflagrations-anamosa/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "b9a51beb-5c34-5914-b734-17eb8af1c8e1",
+    "title": "Jouer contre les appareils – Marc Lenot",
+    "url": "https://web.archive.org/web/20190820164803/http:/photographie-experimentale.com:80/le-livre",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-07-18",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/jouer-contre-les-appareils-marc-lenot/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "69f7866d-763d-509f-ae4f-b4997a4aee8c",
+    "title": "Nona Faustine",
+    "url": "https://web.archive.org/web/20191210194148/http:/nonafaustine.virb.com:80/home",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-07-11",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "up",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/nona-faustine/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "8cac9df8-a424-5a9c-981a-8ab6b4cd0a43",
+    "title": "Bibliothèque numérique | Musée de l'Elysée",
+    "url": "http://www.photobookselysee.ch/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-07-11",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Camera Porn",
+      "Livre / Book",
+      "Photographes",
+      "up",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/bibliotheque-numerique-musee-de-lelysee/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "48d1a3ac-d456-5316-825a-ac48862e8421",
+    "title": "Archives Grothendieck",
+    "url": "https://grothendieck.umontpellier.fr/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-05-12",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/archives-grothendieck/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "e242086d-d4a4-519d-8d04-dd3a72219d30",
+    "title": "DOMO-A Inspiration blog",
+    "url": "http://domoa.tumblr.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-04-24",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/domo-a-inspiration-blog/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "202a1283-408a-598c-96a1-c5fce92da4e1",
+    "title": "Same Tense Caimi Piccinni",
+    "url": "http://www.caimipiccinni.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-04-20",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/same-tense-caimi-piccinni/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Printing in Relation to Graphic Art by George French — Art of Printing",
     "url": "http://print.lapels.club/art-of-printing",
     "category": "Design & Création",
@@ -1658,6 +4089,34 @@
       "création"
     ],
     "id": "62fdc065-22d3-5c99-82eb-614d6e99c4f6"
+  },
+  {
+    "id": "b447288e-80a2-5f98-94ec-5c69ff5ad401",
+    "title": "Nager la nuit : marine lanier",
+    "url": "https://web.archive.org/web/20190328223232/http:/www.marinelanier.com",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-04-20",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/nager-nuit-marine-lanier/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "1365c837-781f-5248-9abb-272415c3a915",
+    "title": "éts. Malaxe vous souhaite la bienvenue",
+    "url": "http://www.malaxe.org/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-04-20",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/ets-malaxe-souhaite-bienvenue/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Type Network",
@@ -3577,6 +6036,20 @@
     "id": "3c3e8791-473a-51dc-a4f1-3d0dbb4f050f"
   },
   {
+    "id": "833adc53-9766-5cbb-8a72-f97b4bdf5da8",
+    "title": "The Theatre of Apparitions | Roger Ballen Photography",
+    "url": "https://www.rogerballen.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-03-16",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/the-theatre-of-apparitions-roger-ballen-photography/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Type Magazine",
     "url": "https://www.typemag.org/",
     "category": "Design & Création",
@@ -4295,6 +6768,107 @@
       "façonnage"
     ],
     "id": "9366d34e-81c5-51db-9e4c-ec4c424b63ab"
+  },
+  {
+    "id": "0a6173ed-0869-5c31-8956-af7c357d2ea2",
+    "title": "Le Principe de Réalité - ALEX CRETEY SYSTERMANS",
+    "url": "http://www.systermans.com/le-principe-de-realite",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-01-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/principe-de-realite-alex-cretey-systermans/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "3c37ec92-c1b7-597c-89fe-d4e91c52348d",
+    "title": "Guillaume Martial — SPORTOKINO",
+    "url": "http://www.guillaumemartial.fr/sportokino",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-01-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/guillaume-martial-sportokino/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "7a901e8c-24b1-5c6c-b5c2-eb55c1de61e0",
+    "title": "Paris - Patrick Messina",
+    "url": "http://www.patrickmessina.com/books/paris",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-01-17",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/paris-patrick-messina/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "0537f997-79fa-5867-b260-ce9644a73a25",
+    "title": "Buy Books, Not Gear",
+    "url": "http://erickimphotography.com/blog/2011/12/12/buy-books-not-gear",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-01-15",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Actualités",
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/buy-books-not-gear/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "10d56949-2b57-5a48-9b21-f7069e9c57a7",
+    "title": "Workshops / Patrick Le Bescont",
+    "url": "http://www.rencontres-arles.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-01-11",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Actualités",
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/workshops-patrick-bescont/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "34f9efb0-9f55-519b-9150-cf3423838a18",
+    "title": "Intrepid Camera - The Intrepid Camera Company",
+    "url": "https://intrepidcamera.co.uk/products/intrepid-camera",
+    "category": "Archives du blog OOBLIK",
+    "added": "2017-01-09",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Camera Porn",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2017/intrepid-camera-the-intrepid-camera-company/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "266fec04-3465-592f-800a-3d49194e92e6",
+    "title": "Rêves de maison, rêves de territoire – MTP",
+    "url": "http://www.makingthingspublic.com/portfolio/reves-de-maison-reves-de-teritoire",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-12-28",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/reves-de-maison-reves-de-territoire-mtp/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Twitter",
@@ -5169,6 +7743,20 @@
     "id": "2ea57b68-601b-5cad-be03-c22d4794dc49"
   },
   {
+    "id": "8eeff05b-c210-51e8-b23c-fb31670d5673",
+    "title": "SRDx Photoshop Plugin",
+    "url": "http://www.picture-plugins.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-12-03",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/srdx-photoshop-plugin/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Chrome 55 fait le ménage sur les failles, la consommation mémoire vive et Flash",
     "url": "https://www.nextinpact.com/news/102345-chrome-55-fait-menage-sur-failles-consommation-memoire-vive-et-flash.htm",
     "category": "Médias & Veille",
@@ -5433,6 +8021,21 @@
     ],
     "stream": "blog-ooblik",
     "id": "15368817-95cb-5f7e-b419-9afb1e119ddd"
+  },
+  {
+    "id": "a2dc699c-8d46-5a09-bd57-ec394a45fbcd",
+    "title": "dominique lambert _ stephanie solinas",
+    "url": "http://stephaniesolinas.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-11-29",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/dominique-lambert-_-stephanie-solinas/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Instagram",
@@ -6271,6 +8874,20 @@
     "id": "35a747e0-949c-5a90-a21a-95185e3a9d40"
   },
   {
+    "id": "2734261e-5f2e-5766-bb23-a9f8499cd687",
+    "title": "ON1 Photo RAW Live Event",
+    "url": "https://www.on1.com/products/photo-raw/live",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-11-08",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/on1-photo-raw-live-event/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "LA-area polling station on lockdown after shots nearby; at least two victims - CNNPolitics.com",
     "url": "http://www.cnn.com/2016/11/08/politics/la-area-polling-station-on-lockdown-after-shots-nearby-at-least-two-victims/index.html?sr=twCNN110816la-area-polling-station-on-lockdown-after-shots-nearby-at-least-two-victims1125PMVODtopLink&linkId=30950464",
     "category": "Médias & Veille",
@@ -6449,6 +9066,21 @@
     ],
     "stream": "blog-ooblik",
     "id": "5b00a1ab-e534-5fac-b768-678b30559285"
+  },
+  {
+    "id": "7e6af8d5-ce6e-5022-a082-294859ad4cc3",
+    "title": "Ralph Gibson: How to Make a Book | NOWNESS",
+    "url": "https://www.nowness.com/story/ralph-gibson-how-to-make-a-book",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-11-06",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/ralph-gibson-how-to-make-a-book-nowness/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "LOST iN: Milan | Village | - LE BLOOG -",
@@ -6831,6 +9463,34 @@
     "id": "c3215e62-a44a-5a9a-b106-21f014c088d1"
   },
   {
+    "id": "cc938b48-513d-5ee9-859b-33c3e1092eeb",
+    "title": "Elements | Volume #9",
+    "url": "http://www.katacri.net/christophe/lettereng.html",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-11-02",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/elements-volume-9/",
+    "stream": "blog-ooblik"
+  },
+  {
+    "id": "bc10dc8a-5cf4-517e-b2b5-e9afc2d558a2",
+    "title": "BRIGHT/ TORMENT | Federica Landi",
+    "url": "http://www.federicalandi.net/?page_id=275",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-11-02",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/bright-torment-federica-landi/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Book Book | - LE BLOOG -",
     "url": "http://blog.ooblik.com/book-book",
     "category": "Mémoire du web social",
@@ -6842,6 +9502,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "96c70afb-2721-5bcb-bcab-35638575b20f"
+  },
+  {
+    "id": "33513303-651f-52bc-99d8-a7c67129cf31",
+    "title": "Saisons noires +",
+    "url": "http://www.lamaindonne.fr/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-10-31",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/saisons-noires/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Instagram",
@@ -7934,6 +10608,21 @@
     ],
     "stream": "blog-ooblik",
     "id": "332a200b-b121-5163-a378-9a8737e46dd5"
+  },
+  {
+    "id": "bb9d8f93-d13c-5d2a-91a5-ace32d1144aa",
+    "title": "Far from home — YOUQINE LEFEVRE",
+    "url": "http://www.youqinelefevre.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-10-12",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/far-from-home-youqine-lefevre/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Twitter",
@@ -9367,6 +12056,20 @@
     "id": "280b83fb-6931-526a-8ec9-59ba2280e248"
   },
   {
+    "id": "7e329ec2-51b3-5a06-b613-c3aea3f67891",
+    "title": "FILIP DUJARDIN",
+    "url": "https://web.archive.org/web/20200926004946/http:/www.vandermieden.com/filip-dujardin",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-09-28",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/filip-dujardin/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Twitter",
     "url": "https://twitter.com/FreshPrintsEFI/status/780800280946409472/photo/1",
     "category": "Mémoire du web social",
@@ -10293,6 +12996,20 @@
     "id": "7d49a037-eea7-55ac-b335-462d4e2d4573"
   },
   {
+    "id": "d849bfe6-4823-5fec-a0ba-16e0cf95dfde",
+    "title": "Soviet Movies in English online",
+    "url": "http://sovietmoviesonline.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-09-16",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Actualités",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/soviet-movies-in-english-online/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Smash | - LE BLOOG -",
     "url": "http://blog.ooblik.com/smash",
     "category": "Mémoire du web social",
@@ -10317,6 +13034,21 @@
     ],
     "stream": "blog-ooblik",
     "id": "c186fd75-249e-56f6-8a33-7bb66f9c92a1"
+  },
+  {
+    "id": "f3873107-7c06-52b8-8c83-f3008a5b59ab",
+    "title": "Les Éditions du Paon",
+    "url": "http://www.leseditionsdupaon.fr/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-09-16",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Camera Porn",
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/les-editions-du-paon/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Instagram",
@@ -10345,6 +13077,20 @@
     "id": "14e02935-3453-5e08-8674-72773d032d7f"
   },
   {
+    "id": "6fab6dc4-baa0-59aa-a566-fe7c2785a704",
+    "title": "guerillagrafik.com",
+    "url": "http://www.guerillagrafik.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-09-16",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/guerillagrafik-com/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Christophe d'Hervé, reliure traditionnelle | - LE BLOOG -",
     "url": "http://blog.ooblik.com/christophe-dherve-reliure-traditionnelle",
     "category": "Mémoire du web social",
@@ -10371,6 +13117,20 @@
     "id": "7862a974-52f9-534f-a89e-d13c69864967"
   },
   {
+    "id": "5f7635a6-f747-5c6d-9fc2-fd1c81f94c61",
+    "title": "Bildband Berlin",
+    "url": "https://bildbandberlin.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-09-16",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/bildband-berlin/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Atelier de reliure - Franck Michel - Grenoble | - LE BLOOG -",
     "url": "http://blog.ooblik.com/atelier-de-reliure-franck-michel-grenoble",
     "category": "Mémoire du web social",
@@ -10382,6 +13142,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "81e928be-fd12-5b04-85af-a9be5ab24f44"
+  },
+  {
+    "id": "1a41310f-f947-582b-b378-a318ff5c5ca9",
+    "title": "Atelier de reliure - Franck Michel - Grenoble",
+    "url": "http://www.atelierdereliure.fr/spip.php?rubrique2=",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-09-16",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/atelier-de-reliure-franck-michel-grenoble/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Twitter",
@@ -10489,6 +13263,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "ec39fec3-ff57-5aa0-a720-bd964e46ff0d"
+  },
+  {
+    "id": "c159f5d4-d161-5131-84b6-8560b1da0776",
+    "title": "Libre Desktop Publishing – Scribus",
+    "url": "https://www.scribus.net/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-09-15",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/libre-desktop-publishing-scribus/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Instagram",
@@ -10658,6 +13446,21 @@
     ],
     "stream": "blog-ooblik",
     "id": "a8dbeca8-13dd-56f1-87c5-9e25d29d2eba"
+  },
+  {
+    "id": "444201b9-2dfb-580d-b316-6e57b1957315",
+    "title": "Cours en ligne (vidéos) sur la Photographie de Marc Levoy",
+    "url": "https://sites.google.com/site/marclevoylectures/home",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-09-14",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Camera Porn",
+      "technique",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/cours-ligne-videos-photographie-marc-levoy/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Cours en ligne (vidéos) sur la Photographie | - LE BLOOG -",
@@ -11251,6 +14054,20 @@
     "id": "3fe11f0d-261c-596a-9d07-dbe4f3e4169c"
   },
   {
+    "id": "92161837-8c30-5e8e-a89d-3b048368f31d",
+    "title": "tim carpenter",
+    "url": "http://www.timcarpenterphotography.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-09-09",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/tim-carpenter/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Lewis Bush | Shadows of the State book | - LE BLOOG -",
     "url": "http://blog.ooblik.com/lewis-bush-shadows-of-the-state-book",
     "category": "Mémoire du web social",
@@ -11364,6 +14181,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "7f9eae81-696a-50b9-8bb5-aa8b18792d3a"
+  },
+  {
+    "id": "c5233b1a-2bfd-5f80-a160-5e5b3b43c63a",
+    "title": "arnaud delrue. | photographie",
+    "url": "http://www.delrue.fr/index.php?m=minotaures&i=5",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-09-09",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/arnaud-delrue-photographie/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "We'd Feel Safer Without Police poster | - LE BLOOG -",
@@ -11528,6 +14359,20 @@
     "id": "c1377011-ce44-508d-a325-de900c6fd8fb"
   },
   {
+    "id": "ac4dbed0-3df9-5726-b4d8-ac6e29bde527",
+    "title": "THE ANGRY BAT'S - nice photobooks",
+    "url": "http://theangrybat.tumblr.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-09-08",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/the-angry-bats-nice-photobooks/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "tell me, how do you pronounce a hyphen? I 2014-2016 — hulu jay | - LE BLOOG -",
     "url": "http://blog.ooblik.com/tell-me-how-do-you-pronounce-a-hyphen-i-2014-2016-hulu-jay",
     "category": "Mémoire du web social",
@@ -11612,6 +14457,21 @@
     "id": "c2c36342-8232-591a-b2c0-ea7432c14bba"
   },
   {
+    "id": "92401d6c-39cd-5b03-9c89-90055098dc1c",
+    "title": "Draw Down — Let's Get Together",
+    "url": "https://draw-down.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-09-08",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/draw-down-lets-get-together/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Custom letters from Sweden | - LE BLOOG -",
     "url": "http://blog.ooblik.com/custom-letters-from-sweden",
     "category": "Mémoire du web social",
@@ -11649,6 +14509,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "4ea83f5a-ae0f-5539-9dd7-be7588cc61d9"
+  },
+  {
+    "id": "2dcda53c-9af4-514b-887b-8a1623383df3",
+    "title": "Chad Moore – Bridge of Sighs — oodee — Photography Books & Posters",
+    "url": "http://oodee.net/posters/roger-ballen-regular",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-09-08",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/chad-moore-bridge-of-sighs-oodee-photography-books-posters/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Bubblegum | Hoxton Mini Press | - LE BLOOG -",
@@ -12087,6 +14961,21 @@
     "id": "b4607ed0-7cf6-5956-9dc2-40f30b017d21"
   },
   {
+    "id": "da17252c-50ee-57fd-9c8d-383934130dd4",
+    "title": "FontShop | 100 Best Typefaces of All Time",
+    "url": "https://www.fontshop.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-09-05",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "typographie",
+      "typos",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/fontshop-100-best-typefaces-of-all-time/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "E.D.G.A.R | - LE BLOOG -",
     "url": "http://blog.ooblik.com/e-d-g-a-r",
     "category": "Mémoire du web social",
@@ -12124,6 +15013,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "446f8064-78f5-5bca-b7de-2e081d9e30c4"
+  },
+  {
+    "id": "a5761146-87a6-5337-ac4c-fc9cb55109fd",
+    "title": "Books › Twin Palms Publishers",
+    "url": "https://twinpalms.com/books-artists",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-09-05",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/books-twin-palms-publishers/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Books – Hato Press | - LE BLOOG -",
@@ -12342,6 +15245,21 @@
     ],
     "stream": "blog-ooblik",
     "id": "521a05df-96bb-5a94-bf8f-c566e06415c9"
+  },
+  {
+    "id": "9397657b-a528-5437-b2c8-0d514ed6f6fe",
+    "title": "Visual CMS to power content-first design | Webflow",
+    "url": "https://webflow.com/cms",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-09-02",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "cms",
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/visual-cms-to-power-content-first-design-webflow/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Virb › Photographers | - LE BLOOG -",
@@ -12715,6 +15633,20 @@
     "id": "100cb352-4816-524e-afde-d6c7cfc9ef60"
   },
   {
+    "id": "dcc47cf1-4856-52ba-a8d9-eb15f05fe46b",
+    "title": "bookRoom | The Book is Alive!",
+    "url": "http://www.thebookroom.net/collection/item/677",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-09-02",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/bookroom-the-book-is-alive/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Ataraxie : Une secte en ligne qui dénonce... - Atelier OOBLIK",
     "url": "http://ooblik.tumblr.com/post/149831357216/ataraxie-une-secte-en-ligne-qui-d%C3%A9nonce#_=_",
     "category": "Mémoire du web social",
@@ -12752,6 +15684,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "c1c6c20a-5b34-5751-af1e-699a538cdc72"
+  },
+  {
+    "id": "229b7136-32a8-56a0-bf63-a28b8423c98c",
+    "title": "16 PHOTOS QUE JE N'AI PAS PRISES : POURSUITE",
+    "url": "http://www.poursuite-editions.org/index.php?%2Fparutions%2F16-photos-que-je-nai-pas-prises%2F2%2F=",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-09-02",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/16-photos-nai-prises-poursuite/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Twitter",
@@ -13433,6 +16379,20 @@
     ],
     "stream": "instagram",
     "id": "8904790a-1c41-5ed8-abb2-9a218ad85399"
+  },
+  {
+    "id": "487a635a-d53e-5ad6-82f2-30bcda2cc931",
+    "title": "XYZ Books Lisbon -",
+    "url": "http://www.artbooks.xyz/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-08-24",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/xyz-books-lisbon/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Twitter",
@@ -14463,6 +17423,21 @@
     "id": "6bfef893-7e17-52df-9748-07ff89073440"
   },
   {
+    "id": "b51e6835-2977-5967-a389-982ae77addca",
+    "title": "I - burning with pleasure - archipelago",
+    "url": "http://www.archipelagoprojects.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-07-19",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Actualités",
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/i-burning-with-pleasure-archipelago/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Gerry Johansson. Hemsida/ Homepage | - LE BLOOG -",
     "url": "http://blog.ooblik.com/gerry-johansson-hemsida-homepage",
     "category": "Mémoire du web social",
@@ -14474,6 +17449,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "bc092e3e-927f-599a-a90a-d4e87289ac38"
+  },
+  {
+    "id": "334e8ccf-4f02-5146-afe1-281ca9a5436c",
+    "title": "Gerry Johansson. Hemsida/ Homepage",
+    "url": "http://www.gerryjohansson.com/index.html",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-07-19",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/gerry-johansson-hemsida-homepage/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "ÉDITIONS YELLOW NOW | - LE BLOOG -",
@@ -14489,6 +17478,20 @@
     "id": "7ad19d26-1a36-52c6-bd4f-374fdcf13329"
   },
   {
+    "id": "c5127268-c658-5501-8a59-7046f6c18e9b",
+    "title": "ÉDITIONS YELLOW NOW",
+    "url": "https://www.yellownow.be/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-07-19",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/editions-yellow-now/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "COLOR-LOGIC Special Effects for Print | - LE BLOOG -",
     "url": "http://blog.ooblik.com/color-logic-special-effects-for-print",
     "category": "Mémoire du web social",
@@ -14500,6 +17503,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "b6f8d300-b8ac-5c84-ae2a-53383802468f"
+  },
+  {
+    "id": "eae3bd8c-8c81-59aa-9522-fa55b868f891",
+    "title": "COLOR-LOGIC Special Effects for Print",
+    "url": "http://www.color-logic.com/product/DesignSuite",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-07-19",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Camera Porn",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/color-logic-special-effects-for-print/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Twitter",
@@ -14644,6 +17661,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "96cc8b4d-fdb8-5b48-85f5-d6b6daed26a5"
+  },
+  {
+    "id": "a8411556-7524-5045-87b7-419af535fa4e",
+    "title": "Works — Per Christian Brown",
+    "url": "http://www.perchristianbrown.com/artists",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-07-15",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/works-per-christian-brown/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Typographie : deux ou trois choses | - LE BLOOG -",
@@ -14803,6 +17834,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "2de8dfda-e4ee-5d1e-b735-f124b7ed1018"
+  },
+  {
+    "id": "68d1c00d-6a17-56a6-9954-da5ddb5766c4",
+    "title": "LISE DUA",
+    "url": "http://www.lisedua.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-07-15",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/lise-dua/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "L’Ascenseur Végétal | - LE BLOOG -",
@@ -14994,6 +18039,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "404bf43c-bf92-5147-87d4-52cc3969282d"
+  },
+  {
+    "id": "7eac9233-9cb9-595c-b473-3cdbc7fd9942",
+    "title": "Kieran Cudlip",
+    "url": "http://cargocollective.com/kierancudlip/filter/depression",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-07-11",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/kieran-cudlip/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Instagram",
@@ -15496,6 +18555,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "da476f5c-563b-561a-bd7c-1bbcc8f2273f"
+  },
+  {
+    "id": "b0210a96-45ab-587f-8a22-9e442754b719",
+    "title": "L'INDIFFÉRENCE DES ÉTOILES : POURSUITE",
+    "url": "http://www.poursuite-editions.org/index.php?%2Fparutions%2Flindifference-des-etoiles%2F=",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-07-04",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/lindifference-des-etoiles-poursuite/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Instagram",
@@ -16248,6 +19321,20 @@
     "id": "2d6cf3d1-de8b-5a01-81c1-0cfc2f381596"
   },
   {
+    "id": "b2d31bb4-b6c4-558c-97b9-2d66e5f8ab47",
+    "title": "Jeffrey Ladd",
+    "url": "http://www.jeffreyladd.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-06-25",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/jeffrey-ladd/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Instagram",
     "url": "https://www.instagram.com/p/BHFJpCJjzFP",
     "category": "Mémoire du web social",
@@ -16349,6 +19436,22 @@
     "archive_scope": "url",
     "archive_checked_at": "2026-07-27",
     "id": "6a59af1c-8503-51ae-a286-a2e790cb30aa"
+  },
+  {
+    "id": "710c04d2-1189-57d5-8ac2-648f85e63f67",
+    "title": "Alex Cretey Systermans",
+    "url": "http://selektor.fr/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-06-25",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "zine",
+      "zines",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/alex-cretey-systermans/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Instagram",
@@ -16465,6 +19568,21 @@
     ],
     "stream": "blog-ooblik",
     "id": "f19253bc-ef72-542f-a144-4891f3e4ed66"
+  },
+  {
+    "id": "8c287a47-04f1-5d40-a669-28b4c3601cc5",
+    "title": "Lyon Text and Display — Carvalho Bernau",
+    "url": "http://carvalho-bernau.com/lyon",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-06-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "typographie",
+      "Typos",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/lyon-text-and-display-carvalho-bernau/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Instagram",
@@ -17119,6 +20237,20 @@
     "id": "86fb02fd-effa-59f2-abee-97a74b6aa89c"
   },
   {
+    "id": "f8fb46bb-ccda-5d84-9ab4-3b78bcd9d8ee",
+    "title": "PATAPHYSICS MAGAZINE | World Food Books",
+    "url": "http://www.worldfoodbooks.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-06-10",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/pataphysics-magazine-world-food-books/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "L’Usure du Monde | - LE BLOG - OOBLIK",
     "url": "http://blog.ooblik.com/lusure-du-monde",
     "category": "Mémoire du web social",
@@ -17178,6 +20310,20 @@
     "archive_scope": "url",
     "archive_checked_at": "2026-07-27",
     "id": "aef24ab1-f814-525e-84b3-fb94f8d8ee05"
+  },
+  {
+    "id": "c34344b3-8be6-5c39-aa59-e2be8c87216a",
+    "title": "Bemojake - Books",
+    "url": "https://web.archive.org/web/20201119184249/http:/bemojake.eu/books.html",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-06-10",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/bemojake-books/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Instagram",
@@ -17991,6 +21137,21 @@
     "id": "00fb48ed-5aa0-5b1f-b1c1-2961a469fc14"
   },
   {
+    "id": "955ec469-dfd2-59a4-b492-f16279a2b450",
+    "title": "BOOK ‹ Pauline Alioua",
+    "url": "http://www.back-to-intro.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-05-12",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/book-pauline-alioua/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Twitter",
     "url": "https://twitter.com/entropik/status/730290578248716289/photo/1",
     "category": "Mémoire du web social",
@@ -18151,6 +21312,21 @@
     ],
     "stream": "blog-ooblik",
     "id": "c4918f17-961a-55f3-a977-7924ff6bd44a"
+  },
+  {
+    "id": "7325665b-b8c9-5f05-8f69-b70663af3324",
+    "title": "Julien Magre - Filigranes Editions",
+    "url": "http://www.filigranes.com/livre/julien-magre",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-05-09",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/julien-magre-filigranes-editions/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Instagram",
@@ -18893,6 +22069,20 @@
     "id": "1a28fffd-42c5-562c-ae63-077ee0463559"
   },
   {
+    "id": "0580fab0-84e2-5488-a664-953281f33478",
+    "title": "Chrystel Mukeba / Works / American Story",
+    "url": "http://www.chrystelmukeba.com/?section=works&tag=american-story",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-04-26",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/chrystel-mukeba-works-american-story/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Beatrix von conta frances territoire liquide",
     "url": "http://blog.ooblik.com/beatrix-von-conta-frances-territoire-liquide",
     "category": "Mémoire du web social",
@@ -18911,6 +22101,20 @@
     "archive_scope": "url",
     "archive_checked_at": "2026-07-27",
     "id": "e4948e99-d5c7-526b-8157-b7d0a0835842"
+  },
+  {
+    "id": "4c8e15c7-a771-5a55-983b-c665cdcd494d",
+    "title": "Beatrix von Conta - France(s) Territoire Liquide",
+    "url": "https://www.youtube.com/@ChannelFTL",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-04-26",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/beatrix-von-conta-frances-territoire-liquide/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Instagram",
@@ -19022,6 +22226,25 @@
     "id": "e20b8df7-bceb-50c5-96a6-e8fce0462735"
   },
   {
+    "id": "ca856b63-1476-5ccc-9e49-604431931c44",
+    "title": "Clément Verger|Où les Mirages Grondent",
+    "url": "http://www.clementverger.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-04-23",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik",
+      "lien-mort"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/clement-vergerou-les-mirages-grondent/",
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "Le domaine public d’origine ne répond plus au DNS. L’adresse est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_status": "missing"
+  },
+  {
     "title": "Twitter",
     "url": "https://twitter.com/entropik/status/723463075450499072/photo/1",
     "category": "Mémoire du web social",
@@ -19120,6 +22343,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "8bce7cc3-ed30-5126-841b-9398310440e4"
+  },
+  {
+    "id": "5743af16-faca-55c1-9a2e-a5beb6c13a56",
+    "title": "Der Greif",
+    "url": "https://www.dergreif-online.de/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-04-22",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/der-greif/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Ulm - Monoskop",
@@ -19673,6 +22910,21 @@
     "id": "32af4c03-2afd-5ef1-be5f-41f1475f3e0f"
   },
   {
+    "id": "e3665059-a39e-5dcf-b1cb-d50b79341533",
+    "title": "Terres d'exil - Filigranes Editions",
+    "url": "http://www.filigranes.com/livre/terres-dexil",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-04-04",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/terres-dexil-filigranes-editions/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Les Rencontres d'Arles Blog | - LE BLOG - OOBLIK",
     "url": "http://blog.ooblik.com/les-rencontres-darles-blog",
     "category": "Mémoire du web social",
@@ -20098,6 +23350,20 @@
     "id": "4f75536c-3086-50b1-97e4-34c233261120"
   },
   {
+    "id": "2f6c841d-fd96-5a74-b07a-06359011e623",
+    "title": "darktable 2.0.2 released | darktable",
+    "url": "https://www.darktable.org/2016/03/darktable-2-0-2-released",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-03-23",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/darktable-2-0-2-released-darktable/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Twitter",
     "url": "https://twitter.com/entropik/status/712405018737913857/photo/1",
     "category": "Mémoire du web social",
@@ -20328,6 +23594,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "9dccdcc7-416a-5187-8c68-f31e60817fec"
+  },
+  {
+    "id": "b6aff813-48ba-5754-8cc5-477963ecf11c",
+    "title": "imrich veber | BLOK 62",
+    "url": "http://www.imrichveber.com/blok-62",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-03-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/imrich-veber-blok-62/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Ilford, récit d’une faillite : clac de fin (1/5) - L'Œil de la photographie",
@@ -20771,6 +24051,20 @@
     "id": "43f0d91c-1a41-5b7a-81dc-b58a9cfc3670"
   },
   {
+    "id": "1fdcee0f-2b56-502f-a866-b08104c8df14",
+    "title": "Les douces nuits des voitures bâchées - La boite verte",
+    "url": "https://www.laboiteverte.fr/belles-nuits-voitures",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-03-10",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/les-douces-nuits-des-voitures-bachees-la-boite-verte/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Instagram",
     "url": "https://www.instagram.com/p/BCxqE7ty7hd",
     "category": "Mémoire du web social",
@@ -20910,6 +24204,20 @@
     "id": "f161260f-4f2b-5fa7-8d88-57fd6e9752f8"
   },
   {
+    "id": "352df0ad-db11-54f5-a341-6fb495881634",
+    "title": "Marc Chatelain",
+    "url": "http://marc-chatelain.com/galeries",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-03-09",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/marc-chatelain/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Instagram",
     "url": "https://www.instagram.com/p/BCuqL1sy7qJ",
     "category": "Mémoire du web social",
@@ -20954,6 +24262,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "57ff7a06-ef94-5b9c-b44f-06484e530f46"
+  },
+  {
+    "id": "c146937f-d33b-51c9-84d9-722cfa450a86",
+    "title": "Folio I – Julie Hascoët « Les Editions Croque-Madame",
+    "url": "https://web.archive.org/web/20161022095927/http:/editionscroquemadame.com/folio-julie-hascoet",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-03-09",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/folio-i-julie-hascoet-les-editions-croque-madame/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Weapons of Mass Deception by Rick Beyer (Works That Work magazine) | - LE BLOG - OOBLIK",
@@ -21309,6 +24631,21 @@
     "id": "8bff92cb-cfff-5b03-a95c-e3f52d057318"
   },
   {
+    "id": "9835391c-5c9d-54d4-911d-c524603ed167",
+    "title": "The Book is Alive! | Studio Mothership",
+    "url": "http://studiomothership.com/projects/the-book-is-alive",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-03-08",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/the-book-is-alive-studio-mothership/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Roma Publications | - LE BLOG - OOBLIK",
     "url": "http://blog.ooblik.com/roma-publications",
     "category": "Mémoire du web social",
@@ -21437,6 +24774,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "dbbd5211-0d39-5293-a885-9574535433a6"
+  },
+  {
+    "id": "9b6cfc9c-06c9-5b05-8ea1-e09a20a526ed",
+    "title": "CHAPTER II : Incorruptible Bodies : EMILIE HALLARD",
+    "url": "http://emiliehallard.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-03-08",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/chapter-ii-incorruptible-bodies-emilie-hallard/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Bertrand Cavalier - On Paper | - LE BLOG - OOBLIK",
@@ -21634,6 +24985,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "963d41cb-ed55-5e19-988d-e2340027eeda"
+  },
+  {
+    "id": "fe49e680-331f-5f21-aec2-865e1b928a5a",
+    "title": "Karen Faurie",
+    "url": "http://karenfaurie.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-03-04",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/karen-faurie/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Twitter",
@@ -21906,6 +25271,20 @@
     "id": "37fb8e8d-b52c-5b93-be57-7734f330399d"
   },
   {
+    "id": "36088420-55a7-5546-8123-ff39e5d47516",
+    "title": "Un hiver sans brume : julienmagre.fr",
+    "url": "http://www.julienmagre.fr/personalwork",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-02-25",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/un-hiver-sans-brume-julienmagre-fr/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Twitter",
     "url": "https://twitter.com/entropik/status/702819130571755520/photo/1",
     "category": "Mémoire du web social",
@@ -22065,6 +25444,20 @@
     "id": "ce1745ef-52ab-5687-9172-c24427bbed91"
   },
   {
+    "id": "c78f5e52-d742-5abc-a30c-d287a9e4cb4d",
+    "title": "Léa Habourdin : and everything becomes nothing again",
+    "url": "http://www.leahabourdin.com/index.php?%2Fseries%2Fand-everything-becomes-nothing-again%2F=",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-02-25",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/lea-habourdin-and-everything-becomes-nothing-again/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Glossaire visuel des techniques photographiques - Paris Photo | - LE BLOG - OOBLIK",
     "url": "http://blog.ooblik.com/glossaire-visuel-des-techniques-photographiques-paris-photo",
     "category": "Mémoire du web social",
@@ -22089,6 +25482,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "ac33bed2-7936-53e9-9017-5240e6cfcaa7"
+  },
+  {
+    "id": "86f648b4-b018-58f0-b855-43b82a1fb8b3",
+    "title": "Anne-Sophie Costenoble - Photographie",
+    "url": "http://www.ascostenoble.be/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-02-25",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/anne-sophie-costenoble-photographie/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Aint-Bad Editions – A–B | - LE BLOG - OOBLIK",
@@ -23430,6 +26837,20 @@
     "id": "717d1d38-dc3a-5268-ba9d-4fc0cb58530c"
   },
   {
+    "id": "f02b6cf1-7c7d-5bba-9031-43c4080cfb10",
+    "title": "Wilder Mann | Charles Fréger",
+    "url": "http://www.charlesfreger.com/portfolio/wilder-mann",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-01-27",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/wilder-mann-charles-freger/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Twitter",
     "url": "https://twitter.com/entropik/status/692260960732581889/photo/1",
     "category": "Mémoire du web social",
@@ -23520,6 +26941,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "7e481fe0-29a6-5d12-8c62-d8386a29bd4b"
+  },
+  {
+    "id": "6a468415-837f-5dcc-b0c7-ac9ec3fdd0e0",
+    "title": "Cols Alpins — ARNAUD TEICHER",
+    "url": "http://www.arnaudteicher.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-01-27",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/cols-alpins-arnaud-teicher/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Twitter",
@@ -23774,6 +27209,20 @@
     "id": "9fce0a0e-ece6-5817-80e0-f433beca5982"
   },
   {
+    "id": "867f92cd-2d8b-5324-8467-14c5512780a5",
+    "title": "Emigre Books - Palm Desert",
+    "url": "http://www.emigre.com/EB.php?id=102",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-01-22",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/emigre-books-palm-desert/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Twitter",
     "url": "https://twitter.com/entropik/status/690088605558165504/photo/1",
     "category": "Mémoire du web social",
@@ -23827,6 +27276,20 @@
     "id": "2c735aa2-08f8-5312-b7e8-25f7fc6da544"
   },
   {
+    "id": "e4365cef-1447-5584-a2fa-ba69c18de5fb",
+    "title": "Retour sur le Danube | Des images et des mots",
+    "url": "https://wordspics.wordpress.com/2016/01/17/retour-sur-le-danube",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-01-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/retour-sur-le-danube-des-images-et-des-mots/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Josef Schulz - fotografische Arbeiten | - LE BLOG - OOBLIK",
     "url": "http://blog.ooblik.com/josef-schulz-fotografische-arbeiten",
     "category": "Mémoire du web social",
@@ -23838,6 +27301,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "ec5f1ffa-3377-550d-8455-6671b90d09a9"
+  },
+  {
+    "id": "e21fe391-280e-5ea7-9d4f-17dfefdadfdf",
+    "title": "Josef Schulz - fotografische Arbeiten",
+    "url": "https://josefschulz.com/uebergang",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-01-21",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/josef-schulz-fotografische-arbeiten/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Instagram",
@@ -24732,6 +28209,20 @@
     "id": "d30ca38b-3360-5434-a525-15f636652f07"
   },
   {
+    "id": "1dc03fe6-540c-5938-b1a1-a827191b8a96",
+    "title": "15 ANS APRÈS : kristof guez",
+    "url": "http://kristofguez.com/index.php/projets/15-ans-apres",
+    "category": "Archives du blog OOBLIK",
+    "added": "2016-01-07",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2016/15-ans-apres-kristof-guez/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Twitter",
     "url": "https://twitter.com/entropik/status/684686491629424640/photo/1",
     "category": "Mémoire du web social",
@@ -25090,6 +28581,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "5145e614-415b-5fe5-a9d4-507afcb7e155"
+  },
+  {
+    "id": "8c8e2355-6126-5a75-b832-05f09fb12b08",
+    "title": "Grégoire Eloy / Photography",
+    "url": "http://gregoireeloy.com/?project_id=146",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-12-29",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/gregoire-eloy-photography/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Instagram",
@@ -26000,6 +29505,20 @@
     "id": "a76e3097-6b99-5e9e-a8e5-62569b8feb7c"
   },
   {
+    "id": "63a9789f-846a-5d7d-a7f9-04cbf83a96f5",
+    "title": "Tout est normal : julienmagre.fr",
+    "url": "http://julienmagre.fr/personalwork/tout-est-normal",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-12-07",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/tout-est-normal-julienmagre-fr/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Instagram",
     "url": "https://www.instagram.com/p/_AXMfLS7pO",
     "category": "Mémoire du web social",
@@ -26059,6 +29578,20 @@
     "id": "e3876fa2-ce6b-5567-9211-e47658c9629a"
   },
   {
+    "id": "303c28b4-a1dc-503b-b231-9c5c02c79834",
+    "title": "BLOCK - Portfolio Aapo Huhta",
+    "url": "http://www.aapohuhta.com/BLOCK",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-12-05",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/block-portfolio-aapo-huhta/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Twitter",
     "url": "https://twitter.com/entropik/status/672841012918661120/photo/1",
     "category": "Mémoire du web social",
@@ -26103,6 +29636,21 @@
     ],
     "stream": "blog-ooblik",
     "id": "3c751866-2f2c-5b3a-a592-15156762c926"
+  },
+  {
+    "id": "ce9ca16a-d9af-52aa-8d99-0d8d599853a4",
+    "title": "Canon's New PRO Printer Line Teased at Canon Expo",
+    "url": "http://www.photographybay.com/2015/10/11/canons-new-pro-printer-line-teased-at-canon-expo",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-12-04",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Camera Porn",
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/canons-new-pro-printer-line-teased-at-canon-expo/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Vincent Bordet | OOBLIK & Co",
@@ -26196,6 +29744,20 @@
     "archive_scope": "site",
     "archive_checked_at": "2026-07-27",
     "id": "f811a2dd-dc42-5db6-ba9c-c36fd07954dc"
+  },
+  {
+    "id": "3b3a9a4d-4917-52ad-a96a-66093d11cf33",
+    "title": "Stéphane VIGNY",
+    "url": "http://stephanevigny.free.fr/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-12-03",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/stephane-vigny/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Stephane vigny",
@@ -27076,6 +30638,20 @@
     ],
     "stream": "tumblr-ooblik",
     "id": "3e61579a-a29b-57f0-85f7-82f21cd608d5"
+  },
+  {
+    "id": "dde4323c-dc01-50b3-8af8-cd18ef49dc20",
+    "title": "Typology - Marie Mons",
+    "url": "http://mariemons.fr/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-11-16",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/typology-marie-mons/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Marc Tallec on Twitter: \"Typology – Marie Mons https://t.co/5xSxYeWuRz https://t.co/ecn07IkD3q\"",
@@ -28188,6 +31764,20 @@
     "id": "ffbed6ed-455d-5e28-b50b-9366a655903d"
   },
   {
+    "id": "d330c649-6075-57da-a0e8-f63846dcbb85",
+    "title": "COSTA _ José Pedro Cortes",
+    "url": "http://www.pierrevonkleist.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-11-02",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/costa-_-jose-pedro-cortes/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Champs de bataille - Yan Morvan | OOBLIK & Co",
     "url": "http://blog.ooblik.com/champs-de-bataille-yan-morvan",
     "category": "Mémoire du web social",
@@ -28212,6 +31802,20 @@
     ],
     "stream": "tumblr-ooblik",
     "id": "9064f134-db98-51b9-a96d-80473fa08816"
+  },
+  {
+    "id": "fa01eeb5-4634-5212-abcd-4ca71a8daefd",
+    "title": "Champs de bataille - Yan Morvan",
+    "url": "https://web.archive.org/web/20220331095534/https:/editionsphotosyntheses.fr?portfolio=champs-de-bataille_yan-morvan",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-11-02",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/champs-de-bataille-yan-morvan/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "BEOTIE : kristof guez | OOBLIK & Co",
@@ -28240,6 +31844,20 @@
     "id": "6d4d3cc9-1264-515f-9ccf-5962b9b9c2ca"
   },
   {
+    "id": "412369af-ff5a-5280-81ba-3ebeceac1074",
+    "title": "BEOTIE : kristof guez",
+    "url": "http://kristofguez.com/index.php/beotie",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-11-02",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/beotie-kristof-guez/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Ana Cuba - On Healing Faith - Phases Magazine | OOBLIK & Co",
     "url": "http://blog.ooblik.com/ana-cuba-on-healing-faith-phases-magazine",
     "category": "Mémoire du web social",
@@ -28264,6 +31882,20 @@
     ],
     "stream": "tumblr-ooblik",
     "id": "d8776fba-615c-5736-9142-a0f99100610f"
+  },
+  {
+    "id": "b6883150-cbd5-5a9d-a67c-18b9db239e4b",
+    "title": "Ana Cuba - On Healing Faith - Phases Magazine",
+    "url": "http://www.phasesmag.com/ana-cuba/on-healing-faith",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-11-02",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/ana-cuba-on-healing-faith-phases-magazine/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "In the mood… - Atelier OOBLIK",
@@ -28864,6 +32496,20 @@
     ],
     "stream": "tumblr-ooblik",
     "id": "912503b6-c221-5aeb-a05a-f4a5ec01a192"
+  },
+  {
+    "id": "b7651278-c7bb-59e1-94dd-fa0149e2d41f",
+    "title": "Louise Fili Ltd",
+    "url": "http://www.louisefili.com/logos",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-10-22",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/louise-fili-ltd/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Voyage lumière, passage éclair, ville électrique,... - Atelier OOBLIK",
@@ -30304,6 +33950,20 @@
     "id": "cff20651-9572-5086-a425-73f180be3924"
   },
   {
+    "id": "59ff20ea-d81e-566f-8244-4677fb2b4909",
+    "title": "Matteo Di Giovanni",
+    "url": "http://www.matteodigiovanni.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-10-01",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/matteo-di-giovanni/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Marc Tallec on Twitter: \"Matteo Di Giovanni http://t.co/xcYPQJg7Pv http://t.co/FEcCBLIil6\"",
     "url": "https://twitter.com/entropik/status/649596063901290497/photo/1",
     "category": "Mémoire du web social",
@@ -31589,6 +35249,28 @@
     "id": "7a4b83dc-7948-504a-aa09-f6140d3a255f"
   },
   {
+    "id": "97f86fcf-8cb4-5c5b-8931-f3e5cba24381",
+    "title": "Pagekit, Simple User Interface",
+    "url": "http://pagekit.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-09-16",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "cms",
+      "Geek",
+      "blog-ooblik",
+      "lien-mort"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/pagekit-simple-user-interface/",
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "Le domaine public d’origine ne répond plus au DNS. L’adresse est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_url": "https://web.archive.org/web/20231130121852/https://pagekit.com/",
+    "archive_timestamp": "20231130121852",
+    "archive_scope": "url"
+  },
+  {
     "title": "Marc Tallec on Twitter: \"Pagekit, Simple User Interface http://t.co/T6kputVokB http://t.co/nwSIs4pBfh\"",
     "url": "https://twitter.com/entropik/status/644037934371356672/photo/1",
     "category": "Mémoire du web social",
@@ -31761,6 +35443,20 @@
     ],
     "stream": "tumblr-ooblik",
     "id": "38d27658-a799-5ab9-a33c-5f0484c98c5b"
+  },
+  {
+    "id": "a899f89e-d5b1-55f1-9c20-b72c78a33faf",
+    "title": "TIPIS - www.atelier-morse.fr",
+    "url": "http://www.atelier-morse.fr/TIPIS",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-09-14",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Actualités",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/tipis-www-atelier-morse-fr/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Marc Tallec on Twitter: \"Trevor Paglen :::: WORK :: DRONES http://t.co/abhxMpf40c http://t.co/HxS2GyFVPP\"",
@@ -32007,6 +35703,20 @@
     ],
     "stream": "tumblr-ooblik",
     "id": "4e5b70a1-15ba-5fac-9419-65458e7ecb4a"
+  },
+  {
+    "id": "92642eef-6f6b-5ec0-8aa0-c98d0643bb2e",
+    "title": "Phocus 2.9 - Hasselblad",
+    "url": "https://www.hasselblad.com/phocus",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-09-10",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/phocus-2-9-hasselblad/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Marc Tallec on Twitter: \"Phocus 2.9 – Hasselblad http://t.co/2WfTf7JNsr http://t.co/BoOQgkmHbn\"",
@@ -32774,6 +36484,20 @@
     ],
     "stream": "tumblr-ooblik",
     "id": "4d27198c-3757-554a-a0ba-f6af55f6164c"
+  },
+  {
+    "id": "c5c5c582-294b-5f59-b269-06342aafc4f6",
+    "title": "Nous vieillirons ensemble. suite : Julien Magre",
+    "url": "http://julienmagre.fr/personalwork/nous-vieillirons-ensemble-suite",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-09-01",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/nous-vieillirons-ensemble-suite-julien-magre/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Marc Tallec on Twitter: \"Nous vieillirons ensemble. suite : Julien Magre http://t.co/iU9c0kJLw6 http://t.co/K533XP7dbb\"",
@@ -33664,6 +37388,21 @@
     "id": "6013a033-2b1a-5316-b6c3-a8575504bced"
   },
   {
+    "id": "0249c51d-1694-54ad-b853-62aebb969bbd",
+    "title": "Arles 2015, une page s’est tournée.",
+    "url": "https://wordspics.wordpress.com/2015/08/14/arles-2015-une-page-sest-tournee",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-08-14",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Actualités",
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/arles-2015-une-page-sest-tournee/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Martin Menu on Twitter: \"Première fois que j’allume la télévision depuis 2 semaines : reportage @ARTEfr sur le #Lot. COMME PAR HASARD. — http://t.co/V7BobLwIav\"",
     "url": "https://twitter.com/MMartin/status/631942034694254592/photo/1",
     "category": "Mémoire du web social",
@@ -34132,6 +37871,29 @@
     "id": "f15cf8f9-f083-542b-bfae-77489191de83"
   },
   {
+    "id": "f34cf04c-21c1-579b-a465-43c1c663d172",
+    "title": "The Winnebago Workshop « Little Brown Mushroom",
+    "url": "http://www.littlebrownmushroom.com/blog/the-winnebago-workshop",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-07-20",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Camera Porn",
+      "Geek",
+      "technique",
+      "blog-ooblik",
+      "lien-mort"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/the-winnebago-workshop-little-brown-mushroom/",
+    "stream": "blog-ooblik",
+    "status": "dead",
+    "status_note": "La destination renvoie aujourd’hui une erreur HTTP 404. L’adresse publique d’origine est conservée pour mémoire.",
+    "archive_checked_at": "2026-08-20",
+    "archive_url": "https://web.archive.org/web/20190611104156/http://www.littlebrownmushroom.com/blog/the-winnebago-workshop/",
+    "archive_timestamp": "20190611104156",
+    "archive_scope": "url"
+  },
+  {
     "title": "Marc Tallec on Twitter: \"The Winnebago Workshop « Little Brown Mushroom http://t.co/F5Z55JLCDJ http://t.co/ZyxXGOJlrJ\"",
     "url": "https://twitter.com/entropik/status/623213329352273920/photo/1",
     "category": "Mémoire du web social",
@@ -34445,6 +38207,20 @@
     "id": "5a8cd58e-ecb8-561b-8941-9840efe650b7"
   },
   {
+    "id": "6fbb8506-a3cc-551b-8dba-6ab4f1e0cb25",
+    "title": "vincent bordet | melamcholic memories",
+    "url": "https://web.archive.org/web/20200224015939/http:/monsieurvincent.com:80/series/melamcholic-memories",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-07-14",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/vincent-bordet-melamcholic-memories/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "UTOPARK : Eric Tabuchi | OOBLIK & Co",
     "url": "http://blog.ooblik.com/utopark-eric-tabuchi",
     "category": "Mémoire du web social",
@@ -34521,6 +38297,20 @@
     ],
     "stream": "tumblr-ooblik",
     "id": "861df5fa-056a-52aa-a183-9f3b0e97458e"
+  },
+  {
+    "id": "f5a8b6d3-6ea4-5e82-8f33-c78e01b313f4",
+    "title": "Pauline Barzilaï : DESSINS DES FESSES",
+    "url": "http://www.dessinsdesfesses.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-07-14",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/pauline-barzilai-dessins-des-fesses/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Marc Tallec on Twitter: \"vincent bordet | melamcholic memories http://t.co/gXTuuf30Rp http://t.co/elMELwyiLL\"",
@@ -34767,6 +38557,20 @@
     ],
     "stream": "tumblr-ooblik",
     "id": "9d3efab6-e80c-5f76-8d31-2c1ec3fb8bff"
+  },
+  {
+    "id": "0f441064-2e5e-5962-a7c7-39ca75d79b38",
+    "title": "L'Incident : Le numéro",
+    "url": "http://www.erictabuchi.net/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-07-14",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/incident-le-numero/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "L'esprit des hommes de la Terre de Feu, Selk'nam,... - Atelier OOBLIK",
@@ -35658,6 +39462,20 @@
     "id": "bb29c047-aa22-571c-b28c-bf169df6ab32"
   },
   {
+    "id": "c3a4ab0f-7f66-5216-ac2c-9a81a8916c57",
+    "title": "Bretagne - Vous êtes beaux.",
+    "url": "http://cargocollective.com/vousetesbeaux/Bretagne",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-07-06",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/bretagne-vous-etes-beaux/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Marc Tallec on Twitter: \"Anniversaries 2004 – 2014 : Marc Beckmann Photography http://t.co/djZtY4IqVS http://t.co/IoIKEIJAIf\"",
     "url": "https://twitter.com/entropik/status/617820569812086784/photo/1",
     "category": "Mémoire du web social",
@@ -35676,6 +39494,20 @@
     "archive_scope": "site",
     "archive_checked_at": "2026-07-27",
     "id": "dfe9650e-4424-5c25-b93c-b95116a11247"
+  },
+  {
+    "id": "fb458bbe-7001-5315-9333-5b1cc42968c8",
+    "title": "Marc Beckmann Photography",
+    "url": "http://www.marcbeckmann.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-07-05",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/marc-beckmann-photography/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Anniversaries 2004 2014 marc beckmann photography",
@@ -35868,6 +39700,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "f2d6779a-f0ee-59f5-a95a-8bc3050747d2"
+  },
+  {
+    "id": "2d792e90-b236-57d7-9bb7-0d12545f6517",
+    "title": "Session Press",
+    "url": "http://www.sessionpress.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-06-30",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/session-press/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Marc Tallec on Twitter: \"Typo(s) – VTF http://t.co/pe6sjrKTNz http://t.co/32iOo6DKUm\"",
@@ -36134,6 +39980,20 @@
     ],
     "stream": "tumblr-ooblik",
     "id": "d1bd7569-c2fd-5cb8-aa94-35fba08e5205"
+  },
+  {
+    "id": "5123e801-1c35-5f03-adbc-85c579985d99",
+    "title": "DÉDALE : Laurent Chardon",
+    "url": "http://www.poursuite-editions.org/index.php?%2Fparutions%2Fdedale%2F=",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-06-25",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/dedale-laurent-chardon/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Calage nouveau média sur la Latex HP 360… - Atelier OOBLIK",
@@ -38003,6 +41863,20 @@
     "id": "d1f4dfb0-767e-58f4-96c4-6a8de301ab19"
   },
   {
+    "id": "8c3c0f7e-c5ac-54e6-8058-4708547e8295",
+    "title": "DELPHINE & ARNAUD | The Archivists",
+    "url": "http://www.thearchivistsblog.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-06-04",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/delphine-arnaud-the-archivists/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Céline Clanet Photography, 3 Jours à Tharoul | OOBLIK & Co",
     "url": "http://blog.ooblik.com/celine-clanet-photography-3-jours-a-tharoul",
     "category": "Mémoire du web social",
@@ -38027,6 +41901,21 @@
     ],
     "stream": "tumblr-ooblik",
     "id": "de702583-727e-5576-8de1-8c5f0a50a0c7"
+  },
+  {
+    "id": "833d4184-5b37-5c54-8a7f-d0e20d3873cc",
+    "title": "Céline Clanet Photography, 3 Jours à Tharoul",
+    "url": "http://www.celineclanet.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-06-04",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/celine-clanet-tharoul/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Blanc et Demilly, Le nouveau monde | OOBLIK & Co",
@@ -38375,6 +42264,20 @@
     "id": "b2c28e6b-04ef-5beb-a57c-3563ddef9347"
   },
   {
+    "id": "4deb85f6-8479-5b89-a3db-c804111ec92e",
+    "title": "Céline Guichard » Les Bêtes",
+    "url": "http://ionedition.net/livres/les-betes",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-06-03",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/celine-guichard-les-betes/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Cabin Porn™ | OOBLIK & Co",
     "url": "http://blog.ooblik.com/cabin-porn",
     "category": "Mémoire du web social",
@@ -38399,6 +42302,21 @@
     ],
     "stream": "tumblr-ooblik",
     "id": "225ec343-d95f-5816-bde2-695d9d9888c2"
+  },
+  {
+    "id": "be5badf1-7ad3-50fe-8c92-a9ae1bfbe88d",
+    "title": "Cabin Porn™",
+    "url": "http://cabinporn.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-06-03",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Actualités",
+      "Geek",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/cabin-porn/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "C'est long à couper…Tirage de Marie Hudelot, trois... - Atelier OOBLIK",
@@ -38426,6 +42344,20 @@
     ],
     "stream": "blog-ooblik",
     "id": "cb3f1a40-5f79-5ea0-bfe2-77d21637ba32"
+  },
+  {
+    "id": "dcf5d512-7f8b-5211-a28e-e905aa849ad9",
+    "title": "Benoit Chailleux",
+    "url": "http://www.benoitchailleux.com/rear-landscape-01.php",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-06-03",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/benoit-chailleux/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "www.tempsmachine.com",
@@ -38618,6 +42550,20 @@
     ],
     "stream": "tumblr-ooblik",
     "id": "18a7798d-0139-52a0-a47a-248c6d1bf27b"
+  },
+  {
+    "id": "82f40090-2baf-5dce-af27-9e0aadf94f4f",
+    "title": "HABITAT EN RÉGION_volume 2 - www.tempsmachine.com",
+    "url": "http://www.tempsmachine.com/HABITAT-EN-REGION_volume-2",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-06-02",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/habitat-en-region_volume-2-www-tempsmachine-com/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Habitat en region volume 2 www tempsmachine com",
@@ -39416,6 +43362,21 @@
     "id": "2c81e94a-bcac-5db0-bca2-f8eb4cde4b1a"
   },
   {
+    "id": "924dbd11-19fb-5442-9111-fd51c754f740",
+    "title": "CFV-50c - Hasselblad",
+    "url": "http://www.hasselblad.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-05-27",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Camera Porn",
+      "Hasselblad",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/cfv-50c-hasselblad/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "The Angry Bat | OOBLIK & Co",
     "url": "http://blog.ooblik.com/the-angry-bat",
     "category": "Mémoire du web social",
@@ -39440,6 +43401,20 @@
     ],
     "stream": "tumblr-ooblik",
     "id": "ee1bed79-f36f-52a7-81d2-9b07ae711c8f"
+  },
+  {
+    "id": "4fd2bbc2-c03c-59b8-8d02-526de036cb57",
+    "title": "The Angry Bat",
+    "url": "http://www.theangrybat.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-05-26",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/the-angry-bat/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Marc Tallec on Twitter: \"The Angry Bat http://t.co/1we0SEfc1n http://t.co/mIG74C5HsF\"",
@@ -39820,6 +43795,20 @@
     ],
     "stream": "tumblr-ooblik",
     "id": "8e7411ae-c4d1-5010-bc98-4f75b5d08c0f"
+  },
+  {
+    "id": "380cf009-f12f-5b71-aef9-43f7567bd1b9",
+    "title": "Blackmagic Design: Cinema Cameras",
+    "url": "https://www.blackmagicdesign.com/fr/products/cinemacameras",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-05-22",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Camera Porn",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/blackmagic-design-cinema-cameras/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "▶ Olympus OM-D E-M5 Mark II - DSL-ARM - YouTube | OOBLIK & Co",
@@ -40255,6 +44244,21 @@
     "id": "90858d9a-6d8c-53db-bbd4-9e2ef54752c2"
   },
   {
+    "id": "6af725c8-7fa5-5c74-b6b4-13849acdef19",
+    "title": "Julia Borissova - books",
+    "url": "http://juliaborissova.ru/Julia_Borissova_PhotoSite/Books.html",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-05-15",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Livre / Book",
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/julia-borissova-books/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Instagram",
     "url": "https://instagram.com/p/2uMZW3S7rG",
     "category": "Mémoire du web social",
@@ -40604,6 +44608,20 @@
     "id": "f2c27e5f-409a-5f15-9579-fbbe9ef5e809"
   },
   {
+    "id": "50f89186-8bf9-5f92-bad4-388012658cc1",
+    "title": "JULIA GEISERVAJONT - calamita/à",
+    "url": "https://web.archive.org/web/20211220174622/https:/calamitaproject.com",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-05-12",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/julia-geiservajont-calamitaa/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Instagram",
     "url": "https://instagram.com/p/2l8Z20S7t_",
     "category": "Mémoire du web social",
@@ -40906,6 +44924,20 @@
     ],
     "stream": "tumblr-ooblik",
     "id": "598d182b-aae8-5d7c-a58b-d9665cdc829d"
+  },
+  {
+    "id": "5ad15ce6-6be0-582d-b89a-dd8e02284012",
+    "title": "David Stephenson",
+    "url": "http://www.davidstephensonart.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-05-10",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Photographes",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/david-stephenson/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Blog.ooblik.com",
@@ -41271,6 +45303,20 @@
     "id": "d4cd75bd-5023-5e63-860f-d6ac5abcbf07"
   },
   {
+    "id": "0d1005a1-cab0-5657-81b7-b6628ca863c2",
+    "title": "Nordic Countryside - Lund/Sverige, 2015",
+    "url": "https://www.mir.no/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-05-04",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Actualités",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/nordic-countryside-lundsverige-2015/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Instagram",
     "url": "https://instagram.com/p/2RA-LdS7k-",
     "category": "Mémoire du web social",
@@ -41578,6 +45624,21 @@
     "id": "65586a36-9e94-5fe8-b25e-00f68e44cfbf"
   },
   {
+    "id": "bb932619-9b7b-5e1d-a464-ce98bedf8209",
+    "title": "QPN / Quinzaine Photographique Nantaise",
+    "url": "http://www.festival-qpn.com/",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-04-30",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Actualités",
+      "concours",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/qpn-quinzaine-photographique-nantaise/",
+    "stream": "blog-ooblik"
+  },
+  {
     "title": "Paul Rand brand identity of NeXT. La naissance... - Atelier OOBLIK",
     "url": "http://ooblik.tumblr.com/post/117760082676/paul-rand-brand-identity-of-next-la-naissance#_=_",
     "category": "Mémoire du web social",
@@ -41826,6 +45887,21 @@
     ],
     "stream": "tumblr-ooblik",
     "id": "3ac3d8b2-ab9d-517b-afd1-a689967a5b4b"
+  },
+  {
+    "id": "2db77382-785b-5546-97a1-bbd7226e5599",
+    "title": "Graphics Atlas: Guided Tour",
+    "url": "http://www.graphicsatlas.org/guidedtour?process_id=349",
+    "category": "Archives du blog OOBLIK",
+    "added": "2015-04-29",
+    "description": "Référence archivée depuis le Blog OOBLIK.",
+    "tags": [
+      "Camera Porn",
+      "technique",
+      "blog-ooblik"
+    ],
+    "origin_url": "https://blog.ooblik.com/2015/graphics-atlas-guided-tour/",
+    "stream": "blog-ooblik"
   },
   {
     "title": "Blog.ooblik.com",

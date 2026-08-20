@@ -174,6 +174,8 @@ const report = {
   input: inputPath,
   media_root: mediaRoot,
   ready: preview.ready.length,
+  new_links: preview.ready.filter((item) => !item.existing).length,
+  existing_imports: preview.ready.filter((item) => item.existing).length,
   review: preview.review,
   duplicates: preview.duplicates,
   skipped: preview.skipped,
@@ -210,6 +212,8 @@ process.stdout.write(
     {
       mode: report.mode,
       ready: report.ready,
+      new_links: report.new_links,
+      existing_imports: report.existing_imports,
       review: report.review.length,
       duplicates: report.duplicates.length,
       skipped: report.skipped.length,

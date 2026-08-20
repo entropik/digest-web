@@ -59,6 +59,10 @@ blog sont copiées avant son arrêt, débarrassées de leurs métadonnées et
 converties en WebP 960 × 540. L’opération est idempotente : une destination déjà
 présente dans le Digest gagne toujours.
 
+Ces références appartiennent à une collection historique et non aux éditions
+quotidiennes du Digest : le contrôle de cohérence valide leur date originale,
+mais ne fabrique pas de page `content/archives/YYYY-MM-DD.md` pour elles.
+
 Quand l’hébergeur bloque les téléchargements automatisés, la copie FTP locale
 `import-blog/uploads` est détectée automatiquement ; `--media-root
 <wp-content/uploads>` permet d’en choisir une autre. L’importeur fait

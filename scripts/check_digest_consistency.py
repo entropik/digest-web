@@ -13,6 +13,7 @@ from pathlib import Path
 
 DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 FRONT_MATTER_PATTERN = re.compile(r"^---\s*$")
+UNDATED_ARCHIVE_CATEGORIES = {"Archives du blog OOBLIK"}
 
 
 def parse_front_matter(path: Path) -> dict[str, str]:
@@ -53,6 +54,8 @@ def validate(site: Path) -> list[str]:
         added = str(link.get("added", "")).strip()
         if not DATE_PATTERN.fullmatch(added):
             errors.append(f"{links_path}: entrée {index}, date added invalide: {added!r}")
+            continue
+        if str(link.get("category", "")).strip() in UNDATED_ARCHIVE_CATEGORIES:
             continue
         link_dates[added] += 1
 

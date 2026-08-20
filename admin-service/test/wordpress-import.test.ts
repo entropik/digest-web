@@ -64,19 +64,26 @@ test("preview separates safe imports, duplicates and editorial review", async ()
 
 test("overrides resolve one exception, skip another and remain idempotent", async () => {
   const xml = await fixture();
+  const overrides = {
+    "103": { source_url: "https://resolved.example/" },
+    "104": { skip: true },
+  };
   const first = buildWordpressImportPreview({
     xml,
     currentLinks: [duplicate],
-    overrides: {
-      "103": { source_url: "https://resolved.example/" },
-      "104": { skip: true },
-    },
+    overrides,
   });
   assert.equal(first.ready.some((item) => item.wordpress_id === "103"), true);
   assert.equal(first.skipped[0]?.wordpress_id, "104");
-  const second = buildWordpressImportPreview({ xml, currentLinks: first.catalog });
-  assert.equal(second.ready.length, 0);
-  assert.equal(second.duplicates.length, 4);
+  const second = buildWordpressImportPreview({
+    xml,
+    currentLinks: first.catalog,
+    overrides,
+  });
+  assert.equal(second.ready.length, first.ready.length);
+  assert.equal(second.ready.every((item) => item.existing), true);
+  assert.deepEqual(second.catalog, first.catalog);
+  assert.equal(second.duplicates.length, 1);
 });
 
 test("image conversion is deterministic, 16:9 and strips metadata", async () => {

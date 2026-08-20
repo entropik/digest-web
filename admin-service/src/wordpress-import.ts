@@ -52,6 +52,7 @@ export type WordpressReadyItem = {
   wordpress_id: string;
   image_url: string;
   image_alt: string;
+  existing: boolean;
   link: DigestLink;
 };
 
@@ -262,7 +263,8 @@ export const buildWordpressImportPreview = (input: {
       .filter((probe) => probe.url)
       .map((probe) => [probe.url!, probe]),
   );
-  const occupied = new Set(input.currentLinks.map((link) => link.url));
+  const currentByUrl = new Map(input.currentLinks.map((link) => [link.url, link]));
+  const occupied = new Set(currentByUrl.keys());
   const ready: WordpressReadyItem[] = [];
   const review: WordpressReviewItem[] = [];
   const duplicates: WordpressReviewItem[] = [];
@@ -309,7 +311,22 @@ export const buildWordpressImportPreview = (input: {
       });
       continue;
     }
-    if (occupied.has(url)) {
+    const existing = currentByUrl.get(url);
+    if (
+      existing?.origin_url === post.originUrl &&
+      existing.stream === BLOG_ARCHIVE_STREAM &&
+      existing.category === BLOG_ARCHIVE_CATEGORY
+    ) {
+      ready.push({
+        wordpress_id: post.wordpressId,
+        image_url: override?.image_url ?? post.imageUrl,
+        image_alt: post.imageAlt,
+        existing: true,
+        link: { ...existing },
+      });
+      continue;
+    }
+    if (existing) {
       duplicates.push({
         ...base,
         reason: "duplicate_destination",
@@ -325,6 +342,7 @@ export const buildWordpressImportPreview = (input: {
       wordpress_id: post.wordpressId,
       image_url: override?.image_url ?? post.imageUrl,
       image_alt: post.imageAlt,
+      existing: false,
       link: {
         id: stableLinkId(url),
         title: post.title,
@@ -344,7 +362,10 @@ export const buildWordpressImportPreview = (input: {
     review,
     duplicates,
     skipped,
-    catalog: sortCatalog([...input.currentLinks, ...ready.map((item) => item.link)]),
+    catalog: sortCatalog([
+      ...input.currentLinks,
+      ...ready.filter((item) => !item.existing).map((item) => item.link),
+    ]),
   };
 };
 
