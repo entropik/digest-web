@@ -44,7 +44,7 @@ test("the private dashboard displays the current site version after logout", () 
 
   assert.match(
     page,
-      /<button id="admin-logout" type="button">Se déconnecter<\/button>\s*<span class="admin-version" aria-label="Version v1\.16\.0">v1\.16\.0<\/span>/,
+      /<button id="admin-logout" type="button">Se déconnecter<\/button>\s*<span class="admin-version" aria-label="Version v1\.16\.1">v1\.16\.1<\/span>/,
   );
   assert.match(adminCss, /\.admin-version\{/);
 });
@@ -182,7 +182,12 @@ test("publication polling resumes and retries with a single managed timer", () =
     adminJs,
     /loadPublications\(\)\.then\(\(items\)=>\{resumePublicationPolling\(items\);return items\}\)/,
   );
-  assert.doesNotMatch(adminJs, /data-refresh-publication|>Actualiser</);
+  assert.match(adminJs, /data-refresh-publication/);
+  assert.match(adminJs, />Revérifier</);
+  assert.match(
+    adminJs,
+    /\/api\/admin\/curation\/publications\/"\+encodeURIComponent\(id\)/,
+  );
 });
 
 test("a confirmed publication is tracked before ancillary refreshes", () => {

@@ -68,6 +68,32 @@ const cleanText = (value: unknown, maximum: number): string =>
     .trim()
     .slice(0, maximum);
 
+const publicationIsLive = async (
+  publication: DigestPublication,
+): Promise<boolean> => {
+  try {
+    const response = await fetch(
+      `${config.origin}/archives/${publication.digestDate}/`,
+      { headers: { "User-Agent": "digest-admin-service-deploy-check" } },
+    );
+    const html = response.ok ? await response.text() : "";
+    const visibleText = html
+      .replace(/<[^>]+>/g, " ")
+      .replace(/&#(\d+);/g, (_, value: string) =>
+        String.fromCodePoint(Number.parseInt(value, 10)),
+      )
+      .replaceAll("&amp;", "&")
+      .replaceAll("&lt;", "<")
+      .replaceAll("&gt;", ">")
+      .replaceAll("&quot;", '"')
+      .replaceAll("&#39;", "'")
+      .replace(/\s+/g, " ");
+    return response.ok && visibleText.includes(publication.title);
+  } catch {
+    return false;
+  }
+};
+
 type CurationTaxonomy = {
   categories: string[];
   tags: string[];
@@ -941,11 +967,18 @@ export class CurationService {
     const stored = this.store.findPublication(id);
     if (!stored) throw new CurationError("PUBLICATION_NOT_FOUND", 404);
     const publication = await this.recoverOrReturn(stored);
-    if (
-      ["live", "failed"].includes(publication.state) ||
-      !publication.commitSha
-    ) {
+    if (publication.state === "live" || !publication.commitSha) {
       return publication;
+    }
+    if (publication.state === "failed") {
+      const live = await publicationIsLive(publication);
+      return live
+        ? this.store.updatePublication(id, {
+            state: "live",
+            errorCode: null,
+            checked: true,
+          })
+        : publication;
     }
     if (
       publication.lastCheckedAt &&
@@ -975,28 +1008,7 @@ export class CurationService {
       });
     }
 
-    let live = false;
-    try {
-      const response = await fetch(
-        `${config.origin}/archives/${publication.digestDate}/`,
-        { headers: { "User-Agent": "digest-admin-service-deploy-check" } },
-      );
-      const html = response.ok ? await response.text() : "";
-      const visibleText = html
-        .replace(/<[^>]+>/g, " ")
-        .replace(/&#(\d+);/g, (_, value: string) =>
-          String.fromCodePoint(Number.parseInt(value, 10)),
-        )
-        .replaceAll("&amp;", "&")
-        .replaceAll("&lt;", "<")
-        .replaceAll("&gt;", ">")
-        .replaceAll("&quot;", '"')
-        .replaceAll("&#39;", "'")
-        .replace(/\s+/g, " ");
-      live = response.ok && visibleText.includes(publication.title);
-    } catch {
-      live = false;
-    }
+    const live = await publicationIsLive(publication);
     return this.store.updatePublication(id, {
       state: live ? "live" : "deploying",
       validateUrl: null,
