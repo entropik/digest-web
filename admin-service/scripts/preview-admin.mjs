@@ -106,6 +106,19 @@ createServer((request, response) => {
     json(response, { drafts: sampleDrafts });
     return;
   }
+  if (url.pathname === "/api/admin/categories") {
+    json(response, {
+      categories: [
+        { name: "Développement", linkCount: 1240, draftCount: 1 },
+        { name: "Design & Création", linkCount: 1768, draftCount: 0 },
+        { name: "IA & Agents", linkCount: 612, draftCount: 0 },
+        { name: "Médias & Veille", linkCount: 498, draftCount: 0 },
+        { name: "Mémoire du web social", linkCount: 27, draftCount: 0 },
+        { name: "Culture numérique", linkCount: 0, draftCount: 0 },
+      ],
+    });
+    return;
+  }
   if (
     url.pathname === "/api/admin/curation/publications" &&
     request.method === "POST"

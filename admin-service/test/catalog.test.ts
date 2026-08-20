@@ -3,9 +3,12 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 import {
   addPublishedTags,
+  catalogCategories,
   changePublishedMetadata,
   changeVisibility,
   parseCatalog,
+  parseCategories,
+  renameCategory,
   serializeCatalog,
   type DigestLink,
 } from "../src/catalog.js";
@@ -205,6 +208,32 @@ test("repeated actions are idempotent", () => {
 test("catalog parsing rejects duplicate ids", () => {
   const duplicate = [link(), { ...link(), url: "https://example.org" }];
   assert.throws(() => parseCatalog(JSON.stringify(duplicate)), /Duplicate link id/);
+});
+
+test("configured categories remain available before they contain links", () => {
+  assert.deepEqual(catalogCategories([link()], ["Culture numérique"]), [
+    "Culture numérique",
+    "Développement",
+  ]);
+});
+
+test("category renaming migrates every published link", () => {
+  const second = { ...link(), id: "link-2", url: "https://example.org" };
+  const mutation = renameCategory(
+    [link(), second],
+    ["Développement", "Design"],
+    "Développement",
+    "Code",
+  );
+  assert.deepEqual(mutation.categories, ["Code", "Design"]);
+  assert.deepEqual(mutation.links.map((item) => item.category), ["Code", "Code"]);
+});
+
+test("category catalog rejects case-insensitive duplicates", () => {
+  assert.throws(
+    () => parseCategories('["Design", "design"]'),
+    /Duplicate category/,
+  );
 });
 
 test("serialized hidden catalog remains valid", () => {

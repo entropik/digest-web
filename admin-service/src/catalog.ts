@@ -84,10 +84,42 @@ export const changeVisibility = (
 export const serializeCatalog = (links: DigestLink[]): string =>
   `${JSON.stringify(links, null, 2)}\n`;
 
-export const catalogTaxonomy = (links: DigestLink[]) => ({
-  categories: [...new Set(links.map((link) => link.category))].sort((a, b) =>
-    a.localeCompare(b, "fr"),
-  ),
+export const parseCategories = (text: string): string[] => {
+  const value: unknown = JSON.parse(text);
+  if (!Array.isArray(value)) throw new Error("The category catalog must be an array");
+  const categories: string[] = [];
+  const seen = new Set<string>();
+  for (const candidate of value) {
+    if (typeof candidate !== "string" || !candidate.trim() || candidate.length > 100) {
+      throw new Error("The category catalog contains an invalid category");
+    }
+    const category = candidate.trim();
+    const key = category.toLocaleLowerCase("fr");
+    if (seen.has(key)) throw new Error(`Duplicate category: ${category}`);
+    seen.add(key);
+    categories.push(category);
+  }
+  return categories.sort((a, b) => a.localeCompare(b, "fr"));
+};
+
+export const serializeCategories = (categories: string[]): string =>
+  `${JSON.stringify(categories, null, 2)}\n`;
+
+export const catalogCategories = (links: DigestLink[], configured: string[] = []) => {
+  const categories: string[] = [];
+  const seen = new Set<string>();
+  for (const category of [...configured, ...links.map((link) => link.category)]) {
+    const key = category.toLocaleLowerCase("fr");
+    if (!seen.has(key)) {
+      seen.add(key);
+      categories.push(category);
+    }
+  }
+  return categories.sort((a, b) => a.localeCompare(b, "fr"));
+};
+
+export const catalogTaxonomy = (links: DigestLink[], configured: string[] = []) => ({
+  categories: catalogCategories(links, configured),
   tags: [
     ...new Set(
       links.flatMap((link) =>
@@ -96,6 +128,35 @@ export const catalogTaxonomy = (links: DigestLink[]) => ({
     ),
   ].sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" })),
 });
+
+export const categoryUsage = (links: DigestLink[], category: string): number =>
+  links.filter((link) => link.category === category).length;
+
+export const renameCategory = (
+  links: DigestLink[],
+  categories: string[],
+  current: string,
+  replacement: string,
+) => {
+  if (!categories.includes(current)) throw new Error("CATEGORY_NOT_FOUND");
+  if (
+    categories.some(
+      (category) =>
+        category !== current &&
+        category.localeCompare(replacement, "fr", { sensitivity: "base" }) === 0,
+    )
+  ) {
+    throw new Error("CATEGORY_ALREADY_EXISTS");
+  }
+  return {
+    links: links.map((link) =>
+      link.category === current ? { ...link, category: replacement } : link,
+    ),
+    categories: categories
+      .map((category) => (category === current ? replacement : category))
+      .sort((a, b) => a.localeCompare(b, "fr")),
+  };
+};
 
 export type PublishedMetadata = {
   url: string;

@@ -333,6 +333,34 @@ app.get("/api/admin/curation/options", (context) =>
   handle(context, () => curation.options()),
 );
 
+app.get("/api/admin/categories", (context) =>
+  handle(context, () => curation.categories()),
+);
+
+app.post("/api/admin/categories", async (context) =>
+  handle(context, async () => {
+    const body = await jsonBody<{ name?: unknown; confirm?: boolean }>(context);
+    requireConfirmation(body);
+    return curation.addCategory(body.name);
+  }),
+);
+
+app.patch("/api/admin/categories/:name", async (context) =>
+  handle(context, async () => {
+    const body = await jsonBody<{ name?: unknown; confirm?: boolean }>(context);
+    requireConfirmation(body);
+    return curation.renameCategory(context.req.param("name"), body.name);
+  }),
+);
+
+app.delete("/api/admin/categories/:name", async (context) =>
+  handle(context, async () => {
+    const body = await jsonBody<{ confirm?: boolean }>(context);
+    requireConfirmation(body);
+    return curation.deleteCategory(context.req.param("name"));
+  }),
+);
+
 app.get("/api/admin/curation/bootstrap", (context) =>
   handle(context, () => {
     const url = context.req.query("url");

@@ -4,6 +4,7 @@ import {
   changePublishedMetadata,
   changeVisibility,
   parseCatalog,
+  parseCategories,
   publicAdminLink,
   serializeCatalog,
   type DigestLink,
@@ -40,11 +41,13 @@ type RepositoryHead = {
   commitSha: string;
   treeSha: string;
   links: DigestLink[];
+  categories?: string[];
 };
 type RepositoryHeadDependencies = {
   readRef: () => Promise<string>;
   readCommit: (sha: string) => Promise<GitHubCommit>;
   readCatalog: (sha: string) => Promise<string>;
+  readCategories?: (sha: string) => Promise<string | null>;
 };
 type RepositoryHeadReader = {
   invalidate: () => void;
@@ -219,13 +222,18 @@ export const createRepositoryHeadReader = (
       const commitSha = await measureTiming("github.ref", dependencies.readRef);
       if (snapshot?.commitSha === commitSha) return snapshot;
 
-      const [commit, catalog] = await Promise.all([
+      const [commit, catalog, categoryCatalog] = await Promise.all([
         measureTiming("github.commit", () =>
           dependencies.readCommit(commitSha),
         ),
         measureTiming("github.catalog.download", () =>
           dependencies.readCatalog(commitSha),
         ),
+        dependencies.readCategories
+          ? measureTiming("github.categories.download", () =>
+              dependencies.readCategories!(commitSha),
+            )
+          : Promise.resolve(null),
       ]);
       const next = {
         commitSha,
@@ -233,6 +241,11 @@ export const createRepositoryHeadReader = (
         links: measureTimingSync("github.catalog.parse", () =>
           parseCatalog(catalog),
         ),
+        categories: categoryCatalog
+          ? measureTimingSync("github.categories.parse", () =>
+              parseCategories(categoryCatalog),
+            )
+          : undefined,
       };
       if (readGeneration === generation && readId === latestRead) {
         snapshot = next;
@@ -252,6 +265,14 @@ const repositoryHeadReader = createRepositoryHeadReader({
   readCommit: (sha) =>
     request<GitHubCommit>(`${repositoryPath}/git/commits/${sha}`),
   readCatalog: (sha) => requestText(contentPath("data/links.json", sha)),
+  readCategories: async (sha) => {
+    try {
+      return await requestText(contentPath("data/categories.json", sha));
+    } catch (error) {
+      if (error instanceof GitHubResponseError && error.status === 404) return null;
+      throw error;
+    }
+  },
 });
 
 export const readRepositoryHead = (): Promise<RepositoryHead> =>

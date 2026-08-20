@@ -215,6 +215,25 @@ export class CurationStore {
     );
   }
 
+  countActiveDraftsByCategory(category: string): number {
+    const row = this.database
+      .prepare(
+        "SELECT COUNT(*) AS count FROM curation_drafts WHERE category = ? AND state IN ('draft', 'publishing')",
+      )
+      .get(category) as { count: number };
+    return row.count;
+  }
+
+  renameActiveDraftCategory(current: string, replacement: string): number {
+    return this.database
+      .prepare(
+        `UPDATE curation_drafts
+         SET category = ?, updated_at = ?
+         WHERE category = ? AND state IN ('draft', 'publishing')`,
+      )
+      .run(replacement, new Date().toISOString(), current).changes;
+  }
+
   markDraftsPublishing(ids: string[], publicationId: string): void {
     const update = this.database.prepare(
       `UPDATE curation_drafts

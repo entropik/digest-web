@@ -60,3 +60,13 @@ test("draft publishing transition is atomic", () => {
   database.close();
 });
 
+test("active draft categories can be counted and renamed", () => {
+  const database = new Database(":memory:");
+  const store = new CurationStore(database);
+  store.createDraft(draftInput);
+
+  assert.equal(store.countActiveDraftsByCategory("Développement"), 1);
+  assert.equal(store.renameActiveDraftCategory("Développement", "Code"), 1);
+  assert.equal(store.listDrafts()[0]?.category, "Code");
+  database.close();
+});

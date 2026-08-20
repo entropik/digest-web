@@ -6,6 +6,8 @@ type TimingEvent =
   | "curation.bootstrap"
   | "github.auth"
   | "github.cache"
+  | "github.categories.download"
+  | "github.categories.parse"
   | "github.catalog.download"
   | "github.catalog.parse"
   | "github.commit"

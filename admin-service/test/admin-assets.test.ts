@@ -44,9 +44,23 @@ test("the private dashboard displays the current site version after logout", () 
 
   assert.match(
     page,
-    /<button id="admin-logout" type="button">Se déconnecter<\/button>\s*<span class="admin-version" aria-label="Version v1\.8\.7">v1\.8\.7<\/span>/,
+    /<button id="admin-logout" type="button">Se déconnecter<\/button>\s*<span class="admin-version" aria-label="Version v1\.9\.0">v1\.9\.0<\/span>/,
   );
   assert.match(adminCss, /\.admin-version\{/);
+});
+
+test("categories can be created, renamed and deleted from a dedicated panel", () => {
+  const page = dashboardPage("Marc");
+
+  assert.match(page, /data-panel-button="categories">Catégories/);
+  assert.match(page, /id="category-create-form"/);
+  assert.match(page, /id="category-list"/);
+  assert.match(adminJs, /POST/);
+  assert.match(adminJs, /PATCH/);
+  assert.match(adminJs, /DELETE/);
+  assert.match(adminJs, /CATEGORY_IN_USE/);
+  assert.match(adminJs, /data-rename-category/);
+  assert.match(adminJs, /data-delete-category/);
 });
 
 test("publication wording uses Publier throughout the dashboard", () => {
