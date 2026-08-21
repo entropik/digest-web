@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">OOBLIK Digest</title>
+  <rect x="16" y="16" width="96" height="96" rx="22" fill="#ff5c35"/>
+  <path
+    fill="#161616"
+    fill-rule="evenodd"
+    d="M40 34h22c21 0 36 13 36 30S83 94 62 94H40V34Zm14 13v34h8c13 0 22-7 22-17s-9-17-22-17h-8Z"
+  />
+</svg>
