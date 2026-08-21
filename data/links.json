@@ -12865,7 +12865,9 @@
     "archive_timestamp": "20260726162211",
     "archive_scope": "site",
     "archive_checked_at": "2026-07-27",
-    "id": "1cdb81c9-b630-51e5-9902-bbd5a898b963"
+    "id": "1cdb81c9-b630-51e5-9902-bbd5a898b963",
+    "visibility": "hidden",
+    "hidden_at": "2026-08-21T08:42:31.734Z"
   },
   {
     "title": "Twitter",
