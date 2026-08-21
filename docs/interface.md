@@ -81,6 +81,14 @@ photographique 16:9 local. L’image réserve sa hauteur avant chargement, garde
 des angles droits et un filet inférieur. La même image ouvre la modale ; une
 carte sans image conserve exactement la composition typographique habituelle.
 
+Dans la modale, la destination actuelle et la provenance historique ne se
+concurrencent pas. La première ligne présente, dans cet ordre, l’URL de
+destination, Favoris et l’action principale « Visiter le site ». Un second
+filet introduit ensuite « Billet d’origine » comme lien discret vers le
+permalink WordPress. Sans provenance, cette seconde ligne disparaît
+complètement. Sur mobile, les trois éléments principaux s’empilent sans changer
+d’ordre et sans créer de débordement horizontal.
+
 Après un changement de folio, le début de la nouvelle grille doit être aligné
 juste sous l’en-tête et le cartouche de filtres sticky. Le calcul de défilement
 s’ancre sur la position naturelle de la grille, jamais sur la position visuelle

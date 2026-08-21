@@ -8,13 +8,13 @@ sur l’installation et l’exploitation.
 
 Dernière mise à jour : 20 août 2026.
 
-- 4 005 liens dans le catalogue ;
+- 4 836 liens dans le catalogue, avec autant d’URL et d’identifiants uniques ;
 - 837 éditions archivées ;
-- 937 pages de tags ;
+- 935 routes de tags cohérentes ;
 - journal couvrant huit journées actives, du 24 juillet au 20 août 2026 ;
 - site public Hugo, administration propriétaire et extension Chrome de
-  curation, taxonomie administrable, images sociales et publication LinkedIn
-  native.
+  curation, taxonomie administrable, import patrimonial WordPress, images
+  sociales et publication LinkedIn native.
 
 ## Parcours de lecture
 

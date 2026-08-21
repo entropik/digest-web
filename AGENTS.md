@@ -26,6 +26,23 @@
   une ferme de contenus, retrouver le site officiel à partir de l’identité et
   des projets de la ressource, puis corriger aussi le résumé et les tags.
 
+## Import patrimonial du Blog OOBLIK
+
+- Distinguer toujours les trois niveaux : `url` est la destination de
+  consultation, `origin_url` le permalink WordPress de provenance et
+  `archive_text` le texte conservé. Ne jamais remplacer automatiquement une
+  destination externe valable par le permalink du billet.
+- Une source explicite unique peut être reprise ; un lien ordinaire n’est
+  restauré automatiquement que si son libellé, son URL et l’identité du billet
+  concordent fortement. Les sources multiples, homonymes et redirections vers
+  une autre identité restent en revue.
+- Les pages de revue, le WXR, les overrides, les résultats de recherche et les
+  2,7 Go de médias FTP restent dans `import/wordpress/` ou `import-blog/`, hors
+  Git. Seuls le catalogue final et les WebP réellement retenus sont versionnés.
+- Un second `--apply` doit être idempotent : aucun nouvel identifiant, aucune
+  URL en double et aucune perte de texte, de provenance ou de métadonnées de
+  lien mort.
+
 ## Version du site
 
 - Toute évolution fonctionnelle, technique ou visuelle destinée à être déployée

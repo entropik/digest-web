@@ -21,7 +21,7 @@ import type {
   DraftInput,
   PublicationInput,
 } from "./curation-types.js";
-import { parseEdition, renderEdition } from "./editions.js";
+import { parseEdition, renderEdition, setEditionDraft } from "./editions.js";
 import {
   addTagsToPublishedLink,
   GitHubResponseError,
@@ -588,27 +588,33 @@ export class CurationService {
       );
       if (!source) throw new CurationError("EDITION_NOT_FOUND", 404);
       const edition = parseEdition(source);
+      const publicLinkCount = result.links.filter(
+        (link) => link.added === date && link.visibility !== "hidden",
+      ).length;
       const socialInput = {
         digestDate: date,
         title: edition.title,
         description: edition.description,
-        linkCount: result.links.filter(
-          (link) => link.added === date && link.visibility !== "hidden",
-        ).length,
+        linkCount: publicLinkCount,
       };
+      const editionSource = setEditionDraft(source, publicLinkCount === 0);
       const [socialImage, linkedInImage] = await Promise.all([
         generateOptimizedSocialImage(socialInput),
         generateOptimizedLinkedInImage(socialInput),
       ]);
       try {
+        const files: Record<string, string | Buffer> = {
+          "data/links.json": serializeCatalog(result.links),
+          [`static/social/${date}.png`]: socialImage,
+          [`static/social/${date}-linkedin.png`]: linkedInImage,
+        };
+        if (editionSource !== source) {
+          files[editionPath(date)] = editionSource;
+        }
         const commit = await commitRepositoryFiles(
           head.commitSha,
           head.treeSha,
-          {
-            "data/links.json": serializeCatalog(result.links),
-            [`static/social/${date}.png`]: socialImage,
-            [`static/social/${date}-linkedin.png`]: linkedInImage,
-          },
+          files,
           `${verb} ${result.link.title}`,
         );
         return {
