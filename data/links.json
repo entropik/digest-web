@@ -12878,7 +12878,9 @@
       "mémoire-web"
     ],
     "stream": "twitter",
-    "id": "a408ad9c-ca2b-5b22-9394-ddf641e6de89"
+    "id": "a408ad9c-ca2b-5b22-9394-ddf641e6de89",
+    "visibility": "hidden",
+    "hidden_at": "2026-08-21T08:42:15.331Z"
   },
   {
     "title": "Twitter",
