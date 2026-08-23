@@ -3,6 +3,7 @@ export type EditionDocument = {
   title: string;
   description: string;
   introduction: string;
+  draft?: boolean;
 };
 
 const unquote = (value: string): string => {
@@ -30,12 +31,16 @@ export const parseEdition = (source: string): EditionDocument => {
   const title = unquote(values.get("title") ?? "");
   const description = unquote(values.get("description") ?? "");
   if (!digestDate || !title) throw new Error("INVALID_EDITION");
-  return {
+  const edition: EditionDocument = {
     digestDate,
     title,
     description,
     introduction: match[2]!.trim(),
   };
+  if (unquote(values.get("draft") ?? "").toLowerCase() === "true") {
+    edition.draft = true;
+  }
+  return edition;
 };
 
 export const renderEdition = (edition: EditionDocument): string =>
@@ -43,7 +48,17 @@ export const renderEdition = (edition: EditionDocument): string =>
   `title: ${JSON.stringify(edition.title)}\n` +
   `date: ${edition.digestDate}\n` +
   `digest_date: ${JSON.stringify(edition.digestDate)}\n` +
+  (edition.draft ? `draft: true\n` : "") +
   `description: ${JSON.stringify(edition.description)}\n` +
   `images:\n` +
   `  - ${JSON.stringify(`/social/${edition.digestDate}.png`)}\n` +
   `---\n\n${edition.introduction.trim()}\n`;
+
+export const setEditionDraft = (source: string, draft: boolean): string => {
+  const edition = parseEdition(source);
+  if (Boolean(edition.draft) === draft) return source;
+  return renderEdition({
+    ...edition,
+    draft: draft ? true : undefined,
+  });
+};

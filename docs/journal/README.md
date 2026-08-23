@@ -12,7 +12,7 @@ chaque journée ayant produit une évolution du projet.
 | 16 août 2026 | [Publication, identité visuelle et partage LinkedIn](2026-08-16.md) | 33 | Publication progressive, images sociales et diffusion LinkedIn |
 | 17 août 2026 | [Actions éditoriales et captures LinkedIn durcies](2026-08-17.md) | 11 | Administration des liens, favicons et captures sécurisées |
 | 18 août 2026 | [Le carré LinkedIn, du faux succès au post visible](2026-08-18.md) | 17 | Images carrées, upload synchrone et récupération des posts invisibles |
-| 20 août 2026 | [Taxonomie éditoriale et registre suisse](2026-08-20.md) | 5 | Catégories administrables, descriptions et cartouches interactifs |
+| 20 août 2026 | [Du cartouche suisse à la mémoire du Blog OOBLIK](2026-08-20.md) | 24 | Taxonomie, registre suisse et import patrimonial WordPress |
 
 ## Provenance
 

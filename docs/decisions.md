@@ -210,3 +210,28 @@ s’empilent sur mobile. Le retour à l’index restaure toutes les catégories 
 focus clavier ; les animations respectent la préférence de mouvement réduit.
 Le détail de ces conventions se trouve dans le
 [guide d’interface](interface.md).
+
+### Le Blog OOBLIK est importé comme une archive, pas comme une copie
+
+Le WXR WordPress fournit la date, le titre, le texte et les taxonomies, mais le
+Digest ne recrée pas le blog complet. Chaque publication devient une fiche de
+lien : son texte est conservé comme archive, son permalink reste la provenance
+et une destination externe distincte est utilisée lorsqu’elle peut être
+établie. L’import est ponctuel, local, idempotent et précédé d’un rapport ; il
+ne justifie pas une interface permanente dans l’administration.
+
+### Une destination incertaine reste une décision éditoriale
+
+Un lien explicite unique ou une identité fortement concordante peut être
+restauré automatiquement. Une redirection inter-domaine, plusieurs candidats,
+un homonyme ou un domaine repris restent en revue. Une URL disparue n’est pas
+supprimée : elle est marquée morte, documentée et reliée à Wayback lorsque
+l’archive existe. Les pages HTML de revue restent locales et hors Git.
+
+### La provenance reste secondaire dans l’action
+
+« Visiter le site » ouvre la destination de consultation. « Billet d’origine »
+sert uniquement à retrouver le contexte WordPress et apparaît sous un filet,
+comme métadonnée discrète. Cette hiérarchie empêche le permalink historique de
+ressembler à l’action principale ou de remplacer par erreur une destination
+encore vivante.

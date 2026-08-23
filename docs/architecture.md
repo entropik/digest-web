@@ -149,6 +149,26 @@ traitement WebP déterministe. Les 2,7 Go de sources FTP restent ignorés par Gi
 seuls les médias réellement associés aux cartes sont recadrés, compressés avec
 l’effort WebP maximal et copiés dans le site.
 
+La passe patrimoniale utilise `--local-only` avec un `--media-root` explicite.
+Ce mode exige une arborescence locale lisible et interdit tout téléchargement,
+y compris lorsqu’un fichier manque. Les URL absolues, relatives au protocole ou
+à la racine sont résolues depuis l’origine WXR, puis limitées au domaine exact
+du blog et à `/wp-content/uploads/` ; `www` reste donc une identité distincte.
+
+Chaque preview écrit dans `import/wordpress/` un `report.json` déterministe et
+une planche autonome `image-review.html`. Le rapport distingue les images mises
+en avant, les premières images de contenu, les exclusions externes, les absences
+volontaires, les fichiers locaux manquants, les échecs de conversion et les
+faibles résolutions, avec dimensions et chemins de provenance. La planche charge
+les WebP du cache local, montre leur recadrage 16:9 et permet une revue par année
+et par statut avant `--apply`. Ces artefacts restent ignorés par Git.
+
+Après application, `scripts/check_digest_consistency.py` impose qu’un visuel du
+catalogue soit un WebP sûr sous `/media/blog-ooblik/`, présent dans `static`, et
+référencé exactement une fois. Il refuse aussi les `image_alt` sans image et les
+WebP publiés orphelins. Une seconde application doit laisser catalogue et médias
+strictement identiques.
+
 ## Administration propriétaire
 
 `admin-service/` est un service Node.js séparé du site statique :
