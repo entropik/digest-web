@@ -332,7 +332,6 @@ test("an explicit null override records a deliberate image absence", async () =>
   assert.equal(item?.image_source, "none");
   assert.equal(item?.image_rejection, "none_by_override");
   assert.equal(item?.image_url, "");
-  assert.equal(item?.previous_image, illustrated.image);
   assert.equal(item?.link.image, undefined);
   assert.equal(item?.link.image_alt, undefined);
   assert.equal(
@@ -382,9 +381,10 @@ test("applying a null override removes the obsolete managed WebP", async (contex
   await writeFile(overridesPath, JSON.stringify({ "101": { image_url: null } }));
 
   const script = fileURLToPath(new URL("../scripts/import-wordpress.ts", import.meta.url));
-  const result = spawnSync(
-    process.execPath,
-    [
+  const runImport = () =>
+    spawnSync(
+      process.execPath,
+      [
       "--import",
       "tsx",
       script,
@@ -401,9 +401,23 @@ test("applying a null override removes the obsolete managed WebP", async (contex
       "--local-only",
       "--apply",
       "--skip-images",
-    ],
-    { encoding: "utf8", cwd: fileURLToPath(new URL("..", import.meta.url)) },
+      ],
+      { encoding: "utf8", cwd: fileURLToPath(new URL("..", import.meta.url)) },
+    );
+
+  const blockedReadyPath = join(work, "ready.json");
+  await mkdir(blockedReadyPath);
+  const failed = runImport();
+  assert.notEqual(failed.status, 0);
+  assert.equal((await stat(obsoleteImage)).isFile(), true);
+  const unchanged = parseCatalog(await readFile(catalogPath, "utf8"));
+  assert.equal(
+    unchanged.find((link) => link.origin_url === illustrated.origin_url)?.image,
+    illustrated.image,
   );
+  await rm(blockedReadyPath, { recursive: true });
+
+  const result = runImport();
   assert.equal(result.status, 0, result.stderr || result.stdout);
   assert.equal(await stat(obsoleteImage).catch(() => null), null);
   const catalog = parseCatalog(await readFile(catalogPath, "utf8"));

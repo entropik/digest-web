@@ -84,25 +84,6 @@ const imageCache = join(workDirectory, "media");
 await mkdir(imageCache, { recursive: true });
 const imageReview: WordpressImageReviewItem[] = [];
 
-if (apply) {
-  await Promise.all(
-    preview.ready.map(async (item) => {
-      if (
-        item.image_rejection !== "none_by_override" ||
-        item.previous_image !== wordpressImagePath(item.link, item.wordpress_id)
-      ) {
-        return;
-      }
-      const obsoleteImage = join(
-        siteRoot,
-        "static",
-        ...item.previous_image.split("/").filter(Boolean),
-      );
-      await rm(obsoleteImage, { force: true });
-    }),
-  );
-}
-
 const downloadImage = async (rawUrl: string): Promise<Buffer> => {
   let url = assertBlogMediaUrl(rawUrl, blogOrigin);
   for (let redirects = 0; redirects < 4; redirects += 1) {
@@ -316,6 +297,19 @@ if (apply) {
   const temporary = `${catalogPath}.wordpress-${process.pid}.tmp`;
   await writeFile(temporary, serializeCatalog(finalCatalog));
   await rename(temporary, catalogPath);
+  await Promise.all(
+    preview.ready
+      .filter((item) => item.image_rejection === "none_by_override")
+      .map(async (item) => {
+        const managedImage = wordpressImagePath(item.link, item.wordpress_id);
+        const obsoleteImage = join(
+          siteRoot,
+          "static",
+          ...managedImage.split("/").filter(Boolean),
+        );
+        await rm(obsoleteImage, { force: true });
+      }),
+  );
 }
 
 process.stdout.write(

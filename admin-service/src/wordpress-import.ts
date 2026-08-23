@@ -80,7 +80,6 @@ export type WordpressReadyItem = {
   image_rejection?: "external" | "none_by_override";
   existing: boolean;
   previous_id?: string;
-  previous_image?: string;
   link: DigestLink;
 };
 
@@ -624,9 +623,6 @@ export const buildWordpressImportPreview = (input: {
         ...details,
         existing: true,
         previous_id: imported.id,
-        ...(details.image_rejection === "none_by_override" && imported.image
-          ? { previous_image: imported.image }
-          : {}),
         link,
       });
       occupied.set(url, imported);
