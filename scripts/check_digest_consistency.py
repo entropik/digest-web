@@ -14,6 +14,9 @@ from pathlib import Path
 
 DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 FRONT_MATTER_PATTERN = re.compile(r"^---\s*$")
+BLOG_MEDIA_PATTERN = re.compile(
+    r"^/media/blog-ooblik/(?P<year>\d{4})/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.webp$"
+)
 
 
 def tag_slug(value: str) -> str:
@@ -48,6 +51,52 @@ def parse_front_matter(path: Path) -> dict[str, str]:
     raise ValueError("front matter YAML non fermé")
 
 
+def validate_blog_media(links: list[object], site: Path) -> list[str]:
+    errors: list[str] = []
+    static_root = (site / "static").resolve()
+    media_root = static_root / "media" / "blog-ooblik"
+    references: Counter[str] = Counter()
+
+    for index, raw_link in enumerate(links, start=1):
+        if not isinstance(raw_link, dict):
+            continue
+        link_id = str(raw_link.get("id", f"entrée-{index}"))
+        image = raw_link.get("image")
+        image_alt = raw_link.get("image_alt")
+        if image_alt is not None and image is None:
+            errors.append(f"média {link_id}: image_alt présent sans image")
+        if image is None:
+            continue
+        path = str(image)
+        if not BLOG_MEDIA_PATTERN.fullmatch(path) or "\\" in path or ".." in path:
+            errors.append(f"média {link_id}: chemin non sûr ou non-WebP: {path!r}")
+            continue
+        destination = (static_root / path.lstrip("/")).resolve()
+        try:
+            destination.relative_to(static_root)
+        except ValueError:
+            errors.append(f"média {link_id}: chemin hors de static: {path!r}")
+            continue
+        references[path] += 1
+        if not destination.is_file():
+            errors.append(f"média {link_id}: fichier absent: {path}")
+
+    for path, count in sorted(references.items()):
+        if count != 1:
+            errors.append(f"média référencé {count} fois: {path}")
+
+    if media_root.is_dir():
+        for media in sorted(media_root.rglob("*")):
+            if not media.is_file():
+                continue
+            public_path = "/" + media.relative_to(static_root).as_posix()
+            if media.suffix.lower() != ".webp":
+                errors.append(f"média publié non-WebP: {public_path}")
+            if references[public_path] == 0:
+                errors.append(f"média orphelin: {public_path}")
+    return errors
+
+
 def validate(site: Path) -> list[str]:
     errors: list[str] = []
     links_path = site / "data" / "links.json"
@@ -61,6 +110,8 @@ def validate(site: Path) -> list[str]:
 
     if not isinstance(links, list):
         return [f"{links_path}: la racine JSON doit être une liste"]
+
+    errors.extend(validate_blog_media(links, site))
 
     link_dates: Counter[str] = Counter()
     tag_usage: Counter[str] = Counter()

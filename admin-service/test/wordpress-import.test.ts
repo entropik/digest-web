@@ -18,8 +18,11 @@ import {
   BLOG_ARCHIVE_CATEGORY,
   BLOG_ARCHIVE_STREAM,
   buildWordpressImportPreview,
+  loadWordpressImageSource,
+  normalizeWordpressMediaUrl,
   optimizeWordpressImage,
   parseWordpressExport,
+  renderWordpressImageReviewHtml,
   wordpressDigestCategory,
   wordpressFallbackSourceLinks,
   wordpressMediaRelativePath,
@@ -47,11 +50,13 @@ test("WXR parsing keeps published posts, sources, taxonomy and image priority", 
   assert.match(normal?.archiveText ?? "", /Source : Projet normal/);
   assert.equal(normal?.imageUrl.endsWith("featured.jpg"), true);
   assert.equal(normal?.imageAlt, "Alt WordPress");
+  assert.equal(normal?.imageSource, "featured");
   assert.equal(normal?.description, "Une description propre.");
   assert.deepEqual(normal?.tags, ["Photographes", "Livre", "blog-ooblik"]);
   const fallback = posts.find((post) => post.wordpressId === "102");
   assert.equal(fallback?.imageUrl.endsWith("fallback.png"), true);
   assert.equal(fallback?.imageAlt, "Secours");
+  assert.equal(fallback?.imageSource, "content");
 });
 
 test("preview separates safe imports, duplicates and editorial review", async () => {
@@ -243,6 +248,172 @@ test("FTP media paths stay inside wp-content uploads", () => {
       ),
     /(UNSAFE_IMAGE_PATH|IMAGE_OUTSIDE_UPLOADS)/,
   );
+});
+
+test("historical WordPress media URLs normalize without widening host trust", () => {
+  const origin = "https://blog.ooblik.com/2025/article/";
+  assert.equal(
+    normalizeWordpressMediaUrl(
+      "http://blog.ooblik.com/wp-content/uploads/2025/02/image.jpg",
+      origin,
+    ).toString(),
+    "http://blog.ooblik.com/wp-content/uploads/2025/02/image.jpg",
+  );
+  assert.equal(
+    normalizeWordpressMediaUrl(
+      "//blog.ooblik.com/wp-content/uploads/2025/02/image.jpg",
+      origin,
+    ).toString(),
+    "https://blog.ooblik.com/wp-content/uploads/2025/02/image.jpg",
+  );
+  assert.equal(
+    normalizeWordpressMediaUrl("/wp-content/uploads/2025/02/image.jpg", origin)
+      .toString(),
+    "https://blog.ooblik.com/wp-content/uploads/2025/02/image.jpg",
+  );
+  assert.throws(
+    () =>
+      normalizeWordpressMediaUrl(
+        "https://cdn.example/image.jpg",
+        origin,
+      ),
+    /UNSAFE_IMAGE_HOST/,
+  );
+  assert.throws(
+    () =>
+      normalizeWordpressMediaUrl(
+        "https://www.blog.ooblik.com/wp-content/uploads/2025/02/image.jpg",
+        origin,
+      ),
+    /UNSAFE_IMAGE_HOST/,
+  );
+  assert.throws(
+    () =>
+      normalizeWordpressMediaUrl(
+        "/wp-content/uploads/2025/02/%2e%2e/secret.jpg",
+        origin,
+      ),
+    /(UNSAFE_IMAGE_PATH|IMAGE_OUTSIDE_UPLOADS)/,
+  );
+});
+
+test("external content images are reported but not accepted for publication", async () => {
+  const xml = (await fixture()).replace(
+    "https://blog.ooblik.com/wp-content/uploads/2024/fallback.png",
+    "https://images.example/fallback.png",
+  );
+  const preview = buildWordpressImportPreview({ xml, currentLinks: [duplicate] });
+  const item = preview.ready.find((candidate) => candidate.wordpress_id === "102");
+  assert.equal(item?.image_source, "content");
+  assert.equal(item?.image_url, "");
+  assert.equal(item?.image_rejection, "external");
+  assert.equal(item?.image_candidate_url, "https://images.example/fallback.png");
+});
+
+test("an explicit null override records a deliberate image absence", async () => {
+  const preview = buildWordpressImportPreview({
+    xml: await fixture(),
+    currentLinks: [duplicate],
+    overrides: { "101": { image_url: null } },
+  });
+  const item = preview.ready.find((candidate) => candidate.wordpress_id === "101");
+  assert.equal(item?.image_source, "none");
+  assert.equal(item?.image_rejection, "none_by_override");
+  assert.equal(item?.image_url, "");
+  assert.throws(
+    () =>
+      buildWordpressImportPreview({
+        xml: "<rss/>",
+        currentLinks: [],
+        overrides: { "101": { image_url: "" } },
+      }),
+    /INVALID_OVERRIDE:101/,
+  );
+});
+
+test("an explicit image override has distinct report provenance", async () => {
+  const preview = buildWordpressImportPreview({
+    xml: await fixture(),
+    currentLinks: [duplicate],
+    overrides: {
+      "101": {
+        image_url:
+          "https://blog.ooblik.com/wp-content/uploads/2025/override.jpg",
+      },
+    },
+  });
+  const item = preview.ready.find((candidate) => candidate.wordpress_id === "101");
+  assert.equal(item?.image_source, "override");
+  assert.equal(
+    item?.image_url,
+    "https://blog.ooblik.com/wp-content/uploads/2025/override.jpg",
+  );
+});
+
+test("local-only image loading never falls back to the network", async () => {
+  let downloads = 0;
+  await assert.rejects(
+    loadWordpressImageSource({
+      rawUrl: "/wp-content/uploads/2025/02/missing.jpg",
+      blogOrigin: "https://blog.ooblik.com/2025/post/",
+      localOnly: true,
+      readLocal: async () => {
+        const error = new Error("missing") as NodeJS.ErrnoException;
+        error.code = "ENOENT";
+        throw error;
+      },
+      download: async () => {
+        downloads += 1;
+        return Buffer.from("network");
+      },
+    }),
+    /IMAGE_LOCAL_NOT_FOUND/,
+  );
+  assert.equal(downloads, 0);
+});
+
+test("non-strict image loading can fall back after a local miss", async () => {
+  const loaded = await loadWordpressImageSource({
+    rawUrl: "/wp-content/uploads/2025/02/missing.jpg",
+    blogOrigin: "https://blog.ooblik.com/2025/post/",
+    localOnly: false,
+    readLocal: async () => {
+      const error = new Error("missing") as NodeJS.ErrnoException;
+      error.code = "ENOENT";
+      throw error;
+    },
+    download: async () => Buffer.from("network"),
+  });
+  assert.equal(loaded.from, "network");
+  assert.equal(loaded.buffer.toString(), "network");
+});
+
+test("image review HTML is escaped, deterministic and exposes required filters", () => {
+  const item = {
+    wordpress_id: "42",
+    title: '<script>alert("x")</script>',
+    year: "2025",
+    origin_url: "https://blog.ooblik.com/2025/revue/",
+    source: "content" as const,
+    status: "ready" as const,
+    low_resolution: true,
+    source_width: 320,
+    source_height: 240,
+    final_width: 320,
+    final_height: 180,
+    ftp_path: "2025/02/source.jpg",
+    webp_path: "media/revue-42.webp",
+  };
+  const first = renderWordpressImageReviewHtml([item]);
+  const second = renderWordpressImageReviewHtml([item]);
+  assert.equal(first, second);
+  assert.match(first, /data-filter="content"/);
+  assert.match(first, /data-filter="low_resolution"/);
+  assert.match(first, /data-filter="missing_local"/);
+  assert.match(first, /data-filter="external"/);
+  assert.match(first, /src="media\/revue-42\.webp"/);
+  assert.match(first, /&lt;script&gt;alert\(&quot;x&quot;\)&lt;\/script&gt;/);
+  assert.doesNotMatch(first, /<script>alert/);
 });
 
 test("fallback recovery finds ordinary links and cleans legacy embeds", () => {

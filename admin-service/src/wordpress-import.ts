@@ -25,9 +25,11 @@ type XmlNode = Record<string, unknown>;
 
 export type WordpressOverride = {
   source_url?: string;
-  image_url?: string;
+  image_url?: string | null;
   skip?: boolean;
 };
+
+export type WordpressImageSource = "featured" | "content" | "override" | "none";
 
 export type WordpressProbe = {
   url?: string;
@@ -53,6 +55,7 @@ export type WordpressPostCandidate = {
   fallbackSourceEvidence: WordpressSourceEvidence[];
   imageUrl: string;
   imageAlt: string;
+  imageSource: WordpressImageSource;
 };
 
 export type WordpressSourceEvidence = {
@@ -72,6 +75,9 @@ export type WordpressReadyItem = {
   wordpress_id: string;
   image_url: string;
   image_alt: string;
+  image_source: WordpressImageSource;
+  image_candidate_url?: string;
+  image_rejection?: "external" | "none_by_override";
   existing: boolean;
   previous_id?: string;
   link: DigestLink;
@@ -83,6 +89,31 @@ export type WordpressImportPreview = {
   duplicates: WordpressReviewItem[];
   skipped: WordpressReviewItem[];
   catalog: DigestLink[];
+};
+
+export type WordpressImageReviewStatus =
+  | "ready"
+  | "none"
+  | "external"
+  | "missing_local"
+  | "conversion_failure";
+
+export type WordpressImageReviewItem = {
+  wordpress_id: string;
+  title: string;
+  year: string;
+  origin_url: string;
+  source: WordpressImageSource;
+  status: WordpressImageReviewStatus;
+  low_resolution: boolean;
+  source_width?: number;
+  source_height?: number;
+  final_width?: number;
+  final_height?: number;
+  ftp_path?: string;
+  webp_path?: string;
+  candidate_url?: string;
+  error?: string;
 };
 
 const asArray = <T>(value: T | T[] | undefined): T[] =>
@@ -263,6 +294,57 @@ const firstContentImage = (html: string): { url: string; alt: string } => {
   };
 };
 
+const exactHostname = (value: string): string => {
+  try {
+    return new URL(value).hostname.toLowerCase().replace(/\.$/, "");
+  } catch {
+    return "";
+  }
+};
+
+export const normalizeWordpressMediaUrl = (
+  rawUrl: string,
+  wxrOrigin: string,
+): URL => {
+  const origin = new URL(wxrOrigin);
+  if (!["http:", "https:"].includes(origin.protocol)) {
+    throw new Error("UNSAFE_IMAGE_ORIGIN");
+  }
+  const cleaned = rawUrl.trim();
+  if (!cleaned) throw new Error("IMAGE_URL_EMPTY");
+  const rawPath = cleaned
+    .replace(/[?#].*$/, "")
+    .replace(/^[a-z][a-z\d+.-]*:\/\/[^/]*|^\/\/[^/]*/i, "");
+  for (const encodedSegment of rawPath.split("/")) {
+    let segment: string;
+    try {
+      segment = decodeURIComponent(encodedSegment);
+    } catch {
+      throw new Error("UNSAFE_IMAGE_PATH");
+    }
+    if (
+      segment === "." ||
+      segment === ".." ||
+      segment.includes("/") ||
+      segment.includes("\\")
+    ) {
+      throw new Error("UNSAFE_IMAGE_PATH");
+    }
+  }
+  const resolved = new URL(cleaned, origin);
+  if (
+    !["http:", "https:"].includes(resolved.protocol) ||
+    exactHostname(resolved.toString()) !== exactHostname(origin.toString())
+  ) {
+    throw new Error("UNSAFE_IMAGE_HOST");
+  }
+  if (!resolved.pathname.startsWith("/wp-content/uploads/")) {
+    throw new Error("IMAGE_OUTSIDE_UPLOADS");
+  }
+  wordpressMediaSegments(resolved);
+  return resolved;
+};
+
 export const parseWordpressExport = (xml: string): WordpressPostCandidate[] => {
   const parsed = new XMLParser({
     ignoreAttributes: false,
@@ -336,6 +418,11 @@ export const parseWordpressExport = (xml: string): WordpressPostCandidate[] => {
       fallbackSourceEvidence,
       imageUrl: featured?.url || fallbackImage.url,
       imageAlt: featured?.alt || fallbackImage.alt,
+      imageSource: featured?.url
+        ? "featured"
+        : fallbackImage.url
+          ? "content"
+          : "none",
     });
   }
   return posts.sort((left, right) => right.added.localeCompare(left.added));
@@ -353,7 +440,11 @@ const validateOverrides = (
     );
     if (
       unknown.length ||
-      (override.skip !== undefined && typeof override.skip !== "boolean")
+      (override.skip !== undefined && typeof override.skip !== "boolean") ||
+      (override.image_url !== undefined &&
+        override.image_url !== null &&
+        typeof override.image_url !== "string") ||
+      override.image_url === ""
     ) {
       throw new Error(`INVALID_OVERRIDE:${id}`);
     }
@@ -414,6 +505,48 @@ export const buildWordpressImportPreview = (input: {
   const duplicates: WordpressReviewItem[] = [];
   const skipped: WordpressReviewItem[] = [];
 
+  const imageDetails = (
+    post: WordpressPostCandidate,
+    override: WordpressOverride | undefined,
+  ): Pick<
+    WordpressReadyItem,
+    | "image_url"
+    | "image_alt"
+    | "image_source"
+    | "image_candidate_url"
+    | "image_rejection"
+  > => {
+    const overridden = override && Object.hasOwn(override, "image_url");
+    if (overridden && override.image_url === null) {
+      return {
+        image_url: "",
+        image_alt: "",
+        image_source: "none",
+        image_rejection: "none_by_override",
+      };
+    }
+    const candidate = overridden ? override.image_url! : post.imageUrl;
+    if (!candidate) {
+      return { image_url: "", image_alt: "", image_source: "none" };
+    }
+    try {
+      return {
+        image_url: normalizeWordpressMediaUrl(candidate, post.originUrl).toString(),
+        image_alt: post.imageAlt,
+        image_source: overridden ? "override" : post.imageSource,
+      };
+    } catch (error) {
+      if ((error as Error).message !== "UNSAFE_IMAGE_HOST") throw error;
+      return {
+        image_url: "",
+        image_alt: "",
+        image_source: post.imageSource,
+        image_candidate_url: candidate,
+        image_rejection: "external",
+      };
+    }
+  };
+
   for (const post of parseWordpressExport(input.xml)) {
     const override = overrides[post.wordpressId];
     const base = {
@@ -469,8 +602,7 @@ export const buildWordpressImportPreview = (input: {
       }
       ready.push({
         wordpress_id: post.wordpressId,
-        image_url: override?.image_url ?? post.imageUrl,
-        image_alt: post.imageAlt,
+        ...imageDetails(post, override),
         existing: true,
         previous_id: imported.id,
         link: {
@@ -521,8 +653,7 @@ export const buildWordpressImportPreview = (input: {
       : importedTags.tags;
     ready.push({
       wordpress_id: post.wordpressId,
-      image_url: override?.image_url ?? post.imageUrl,
-      image_alt: post.imageAlt,
+      ...imageDetails(post, override),
       existing: false,
       link: {
         id: stableLinkId(url),
@@ -593,26 +724,15 @@ export const optimizeWordpressImage = async (input: Buffer): Promise<Buffer> => 
     .toBuffer();
 };
 
-export const assertBlogMediaUrl = (rawUrl: string, blogHost: string): URL => {
-  const url = new URL(rawUrl);
-  if (
-    !["http:", "https:"].includes(url.protocol) ||
-    normalizedHost(url.toString()) !== blogHost
-  ) {
-    throw new Error("UNSAFE_IMAGE_HOST");
-  }
-  return url;
-};
+export const assertBlogMediaUrl = (rawUrl: string, blogOrigin: string): URL =>
+  normalizeWordpressMediaUrl(
+    rawUrl,
+    blogOrigin.includes("://") ? blogOrigin : `https://${blogOrigin}/`,
+  );
 
-export const wordpressMediaRelativePath = (
-  rawUrl: string,
-  blogHost: string,
-): string[] => {
-  const url = assertBlogMediaUrl(rawUrl, blogHost);
+const wordpressMediaSegments = (url: URL): string[] => {
   const marker = "/wp-content/uploads/";
-  const markerIndex = url.pathname.indexOf(marker);
-  if (markerIndex < 0) throw new Error("IMAGE_OUTSIDE_UPLOADS");
-  const encodedSegments = url.pathname.slice(markerIndex + marker.length).split("/");
+  const encodedSegments = url.pathname.slice(marker.length).split("/");
   const segments = encodedSegments.map((segment) => decodeURIComponent(segment));
   if (
     !segments.length ||
@@ -628,4 +748,95 @@ export const wordpressMediaRelativePath = (
     throw new Error("UNSAFE_IMAGE_PATH");
   }
   return segments;
+};
+
+export const wordpressMediaRelativePath = (
+  rawUrl: string,
+  blogHost: string,
+): string[] => {
+  return wordpressMediaSegments(assertBlogMediaUrl(rawUrl, blogHost));
+};
+
+export const loadWordpressImageSource = async (input: {
+  rawUrl: string;
+  blogOrigin: string;
+  localOnly: boolean;
+  readLocal: (relativePath: string[]) => Promise<Buffer>;
+  download: (rawUrl: string) => Promise<Buffer>;
+}): Promise<{ buffer: Buffer; from: "local" | "network"; relativePath: string[] }> => {
+  const relativePath = wordpressMediaRelativePath(input.rawUrl, input.blogOrigin);
+  try {
+    return {
+      buffer: await input.readLocal(relativePath),
+      from: "local",
+      relativePath,
+    };
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+  }
+  if (input.localOnly) throw new Error("IMAGE_LOCAL_NOT_FOUND");
+  return {
+    buffer: await input.download(input.rawUrl),
+    from: "network",
+    relativePath,
+  };
+};
+
+const escapeHtml = (value: string): string =>
+  value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+
+export const renderWordpressImageReviewHtml = (
+  rawItems: WordpressImageReviewItem[],
+): string => {
+  const items = [...rawItems].sort(
+    (left, right) =>
+      right.year.localeCompare(left.year) ||
+      Number(left.wordpress_id) - Number(right.wordpress_id),
+  );
+  const years = [...new Set(items.map((item) => item.year))].sort().reverse();
+  const cells = items
+    .map((item) => {
+      const filters = [
+        item.year,
+        item.source,
+        item.status,
+        ...(item.low_resolution ? ["low_resolution"] : []),
+      ].join(" ");
+      const image = item.webp_path
+        ? `<img src="${escapeHtml(item.webp_path)}" alt="" loading="lazy" width="${item.final_width ?? 16}" height="${item.final_height ?? 9}">`
+        : `<div class="placeholder" aria-label="Aucun visuel">${escapeHtml(item.status)}</div>`;
+      const dimensions = item.source_width && item.source_height
+        ? `${item.source_width}×${item.source_height} → ${item.final_width}×${item.final_height}`
+        : "dimensions indisponibles";
+      return `<article class="cell" tabindex="0" data-filters="${escapeHtml(filters)}">
+  ${image}
+  <div class="meta"><strong>${escapeHtml(item.title)}</strong><span>${escapeHtml(item.year)} · ID ${escapeHtml(item.wordpress_id)}</span><span>${escapeHtml(item.source)} · ${escapeHtml(item.status)}${item.low_resolution ? " · faible résolution" : ""}</span><span>${escapeHtml(dimensions)}</span><a href="${escapeHtml(item.origin_url)}">Billet d’origine</a>${item.ftp_path ? `<code>${escapeHtml(item.ftp_path)}</code>` : ""}${item.error ? `<span class="error">${escapeHtml(item.error)}</span>` : ""}</div>
+</article>`;
+    })
+    .join("\n");
+  const buttons = [
+    ["all", "Tout"],
+    ["featured", "Featured"],
+    ["content", "Content"],
+    ["override", "Override"],
+    ["low_resolution", "Faible résolution"],
+    ["missing_local", "Manquant"],
+    ["external", "Externe"],
+    ...years.map((year) => [year, year]),
+  ]
+    .map(
+      ([filter, label]) =>
+        `<button type="button" data-filter="${filter}" aria-pressed="${filter === "all"}">${label}</button>`,
+    )
+    .join("");
+  return `<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Revue des visuels Blog OOBLIK</title>
+<style>:root{font-family:Arial,sans-serif;color:#171717;background:#f4f2ec}*{box-sizing:border-box}body{margin:0;padding:24px}header{border:1px solid #171717;padding:16px;margin-bottom:16px}h1{font-size:clamp(1.4rem,3vw,2.4rem);margin:0 0 12px}.filters{display:flex;flex-wrap:wrap}.filters button{border:1px solid #171717;border-radius:0;background:#fff;padding:8px 12px;margin:-1px 0 0 -1px}.filters button[aria-pressed=true]{color:#fff;background:#171717}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));border-top:1px solid #171717;border-left:1px solid #171717}.cell{min-width:0;border-right:1px solid #171717;border-bottom:1px solid #171717;background:#fff}.cell:focus{outline:3px solid #d4422f;outline-offset:-3px}.cell[hidden]{display:none}.cell img,.placeholder{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#ddd}.placeholder{display:grid;place-items:center;text-transform:uppercase}.meta{display:grid;gap:5px;padding:10px}.meta span,.meta a,.meta code{overflow-wrap:anywhere;font-size:.8rem}.error{color:#9d2015}@media(max-width:420px){body{padding:10px}.grid{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}</style></head>
+<body><header><h1>Visuels patrimoniaux · Blog OOBLIK</h1><div class="filters" role="group" aria-label="Filtres">${buttons}</div></header><main class="grid">${cells}</main>
+<script>const buttons=[...document.querySelectorAll('[data-filter]')],cells=[...document.querySelectorAll('.cell')];function select(filter){for(const button of buttons)button.setAttribute('aria-pressed',String(button.dataset.filter===filter));for(const cell of cells)cell.hidden=filter!=='all'&&!cell.dataset.filters.split(' ').includes(filter)}for(const button of buttons)button.addEventListener('click',()=>select(button.dataset.filter));document.addEventListener('keydown',event=>{if(event.key==='Escape')select('all')});</script></body></html>\n`;
 };
