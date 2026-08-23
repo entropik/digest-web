@@ -1,4 +1,4 @@
-import { mkdir, readFile, rename, stat, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rename, rm, stat, writeFile } from "node:fs/promises";
 import { basename, dirname, join, resolve } from "node:path";
 import sharp from "sharp";
 
@@ -83,6 +83,25 @@ const blogOrigin =
 const imageCache = join(workDirectory, "media");
 await mkdir(imageCache, { recursive: true });
 const imageReview: WordpressImageReviewItem[] = [];
+
+if (apply) {
+  await Promise.all(
+    preview.ready.map(async (item) => {
+      if (
+        item.image_rejection !== "none_by_override" ||
+        item.previous_image !== wordpressImagePath(item.link, item.wordpress_id)
+      ) {
+        return;
+      }
+      const obsoleteImage = join(
+        siteRoot,
+        "static",
+        ...item.previous_image.split("/").filter(Boolean),
+      );
+      await rm(obsoleteImage, { force: true });
+    }),
+  );
+}
 
 const downloadImage = async (rawUrl: string): Promise<Buffer> => {
   let url = assertBlogMediaUrl(rawUrl, blogOrigin);

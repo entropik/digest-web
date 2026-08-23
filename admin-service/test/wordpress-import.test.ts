@@ -1,10 +1,13 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { spawnSync } from "node:child_process";
+import { mkdir, mkdtemp, readFile, rm, stat, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
 import sharp from "sharp";
 
-import type { DigestLink } from "../src/catalog.js";
+import { parseCatalog, serializeCatalog, type DigestLink } from "../src/catalog.js";
 import {
   archiveAllRemainingWordpressPosts,
   archiveUnresolvedWordpressPosts,
@@ -311,15 +314,31 @@ test("external content images are reported but not accepted for publication", as
 });
 
 test("an explicit null override records a deliberate image absence", async () => {
-  const preview = buildWordpressImportPreview({
+  const initial = buildWordpressImportPreview({
     xml: await fixture(),
     currentLinks: [duplicate],
+  });
+  const illustrated = initial.ready.find(
+    (candidate) => candidate.wordpress_id === "101",
+  )!.link;
+  illustrated.image = wordpressImagePath(illustrated, "101");
+  illustrated.image_alt = "Ancienne légende";
+  const preview = buildWordpressImportPreview({
+    xml: await fixture(),
+    currentLinks: [duplicate, illustrated],
     overrides: { "101": { image_url: null } },
   });
   const item = preview.ready.find((candidate) => candidate.wordpress_id === "101");
   assert.equal(item?.image_source, "none");
   assert.equal(item?.image_rejection, "none_by_override");
   assert.equal(item?.image_url, "");
+  assert.equal(item?.previous_image, illustrated.image);
+  assert.equal(item?.link.image, undefined);
+  assert.equal(item?.link.image_alt, undefined);
+  assert.equal(
+    preview.catalog.find((link) => link.origin_url === illustrated.origin_url)?.image,
+    undefined,
+  );
   assert.throws(
     () =>
       buildWordpressImportPreview({
@@ -329,6 +348,68 @@ test("an explicit null override records a deliberate image absence", async () =>
       }),
     /INVALID_OVERRIDE:101/,
   );
+});
+
+test("applying a null override removes the obsolete managed WebP", async (context) => {
+  const temporary = await mkdtemp(join(tmpdir(), "digest-wordpress-null-image-"));
+  context.after(() => rm(temporary, { recursive: true, force: true }));
+  const site = join(temporary, "site");
+  const work = join(temporary, "work");
+  const media = join(temporary, "uploads");
+  const xmlPath = join(work, "export.xml");
+  const overridesPath = join(work, "overrides.json");
+  const catalogPath = join(site, "data", "links.json");
+  await mkdir(dirname(catalogPath), { recursive: true });
+  await mkdir(media, { recursive: true });
+  await mkdir(work, { recursive: true });
+
+  const xml = await fixture();
+  const initial = buildWordpressImportPreview({ xml, currentLinks: [duplicate] });
+  const illustrated = initial.ready.find(
+    (candidate) => candidate.wordpress_id === "101",
+  )!.link;
+  illustrated.image = wordpressImagePath(illustrated, "101");
+  illustrated.image_alt = "Ancienne légende";
+  const obsoleteImage = join(
+    site,
+    "static",
+    ...illustrated.image.split("/").filter(Boolean),
+  );
+  await mkdir(dirname(obsoleteImage), { recursive: true });
+  await writeFile(obsoleteImage, "obsolete");
+  await writeFile(catalogPath, serializeCatalog([duplicate, illustrated]));
+  await writeFile(xmlPath, xml);
+  await writeFile(overridesPath, JSON.stringify({ "101": { image_url: null } }));
+
+  const script = fileURLToPath(new URL("../scripts/import-wordpress.ts", import.meta.url));
+  const result = spawnSync(
+    process.execPath,
+    [
+      "--import",
+      "tsx",
+      script,
+      "--input",
+      xmlPath,
+      "--workdir",
+      work,
+      "--site",
+      site,
+      "--overrides",
+      overridesPath,
+      "--media-root",
+      media,
+      "--local-only",
+      "--apply",
+      "--skip-images",
+    ],
+    { encoding: "utf8", cwd: fileURLToPath(new URL("..", import.meta.url)) },
+  );
+  assert.equal(result.status, 0, result.stderr || result.stdout);
+  assert.equal(await stat(obsoleteImage).catch(() => null), null);
+  const catalog = parseCatalog(await readFile(catalogPath, "utf8"));
+  const updated = catalog.find((link) => link.origin_url === illustrated.origin_url);
+  assert.equal(updated?.image, undefined);
+  assert.equal(updated?.image_alt, undefined);
 });
 
 test("an explicit image override has distinct report provenance", async () => {
