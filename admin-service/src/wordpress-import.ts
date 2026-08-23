@@ -80,6 +80,7 @@ export type WordpressReadyItem = {
   image_rejection?: "external" | "none_by_override";
   existing: boolean;
   previous_id?: string;
+  previous_image?: string;
   link: DigestLink;
 };
 
@@ -600,24 +601,33 @@ export const buildWordpressImportPreview = (input: {
         });
         continue;
       }
+      const details = imageDetails(post, override);
+      const link: DigestLink = {
+        ...imported,
+        id: stableLinkId(url),
+        url,
+        category: wordpressDigestCategory(post.tags),
+        description: post.description,
+        ...(post.archiveText ? { archive_text: post.archiveText } : {}),
+        archive_tags: post.tags.filter((tag) => tag !== BLOG_ARCHIVE_STREAM),
+        ...(probe?.definitive_dead
+          ? { tags: unique([...(imported.tags ?? []), "lien-mort"]).slice(0, 12) }
+          : {}),
+        ...deadMetadata(probe ?? {}),
+      };
+      if (details.image_rejection === "none_by_override") {
+        delete link.image;
+        delete link.image_alt;
+      }
       ready.push({
         wordpress_id: post.wordpressId,
-        ...imageDetails(post, override),
+        ...details,
         existing: true,
         previous_id: imported.id,
-        link: {
-          ...imported,
-          id: stableLinkId(url),
-          url,
-          category: wordpressDigestCategory(post.tags),
-          description: post.description,
-          ...(post.archiveText ? { archive_text: post.archiveText } : {}),
-          archive_tags: post.tags.filter((tag) => tag !== BLOG_ARCHIVE_STREAM),
-          ...(probe?.definitive_dead
-            ? { tags: unique([...(imported.tags ?? []), "lien-mort"]).slice(0, 12) }
-            : {}),
-          ...deadMetadata(probe ?? {}),
-        },
+        ...(details.image_rejection === "none_by_override" && imported.image
+          ? { previous_image: imported.image }
+          : {}),
+        link,
       });
       occupied.set(url, imported);
       continue;
