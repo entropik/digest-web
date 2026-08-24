@@ -1,5 +1,140 @@
 [
   {
+    "id": "d5a2ba25-0afb-5d16-bcb6-832a3a55cb01",
+    "title": "Xirp — Know your systems, so your agents can too",
+    "url": "https://xirp.spotify.com/",
+    "category": "Développement",
+    "added": "2026-08-24",
+    "description": "The agentic development environment with institutional memory. Xirp connects to your services, ownership, docs, and architectural decisions so every session starts with real context. Powered by Spotify Portal.",
+    "tags": []
+  },
+  {
+    "id": "a554f655-6c3e-5ecc-9065-6bfb8679f612",
+    "title": "volcengine/OpenViking: Self-evolving Context Database for AI Agents. Unify Agent Memory, Knowledge RAG and Skills.",
+    "url": "https://github.com/volcengine/OpenViking",
+    "category": "IA & Agents",
+    "added": "2026-08-24",
+    "description": "Self-evolving Context Database for AI Agents. Unify Agent Memory, Knowledge RAG and Skills. - volcengine/OpenViking",
+    "tags": []
+  },
+  {
+    "id": "956d5e12-a6e0-566b-9a0f-eba468a6d944",
+    "title": "The versioned filesystem for AI agents | Mesa",
+    "url": "https://www.mesa.dev/",
+    "category": "IA & Agents",
+    "added": "2026-08-24",
+    "description": "Connect agents to the files they need, run parallel agent swarms on instant branches, and track every change through one API with sub-50ms reads and writes.",
+    "tags": []
+  },
+  {
+    "id": "e8badb76-6f94-58b2-9d63-bfdd4af1bcde",
+    "title": "The State of Open Source AI — v1.0.1 · July 2026",
+    "url": "https://stateofopensource.ai/",
+    "category": "IA & Agents",
+    "added": "2026-08-24",
+    "description": "Open source AI is changing at a rapid pace. We update this report as new developments come to light, and log every change here, newest first. Each entry records what was added, what changed, and what was retired, so you can tell which edition a given number came from. Past editions stay downloadable in the archive at the foot of this page.",
+    "tags": []
+  },
+  {
+    "id": "7ed5f0d2-a063-5eb7-8313-3c3da755626d",
+    "title": "superloglabs/superlog: Open-source observability tool that uses AI agents to self-heal your software",
+    "url": "https://github.com/superloglabs/superlog",
+    "category": "IA & Agents",
+    "added": "2026-08-24",
+    "description": "Open-source observability tool that uses AI agents to self-heal your software - superloglabs/superlog",
+    "tags": []
+  },
+  {
+    "id": "ea2aeedc-6035-55a2-839b-2e6791f2b92f",
+    "title": "Qui possède les médias ? Une extension qui affiche le propriétaire de chaque média",
+    "url": "http://dl.hckr.fr/medias",
+    "category": "Cultures & Combats",
+    "added": "2026-08-24",
+    "description": "Extension gratuite qui affiche le propriétaire réel de chaque média français pendant que vous lisez, sur son site et dans vos résultats de recherche.",
+    "tags": []
+  },
+  {
+    "id": "9c74694f-2a55-5120-94ad-f08d890c54ed",
+    "title": "Nuxt AI Agent Evaluations",
+    "url": "https://nuxt.com/evals",
+    "category": "IA & Agents",
+    "added": "2026-08-24",
+    "description": "Performance results of AI coding agents on Nuxt code generation tasks, measuring success rate and execution time.",
+    "tags": []
+  },
+  {
+    "id": "975a32c1-f413-5c6f-bf52-08c4778cfa43",
+    "title": "microfolio - Static Portfolio Generator",
+    "url": "https://microfolio.net/",
+    "category": "Design & Création",
+    "added": "2026-08-24",
+    "description": "A modern static portfolio generator built with SvelteKit 2 and Tailwind CSS 4. Perfect for designers, artists, architects, and creatives who want to showcase their projects elegantly and professionally.",
+    "tags": []
+  },
+  {
+    "id": "32c815fa-2873-58b3-beb9-fd3a68b9311f",
+    "title": "La Forge des communs numériques éducatifs",
+    "url": "https://docs.forge.apps.education.fr/",
+    "category": "Cultures & Combats",
+    "added": "2026-08-24",
+    "description": "« L'union fait la forge ! »",
+    "tags": []
+  },
+  {
+    "id": "271642cf-33b2-5f94-97d6-44468f5a6703",
+    "title": "fx - Tiny, open, native coding agent",
+    "url": "https://fx.sh/",
+    "category": "IA & Agents",
+    "added": "2026-08-24",
+    "description": "Tiny, open, native coding agent. A minimal CLI written in Zig, optimized for research and embeddability as part of larger systems.",
+    "tags": []
+  },
+  {
+    "id": "6d1203f4-6121-5dbe-bd05-8d48c4cc7f44",
+    "title": "EXXETA/exxperts: Local-first AI agents with governed, approval-gated memory. Any model provider; MCP tools and web search built in. Nothing remembered without your say-so, nothing leaves your machine.",
+    "url": "https://github.com/EXXETA/exxperts",
+    "category": "IA & Agents",
+    "added": "2026-08-24",
+    "description": "Local-first AI agents with governed, approval-gated memory. Any model provider; MCP tools and web search built in. Nothing remembered without your say-so, nothing leaves your machine.",
+    "tags": []
+  },
+  {
+    "id": "1b0a8d58-4133-5ddd-8064-55fab2fbed14",
+    "title": "EverMind-AI/EverOS: One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, tools, and workflows.",
+    "url": "https://github.com/EverMind-AI/EverOS",
+    "category": "IA & Agents",
+    "added": "2026-08-24",
+    "description": "One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, tools, and workflows. - EverMind-AI/EverOS",
+    "tags": []
+  },
+  {
+    "id": "c70f2393-73a8-5d6e-9e17-01ca11306288",
+    "title": "CodexBar",
+    "url": "https://codexbar.app/",
+    "category": "IA & Agents",
+    "added": "2026-08-24",
+    "description": "Une petite application de barre de menus macOS qui suit les fenêtres d'utilisation, les crédits, les coûts et les réinitialisations des fournisseurs de codage d'IA sur 69 fournisseurs : Codex, OpenAI, Claude, Cursor, Gemini, Copilot, LiteLLM, et plus encore.",
+    "tags": []
+  },
+  {
+    "id": "e2b20cba-a6ca-56ed-b171-2a71ad5bbee1",
+    "title": "Cat Gatekeeper",
+    "url": "https://zokuzoku.github.io/cat-gatekeeper",
+    "category": "Design & Création",
+    "added": "2026-08-24",
+    "description": "Spend too long on screen, and a cat pops up to signal break time. In your browser or on your desktop, it gives you a cute nudge to take a break.",
+    "tags": []
+  },
+  {
+    "id": "540f2ca8-8695-5f24-97a4-60095e65d45f",
+    "title": "andrewyng/openworker",
+    "url": "https://github.com/andrewyng/openworker",
+    "category": "IA & Agents",
+    "added": "2026-08-24",
+    "description": "Contribute to andrewyng/openworker development by creating an account on GitHub.",
+    "tags": []
+  },
+  {
     "id": "836c8b71-c8d3-575c-a9cd-aeb1be410265",
     "title": "vahan_soghomonian",
     "url": "https://www.vahansoghomonian.net/",
