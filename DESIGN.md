@@ -1,6 +1,6 @@
 ---
 name: OOBLIK Digest
-description: Une archive éditoriale suisse, typographique et traversée par une entropie maîtrisée.
+description: Une archive éditoriale sobre, structurée comme un cartouche d’architecte.
 colors:
   interface-coral: "#FF5C35"
   ooblik-red: "#E10600"
@@ -96,27 +96,45 @@ components:
 
 ## Overview
 
-**Creative North Star: "La grille insoumise"**
+**Creative North Star: « Le registre d’architecte »**
 
-OOBLIK Digest ressemble à un registre éditorial construit avec la discipline
-d’une composition suisse et la précision d’un cartouche d’architecte. Les
-grilles, indices, folios et filets partagés rendent l’information dense mais
-lisible ; ils donnent au site public, à l’administration et à l’extension la
-même sensation d’outil durable plutôt que d’interface SaaS générique.
+OOBLIK Digest ressemble à une feuille de registre dessinée avec la rigueur
+d’une composition suisse et la précision d’un cartouche de plan. La grille est
+visible, les cellules se touchent et les filets organisent l’information sans
+l’enfermer dans une accumulation de cartes. Indices, folios, dates et compteurs
+donnent au site public, à l’administration et à l’extension la même sensation
+d’outil durable, calme et précis.
 
-L’insoumission apparaît dans les écarts maîtrisés : titres monumentaux,
-affiches génératives, trames d’impression, compositions asymétriques et
-quelques formes rondes strictement fonctionnelles. Le chaos reste local. Les
-parcours, les métadonnées et le contenu éditorial conservent toujours une zone
-de lecture stable.
+La sobriété prime : peu de couleurs, peu de formes, aucune décoration sans
+fonction. La hiérarchie naît de l’échelle typographique, de l’alignement, de
+l’espace et du contraste. Les titres peuvent être francs et monumentaux, mais
+les parcours et les contenus restent simples. L’expressivité graphique est
+réservée aux affiches et aux moments éditoriaux ; elle ne contamine pas
+l’interface fonctionnelle.
 
 **Key Characteristics:**
 
 - grille et filets structurels visibles ;
-- typographie grotesque monumentale associée à une monospace signalétique ;
-- cartouches rectangulaires numérotés et folios compacts ;
-- corail d’interface rare, noir structurant et papier chaud ;
-- accidents graphiques réservés aux affiches et aux moments éditoriaux.
+- composition plane, rectiligne et sans effets décoratifs ;
+- typographie grotesque franche associée à une monospace signalétique ;
+- cartouches rectangulaires numérotés, cellules jointives et folios compacts ;
+- noir structurant, papier chaud et accent corail rare ;
+- densité maîtrisée, avec de grandes respirations autour des registres ;
+- expressivité réservée aux affiches et aux moments éditoriaux.
+
+### Principes directeurs
+
+1. **Construire avant de décorer.** La grille, les filets et les alignements
+   doivent suffire à donner sa forme à l’écran.
+2. **Regrouper par le cartouche.** Les commandes ou informations liées partagent
+   un contour et des séparations internes ; elles ne flottent pas comme des
+   boutons indépendants.
+3. **Hiérarchiser par la typographie.** Une grotesque porte le sujet ; la
+   monospace porte les repères, les métadonnées et les commandes.
+4. **Employer la couleur comme un signal.** Le noir structure, le papier
+   accueille et le corail désigne une action ou un état exceptionnel.
+5. **Préserver une lecture calme.** La densité se concentre dans les registres ;
+   leurs abords gardent assez de blanc pour rendre l’ensemble évident.
 
 ## Colors
 
@@ -124,6 +142,10 @@ Le système distingue les encres fonctionnelles de l’interface et les encres
 expressives des images sociales. Le corail signale les actions et états clés ;
 le rouge OOBLIK, le noir absolu et les couleurs process construisent les
 affiches sans transformer chaque écran en poster.
+
+L’interface courante tend vers une impression monochrome sur papier chaud. Un
+écran doit rester compréhensible si l’accent coloré disparaît : structure,
+libellés et états ne reposent jamais sur la couleur seule.
 
 ### Primary
 
@@ -209,6 +231,12 @@ fenêtre fixe de 540px. L’espacement suit principalement une cadence de 8px,
 avec 16px pour le rythme courant, 32px pour séparer les groupes et 64px pour
 les grandes respirations.
 
+La composition suit trois échelles simples : la page fournit la respiration,
+le registre fournit la structure et la cellule fournit l’information. Les
+alignements de titres, de filtres et de grilles se répondent sur les mêmes axes.
+Une largeur inutilisée peut rester vide : elle participe à la hiérarchie et ne
+doit pas être remplie artificiellement.
+
 **The Shared-Rule Rule.** Des éléments appartenant au même registre partagent
 leurs filets ; ils ne deviennent pas des boutons isolés avec des marges entre
 eux.
@@ -255,6 +283,15 @@ rectangulaires.
 Les composants sont francs, denses et lisibles. Le contraste ou l’inversion
 porte l’état ; chaque commande importante conserve une cible d’au moins 44px et
 un focus clavier explicite.
+
+### Anatomie d’un cartouche
+
+Un cartouche associe un contour d’un pixel et des séparations internes de même
+poids. Il peut réunir un indice, un libellé principal, une valeur ou une action.
+Les contenus s’alignent sur une grille commune ; les métadonnées restent petites
+mais lisibles. Au repos, le fond reste transparent ou papier. L’état actif
+emploie une inversion franche encre-papier plutôt qu’une ombre, un dégradé ou un
+gonflement du composant.
 
 ### Buttons
 
@@ -319,6 +356,8 @@ identité, sans marges artificielles ni dépendance à une police système.
 
 ### Do:
 
+- **Do** commencer chaque écran par une structure monochrome lisible avant
+  d’ajouter un accent.
 - **Do** montrer la grille et les filets avant de les briser localement.
 - **Do** associer catégories, pagination et navigation à des indices, noms et
   métadonnées stables.
@@ -334,6 +373,8 @@ identité, sans marges artificielles ni dépendance à une police système.
 
 ### Don't:
 
+- **Don't** ajouter une forme, une couleur ou un effet qui ne clarifie ni la
+  hiérarchie, ni l’état, ni l’action.
 - **Don't** transformer les catégories ou la pagination en pilules ou boutons
   arrondis isolés.
 - **Don't** employer glassmorphism, 3D molle, ombres diffuses décoratives ou
