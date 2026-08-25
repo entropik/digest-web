@@ -19,6 +19,17 @@
     </ul>
 
     <div class="header-actions">
+      <a
+        class="header-admin-switch"
+        data-admin-switch
+        href="{{ "admin" | absLangURL }}"
+        accesskey="a"
+        title="Ouvrir l’atelier (Alt + A)"
+        hidden>
+        <span class="header-admin-switch-label">Atelier</span>
+        <span class="header-admin-switch-short" aria-hidden="true">A</span>
+        <span aria-hidden="true">↗</span>
+      </a>
       {{- if not site.Params.disableThemeToggle }}
       <button id="theme-toggle" class="theme-toggle" type="button" accesskey="t" title="Changer de thème (Alt + T)" aria-label="Changer de thème">
         <svg class="moon" aria-hidden="true" viewBox="0 0 24 24">

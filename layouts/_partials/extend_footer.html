@@ -3,6 +3,21 @@
 {{- end }}
 <script>
   (() => {
+    const adminSwitch = document.querySelector("[data-admin-switch]");
+    if (!adminSwitch) return;
+
+    fetch("/api/admin/session", {
+      credentials: "same-origin",
+      headers: { Accept: "application/json" },
+    })
+      .then((response) => response.ok ? response.json() : null)
+      .then((session) => {
+        if (session?.isAdmin === true) adminSwitch.hidden = false;
+      })
+      .catch(() => {});
+  })();
+
+  (() => {
     const menu = document.querySelector("#header-mobile-menu");
     const toggle = document.querySelector("#header-menu-toggle");
     const close = menu?.querySelector(".header-mobile-menu-close");

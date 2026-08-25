@@ -467,6 +467,47 @@ select {
   margin-left: .65rem;
 }
 
+.header-admin-switch {
+  display: flex;
+  min-height: 2.35rem;
+  align-items: center;
+  gap: .45rem;
+  padding: 0 .7rem;
+  border: 1px solid var(--digest-line);
+  color: var(--digest-ink);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.header-admin-switch[hidden] {
+  display: none;
+}
+
+.header-admin-switch:hover,
+.header-admin-switch:focus-visible {
+  border-color: var(--digest-ink);
+  background: var(--digest-ink);
+  color: var(--digest-paper);
+  outline: 0;
+}
+
+.header-admin-switch span {
+  color: var(--digest-accent);
+  font-size: .8rem;
+}
+
+.header-admin-switch .header-admin-switch-label {
+  color: inherit;
+  font-size: inherit;
+}
+
+.header-admin-switch-short {
+  display: none;
+}
+
 .header-actions button {
   display: grid;
   width: 2.35rem;
@@ -663,6 +704,39 @@ body.header-menu-open {
 
   .header-menu-toggle {
     display: grid !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .header-nav {
+    gap: .35rem;
+  }
+
+  .header-brand {
+    font-size: 1.3rem;
+  }
+
+  .header-actions {
+    gap: .2rem;
+    margin-left: auto;
+  }
+
+  .header-admin-switch {
+    gap: .2rem;
+    padding-inline: .5rem;
+  }
+
+  .header-admin-switch-label {
+    display: none;
+  }
+
+  .header-admin-switch .header-admin-switch-short {
+    display: inline;
+  }
+
+  .header-actions button {
+    width: 2.1rem;
+    height: 2.1rem;
   }
 }
 

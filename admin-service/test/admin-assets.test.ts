@@ -1,7 +1,24 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
 
 import { adminCss, adminJs, dashboardPage } from "../src/admin-assets.js";
+
+test("the public header reveals its admin switch only to the owner", () => {
+  const header = readFileSync(
+    new URL("../../layouts/_partials/header.html", import.meta.url),
+    "utf8",
+  );
+  const footer = readFileSync(
+    new URL("../../layouts/_partials/extend_footer.html", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(header, /data-admin-switch[\s\S]*href=.*admin[\s\S]*hidden>/);
+  assert.match(footer, /fetch\("\/api\/admin\/session"/);
+  assert.match(footer, /session\?\.isAdmin === true/);
+  assert.match(footer, /adminSwitch\.hidden = false/);
+});
 
 test("the admin uses the same browser icons as the public site", () => {
   const page = dashboardPage("Marc");
@@ -35,8 +52,10 @@ test("the private dashboard links to the unlisted Chrome extension", () => {
 
   assert.match(
     page,
-    /href="https:\/\/chromewebstore\.google\.com\/detail\/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer">Installer l’extension<\/a>/,
+    /href="https:\/\/chromewebstore\.google\.com\/detail\/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer"><span>Extension<\/span><span aria-hidden="true">↗<\/span><\/a>/,
   );
+  assert.doesNotMatch(page, /Voir le Digest/);
+  assert.match(page, /<a href="\/\"><span>Digest<\/span><span aria-hidden="true">↗<\/span><\/a>/);
 });
 
 test("the private dashboard displays the current site version after logout", () => {
@@ -44,15 +63,16 @@ test("the private dashboard displays the current site version after logout", () 
 
   assert.match(
     page,
-    /<button id="admin-logout" type="button">Se déconnecter<\/button>\s*<span class="admin-version" aria-label="Version v1\.19\.0">v1\.19\.0<\/span>/,
+    /<button id="admin-logout" type="button">Déconnexion<\/button>\s*<span class="admin-version" aria-label="Version v1\.19\.5">v1\.19\.5<\/span>/,
   );
   assert.match(adminCss, /\.admin-version\{/);
+  assert.match(adminCss, /\.admin-version\{[^}]*background:var\(--ink\);color:var\(--paper\)/);
 });
 
 test("categories can be created, renamed and deleted from a dedicated panel", () => {
   const page = dashboardPage("Marc");
 
-  assert.match(page, /data-panel-button="categories" aria-pressed="false">Catégories/);
+  assert.match(page, /data-panel-button="categories" aria-pressed="false">[\s\S]*Catégories/);
   assert.match(page, /id="category-create-form"/);
   assert.match(page, /id="category-list"/);
   assert.match(page, /name="description" maxlength="500"/);
@@ -122,7 +142,7 @@ test("drafts use a compact optional tag picker instead of the historical tag lis
 
 test("the admin exposes the complete tag register and its lifecycle", () => {
   const page = dashboardPage("Marc");
-  assert.match(page, /data-panel-button="themes" aria-pressed="false">Tags/);
+  assert.match(page, /data-panel-button="themes" aria-pressed="false">[\s\S]*Tags/);
   assert.match(page, /id="theme-search"/);
   assert.match(page, /id="theme-count"/);
   assert.match(page, /id="theme-archived-count"/);
@@ -142,8 +162,12 @@ test("the admin exposes the complete tag register and its lifecycle", () => {
   assert.match(adminJs, /\/api\/admin\/themes/);
   assert.match(adminJs, /\/reactivate/);
   assert.match(adminCss, /\.theme-row/);
-  assert.match(adminCss, /\.admin-nav\{display:grid;grid-template-columns:repeat\(auto-fit/);
-  assert.match(adminCss, /\.admin-nav\{grid-template-columns:repeat\(2/);
+  assert.match(page, /class="admin-nav-index">01<\/span>/);
+  assert.match(page, /class="admin-nav-index">09<\/span>/);
+  assert.match(page, /class="admin-nav-label">Liens retirés<\/span>/);
+  assert.match(adminCss, /\.admin-nav\{display:grid;grid-template-columns:repeat\(5/);
+  assert.match(adminCss, /@media\(max-width:900px\)\{\.admin-nav\{grid-template-columns:repeat\(3/);
+  assert.match(adminCss, /@media\(max-width:520px\)[\s\S]*\.admin-nav\{grid-template-columns:repeat\(2/);
   assert.match(adminJs, /button\.setAttribute\("aria-pressed",String\(active\)\)/);
 });
 
