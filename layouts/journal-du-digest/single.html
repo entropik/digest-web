@@ -1,0 +1,27 @@
+{{ define "main" }}
+<article class="journal-post">
+  <header class="journal-post-header">
+    <p class="digest-kicker">Journal du Digest</p>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ time.Format "02 January 2006" .Date }}</time>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+  </header>
+  <div class="journal-post-content">
+    {{ .Content }}
+  </div>
+
+  <nav class="journal-post-folio" aria-label="Navigation entre les billets">
+    {{ with .PrevInSection }}
+      <a href="{{ .RelPermalink }}"><span>← Précédent</span><strong>{{ time.Format "02 Jan 2006" .Date }}</strong></a>
+    {{ else }}
+      <span aria-disabled="true"><span>← Précédent</span><strong>—</strong></span>
+    {{ end }}
+    <a href="{{ .CurrentSection.RelPermalink }}"><span>Journal</span><strong>Index</strong></a>
+    {{ with .NextInSection }}
+      <a href="{{ .RelPermalink }}"><span>Suivant →</span><strong>{{ time.Format "02 Jan 2006" .Date }}</strong></a>
+    {{ else }}
+      <span aria-disabled="true"><span>Suivant →</span><strong>—</strong></span>
+    {{ end }}
+  </nav>
+</article>
+{{ end }}

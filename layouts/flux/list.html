@@ -15,6 +15,25 @@
   </div>
 </header>
 
+{{ $journalPosts := where site.RegularPages "Type" "journal-du-digest" }}
+{{ $journalPosts = $journalPosts.ByDate.Reverse }}
+{{ with index $journalPosts 0 }}
+<section class="flux-journal-feature" aria-labelledby="flux-journal-title">
+  <a href="{{ "flux/journal-du-digest/" | relURL }}">
+    <span class="flux-journal-index">00</span>
+    <span class="flux-journal-main">
+      <span class="archive-edition-kicker">Carnet de développement</span>
+      <strong id="flux-journal-title">Journal du Digest</strong>
+    </span>
+    <span class="flux-journal-latest">
+      <span>Dernier billet · {{ time.Format "02 January 2006" .Date }}</span>
+      <strong>{{ .Title }}</strong>
+    </span>
+    <span class="flux-journal-action">{{ len $journalPosts }} billets<br>Ouvrir le journal ↗</span>
+  </a>
+</section>
+{{ end }}
+
 <section class="flux-grid" aria-label="Flux sociaux archivés">
   {{ range $streams }}
     {{ $streamLinks := where $links "stream" .slug }}

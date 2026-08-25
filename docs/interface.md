@@ -54,6 +54,20 @@ Le cartouche conserve ses trois cellules sur mobile. Les dimensions et la
 typographie se resserrent, mais l’ordre et les libellés restent stables afin de
 ne pas transformer la pagination en une autre interface selon la largeur.
 
+## Journal du Digest
+
+Le Journal du Digest est un carnet de développement public distinct des flux
+patrimoniaux. Sa source unique reste `docs/journal/YYYY-MM-DD.md` : Hugo en
+extrait la date, le titre, le résumé et le corps complet sans recopier les
+billets dans `content/`.
+
+Sur la page Flux, un bandeau-cartouche pleine largeur précède les quatre flux
+historiques. L’index du journal utilise un registre de deux colonnes sur grand
+écran et d’une colonne sur mobile. Une navigation jointive par année et par
+mois mène à des ancres stables ; la page de chaque billet se termine par le
+cartouche `Précédent · Index · Suivant`. Le journal possède son propre flux RSS
+et ne modifie jamais le flux `blog-ooblik`.
+
 ## Grille des archives
 
 Sur grand écran, les éditions archivées forment un registre de trois colonnes ;

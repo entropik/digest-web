@@ -1,0 +1,36 @@
+{{- range resources.Match "journal/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md" -}}
+  {{- $raw := .Content -}}
+  {{- $slug := path.BaseName .Name -}}
+  {{- if not (findRE `^\d{4}-\d{2}-\d{2}$` $slug) -}}
+    {{- errorf "Billet du Journal du Digest avec un nom invalide : %s" .Name -}}
+  {{- end -}}
+
+  {{- $headings := findRE `(?m)^#\s+.+$` $raw 1 -}}
+  {{- if ne (len $headings) 1 -}}
+    {{- errorf "Billet du Journal du Digest sans titre H1 : %s" .Name -}}
+  {{- end -}}
+  {{- $title := strings.TrimSpace (strings.TrimPrefix "#" (index $headings 0)) -}}
+  {{- $title = replaceRE `^(?:\d{4}-\d{2}-\d{2}|\d{1,2}\s+[^\s]+\s+\d{4})\s+—\s+` "" $title -}}
+
+  {{- if not (findRE `(?m)^##\s+Résumé\s*$` $raw 1) -}}
+    {{- errorf "Billet du Journal du Digest sans section Résumé : %s" .Name -}}
+  {{- end -}}
+  {{- $summary := replaceRE `(?s).*?##\s+Résumé\s*\r?\n+(.*?)(?:\r?\n##\s+|\z).*` "$1" $raw -}}
+  {{- $summary = strings.TrimSpace ($summary | plainify) -}}
+  {{- if not $summary -}}
+    {{- errorf "Billet du Journal du Digest avec un résumé vide : %s" .Name -}}
+  {{- end -}}
+
+  {{- $body := replaceRE `(?m)^#\s+.+\r?\n+` "" $raw 1 -}}
+  {{- $page := dict
+    "content" (dict "mediaType" "text/markdown" "value" $body)
+    "dates" (dict "date" (time.AsTime $slug))
+    "description" $summary
+    "kind" "page"
+    "params" (dict "description" $summary "journal_source" .Name)
+    "path" $slug
+    "title" $title
+    "type" "journal-du-digest"
+  -}}
+  {{- $.AddPage $page -}}
+{{- end -}}

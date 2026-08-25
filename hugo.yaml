@@ -4,6 +4,25 @@ defaultContentLanguage: "fr"
 title: "Digest"
 theme: "PaperMod"
 
+module:
+  mounts:
+    - source: "content"
+      target: "content"
+    - source: "data"
+      target: "data"
+    - source: "layouts"
+      target: "layouts"
+    - source: "i18n"
+      target: "i18n"
+    - source: "archetypes"
+      target: "archetypes"
+    - source: "assets"
+      target: "assets"
+    - source: "static"
+      target: "static"
+    - source: "docs/journal"
+      target: "assets/journal"
+
 enableRobotsTXT: true
 enableGitInfo: false
 # Tag archives are explicit pages under content/tags; Hugo taxonomies would
@@ -31,7 +50,7 @@ params:
   ShowCodeCopyButtons: true
   disableSpecial1stPost: true
   footer:
-      text: "v1.20.0 · [Admin](/admin) · [Confidentialité](/confidentialite/)"
+      text: "v1.21.0 · [Admin](/admin) · [Confidentialité](/confidentialite/)"
   label:
     text: "OOBLIK DIGEST"
   homeInfoParams:

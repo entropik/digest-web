@@ -77,6 +77,7 @@ run("hugo", [
   "--baseURL",
   "https://digest.ooblik.com/",
 ]);
+run(process.execPath, ["scripts/check_journal_output.mjs"]);
 
 const developmentUrl = /https?:\/\/(?:localhost|127\.0\.0\.1)(?::\d+)?/i;
 const publicDirectory = path.join(root, "public");

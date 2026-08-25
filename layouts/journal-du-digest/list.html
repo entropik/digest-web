@@ -1,0 +1,59 @@
+{{ define "main" }}
+{{ $posts := .RegularPages.ByDate.Reverse }}
+{{ $years := $posts.GroupByDate "2006" }}
+{{ $months := $posts.GroupByDate "2006-01" }}
+<article class="journal-index">
+  <header class="archive-single-header journal-header">
+    <p class="digest-kicker">Carnet de développement</p>
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+    <div class="archive-single-count">
+      <strong>{{ len $posts }}</strong><span>billets · depuis le {{ with index $posts (sub (len $posts) 1) }}{{ time.Format "02 January 2006" .Date }}{{ end }}</span>
+    </div>
+  </header>
+
+  <nav class="journal-chronology" aria-label="Navigation chronologique du journal">
+    <span class="journal-chronology-label">Repères</span>
+    {{ range $years }}
+      <a href="#annee-{{ .Key }}" data-journal-anchor="annee-{{ .Key }}"><span>Année</span><strong>{{ .Key }}</strong></a>
+    {{ end }}
+    {{ range $index, $month := $months }}
+      {{ $monthDate := time.AsTime (printf "%s-01" $month.Key) }}
+      <a href="#mois-{{ $month.Key }}" data-journal-anchor="mois-{{ $month.Key }}"{{ if eq $index 0 }} aria-current="location"{{ end }}><span>{{ time.Format "January" $monthDate }}</span><strong>{{ len $month.Pages }}</strong></a>
+    {{ end }}
+    <a class="journal-rss" href="{{ .RelPermalink }}index.xml"><span>Syndication</span><strong>RSS ↗</strong></a>
+  </nav>
+
+  {{ $counter := newScratch }}
+  {{ $counter.Set "post" 0 }}
+  {{ range $years }}
+    <section class="journal-year" id="annee-{{ .Key }}" aria-labelledby="titre-annee-{{ .Key }}">
+      <h2 class="sr-only" id="titre-annee-{{ .Key }}">Billets de {{ .Key }}</h2>
+      {{ range (.Pages.GroupByDate "2006-01") }}
+        {{ $monthDate := time.AsTime (printf "%s-01" .Key) }}
+        <section class="journal-month" id="mois-{{ .Key }}" aria-labelledby="titre-mois-{{ .Key }}">
+          <header class="journal-month-header">
+            <span>{{ $monthDate.Format "01/2006" }}</span>
+            <h3 id="titre-mois-{{ .Key }}">{{ time.Format "January 2006" $monthDate }}</h3>
+            <span>{{ len .Pages }} billets</span>
+          </header>
+          <div class="journal-grid">
+            {{ range .Pages }}
+              {{ $counter.Add "post" 1 }}
+              <article class="journal-card">
+                <a href="{{ .RelPermalink }}">
+                  <span class="journal-card-meta"><span>{{ printf "%02d" ($counter.Get "post") }}</span><time datetime="{{ .Date.Format "2006-01-02" }}">{{ time.Format "02 January 2006" .Date }}</time></span>
+                  <h4>{{ .Title }}</h4>
+                  <p>{{ .Description }}</p>
+                  <span class="journal-card-action">Lire le billet ↗</span>
+                </a>
+              </article>
+            {{ end }}
+          </div>
+        </section>
+      {{ end }}
+    </section>
+  {{ end }}
+</article>
+<script defer src="{{ "js/journal.js" | relURL }}"></script>
+{{ end }}
