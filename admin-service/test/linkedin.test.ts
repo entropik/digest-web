@@ -176,6 +176,28 @@ test("publishing uploads the PNG then creates one native image post with its URL
   });
   assert.equal(result.alreadyPublished, false);
   assert.equal(result.publicationCount, 1);
+  assert.deepEqual(
+    service.publicationStatus(
+      "admin-2",
+      "https://digest.ooblik.com/archives/2026-08-16/",
+    ),
+    {
+      alreadyPublished: true,
+      publicationCount: 1,
+      latestPostUrl: "https://www.linkedin.com/feed/update/urn:li:share:post-123",
+    },
+  );
+  assert.deepEqual(
+    service.publicationStatus(
+      "another-admin",
+      "https://digest.ooblik.com/archives/2026-08-16/",
+    ),
+    {
+      alreadyPublished: false,
+      publicationCount: 0,
+      latestPostUrl: null,
+    },
+  );
   assert.equal(result.postUrl, "https://www.linkedin.com/feed/update/urn:li:share:post-123");
   const registerCall = calls.find(({ url }) =>
     url.includes("/v2/assets?action=registerUpload"),
@@ -213,6 +235,13 @@ test("publishing uploads the PNG then creates one native image post with its URL
   }, true);
   assert.equal(republished.alreadyPublished, false);
   assert.equal(republished.publicationCount, 2);
+  assert.equal(
+    service.publicationStatus(
+      "admin-2",
+      "https://digest.ooblik.com/archives/2026-08-16/",
+    ).publicationCount,
+    2,
+  );
   assert.equal(calls.filter(({ url }) => url.endsWith("/v2/ugcPosts")).length, 2);
   const publicationHistory = database
     .prepare(

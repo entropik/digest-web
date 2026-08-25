@@ -199,6 +199,9 @@ publication la plus récente et bloque le doublon involontaire ; l’action
 propriétaire explicite « Republier sur LinkedIn » réserve la même URL puis crée
 une nouvelle occurrence sans effacer les précédentes. Le verrou de réservation
 reste unique par URL afin d’empêcher deux envois concurrents.
+À l’ouverture du compositeur, le navigateur interroge cet historique central :
+le mode republication et le compteur restent donc corrects d’un poste à
+l’autre, sans dépendre d’un état conservé localement.
 
 Un lien publié peut être corrigé sans perdre son identifiant, son URL, sa date
 ou son historique. Un retrait public modifie sa visibilité sans effacer la

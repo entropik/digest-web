@@ -13,7 +13,7 @@ chaque journée ayant produit une évolution du projet.
 | 17 août 2026 | [Actions éditoriales et captures LinkedIn durcies](2026-08-17.md) | 11 | Administration des liens, favicons et captures sécurisées |
 | 18 août 2026 | [Le carré LinkedIn, du faux succès au post visible](2026-08-18.md) | 17 | Images carrées, upload synchrone et récupération des posts invisibles |
 | 20 août 2026 | [Du cartouche suisse à la mémoire du Blog OOBLIK](2026-08-20.md) | 24 | Taxonomie, registre suisse et import patrimonial WordPress |
-| 25 août 2026 | [Répéter sans effacer sur LinkedIn](2026-08-25.md) | 0 | Republication volontaire et historique LinkedIn |
+| 25 août 2026 | [Répéter sans effacer sur LinkedIn](2026-08-25.md) | 3 | Republication volontaire et historique LinkedIn |
 
 ## Provenance
 

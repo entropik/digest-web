@@ -402,6 +402,42 @@ export class LinkedInService {
     );
   }
 
+  publicationStatus(adminUserId: string, rawUrl: string) {
+    let publicationUrl: string;
+    try {
+      const candidate = new URL(rawUrl, config.origin);
+      publicationUrl =
+        candidate.origin === config.origin &&
+        /^\/archives\/\d{4}-\d{2}-\d{2}\/$/.test(candidate.pathname)
+          ? candidate.toString()
+          : canonicalizePublicUrl(candidate.toString());
+    } catch {
+      throw new LinkedInError("LINKEDIN_INVALID_PUBLICATION", 400);
+    }
+    const latest = this.database
+      .prepare(
+        `SELECT post_urn,
+           (SELECT COUNT(*)
+            FROM linkedin_publications
+            WHERE archive_url = ? AND admin_user_id = ?) AS publication_count
+         FROM linkedin_publications
+         WHERE archive_url = ? AND admin_user_id = ?
+         ORDER BY created_at DESC, id DESC
+         LIMIT 1`,
+      )
+      .get(
+        publicationUrl,
+        adminUserId,
+        publicationUrl,
+        adminUserId,
+      ) as { post_urn: string; publication_count: number } | undefined;
+    return {
+      alreadyPublished: Boolean(latest),
+      publicationCount: latest?.publication_count ?? 0,
+      latestPostUrl: latest ? this.postUrl(latest.post_urn) : null,
+    };
+  }
+
   private async publishValidated(
     adminUserId: string,
     validated: PublicationInput,

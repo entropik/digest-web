@@ -293,6 +293,16 @@ app.post("/api/admin/linkedin/publish", async (context) =>
   }),
 );
 
+app.post("/api/admin/linkedin/publication-status", async (context) =>
+  handle(context, async () => {
+    const body = await jsonBody<{ url: string }>(context);
+    return linkedin.publicationStatus(
+      context.get("admin").user.id,
+      String(body.url || ""),
+    );
+  }),
+);
+
 app.post("/api/admin/linkedin/link-preview", async (context) =>
   handle(context, async () => {
     const body = await jsonBody<{

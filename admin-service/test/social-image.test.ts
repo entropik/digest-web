@@ -363,6 +363,9 @@ test("LinkedIn native publishing uses the authenticated server API", async () =>
   assert.match(script, /\/api\/admin\/linkedin\/connect\?returnTo=/);
   assert.match(script, /"\/api\/admin\/linkedin\/publish-link"/);
   assert.match(script, /"\/api\/admin\/linkedin\/link-preview"/);
+  assert.match(script, /"\/api\/admin\/linkedin\/publication-status"/);
+  assert.match(script, /applyPublicationStatus/);
+  assert.match(script, /publicationStatus\.alreadyPublished/);
   assert.match(script, /Régénérer l.image|generateLinkPreview/);
   assert.match(
     script,

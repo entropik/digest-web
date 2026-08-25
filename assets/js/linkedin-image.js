@@ -95,6 +95,30 @@
     }
   };
 
+  const applyPublicationStatus = (publicationStatus, fallbackMessage) => {
+    republishRequested = publicationStatus.alreadyPublished === true;
+    confirmButton.textContent = republishRequested
+      ? "Confirmer la republication"
+      : "Confirmer la publication";
+    if (!republishRequested) {
+      feedback.textContent = fallbackMessage;
+      return;
+    }
+    activeButton.dataset.published = "true";
+    const label = activeButton.querySelector("span:last-child");
+    if (label) {
+      label.textContent = "Republier";
+    } else {
+      activeButton.textContent = "Republier sur LinkedIn";
+    }
+    showPost(
+      feedback,
+      publicationStatus.latestPostUrl,
+      true,
+      publicationStatus.publicationCount,
+    );
+  };
+
   if (new URLSearchParams(window.location.search).get("linkedin") === "connected") {
     feedback.textContent = "Compte LinkedIn connecté. Cliquez pour publier cette édition.";
     history.replaceState(null, "", window.location.pathname);
@@ -244,15 +268,21 @@
     const isSingleLink = Boolean(shareButton.dataset.linkId);
     if (!isSingleLink && !imageUrl) return;
     shareButton.disabled = true;
-    republishRequested = shareButton.dataset.published === "true";
-    confirmButton.textContent = republishRequested
-      ? "Confirmer la republication"
-      : "Confirmer la publication";
+    republishRequested = false;
+    confirmButton.textContent = "Confirmer la publication";
     confirmButton.disabled = false;
     feedback.textContent = "Vérification du compte LinkedIn…";
 
     try {
-      const status = await api("/api/admin/linkedin/status");
+      const [status, publicationStatus] = await Promise.all([
+        api("/api/admin/linkedin/status"),
+        api("/api/admin/linkedin/publication-status", {
+          method: "POST",
+          credentials: "same-origin",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ url }),
+        }),
+      ]);
       if (!status.configured) {
         feedback.textContent =
           "L’application LinkedIn doit encore être configurée dans l’administration.";
@@ -280,6 +310,12 @@
       feedback.textContent = isSingleLink
         ? "Préparation de l’image propre à ce lien…"
         : "Personnalisez le texte avant de confirmer.";
+      if (!isSingleLink) {
+        applyPublicationStatus(
+          publicationStatus,
+          "Personnalisez le texte avant de confirmer.",
+        );
+      }
       const parentDialog = shareButton.closest("dialog[open]");
       if (parentDialog && parentDialog !== composer) {
         suspendedDialog = parentDialog;
@@ -291,6 +327,9 @@
       if (isSingleLink) {
         try {
           await generateLinkPreview();
+          if (publicationStatus.alreadyPublished) {
+            applyPublicationStatus(publicationStatus, "");
+          }
         } catch (error) {
           if (error?.message === "AUTHENTICATION_REQUIRED") return;
           if (imageStatus) {
