@@ -3,12 +3,13 @@
 <!--
 Le nom du fichier doit être AAAA-MM-JJ.md. Le premier H1 et la section
 « Résumé » sont obligatoires : ils alimentent automatiquement la page publique
-du Journal du Digest et son flux RSS.
+du Journal du Digest et son flux RSS. Le résumé reste bref et ne dépasse jamais
+trois phrases.
 -->
 
 ## Résumé
 
-Décrire en quelques phrases le résultat de la journée et sa raison d’être.
+Décrire en trois phrases maximum le résultat de la journée et sa raison d’être.
 
 ## Demandes et échanges
 

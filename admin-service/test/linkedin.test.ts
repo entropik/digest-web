@@ -4,6 +4,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test, { after } from "node:test";
 import Database from "better-sqlite3";
+import sharp from "sharp";
 
 const temporary = await mkdtemp(join(tmpdir(), "digest-linkedin-test-"));
 process.env.NODE_ENV = "test";
@@ -338,6 +339,123 @@ test("publication rejects external archive and image URLs before fetching", asyn
     (error: unknown) =>
       error instanceof LinkedInError && error.code === "LINKEDIN_INVALID_PUBLICATION",
   );
+});
+
+test("publication accepts Journal du Digest pages with their local poster", () => {
+  const service = new LinkedInService(database);
+  const validate = (
+    service as unknown as {
+      validatePublication: (input: {
+        title: string;
+        text: string;
+        url: string;
+        imageUrl: string;
+      }) => { url: string; imageUrl: string };
+    }
+  ).validatePublication.bind(service);
+  const publication = validate({
+    title: "Journal du Digest — Éclipse du soleil sur une grille suisse",
+    text: "Design suisse, mémoire du Web et construction avec Codex.",
+    url: "https://digest.ooblik.com/flux/journal-du-digest/2026-08-12/",
+    imageUrl:
+      "/images/journal/posters/001-451d0ca0-baec-422b-96cb-a8ebc5078699.webp",
+  });
+
+  assert.equal(
+    publication.url,
+    "https://digest.ooblik.com/flux/journal-du-digest/2026-08-12/",
+  );
+  assert.equal(
+    publication.imageUrl,
+    "https://digest.ooblik.com/images/journal/posters/001-451d0ca0-baec-422b-96cb-a8ebc5078699.webp",
+  );
+  assert.deepEqual(
+    service.publicationStatus(
+      "admin-1",
+      "https://digest.ooblik.com/flux/journal-du-digest/2026-08-12/",
+    ),
+    { alreadyPublished: false, publicationCount: 0, latestPostUrl: null },
+  );
+  assert.throws(
+    () => validate({
+      title: "Journal",
+      text: "Texte",
+      url: "https://digest.ooblik.com/flux/journal-du-digest/2026-08-12/",
+      imageUrl: "/images/journal/posters/not-a-poster.webp",
+    }),
+    (error: unknown) =>
+      error instanceof LinkedInError &&
+      error.code === "LINKEDIN_INVALID_PUBLICATION",
+  );
+});
+
+test("Journal du Digest posters are converted from WebP to PNG before LinkedIn upload", async () => {
+  const calls: Array<{ url: string; init?: RequestInit }> = [];
+  const webp = await sharp({
+    create: {
+      width: 2,
+      height: 2,
+      channels: 3,
+      background: "#ff5c35",
+    },
+  }).webp().toBuffer();
+  const fetcher = async (input: string | URL | Request, init?: RequestInit) => {
+    const url = String(input);
+    calls.push({ url, init });
+    if (url.endsWith("/oauth/v2/accessToken")) {
+      return Response.json({ access_token: "journal-access-token", expires_in: 3600 });
+    }
+    if (url.endsWith("/v2/userinfo")) {
+      return Response.json({ sub: "journal-publisher", name: "Journal" });
+    }
+    if (url.endsWith(".webp")) {
+      return new Response(webp, { headers: { "Content-Type": "image/webp" } });
+    }
+    if (url.includes("/v2/assets?action=registerUpload")) {
+      return Response.json({
+        value: {
+          uploadMechanism: {
+            "com.linkedin.digitalmedia.uploading.MediaUploadHttpRequest": {
+              uploadUrl: "https://upload.linkedin.test/journal-image",
+            },
+          },
+          asset: "urn:li:digitalmediaAsset:journal-image",
+        },
+      });
+    }
+    if (url === "https://upload.linkedin.test/journal-image") {
+      return new Response(null, { status: 201 });
+    }
+    if (url.endsWith("/v2/ugcPosts")) {
+      return new Response(null, {
+        status: 201,
+        headers: { "x-restli-id": "urn:li:share:journal-post" },
+      });
+    }
+    throw new Error(`Unexpected request: ${url}`);
+  };
+  const service = new LinkedInService(database, fetcher as typeof fetch);
+  service.configure("journal-admin", "journal-client", "journal-secret-value");
+  const authorization = new URL(service.authorizationUrl("journal-admin"));
+  await service.completeAuthorization(
+    "journal-admin",
+    authorization.searchParams.get("state")!,
+    "journal-code",
+  );
+  await service.publish("journal-admin", {
+    title: "Journal du Digest — Éclipse du soleil sur une grille suisse",
+    text: "Design suisse, mémoire du Web et construction avec Codex.",
+    url: "https://digest.ooblik.com/flux/journal-du-digest/2026-08-12/",
+    imageUrl:
+      "/images/journal/posters/001-451d0ca0-baec-422b-96cb-a8ebc5078699.webp",
+  });
+
+  const upload = calls.find(({ url }) =>
+    url === "https://upload.linkedin.test/journal-image"
+  )!;
+  const uploadedBytes = Buffer.from(upload.init!.body as ArrayBuffer);
+  assert.equal(upload.init!.headers && (upload.init!.headers as Record<string, string>)["Content-Type"], "image/png");
+  assert.deepEqual([...uploadedBytes.subarray(0, 8)], [137, 80, 78, 71, 13, 10, 26, 10]);
 });
 
 test("publication reserves room for the URL within LinkedIn's 3000 character limit", () => {

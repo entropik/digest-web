@@ -5,6 +5,7 @@ import {
   randomBytes,
 } from "node:crypto";
 import type Database from "better-sqlite3";
+import sharp from "sharp";
 import { config } from "./config.js";
 import { canonicalizePublicUrl } from "./urls.js";
 import { fetchWithDeadline, NetworkDeadlineError } from "./network.js";
@@ -408,7 +409,7 @@ export class LinkedInService {
       const candidate = new URL(rawUrl, config.origin);
       publicationUrl =
         candidate.origin === config.origin &&
-        /^\/archives\/\d{4}-\d{2}-\d{2}\/$/.test(candidate.pathname)
+        /^(?:\/archives|\/flux\/journal-du-digest)\/\d{4}-\d{2}-\d{2}\/$/.test(candidate.pathname)
           ? candidate.toString()
           : canonicalizePublicUrl(candidate.toString());
     } catch {
@@ -522,7 +523,7 @@ export class LinkedInService {
       throw new LinkedInError("LINKEDIN_TOKEN_EXPIRED", 409);
     }
     const accessToken = decrypt(connection.encrypted_access_token);
-    const image = await this.request(validated.imageUrl, {
+    const downloadedImage = await this.request(validated.imageUrl, {
       headers: { "User-Agent": "digest-linkedin-publisher" },
     }, this.deadlines.read, "LINKEDIN_IMAGE_UNAVAILABLE", async (response) => {
       if (!response.ok) {
@@ -530,6 +531,19 @@ export class LinkedInService {
       }
       return response.arrayBuffer();
     });
+    if (!downloadedImage.byteLength || downloadedImage.byteLength > 10 * 1024 * 1024) {
+      throw new LinkedInError("LINKEDIN_IMAGE_UNAVAILABLE", 502);
+    }
+    let image: ArrayBuffer;
+    try {
+      image = validated.imageUrl.endsWith(".webp")
+        ? Uint8Array.from(
+            await sharp(Buffer.from(downloadedImage)).png().toBuffer(),
+          ).buffer
+        : downloadedImage;
+    } catch {
+      throw new LinkedInError("LINKEDIN_IMAGE_UNAVAILABLE", 502);
+    }
     if (!image.byteLength || image.byteLength > 10 * 1024 * 1024) {
       throw new LinkedInError("LINKEDIN_IMAGE_UNAVAILABLE", 502);
     }
@@ -857,6 +871,9 @@ export class LinkedInService {
     const archiveImage = /^\/social\/\d{4}-\d{2}-\d{2}(?:-linkedin)?\.png$/.test(
       imageUrl.pathname,
     );
+    const journalImage = /^\/images\/journal\/posters\/\d{3}-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\.webp$/.test(
+      imageUrl.pathname,
+    );
     const linkImage =
       allowCatalogUrl &&
       /^\/api\/linkedin-images\/[0-9a-f-]{36}-[0-9a-f]{16}\.png$/.test(
@@ -864,13 +881,13 @@ export class LinkedInService {
       );
     if (
       imageUrl.origin !== config.origin ||
-      (allowCatalogUrl ? !linkImage : !archiveImage)
+      (allowCatalogUrl ? !linkImage : !(archiveImage || journalImage))
     ) {
       throw new LinkedInError("LINKEDIN_INVALID_PUBLICATION", 400);
     }
     if (!allowCatalogUrl &&
         (url.origin !== config.origin ||
-         !/^\/archives\/\d{4}-\d{2}-\d{2}\/$/.test(url.pathname))) {
+         !/^(?:\/archives|\/flux\/journal-du-digest)\/\d{4}-\d{2}-\d{2}\/$/.test(url.pathname))) {
       throw new LinkedInError("LINKEDIN_INVALID_PUBLICATION", 400);
     }
     if (allowCatalogUrl) {

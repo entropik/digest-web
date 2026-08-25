@@ -9,6 +9,7 @@ chaque journée ayant produit une évolution du projet.
 | 25 juillet 2026 | [Exploration des tags et reprise de 2017](2026-07-25.md) | 10 | Tags, cache et éditions historiques |
 | 26 juillet 2026 | [Favoris locaux et nouvelles éditions](2026-07-26.md) | 4 | Favoris privés et restauration |
 | 27 juillet 2026 | [Administration et curation depuis Chrome](2026-07-27.md) | 15 | Admin, extension, publication et Web Store |
+| 12 août 2026 | [Éclipse du soleil sur une grille suisse](2026-08-12.md) | — | Design, collaboration avec Codex et mémoire des URL |
 | 16 août 2026 | [Publication, identité visuelle et partage LinkedIn](2026-08-16.md) | 33 | Publication progressive, images sociales et diffusion LinkedIn |
 | 17 août 2026 | [Actions éditoriales et captures LinkedIn durcies](2026-08-17.md) | 11 | Administration des liens, favicons et captures sécurisées |
 | 18 août 2026 | [Le carré LinkedIn, du faux succès au post visible](2026-08-18.md) | 17 | Images carrées, upload synchrone et récupération des posts invisibles |
@@ -55,4 +56,5 @@ dans son propre relevé afin d’éviter une autoréférence impossible à stabi
 
 Copier [le modèle](TEMPLATE.md) pour chaque nouvelle journée active. Les
 commits doivent être liés à GitHub et les affirmations de déploiement doivent
-être fondées sur un workflow ou une vérification publique.
+être fondées sur un workflow ou une vérification publique. La section
+`Résumé`, reprise dans l’index public et le RSS, ne dépasse pas trois phrases.

@@ -40,12 +40,19 @@
           <div class="journal-grid">
             {{ range .Pages }}
               {{ $counter.Add "post" 1 }}
+              {{ $posterIndex := mod (div .Date.Unix 86400) (len hugo.Data.journal_posters.posters) }}
+              {{ $poster := index hugo.Data.journal_posters.posters $posterIndex }}
               <article class="journal-card">
                 <a href="{{ .RelPermalink }}">
-                  <span class="journal-card-meta"><span>{{ printf "%02d" ($counter.Get "post") }}</span><time datetime="{{ .Date.Format "2006-01-02" }}">{{ time.Format "02 January 2006" .Date }}</time></span>
-                  <h4>{{ .Title }}</h4>
-                  <p>{{ .Description }}</p>
-                  <span class="journal-card-action">Lire le billet ↗</span>
+                  <figure class="journal-card-visual" aria-hidden="true">
+                    <img src="{{ $poster.image }}" alt="" width="{{ $poster.width }}" height="{{ $poster.height }}" loading="lazy" decoding="async">
+                  </figure>
+                  <span class="journal-card-body">
+                    <span class="journal-card-meta"><span>{{ printf "%02d" ($counter.Get "post") }}</span><time datetime="{{ .Date.Format "2006-01-02" }}">{{ time.Format "02 January 2006" .Date }}</time></span>
+                    <h4>{{ .Title }}</h4>
+                    <span class="journal-card-summary">{{ .Description }}</span>
+                    <span class="journal-card-action">Lire le billet ↗</span>
+                  </span>
                 </a>
               </article>
             {{ end }}

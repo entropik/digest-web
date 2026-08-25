@@ -68,6 +68,18 @@ mois mène à des ancres stables ; la page de chaque billet se termine par le
 cartouche `Précédent · Index · Suivant`. Le journal possède son propre flux RSS
 et ne modifie jamais le flux `blog-ooblik`.
 
+Chaque résumé public tient en trois phrases maximum. Chaque carte reçoit un
+bandeau issu d’un corpus local de cent affiches américaines des années 1940 et
+1950 ; la page du billet reprend la même image dans un cadre carré qui conserve
+l’affiche entière. `data/journal_posters.json` garde titre, date, droits, source
+IIIF et attribution, tandis que `scripts/scrape-journal-posters.mjs` permet de
+reconstruire le corpus depuis Northwestern University Libraries. Le crédit et
+le lien vers la fiche originale restent visibles sous l’image du billet. Le
+titre d’une carte passe au corail au survol et au focus, sans supprimer
+l’inversion générale de la cellule. Dans chaque billet, l’administration peut
+ouvrir le compositeur « Publier sur LinkedIn » avec l’affiche carrée du billet ;
+ce contrôle reste caché aux visiteurs non authentifiés.
+
 ## Grille des archives
 
 Sur grand écran, les éditions archivées forment un registre de trois colonnes ;

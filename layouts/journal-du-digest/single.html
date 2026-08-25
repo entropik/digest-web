@@ -1,11 +1,37 @@
 {{ define "main" }}
+{{ $posterIndex := mod (div .Date.Unix 86400) (len hugo.Data.journal_posters.posters) }}
+{{ $poster := index hugo.Data.journal_posters.posters $posterIndex }}
 <article class="journal-post">
   <header class="journal-post-header">
     <p class="digest-kicker">Journal du Digest</p>
     <time datetime="{{ .Date.Format "2006-01-02" }}">{{ time.Format "02 January 2006" .Date }}</time>
     <h1>{{ .Title }}</h1>
     <p>{{ .Description }}</p>
+    <div class="journal-post-actions">
+      <button
+        class="archive-linkedin-image"
+        type="button"
+        hidden
+        data-linkedin-share
+        data-share-image="{{ $poster.image }}"
+        data-share-title="Journal du Digest — {{ .Title }}"
+        data-share-tags="{{ slice "design" "web" "Codex" | jsonify }}"
+        data-share-url="{{ .Permalink }}">
+        Publier sur LinkedIn
+      </button>
+      <span class="archive-linkedin-feedback" data-linkedin-feedback role="status" aria-live="polite"></span>
+    </div>
+    {{ partial "linkedin-composer.html" (dict "image" $poster.image "format" "square") }}
   </header>
+  <figure class="journal-post-visual">
+    <a href="{{ $poster.source_url }}" target="_blank" rel="noopener noreferrer" aria-label="Voir l’affiche {{ $poster.title }} dans les collections de Northwestern University Libraries">
+      <img src="{{ $poster.image }}" alt="{{ $poster.title }}" width="{{ $poster.width }}" height="{{ $poster.height }}" decoding="async">
+    </a>
+    <figcaption>
+      <span>Archive visuelle · propagande américaine · {{ $poster.date }}</span>
+      <a href="{{ $poster.source_url }}" target="_blank" rel="noopener noreferrer">{{ $poster.title }} · Northwestern University Libraries ↗</a>
+    </figcaption>
+  </figure>
   <div class="journal-post-content">
     {{ .Content }}
   </div>
