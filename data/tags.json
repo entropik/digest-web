@@ -2,7 +2,12 @@
   {
     "name": "agents",
     "description": "Agents logiciels, orchestration et assistants capables d’agir.",
-    "aliases": ["AI workforce platform", "AI assistant", "AI assitant", "MCP"]
+    "aliases": [
+      "AI workforce platform",
+      "AI assistant",
+      "AI assitant",
+      "MCP"
+    ]
   },
   {
     "name": "art",
@@ -17,12 +22,9 @@
   {
     "name": "auto-hébergement",
     "description": "Services et infrastructures hébergés sous son propre contrôle.",
-    "aliases": ["selfhosted"]
-  },
-  {
-    "name": "automobile",
-    "description": "Culture, design et techniques de l’automobile.",
-    "aliases": ["car"]
+    "aliases": [
+      "selfhosted"
+    ]
   },
   {
     "name": "automatisation",
@@ -30,9 +32,18 @@
     "aliases": []
   },
   {
+    "name": "automobile",
+    "description": "Culture, design et techniques de l’automobile.",
+    "aliases": [
+      "car"
+    ]
+  },
+  {
     "name": "code",
     "description": "Programmation, pratiques de développement et culture du code.",
-    "aliases": ["vibe coding"]
+    "aliases": [
+      "vibe coding"
+    ]
   },
   {
     "name": "culture-libre",
@@ -52,7 +63,9 @@
   {
     "name": "design-génératif",
     "description": "Systèmes de création fondés sur des règles et des variations.",
-    "aliases": ["artgeneratif"]
+    "aliases": [
+      "artgeneratif"
+    ]
   },
   {
     "name": "design-graphique",
@@ -67,22 +80,32 @@
   {
     "name": "développement",
     "description": "Construction et maintenance de produits numériques.",
-    "aliases": ["dev", "web_development"]
+    "aliases": [
+      "dev",
+      "web_development"
+    ]
   },
   {
     "name": "DevOps",
     "description": "Intégration, livraison et exploitation des logiciels.",
-    "aliases": ["CI-CD"]
+    "aliases": [
+      "CI-CD"
+    ]
   },
   {
     "name": "édition",
     "description": "Édition, publication et fabrication de contenus.",
-    "aliases": ["éditeur", "editions"]
+    "aliases": [
+      "éditeur",
+      "editions"
+    ]
   },
   {
     "name": "entretien",
     "description": "Entretiens, conversations et témoignages.",
-    "aliases": ["interview"]
+    "aliases": [
+      "interview"
+    ]
   },
   {
     "name": "frontend",
@@ -92,7 +115,9 @@
   {
     "name": "IA",
     "description": "Intelligence artificielle, modèles et usages.",
-    "aliases": ["IA générative"]
+    "aliases": [
+      "IA générative"
+    ]
   },
   {
     "name": "IA-locale",
@@ -107,7 +132,9 @@
   {
     "name": "impression",
     "description": "Techniques, procédés et cultures de l’impression.",
-    "aliases": ["imprimerie & technique"]
+    "aliases": [
+      "imprimerie & technique"
+    ]
   },
   {
     "name": "JavaScript",
@@ -117,7 +144,10 @@
   {
     "name": "livre",
     "description": "Livres, lecture et objets éditoriaux.",
-    "aliases": ["Livre / Book", "book"]
+    "aliases": [
+      "Livre / Book",
+      "book"
+    ]
   },
   {
     "name": "livre-d’artiste",
@@ -127,7 +157,9 @@
   {
     "name": "livre-photo",
     "description": "Livres photographiques et édition de la photographie.",
-    "aliases": ["photobook"]
+    "aliases": [
+      "photobook"
+    ]
   },
   {
     "name": "LLM",
@@ -137,7 +169,15 @@
   {
     "name": "matériel",
     "description": "Machines, appareils et équipements techniques.",
-    "aliases": ["Camera Porn", "Hasselblad"]
+    "aliases": [
+      "Camera Porn",
+      "Hasselblad"
+    ]
+  },
+  {
+    "name": "memory",
+    "description": "",
+    "aliases": []
   },
   {
     "name": "multimédia",
@@ -147,22 +187,34 @@
   {
     "name": "opensource",
     "description": "Logiciels et projets dont le code est ouvert.",
-    "aliases": ["open source", "logiciel-libre"]
+    "aliases": [
+      "open source",
+      "logiciel-libre"
+    ]
   },
   {
     "name": "outils",
     "description": "Outils pratiques pour créer, chercher ou produire.",
-    "aliases": ["outil"]
+    "aliases": [
+      "outil"
+    ]
   },
   {
     "name": "philosophie",
     "description": "Pensée, concepts et histoire de la philosophie.",
-    "aliases": ["Bernard Stiegler"]
+    "aliases": [
+      "Bernard Stiegler"
+    ]
   },
   {
     "name": "photographie",
     "description": "Pratiques, œuvres, techniques et histoire de la photographie.",
-    "aliases": ["photo", "photographes", "technique", "Thomas Boivin"]
+    "aliases": [
+      "photo",
+      "photographes",
+      "technique",
+      "Thomas Boivin"
+    ]
   },
   {
     "name": "politique",
@@ -182,27 +234,42 @@
   {
     "name": "riso",
     "description": "Risographie, techniques et pratiques associées.",
-    "aliases": ["risographie", "outil riso", "separation"]
+    "aliases": [
+      "risographie",
+      "outil riso",
+      "separation"
+    ]
   },
   {
     "name": "Royaume-Uni",
     "description": "Culture, création et ressources liées au Royaume-Uni.",
-    "aliases": ["uk"]
+    "aliases": [
+      "uk"
+    ]
   },
   {
     "name": "société",
     "description": "Questions sociales, usages, structures et transformations collectives.",
-    "aliases": ["sociologie"]
+    "aliases": [
+      "sociologie"
+    ]
   },
   {
     "name": "transfert-de-fichiers",
     "description": "Échange, synchronisation et transport de fichiers.",
-    "aliases": ["alternative", "messaging"]
+    "aliases": [
+      "alternative",
+      "messaging"
+    ]
   },
   {
     "name": "typographie",
     "description": "Création, usage et histoire des caractères typographiques.",
-    "aliases": ["typo", "font", "police"]
+    "aliases": [
+      "typo",
+      "font",
+      "police"
+    ]
   },
   {
     "name": "UI",
@@ -222,11 +289,15 @@
   {
     "name": "web-to-print",
     "description": "Chaînes éditoriales reliant interfaces web et production imprimée.",
-    "aliases": ["WebToPrint"]
+    "aliases": [
+      "WebToPrint"
+    ]
   },
   {
     "name": "zine",
     "description": "Fanzines, microédition et publications indépendantes.",
-    "aliases": ["zines"]
+    "aliases": [
+      "zines"
+    ]
   }
 ]
