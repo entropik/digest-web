@@ -165,7 +165,8 @@ export class LinkedInService {
         updated_at INTEGER NOT NULL
       );
       CREATE TABLE IF NOT EXISTS linkedin_publications (
-        archive_url TEXT PRIMARY KEY,
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        archive_url TEXT NOT NULL,
         post_urn TEXT NOT NULL,
         admin_user_id TEXT NOT NULL,
         created_at INTEGER NOT NULL
@@ -186,6 +187,32 @@ export class LinkedInService {
         "ALTER TABLE linkedin_publication_reservations ADD COLUMN state TEXT NOT NULL DEFAULT 'reserved'",
       );
     }
+    const publicationColumns = this.database
+      .prepare("PRAGMA table_info(linkedin_publications)")
+      .all() as Array<{ name: string }>;
+    if (!publicationColumns.some(({ name }) => name === "id")) {
+      this.database.transaction(() => {
+        this.database.exec(`
+          ALTER TABLE linkedin_publications RENAME TO linkedin_publications_legacy;
+          CREATE TABLE linkedin_publications (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            archive_url TEXT NOT NULL,
+            post_urn TEXT NOT NULL,
+            admin_user_id TEXT NOT NULL,
+            created_at INTEGER NOT NULL
+          );
+          INSERT INTO linkedin_publications
+            (archive_url, post_urn, admin_user_id, created_at)
+          SELECT archive_url, post_urn, admin_user_id, created_at
+          FROM linkedin_publications_legacy;
+          DROP TABLE linkedin_publications_legacy;
+        `);
+      })();
+    }
+    this.database.exec(`
+      CREATE INDEX IF NOT EXISTS linkedin_publications_url_created_at
+      ON linkedin_publications (archive_url, created_at DESC, id DESC);
+    `);
   }
 
   private async request<T>(
@@ -359,34 +386,35 @@ export class LinkedInService {
     return row.return_to;
   }
 
-  async publish(adminUserId: string, input: PublicationInput, retry = false) {
+  async publish(adminUserId: string, input: PublicationInput, republish = false) {
     return this.publishValidated(
       adminUserId,
       this.validatePublication(input),
-      retry,
+      republish,
     );
   }
 
-  async publishLink(adminUserId: string, input: PublicationInput, retry = false) {
+  async publishLink(adminUserId: string, input: PublicationInput, republish = false) {
     return this.publishValidated(
       adminUserId,
       this.validatePublication(input, true),
-      retry,
+      republish,
     );
   }
 
   private async publishValidated(
     adminUserId: string,
     validated: PublicationInput,
-    retry: boolean,
+    republish: boolean,
   ) {
     this.requireConfiguration(adminUserId);
-    const reservation = this.reservePublication(adminUserId, validated.url, retry);
+    const reservation = this.reservePublication(adminUserId, validated.url, republish);
     if (reservation.previousPostUrn) {
       return {
         postUrn: reservation.previousPostUrn,
         postUrl: this.postUrl(reservation.previousPostUrn),
         alreadyPublished: true,
+        publicationCount: reservation.publicationCount,
       };
     }
     if (reservation.outcomeUnknown) {
@@ -414,7 +442,7 @@ export class LinkedInService {
           submissionStarted = true;
         },
       );
-      this.finishPublication(
+      const publicationCount = this.finishPublication(
         validated.url,
         reservation.token,
         postUrn,
@@ -424,6 +452,7 @@ export class LinkedInService {
         postUrn,
         postUrl: this.postUrl(postUrn),
         alreadyPublished: false,
+        publicationCount,
       };
     } catch (error) {
       const definitiveRemoteFailure =
@@ -590,8 +619,13 @@ export class LinkedInService {
   private reservePublication(
     adminUserId: string,
     publicationUrl: string,
-    retry: boolean,
-  ): { token?: string; previousPostUrn?: string; outcomeUnknown?: boolean } {
+    republish: boolean,
+  ): {
+    token?: string;
+    previousPostUrn?: string;
+    publicationCount?: number;
+    outcomeUnknown?: boolean;
+  } {
     return this.database.transaction(() => {
       const now = Date.now();
       this.database
@@ -608,16 +642,22 @@ export class LinkedInService {
         .get(publicationUrl) as { state: string } | undefined;
       if (unresolved?.state === "submitting") return { outcomeUnknown: true };
       const previous = this.database
-        .prepare("SELECT post_urn FROM linkedin_publications WHERE archive_url = ?")
-        .get(publicationUrl) as { post_urn: string } | undefined;
-      if (previous && !retry) return { previousPostUrn: previous.post_urn };
-      if (previous) {
-        this.database
-          .prepare(
-            `DELETE FROM linkedin_publications
-             WHERE archive_url = ? AND admin_user_id = ?`,
-          )
-          .run(publicationUrl, adminUserId);
+        .prepare(
+          `SELECT post_urn,
+             (SELECT COUNT(*) FROM linkedin_publications WHERE archive_url = ?) AS publication_count
+           FROM linkedin_publications
+           WHERE archive_url = ?
+           ORDER BY created_at DESC, id DESC
+           LIMIT 1`,
+        )
+        .get(publicationUrl, publicationUrl) as
+          | { post_urn: string; publication_count: number }
+          | undefined;
+      if (previous && !republish) {
+        return {
+          previousPostUrn: previous.post_urn,
+          publicationCount: previous.publication_count,
+        };
       }
       const token = randomBytes(24).toString("base64url");
       const inserted = this.database
@@ -674,8 +714,8 @@ export class LinkedInService {
     reservationToken: string,
     postUrn: string,
     adminUserId: string,
-  ): void {
-    this.database.transaction(() => {
+  ): number {
+    return this.database.transaction(() => {
       const reservation = this.database
         .prepare(
           `SELECT reservation_token FROM linkedin_publication_reservations
@@ -698,6 +738,12 @@ export class LinkedInService {
            WHERE publication_url = ? AND reservation_token = ?`,
         )
         .run(publicationUrl, reservationToken);
+      const count = this.database
+        .prepare(
+          "SELECT COUNT(*) AS publication_count FROM linkedin_publications WHERE archive_url = ?",
+        )
+        .get(publicationUrl) as { publication_count: number };
+      return count.publication_count;
     })();
   }
 

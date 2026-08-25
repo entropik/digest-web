@@ -44,7 +44,7 @@ Le Digest utilise donc directement l’API LinkedIn : l’affiche est télévers
 
 Cette affiche possède désormais une version carrée de 1200 × 1200 pixels, distincte de l’image Open Graph rectangulaire. Elle occupe toute la largeur du fil. Dans la grande visionneuse de bureau, LinkedIn peut ajouter deux bandes gris sombre pour centrer le carré dans une colonne plus haute : elles appartiennent à l’interface LinkedIn, pas à l’image.
 
-Le téléversement est synchrone afin que le post ne soit créé qu’une fois l’image réellement traitée. Et si un ancien identifiant mène malgré tout à un post inaccessible, une action de récupération permet de republier volontairement la même ressource sans affaiblir la protection habituelle contre les doublons.
+Le téléversement est synchrone afin que le post ne soit créé qu’une fois l’image réellement traitée. Une ressource déjà diffusée reste réutilisable : l’action « Republier sur LinkedIn » rouvre le compositeur, permet de changer le texte et les hashtags, puis crée un nouveau post sans effacer les précédents. Le Digest conserve ainsi l’historique des répétitions tout en empêchant les envois concurrents et les doublons involontaires.
 
 ## Geek, imprimeur et photographe
 

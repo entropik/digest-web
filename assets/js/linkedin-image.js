@@ -4,8 +4,8 @@
   const shareButtons = [button, ...linkButtons].filter(Boolean);
   const deleteButtons = [...document.querySelectorAll("[data-archive-delete-link]")];
   const pageFeedback = document.querySelector("[data-linkedin-feedback]");
-  const feedback =
-    pageFeedback || document.querySelector("[data-linkedin-composer-feedback]");
+  const composerFeedback = document.querySelector("[data-linkedin-composer-feedback]");
+  const feedback = composerFeedback || pageFeedback;
   const composer = document.querySelector("[data-linkedin-composer]");
   const form = document.querySelector("[data-linkedin-form]");
   const textField = document.querySelector("[data-linkedin-text]");
@@ -23,6 +23,7 @@
   let imageGeneration = 0;
   let suspendedDialog = null;
   let suspendedDialogBodyClass = false;
+  let republishRequested = false;
   const maxCommentaryLength = 3000;
 
   const api = async (path, options) => {
@@ -60,11 +61,18 @@
     }
   };
 
-  const showPost = (postUrl, alreadyPublished, retry) => {
-    feedback.replaceChildren(
+  const showPost = (
+    target,
+    postUrl,
+    alreadyPublished,
+    publicationCount,
+    prepareRepublish,
+  ) => {
+    const count = Number(publicationCount || (alreadyPublished ? 1 : 0));
+    target.replaceChildren(
       document.createTextNode(
         alreadyPublished
-          ? "Cette ressource est déjà publiée. "
+          ? `Cette ressource a déjà été publiée${count > 1 ? ` ${count} fois` : ""}. `
           : "Publié avec la grande image. ",
       ),
     );
@@ -73,17 +81,17 @@
     link.target = "_blank";
     link.rel = "noopener noreferrer";
     link.textContent = "Voir sur LinkedIn ↗";
-    feedback.append(link);
-    if (alreadyPublished && retry) {
-      feedback.append(document.createTextNode(" "));
-      const retryButton = document.createElement("button");
-      retryButton.type = "button";
-      retryButton.textContent = "Republier si le post est inaccessible";
-      retryButton.addEventListener("click", async () => {
-        retryButton.disabled = true;
-        await retry();
+    target.append(link);
+    if (alreadyPublished && prepareRepublish) {
+      target.append(document.createTextNode(" "));
+      const republishButton = document.createElement("button");
+      republishButton.type = "button";
+      republishButton.textContent = "Republier sur LinkedIn";
+      republishButton.addEventListener("click", () => {
+        republishButton.disabled = true;
+        prepareRepublish();
       });
-      feedback.append(retryButton);
+      target.append(republishButton);
     }
   };
 
@@ -172,7 +180,7 @@
     imageGeneration += 1;
     confirmButton.disabled = false;
     if (regenerateButton) regenerateButton.disabled = false;
-    if (activeButton.dataset.published !== "true") activeButton.disabled = false;
+    activeButton.disabled = false;
     if (suspendedDialog && !suspendedDialog.open) {
       suspendedDialog.showModal();
       if (suspendedDialogBodyClass) document.body.classList.add("digest-modal-open");
@@ -236,6 +244,10 @@
     const isSingleLink = Boolean(shareButton.dataset.linkId);
     if (!isSingleLink && !imageUrl) return;
     shareButton.disabled = true;
+    republishRequested = shareButton.dataset.published === "true";
+    confirmButton.textContent = republishRequested
+      ? "Confirmer la republication"
+      : "Confirmer la publication";
     confirmButton.disabled = false;
     feedback.textContent = "Vérification du compte LinkedIn…";
 
@@ -343,7 +355,7 @@
     });
   });
 
-  const submitPublication = async (retry = false) => {
+  const submitPublication = async () => {
     const data = publicationData();
     if (!data.text) {
       textField.focus();
@@ -362,31 +374,51 @@
           credentials: "same-origin",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(isSingleLink
-            ? { linkId: data.linkId, text: data.text, retry, confirm: true }
-            : { ...data, retry, confirm: true }),
+            ? {
+                linkId: data.linkId,
+                text: data.text,
+                republish: republishRequested,
+                confirm: true,
+              }
+            : { ...data, republish: republishRequested, confirm: true }),
         },
       );
       showPost(
+        feedback,
         publication.postUrl,
         publication.alreadyPublished,
-        () => submitPublication(true),
+        publication.publicationCount,
+        () => {
+          republishRequested = true;
+          confirmButton.textContent = "Confirmer la republication";
+          feedback.textContent =
+            "Modifiez si besoin le texte et les hashtags, puis confirmez la nouvelle publication.";
+          textField.focus();
+        },
       );
       window.dispatchEvent(new CustomEvent("digest:linkedin-published", {
         detail: { alreadyPublished: publication.alreadyPublished },
       }));
       if (publication.alreadyPublished) {
-        if (pageFeedback) composer.close("published");
         return;
+      }
+      if (pageFeedback && pageFeedback !== feedback) {
+        showPost(
+          pageFeedback,
+          publication.postUrl,
+          false,
+          publication.publicationCount,
+        );
       }
       composer.close("published");
       activeButton.dataset.published = "true";
       if (isSingleLink) {
         const label = activeButton.querySelector("span:last-child");
-        if (label) label.textContent = "Publié";
+        if (label) label.textContent = "Republier";
       } else {
-        activeButton.textContent = "Publié sur LinkedIn";
+        activeButton.textContent = "Republier sur LinkedIn";
       }
-      activeButton.disabled = true;
+      activeButton.disabled = false;
     } catch (error) {
       if (error?.message === "AUTHENTICATION_REQUIRED") return;
       if (error?.code === "LINKEDIN_NOT_CONNECTED" || error?.code === "LINKEDIN_TOKEN_EXPIRED") {
@@ -407,7 +439,7 @@
         "La publication LinkedIn a échoué. Aucun second post n’a été créé automatiquement.";
     } finally {
       confirmButton.disabled = false;
-      if (activeButton.dataset.published !== "true") activeButton.disabled = false;
+      activeButton.disabled = false;
     }
   };
 

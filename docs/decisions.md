@@ -166,12 +166,14 @@ L’API LinkedIn peut accepter un post avant que son image asynchrone soit prêt
 puis rendre ce post invisible. Le Digest demande donc un upload synchrone et
 ne soumet le post qu’après son succès.
 
-### Un post inaccessible peut être republié sans banaliser les doublons
+### Une ressource LinkedIn peut avoir plusieurs occurrences de publication
 
-La déduplication par URL reste la règle. Lorsqu’un ancien URN mémorisé mène à
-un post inaccessible, l’interface le signale et propose une action de
-récupération explicite. Le clic sur ce libellé sans ambiguïté suffit : aucune
-seconde boîte de confirmation ne s’interpose.
+La déduplication par URL reste la règle pour une soumission ordinaire, mais
+« publié » n’est plus un état terminal. L’action explicite « Republier sur
+LinkedIn » rouvre le compositeur et crée un nouveau post. Chaque URN, date et
+compte propriétaire reste conservé dans SQLite ; aucune occurrence précédente
+n’est supprimée. Les réservations par URL continuent de bloquer les envois
+concurrents et les résultats distants ambigus.
 
 ## 20 août 2026
 

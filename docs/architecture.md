@@ -194,9 +194,11 @@ variante LinkedIn carrée distincte de leur image Open Graph 1200 × 627.
 
 L’asset est enregistré en upload synchrone : le service attend la fin du
 traitement de l’image avant de demander la création du post. SQLite conserve
-l’URN retournée pour empêcher les doublons. Une republication de récupération
-peut supprimer cette association uniquement après une action propriétaire
-explicite signalant que le post correspondant est inaccessible.
+chaque URN dans un historique append-only. Une première soumission retrouve la
+publication la plus récente et bloque le doublon involontaire ; l’action
+propriétaire explicite « Republier sur LinkedIn » réserve la même URL puis crée
+une nouvelle occurrence sans effacer les précédentes. Le verrou de réservation
+reste unique par URL afin d’empêcher deux envois concurrents.
 
 Un lien publié peut être corrigé sans perdre son identifiant, son URL, sa date
 ou son historique. Un retrait public modifie sa visibilité sans effacer la

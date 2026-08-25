@@ -1,21 +1,21 @@
 # Exploitation de l’administration
 
-## Post LinkedIn enregistré mais inaccessible
+## Republication éditoriale sur LinkedIn
 
 Quand le Digest possède déjà l’URN d’une URL, une nouvelle demande ne publie
-rien automatiquement : elle affiche le lien du post existant. Si LinkedIn
-répond « Ce post ne peut pas être affiché », contrôlez d’abord le profil du
-compte connecté afin de confirmer l’absence du post.
+rien automatiquement : elle affiche le lien du post le plus récent et le
+nombre d’occurrences conservées.
 
-L’action « Republier si le post est inaccessible » autorise alors un seul
-nouvel essai pour cette URL. Son libellé constitue la confirmation explicite ;
-elle retire l’ancienne association de déduplication, réserve de nouveau l’URL,
-téléverse l’image en mode synchrone puis crée le post. Ne l’utilisez pas si le
-post existe encore, au risque de produire un doublon.
+L’action « Republier sur LinkedIn » transforme volontairement cette demande en
+nouvelle occurrence. Le compositeur reste ouvert pour modifier le texte et les
+hashtags avant confirmation. Le service réserve de nouveau l’URL, téléverse
+l’image en mode synchrone et ajoute la nouvelle URN à l’historique sans retirer
+les publications précédentes.
 
-Ce cas concerne une publication enregistrée dans `linkedin_publications`. Il
-est différent du résultat ambigu ci-dessous, où la requête de création n’a pas
-fourni de résultat fiable et où une réservation `submitting` protège l’URL.
+Cette répétition volontaire reste différente du résultat ambigu ci-dessous,
+où la requête de création n’a pas fourni de résultat fiable et où une
+réservation `submitting` protège l’URL. Un résultat ambigu doit toujours être
+réconcilié avant toute republication.
 
 ## Publication LinkedIn au résultat ambigu
 

@@ -280,6 +280,7 @@ app.post("/api/admin/linkedin/publish", async (context) =>
       text: string;
       url: string;
       imageUrl: string;
+      republish?: boolean;
       retry?: boolean;
       confirm?: boolean;
     }>(context);
@@ -287,7 +288,7 @@ app.post("/api/admin/linkedin/publish", async (context) =>
     return linkedin.publish(
       context.get("admin").user.id,
       body,
-      body.retry === true,
+      body.republish === true || body.retry === true,
     );
   }),
 );
@@ -310,6 +311,7 @@ app.post("/api/admin/linkedin/publish-link", async (context) =>
     const body = await jsonBody<{
       linkId: string;
       text: string;
+      republish?: boolean;
       retry?: boolean;
       confirm?: boolean;
     }>(context);
@@ -324,7 +326,7 @@ app.post("/api/admin/linkedin/publish-link", async (context) =>
         url: link.url,
         imageUrl: image.imageUrl,
       },
-      body.retry === true,
+      body.republish === true || body.retry === true,
     );
   }),
 );

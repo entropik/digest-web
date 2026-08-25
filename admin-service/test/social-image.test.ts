@@ -371,15 +371,13 @@ test("LinkedIn native publishing uses the authenticated server API", async () =>
   assert.match(script, /"\/api\/admin\/linkedin\/publish"/);
   assert.match(script, /LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN/);
   assert.match(script, /Vérifiez votre profil LinkedIn avant toute action/);
-  assert.match(script, /Republier si le post est inaccessible/);
-  assert.match(script, /submitPublication\(true\)/);
-  assert.doesNotMatch(
-    script,
-    /Confirmez uniquement après avoir vérifié que le post LinkedIn est inaccessible/,
-  );
+  assert.match(script, /Republier sur LinkedIn/);
+  assert.match(script, /Confirmer la republication/);
+  assert.match(script, /republish: republishRequested/);
+  assert.match(script, /Modifiez si besoin le texte et les hashtags/);
   assert.match(
     script,
-    /if \(publication\.alreadyPublished\) \{\s*if \(pageFeedback\) composer\.close\("published"\);\s*return;/,
+    /if \(publication\.alreadyPublished\) \{\s*return;/,
   );
   assert.match(script, /confirm: true/);
   assert.match(script, /composer\.showModal\(\)/);

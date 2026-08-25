@@ -78,6 +78,41 @@ test("OAuth stores an encrypted member connection tied to a one-time state", asy
   );
 });
 
+test("legacy LinkedIn publications migrate to an append-only history", () => {
+  const legacy = new Database(join(temporary, "linkedin-legacy.sqlite"));
+  legacy.exec(`
+    CREATE TABLE linkedin_publications (
+      archive_url TEXT PRIMARY KEY,
+      post_urn TEXT NOT NULL,
+      admin_user_id TEXT NOT NULL,
+      created_at INTEGER NOT NULL
+    );
+    INSERT INTO linkedin_publications
+      (archive_url, post_urn, admin_user_id, created_at)
+    VALUES
+      ('https://digest.ooblik.com/archives/2026-08-16/', 'urn:li:share:legacy', 'admin-legacy', 1);
+  `);
+
+  new LinkedInService(legacy);
+
+  const columns = legacy.prepare("PRAGMA table_info(linkedin_publications)").all() as Array<{
+    name: string;
+    pk: number;
+  }>;
+  assert.ok(columns.some(({ name, pk }) => name === "id" && pk === 1));
+  assert.equal(columns.find(({ name }) => name === "archive_url")?.pk, 0);
+  assert.deepEqual(
+    legacy
+      .prepare("SELECT archive_url, post_urn FROM linkedin_publications")
+      .get(),
+    {
+      archive_url: "https://digest.ooblik.com/archives/2026-08-16/",
+      post_urn: "urn:li:share:legacy",
+    },
+  );
+  legacy.close();
+});
+
 test("publishing uploads the PNG then creates one native image post with its URL", async () => {
   const calls: Array<{ url: string; init?: RequestInit }> = [];
   const fetcher = async (input: string | URL | Request, init?: RequestInit) => {
@@ -140,6 +175,7 @@ test("publishing uploads the PNG then creates one native image post with its URL
     imageUrl: "/social/2026-08-16-linkedin.png",
   });
   assert.equal(result.alreadyPublished, false);
+  assert.equal(result.publicationCount, 1);
   assert.equal(result.postUrl, "https://www.linkedin.com/feed/update/urn:li:share:post-123");
   const registerCall = calls.find(({ url }) =>
     url.includes("/v2/assets?action=registerUpload"),
@@ -166,16 +202,27 @@ test("publishing uploads the PNG then creates one native image post with its URL
     imageUrl: "/social/2026-08-16-linkedin.png",
   });
   assert.equal(repeated.alreadyPublished, true);
+  assert.equal(repeated.publicationCount, 1);
   assert.equal(calls.filter(({ url }) => url.endsWith("/v2/ugcPosts")).length, 1);
 
-  const retried = await service.publish("admin-2", {
+  const republished = await service.publish("admin-2", {
     title: "Web Digest — 16 août 2026",
     text: "IA, développement, design et création numérique.",
     url: "https://digest.ooblik.com/archives/2026-08-16/",
     imageUrl: "/social/2026-08-16-linkedin.png",
   }, true);
-  assert.equal(retried.alreadyPublished, false);
+  assert.equal(republished.alreadyPublished, false);
+  assert.equal(republished.publicationCount, 2);
   assert.equal(calls.filter(({ url }) => url.endsWith("/v2/ugcPosts")).length, 2);
+  const publicationHistory = database
+    .prepare(
+      `SELECT post_urn, created_at
+       FROM linkedin_publications
+       WHERE archive_url = ?
+       ORDER BY created_at, id`,
+    )
+    .all("https://digest.ooblik.com/archives/2026-08-16/");
+  assert.equal(publicationHistory.length, 2);
 
   const linkResult = await service.publishLink("admin-2", {
     title: "Une ressource du Digest",
