@@ -29,6 +29,7 @@ describe("page capture", () => {
       title: "Titre social",
       description: "Résumé de la page",
       privateNote: "Extrait privé utile",
+      analysisText: "Extrait privé utile",
     });
   });
 

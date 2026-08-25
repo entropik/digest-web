@@ -5,6 +5,10 @@ export type PageCapture = {
   privateNote: string;
 };
 
+export type AnalyzedPageCapture = PageCapture & {
+  analysisText: string;
+};
+
 const privateIpv4 = (host: string): boolean => {
   const parts = host.split(".").map(Number);
   if (parts.length !== 4 || parts.some((part) => !Number.isInteger(part))) {
@@ -61,7 +65,7 @@ export const isSupportedCaptureUrl = (rawUrl: string): boolean => {
   }
 };
 
-export const extractPageMetadata = (): PageCapture => {
+export const extractPageMetadata = (): AnalyzedPageCapture => {
   const canonical = document
     .querySelector<HTMLLinkElement>('link[rel~="canonical"]')
     ?.href.trim();
@@ -81,7 +85,11 @@ export const extractPageMetadata = (): PageCapture => {
         ?.content.trim() ||
       document.title.trim(),
     description,
-    privateNote: window.getSelection()?.toString().trim() || ""
+    privateNote: window.getSelection()?.toString().trim() || "",
+    analysisText: (document.body?.innerText || document.body?.textContent || "")
+      .replace(/\s+/g, " ")
+      .trim()
+      .slice(0, 30_000),
   };
 };
 

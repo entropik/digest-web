@@ -42,6 +42,18 @@ const capture = {
 const options = {
   categories: ["Design", "Développement"],
   tags: ["design", "outil"],
+  tagDefinitions: [
+    {
+      name: "design",
+      description: "Conception visuelle et fonctionnelle.",
+      aliases: [],
+    },
+    {
+      name: "outil",
+      description: "Outils pratiques pour créer et produire.",
+      aliases: [],
+    },
+  ],
 };
 
 const bootstrap = (overrides: Record<string, unknown> = {}) => ({
@@ -132,6 +144,28 @@ describe("états asynchrones du popup", () => {
       );
       expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
     });
+  });
+
+  test("ajoute en un clic un tag suggéré depuis le contenu de la page", async () => {
+    browserMock.scripting.executeScript.mockResolvedValue([
+      {
+        result: {
+          ...capture,
+          analysisText: "Un outil pratique pour créer et produire.",
+        },
+      },
+    ]);
+    vi.stubGlobal("fetch", vi.fn(async () => response(bootstrap())));
+
+    await loadPopup();
+
+    await vi.waitFor(() => {
+      expect(element("#suggested-tags").textContent).toContain("outil");
+    });
+    element<HTMLButtonElement>('[aria-label="Ajouter le tag outil"]').click();
+
+    expect(element("#selected-tags").textContent).toContain("outil");
+    expect(element("#suggested-tags").textContent).not.toContain("outil");
   });
 
   test("garde l’enregistrement désactivé pour un lien déjà publié", async () => {

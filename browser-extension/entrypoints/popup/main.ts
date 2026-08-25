@@ -3,9 +3,14 @@ import {
   extractPageMetadata,
   isSupportedCaptureUrl,
   missingEditorialFields,
+  type AnalyzedPageCapture,
   type PageCapture
 } from "../../lib/capture";
 import { DigestApiError, requestJson } from "../../lib/api";
+import {
+  suggestTags,
+  type TagDefinition,
+} from "../../lib/tag-suggestions";
 import {
   canonicalLocalDraftUrl,
   clearLocalDraft,
@@ -23,6 +28,8 @@ const completeness = document.querySelector<HTMLElement>("#completeness")!;
 const tagInput = document.querySelector<HTMLInputElement>("#tag-input")!;
 const selectedTags = document.querySelector<HTMLElement>("#selected-tags")!;
 const knownTags = document.querySelector<HTMLDataListElement>("#known-tags")!;
+const tagSuggestions = document.querySelector<HTMLElement>("#tag-suggestions")!;
+const suggestedTags = document.querySelector<HTMLElement>("#suggested-tags")!;
 const category = document.querySelector<HTMLSelectElement>("#category")!;
 const saveButton = document.querySelector<HTMLButtonElement>("#save")!;
 const retryButton = document.querySelector<HTMLButtonElement>("#retry")!;
@@ -41,10 +48,16 @@ let localDraftDirty = false;
 let restoredLocalDraftUrl: string | null = null;
 let restoredTagsAuthoritative = false;
 let capturedPageUrl: string | null = null;
+let capturedPageText = "";
+let availableTagDefinitions: TagDefinition[] = [];
 const persistedLocalDraftUrls = new Set<string>();
 const pendingLocalWrites = new Set<Promise<void>>();
 
-type CurationOptions = { categories: string[]; tags: string[] };
+type CurationOptions = {
+  categories: string[];
+  tags: string[];
+  tagDefinitions?: TagDefinition[];
+};
 type EditableField = keyof PageCapture | "category" | "tags";
 type StoredDraft = PageCapture & {
   category: string;
@@ -58,7 +71,7 @@ type BootstrapResponse = {
   published: { id?: string; title?: string } | null;
 };
 type ActivePageCapture = {
-  capture: PageCapture;
+  capture: AnalyzedPageCapture;
   pageUrl: string;
   localPersistenceAllowed: boolean;
 };
@@ -152,6 +165,31 @@ const updateSaveAvailability = (): void => {
   saveButton.disabled = !canSaveVerifiedDraft || tags.length > 12;
 };
 
+const renderTagSuggestions = (): void => {
+  const candidates = suggestTags(
+    {
+      title: field("title").value,
+      description: field("description").value,
+      body: capturedPageText,
+    },
+    availableTagDefinitions,
+    10,
+  )
+    .filter((candidate) => !tags.some((tag) => sameTag(tag, candidate)))
+    .slice(0, 5);
+  suggestedTags.replaceChildren(
+    ...candidates.map((tag) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.textContent = tag;
+      button.setAttribute("aria-label", `Ajouter le tag ${tag}`);
+      button.addEventListener("click", () => addTag(tag));
+      return button;
+    }),
+  );
+  tagSuggestions.hidden = candidates.length === 0;
+};
+
 const renderTags = (): void => {
   selectedTags.replaceChildren(
     ...tags.map((tag) => {
@@ -183,10 +221,11 @@ const renderTags = (): void => {
       return chip;
     }),
   );
+  renderTagSuggestions();
 };
 
-const addTag = (): void => {
-  const value = tagInput.value.trim().replace(/^#+/, "").slice(0, 80);
+function addTag(rawValue = tagInput.value): void {
+  const value = rawValue.trim().replace(/^#+/, "").slice(0, 80);
   if (!value) return;
   const alreadySelected = tags.some((tag) => sameTag(tag, value));
   if (!alreadySelected && tags.length >= 12) {
@@ -207,7 +246,7 @@ const addTag = (): void => {
   updateCompleteness();
   updateSaveAvailability();
   scheduleLocalDraftSave();
-};
+}
 
 const updateCompleteness = (): void => {
   const missing = missingEditorialFields({
@@ -269,6 +308,10 @@ const populateOptions = (options: CurationOptions): void => {
       return option;
     }),
   );
+  availableTagDefinitions =
+    options.tagDefinitions ??
+    options.tags.map((name) => ({ name, description: "", aliases: [] }));
+  renderTagSuggestions();
 };
 
 const fillDraftPreservingEdits = (draft: StoredDraft): void => {
@@ -411,6 +454,7 @@ const initialize = async (): Promise<void> => {
     const { capture, pageUrl, localPersistenceAllowed } =
       await captureActivePage();
     capturedPageUrl = pageUrl;
+    capturedPageText = capture.analysisText ?? "";
     localPersistenceEnabled = localPersistenceAllowed;
     fillForm(capture);
     form.hidden = false;
@@ -480,7 +524,7 @@ const initialize = async (): Promise<void> => {
 document.querySelector("#login-button")?.addEventListener("click", () => {
   void browser.tabs.create({ url: `${API_ORIGIN}/admin` });
 });
-document.querySelector("#add-tag")?.addEventListener("click", addTag);
+document.querySelector("#add-tag")?.addEventListener("click", () => addTag());
 retryButton.addEventListener("click", () => {
   void verifyCapture(field("url").value.trim());
 });
@@ -533,6 +577,7 @@ form.addEventListener("input", (event) => {
     retryButton.hidden = false;
   }
   updateCompleteness();
+  if (name === "title" || name === "description") renderTagSuggestions();
   scheduleLocalDraftSave();
 });
 form.addEventListener("submit", async (event) => {

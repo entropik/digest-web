@@ -127,6 +127,42 @@ button:disabled {
   gap: 6px;
 }
 
+.tag-suggestions {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.tag-suggestions[hidden] {
+  display: none;
+}
+
+.suggested-tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.suggested-tags button {
+  border-radius: 0;
+  margin-left: -1px;
+  padding: 4px 7px;
+  background: white;
+  font-size: 10px;
+}
+
+.suggested-tags button:first-child {
+  margin-left: 0;
+}
+
+.suggested-tags button:hover,
+.suggested-tags button:focus-visible {
+  position: relative;
+  border-color: var(--ink);
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;
