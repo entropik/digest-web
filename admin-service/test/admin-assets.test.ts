@@ -68,7 +68,7 @@ test("the private dashboard displays the current site version after logout", () 
 
   assert.match(
     page,
-    /<button id="admin-logout" type="button">Déconnexion<\/button>\s*<span class="admin-version" aria-label="Version v1\.19\.6">v1\.19\.6<\/span>/,
+    /<button id="admin-logout" type="button">Déconnexion<\/button>\s*<span class="admin-version" aria-label="Version v1\.20\.0">v1\.20\.0<\/span>/,
   );
   assert.match(adminCss, /\.admin-version\{/);
   assert.match(adminCss, /\.admin-version\{[^}]*background:var\(--ink\);color:var\(--paper\)/);
@@ -128,7 +128,7 @@ test("draft toolbar exposes an accessible select-all toggle", () => {
 
 test("drafts use a compact optional tag picker instead of the historical tag list", () => {
   assert.doesNotMatch(adminJs, /Tags, séparés par des virgules|known-tags|datalist/);
-  assert.match(adminJs, /Tags <small>· facultatifs · 3 maximum/);
+  assert.match(adminJs, /Tags <small>· facultatifs · 5 maximum/);
   assert.match(adminJs, /role="combobox"/);
   assert.match(adminJs, /role="listbox"/);
   assert.match(adminJs, /aria-autocomplete="list"/);

@@ -21,6 +21,7 @@ import {
 } from "../../lib/local-draft";
 
 const API_ORIGIN = "https://digest.ooblik.com";
+const MAX_SELECTED_TAGS = 5;
 const form = document.querySelector<HTMLFormElement>("#capture-form")!;
 const login = document.querySelector<HTMLElement>("#login")!;
 const feedback = document.querySelector<HTMLElement>("#feedback")!;
@@ -176,7 +177,8 @@ const sameTag = (left: string, right: string): boolean =>
   tagKey(left) === tagKey(right);
 
 const updateSaveAvailability = (): void => {
-  saveButton.disabled = creatingTag || !canSaveVerifiedDraft || tags.length > 3;
+  saveButton.disabled =
+    creatingTag || !canSaveVerifiedDraft || tags.length > MAX_SELECTED_TAGS;
 };
 
 const definitionForLabel = (value: string): TagDefinition | undefined =>
@@ -210,7 +212,7 @@ const setActiveTagOption = (index: number): void => {
 
 const openCreateTagConfirmation = (rawValue: string): void => {
   const value = rawValue.trim().replace(/^#+/, "").slice(0, 80);
-  if (!value || tags.length >= 3) return;
+  if (!value || tags.length >= MAX_SELECTED_TAGS) return;
   pendingTagName = value;
   createTagName.textContent = `« ${value} »`;
   createTagConfirm.hidden = false;
@@ -219,7 +221,11 @@ const openCreateTagConfirmation = (rawValue: string): void => {
 };
 
 const renderKnownTags = (query = tagInput.value): void => {
-  if (creatingTag || tags.length >= 3 || !availableTagDefinitions.length) {
+  if (
+    creatingTag ||
+    tags.length >= MAX_SELECTED_TAGS ||
+    !availableTagDefinitions.length
+  ) {
     closeKnownTags();
     return;
   }
@@ -317,7 +323,7 @@ const renderTags = (): void => {
         updateCompleteness();
         updateSaveAvailability();
         scheduleLocalDraftSave();
-        if (canSaveVerifiedDraft && tags.length <= 3) {
+        if (canSaveVerifiedDraft && tags.length <= MAX_SELECTED_TAGS) {
           feedback.textContent = "Brouillon prêt à enregistrer.";
         }
       });
@@ -325,9 +331,9 @@ const renderTags = (): void => {
       return chip;
     }),
   );
-  tagCount.textContent = `${tags.length}/3 tags sélectionnés`;
-  tagInput.disabled = tags.length >= 3 || creatingTag;
-  if (tags.length >= 3) closeKnownTags();
+  tagCount.textContent = `${tags.length}/${MAX_SELECTED_TAGS} tags sélectionnés`;
+  tagInput.disabled = tags.length >= MAX_SELECTED_TAGS || creatingTag;
+  if (tags.length >= MAX_SELECTED_TAGS) closeKnownTags();
   renderTagSuggestions();
 };
 
@@ -339,8 +345,8 @@ function addTag(rawValue = tagInput.value): void {
   }
   const value = definition.name;
   const alreadySelected = tags.some((tag) => sameTag(tag, value));
-  if (!alreadySelected && tags.length >= 3) {
-    feedback.textContent = "Choisissez au maximum trois tags.";
+  if (!alreadySelected && tags.length >= MAX_SELECTED_TAGS) {
+    feedback.textContent = "Choisissez au maximum cinq tags.";
     return;
   }
   if (!alreadySelected) {
@@ -492,7 +498,7 @@ const tagErrorMessage = (error: unknown): string => {
     return "Ce tag n’existe plus dans le registre. Choisissez-en un autre.";
   }
   if (error.code === "TOO_MANY_THEMES") {
-    return "Choisissez au maximum trois tags.";
+    return "Choisissez au maximum cinq tags.";
   }
   if (error.code === "THEME_RESERVED") {
     return "Ce nom appartient à un ancien tag. Réactivez-le ou renommez-le depuis l’administration.";
@@ -541,8 +547,8 @@ const verifyCapture = async (verificationUrl: string): Promise<void> => {
       canSaveVerifiedDraft = true;
       updateSaveAvailability();
       feedback.textContent =
-        tags.length > 3
-          ? "La limite de trois tags est dépassée · retirez-en un avant d’enregistrer."
+        tags.length > MAX_SELECTED_TAGS
+          ? "La limite de cinq tags est dépassée · retirez-en un avant d’enregistrer."
           : "Ce brouillon existe déjà : le formulaire permet de le mettre à jour.";
       return;
     }
@@ -557,8 +563,8 @@ const verifyCapture = async (verificationUrl: string): Promise<void> => {
     canSaveVerifiedDraft = true;
     updateSaveAvailability();
     feedback.textContent =
-      tags.length > 3
-        ? "La limite de trois tags est dépassée · retirez-en un avant d’enregistrer."
+      tags.length > MAX_SELECTED_TAGS
+        ? "La limite de cinq tags est dépassée · retirez-en un avant d’enregistrer."
         : "Lien vérifié · prêt à enregistrer.";
   } catch (error) {
     if (verificationId !== verificationSequence) return;
@@ -781,10 +787,10 @@ form.addEventListener("submit", async (event) => {
     retryButton.hidden = false;
     return;
   }
-  if (tags.length > 3) {
+  if (tags.length > MAX_SELECTED_TAGS) {
     saveButton.disabled = true;
     feedback.textContent =
-      "Retirez un tag avant d’enregistrer : la limite est de trois.";
+      "Retirez un tag avant d’enregistrer : la limite est de cinq.";
     return;
   }
   saveButton.disabled = true;

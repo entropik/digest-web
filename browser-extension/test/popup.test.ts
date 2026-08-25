@@ -250,18 +250,18 @@ describe("états asynchrones du popup", () => {
     });
   });
 
-  test("applique la limite de trois tags dans le popup", async () => {
+  test("applique la limite de cinq tags dans le popup", async () => {
     vi.stubGlobal("fetch", vi.fn(async () => response(bootstrap({
       draft: {
         ...capture,
         category: "Design",
-        tags: ["design", "outil", "code"],
+        tags: ["design", "outil", "code", "web", "photo"],
       },
     }))));
     await loadPopup();
 
     await vi.waitFor(() => {
-      expect(element("#tag-count").textContent).toBe("3/3 tags sélectionnés");
+      expect(element("#tag-count").textContent).toBe("5/5 tags sélectionnés");
       expect(element<HTMLInputElement>("#tag-input").disabled).toBe(true);
     });
   });

@@ -74,23 +74,32 @@ test("a draft can be saved and published without a tag", () => {
   assert.deepEqual(draft.tags, []);
 });
 
-test("the server rejects more than three active themes", () => {
+test("the server accepts five active tags and rejects a sixth", () => {
   const expandedTaxonomy = {
     ...taxonomy,
-    tags: ["photo", "stiegler", "web", "outils"],
+    tags: ["photo", "stiegler", "web", "outils", "design", "code"],
     tagDefinitions: [
       ...taxonomy.tagDefinitions,
       { name: "web", description: "", aliases: [] },
       { name: "outils", description: "", aliases: [] },
+      { name: "design", description: "", aliases: [] },
+      { name: "code", description: "", aliases: [] },
     ],
   };
+  const input = {
+    url: "https://example.com/cinq-tags",
+    title: "Cinq tags",
+    category: "Design",
+    description: "Cette saisie doit être acceptée.",
+    privateNote: "",
+    tags: expandedTaxonomy.tags.slice(0, 5),
+  };
+  assert.equal(normalizeDraftInput(input, expandedTaxonomy).tags.length, 5);
   assert.throws(
     () => normalizeDraftInput({
-      url: "https://example.com/quatre-themes",
-      title: "Quatre thèmes",
-      category: "Design",
-      description: "Cette saisie doit être refusée.",
-      privateNote: "",
+      ...input,
+      url: "https://example.com/six-tags",
+      title: "Six tags",
       tags: expandedTaxonomy.tags,
     }, expandedTaxonomy),
     (error) => error instanceof CurationError && error.code === "TOO_MANY_THEMES",

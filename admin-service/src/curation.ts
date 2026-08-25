@@ -102,6 +102,8 @@ type CurationTaxonomy = {
   legacyTags?: string[];
 };
 
+const MAX_ACTIVE_TAGS = 5;
+
 const cleanTags = (
   value: unknown,
   taxonomy?: CurationTaxonomy,
@@ -119,7 +121,7 @@ const cleanTags = (
     });
   }
   const active = new Set(activeTagNames(definitions));
-  if (normalized.tags.filter((tag) => active.has(tag)).length > 3) {
+  if (normalized.tags.filter((tag) => active.has(tag)).length > MAX_ACTIVE_TAGS) {
     throw new CurationError("TOO_MANY_THEMES", 400);
   }
   return normalized.tags;
