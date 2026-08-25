@@ -11,6 +11,7 @@ mettre à jour sa ligne quand le travail est terminé.
 |---|---|---|---|---|---|
 | 001 | Publier un Digest en une action avec un suivi progressif fiable | P1 | M | — | DONE |
 | 002 | Intégrer les visuels patrimoniaux du Blog OOBLIK | P1 | L | — | DONE |
+| 003 | Repenser les tags dans l’extension et l’administration | P1 | M | — | DONE |
 
 Valeurs de statut : `TODO`, `IN PROGRESS`, `DONE`, `BLOCKED` (avec une raison),
 `REJECTED` (avec une justification).
@@ -20,6 +21,9 @@ Valeurs de statut : `TODO`, `IN PROGRESS`, `DONE`, `BLOCKED` (avec une raison),
 - Le plan 001 est autonome.
 - Le plan 002 est terminé sur `codex/002-visuels-blog-ooblik` et validé dans le
   worktree isolé ; sa fusion reste une décision du mainteneur.
+- Le plan 003 aligne l’extension sur le registre actif, rend la création d’un
+  nouveau tag explicite, sûre et idempotente, et ajoute sa gestion complète
+  dans un menu `Tags` de l’administration.
 
 ## Pistes examinées et écartées
 
@@ -31,3 +35,6 @@ Valeurs de statut : `TODO`, `IN PROGRESS`, `DONE`, `BLOCKED` (avec une raison),
   risque sans simplifier le parcours.
 - Refactoriser tout `admin-assets.ts` dans ce chantier : souhaitable à terme,
   mais sans lien direct avec la publication en une action.
+- Réintroduire des tags libres propres à un lien : le plan 003 permet plutôt de
+  promouvoir explicitement un nouveau libellé dans le registre actif afin de
+  conserver une taxonomie et des routes publiques cohérentes.

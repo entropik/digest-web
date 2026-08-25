@@ -27,9 +27,14 @@ const feedback = document.querySelector<HTMLElement>("#feedback")!;
 const completeness = document.querySelector<HTMLElement>("#completeness")!;
 const tagInput = document.querySelector<HTMLInputElement>("#tag-input")!;
 const selectedTags = document.querySelector<HTMLElement>("#selected-tags")!;
-const knownTags = document.querySelector<HTMLDataListElement>("#known-tags")!;
+const knownTags = document.querySelector<HTMLElement>("#known-tags")!;
 const tagSuggestions = document.querySelector<HTMLElement>("#tag-suggestions")!;
 const suggestedTags = document.querySelector<HTMLElement>("#suggested-tags")!;
+const tagCount = document.querySelector<HTMLElement>("#tag-count")!;
+const createTagConfirm = document.querySelector<HTMLElement>("#create-tag-confirm")!;
+const createTagName = document.querySelector<HTMLElement>("#create-tag-name")!;
+const confirmCreateTag = document.querySelector<HTMLButtonElement>("#confirm-create-tag")!;
+const cancelCreateTag = document.querySelector<HTMLButtonElement>("#cancel-create-tag")!;
 const category = document.querySelector<HTMLSelectElement>("#category")!;
 const saveButton = document.querySelector<HTMLButtonElement>("#save")!;
 const retryButton = document.querySelector<HTMLButtonElement>("#retry")!;
@@ -50,13 +55,16 @@ let restoredTagsAuthoritative = false;
 let capturedPageUrl: string | null = null;
 let capturedPageText = "";
 let availableTagDefinitions: TagDefinition[] = [];
+let activeTagOption = -1;
+let pendingTagName = "";
+let creatingTag = false;
 const persistedLocalDraftUrls = new Set<string>();
 const pendingLocalWrites = new Set<Promise<void>>();
 
 type CurationOptions = {
   categories: string[];
   tags: string[];
-  tagDefinitions?: TagDefinition[];
+  themes?: TagDefinition[];
 };
 type EditableField = keyof PageCapture | "category" | "tags";
 type StoredDraft = PageCapture & {
@@ -157,12 +165,108 @@ const scheduleLocalDraftSave = (): void => {
   localSaveTimer = setTimeout(flushLocalDraftSave, 300);
 };
 
-const tagKey = (tag: string): string => tag.toLocaleLowerCase("fr");
+const tagKey = (tag: string): string =>
+  tag
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase("fr")
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .trim();
 const sameTag = (left: string, right: string): boolean =>
   tagKey(left) === tagKey(right);
 
 const updateSaveAvailability = (): void => {
-  saveButton.disabled = !canSaveVerifiedDraft || tags.length > 12;
+  saveButton.disabled = creatingTag || !canSaveVerifiedDraft || tags.length > 3;
+};
+
+const definitionForLabel = (value: string): TagDefinition | undefined =>
+  availableTagDefinitions.find((definition) =>
+    [definition.name, ...definition.aliases].some((label) => sameTag(label, value)),
+  );
+
+const closeKnownTags = (): void => {
+  knownTags.replaceChildren();
+  activeTagOption = -1;
+  tagInput.setAttribute("aria-expanded", "false");
+  tagInput.removeAttribute("aria-activedescendant");
+};
+
+const setActiveTagOption = (index: number): void => {
+  const items = [...knownTags.querySelectorAll<HTMLButtonElement>("button")];
+  if (!items.length) {
+    activeTagOption = -1;
+    tagInput.removeAttribute("aria-activedescendant");
+    return;
+  }
+  activeTagOption = (index + items.length) % items.length;
+  items.forEach((item, itemIndex) =>
+    item.setAttribute("aria-selected", String(itemIndex === activeTagOption)),
+  );
+  const active = items[activeTagOption];
+  if (!active) return;
+  tagInput.setAttribute("aria-activedescendant", active.id);
+  active.scrollIntoView?.({ block: "nearest" });
+};
+
+const openCreateTagConfirmation = (rawValue: string): void => {
+  const value = rawValue.trim().replace(/^#+/, "").slice(0, 80);
+  if (!value || tags.length >= 3) return;
+  pendingTagName = value;
+  createTagName.textContent = `« ${value} »`;
+  createTagConfirm.hidden = false;
+  closeKnownTags();
+  confirmCreateTag.focus();
+};
+
+const renderKnownTags = (query = tagInput.value): void => {
+  if (creatingTag || tags.length >= 3 || !availableTagDefinitions.length) {
+    closeKnownTags();
+    return;
+  }
+  const needle = tagKey(query);
+  const matches = availableTagDefinitions
+    .filter((definition) => !tags.some((tag) => sameTag(tag, definition.name)))
+    .filter((definition) => {
+      if (!needle) return true;
+      return tagKey(
+        `${definition.name} ${definition.description} ${definition.aliases.join(" ")}`,
+      ).includes(needle);
+    })
+    .slice(0, 8);
+  const exact = query.trim() ? definitionForLabel(query) : undefined;
+  const buttons = matches.map((definition, index) => {
+    const button = document.createElement("button");
+    button.id = `known-tag-${index}`;
+    button.type = "button";
+    button.setAttribute("role", "option");
+    button.setAttribute("aria-selected", "false");
+    button.dataset.existingTag = definition.name;
+    const strong = document.createElement("strong");
+    strong.textContent = definition.name;
+    button.append(strong);
+    if (definition.description) {
+      const small = document.createElement("small");
+      small.textContent = definition.description;
+      button.append(small);
+    }
+    button.addEventListener("click", () => addTag(definition.name));
+    return button;
+  });
+  if (query.trim() && !exact) {
+    const create = document.createElement("button");
+    create.id = `known-tag-${buttons.length}`;
+    create.type = "button";
+    create.className = "create-tag-option";
+    create.setAttribute("role", "option");
+    create.setAttribute("aria-selected", "false");
+    create.dataset.proposeTag = query.trim();
+    create.textContent = `Créer le tag « ${query.trim()} »`;
+    create.addEventListener("click", () => openCreateTagConfirmation(query));
+    buttons.push(create);
+  }
+  knownTags.replaceChildren(...buttons);
+  tagInput.setAttribute("aria-expanded", String(Boolean(buttons.length)));
+  if (buttons.length) setActiveTagOption(0);
 };
 
 const renderTagSuggestions = (): void => {
@@ -213,7 +317,7 @@ const renderTags = (): void => {
         updateCompleteness();
         updateSaveAvailability();
         scheduleLocalDraftSave();
-        if (canSaveVerifiedDraft && tags.length <= 12) {
+        if (canSaveVerifiedDraft && tags.length <= 3) {
           feedback.textContent = "Brouillon prêt à enregistrer.";
         }
       });
@@ -221,15 +325,22 @@ const renderTags = (): void => {
       return chip;
     }),
   );
+  tagCount.textContent = `${tags.length}/3 tags sélectionnés`;
+  tagInput.disabled = tags.length >= 3 || creatingTag;
+  if (tags.length >= 3) closeKnownTags();
   renderTagSuggestions();
 };
 
 function addTag(rawValue = tagInput.value): void {
-  const value = rawValue.trim().replace(/^#+/, "").slice(0, 80);
-  if (!value) return;
+  const definition = definitionForLabel(rawValue);
+  if (!definition) {
+    openCreateTagConfirmation(rawValue);
+    return;
+  }
+  const value = definition.name;
   const alreadySelected = tags.some((tag) => sameTag(tag, value));
-  if (!alreadySelected && tags.length >= 12) {
-    feedback.textContent = "Maximum de 12 tags par lien.";
+  if (!alreadySelected && tags.length >= 3) {
+    feedback.textContent = "Choisissez au maximum trois tags.";
     return;
   }
   if (!alreadySelected) {
@@ -241,6 +352,9 @@ function addTag(rawValue = tagInput.value): void {
     tags.push(value);
   }
   tagInput.value = "";
+  createTagConfirm.hidden = true;
+  pendingTagName = "";
+  closeKnownTags();
   feedback.textContent = "";
   renderTags();
   updateCompleteness();
@@ -301,15 +415,8 @@ const populateOptions = (options: CurationOptions): void => {
   category.value = options.categories.includes(selectedCategory)
     ? selectedCategory
     : "";
-  knownTags.replaceChildren(
-    ...options.tags.map((value) => {
-      const option = document.createElement("option");
-      option.value = value;
-      return option;
-    }),
-  );
   availableTagDefinitions =
-    options.tagDefinitions ??
+    options.themes ??
     options.tags.map((name) => ({ name, description: "", aliases: [] }));
   renderTagSuggestions();
 };
@@ -376,6 +483,29 @@ const bootstrapErrorMessage = (error: DigestApiError): string => {
   return "Impossible de vérifier ce lien.";
 };
 
+const tagErrorMessage = (error: unknown): string => {
+  if (!(error instanceof DigestApiError)) return "L’opération sur le tag a échoué.";
+  if (error.status === 401 || error.status === 403) {
+    return "La session a expiré. Reconnectez-vous à l’administration.";
+  }
+  if (error.code === "UNKNOWN_TAG") {
+    return "Ce tag n’existe plus dans le registre. Choisissez-en un autre.";
+  }
+  if (error.code === "TOO_MANY_THEMES") {
+    return "Choisissez au maximum trois tags.";
+  }
+  if (error.code === "THEME_RESERVED") {
+    return "Ce nom appartient à un ancien tag. Réactivez-le ou renommez-le depuis l’administration.";
+  }
+  if (error.code === "INVALID_THEME_NAME" || error.code === "INVALID_THEME") {
+    return "Saisissez un nom de tag valide.";
+  }
+  if (error.code === "NETWORK_UNAVAILABLE" || error.code === "REQUEST_TIMEOUT") {
+    return "Réseau indisponible. La saisie est conservée pour réessayer.";
+  }
+  return "Le tag n’a pas pu être enregistré. Réessayez.";
+};
+
 const verifyCapture = async (verificationUrl: string): Promise<void> => {
   const verificationId = ++verificationSequence;
   if (!isSupportedCaptureUrl(verificationUrl)) {
@@ -411,8 +541,8 @@ const verifyCapture = async (verificationUrl: string): Promise<void> => {
       canSaveVerifiedDraft = true;
       updateSaveAvailability();
       feedback.textContent =
-        tags.length > 12
-          ? "La limite de 12 tags est dépassée · retirez-en un avant d’enregistrer."
+        tags.length > 3
+          ? "La limite de trois tags est dépassée · retirez-en un avant d’enregistrer."
           : "Ce brouillon existe déjà : le formulaire permet de le mettre à jour.";
       return;
     }
@@ -427,8 +557,8 @@ const verifyCapture = async (verificationUrl: string): Promise<void> => {
     canSaveVerifiedDraft = true;
     updateSaveAvailability();
     feedback.textContent =
-      tags.length > 12
-        ? "La limite de 12 tags est dépassée · retirez-en un avant d’enregistrer."
+      tags.length > 3
+        ? "La limite de trois tags est dépassée · retirez-en un avant d’enregistrer."
         : "Lien vérifié · prêt à enregistrer.";
   } catch (error) {
     if (verificationId !== verificationSequence) return;
@@ -524,7 +654,6 @@ const initialize = async (): Promise<void> => {
 document.querySelector("#login-button")?.addEventListener("click", () => {
   void browser.tabs.create({ url: `${API_ORIGIN}/admin` });
 });
-document.querySelector("#add-tag")?.addEventListener("click", () => addTag());
 retryButton.addEventListener("click", () => {
   void verifyCapture(field("url").value.trim());
 });
@@ -552,9 +681,73 @@ window.addEventListener(
   { once: true },
 );
 tagInput.addEventListener("keydown", (event) => {
+  const items = [...knownTags.querySelectorAll<HTMLButtonElement>("button")];
+  if (event.key === "Escape") {
+    event.preventDefault();
+    closeKnownTags();
+    return;
+  }
+  if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+    event.preventDefault();
+    if (!items.length) renderKnownTags();
+    else setActiveTagOption(activeTagOption + (event.key === "ArrowDown" ? 1 : -1));
+    return;
+  }
   if (event.key === "Enter") {
     event.preventDefault();
-    addTag();
+    const active = items[activeTagOption];
+    if (active) active.click();
+  }
+});
+tagInput.addEventListener("input", () => renderKnownTags());
+tagInput.addEventListener("focus", () => renderKnownTags());
+cancelCreateTag.addEventListener("click", () => {
+  createTagConfirm.hidden = true;
+  pendingTagName = "";
+  tagInput.focus();
+  renderKnownTags();
+});
+confirmCreateTag.addEventListener("click", async () => {
+  if (!pendingTagName || creatingTag) return;
+  creatingTag = true;
+  confirmCreateTag.disabled = true;
+  cancelCreateTag.disabled = true;
+  updateSaveAvailability();
+  feedback.textContent = "Création du tag…";
+  try {
+    const data = await api<{ theme: TagDefinition }>("/api/admin/themes", {
+      method: "POST",
+      body: JSON.stringify({
+        name: pendingTagName,
+        description: "",
+        aliases: [],
+        confirm: true,
+      }),
+    });
+    const existingIndex = availableTagDefinitions.findIndex((definition) =>
+      sameTag(definition.name, data.theme.name),
+    );
+    if (existingIndex >= 0) availableTagDefinitions[existingIndex] = data.theme;
+    else availableTagDefinitions.push(data.theme);
+    availableTagDefinitions.sort((left, right) =>
+      left.name.localeCompare(right.name, "fr"),
+    );
+    creatingTag = false;
+    addTag(data.theme.name);
+    feedback.textContent = `Tag « ${data.theme.name} » créé et sélectionné.`;
+  } catch (error) {
+    feedback.textContent = tagErrorMessage(error);
+    creatingTag = false;
+  } finally {
+    confirmCreateTag.disabled = false;
+    cancelCreateTag.disabled = false;
+    updateSaveAvailability();
+  }
+});
+document.addEventListener("click", (event) => {
+  if (!(event.target as Element).closest(".tag-combobox") &&
+      !(event.target as Element).closest("#create-tag-confirm")) {
+    closeKnownTags();
   }
 });
 form.addEventListener("input", (event) => {
@@ -588,10 +781,10 @@ form.addEventListener("submit", async (event) => {
     retryButton.hidden = false;
     return;
   }
-  if (tags.length > 12) {
+  if (tags.length > 3) {
     saveButton.disabled = true;
     feedback.textContent =
-      "Retirez un tag avant d’enregistrer : la limite est de 12.";
+      "Retirez un tag avant d’enregistrer : la limite est de trois.";
     return;
   }
   saveButton.disabled = true;
@@ -633,10 +826,11 @@ form.addEventListener("submit", async (event) => {
     popupCloseTimer = setTimeout(() => window.close(), 900);
   } catch (error) {
     const message = error instanceof Error ? error.message : "REQUEST_FAILED";
-    feedback.textContent =
-      message === "ALREADY_PUBLISHED"
-        ? "Ce lien est déjà publié dans le Digest."
-        : `Enregistrement impossible : ${message}`;
+    feedback.textContent = message === "ALREADY_PUBLISHED"
+      ? "Ce lien est déjà publié dans le Digest."
+      : error instanceof DigestApiError
+        ? tagErrorMessage(error)
+        : "L’enregistrement du brouillon a échoué. Réessayez.";
     saveButton.disabled = false;
   }
 });

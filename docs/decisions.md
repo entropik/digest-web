@@ -187,6 +187,20 @@ canonique sans supprimer l’ancienne adresse publique ; l’archivage retire
 seulement le thème des suggestions et garde sa définition inactive pour empêcher
 la réutilisation accidentelle d’une ancienne route.
 
+### L’extension peut promouvoir explicitement un nouveau tag
+
+La taxonomie reste fermée au niveau de chaque lien : un brouillon ne conserve
+jamais un mot-clé libre inconnu. Lorsque le registre ne contient pas le libellé
+recherché, l’extension peut en revanche proposer `Créer le tag`, expliquer que
+le registre public sera modifié, puis demander une confirmation. Le service
+crée la définition canonique et sa route avant de sélectionner le tag. Les
+alias actifs sont canonicalisés, les définitions archivées restent réservées et
+les nouvelles entrées sans description sont signalées dans l’administration.
+
+Le vocabulaire visible redevient `Tags`, cohérent avec les routes publiques et
+le catalogue. Le nom interne `theme` peut subsister dans le code pour éviter une
+migration sans valeur produit.
+
 ### La taxonomie devient une donnée éditoriale administrable
 
 Les grandes catégories ne sont plus implicites dans les seuls liens publiés.

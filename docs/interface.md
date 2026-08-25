@@ -98,12 +98,20 @@ La description est un court texte d’orientation éditoriale, pas une suite de
 mots-clés. En son absence, l’interface peut afficher une phrase de repli sobre,
 mais le texte administré reste prioritaire.
 
-Dans l’administration, les thèmes sont facultatifs et limités à trois par lien.
+Dans l’administration, les tags sont facultatifs et limités à trois par lien.
 La saisie utilise une recherche dans le seul registre actif de `data/tags.json`,
 jamais une liste déroulante contenant les tags historiques. Les sélections
 prennent la forme de cartouches rectangulaires supprimables au clavier. Le
-panneau `Thèmes` permet de créer, renommer, fusionner et archiver un thème ; une
-ancienne route reste conservée après fusion ou archivage.
+panneau `Tags` permet de créer, documenter, renommer, fusionner, archiver et
+réactiver une définition. Il sépare les vues actives et archivées, signale les
+tags créés depuis l’extension qui restent à documenter et affiche les usages
+dans les liens et les brouillons. Une ancienne route reste conservée après
+fusion ou archivage.
+
+Dans l’extension, les suggestions automatiques précèdent la recherche dans le
+registre. Une création nouvelle est une action distincte, confirmée et décrite
+comme une modification du registre public ; elle n’est jamais déclenchée par la
+seule saisie d’un texte.
 
 ## Mouvement et accessibilité
 

@@ -7,6 +7,7 @@ import {
   canonicalizeTags,
   parseTagDefinitions,
   serializeTagDefinitions,
+  tagLabelKey,
 } from "../src/tag-taxonomy.js";
 
 const definitions = parseTagDefinitions(JSON.stringify([
@@ -14,6 +15,10 @@ const definitions = parseTagDefinitions(JSON.stringify([
   { name: "IA", description: "Intelligence artificielle", aliases: ["IA générative"] },
   { name: "photographie", description: "Images", aliases: ["Photographes"] },
 ]));
+
+test("tag identity ignores accents, case and punctuation", () => {
+  assert.equal(tagLabelKey("  MÉMORY / graph  "), tagLabelKey("memory-graph"));
+});
 
 test("tag aliases collapse to existing editorial themes", () => {
   assert.deepEqual(

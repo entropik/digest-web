@@ -413,6 +413,14 @@ app.delete("/api/admin/themes/:name", async (context) =>
   }),
 );
 
+app.post("/api/admin/themes/:name/reactivate", async (context) =>
+  handle(context, async () => {
+    const body = await jsonBody<{ confirm?: boolean }>(context);
+    requireConfirmation(body);
+    return curation.reactivateTheme(context.req.param("name"));
+  }),
+);
+
 app.get("/api/admin/curation/bootstrap", (context) =>
   handle(context, () => {
     const url = context.req.query("url");

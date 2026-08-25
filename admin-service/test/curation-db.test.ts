@@ -76,6 +76,8 @@ test("active draft themes can be renamed, merged and removed", () => {
   const store = new CurationStore(database);
   const draft = store.createDraft({ ...draftInput, tags: ["car", "web"] });
 
+  assert.equal(store.countActiveDraftsByTag("car"), 1);
+  assert.equal(store.countActiveDraftsByTag("absent"), 0);
   assert.equal(store.replaceActiveDraftTag("car", "automobile"), 1);
   assert.deepEqual(store.findDraft(draft.id)?.tags, ["automobile", "web"]);
   assert.equal(store.replaceActiveDraftTag("automobile", "web"), 1);

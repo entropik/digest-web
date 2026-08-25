@@ -259,6 +259,19 @@ export class CurationStore {
     })();
   }
 
+  countActiveDraftsByTag(tag: string): number {
+    const rows = this.database
+      .prepare(
+        `SELECT tags_json FROM curation_drafts
+         WHERE state IN ('draft', 'publishing')`,
+      )
+      .all() as Array<{ tags_json: string }>;
+    return rows.reduce(
+      (count, row) => count + Number(parseTags(row.tags_json).includes(tag)),
+      0,
+    );
+  }
+
   markDraftsPublishing(ids: string[], publicationId: string): void {
     const update = this.database.prepare(
       `UPDATE curation_drafts

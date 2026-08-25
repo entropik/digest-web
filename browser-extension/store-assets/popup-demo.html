@@ -31,16 +31,20 @@
           Résumé
           <textarea rows="4">Une ressource choisie pour sa réflexion claire sur les formes éditoriales contemporaines.</textarea>
         </label>
-        <label>
-          Tags existants
-          <span class="tag-row">
-            <input list="known-tags" value="typographie" />
-            <button type="button">Ajouter</button>
-          </span>
-        </label>
+        <div class="tag-suggestions">
+          <span>Suggestions pour cette page</span>
+          <div class="suggested-tags">
+            <button type="button">design</button>
+            <button type="button">typographie</button>
+          </div>
+        </div>
         <div class="tags">
-          <span class="tag">design éditorial ×</span>
-          <span class="tag">typographie ×</span>
+          <span class="tag">design <button type="button" aria-label="Retirer design">×</button></span>
+        </div>
+        <p class="tag-count">1/3 tags sélectionnés</p>
+        <label for="demo-tag-search">Rechercher un tag existant</label>
+        <div class="tag-combobox">
+          <input id="demo-tag-search" type="search" placeholder="Nom, description ou alias…" />
         </div>
         <label>
           Note privée

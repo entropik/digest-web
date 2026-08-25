@@ -47,6 +47,7 @@ import {
   canonicalizeTags,
   parseTagDefinitions,
   serializeTagDefinitions,
+  tagLabelKey,
   type DigestTagDefinition,
 } from "./tag-taxonomy.js";
 
@@ -389,11 +390,21 @@ export class CurationService {
 
   async themes() {
     const head = await readCachedRepositoryHead();
+    const themes = (head.tags ?? []).map((theme) => ({
+      ...theme,
+      active: theme.active !== false,
+      linkCount: tagUsage(head.links, theme.name),
+      draftCount: this.store.countActiveDraftsByTag(theme.name),
+    }));
     return {
-      themes: (head.tags ?? []).filter((theme) => theme.active !== false).map((theme) => ({
-        ...theme,
-        linkCount: tagUsage(head.links, theme.name),
-      })),
+      themes,
+      summary: {
+        active: themes.filter((theme) => theme.active).length,
+        archived: themes.filter((theme) => !theme.active).length,
+        undocumented: themes.filter(
+          (theme) => theme.active && !theme.description.trim(),
+        ).length,
+      },
     };
   }
 
@@ -408,6 +419,17 @@ export class CurationService {
     for (let attempt = 0; attempt < 2; attempt += 1) {
       const head = await readRepositoryHead();
       const definitions = head.tags ?? [];
+      const matching = definitions.find((definition) =>
+        [definition.name, ...definition.aliases].some(
+          (label) => tagLabelKey(label) === tagLabelKey(name),
+        ),
+      );
+      if (matching?.active === false) {
+        throw new CurationError("THEME_RESERVED", 409, { theme: matching.name });
+      }
+      if (matching) {
+        return { changed: false, commit: null, theme: matching };
+      }
       let next: DigestTagDefinition[];
       try {
         next = parseTagDefinitions(serializeTagDefinitions([
@@ -542,6 +564,46 @@ export class CurationService {
           theme: name,
           preservedLinks: tagUsage(head.links, name),
           removedDrafts,
+        };
+      } catch (error) {
+        if (attempt === 0 && error instanceof GitHubResponseError && [409, 422].includes(error.status)) continue;
+        throw error;
+      }
+    }
+    throw new Error("CONCURRENT_UPDATE");
+  }
+
+  async reactivateTheme(value: unknown) {
+    const name = cleanText(value, 80);
+    if (!name) throw new CurationError("INVALID_THEME_NAME");
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+      const head = await readRepositoryHead();
+      const definitions = head.tags ?? [];
+      const source = definitions.find(
+        (theme) => theme.active === false && theme.name === name,
+      );
+      if (!source) throw new CurationError("THEME_NOT_FOUND", 404);
+      const next = definitions.map((theme) =>
+        theme.name === name
+          ? { name: theme.name, description: theme.description, aliases: theme.aliases }
+          : theme,
+      );
+      try {
+        const commit = await commitRepositoryFiles(
+          head.commitSha,
+          head.treeSha,
+          {
+            "data/tags.json": serializeTagDefinitions(next),
+            [`content/tags/${tagSlug(name)}.md`]: tagPage(source),
+          },
+          `Réactiver le tag ${name}`,
+        );
+        return {
+          changed: true,
+          commit,
+          theme: { ...source, active: true },
+          preservedLinks: tagUsage(head.links, name),
+          draftCount: this.store.countActiveDraftsByTag(name),
         };
       } catch (error) {
         if (attempt === 0 && error instanceof GitHubResponseError && [409, 422].includes(error.status)) continue;

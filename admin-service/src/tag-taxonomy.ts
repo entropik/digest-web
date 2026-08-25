@@ -1,4 +1,4 @@
-const foldTag = (value: string): string =>
+export const tagLabelKey = (value: string): string =>
   value
     .replace(/&amp;/gi, "&")
     .normalize("NFKD")
@@ -46,7 +46,7 @@ export const parseTagDefinitions = (text: string): DigestTagDefinition[] => {
       throw new Error("The tag registry contains an invalid theme");
     }
     for (const label of [name, ...aliases]) {
-      const key = foldTag(label);
+      const key = tagLabelKey(label);
       if (!key || seen.has(key)) throw new Error(`Duplicate tag label: ${label}`);
       seen.add(key);
     }
@@ -88,10 +88,10 @@ export const canonicalizeTags = (
   for (const definition of definitions) {
     if (definition.active === false) continue;
     for (const label of [definition.name, ...definition.aliases]) {
-      known.set(foldTag(label), definition.name);
+      known.set(tagLabelKey(label), definition.name);
     }
   }
-  for (const preserved of preservedTags) known.set(foldTag(preserved), preserved);
+  for (const preserved of preservedTags) known.set(tagLabelKey(preserved), preserved);
   const tags: string[] = [];
   const unknown: string[] = [];
   const seen = new Set<string>();
@@ -99,15 +99,15 @@ export const canonicalizeTags = (
   for (const value of values) {
     const input = value.trim().replace(/^#+/, "");
     if (!input) continue;
-    const inputKey = foldTag(input);
+    const inputKey = tagLabelKey(input);
     const legacyAlias = legacyMode ? LEGACY_ALIASES.get(inputKey) : undefined;
     if (legacyMode && LEGACY_ALIASES.has(inputKey) && legacyAlias === null) continue;
-    const canonical = known.get(foldTag(legacyAlias ?? input));
+    const canonical = known.get(tagLabelKey(legacyAlias ?? input));
     if (!canonical) {
       unknown.push(input);
       continue;
     }
-    const key = foldTag(canonical);
+    const key = tagLabelKey(canonical);
     if (!seen.has(key)) {
       seen.add(key);
       tags.push(canonical);

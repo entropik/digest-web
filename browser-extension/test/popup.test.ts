@@ -42,7 +42,7 @@ const capture = {
 const options = {
   categories: ["Design", "Développement"],
   tags: ["design", "outil"],
-  tagDefinitions: [
+  themes: [
     {
       name: "design",
       description: "Conception visuelle et fonctionnelle.",
@@ -51,7 +51,7 @@ const options = {
     {
       name: "outil",
       description: "Outils pratiques pour créer et produire.",
-      aliases: [],
+      aliases: ["tool"],
     },
   ],
 };
@@ -166,6 +166,104 @@ describe("états asynchrones du popup", () => {
 
     expect(element("#selected-tags").textContent).toContain("outil");
     expect(element("#suggested-tags").textContent).not.toContain("outil");
+  });
+
+  test("place les suggestions avant la recherche dans les tags existants", () => {
+    const suggestions = popupHtml.indexOf('id="tag-suggestions"');
+    const search = popupHtml.indexOf('id="tag-input"');
+    expect(suggestions).toBeGreaterThan(-1);
+    expect(search).toBeGreaterThan(suggestions);
+    expect(popupHtml).toContain("Rechercher un tag existant");
+  });
+
+  test("recherche les alias et sélectionne toujours le nom canonique", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => response(bootstrap())));
+    await loadPopup();
+    await vi.waitFor(() => {
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+    });
+
+    const search = element<HTMLInputElement>("#tag-input");
+    search.value = "tool";
+    search.dispatchEvent(new Event("input", { bubbles: true }));
+    element<HTMLButtonElement>('[data-existing-tag="outil"]').click();
+
+    expect(element("#selected-tags").textContent).toContain("outil");
+    expect(element("#selected-tags").textContent).not.toContain("tool×");
+  });
+
+  test("crée explicitement un tag inconnu puis le sélectionne", async () => {
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(response(bootstrap()))
+      .mockResolvedValueOnce(response({
+        changed: true,
+        theme: { name: "Memory", description: "", aliases: [] },
+      }));
+    vi.stubGlobal("fetch", fetchMock);
+    await loadPopup();
+    await vi.waitFor(() => {
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+    });
+
+    const search = element<HTMLInputElement>("#tag-input");
+    search.value = "Memory";
+    search.dispatchEvent(new Event("input", { bubbles: true }));
+    element<HTMLButtonElement>('[data-propose-tag="Memory"]').click();
+    expect(element("#create-tag-confirm").hidden).toBe(false);
+    element<HTMLButtonElement>("#confirm-create-tag").click();
+
+    await vi.waitFor(() => {
+      expect(element("#selected-tags").textContent).toContain("Memory");
+      expect(element("#feedback").textContent).toBe(
+        "Tag « Memory » créé et sélectionné.",
+      );
+    });
+    expect(fetchMock).toHaveBeenLastCalledWith(
+      "https://digest.ooblik.com/api/admin/themes",
+      expect.objectContaining({ method: "POST" }),
+    );
+  });
+
+  test("bloque la création d’un nom réservé avec un message éditorial", async () => {
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(response(bootstrap()))
+      .mockResolvedValueOnce(response({ error: "THEME_RESERVED" }, 409));
+    vi.stubGlobal("fetch", fetchMock);
+    await loadPopup();
+    await vi.waitFor(() => {
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+    });
+
+    const search = element<HTMLInputElement>("#tag-input");
+    search.value = "ancien";
+    search.dispatchEvent(new Event("input", { bubbles: true }));
+    element<HTMLButtonElement>('[data-propose-tag="ancien"]').click();
+    element<HTMLButtonElement>("#confirm-create-tag").click();
+
+    await vi.waitFor(() => {
+      expect(element("#feedback").textContent).toContain(
+        "Ce nom appartient à un ancien tag.",
+      );
+      expect(element("#selected-tags").textContent).not.toContain("ancien");
+    });
+  });
+
+  test("applique la limite de trois tags dans le popup", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => response(bootstrap({
+      draft: {
+        ...capture,
+        category: "Design",
+        tags: ["design", "outil", "code"],
+      },
+    }))));
+    await loadPopup();
+
+    await vi.waitFor(() => {
+      expect(element("#tag-count").textContent).toBe("3/3 tags sélectionnés");
+      expect(element<HTMLInputElement>("#tag-input").disabled).toBe(true);
+    });
   });
 
   test("garde l’enregistrement désactivé pour un lien déjà publié", async () => {

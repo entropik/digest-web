@@ -43,19 +43,38 @@
             <textarea id="private-note" name="privateNote" rows="3"></textarea>
           </label>
         </div>
-        <label class="field-full">
-          Tags existants ou nouveaux
-          <span class="tag-row">
-            <input id="tag-input" list="known-tags" autocomplete="off" />
-            <button id="add-tag" type="button">Ajouter</button>
-          </span>
-        </label>
-        <datalist id="known-tags"></datalist>
         <div id="tag-suggestions" class="tag-suggestions" hidden>
-          <span>Suggestions</span>
+          <span>Suggestions pour cette page</span>
           <div id="suggested-tags" class="suggested-tags"></div>
         </div>
         <div id="selected-tags" class="tags" aria-live="polite"></div>
+        <p id="tag-count" class="tag-count">0/3 tags sélectionnés</p>
+        <label class="field-full" id="tag-search-label" for="tag-input">
+          Rechercher un tag existant
+        </label>
+        <div class="tag-combobox">
+          <input
+            id="tag-input"
+            type="search"
+            role="combobox"
+            aria-labelledby="tag-search-label"
+            aria-expanded="false"
+            aria-autocomplete="list"
+            aria-haspopup="listbox"
+            aria-controls="known-tags"
+            autocomplete="off"
+            placeholder="Nom, description ou alias…"
+          />
+          <div id="known-tags" class="known-tags" role="listbox"></div>
+        </div>
+        <section id="create-tag-confirm" class="create-tag-confirm" hidden>
+          <p>Ce nouveau tag sera ajouté au registre public du Digest.</p>
+          <strong id="create-tag-name"></strong>
+          <div>
+            <button id="confirm-create-tag" type="button">Créer et sélectionner</button>
+            <button id="cancel-create-tag" type="button">Annuler</button>
+          </div>
+        </section>
         <p id="completeness" class="completeness"></p>
         <button id="save" class="primary" type="submit" disabled>
           Enregistrer le brouillon

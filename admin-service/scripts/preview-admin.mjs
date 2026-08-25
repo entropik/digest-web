@@ -125,10 +125,30 @@ createServer((request, response) => {
   }
   if (url.pathname === "/api/admin/themes") {
     json(response, {
-      themes: themeDefinitions.map((theme, index) => ({
-        ...theme,
-        linkCount: Math.max(0, 41 - index),
-      })),
+      themes: [
+        ...themeDefinitions.map((theme, index) => ({
+          ...theme,
+          active: true,
+          linkCount: Math.max(0, 41 - index),
+          draftCount: index < 2 ? 1 : 0,
+        })),
+        {
+          name: "Memory",
+          description: "",
+          aliases: [],
+          active: true,
+          linkCount: 0,
+          draftCount: 1,
+        },
+        {
+          name: "tag-archivé",
+          description: "Ancienne définition conservée pour mémoire.",
+          aliases: ["ancien tag"],
+          active: false,
+          linkCount: 3,
+          draftCount: 0,
+        },
+      ],
     });
     return;
   }

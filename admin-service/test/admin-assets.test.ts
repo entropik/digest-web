@@ -44,7 +44,7 @@ test("the private dashboard displays the current site version after logout", () 
 
   assert.match(
     page,
-    /<button id="admin-logout" type="button">Se déconnecter<\/button>\s*<span class="admin-version" aria-label="Version v1\.18\.1">v1\.18\.1<\/span>/,
+    /<button id="admin-logout" type="button">Se déconnecter<\/button>\s*<span class="admin-version" aria-label="Version v1\.19\.0">v1\.19\.0<\/span>/,
   );
   assert.match(adminCss, /\.admin-version\{/);
 });
@@ -101,9 +101,9 @@ test("draft toolbar exposes an accessible select-all toggle", () => {
   );
 });
 
-test("drafts use a compact optional theme picker instead of the historical tag list", () => {
+test("drafts use a compact optional tag picker instead of the historical tag list", () => {
   assert.doesNotMatch(adminJs, /Tags, séparés par des virgules|known-tags|datalist/);
-  assert.match(adminJs, /Thèmes <small>· facultatifs · 3 maximum/);
+  assert.match(adminJs, /Tags <small>· facultatifs · 3 maximum/);
   assert.match(adminJs, /role="combobox"/);
   assert.match(adminJs, /role="listbox"/);
   assert.match(adminJs, /aria-autocomplete="list"/);
@@ -120,18 +120,27 @@ test("drafts use a compact optional theme picker instead of the historical tag l
   assert.match(adminJs, /data\.draft\.tags\.length\+" tag"/);
 });
 
-test("the admin exposes the intentionally short active theme register", () => {
+test("the admin exposes the complete tag register and its lifecycle", () => {
   const page = dashboardPage("Marc");
-  assert.match(page, /data-panel-button="themes" aria-pressed="false">Thèmes/);
+  assert.match(page, /data-panel-button="themes" aria-pressed="false">Tags/);
   assert.match(page, /id="theme-search"/);
   assert.match(page, /id="theme-count"/);
+  assert.match(page, /id="theme-archived-count"/);
+  assert.match(page, /id="theme-undocumented-count"/);
   assert.match(page, /id="theme-create-form"/);
-  assert.match(page, /Les anciens tags restent consultables dans les archives/);
+  assert.match(page, /data-theme-view="active"/);
+  assert.match(page, /data-theme-view="archived"/);
+  assert.match(page, /data-theme-view="undocumented"/);
   assert.match(adminJs, /renderThemes/);
   assert.match(adminJs, /data-save-theme/);
+  assert.match(adminJs, /data-merge-theme/);
   assert.match(adminJs, /data-archive-theme/);
-  assert.match(adminJs, /Thèmes fusionnés/);
+  assert.match(adminJs, /data-reactivate-theme/);
+  assert.match(adminJs, /Tags fusionnés/);
+  assert.match(adminJs, /À documenter/);
+  assert.match(adminJs, /draftCount/);
   assert.match(adminJs, /\/api\/admin\/themes/);
+  assert.match(adminJs, /\/reactivate/);
   assert.match(adminCss, /\.theme-row/);
   assert.match(adminCss, /\.admin-nav\{display:grid;grid-template-columns:repeat\(auto-fit/);
   assert.match(adminCss, /\.admin-nav\{grid-template-columns:repeat\(2/);
