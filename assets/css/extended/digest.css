@@ -472,11 +472,11 @@ select {
   min-height: 2.35rem;
   align-items: center;
   gap: .45rem;
-  padding: 0 .7rem;
-  border: 1px solid var(--digest-line);
+  padding: 0 .2rem;
+  border: 0;
   color: var(--digest-ink);
   font-size: .68rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: .09em;
   text-decoration: none;
   text-transform: uppercase;
@@ -488,10 +488,14 @@ select {
 
 .header-admin-switch:hover,
 .header-admin-switch:focus-visible {
-  border-color: var(--digest-ink);
-  background: var(--digest-ink);
-  color: var(--digest-paper);
+  background: transparent;
+  color: var(--digest-accent);
   outline: 0;
+}
+
+.header-admin-switch:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 4px;
 }
 
 .header-admin-switch span {

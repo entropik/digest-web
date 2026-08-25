@@ -13,11 +13,16 @@ test("the public header reveals its admin switch only to the owner", () => {
     new URL("../../layouts/_partials/extend_footer.html", import.meta.url),
     "utf8",
   );
+  const publicCss = readFileSync(
+    new URL("../../assets/css/extended/digest.css", import.meta.url),
+    "utf8",
+  );
 
   assert.match(header, /data-admin-switch[\s\S]*href=.*admin[\s\S]*hidden>/);
   assert.match(footer, /fetch\("\/api\/admin\/session"/);
   assert.match(footer, /session\?\.isAdmin === true/);
   assert.match(footer, /adminSwitch\.hidden = false/);
+  assert.match(publicCss, /\.header-admin-switch \{[\s\S]*?border: 0;/);
 });
 
 test("the admin uses the same browser icons as the public site", () => {
@@ -63,7 +68,7 @@ test("the private dashboard displays the current site version after logout", () 
 
   assert.match(
     page,
-    /<button id="admin-logout" type="button">Déconnexion<\/button>\s*<span class="admin-version" aria-label="Version v1\.19\.5">v1\.19\.5<\/span>/,
+    /<button id="admin-logout" type="button">Déconnexion<\/button>\s*<span class="admin-version" aria-label="Version v1\.19\.6">v1\.19\.6<\/span>/,
   );
   assert.match(adminCss, /\.admin-version\{/);
   assert.match(adminCss, /\.admin-version\{[^}]*background:var\(--ink\);color:var\(--paper\)/);
