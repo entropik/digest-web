@@ -1,5 +1,313 @@
 [
   {
+    "id": "7ed43568-3c73-5315-83ce-7cbb18deffef",
+    "title": "vshulcz/deja-vu: Memory for coding agents — Claude Code, Codex, Cursor and 17 others. Indexes the sessions they already wrote to disk, including months from before you installed it, and recalls them in any of them. No LLM, no embeddings, on",
+    "url": "https://github.com/vshulcz/deja-vu",
+    "category": "IA & Agents",
+    "added": "2026-08-25",
+    "description": "Memory for coding agents — Claude Code, Codex, Cursor and 17 others. Indexes the sessions they already wrote to disk, including months from before you installed it, and recalls them in any of them. No LLM, no embeddings, one local Go binary. - vshulcz/deja-vu",
+    "tags": [
+      "code",
+      "memory",
+      "LLM"
+    ]
+  },
+  {
+    "id": "8d649ef2-0fbc-5b7c-aedd-bc0504e326f4",
+    "title": "Understand Anything — Graphs that teach the codebase",
+    "url": "https://understand-anything.com/#live-demo",
+    "category": "Développement",
+    "added": "2026-08-25",
+    "description": "Turn any codebase into an interactive knowledge graph you can explore, search, and learn from.",
+    "tags": [
+      "code",
+      "memory"
+    ]
+  },
+  {
+    "id": "9d7dfa22-e16e-5fef-88ba-2622d822fcd6",
+    "title": "The Manifesto for AI-Driven Development",
+    "url": "https://www.ai-driven-development.org/",
+    "category": "Développement",
+    "added": "2026-08-25",
+    "description": "Four values and twelve principles for developers who build software with AI as a deliberate partner.",
+    "tags": [
+      "code",
+      "IA"
+    ]
+  },
+  {
+    "id": "6cd52f52-ae84-5624-90aa-497952ab81e0",
+    "title": "semantica-agi/semantica: Graph-Native Infrastructure for Context and Accountable AI Systems",
+    "url": "https://github.com/semantica-agi/semantica",
+    "category": "Développement",
+    "added": "2026-08-25",
+    "description": "Graph-Native Infrastructure for Context and Accountable AI Systems - semantica-agi/semantica",
+    "tags": [
+      "memory",
+      "LLM",
+      "code"
+    ]
+  },
+  {
+    "id": "e2cc8146-4193-5d68-8f1f-daadb5ac0e99",
+    "title": "portes ouvertes – lelabophoto",
+    "url": "https://lelabophoto.com/lancement-saison-2024-25",
+    "category": "Cultures & Combats",
+    "added": "2026-08-25",
+    "description": "depuis 25 ans, l’association propose en parallèle de ses activités artistiques et culturelles une série d’ateliers, stages et cours particuliers pour s’initier ou se perfectionner, accompagné par des passeurs expérimentés ou au contact d’artistes.",
+    "tags": []
+  },
+  {
+    "id": "3b143975-9f81-593e-8a83-cfd5ea4d836c",
+    "title": "Open Analytics: The AI-native Google Analytics alternative, without the complexity",
+    "url": "https://getopen.so/",
+    "category": "Développement",
+    "added": "2026-08-25",
+    "description": "Open Analytics is a privacy-first Google Analytics alternative: realtime visitors, funnels and revenue attribution from one lightweight, cookieless script. GDPR-friendly with no consent banner. Open source and self-hostable.",
+    "tags": []
+  },
+  {
+    "id": "b26c13c8-8d3a-5562-b917-62eb2805c5f6",
+    "title": "Les Rencontres de la Photographie 2026 à travers l’œil de Nina – LaCritique.Org",
+    "url": "https://www.lacritique.org/les-rencontres-de-la-photographie-2026-a-travers-loeil-de-nina",
+    "category": "Cultures & Combats",
+    "added": "2026-08-25",
+    "description": "Cette année, la visite des expositions des Rencontres d’Arles est singulière.  L’esprit de Nina accompagne mon regard, ne pouvant pas me mettre à la place d’un petit animal, foudroyé par une crise cardiaque accélérée par la canicule de fin juin.",
+    "tags": [
+      "photographie",
+      "entretien",
+      "art"
+    ]
+  },
+  {
+    "id": "7fa41cc6-ab8a-5500-8c38-c4217fe84c81",
+    "title": "Le grand détournement politique.",
+    "url": "https://hckr.fr/blogs/journal/le-grand-detournement-politique",
+    "category": "Cultures & Combats",
+    "added": "2026-08-25",
+    "description": "Le 24 août 2026, la France et l’Arabie saoudite ont signé un protocole d’accord. Trois parcs d’attractions vont sortir de terre à Courdimanche, dans le Val-d’Oise, sur le cadavre de l’ancien Mirapolis fermé depuis 1991. Environ six milliards d’euros, apportés par Qiddiya, filiale du fonds souverain saoudien. Vingt-deux",
+    "tags": [
+      "politique",
+      "édition"
+    ]
+  },
+  {
+    "id": "f054e0a5-f39f-5020-a6ab-a9eea2f1d2c5",
+    "title": "Layout Department",
+    "url": "https://layoutdepartment.com/",
+    "category": "Design & Création",
+    "added": "2026-08-25",
+    "description": "Layout Department is software for laying out books, zines, and booklets. You drag and drop PDFs to make the imposed print files. It’s a tool for artist publishers, small printshops, and people who like making print publications.",
+    "tags": [
+      "édition"
+    ]
+  },
+  {
+    "id": "23368822-fc0f-55f8-b6d8-86a722135f2d",
+    "title": "La « vibecoding fatigue » : épuisés par l’IA, les développeurs informatiques inventent leurs propres parades",
+    "url": "https://theconversation.com/la-vibecoding-fatigue-epuises-par-lia-les-developpeurs-informatiques-inventent-leurs-propres-parades-281365",
+    "category": "IA & Agents",
+    "added": "2026-08-25",
+    "description": "Les développeurs les plus en pointe avec l’intelligence artificielle générative décrivent une fatigue d’un genre nouveau : la « vibecoding fatigue » ou l’« AI brain fry ».",
+    "tags": [
+      "IA",
+      "automatisation",
+      "code"
+    ]
+  },
+  {
+    "id": "3ffd3bbb-f726-5c6c-8ec6-65387d1f54ee",
+    "title": "Introducing Delta - Zed Blog",
+    "url": "https://zed.dev/blog/introducing-delta",
+    "category": "Développement",
+    "added": "2026-08-25",
+    "description": "From the Zed Blog: A multiplayer environment for coding with agents, from the creators of Zed.",
+    "tags": [
+      "agents",
+      "code"
+    ]
+  },
+  {
+    "id": "aa0761a7-aad6-5d3d-9d7c-67da86606d94",
+    "title": "IMG.LY CoDesign: AI Design Agent for Editable Design Files",
+    "url": "https://img.ly/codesign",
+    "category": "Développement",
+    "added": "2026-08-25",
+    "description": "IMG.LY CoDesign is an AI design agent that runs as a free local design MCP server and turns prompts into editable design files, not flat images.",
+    "tags": [
+      "design",
+      "UI",
+      "code"
+    ]
+  },
+  {
+    "id": "204a198b-fd04-5ccf-b7ee-dcbaa6f04cb2",
+    "title": "Holoself — Stop re-explaining yourself to every AI tool",
+    "url": "https://movetheneedle.info/holoself",
+    "category": "Développement",
+    "added": "2026-08-25",
+    "description": "Holoself is an open, local-first whole-person context protocol. Link reusable Markdown context to independent AI projects and approve every durable update.",
+    "tags": [
+      "code",
+      "memory"
+    ]
+  },
+  {
+    "id": "3c759685-a321-54ca-99f0-7c86c0b7dd3a",
+    "title": "Henry Ford, l'antisyndicaliste aux sympathies nazies",
+    "url": "https://www.alternatives-economiques.fr/henry-ford-l-antisyndicaliste-aux-sympathies-nazies_27-07-2026",
+    "category": "Cultures & Combats",
+    "added": "2026-08-25",
+    "description": "Henry Ford est connu pour son organisation scientifique du travail et pour le versement de salaires généreux. Cette légende rose masque une réalité bien plus sombre...",
+    "tags": [
+      "société"
+    ]
+  },
+  {
+    "id": "36f20953-2b06-579e-9417-9cd33749d277",
+    "title": "Ghost: The best open source blog & newsletter platform",
+    "url": "https://ghost.org/",
+    "category": "Développement",
+    "added": "2026-08-25",
+    "description": "Beautiful, modern publishing with email newsletters and paid subscriptions built-in. Used by Platformer, 404Media, Lever News, Tangle, The Browser, and thousands more.",
+    "tags": []
+  },
+  {
+    "id": "f1f6bc4f-4db7-5ec8-b0ca-93706fded32e",
+    "title": "Forgejo – Beyond coding. We forge.",
+    "url": "https://forgejo.org/",
+    "category": "Développement",
+    "added": "2026-08-25",
+    "description": "Forgejo is a self-hosted lightweight software forge. Easy to install and low maintenance, it just does the job.",
+    "tags": [
+      "code"
+    ]
+  },
+  {
+    "id": "58ed9520-8cea-54c1-b376-5d62265e4837",
+    "title": "FlashML-org/FreeToken",
+    "url": "https://github.com/FlashML-org/FreeToken",
+    "category": "IA & Agents",
+    "added": "2026-08-25",
+    "description": "Contribute to FlashML-org/FreeToken development by creating an account on GitHub.",
+    "tags": [
+      "agents",
+      "code"
+    ]
+  },
+  {
+    "id": "e109deb3-ad53-5bf3-8a8b-db0a18b06497",
+    "title": "Dans la tête des patrons d'extrême droite",
+    "url": "https://www.alternatives-economiques.fr/dans-la-tete-des-patrons-d-extreme-droite_27-07-2026?check_logged_in=1",
+    "category": "Cultures & Combats",
+    "added": "2026-08-25",
+    "description": "Dès les années 1930, de grands patrons ont choisi de mettre leur puissance financière et leur influence au service de l'extrême droite.",
+    "tags": [
+      "entretien",
+      "société"
+    ]
+  },
+  {
+    "id": "ffef6cc6-afa6-5113-8e37-e2049c44da23",
+    "title": "cathrynlavery/diagram-design: 38 editorial diagram types for Claude Code, Codex, and Pi. Self-contained HTML + SVG. No shadows. No Mermaid slop.",
+    "url": "https://github.com/cathrynlavery/diagram-design",
+    "category": "IA & Agents",
+    "added": "2026-08-25",
+    "description": "38 editorial diagram types for Claude Code, Codex, and Pi. Self-contained HTML + SVG. No shadows. No Mermaid slop. - cathrynlavery/diagram-design",
+    "tags": [
+      "code",
+      "design",
+      "agents"
+    ]
+  },
+  {
+    "id": "ea3980cb-9e4c-5e8d-8876-f0b2ed67bd4f",
+    "title": "bluewave-labs/Checkmate: Checkmate is an open-source, self-hosted tool designed to track and monitor server hardware, uptime, response times, and incidents in real-time with beautiful visualizations. Don't be shy, join here: https://discord",
+    "url": "https://github.com/bluewave-labs/Checkmate",
+    "category": "Développement",
+    "added": "2026-08-25",
+    "description": "Checkmate is an open-source, self-hosted tool designed to track and monitor server hardware, uptime, response times, and incidents in real-time with beautiful visualizations. Don't be shy, join here: https://discord.com/invite/NAb6H3UTjK :) - bluewave-labs/Checkmate",
+    "tags": [
+      "code",
+      "agents"
+    ]
+  },
+  {
+    "id": "100e2385-7ca2-5b65-ac3f-69f31b442d42",
+    "title": "Audits de sécurité web pour indie builders, RLS Supabase - VICE",
+    "url": "https://vice-platform.com/fr",
+    "category": "IA & Agents",
+    "added": "2026-08-25",
+    "description": "Des audits de sécurité en une minute environ, pensés pour les builders indépendants. Deep scan RLS Supabase, fixes IA et score de sécurité public. Scan léger gratuit, sans inscription.",
+    "tags": [
+      "IA",
+      "cybersécurité",
+      "développement"
+    ]
+  },
+  {
+    "id": "6ec554e4-7e2d-5d2e-9299-42daa197048d",
+    "title": "Anatomy Atelier — Learn anatomy like an artist",
+    "url": "https://anatomy-livid.vercel.app/en",
+    "category": "Design & Création",
+    "added": "2026-08-25",
+    "description": "Explore medically detailed 3D organs — heart, brain, lungs, liver, kidneys, eye, intestine, pancreas, and skin — through an elegant, interactive anatomy atelier.",
+    "tags": []
+  },
+  {
+    "id": "12e14ee7-7a53-5792-9934-db8001a71683",
+    "title": "Albums Photo Collaboratifs en Ligne | Beesly",
+    "url": "https://beesly.fr/",
+    "category": "Design & Création",
+    "added": "2026-08-25",
+    "description": "Créez un album photo collaboratif en ligne avec Beesly. Partagez un lien, vos proches ajoutent leurs photos, on imprime et on livre.",
+    "tags": [
+      "code",
+      "livre",
+      "impression"
+    ]
+  },
+  {
+    "id": "512af406-225b-5ece-8d37-7ade39291255",
+    "title": "akitaonrails/ai-memory: Solution for long term memory for agent coding CLIs and to facilitate handoff between different agent vendors",
+    "url": "https://github.com/akitaonrails/ai-memory",
+    "category": "Développement",
+    "added": "2026-08-25",
+    "description": "Solution for long term memory for agent coding CLIs and to facilitate handoff between different agent vendors - akitaonrails/ai-memory",
+    "tags": [
+      "memory",
+      "code",
+      "LLM"
+    ]
+  },
+  {
+    "id": "5655daf9-7749-549b-b262-5cf1591235c2",
+    "title": "ai-driven-dev/framework: Marketplace Framework AI-Driven Dev : Context Engineering, Plugins, Agents, Skills, Hooks, Templates, SDLC",
+    "url": "https://github.com/ai-driven-dev/framework",
+    "category": "IA & Agents",
+    "added": "2026-08-25",
+    "description": "Marketplace Framework AI-Driven Dev : Context Engineering, Plugins, Agents, Skills, Hooks, Templates, SDLC - ai-driven-dev/framework",
+    "tags": [
+      "agents",
+      "LLM",
+      "code"
+    ]
+  },
+  {
+    "id": "9dbe97c8-2551-5e96-a4c4-1c5dbd27fb23",
+    "title": "0xK3vin/MegaMemory: Persistent project knowledge graph for coding agents. MCP server with semantic search, in-process embeddings, and web explorer.",
+    "url": "https://github.com/0xK3vin/MegaMemory",
+    "category": "IA & Agents",
+    "added": "2026-08-25",
+    "description": "Persistent project knowledge graph for coding agents. MCP server with semantic search, in-process embeddings, and web explorer. - 0xK3vin/MegaMemory",
+    "tags": [
+      "memory",
+      "agents",
+      "code"
+    ]
+  },
+  {
     "id": "d5a2ba25-0afb-5d16-bcb6-832a3a55cb01",
     "title": "Xirp — Know your systems, so your agents can too",
     "url": "https://xirp.spotify.com/",
