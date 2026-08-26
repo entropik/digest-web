@@ -5,7 +5,7 @@ chaque journée ayant produit une évolution du projet.
 
 | Date | Billet | Commits | Sujet principal |
 |---|---|---:|---|
-| 24 juillet 2026 | [Naissance du Digest et restauration de Pinboard](2026-07-24.md) | 11 | Socle Hugo, archives et déploiement |
+| 24 juillet 2026 | [Naissance du Digest et restauration des liens perdus](2026-07-24.md) | 11 | Digests HTML, mémoire distribuée, socle Hugo et déploiement |
 | 25 juillet 2026 | [Exploration des tags et reprise de 2017](2026-07-25.md) | 10 | Tags, cache et éditions historiques |
 | 26 juillet 2026 | [Favoris locaux et nouvelles éditions](2026-07-26.md) | 4 | Favoris privés et restauration |
 | 27 juillet 2026 | [Administration et curation depuis Chrome](2026-07-27.md) | 15 | Admin, extension, publication et Web Store |

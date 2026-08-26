@@ -69,16 +69,25 @@ let previousRssPosition = -1;
 for (let index = 0; index < sourceFiles.length; index += 1) {
   const source = await readFile(path.join(sourceDirectory, sourceFiles[index]), "utf8");
   const slug = sourceSlugs[index];
+  assert(!source.includes(";"), `Le billet ${slug} contient un point-virgule interdit.`);
   const title = publicTitle(source);
   const summary = publicSummary(source);
   const sentenceCount = [...sentenceSegmenter.segment(summary)]
     .filter(({ segment }) => /[\p{L}\p{N}]/u.test(segment)).length;
   assert(sentenceCount <= 3, `Le résumé de ${slug} dépasse trois phrases.`);
+  if (/^## Commits(?:\s|$)/m.test(source)) {
+    assert(/^\| Commit \| Date · heure \| (?:Objet|Sujet) \|$/m.test(source), `Le registre de commits de ${slug} n’affiche pas sa colonne temporelle.`);
+    const commitRows = source.match(/^\| \[`[0-9a-f]+`\]\([^\n]+\/commit\/[0-9a-f]+\) \|/gm) ?? [];
+    const datedCommitRows = source.match(/^\| \[`[0-9a-f]+`\]\([^\n]+\/commit\/[0-9a-f]+\) \| \d{2}\/\d{2}\/\d{4} · \d{2}:\d{2} \|/gm) ?? [];
+    assert.equal(datedCommitRows.length, commitRows.length, `Une date ou une heure manque dans le registre de commits de ${slug}.`);
+  }
   const output = await readFile(path.join(outputDirectory, slug, "index.html"), "utf8");
   const outputText = normalizeText(output);
 
   assert(outputText.includes(title), `Le titre public est absent du billet ${slug}.`);
   assert(/class=(?:"journal-post-content"|journal-post-content)/.test(output), `Le corps public est absent du billet ${slug}.`);
+  const bodyHtml = output.match(/<div class="journal-post-content">([\s\S]*?)<\/div>/)?.[1] ?? "";
+  assert(!/<h2[^>]*>\s*Résumé\s*<\/h2>/i.test(bodyHtml), `Le résumé est répété dans le corps du billet ${slug}.`);
   assert(/class=(?:"journal-post-folio"|journal-post-folio)/.test(output), `Le folio est absent du billet ${slug}.`);
   assert(output.includes('>Index</strong>'), `Le retour à l’index est absent du billet ${slug}.`);
   assert(output.includes('/images/journal/posters/'), `Le visuel est absent du billet ${slug}.`);

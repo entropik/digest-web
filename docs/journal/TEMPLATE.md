@@ -4,7 +4,8 @@
 Le nom du fichier doit être AAAA-MM-JJ.md. Le premier H1 et la section
 « Résumé » sont obligatoires : ils alimentent automatiquement la page publique
 du Journal du Digest et son flux RSS. Le résumé reste bref et ne dépasse jamais
-trois phrases.
+trois phrases. Les phrases et les éléments de liste se terminent toujours par
+un point, jamais par un point-virgule.
 -->
 
 ## Résumé
@@ -39,9 +40,9 @@ d’une conversation conservée.
 
 ## Commits
 
-| Commit | Objet |
-|---|---|
-| `00000000` | Description |
+| Commit | Date · heure | Objet |
+|---|---|---|
+| `00000000` | JJ/MM/AAAA · HH:MM | Description |
 
 ## Suite
 

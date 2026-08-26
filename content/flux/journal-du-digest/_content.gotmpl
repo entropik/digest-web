@@ -22,6 +22,9 @@
   {{- end -}}
 
   {{- $body := replaceRE `(?m)^#\s+.+\r?\n+` "" $raw 1 -}}
+  {{- $body = replaceRE `(?s)^##\s+Résumé\s*\r?\n+.*?\r?\n(##\s+)` "$1" $body 1 -}}
+  {{- $body = replaceRE `(?s)^##\s+Résumé\s*\r?\n+.*\z` "" $body 1 -}}
+  {{- $body = strings.TrimSpace $body -}}
   {{- $page := dict
     "content" (dict "mediaType" "text/markdown" "value" $body)
     "dates" (dict "date" (time.AsTime $slug))

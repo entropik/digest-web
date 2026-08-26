@@ -68,10 +68,26 @@ mois mène à des ancres stables ; la page de chaque billet se termine par le
 cartouche `Précédent · Index · Suivant`. Le journal possède son propre flux RSS
 et ne modifie jamais le flux `blog-ooblik`.
 
+Le résumé n’apparaît qu’une fois dans l’en-tête du billet : sa section source
+sert aux métadonnées, à l’index et au RSS, puis est retirée du corps rendu. Sur
+mobile, le nombre de billets et la date de départ partagent un cartouche
+horizontal ; l’année et les deux mois publiés tiennent sur une même rangée,
+tandis que les cellules Repères et RSS conservent toute la largeur.
+
+Dans un billet, les paragraphes et les éléments de liste sont justifiés avec
+césure française ; les titres restent alignés à gauche. Les registres de
+commits indiquent la date et l’heure de chaque objet Git en heure de Paris et
+gardent les identifiants et horodatages compacts et insécables. La colonne Objet
+revient seule sur plusieurs lignes afin que le tableau reste toujours contenu
+dans la largeur disponible, sans ascenseur horizontal. Les listes conservent
+un retrait intérieur suffisant pour que leurs marqueurs restent dans la zone de
+lecture.
+
 Chaque résumé public tient en trois phrases maximum. Chaque carte reçoit un
 bandeau issu d’un corpus local de cent affiches américaines des années 1940 et
-1950 ; la page du billet reprend la même image dans un cadre carré qui conserve
-l’affiche entière. `data/journal_posters.json` garde titre, date, droits, source
+1950 ; la page du billet reprend la même image, entière et presque bord à bord,
+dans un cadre qui suit ses proportions afin de réduire le blanc tournant.
+`data/journal_posters.json` garde titre, date, droits, source
 IIIF et attribution, tandis que `scripts/scrape-journal-posters.mjs` permet de
 reconstruire le corpus depuis Northwestern University Libraries. Le crédit et
 le lien vers la fiche originale restent visibles sous l’image du billet. Le
