@@ -62,7 +62,14 @@ for (const poster of posterCatalog.posters) {
 }
 
 const indexHtml = await readFile(path.join(outputDirectory, "index.html"), "utf8");
+const fluxIndexHtml = await readFile(path.join(root, "public", "flux", "index.html"), "utf8");
 const rss = await readFile(path.join(outputDirectory, "index.xml"), "utf8");
+const fluxJournalIndex = fluxIndexHtml.match(/class=(?:"flux-journal-index"|flux-journal-index)>(\d+)<\/span>/)?.[1];
+assert.equal(
+  fluxJournalIndex,
+  String(sourceFiles.length).padStart(2, "0"),
+  "L’indice du Journal sur /flux/ doit refléter son nombre de billets.",
+);
 let previousIndexPosition = -1;
 let previousRssPosition = -1;
 

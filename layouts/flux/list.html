@@ -20,7 +20,7 @@
 {{ with index $journalPosts 0 }}
 <section class="flux-journal-feature" aria-labelledby="flux-journal-title">
   <a href="{{ "flux/journal-du-digest/" | relURL }}">
-    <span class="flux-journal-index">00</span>
+    <span class="flux-journal-index">{{ printf "%02d" (len $journalPosts) }}</span>
     <span class="flux-journal-main">
       <span class="archive-edition-kicker">Carnet de développement</span>
       <strong id="flux-journal-title">Journal du Digest</strong>
