@@ -57,10 +57,10 @@ export const dashboardPage = (name: string) =>
         <p class="intro">Bonjour ${escapeHtml(name)}. Capture, relis et publie une édition complète depuis cette file privée.</p>
       </div>
       <div class="header-actions" aria-label="Outils du compte">
-        <a href="https://chromewebstore.google.com/detail/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer"><span>Extension</span><span aria-hidden="true">↗</span></a>
         <a href="/"><span>Digest</span><span aria-hidden="true">↗</span></a>
+        <a href="https://chromewebstore.google.com/detail/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer"><span>Extension</span><span aria-hidden="true">↗</span></a>
         <button id="admin-logout" type="button">Déconnexion</button>
-        <span class="admin-version" aria-label="Version v1.22.2">v1.22.2</span>
+        <span class="admin-version" aria-label="Version v1.22.3">v1.22.3</span>
       </div>
     </header>
     <nav class="admin-nav" aria-label="Administration">

@@ -61,6 +61,10 @@ test("the private dashboard links to the unlisted Chrome extension", () => {
   );
   assert.doesNotMatch(page, /Voir le Digest/);
   assert.match(page, /<a href="\/\"><span>Digest<\/span><span aria-hidden="true">↗<\/span><\/a>/);
+  assert.match(
+    page,
+    /<a href="\/\"><span>Digest<\/span><span aria-hidden="true">↗<\/span><\/a>\s*<a href="https:\/\/chromewebstore\.google\.com\/detail\/nlejcccmpbajpoaknlecegkpgdegiflf"[^>]*><span>Extension<\/span><span aria-hidden="true">↗<\/span><\/a>\s*<button id="admin-logout"/,
+  );
 });
 
 test("the private dashboard displays the current site version after logout", () => {
@@ -68,7 +72,7 @@ test("the private dashboard displays the current site version after logout", () 
 
   assert.match(
     page,
-    /<button id="admin-logout" type="button">Déconnexion<\/button>\s*<span class="admin-version" aria-label="Version v1\.22\.2">v1\.22\.2<\/span>/,
+    /<button id="admin-logout" type="button">Déconnexion<\/button>\s*<span class="admin-version" aria-label="Version v1\.22\.3">v1\.22\.3<\/span>/,
   );
   assert.match(adminCss, /\.admin-version\{/);
   assert.match(adminCss, /\.admin-version\{[^}]*background:var\(--ink\);color:var\(--paper\)/);
