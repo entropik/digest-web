@@ -1,5 +1,5 @@
 [
-{
+  {
     "title": "You Don’t Know JS Yet — Comprendre JavaScript en profondeur",
     "url": "https://github.com/getify/You-Dont-Know-JS",
     "category": "Développement",
@@ -6460,7 +6460,8 @@
     "description": "Ressource « TATA | Marc Tallec » archivée depuis marctallec.com dans la collection historique du Digest.",
     "tags": [
       "tata",
-      "développement"
+      "développement",
+      "photographie"
     ],
     "id": "8ebd679a-5b5a-5c70-a8cb-daead650ea9f"
   },
