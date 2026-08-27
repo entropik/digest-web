@@ -72,10 +72,13 @@ test("the private dashboard displays the current site version after logout", () 
 
   assert.match(
     page,
-    /<button id="admin-logout" type="button">Déconnexion<\/button>\s*<span class="admin-version" aria-label="Version v1\.22\.6">v1\.22\.6<\/span>/,
+    /<button id="admin-logout" type="button">Déconnexion<\/button>\s*<span class="admin-version" aria-label="Version v1\.22\.7">v1\.22\.7<\/span>/,
   );
   assert.match(adminCss, /\.admin-version\{/);
   assert.match(adminCss, /\.admin-version\{[^}]*background:var\(--ink\);color:var\(--paper\)/);
+  assert.match(adminCss, /main\{[^}]*padding:0 0 5rem/);
+  assert.match(adminCss, /\.admin-header\{[^}]*border-top:0/);
+  assert.doesNotMatch(adminCss, /main\{[^}]*padding-top:\.5rem/);
 });
 
 test("categories can be created, renamed and deleted from a dedicated panel", () => {

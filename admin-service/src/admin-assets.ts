@@ -60,7 +60,7 @@ export const dashboardPage = (name: string) =>
         <a href="/"><span>Digest</span><span aria-hidden="true">↗</span></a>
         <a href="https://chromewebstore.google.com/detail/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer"><span>Extension</span><span aria-hidden="true">↗</span></a>
         <button id="admin-logout" type="button">Déconnexion</button>
-        <span class="admin-version" aria-label="Version v1.22.6">v1.22.6</span>
+        <span class="admin-version" aria-label="Version v1.22.7">v1.22.7</span>
       </div>
     </header>
     <nav class="admin-nav" aria-label="Administration">
@@ -192,8 +192,8 @@ export const adminCss = `
 :root{color-scheme:light;--paper:#f5f3ee;--ink:#171717;--muted:#68645e;--line:#d7d2c9;--accent:#ff5a36;--accent-text:#b72e10;--ok:#237a4b;--warn:#9b6400;--error:#8f2d1d;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink)}
-main{width:min(1240px,calc(100% - 2rem));margin:auto;padding:clamp(1rem,3vw,2.5rem) 0 5rem}
-.admin-header{display:grid;grid-template-columns:minmax(0,1fr) auto;border:1px solid var(--line)}
+main{width:min(1240px,calc(100% - 2rem));margin:auto;padding:0 0 5rem}
+.admin-header{display:grid;grid-template-columns:minmax(0,1fr) auto;border:1px solid var(--line);border-top:0}
 .admin-heading{min-width:0;padding:clamp(1rem,2.5vw,1.75rem)}
 .kicker{margin:0;color:var(--accent-text);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 h1{max-width:900px;margin:.35rem 0 .75rem;font-family:Arial,Helvetica,sans-serif;font-size:clamp(2.8rem,7vw,5.25rem);letter-spacing:-.055em;line-height:.88;text-wrap:balance}
@@ -326,7 +326,7 @@ input,select,textarea{width:100%;border:1px solid var(--line);border-radius:0;ba
 @keyframes progress-scan{from{transform:translateX(-110%)}to{transform:translateX(225%)}}
 @media(min-width:1000px){.admin-nav{position:sticky;z-index:10;top:0}}
 @media(max-width:900px){.admin-nav{grid-template-columns:repeat(3,minmax(0,1fr))}.admin-nav button:last-child{grid-column:span 1}.section-heading{grid-template-columns:1fr}.section-heading .toolbar{width:100%;justify-self:stretch}}
-@media(max-width:760px){main{width:min(100% - 1rem,1240px);padding-top:.5rem}.admin-header,.section-heading,.publication-card,.admin-link,.category-row,.category-create-form,.theme-row,.theme-create-form,.tag-register-tools{display:grid;grid-template-columns:1fr}.header-actions{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto;min-width:0;border-top:1px solid var(--line);border-left:0}.header-actions a,.header-actions button{border-right:1px solid var(--line);border-bottom:0}.admin-version{grid-column:1/-1;border-top:1px solid var(--line)}.admin-heading{padding:1rem}.admin-heading .intro{max-width:56ch}.draft-grid,.published-grid,.field-row{grid-template-columns:1fr}.toolbar{width:100%}.toolbar input,.toolbar select{min-width:0}.section-heading .toolbar{width:100%;justify-self:stretch}.section-heading .toolbar>*{flex:1 1 12rem}.tag-register-stats{min-width:0;width:100%}.tag-register-tools>input{max-width:none}.tag-register-views{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.theme-actions{justify-content:flex-start}.progress-steps{font-size:.62rem}}
+@media(max-width:760px){main{width:min(100% - 1rem,1240px);padding-top:0}.admin-header,.section-heading,.publication-card,.admin-link,.category-row,.category-create-form,.theme-row,.theme-create-form,.tag-register-tools{display:grid;grid-template-columns:1fr}.header-actions{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto;min-width:0;border-top:1px solid var(--line);border-left:0}.header-actions a,.header-actions button{border-right:1px solid var(--line);border-bottom:0}.admin-version{grid-column:1/-1;border-top:1px solid var(--line)}.admin-heading{padding:1rem}.admin-heading .intro{max-width:56ch}.draft-grid,.published-grid,.field-row{grid-template-columns:1fr}.toolbar{width:100%}.toolbar input,.toolbar select{min-width:0}.section-heading .toolbar{width:100%;justify-self:stretch}.section-heading .toolbar>*{flex:1 1 12rem}.tag-register-stats{min-width:0;width:100%}.tag-register-tools>input{max-width:none}.tag-register-views{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.theme-actions{justify-content:flex-start}.progress-steps{font-size:.62rem}}
 @media(max-width:520px){h1{font-size:clamp(2.5rem,14vw,4rem)}h2{font-size:clamp(1.9rem,11vw,3rem)}.admin-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-nav button{min-height:48px}.admin-nav button:last-child{grid-column:span 2}.header-actions a,.header-actions button{gap:.35rem;padding-inline:.5rem;font-size:.62rem}.section-heading{gap:.8rem}.toolbar,.form-actions{display:grid;grid-template-columns:1fr;width:100%}.draft-toolbar{grid-template-columns:1fr;width:100%!important}.toolbar>*+*,.form-actions>*+*{margin-top:-1px;margin-left:0}.toolbar>*,.form-actions>*{width:100%}.category-actions,.theme-actions{display:grid;grid-template-columns:1fr}.category-actions>*+*,.theme-actions>*+*{margin-top:-1px;margin-left:0}.publication-links>*+*{margin-top:-1px;margin-left:0}.publication-links{display:grid}}
 @media(prefers-reduced-motion:reduce){.progress-segment.is-active::after{width:100%;animation:none;opacity:.72}}
 `;
