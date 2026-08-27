@@ -72,7 +72,7 @@ test("the private dashboard displays the current site version after logout", () 
 
   assert.match(
     page,
-    /<button id="admin-logout" type="button">Déconnexion<\/button>\s*<span class="admin-version" aria-label="Version v1\.22\.5">v1\.22\.5<\/span>/,
+    /<button id="admin-logout" type="button">Déconnexion<\/button>\s*<span class="admin-version" aria-label="Version v1\.22\.6">v1\.22\.6<\/span>/,
   );
   assert.match(adminCss, /\.admin-version\{/);
   assert.match(adminCss, /\.admin-version\{[^}]*background:var\(--ink\);color:var\(--paper\)/);
@@ -100,8 +100,9 @@ test("publication wording uses Publier throughout the dashboard", () => {
 
   assert.doesNotMatch(page, /Composer/);
   assert.equal((page.match(/Publier/g) ?? []).length, 3);
-  assert.match(adminJs, /generatedPublicationTitle="Digest — "\+formatted/);
+  assert.match(adminJs, /publicationTitleForDate=\(value\)=>"Digest — "/);
   assert.match(adminJs, /new Intl\.DateTimeFormat\("fr-FR"/);
+  assert.match(adminJs, /publication-title"\)\.value=publicationTitleForDate\(today\)/);
 });
 
 test("LinkedIn credentials can be configured without server access", () => {
