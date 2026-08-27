@@ -1,4 +1,630 @@
 [
+{
+    "title": "You Don’t Know JS Yet — Comprendre JavaScript en profondeur",
+    "url": "https://github.com/getify/You-Dont-Know-JS",
+    "category": "Développement",
+    "added": "2026-08-27",
+    "id": "b4c31a26-dd8f-5060-b96e-d3a3510db4d4",
+    "description": "Une série de livres qui explore les mécanismes du langage JavaScript au-delà de ses usages superficiels.",
+    "tags": [
+      "développement",
+      "JavaScript",
+      "livres",
+      "apprentissage"
+    ]
+  },
+  {
+    "title": "vLLM — Servir efficacement des modèles de langage",
+    "url": "https://github.com/vllm-project/vllm",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "2de52ef3-28bd-5400-9133-ee5d04e73770",
+    "description": "Un moteur d’inférence et de service à haut débit, conçu pour réduire la consommation mémoire et améliorer l’exploitation des modèles de langage.",
+    "tags": [
+      "IA",
+      "LLM",
+      "inférence",
+      "serveur"
+    ]
+  },
+  {
+    "title": "Transformers — Modèles de pointe pour le texte, l’image et l’audio",
+    "url": "https://github.com/huggingface/transformers",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "639e0121-66ca-5d1a-922c-d7c22e4f69d0",
+    "description": "La bibliothèque de Hugging Face pour définir, entraîner et exécuter des modèles modernes en traitement du texte, vision, audio et multimodal.",
+    "tags": [
+      "IA",
+      "modèles",
+      "entraînement",
+      "inférence"
+    ]
+  },
+  {
+    "title": "TradingAgents — Recherche multi-agents appliquée aux marchés",
+    "url": "https://github.com/TauricResearch/TradingAgents",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "6f30af7b-543a-5393-a50c-6439861a91bd",
+    "description": "Un framework expérimental qui simule une équipe d’agents spécialisés pour étudier des décisions de marché ; ce n’est pas un service de conseil financier.",
+    "tags": [
+      "IA",
+      "agents",
+      "multi-agents",
+      "finance"
+    ]
+  },
+  {
+    "title": "The Book of Secret Knowledge — Aide-mémoire pour administrateurs et développeurs",
+    "url": "https://github.com/trimstray/the-book-of-secret-knowledge",
+    "category": "Développement",
+    "added": "2026-08-27",
+    "id": "d38ba790-78ce-5033-9c6a-eb9789e8e667",
+    "description": "Une collection dense de commandes, aide-mémoire, outils et références pour l’administration système, le réseau et la sécurité, à vérifier avant exécution.",
+    "tags": [
+      "développement",
+      "administration-système",
+      "sécurité",
+      "ligne-de-commande"
+    ]
+  },
+  {
+    "title": "The Art of Command Line — Maîtriser le terminal en une page",
+    "url": "https://github.com/jlevy/the-art-of-command-line",
+    "category": "Développement",
+    "added": "2026-08-27",
+    "id": "1602d8cb-e898-517e-8eef-64b0f34ff45c",
+    "description": "Un guide compact consacré aux commandes, outils et habitudes qui rendent le travail dans un terminal plus efficace.",
+    "tags": [
+      "développement",
+      "terminal",
+      "ligne-de-commande"
+    ]
+  },
+  {
+    "title": "Tech Interview Handbook — Préparer un entretien technique",
+    "url": "https://github.com/yangshun/tech-interview-handbook",
+    "category": "Développement",
+    "added": "2026-08-27",
+    "id": "6b29fa58-0da6-51ef-b3bc-64598f36e8ae",
+    "description": "Des ressources synthétiques pour préparer les entretiens de programmation, de conception système et de comportement professionnel.",
+    "tags": [
+      "développement",
+      "entretiens",
+      "carrière",
+      "apprentissage"
+    ]
+  },
+  {
+    "title": "System Design Primer — Concevoir des systèmes à grande échelle",
+    "url": "https://github.com/donnemartin/system-design-primer",
+    "category": "Développement",
+    "added": "2026-08-27",
+    "id": "7412c069-0d3b-5d23-a46b-6977bfc3695b",
+    "description": "Une introduction structurée à la conception de systèmes distribués, assortie d’exercices, d’exemples et de ressources pour les entretiens techniques.",
+    "tags": [
+      "développement",
+      "architecture",
+      "systèmes",
+      "entretiens"
+    ]
+  },
+  {
+    "title": "Supermemory — Mémoire et contexte pour applications IA",
+    "url": "https://github.com/supermemoryai/supermemory",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "d3b2d4fa-948c-5df3-b145-c84daf0325cd",
+    "description": "Un moteur de mémoire et de contexte rapide, utilisable par API ou localement pour enrichir les applications et agents IA.",
+    "tags": [
+      "IA",
+      "mémoire",
+      "contexte",
+      "agents"
+    ]
+  },
+  {
+    "title": "Stagehand — Un SDK pour les agents de navigation web",
+    "url": "https://github.com/browserbase/stagehand",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "7c64d3ae-b8f6-5e87-bb11-cb1b5c1ec954",
+    "description": "Un SDK qui associe automatisation de navigateur et instructions en langage naturel pour construire des agents web plus robustes.",
+    "tags": [
+      "IA",
+      "agents",
+      "navigateur",
+      "automatisation"
+    ]
+  },
+  {
+    "title": "RAGFlow — Un moteur RAG orienté documents et agents",
+    "url": "https://github.com/infiniflow/ragflow",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "18c008d4-096f-5b63-abbb-fdb71ce0529d",
+    "description": "Une plateforme open source qui combine ingestion documentaire, recherche augmentée par génération et fonctions agentiques pour fournir du contexte aux LLM.",
+    "tags": [
+      "IA",
+      "RAG",
+      "agents",
+      "documents"
+    ]
+  },
+  {
+    "title": "Public APIs — Un répertoire d’API gratuites",
+    "url": "https://github.com/public-apis/public-apis",
+    "category": "Développement",
+    "added": "2026-08-27",
+    "id": "23ae49b6-e2a5-50ec-84fd-6d631e6aafbf",
+    "description": "Un catalogue collaboratif d’API publiques et gratuites, classées par domaine et accompagnées d’informations sur l’authentification et HTTPS.",
+    "tags": [
+      "développement",
+      "API",
+      "ressources"
+    ]
+  },
+  {
+    "title": "Project-Based Learning — Apprendre en réalisant des projets",
+    "url": "https://github.com/practical-tutorials/project-based-learning",
+    "category": "Développement",
+    "added": "2026-08-27",
+    "id": "d20e8093-a9f6-51e6-bd15-de4dfb32b687",
+    "description": "Une sélection de tutoriels organisés par langage pour apprendre la programmation en construisant des applications concrètes.",
+    "tags": [
+      "développement",
+      "apprentissage",
+      "projets",
+      "tutoriels"
+    ]
+  },
+  {
+    "title": "OpenClaw — Assistant IA personnel et multiplateforme",
+    "url": "https://github.com/openclaw/openclaw",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "99f1b0d0-954f-52ca-9828-0a8ef0a1b7bc",
+    "description": "Un assistant IA personnel open source conçu pour fonctionner sur plusieurs systèmes et s’intégrer aux outils de l’utilisateur.",
+    "tags": [
+      "IA",
+      "agents",
+      "assistant",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Open WebUI — Une interface web pour les modèles IA",
+    "url": "https://github.com/open-webui/open-webui",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "aa912976-fe3a-5a44-bb98-a4747206afe1",
+    "description": "Une interface web auto-hébergeable pour dialoguer avec des modèles servis par Ollama, des API compatibles OpenAI et d’autres moteurs.",
+    "tags": [
+      "IA",
+      "LLM",
+      "interface",
+      "auto-hébergement"
+    ]
+  },
+  {
+    "title": "Ollama — Exécuter des modèles de langage localement",
+    "url": "https://github.com/ollama/ollama",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "dbceb84b-6351-5ef6-96e6-db04ea5c2fff",
+    "description": "Un environnement pour télécharger, lancer et servir localement de nombreux modèles de langage au moyen d’une interface en ligne de commande et d’une API.",
+    "tags": [
+      "IA",
+      "LLM",
+      "inférence",
+      "local"
+    ]
+  },
+  {
+    "title": "nanoGPT — Comprendre l’entraînement d’un petit GPT",
+    "url": "https://github.com/karpathy/nanoGPT",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "95618c6d-8d6a-523c-9381-2b47434f4bce",
+    "description": "Une implémentation volontairement compacte et pédagogique pour entraîner ou affiner des modèles GPT de taille moyenne.",
+    "tags": [
+      "IA",
+      "LLM",
+      "entraînement",
+      "apprentissage"
+    ]
+  },
+  {
+    "title": "n8n — Automatisation visuelle et workflows IA",
+    "url": "https://github.com/n8n-io/n8n",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "99893655-f7ff-5d8e-b2c2-c0e78cefc2c2",
+    "description": "Une plateforme fair-code d’automatisation qui combine éditeur visuel, code personnalisé, intégrations et composants IA, en cloud ou en auto-hébergement.",
+    "tags": [
+      "IA",
+      "automatisation",
+      "workflows",
+      "auto-hébergement"
+    ]
+  },
+  {
+    "title": "MetaGPT — Simuler une organisation logicielle multi-agents",
+    "url": "https://github.com/FoundationAgents/MetaGPT",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "b9e8bdf3-ac98-5e20-892d-daade59f2a69",
+    "description": "Un framework multi-agents qui traduit des consignes en rôles et processus inspirés d’une équipe de développement logiciel.",
+    "tags": [
+      "IA",
+      "agents",
+      "multi-agents",
+      "développement"
+    ]
+  },
+  {
+    "title": "Mem0 — Une couche de mémoire pour les agents IA",
+    "url": "https://github.com/mem0ai/mem0",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "87db8e2b-cbc3-5691-bb1f-55a09fe9a41e",
+    "description": "Une infrastructure de mémoire persistante destinée à personnaliser les interactions et à maintenir le contexte des agents IA.",
+    "tags": [
+      "IA",
+      "agents",
+      "mémoire",
+      "contexte"
+    ]
+  },
+  {
+    "title": "MarkItDown — Convertir des documents en Markdown",
+    "url": "https://github.com/microsoft/markitdown",
+    "category": "Développement",
+    "added": "2026-08-27",
+    "id": "182ef8b3-7736-58ff-a712-9f830dd72423",
+    "description": "Un outil Python de Microsoft qui convertit PDF, documents bureautiques, images, fichiers audio et autres formats en Markdown exploitable.",
+    "tags": [
+      "développement",
+      "Markdown",
+      "conversion",
+      "documents"
+    ]
+  },
+  {
+    "title": "Maigret — Recherche OSINT à partir d’un nom d’utilisateur",
+    "url": "https://github.com/soxoj/maigret",
+    "category": "Développement",
+    "added": "2026-08-27",
+    "id": "b63b6ff0-4b0c-54d8-8c4b-bad4a02c27ee",
+    "description": "Un outil OSINT qui recherche un nom d’utilisateur sur des milliers de sites afin de constituer un dossier de liens publics, à utiliser dans un cadre légal et éthique.",
+    "tags": [
+      "OSINT",
+      "sécurité",
+      "recherche",
+      "ligne-de-commande"
+    ]
+  },
+  {
+    "title": "LobeHub — Organiser et exploiter une équipe d’agents IA",
+    "url": "https://github.com/lobehub/lobehub",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "8a43ba6c-753c-5029-898c-d9075c4a3abe",
+    "description": "Une plateforme centrée sur l’organisation, la planification et le suivi d’agents IA, issue du projet auparavant nommé Lobe Chat.",
+    "tags": [
+      "IA",
+      "agents",
+      "interface",
+      "orchestration"
+    ]
+  },
+  {
+    "title": "LlamaIndex — Agents documentaires, contexte et OCR",
+    "url": "https://github.com/run-llama/llama_index",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "ef99ceaa-ea01-5c38-8f1e-204ef004c8dd",
+    "description": "Une plateforme pour ingérer et structurer des documents, construire des systèmes de contexte et créer des agents capables de travailler sur ces données.",
+    "tags": [
+      "IA",
+      "agents",
+      "RAG",
+      "documents"
+    ]
+  },
+  {
+    "title": "llama.cpp — Exécuter des LLM en C et C++",
+    "url": "https://github.com/ggml-org/llama.cpp",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "aeb2dc55-96d9-5f08-b3c2-84f9c40112c9",
+    "description": "Un moteur d’inférence en C et C++ optimisé pour faire fonctionner des modèles de langage sur une grande variété de matériels, y compris localement.",
+    "tags": [
+      "IA",
+      "LLM",
+      "inférence",
+      "local"
+    ]
+  },
+  {
+    "title": "Langflow — Concevoir visuellement des agents et workflows IA",
+    "url": "https://github.com/langflow-ai/langflow",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "21041d7a-e3af-58ce-9b84-feeba384bd7b",
+    "description": "Un environnement visuel pour assembler, tester et déployer des agents et des workflows alimentés par des modèles de langage.",
+    "tags": [
+      "IA",
+      "agents",
+      "workflows",
+      "no-code"
+    ]
+  },
+  {
+    "title": "LangChain — Plateforme d’ingénierie d’agents IA",
+    "url": "https://github.com/langchain-ai/langchain",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "8fe7b524-e6d3-5183-bab8-a69b6125130e",
+    "description": "Un ensemble de composants pour construire des applications et agents fondés sur des modèles de langage, des outils et des sources de contexte.",
+    "tags": [
+      "IA",
+      "agents",
+      "LLM",
+      "framework"
+    ]
+  },
+  {
+    "title": "JavaScript Algorithms — Algorithmes et structures de données expliqués",
+    "url": "https://github.com/trekhleb/javascript-algorithms",
+    "category": "Développement",
+    "added": "2026-08-27",
+    "id": "69049268-33d9-50dc-8b76-6a5c14303ef7",
+    "description": "Des implémentations JavaScript d’algorithmes et de structures de données, accompagnées d’explications et de références complémentaires.",
+    "tags": [
+      "développement",
+      "JavaScript",
+      "algorithmes",
+      "apprentissage"
+    ]
+  },
+  {
+    "title": "iFixAi — Auditer les écarts de comportement des agents IA",
+    "url": "https://github.com/ifixai-ai/iFixAi",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "0f428bd7-82ae-50a5-b175-03eeab43e89f",
+    "description": "Un outil en ligne de commande et une bibliothèque Python pour tester un agent IA, repérer ses écarts de comportement et produire un diagnostic reproductible.",
+    "tags": [
+      "IA",
+      "agents",
+      "évaluation",
+      "sécurité"
+    ]
+  },
+  {
+    "title": "Gitignore — Les modèles officiels de GitHub",
+    "url": "https://github.com/github/gitignore",
+    "category": "Développement",
+    "added": "2026-08-27",
+    "id": "a638423d-09d6-528b-8ce8-0f29bec102a1",
+    "description": "La collection maintenue par GitHub de modèles .gitignore adaptés aux langages, environnements et outils de développement courants.",
+    "tags": [
+      "développement",
+      "Git",
+      "outils",
+      "modèles"
+    ]
+  },
+  {
+    "title": "freeCodeCamp — Cursus libre de programmation et d’informatique",
+    "url": "https://github.com/freeCodeCamp/freeCodeCamp",
+    "category": "Développement",
+    "added": "2026-08-27",
+    "id": "95c2f38b-7164-5c05-87cf-b43fb613e396",
+    "description": "Le code source et le programme pédagogique de freeCodeCamp pour apprendre gratuitement la programmation, les mathématiques et l’informatique.",
+    "tags": [
+      "développement",
+      "apprentissage",
+      "cours",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Free Programming Books — Livres et cours de programmation libres",
+    "url": "https://github.com/EbookFoundation/free-programming-books",
+    "category": "Développement",
+    "added": "2026-08-27",
+    "id": "b7b0bf90-18a1-5202-b56b-3e21b2e7c805",
+    "description": "Un vaste index multilingue de livres, cours, tutoriels, podcasts et ressources de programmation accessibles gratuitement.",
+    "tags": [
+      "développement",
+      "livres",
+      "apprentissage",
+      "ressources"
+    ]
+  },
+  {
+    "title": "Firecrawl — Transformer le web en données pour les applications IA",
+    "url": "https://github.com/firecrawl/firecrawl",
+    "category": "Développement",
+    "added": "2026-08-27",
+    "id": "2cd9810d-bee7-5fc1-a821-a7f587aa4cdd",
+    "description": "Une API et une plateforme auto-hébergeable pour rechercher, parcourir et extraire le contenu du web sous une forme exploitable par des applications et agents.",
+    "tags": [
+      "développement",
+      "web",
+      "extraction",
+      "IA"
+    ]
+  },
+  {
+    "title": "Dify — Construire des workflows et applications agentiques",
+    "url": "https://github.com/langgenius/dify",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "d58f75c0-fa59-58cd-91cd-105252f10b94",
+    "description": "Un espace collaboratif pour concevoir des workflows agentiques et des chaînes RAG, connecter des modèles et déployer des applications IA.",
+    "tags": [
+      "IA",
+      "agents",
+      "RAG",
+      "workflows"
+    ]
+  },
+  {
+    "title": "Developer Roadmaps — Parcours d’apprentissage pour développeurs",
+    "url": "https://github.com/nilbuild/developer-roadmap",
+    "category": "Développement",
+    "added": "2026-08-27",
+    "id": "824e13d7-2c71-54c4-b1e1-b80a4f9fa48e",
+    "description": "Des feuilles de route interactives, guides et ressources pour progresser dans les principaux métiers et domaines du développement logiciel.",
+    "tags": [
+      "développement",
+      "apprentissage",
+      "carrière"
+    ]
+  },
+  {
+    "title": "DeepSeek — Dépôts officiels des modèles et outils",
+    "url": "https://github.com/deepseek-ai",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "279cca99-4eb7-5f7a-a1af-fb98daf6ee65",
+    "description": "L’organisation GitHub officielle de DeepSeek, qui rassemble les implémentations, rapports et outils publiés au fil des versions de ses modèles.",
+    "tags": [
+      "IA",
+      "LLM",
+      "modèles",
+      "recherche"
+    ]
+  },
+  {
+    "title": "CrewAI — Orchestrer des équipes d’agents spécialisés",
+    "url": "https://github.com/crewAIInc/crewAI",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "64228a1f-6b2f-5b76-a066-ae3ce95833b4",
+    "description": "Un framework pour organiser plusieurs agents dotés de rôles, d’objectifs et de tâches complémentaires au sein d’un même processus.",
+    "tags": [
+      "IA",
+      "agents",
+      "multi-agents",
+      "orchestration"
+    ]
+  },
+  {
+    "title": "ComfyUI — Créer des images génératives avec des graphes de nœuds",
+    "url": "https://github.com/Comfy-Org/ComfyUI",
+    "category": "Design & Création",
+    "added": "2026-08-27",
+    "id": "70f53c80-db6a-5ac1-be52-1f5864bb5529",
+    "description": "Une interface modulaire à base de nœuds, accompagnée d’une API et d’un moteur, pour composer des workflows de génération d’images par modèles de diffusion.",
+    "tags": [
+      "IA",
+      "image",
+      "génération",
+      "interface-nodale"
+    ]
+  },
+  {
+    "title": "Coding Interview University — Un cursus d’informatique pour les entretiens",
+    "url": "https://github.com/jwasham/coding-interview-university",
+    "category": "Développement",
+    "added": "2026-08-27",
+    "id": "3452aad1-6482-580d-ad4b-07149f698150",
+    "description": "Un programme d’étude autonome couvrant structures de données, algorithmes, systèmes et notions fondamentales pour préparer les entretiens d’ingénierie logicielle.",
+    "tags": [
+      "développement",
+      "apprentissage",
+      "entretiens",
+      "informatique"
+    ]
+  },
+  {
+    "title": "Bumblebee — Scanner l’exposition aux compromissions logicielles",
+    "url": "https://github.com/perplexityai/bumblebee",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "754c85f2-7e8c-5133-9fdc-b9524cdeb421",
+    "description": "Un scanner local en lecture seule qui examine les métadonnées de paquets, extensions et outils de développement pour détecter une exposition connue aux compromissions de chaîne logicielle.",
+    "tags": [
+      "sécurité",
+      "supply-chain",
+      "audit",
+      "développement"
+    ]
+  },
+  {
+    "title": "Build Your Own X — Apprendre en reconstruisant",
+    "url": "https://github.com/codecrafters-io/build-your-own-x",
+    "category": "Développement",
+    "added": "2026-08-27",
+    "id": "4904720d-34ab-5224-b313-5d1542358f5c",
+    "description": "Une collection de tutoriels pour comprendre les technologies en recréant soi-même une base de données, un moteur 3D, un système d’exploitation ou un outil réseau.",
+    "tags": [
+      "développement",
+      "apprentissage",
+      "projets"
+    ]
+  },
+  {
+    "title": "Awesome Claude Skills — Ressources pour personnaliser Claude",
+    "url": "https://github.com/ComposioHQ/awesome-claude-skills",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "f61a34fc-338f-58ff-97b2-b2ae9439a035",
+    "description": "Une sélection communautaire de skills, ressources et outils destinés à étendre et personnaliser les workflows de Claude.",
+    "tags": [
+      "IA",
+      "Claude",
+      "skills",
+      "ressources"
+    ]
+  },
+  {
+    "title": "AutoGen — Programmer des systèmes agentiques",
+    "url": "https://github.com/microsoft/autogen",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "840e6a9c-0848-5ccf-861b-c6002f7e29d9",
+    "description": "Le framework de Microsoft pour concevoir des applications dans lesquelles plusieurs agents, outils et humains peuvent collaborer.",
+    "tags": [
+      "IA",
+      "agents",
+      "multi-agents",
+      "framework"
+    ]
+  },
+  {
+    "title": "Aider — Programmer avec une IA depuis le terminal",
+    "url": "https://github.com/Aider-AI/aider",
+    "category": "IA & Agents",
+    "added": "2026-08-27",
+    "id": "a7bfbfd4-a4c8-55bf-9dca-4712b186886b",
+    "description": "Un assistant de programmation en ligne de commande capable de modifier un dépôt Git à partir d’instructions conversationnelles.",
+    "tags": [
+      "IA",
+      "code",
+      "assistant",
+      "terminal"
+    ]
+  },
+  {
+    "title": "30 Seconds of Code — Articles pratiques pour développeurs",
+    "url": "https://github.com/Chalarangelo/30-seconds-of-code",
+    "category": "Développement",
+    "added": "2026-08-27",
+    "id": "917cc88e-85f2-5cc5-ba80-103798eebe67",
+    "description": "Une collection d’articles courts et d’exemples pratiques pour approfondir JavaScript, CSS, React, Git et les usages courants du développement web.",
+    "tags": [
+      "développement",
+      "web",
+      "JavaScript",
+      "apprentissage"
+    ]
+  },
   {
     "id": "7ed43568-3c73-5315-83ce-7cbb18deffef",
     "title": "vshulcz/deja-vu: Memory for coding agents — Claude Code, Codex, Cursor and 17 others. Indexes the sessions they already wrote to disk, including months from before you installed it, and recalls them in any of them. No LLM, no embeddings, on",
@@ -762,15 +1388,16 @@
   },
   {
     "id": "1e7ba8b7-d930-5576-bae0-bc792b23b43d",
-    "title": "Make websites accessible for AI agents.",
+    "title": "Browser Use — Piloter le web avec des agents IA",
     "url": "https://github.com/browser-use/browser-use",
-    "category": "Développement",
+    "category": "IA & Agents",
     "added": "2026-08-16",
-    "description": "🌐 Make websites accessible for AI agents. Automate tasks online with ease. - browser-use/browser-use",
+    "description": "Une bibliothèque qui permet à des agents IA d’observer des pages web, d’interagir avec un navigateur et d’automatiser des tâches en ligne.",
     "tags": [
-      "dev",
+      "IA",
       "agents",
-      "IA"
+      "navigateur",
+      "automatisation"
     ]
   },
   {
@@ -876,14 +1503,14 @@
   },
   {
     "id": "b3efc7bb-7665-5145-999d-ea85e4af6028",
-    "title": "awesome-selfhosted/awesome-selfhosted: A list of Free Software network services and web applications which can be hosted on your own servers",
+    "title": "Awesome Self-Hosted — Logiciels libres à héberger soi-même",
     "url": "https://github.com/awesome-selfhosted/awesome-selfhosted",
     "category": "Développement",
     "added": "2026-08-16",
-    "description": "A list of Free Software network services and web applications which can be hosted on your own servers - awesome-selfhosted/awesome-selfhosted",
+    "description": "Une liste collaborative de services réseau et d’applications web libres que l’on peut installer et administrer sur sa propre infrastructure.",
     "tags": [
-      "web_development",
-      "IA",
+      "développement",
+      "opensource",
       "auto-hébergement"
     ]
   },
