@@ -3187,6 +3187,20 @@ body.digest-modal-open {
   border-bottom: 1px solid var(--digest-ink);
 }
 
+.journal-index-link {
+  display: block;
+  width: fit-content;
+  margin-top: .45rem;
+  color: var(--digest-muted);
+  font-size: .72rem;
+  text-decoration: none;
+}
+
+.journal-index-link:hover,
+.journal-index-link:focus-visible {
+  color: var(--digest-accent);
+}
+
 .journal-post-header > time {
   display: block;
   margin-top: 1.5rem;

@@ -96,6 +96,7 @@ for (let index = 0; index < sourceFiles.length; index += 1) {
   const bodyHtml = output.match(/<div class="journal-post-content">([\s\S]*?)<\/div>/)?.[1] ?? "";
   assert(!/<h2[^>]*>\s*Résumé\s*<\/h2>/i.test(bodyHtml), `Le résumé est répété dans le corps du billet ${slug}.`);
   assert(/class=(?:"journal-post-folio"|journal-post-folio)/.test(output), `Le folio est absent du billet ${slug}.`);
+  assert(/class=(?:"journal-index-link"|journal-index-link)[^>]*href=(?:"\/flux\/journal-du-digest\/"|\/flux\/journal-du-digest\/)[^>]*>\/index<\/a>/.test(output), `Le retour sobre à l’index est absent du billet ${slug}.`);
   assert(output.includes('>Index</strong>'), `Le retour à l’index est absent du billet ${slug}.`);
   assert(output.includes('/images/journal/posters/'), `Le visuel est absent du billet ${slug}.`);
   assert(output.includes('dc.library.northwestern.edu/items/'), `La source du visuel est absente du billet ${slug}.`);
