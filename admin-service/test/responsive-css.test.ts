@@ -35,7 +35,7 @@ test("public link layouts cannot force horizontal scrolling", async () => {
   assert.doesNotMatch(css, /\.digest-hero\s*\{[^}]*border-bottom:/s);
   assert.match(
     css,
-    /\.digest-query-tools\s*\{[^}]*gap:\s*0;[^}]*border:\s*1px solid var\(--digest-line\);/s,
+    /\.digest-query-tools\s*\{[^}]*gap:\s*0;[^}]*border:\s*1px solid var\(--digest-line\);[^}]*border-bottom:\s*2px solid var\(--digest-ink\);/s,
   );
   assert.match(
     css,

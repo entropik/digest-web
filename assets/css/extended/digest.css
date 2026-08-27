@@ -825,6 +825,7 @@ html {
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   gap: 0;
   border: 1px solid var(--digest-line);
+  border-bottom: 2px solid var(--digest-ink);
 }
 
 .digest-search,
