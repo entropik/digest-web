@@ -18,6 +18,10 @@ test("public link layouts cannot force horizontal scrolling", async () => {
   assert.match(css, /\.archive-link\s*>\s*div\s*\{[^}]*min-width:\s*0;/s);
   assert.match(
     css,
+    /\.archive-edition a\s*\{[^}]*height:\s*100%;[^}]*min-height:\s*260px;/s,
+  );
+  assert.match(
+    css,
     /\.digest-filter-name\s*\{[^}]*overflow-wrap:\s*normal;[^}]*word-break:\s*normal;[^}]*hyphens:\s*none;/s,
   );
   assert.match(
