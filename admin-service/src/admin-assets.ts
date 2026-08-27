@@ -60,7 +60,7 @@ export const dashboardPage = (name: string) =>
         <a href="/"><span>Digest</span><span aria-hidden="true">↗</span></a>
         <a href="https://chromewebstore.google.com/detail/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer"><span>Extension</span><span aria-hidden="true">↗</span></a>
         <button id="admin-logout" type="button">Déconnexion</button>
-        <span class="admin-version" aria-label="Version v1.22.4">v1.22.4</span>
+        <span class="admin-version" aria-label="Version v1.22.5">v1.22.5</span>
       </div>
     </header>
     <nav class="admin-nav" aria-label="Administration">
@@ -549,6 +549,14 @@ const publicationPayload=(requestId)=>{
   const form=new FormData(document.querySelector("#publication-form"));
   return {requestId,draftIds:[...selected],digestDate:String(form.get("digestDate")||""),title:String(form.get("title")||""),introduction:String(form.get("introduction")||""),seoDescription:String(form.get("seoDescription")||"")};
 };
+const publicationDate=document.querySelector("#publication-date");
+const publicationTitle=document.querySelector("#publication-title");
+let generatedPublicationTitle="";
+publicationDate?.addEventListener("input",()=>{
+  const match=publicationDate.value.match(/^(\d{4})-(\d{2})-(\d{2})$/);if(!match)return;
+  const formatted=new Intl.DateTimeFormat("fr-FR",{day:"numeric",month:"long",year:"numeric",timeZone:"UTC"}).format(new Date(Date.UTC(Number(match[1]),Number(match[2])-1,Number(match[3]))));
+  if(!publicationTitle.value.trim()||publicationTitle.value===generatedPublicationTitle){generatedPublicationTitle="Digest — "+formatted;publicationTitle.value=generatedPublicationTitle}
+});
 document.querySelector("#publication-form")?.addEventListener("submit",async(event)=>{
   event.preventDefault();if(!selected.size)return;
   const button=document.querySelector("#submit-publication");button.dataset.busy="true";updateSelection();

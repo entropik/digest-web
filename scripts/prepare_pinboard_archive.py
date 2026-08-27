@@ -392,9 +392,7 @@ def create_archives(site: Path) -> dict[str, int]:
         parsed = date.fromisoformat(iso_date)
         count = len(daily_links)
         dead = sum(item.get("status") == "dead" for item in daily_links)
-        title = (
-            f"{parsed.day} {MONTHS_FR[parsed.month]} {parsed.year} — Archive Pinboard"
-        )
+        title = f"{parsed.day} {MONTHS_FR[parsed.month]} {parsed.year}"
         description = (
             f"Archive chronologique du Digest : {plural_links(count)} "
             f"enregistré{'s' if count > 1 else ''} le "

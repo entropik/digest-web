@@ -25,7 +25,7 @@ test("edition serialization safely quotes front matter and round trips", () => {
 test("an empty edition becomes a private draft and can be restored", () => {
   const published = renderEdition({
     digestDate: "2022-02-08",
-    title: "Archive Pinboard",
+    title: "8 février 2022",
     description: "Une édition historique.",
     introduction: "Une introduction.",
   });
