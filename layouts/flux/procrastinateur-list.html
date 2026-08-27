@@ -1,0 +1,65 @@
+{{ define "main" }}
+{{ $entries := .RegularPages.ByDate.Reverse }}
+{{ $latest := index $entries 0 }}
+{{ $first := index $entries (sub (len $entries) 1) }}
+{{ $latestMonth := $latest.Date.Format "2006-01" }}
+
+<article class="procrastinator-index">
+  <header class="procrastinator-hero">
+    <div class="procrastinator-hero-copy">
+      <p class="digest-kicker">Flux 05 · Journal de fabrication</p>
+      <h1>{{ .Title }}</h1>
+      <p class="procrastinator-deck">{{ .Description }}</p>
+    </div>
+    <aside class="procrastinator-manifesto" aria-label="Note d’intention">
+      <span>Note d’intention</span>
+      <p>Construire l’outil qui permettra enfin de travailler, puis documenter avec méthode toutes les raisons pour lesquelles il n’est pas encore terminé.</p>
+    </aside>
+  </header>
+
+  <dl class="procrastinator-stats" aria-label="Le journal en chiffres">
+    <div><dt>{{ len $entries }}</dt><dd>billets conservés</dd></div>
+    <div><dt>{{ $first.Date.Format "02.01" }}</dt><dd>première trace · {{ $first.Date.Format "2006" }}</dd></div>
+    <div><dt>{{ $latest.Date.Format "02.01" }}</dt><dd>dernière trace · {{ $latest.Date.Format "2006" }}</dd></div>
+  </dl>
+
+  <section class="procrastinator-latest" aria-labelledby="latest-entry">
+    <div class="procrastinator-folio" aria-hidden="true">{{ printf "%03d" (len $entries) }}</div>
+    <div>
+      <p class="archive-edition-kicker">Dernier détour · {{ $latest.Date | time.Format ":date_long" }}</p>
+      <h2 id="latest-entry"><a href="{{ $latest.RelPermalink }}">{{ $latest.Title }}</a></h2>
+      <p>{{ $latest.Description }}</p>
+      <a class="procrastinator-read" href="{{ $latest.RelPermalink }}">Lire le billet · {{ $latest.ReadingTime }} min ↗</a>
+    </div>
+  </section>
+
+  <section class="procrastinator-chronology" aria-labelledby="chronology-title">
+    <header>
+      <p class="digest-kicker">Index chronologique</p>
+      <h2 id="chronology-title">Le travail, les détours, les reprises</h2>
+    </header>
+    {{ range $entries.GroupByDate "2006-01" }}
+      <details class="procrastinator-month"{{ if eq .Key $latestMonth }} open{{ end }}>
+        <summary>
+          <span>{{ (index .Pages 0).Date | time.Format "January 2006" }}</span>
+          <span>{{ len .Pages }} billets</span>
+        </summary>
+        <ol class="procrastinator-entry-list" reversed>
+          {{ range .Pages }}
+            <li>
+              <a href="{{ .RelPermalink }}">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01" }}</time>
+                <span>
+                  <strong>{{ .Title }}</strong>
+                  <small>{{ .Description }}</small>
+                </span>
+                <em>{{ .ReadingTime }} min</em>
+              </a>
+            </li>
+          {{ end }}
+        </ol>
+      </details>
+    {{ end }}
+  </section>
+</article>
+{{ end }}

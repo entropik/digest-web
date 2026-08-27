@@ -6,6 +6,9 @@
   (dict "slug" "tumblr-ooblik" "title" "Tumblr Ooblik" "note" "Journal visuel")
   (dict "slug" "blog-ooblik" "title" "Blog Ooblik" "note" "Mémoire éditoriale")
 }}
+{{ $procrastinator := .Site.GetPage "/flux/journal-procrastinateur" }}
+{{ $journalPosts := where site.RegularPages "Type" "journal-du-digest" }}
+{{ $journalPosts = $journalPosts.ByDate.Reverse }}
 
 <header class="archives-hero">
   <div>
@@ -15,24 +18,43 @@
   </div>
 </header>
 
-{{ $journalPosts := where site.RegularPages "Type" "journal-du-digest" }}
-{{ $journalPosts = $journalPosts.ByDate.Reverse }}
-{{ with index $journalPosts 0 }}
-<section class="flux-journal-feature" aria-labelledby="flux-journal-title">
-  <a href="{{ "flux/journal-du-digest/" | relURL }}">
-    <span class="flux-journal-index">{{ printf "%02d" (len $journalPosts) }}</span>
-    <span class="flux-journal-main">
-      <span class="archive-edition-kicker">Carnet de développement</span>
-      <strong id="flux-journal-title">Journal du Digest</strong>
-    </span>
-    <span class="flux-journal-latest">
-      <span>Dernier billet · {{ time.Format "02 January 2006" .Date }}</span>
-      <strong>{{ .Title }}</strong>
-    </span>
-    <span class="flux-journal-action">{{ len $journalPosts }} billets<br>Ouvrir le journal ↗</span>
-  </a>
-</section>
-{{ end }}
+<div class="flux-journal-stack" aria-label="Journaux éditoriaux">
+  {{ with index $journalPosts 0 }}
+    <section class="flux-journal-feature" aria-labelledby="flux-journal-digest-title">
+      <a href="{{ "flux/journal-du-digest/" | relURL }}">
+        <span class="flux-journal-index">{{ printf "%02d" (len $journalPosts) }}</span>
+        <span class="flux-journal-main">
+          <span class="archive-edition-kicker">Carnet de développement</span>
+          <strong id="flux-journal-digest-title">Journal du Digest</strong>
+        </span>
+        <span class="flux-journal-latest">
+          <span>Dernier billet · {{ time.Format "02 January 2006" .Date }}</span>
+          <strong>{{ .Title }}</strong>
+        </span>
+        <span class="flux-journal-action">{{ len $journalPosts }} billets<br>Ouvrir le journal ↗</span>
+      </a>
+    </section>
+  {{ end }}
+  {{ with $procrastinator }}
+    {{ $procrastinatorPosts := .RegularPages.ByDate.Reverse }}
+    {{ with index $procrastinatorPosts 0 }}
+      <section class="flux-journal-feature" aria-labelledby="flux-journal-procrastinator-title">
+        <a href="{{ $procrastinator.RelPermalink }}">
+          <span class="flux-journal-index">{{ printf "%03d" (len $procrastinatorPosts) }}</span>
+          <span class="flux-journal-main">
+            <span class="archive-edition-kicker">Carnet de fabrication</span>
+            <strong id="flux-journal-procrastinator-title">{{ $procrastinator.Title }}</strong>
+          </span>
+          <span class="flux-journal-latest">
+            <span>Dernier billet · {{ time.Format "02 January 2006" .Date }}</span>
+            <strong>{{ .Title }}</strong>
+          </span>
+          <span class="flux-journal-action">{{ len $procrastinatorPosts }} billets<br>Ouvrir le journal ↗</span>
+        </a>
+      </section>
+    {{ end }}
+  {{ end }}
+</div>
 
 <section class="flux-grid" aria-label="Flux sociaux archivés">
   {{ range $streams }}

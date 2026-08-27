@@ -1,0 +1,71 @@
+{{ define "main" }}
+{{ $catalog := index hugo.Data "journal-visuals-v2" }}
+<article class="visual-review">
+  <header class="visual-review-header">
+    <div>
+      <p class="digest-kicker">Revue documentaire · V2 NASA</p>
+      <h1>Informatique,<br>science et systèmes</h1>
+    </div>
+    <div class="visual-review-intro">
+      <p>137 propositions issues de la NASA Image and Video Library. Aucun de ces visuels n’est encore relié aux billets.</p>
+      <dl>
+        <div><dt>{{ $catalog.count }}</dt><dd>propositions</dd></div>
+        <div><dt data-review-kept>{{ $catalog.count }}</dt><dd>retenues</dd></div>
+        <div><dt data-review-rejected>0</dt><dd>écartées</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <div class="visual-review-toolbar" aria-label="Filtres de la planche-contact">
+    <button type="button" class="is-active" data-review-filter="all" aria-pressed="true">Tout · {{ $catalog.count }}</button>
+    {{ range $catalog.categories }}
+      <button type="button" data-review-filter="{{ .id }}" aria-pressed="false">{{ .shortLabel }} · {{ .quota }}</button>
+    {{ end }}
+    <label>
+      <span>Rechercher</span>
+      <input type="search" data-review-search placeholder="IBM, radar, robot…">
+    </label>
+  </div>
+
+  <div class="visual-review-grid" data-review-grid>
+    {{ range $catalog.items }}
+      <article class="visual-review-card" data-review-card data-id="{{ .id }}" data-category="{{ .category }}" data-search="{{ lower (printf "%s %s %s %s" .title .id .categoryLabel .center) }}">
+        <button class="visual-review-image" type="button" data-review-open aria-label="Agrandir {{ .title }}">
+          <img src="{{ .thumbnail }}" alt="{{ .title }}" width="{{ .width | default 640 }}" height="{{ .height | default 426 }}" loading="lazy">
+        </button>
+        <div class="visual-review-card-copy">
+          <p><span>{{ printf "%03.0f" .number }}</span><strong>{{ .shortLabel }}</strong></p>
+          <h2>{{ .title }}</h2>
+          <small>{{ with .year }}{{ . }} · {{ end }}{{ .center }} · {{ .id }}</small>
+        </div>
+        <div class="visual-review-actions">
+          <button type="button" data-review-reject aria-pressed="false">Écarter</button>
+          <a href="{{ .sourceUrl }}" target="_blank" rel="noopener noreferrer">Notice NASA ↗</a>
+        </div>
+        <template data-review-details>
+          <figure>
+            <div><img src="{{ .image }}" alt="{{ .title }}" width="{{ .width | default 1280 }}" height="{{ .height | default 853 }}"></div>
+            <figcaption>
+              <span>{{ printf "%03.0f" .number }} · {{ .categoryLabel }}</span>
+              <strong>{{ .title }}</strong>
+              <p>{{ with .year }}{{ . }} · {{ end }}{{ .center }} · {{ .photographer }}</p>
+              <a href="{{ .sourceUrl }}" target="_blank" rel="noopener noreferrer">NASA · {{ .id }} ↗</a>
+            </figcaption>
+          </figure>
+        </template>
+      </article>
+    {{ end }}
+  </div>
+
+  <div class="visual-review-empty" data-review-empty hidden>Aucun visuel ne correspond à ce filtre.</div>
+
+  <div class="visual-review-viewer" role="dialog" aria-modal="true" aria-label="Aperçu du visuel" hidden>
+    <button type="button" data-review-close aria-label="Fermer l’aperçu">×</button>
+    <div data-review-viewer-content></div>
+  </div>
+</article>
+{{ $reviewStyle := resources.Get "css/journal-visual-review.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $reviewStyle.RelPermalink }}" integrity="{{ $reviewStyle.Data.Integrity }}">
+{{ $reviewScript := resources.Get "js/journal-visual-review.js" | minify | fingerprint }}
+<script src="{{ $reviewScript.RelPermalink }}" integrity="{{ $reviewScript.Data.Integrity }}" defer></script>
+{{ end }}

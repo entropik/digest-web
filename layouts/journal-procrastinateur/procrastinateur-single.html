@@ -1,0 +1,80 @@
+{{ define "main" }}
+{{ $documents := index hugo.Data "journal-documents" }}
+{{ $document := index $documents (.Date.Format "2006-01-02") }}
+{{ $sourceLabel := $document.sourceLabel | default "Library of Congress" }}
+<article class="procrastinator-single">
+  <header class="procrastinator-entry-header">
+    <div class="procrastinator-entry-meta">
+      <a href="{{ .Parent.RelPermalink }}">Journal d’un procrastinateur</a>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
+      <span>{{ .ReadingTime }} min de lecture</span>
+      <a class="procrastinator-index-link" href="{{ .Parent.RelPermalink }}">/ Index</a>
+    </div>
+    <div>
+      <p class="digest-kicker">Carnet de fabrication · {{ .Date.Format "2006.01.02" }}</p>
+      <h1>{{ .Title }}</h1>
+      <p class="procrastinator-deck">{{ .Description }}</p>
+    </div>
+  </header>
+
+  <figure class="procrastinator-document">
+    <div class="procrastinator-document-image">
+      <button class="procrastinator-document-open" type="button" aria-label="Agrandir le document {{ $document.title }}">
+        <img
+          src="{{ $document.image | relURL }}"
+          alt="{{ $document.alt }}"
+          width="{{ $document.width }}"
+          height="{{ $document.height }}"
+          loading="eager"
+        >
+      </button>
+    </div>
+    <figcaption>
+      <span>Document {{ printf "%03.0f" $document.number }} · {{ $document.themeLabel }}</span>
+      <strong>{{ $document.title }}</strong>
+      <p>{{ $document.creator }} · {{ $document.date }}</p>
+      <a href="{{ $document.sourceUrl }}" target="_blank" rel="noopener noreferrer">{{ $sourceLabel }} · {{ $document.identifier }} ↗</a>
+      <small>{{ $document.rights | plainify }}</small>
+    </figcaption>
+  </figure>
+
+  <div class="procrastinator-viewer" role="dialog" aria-modal="true" aria-labelledby="procrastinator-viewer-title" hidden>
+    <button class="procrastinator-viewer-close" type="button" aria-label="Fermer le document">×</button>
+    <figure>
+      <div class="procrastinator-viewer-image">
+        <img
+          src="{{ $document.image | relURL }}"
+          alt="{{ $document.alt }}"
+          width="{{ $document.width }}"
+          height="{{ $document.height }}"
+          loading="lazy"
+        >
+      </div>
+      <figcaption>
+        <span>Document {{ printf "%03.0f" $document.number }} · {{ $document.themeLabel }}</span>
+        <strong id="procrastinator-viewer-title">{{ $document.title }}</strong>
+        <p>{{ $document.creator }} · {{ $document.date }}</p>
+        <div class="procrastinator-viewer-source">
+          <a href="{{ $document.sourceUrl }}" target="_blank" rel="noopener noreferrer">{{ $sourceLabel }} · {{ $document.identifier }} ↗</a>
+          <small>{{ $document.rights | plainify }}</small>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
+
+  <div class="procrastinator-entry-body">
+    {{ .Content }}
+  </div>
+
+  <nav class="procrastinator-navigation" aria-label="Navigation entre les billets">
+    {{ with .NextInSection }}
+      <a href="{{ .RelPermalink }}"><span>Billet précédent</span><strong>{{ .Title }}</strong></a>
+    {{ else }}<span aria-hidden="true"></span>{{ end }}
+    {{ with .PrevInSection }}
+      <a href="{{ .RelPermalink }}"><span>Billet suivant</span><strong>{{ .Title }}</strong></a>
+    {{ end }}
+  </nav>
+</article>
+{{ $viewerScript := resources.Get "js/procrastinator-viewer.js" | minify | fingerprint }}
+<script src="{{ $viewerScript.RelPermalink }}" integrity="{{ $viewerScript.Data.Integrity }}" defer></script>
+{{ end }}
