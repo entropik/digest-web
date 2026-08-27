@@ -32,6 +32,19 @@ test("public link layouts cannot force horizontal scrolling", async () => {
     css,
     /\.digest-calendar \.digest-calendar-day\s*\{[^}]*border-radius:\s*0;/s,
   );
+  assert.doesNotMatch(css, /\.digest-hero\s*\{[^}]*border-bottom:/s);
+  assert.match(
+    css,
+    /\.digest-query-tools\s*\{[^}]*gap:\s*0;[^}]*border:\s*1px solid var\(--digest-line\);/s,
+  );
+  assert.match(
+    css,
+    /\.digest-date\s*\{[^}]*border-left:\s*1px solid var\(--digest-line\);/s,
+  );
+  assert.match(
+    css,
+    /@media \(max-width:\s*520px\)[\s\S]*?\.digest-date\s*\{[^}]*border-top:\s*1px solid var\(--digest-line\);[^}]*border-left:\s*0;/,
+  );
   assert.match(
     css,
     /\.archive-link \.link-title\s*>\s*span\s*\{[^}]*overflow-wrap:\s*anywhere;/s,
