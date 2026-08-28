@@ -145,6 +145,67 @@ function Get-FrenchDiacriticLexicon([System.IO.FileInfo[]]$Files) {
     'metal' = 'métal'; 'generation' = 'génération'; 'generations' = 'générations'; 'ecraser' = 'écraser'; 'montee' = 'montée'; 'montees' = 'montées'
     'leger' = 'léger'; 'legere' = 'légère'; 'legers' = 'légers'; 'legeres' = 'légères'; 'simplicite' = 'simplicité'
     'presence' = 'présence'; 'presentation' = 'présentation'; 'presentations' = 'présentations'; 'francais' = 'français'
+    'beaute' = 'beauté'; 'carre' = 'carré'; 'carres' = 'carrés'; 'connait' = 'connaît'
+    'coordonnees' = 'coordonnées'; 'credible' = 'crédible'; 'credibles' = 'crédibles'
+    'deplacement' = 'déplacement'; 'deplacements' = 'déplacements'; 'difficulte' = 'difficulté'; 'difficultes' = 'difficultés'
+    'elargit' = 'élargit'; 'entiere' = 'entière'; 'entieres' = 'entières'; 'magnetiques' = 'magnétiques'
+    'maturite' = 'maturité'; 'obeir' = 'obéir'; 'parallele' = 'parallèle'; 'paralleles' = 'parallèles'
+    'recentree' = 'recentrée'; 'recentrees' = 'recentrées'; 'resultat' = 'résultat'; 'resultats' = 'résultats'
+    'separee' = 'séparée'; 'separees' = 'séparées'; 'unifiee' = 'unifiée'; 'unifiees' = 'unifiées'
+    'visibilite' = 'visibilité'
+    'abandonnee' = 'abandonnée'; 'abandonnees' = 'abandonnées'; 'allege' = 'allège'; 'arretait' = 'arrêtait'
+    'centree' = 'centrée'; 'chaines' = 'chaînes'; 'controleurs' = 'contrôleurs'; 'controles' = 'contrôles'
+    'coute' = 'coûte'; 'coutent' = 'coûtent'; 'couteuse' = 'coûteuse'; 'couts' = 'coûts'; 'croisees' = 'croisées'
+    'detecte' = 'détecte'; 'disparait' = 'disparaît'; 'discrete' = 'discrète'; 'documentees' = 'documentées'
+    'echoue' = 'échoue'; 'echanges' = 'échanges'; 'ecritures' = 'écritures'; 'editions' = 'éditions'
+    'editables' = 'éditables'; 'effectuees' = 'effectuées'; 'entrees' = 'entrées'; 'etant' = 'étant'
+    'eventuelles' = 'éventuelles'; 'evidentes' = 'évidentes'; 'francaise' = 'française'; 'francaises' = 'françaises'
+    'hypotheses' = 'hypothèses'; 'immediate' = 'immédiate'; 'instantanees' = 'instantanées'
+    'melangeait' = 'mélangeait'; 'mediane' = 'médiane'; 'negatives' = 'négatives'; 'observees' = 'observées'
+    'possede' = 'possède'; 'prepare' = 'prépare'; 'present' = 'présent'; 'procedures' = 'procédures'
+    'ramene' = 'ramène'; 'recoivent' = 'reçoivent'; 'reduisent' = 'réduisent'; 'schemas' = 'schémas'
+    'selectionne' = 'sélectionne'; 'supprimee' = 'supprimée'; 'supprimees' = 'supprimées'
+    'declaree' = 'déclarée'; 'declarees' = 'déclarées'; 'presigne' = 'présigné'; 'presignes' = 'présignés'
+    'pret' = 'prêt'; 'prets' = 'prêts'; 'repoussee' = 'repoussée'; 'repoussees' = 'repoussées'
+    'dedie' = 'dédie'; 'precise' = 'précise'; 'selecteur' = 'sélecteur'; 'selecteurs' = 'sélecteurs'
+    'decorative' = 'décorative'; 'decoratif' = 'décoratif'; 'decoratifs' = 'décoratifs'; 'partagees' = 'partagées'
+    'poussee' = 'poussée'; 'retrouvee' = 'retrouvée'; 'signee' = 'signée'; 'utilisee' = 'utilisée'
+    'cachees' = 'cachées'; 'deborde' = 'déborde'; 'fermees' = 'fermées'; 'ignorees' = 'ignorées'; 'verifies' = 'vérifies'
+    'affichees' = 'affichées'; 'ciblee' = 'ciblée'; 'decouvre' = 'découvre'; 'ecrase' = 'écrase'
+    'finalisee' = 'finalisée'; 'lancees' = 'lancées'; 'manipulee' = 'manipulée'; 'pretend' = 'prétend'
+    'recalee' = 'recalée'; 'restauree' = 'restaurée'; 'reussi' = 'réussi'; 'simplifiee' = 'simplifiée'; 'structuree' = 'structurée'
+    'arteres' = 'artères'; 'bornees' = 'bornées'; 'cadree' = 'cadrée'; 'clarifiee' = 'clarifiée'
+    'consacree' = 'consacrée'; 'conservees' = 'conservées'; 'decoupe' = 'découpe'; 'depasse' = 'dépasse'
+    'deplaces' = 'déplaces'; 'edite' = 'édite'; 'envoyes' = 'envoyés'; 'exposees' = 'exposées'
+    'gardee' = 'gardée'; 'geante' = 'géante'; 'guidee' = 'guidée'; 'identifiees' = 'identifiées'
+    'implemente' = 'implémente'; 'isolees' = 'isolées'; 'lancee' = 'lancée'; 'marquee' = 'marquée'; 'masquee' = 'masquée'
+    'matieres' = 'matières'; 'melanges' = 'mélanges'; 'posees' = 'posées'; 'prouvees' = 'prouvées'
+    'publiee' = 'publiée'; 'representative' = 'représentative'; 'representent' = 'représentent'; 'respectee' = 'respectée'
+    'absorbee' = 'absorbée'; 'adaptee' = 'adaptée'; 'ajustee' = 'ajustée'; 'bornee' = 'bornée'
+    'branchees' = 'branchées'; 'calculee' = 'calculée'; 'cassees' = 'cassées'; 'centralisee' = 'centralisée'
+    'chargee' = 'chargée'; 'ciblees' = 'ciblées'; 'communautes' = 'communautés'; 'comparees' = 'comparées'
+    'configuree' = 'configurée'; 'conseillee' = 'conseillée'; 'creations' = 'créations'; 'demonstrative' = 'démonstrative'
+    'depose' = 'dépose'; 'deriver' = 'dériver'; 'detache' = 'détache'; 'detruit' = 'détruit'
+    'differencies' = 'différencies'; 'durees' = 'durées'; 'ecarte' = 'écarte'; 'echoues' = 'échoues'
+    'economises' = 'économises'; 'elastique' = 'élastique'; 'embarquees' = 'embarquées'; 'emis' = 'émis'
+    'enchaines' = 'enchaînes'; 'equipes' = 'équipes'; 'etend' = 'étend'; 'evitables' = 'évitables'; 'evitent' = 'évitent'
+    'excedent' = 'excédent'; 'executent' = 'exécutent'; 'executions' = 'exécutions'; 'expliquees' = 'expliquées'
+    'exposee' = 'exposée'; 'exterieure' = 'extérieure'; 'fideles' = 'fidèles'; 'fractionnee' = 'fractionnée'
+    'frequentes' = 'fréquentes'; 'gache' = 'gâche'; 'gele' = 'gèle'; 'geres' = 'gères'; 'herite' = 'hérite'
+    'importees' = 'importées'; 'imprimees' = 'imprimées'; 'independant' = 'indépendant'
+    'installee' = 'installée'; 'installees' = 'installées'; 'interprete' = 'interprète'; 'inutilisees' = 'inutilisées'
+    'inventee' = 'inventée'; 'iterative' = 'itérative'; 'livrees' = 'livrées'; 'maitrise' = 'maîtrise'
+    'materielle' = 'matérielle'; 'millimetres' = 'millimètres'; 'modifiee' = 'modifiée'; 'nettoyee' = 'nettoyée'
+    'normalisee' = 'normalisée'; 'particuliere' = 'particulière'; 'pensees' = 'pensées'; 'pere' = 'père'
+    'placee' = 'placée'; 'preservent' = 'préservent'; 'prevue' = 'prévue'; 'rattachees' = 'rattachées'
+    'reactive' = 'réactive'; 'reconstituees' = 'reconstituées'; 'recreait' = 'recréait'; 'recue' = 'reçue'
+    'redige' = 'rédige'; 'reduite' = 'réduite'; 'regroupee' = 'regroupée'; 'regroupees' = 'regroupées'
+    'rejouee' = 'rejouée'; 'releve' = 'relève'; 'repassee' = 'repassée'; 'resolue' = 'résolue'; 'resolues' = 'résolues'
+    'restee' = 'restée'; 'securise' = 'sécurise'; 'serieuse' = 'sérieuse'; 'stabilisee' = 'stabilisée'
+    'superieure' = 'supérieure'; 'symptomes' = 'symptômes'; 'tombee' = 'tombée'; 'trainait' = 'traînait'; 'verifiables' = 'vérifiables'
+    'arriere' = 'arrière'; 'enleve' = 'enlève'; 'nettoye' = 'nettoyé'; 'pointille' = 'pointillé'
+    'rejete' = 'rejeté'; 'selectionnes' = 'sélectionnes'
+    'decomposition' = 'décomposition'; 'restructuree' = 'restructurée'; 'structurees' = 'structurées'
     'numero' = 'numéro'; 'numeros' = 'numéros'; 'comprehension' = 'compréhension'; 'hygiene' = 'hygiène'; 'fantome' = 'fantôme'; 'fantomes' = 'fantômes'
     'legerement' = 'légèrement'; 'sobriete' = 'sobriété'; 'recapitulatif' = 'récapitulatif'; 'realiste' = 'réaliste'; 'realistes' = 'réalistes'
     'declencher' = 'déclencher'; 'regulier' = 'régulier'; 'reguliere' = 'régulière'; 'lateral' = 'latéral'; 'laterale' = 'latérale'
@@ -196,7 +257,33 @@ function Get-FrenchDiacriticLexicon([System.IO.FileInfo[]]$Files) {
   return $lexicon
 }
 
-function Restore-FrenchDiacritics([string]$Text, [hashtable]$Lexicon) {
+function Get-FrenchPastParticipleLexicon([System.IO.FileInfo[]]$Files) {
+  $variants = @{}
+  foreach ($file in $Files) {
+    $sourceText = Get-Content -LiteralPath $file.FullName -Raw -Encoding UTF8
+    foreach ($match in [regex]::Matches($sourceText, "[\p{L}œŒæÆ]+")) {
+      $word = $match.Value.ToLowerInvariant()
+      $plain = (Remove-FrenchDiacritics $word).ToLowerInvariant()
+      if ($plain -eq $word) { continue }
+      if (-not $variants.ContainsKey($plain)) { $variants[$plain] = [System.Collections.Generic.HashSet[string]]::new() }
+      [void]$variants[$plain].Add($word)
+    }
+  }
+
+  $lexicon = @{}
+  foreach ($plain in $variants.Keys) {
+    foreach ($expectedEnding in @('é', 'és', 'ée', 'ées')) {
+      $matches = @($variants[$plain] | Where-Object { $_.EndsWith($expectedEnding, [System.StringComparison]::Ordinal) })
+      if ($matches.Count -eq 1) {
+        $lexicon[$plain] = $matches[0]
+        break
+      }
+    }
+  }
+  return $lexicon
+}
+
+function Restore-FrenchDiacritics([string]$Text, [hashtable]$Lexicon, [hashtable]$PastParticiples) {
   $restored = [regex]::Replace($Text, '(?ms)```.*?```|`[^`\r\n]+`|https?://[^\s)]+|\]\([^)]+\)|(?<word>[\p{L}œŒæÆ]+)', {
       param($match)
       if (-not $match.Groups['word'].Success) { return $match.Value }
@@ -264,11 +351,54 @@ function Restore-FrenchDiacritics([string]$Text, [hashtable]$Lexicon) {
   $restored = [regex]::Replace($restored, '(?i)\bpas lance avant\b', 'pas lancé avant')
   $restored = [regex]::Replace($restored, '(?i)\bSaaS ou les clients\b', 'SaaS où les clients')
   $restored = [regex]::Replace($restored, '(?i)\bon connait\b', 'on connaît')
+  # « revele » est ambigu sans contexte : présent « révèle », participe « révélé ».
+  # Les auxiliaires tranchent les participes ; les autres occurrences sont des présents,
+  # à l'exception explicite du risque « révélé la veille ».
+  $restored = [regex]::Replace($restored, "(?i)\b(?<aux>a|ont|avait|avaient|aurait|aura|avaient|n['’]a|n['’]ont)(?<middle>\s+(?:(?:pas|aussi|déjà|immédiatement|surtout)\s+)*)revele\b", {
+      param($match)
+      return $match.Groups['aux'].Value + $match.Groups['middle'].Value + 'révélé'
+    })
+  $restored = [regex]::Replace($restored, '(?i)\brisque revele la veille\b', 'risque révélé la veille')
+  $restored = [regex]::Replace($restored, '(?i)\brevele\b', 'révèle')
   $restored = [regex]::Replace($restored, '(?i)\bdocumentation est\.\.\. creative\b', 'documentation est… créative')
   $restored = [regex]::Replace($restored, '(?i)\b(et|puis) On enchaîne\b', '$1 on enchaîne')
   $restored = [regex]::Replace($restored, '(?i): On enchaîne\b', ': on enchaîne')
   $restored = [regex]::Replace($restored, '(?i)\bmoment-la\b', 'moment-là')
   $restored = [regex]::Replace($restored, '(?i)\b(on|il|elle) à\b', '$1 a')
+  # Après « avoir », un mot en -e/-es est un participe, pas un présent.
+  # Le lexique choisit uniquement une forme accentuée déjà attestée dans le corpus.
+  $restored = [regex]::Replace($restored, "(?i)(?<aux>\b(?:ai|as|a|avons|avez|ont|avait|avaient|aurait|auraient|aura|n['’]a|n['’]ont)\b)(?<middle>\s+(?:(?:pas|plus|aussi|déjà|bien|encore|finalement|immédiatement|largement|simplement|ensuite|souvent|toujours|clairement|presque|mal|juste)\s+)*)(?<word>[\p{L}œŒæÆ]+)", {
+      param($match)
+      $plain = (Remove-FrenchDiacritics $match.Groups['word'].Value).ToLowerInvariant()
+      if (-not $PastParticiples.ContainsKey($plain)) { return $match.Value }
+      return $match.Groups['aux'].Value + $match.Groups['middle'].Value + [string]$PastParticiples[$plain]
+    })
+  $restored = [regex]::Replace($restored, "(?i)(?<aux>\b(?:être|été)\b)(?<middle>\s+(?:(?:pas|plus|aussi|déjà|bien|encore|finalement|immédiatement|largement|simplement|ensuite|souvent|toujours|clairement|presque|mal|juste)\s+)*)(?<word>[\p{L}œŒæÆ]+)", {
+      param($match)
+      $plain = (Remove-FrenchDiacritics $match.Groups['word'].Value).ToLowerInvariant()
+      if (-not $PastParticiples.ContainsKey($plain)) { return $match.Value }
+      return $match.Groups['aux'].Value + $match.Groups['middle'].Value + [string]$PastParticiples[$plain]
+    })
+  $copularAmbiguities = [System.Collections.Generic.HashSet[string]]::new(
+    [string[]]@('valide', 'ferme', 'risque', 'simple', 'propre', 'juste', 'possible', 'double', 'utile', 'libre', 'rapide', 'souple', 'dense', 'large', 'proche'),
+    [System.StringComparer]::OrdinalIgnoreCase
+  )
+  $restored = [regex]::Replace($restored, "(?i)(?<aux>\b(?:est|sont|était|étaient|sera|seront)\b)(?<middle>\s+(?:(?:pas|plus|aussi|déjà|bien|encore|finalement|immédiatement|largement|simplement|ensuite|souvent|toujours|clairement|presque|mal|juste)\s+)*)(?<word>[\p{L}œŒæÆ]+)", {
+      param($match)
+      $plain = (Remove-FrenchDiacritics $match.Groups['word'].Value).ToLowerInvariant()
+      if ($copularAmbiguities.Contains($plain) -or -not $PastParticiples.ContainsKey($plain)) { return $match.Value }
+      return $match.Groups['aux'].Value + $match.Groups['middle'].Value + [string]$PastParticiples[$plain]
+    })
+  $restored = [regex]::Replace($restored, '(?i)\bbien avance\b', 'bien avancé')
+  $restored = [regex]::Replace($restored, '(?i)\bfichiers touches\b', 'fichiers touchés')
+  $restored = [regex]::Replace($restored, '(?i)\bbucket R2 est copie\b', 'bucket R2 est copié')
+  $restored = [regex]::Replace($restored, '(?i)\bvolume observe\b', 'volume observé')
+  $restored = [regex]::Replace($restored, '(?i)\bcomptages sont verifies\b', 'comptages sont vérifiés')
+  $restored = [regex]::Replace($restored, "(?i)\bd['’]être purges\b", "d'être purgés")
+  $restored = [regex]::Replace($restored, '(?i)\bmarqueur persiste\b', 'marqueur persisté')
+  $restored = [regex]::Replace($restored, '(?i)\bobjets sont copies\b', 'objets sont copiés')
+  $restored = [regex]::Replace($restored, '(?i)\ba exerce\b', 'a exercé')
+  $restored = [regex]::Replace($restored, '(?i)\ba environ\b', 'à environ')
   $restored = [regex]::Replace($restored, '^\s*à ', 'À ')
   return $restored
 }
@@ -284,20 +414,67 @@ function Move-CumulativeTimeToEnd([string]$Body) {
   return $Body.Substring(0, $section.Groups['items'].Index) + ($reordered -join "`n") + $Body.Substring($section.Groups['items'].Index + $section.Groups['items'].Length)
 }
 
+function Protect-PublicInfrastructureDetails([string]$Text) {
+  $protected = $Text
+
+  # Garder le nom du dépôt utile au récit, sans publier le chemin du poste.
+  $protected = [regex]::Replace($protected, '/(?:home|Users)/marc/code/([A-Za-z0-9._-]+)', 'dépôt local $1')
+
+  # Une destination distante doit être traitée avant son IP, sinon le compte
+  # resterait visible sous la forme « utilisateur@[adresse IP] ».
+  $protected = [regex]::Replace($protected, '(?im)^(?=[^\r\n]*(?:SSH|SCP|SFTP|rsync|synchronis(?:e|ation)|destination\s+(?:distante|SSH)|connexion\s+(?:distante|SSH)))(?<before>[^\r\n]*?)(?<account>[a-z_][a-z0-9._-]*)@(?<host>(?:\d{1,3}\.){3}\d{1,3}|\[[^\]\r\n]+\]|[a-z0-9](?:[a-z0-9._-]*[a-z0-9_-])?)', {
+      param($match)
+      return $match.Groups['before'].Value + '[compte]@[hôte]'
+    })
+
+  $protected = [regex]::Replace($protected, 'https?://(?:127\.0\.0\.1|localhost)(?::\d+)?[^\s`)\]]*', 'adresse locale')
+  $protected = [regex]::Replace($protected, '(?<!\d)(?:\d{1,3}\.){3}\d{1,3}(?!\d)', '[adresse IP]')
+  $protected = [regex]::Replace($protected, '\b[A-Za-z0-9._%+-]+@ooblik\.com\b', '[compte OOBLIK retiré]')
+
+  # Les chemins système génériques restent lisibles, mais leurs comptes,
+  # applications, sauvegardes et noms de fichiers ne sont pas publics.
+  $protected = [regex]::Replace($protected, '(?i)(?<![A-Za-z0-9._-])/(?:home|Users)/(?!\[compte\])[^/\s`"''<>)\],;]+(?:/[^\s`"''<>)\],;]+)*', {
+      param($match)
+      $suffix = if ($match.Value -match '[.,;:]$') { $match.Value.Substring($match.Value.Length - 1) } else { '' }
+      return '/home/[compte]/[chemin privé]' + $suffix
+    })
+  $protected = [regex]::Replace($protected, '(?i)(?<![A-Za-z0-9._-])/(?<root>root|opt|srv)/(?!\[chemin privé\])[^\s`"''<>)\],;]+', {
+      param($match)
+      $suffix = if ($match.Value -match '[.,;:]$') { $match.Value.Substring($match.Value.Length - 1) } else { '' }
+      return '/' + $match.Groups['root'].Value.ToLowerInvariant() + '/[chemin privé]' + $suffix
+    })
+  $protected = [regex]::Replace($protected, '(?i)\b[A-Z]:\\Users\\[^\s`"''<>)\],;]+', '[chemin local]')
+
+  # Un identifiant placé après un rôle d'infrastructure est un nom de machine,
+  # contrairement à « VPS KEREDIT » ou « serveur GOF » qui restent de la prose.
+  $protected = [regex]::Replace($protected, '(?<role>\b(?i:VPS|serveur|hostname|hôte|NAS|forge)\s+(?:(?i:KEREDIT|GOF)\s+)?(?:(?i:nommé[e]?)\s+)?)`(?!\[nom privé\])(?<name>[a-z0-9][a-z0-9._-]*)`', '${role}`[nom privé]`')
+  $protected = [regex]::Replace($protected, '(?im)^(?=[^\r\n]*(?:environnement|comme source))(?<before>[^\r\n]*?\bVPS\s+)(?<name>[A-Za-z0-9][A-Za-z0-9._-]*)', {
+      param($match)
+      if ($match.Groups['name'].Value -in @('KEREDIT', 'GOF', 'Hetzner', 'bêta')) { return $match.Value }
+      return $match.Groups['before'].Value + '[nom privé]'
+    })
+
+  # Ne masquer un libellé de clé que si la ligne parle réellement d'accès SSH.
+  $protected = [regex]::Replace($protected, '(?im)^(?<line>(?=[^\r\n]*(?:SSH|authorized_keys|IdentityFile))[^\r\n]*)$', {
+      param($match)
+      return [regex]::Replace($match.Groups['line'].Value, '(?i)(?<label>\b(?:clés?|clefs?|keys?)\s+)`(?!\[libellé privé\])[^`\r\n]+`', '${label}`[libellé privé]`')
+    })
+
+  return $protected
+}
+
 function Convert-PublicBody([string]$Body) {
   $publicBody = $Body.TrimStart()
   $publicBody = [regex]::Replace($publicBody, '(?m)^# .+\r?\n+', '')
   $publicBody = [regex]::Replace($publicBody, '\[([^\]]+)\]\(\.\./[^)]+\.md\)', '$1')
-  $publicBody = [regex]::Replace($publicBody, '/(?:home|Users)/marc/code/([A-Za-z0-9._-]+)', 'dépôt local $1')
-  $publicBody = [regex]::Replace($publicBody, 'https?://(?:127\.0\.0\.1|localhost)(?::\d+)?[^\s`)\]]*', 'adresse locale')
-  $publicBody = [regex]::Replace($publicBody, '\b(?:10\.|192\.168\.|172\.(?:1[6-9]|2\d|3[01])\.)\d{1,3}\.\d{1,3}\b', '[adresse LAN]')
-  $publicBody = [regex]::Replace($publicBody, '\b[A-Za-z0-9._%+-]+@ooblik\.com\b', '[compte OOBLIK retiré]')
+  $publicBody = Protect-PublicInfrastructureDetails $publicBody
   return $publicBody.Trim() + "`n"
 }
 
 $entries = Get-ChildItem -LiteralPath $source -File -Filter "2026-??-??.md" | Sort-Object Name
 if ($entries.Count -eq 0) { throw "Aucun billet daté trouvé dans $source." }
 $diacriticLexicon = Get-FrenchDiacriticLexicon $entries
+$pastParticipleLexicon = Get-FrenchPastParticipleLexicon $entries
 
 if ($RepairFrench -and $CheckFrench) {
   throw "Utiliser soit -RepairFrench, soit -CheckFrench."
@@ -305,10 +482,11 @@ if ($RepairFrench -and $CheckFrench) {
 
 if ($RepairFrench -or $CheckFrench) {
   $publishedEntries = Get-ChildItem -LiteralPath $destination -File -Filter "2026-??-??.md" | Sort-Object Name
+  $pastParticipleLexicon = Get-FrenchPastParticipleLexicon @($entries + $publishedEntries)
   $changedEntries = [System.Collections.Generic.List[string]]::new()
   foreach ($publishedEntry in $publishedEntries) {
     $current = Get-Content -LiteralPath $publishedEntry.FullName -Raw -Encoding UTF8
-    $restored = Restore-FrenchDiacritics $current $diacriticLexicon
+    $restored = Restore-FrenchDiacritics $current $diacriticLexicon $pastParticipleLexicon
     if ($restored -ceq $current) { continue }
     $changedEntries.Add($publishedEntry.Name)
     if ($RepairFrench) {
@@ -355,10 +533,10 @@ foreach ($entry in $entries) {
     $tags = $tagsMatch.Groups[1].Value -split ',' | ForEach-Object { $_.Trim().Trim('"').Trim("'") } | Where-Object { $_ }
   }
 
-  $title = Restore-FrenchDiacritics $title $diacriticLexicon
-  $description = Restore-FrenchDiacritics $description $diacriticLexicon
-  $tags = @($tags | ForEach-Object { Restore-FrenchDiacritics $_ $diacriticLexicon })
-  $body = Restore-FrenchDiacritics (Convert-PublicBody $raw.Substring($bodyStart)) $diacriticLexicon
+  $title = Protect-PublicInfrastructureDetails (Restore-FrenchDiacritics $title $diacriticLexicon $pastParticipleLexicon)
+  $description = Protect-PublicInfrastructureDetails (Restore-FrenchDiacritics $description $diacriticLexicon $pastParticipleLexicon)
+  $tags = @($tags | ForEach-Object { Restore-FrenchDiacritics $_ $diacriticLexicon $pastParticipleLexicon })
+  $body = Restore-FrenchDiacritics (Convert-PublicBody $raw.Substring($bodyStart)) $diacriticLexicon $pastParticipleLexicon
   $body = Move-CumulativeTimeToEnd $body
   $draft = if ($Publish) { 'false' } else { 'true' }
   $tagYaml = ($tags | ForEach-Object { ConvertTo-YamlString $_ }) -join ', '

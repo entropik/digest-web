@@ -3675,7 +3675,7 @@ body.digest-modal-open {
 .procrastinator-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.6fr) minmax(260px, .7fr);
-  border-top: 1px solid var(--digest-line);
+  border-top: 0;
   border-bottom: 1px solid var(--digest-line);
 }
 
