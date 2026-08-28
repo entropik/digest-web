@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "npm run check:client && tsc -p tsconfig.json",
+    "check:client": "tsx scripts/check-admin-client.ts",
     "dev": "tsx watch src/server.ts",
     "backup": "node dist/src/backup.js",
     "migrate": "tsx src/migrate.ts",
@@ -37,6 +38,7 @@
   "devDependencies": {
     "@types/better-sqlite3": "7.6.13",
     "@types/node": "24.10.1",
+    "happy-dom": "^20.11.13",
     "tsx": "4.23.1",
     "typescript": "5.9.3"
   },
