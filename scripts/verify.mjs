@@ -12,7 +12,7 @@ const run = (command, args, options = {}) => {
   process.stdout.write(`\n> [${relativeCwd}] ${command} ${args.join(" ")}\n`);
   const result = spawnSync(command, args, {
     cwd: options.cwd || root,
-    env: process.env,
+    env: { ...process.env, ...(options.env || {}) },
     stdio: "inherit",
     shell: options.shell ?? (command === npm && process.platform === "win32"),
   });
@@ -67,6 +67,20 @@ run(npm, ["run", "zip"], { cwd: extension });
 
 run(python, ["scripts/ensure_link_ids.py", "--check"]);
 run(python, ["scripts/check_url_canonicalization.py"]);
+run(
+  python,
+  [
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "skills/curate-web-digest/tests",
+    "-p",
+    "test_*.py",
+    "-v",
+  ],
+  { env: { PYTHONDONTWRITEBYTECODE: "1" } },
+);
 run(python, ["skills/curate-web-digest/scripts/curate_links.py", "--check", "--site", "."]);
 run(process.execPath, ["scripts/resolve_wayback_links.mjs", "--check"]);
 run(python, ["scripts/check_digest_consistency.py", "--site", "."]);
