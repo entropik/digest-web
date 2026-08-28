@@ -5,10 +5,26 @@
 {{ $categories := slice }}
 {{ $tags := slice }}
 {{ $socialImage := "" }}
+{{ $displayImage := "" }}
+{{ $displayWidth := 1200 }}
+{{ $displayHeight := 627 }}
 {{ $linkedinImage := "" }}
 {{ $linkedinFormat := "landscape" }}
 {{ with .Params.images }}
   {{ with index . 0 }}{{ $socialImage = . }}{{ end }}
+{{ end }}
+{{ $displayImage = $socialImage }}
+{{ with .Params.visual }}
+  {{ $displayImage = . }}
+{{ end }}
+{{ with $displayImage }}
+  {{ $displayImagePath := printf "static/%s" (strings.TrimPrefix "/" .) }}
+  {{ if fileExists $displayImagePath }}
+    {{ with imageConfig $displayImagePath }}
+      {{ $displayWidth = .Width }}
+      {{ $displayHeight = .Height }}
+    {{ end }}
+  {{ end }}
 {{ end }}
 {{ $linkedinImagePath := printf "static/social/%s-linkedin.png" $digestDate }}
 {{ if fileExists $linkedinImagePath }}
@@ -28,7 +44,7 @@
 <article class="archive-single">
   <header class="archive-single-header">
     <p class="digest-kicker">Web Digest’s — édition</p>
-    <h1>{{ .Title }}</h1>
+    <h1><span class="archive-title-prefix">DIGEST - </span>{{ .Title }}</h1>
     <p>{{ .Description }}</p>
     <div class="archive-single-actions">
       <div class="archive-single-count"><strong>{{ len $links }}</strong><span>liens documentés</span></div>
@@ -52,12 +68,12 @@
     {{ if $linkedinImage }}{{ partial "linkedin-composer.html" (dict "image" $linkedinImage "format" $linkedinFormat) }}{{ end }}
   </header>
 
-  {{ with $socialImage }}
+  {{ with $displayImage }}
       <figure class="archive-social-visual">
         <img
           src="{{ . | relURL }}"
-          width="1200"
-          height="627"
+          width="{{ $displayWidth }}"
+          height="{{ $displayHeight }}"
           alt="Affiche générative de cette édition du Digest"
           decoding="async">
       </figure>

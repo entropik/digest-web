@@ -296,8 +296,6 @@ select {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 1200 / 627;
-  object-fit: cover;
 }
 
 .about-liquid-page .post-content {
@@ -2284,6 +2282,16 @@ body.digest-modal-open {
 .archive-intro > p:first-child {
   color: var(--digest-ink);
   font-weight: 700;
+}
+
+.archive-intro > p {
+  text-indent: 1.75em;
+}
+
+.archive-intro h2 {
+  margin: clamp(3.5rem, 8vw, 5rem) 0 clamp(1.5rem, 4vw, 2rem);
+  color: var(--digest-ink);
+  line-height: 1.08;
 }
 
 .archive-intro blockquote {

@@ -105,6 +105,13 @@ d’origine au survol comme au focus clavier. Le folio des archives reprend le
 même cartouche à trois cellules jointives que la pagination des liens, y compris
 sur petit écran.
 
+Sur la page d’une édition, le titre principal commence toujours par
+`DIGEST -`. Le texte éditorial emploie un retrait de première ligne de `1,75 em`
+pour chaque paragraphe, et les intertitres ménagent une respiration nette avant
+et après. L’affiche est affichée entière dans ses proportions propres : une
+version carrée ne doit jamais être recadrée au ratio panoramique de l’image Open
+Graph.
+
 ## Taxonomie et contenu
 
 `data/categories.json` est la source de vérité. Chaque entrée possède un `name`

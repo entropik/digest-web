@@ -138,11 +138,36 @@ test("archive pages expose a native LinkedIn publication with image, text and pe
   assert.match(composer, /Confirmer la publication/);
   assert.match(layout, /archive-social-visual/);
   assert.match(layout, /\.Params\.images/);
+  assert.match(layout, /\.Params\.visual/);
+  assert.match(layout, /imageConfig/);
+  assert.match(
+    layout,
+    /<h1><span class="archive-title-prefix">DIGEST - <\/span>\{\{ \.Title \}\}<\/h1>/,
+  );
   assert.match(composer, /width="1200"/);
   assert.match(composer, /1200\{\{ else \}\}627/);
   assert.match(layout, /data-archive-delete-link/);
   assert.match(layout, /class="archive-delete-link"/);
   assert.match(layout, /Retirer/);
+});
+
+test("Digest editions keep editorial paragraph indents and native poster ratios", async () => {
+  const stylesheet = await readFile(
+    new URL("../../assets/css/extended/digest.css", import.meta.url),
+    "utf8",
+  );
+  assert.match(
+    stylesheet,
+    /\.archive-intro > p\s*\{[^}]*text-indent:\s*1\.75em/,
+  );
+  assert.match(
+    stylesheet,
+    /\.archive-intro h2\s*\{[^}]*margin:\s*clamp\(3\.5rem, 8vw, 5rem\) 0 clamp\(1\.5rem, 4vw, 2rem\)/,
+  );
+  assert.doesNotMatch(
+    stylesheet,
+    /\.archive-social-visual img\s*\{[^}]*aspect-ratio/,
+  );
 });
 
 test("the root link modal exposes LinkedIn before tag editing for admins", async () => {
