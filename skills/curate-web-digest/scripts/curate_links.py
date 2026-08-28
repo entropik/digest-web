@@ -13,7 +13,7 @@ import uuid
 from collections import Counter, defaultdict
 from datetime import date, datetime
 from pathlib import Path
-from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
+from urllib.parse import parse_qsl, unquote, urlencode, urlsplit, urlunsplit
 
 TRACKING_KEYS = {"_kx", "fbclid", "gclid", "mc_cid", "mc_eid", "nb_klid", "ref_src"}
 PRIVATE_HOST_MARKERS = (".lan", ".local", ".internal")
@@ -22,9 +22,31 @@ SENSITIVE_QUERY_KEY = re.compile(
     re.I,
 )
 SENSITIVE_PATH_SEGMENT = re.compile(
-    r"/(?:account|admin|auth|console|dashboard|login|oauth|signin)(?:/|$)",
+    r"/(?:[a-z0-9]+[._-])*(?:account|admin|auth|console|dashboard|invites?|invitations?|login|magic-link|oauth|password-reset|reset(?:-password)?|signin|verification|verify)(?:[._-][a-z0-9-]+)*(?:/|$)",
     re.I,
 )
+SENSITIVE_COMPACT_KEYS = {
+    "accesstoken",
+    "apikey",
+    "authcode",
+    "clientsecret",
+    "code",
+    "credential",
+    "idtoken",
+    "jwt",
+    "key",
+    "oauthcode",
+    "password",
+    "passwd",
+    "refreshtoken",
+    "secret",
+    "session",
+    "sessionid",
+    "signature",
+    "ticket",
+    "token",
+    "verificationtoken",
+}
 MARKDOWN_LINK = re.compile(r"\[([^\]]+)\]\((https?://[^)\s]+)\)")
 BARE_URL = re.compile(r"(?<!\()(https?://[^\s<>\]]+)")
 MARKDOWN_ENTRY = re.compile(r"^### \[([^\]]+)\]\((https?://[^)]+)\)\s*$")
@@ -51,6 +73,26 @@ def is_private_host(host: str) -> bool:
         return False
 
 
+def is_sensitive_key(key: str) -> bool:
+    separated = re.sub(r"([a-z0-9])([A-Z])", r"\1_\2", key)
+    compact = re.sub(r"[^a-z0-9]", "", separated.lower())
+    return bool(
+        SENSITIVE_QUERY_KEY.search(separated)
+        or compact in SENSITIVE_COMPACT_KEYS
+        or re.fullmatch(r"tickets?(?:id|key|token)?", compact)
+    )
+
+
+def decode_url_component(value: str) -> str:
+    decoded = value
+    for _ in range(3):
+        next_value = unquote(decoded)
+        if next_value == decoded:
+            break
+        decoded = next_value
+    return decoded
+
+
 def canonicalize(raw_url: str, reject_sensitive: bool = False) -> str:
     parts = urlsplit(raw_url.strip())
     if parts.scheme.lower() not in {"http", "https"} or not parts.hostname:
@@ -63,8 +105,18 @@ def canonicalize(raw_url: str, reject_sensitive: bool = False) -> str:
         host = host.encode("idna").decode("ascii")
     if is_private_host(host):
         raise ValueError("private or local host")
-    if reject_sensitive and SENSITIVE_PATH_SEGMENT.search(parts.path):
-        raise ValueError("authenticated application page")
+    if reject_sensitive:
+        fragment = decode_url_component(parts.fragment)
+        fragment_path_value, separator, fragment_query = fragment.partition("?")
+        if not separator:
+            fragment_query = fragment
+        fragment_path = "/" + fragment_path_value.lstrip("/")
+        if SENSITIVE_PATH_SEGMENT.search(
+            decode_url_component(parts.path)
+        ) or SENSITIVE_PATH_SEGMENT.search(fragment_path):
+            raise ValueError("authenticated application page")
+        if any(is_sensitive_key(key) for key, _ in parse_qsl(fragment_query, keep_blank_values=True)):
+            raise ValueError("sensitive fragment parameter")
 
     port = parts.port
     netloc = host
@@ -74,7 +126,7 @@ def canonicalize(raw_url: str, reject_sensitive: bool = False) -> str:
     query = []
     for key, value in parse_qsl(parts.query, keep_blank_values=True):
         lowered = key.lower()
-        if reject_sensitive and SENSITIVE_QUERY_KEY.search(key):
+        if reject_sensitive and is_sensitive_key(key):
             raise ValueError("sensitive query parameter")
         if lowered.startswith("utm_") or lowered in TRACKING_KEYS:
             continue
