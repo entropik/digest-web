@@ -29,6 +29,8 @@ Les clés \`portable-ooblik-2026\` et clé \`recovery-prod\` sont installées da
 Deux machines portent encore le hostname \`gof\`.
 Rediffusion manuelle du blog sur \`kerooblik\` puis le deploy doit viser uniquement \`kerooblik\`.
 Commit observé : \`Merge pull request #43 from kerooblik/dev\`.
+Ressource documentaire publique : https://93.184.216.34/reference.
+Il y a environ douze fichiers ; les attributs sont geres dans des emplacements geres.
 
 Contrôles préservés : vite@8.0.16, @vitejs/plugin-react, dev@e9016cd,
 contact@example.org, KEREDIT, GOF, VPS KEREDIT, serveur GOF,
@@ -76,6 +78,8 @@ try {
   assert.match(firstOutput, /blog sur `\[nom privé\]`/);
   assert.match(firstOutput, /viser uniquement `\[nom privé\]`/);
   assert.match(firstOutput, /Merge pull request #43 from \[compte GitHub\]\/dev/);
+  assert.match(firstOutput, /Il y a environ douze fichiers ; les attributs sont gérés dans des emplacements gérés\./);
+  assert.doesNotMatch(firstOutput, /il y à environ/i);
 
   for (const control of [
     "vite@8.0.16",
@@ -93,6 +97,7 @@ try {
     "/api/health",
     "deploy/run.sh",
     "thumbnail_key",
+    "https://93.184.216.34/reference",
   ]) {
     assert(firstOutput.includes(control), `Le contrôle légitime « ${control} » a été modifié.`);
   }

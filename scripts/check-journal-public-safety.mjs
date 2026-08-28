@@ -8,6 +8,9 @@ const journalDirectory = path.join(root, "content", "flux", "journal-procrastina
 const datedFile = /^\d{4}-\d{2}-\d{2}\.md$/;
 const connectionContext = /\b(?:SSH|SCP|SFTP|rsync|synchronis(?:e|ation)|destination\s+(?:distante|SSH)|connexion\s+(?:distante|SSH))\b/i;
 const remoteTarget = /\b(?!\[compte\])([a-z_][a-z0-9._-]*)@((?:\d{1,3}\.){3}\d{1,3}|\[[^\]]+\]|[a-z0-9](?:[a-z0-9._-]*[a-z0-9_-])?)/i;
+const ipv4 = /(?<!\d)(?:\d{1,3}\.){3}\d{1,3}(?!\d)/;
+const privateIpv4 = /(?<!\d)(?:10(?:\.\d{1,3}){3}|127(?:\.\d{1,3}){3}|169\.254(?:\.\d{1,3}){2}|172\.(?:1[6-9]|2\d|3[01])(?:\.\d{1,3}){2}|192\.168(?:\.\d{1,3}){2})(?!\d)/;
+const infrastructureContext = /\b(?:SSH|SCP|SFTP|rsync|VPS|serveur|hostname|hôte|NAS|infrastructure|production)\b/i;
 const deploymentContext = /\b(?:déploiement|deploiement|deploy|rediffusion|publication|mise en ligne)\b/i;
 const bareDeploymentHost = /\b(?:sur|vers|viser(?:\s+uniquement)?|cibler|destination)\s+`(?!\[nom privé\]|main`|master`|dev`|production`|staging`)[a-z0-9][a-z0-9_-]*`/i;
 const unsafeRules = [
@@ -32,6 +35,9 @@ for (const file of files) {
     }
     if (connectionContext.test(line) && remoteTarget.test(line)) {
       violations.push(`${file}:${index + 1} — compte ou hôte distant précis`);
+    }
+    if (privateIpv4.test(line) || (infrastructureContext.test(line) && ipv4.test(line))) {
+      violations.push(`${file}:${index + 1} — adresse IP d’infrastructure précise`);
     }
     if (deploymentContext.test(line) && bareDeploymentHost.test(line)) {
       violations.push(`${file}:${index + 1} — nom de machine dans un récit de déploiement`);

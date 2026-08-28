@@ -191,7 +191,7 @@ function Get-FrenchDiacriticLexicon([System.IO.FileInfo[]]$Files) {
     'enchaines' = 'enchaînes'; 'equipes' = 'équipes'; 'etend' = 'étend'; 'evitables' = 'évitables'; 'evitent' = 'évitent'
     'excedent' = 'excédent'; 'executent' = 'exécutent'; 'executions' = 'exécutions'; 'expliquees' = 'expliquées'
     'exposee' = 'exposée'; 'exterieure' = 'extérieure'; 'fideles' = 'fidèles'; 'fractionnee' = 'fractionnée'
-    'frequentes' = 'fréquentes'; 'gache' = 'gâche'; 'gele' = 'gèle'; 'geres' = 'gères'; 'herite' = 'hérite'
+    'frequentes' = 'fréquentes'; 'gache' = 'gâche'; 'gele' = 'gèle'; 'herite' = 'hérite'
     'importees' = 'importées'; 'imprimees' = 'imprimées'; 'independant' = 'indépendant'
     'installee' = 'installée'; 'installees' = 'installées'; 'interprete' = 'interprète'; 'inutilisees' = 'inutilisées'
     'inventee' = 'inventée'; 'iterative' = 'itérative'; 'livrees' = 'livrées'; 'maitrise' = 'maîtrise'
@@ -398,7 +398,10 @@ function Restore-FrenchDiacritics([string]$Text, [hashtable]$Lexicon, [hashtable
   $restored = [regex]::Replace($restored, '(?i)\bmarqueur persiste\b', 'marqueur persisté')
   $restored = [regex]::Replace($restored, '(?i)\bobjets sont copies\b', 'objets sont copiés')
   $restored = [regex]::Replace($restored, '(?i)\ba exerce\b', 'a exercé')
-  $restored = [regex]::Replace($restored, '(?i)\ba environ\b', 'à environ')
+  $restored = [regex]::Replace($restored, '(?i)(?<punctuation>[,;:])\s+a environ\b', '${punctuation} à environ')
+  $restored = [regex]::Replace($restored, '(?i)\bjusqu.a environ\b', "jusqu’à environ")
+  $restored = [regex]::Replace($restored, '(?i)\b(?<aux>sont|étaient|seront) geres\b', '${aux} gérés')
+  $restored = [regex]::Replace($restored, '(?i)\b(?<subject>emplacements|attributs|éléments|fichiers|objets|formats|choix) geres\b', '${subject} gérés')
   $restored = [regex]::Replace($restored, '^\s*à ', 'À ')
   return $restored
 }
@@ -428,7 +431,14 @@ function Protect-PublicInfrastructureDetails([string]$Text) {
     })
 
   $protected = [regex]::Replace($protected, 'https?://(?:127\.0\.0\.1|localhost)(?::\d+)?[^\s`)\]]*', 'adresse locale')
-  $protected = [regex]::Replace($protected, '(?<!\d)(?:\d{1,3}\.){3}\d{1,3}(?!\d)', '[adresse IP]')
+  # Les adresses privées/locales ne sont jamais publiables. Une IPv4 publique
+  # n'est masquée que dans un contexte d'infrastructure afin de préserver les
+  # destinations documentaires légitimes utilisant directement une adresse IP.
+  $protected = [regex]::Replace($protected, '(?<!\d)(?:10(?:\.\d{1,3}){3}|127(?:\.\d{1,3}){3}|169\.254(?:\.\d{1,3}){2}|172\.(?:1[6-9]|2\d|3[01])(?:\.\d{1,3}){2}|192\.168(?:\.\d{1,3}){2})(?!\d)', '[adresse IP]')
+  $protected = [regex]::Replace($protected, '(?im)^(?<line>(?=[^\r\n]*(?:SSH|SCP|SFTP|rsync|VPS|serveur|hostname|hôte|NAS|infrastructure|production))[^\r\n]*)$', {
+      param($match)
+      return [regex]::Replace($match.Groups['line'].Value, '(?<!\d)(?:\d{1,3}\.){3}\d{1,3}(?!\d)', '[adresse IP]')
+    })
   $protected = [regex]::Replace($protected, '\b[A-Za-z0-9._%+-]+@ooblik\.com\b', '[compte OOBLIK retiré]')
 
   # Les chemins système génériques restent lisibles, mais leurs comptes,
