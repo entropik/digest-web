@@ -284,14 +284,45 @@ function Move-CumulativeTimeToEnd([string]$Body) {
   return $Body.Substring(0, $section.Groups['items'].Index) + ($reordered -join "`n") + $Body.Substring($section.Groups['items'].Index + $section.Groups['items'].Length)
 }
 
+function Protect-PublicInfrastructureDetails([string]$Text) {
+  $protected = $Text
+  $protected = [regex]::Replace($protected, '/(?:home|Users)/marc/code/([A-Za-z0-9._-]+)', 'dépôt local $1')
+  $protected = [regex]::Replace($protected, '(?im)^(?=[^\r\n]*(?:SSH|SCP|SFTP|rsync|synchronis(?:e|ation)|destination\s+(?:distante|SSH)|connexion\s+(?:distante|SSH)))(?<before>[^\r\n]*?)(?<account>[a-z_][a-z0-9._-]*)@(?<host>(?:\d{1,3}\.){3}\d{1,3}|\[[^\]\r\n]+\]|[a-z0-9](?:[a-z0-9._-]*[a-z0-9_-])?)', {
+      param($match)
+      return $match.Groups['before'].Value + '[compte]@[hôte]'
+    })
+  $protected = [regex]::Replace($protected, 'https?://(?:127\.0\.0\.1|localhost)(?::\d+)?[^\s`)\]]*', 'adresse locale')
+  $protected = [regex]::Replace($protected, '(?<!\d)(?:\d{1,3}\.){3}\d{1,3}(?!\d)', '[adresse IP]')
+  $protected = [regex]::Replace($protected, '\b[A-Za-z0-9._%+-]+@ooblik\.com\b', '[compte OOBLIK retiré]')
+  $protected = [regex]::Replace($protected, '(?i)(?<![A-Za-z0-9._-])/(?:home|Users)/(?!\[compte\])[^/\s`"''<>)\],;]+(?:/[^\s`"''<>)\],;]+)*', {
+      param($match)
+      $suffix = if ($match.Value -match '[.,;:]$') { $match.Value.Substring($match.Value.Length - 1) } else { '' }
+      return '/home/[compte]/[chemin privé]' + $suffix
+    })
+  $protected = [regex]::Replace($protected, '(?i)(?<![A-Za-z0-9._-])/(?<root>root|opt|srv)/(?!\[chemin privé\])[^\s`"''<>)\],;]+', {
+      param($match)
+      $suffix = if ($match.Value -match '[.,;:]$') { $match.Value.Substring($match.Value.Length - 1) } else { '' }
+      return '/' + $match.Groups['root'].Value.ToLowerInvariant() + '/[chemin privé]' + $suffix
+    })
+  $protected = [regex]::Replace($protected, '(?i)\b[A-Z]:\\Users\\[^\s`"''<>)\],;]+', '[chemin local]')
+  $protected = [regex]::Replace($protected, '(?<role>\b(?i:VPS|serveur|hostname|hôte|NAS|forge)\s+(?:(?i:KEREDIT|GOF)\s+)?(?:(?i:nommé[e]?)\s+)?)`(?!\[nom privé\])(?<name>[a-z0-9][a-z0-9._-]*)`', '${role}`[nom privé]`')
+  $protected = [regex]::Replace($protected, '(?im)^(?=[^\r\n]*(?:environnement|comme source))(?<before>[^\r\n]*?\bVPS\s+)(?<name>[A-Za-z0-9][A-Za-z0-9._-]*)', {
+      param($match)
+      if ($match.Groups['name'].Value -in @('KEREDIT', 'GOF', 'Hetzner', 'bêta')) { return $match.Value }
+      return $match.Groups['before'].Value + '[nom privé]'
+    })
+  $protected = [regex]::Replace($protected, '(?im)^(?<line>(?=[^\r\n]*(?:SSH|authorized_keys|IdentityFile))[^\r\n]*)$', {
+      param($match)
+      return [regex]::Replace($match.Groups['line'].Value, '(?i)(?<label>\b(?:clés?|clefs?|keys?)\s+)`(?!\[libellé privé\])[^`\r\n]+`', '${label}`[libellé privé]`')
+    })
+  return $protected
+}
+
 function Convert-PublicBody([string]$Body) {
   $publicBody = $Body.TrimStart()
   $publicBody = [regex]::Replace($publicBody, '(?m)^# .+\r?\n+', '')
   $publicBody = [regex]::Replace($publicBody, '\[([^\]]+)\]\(\.\./[^)]+\.md\)', '$1')
-  $publicBody = [regex]::Replace($publicBody, '/(?:home|Users)/marc/code/([A-Za-z0-9._-]+)', 'dépôt local $1')
-  $publicBody = [regex]::Replace($publicBody, 'https?://(?:127\.0\.0\.1|localhost)(?::\d+)?[^\s`)\]]*', 'adresse locale')
-  $publicBody = [regex]::Replace($publicBody, '\b(?:10\.|192\.168\.|172\.(?:1[6-9]|2\d|3[01])\.)\d{1,3}\.\d{1,3}\b', '[adresse LAN]')
-  $publicBody = [regex]::Replace($publicBody, '\b[A-Za-z0-9._%+-]+@ooblik\.com\b', '[compte OOBLIK retiré]')
+  $publicBody = Protect-PublicInfrastructureDetails $publicBody
   return $publicBody.Trim() + "`n"
 }
 
@@ -355,8 +386,8 @@ foreach ($entry in $entries) {
     $tags = $tagsMatch.Groups[1].Value -split ',' | ForEach-Object { $_.Trim().Trim('"').Trim("'") } | Where-Object { $_ }
   }
 
-  $title = Restore-FrenchDiacritics $title $diacriticLexicon
-  $description = Restore-FrenchDiacritics $description $diacriticLexicon
+  $title = Protect-PublicInfrastructureDetails (Restore-FrenchDiacritics $title $diacriticLexicon)
+  $description = Protect-PublicInfrastructureDetails (Restore-FrenchDiacritics $description $diacriticLexicon)
   $tags = @($tags | ForEach-Object { Restore-FrenchDiacritics $_ $diacriticLexicon })
   $body = Restore-FrenchDiacritics (Convert-PublicBody $raw.Substring($bodyStart)) $diacriticLexicon
   $body = Move-CumulativeTimeToEnd $body

@@ -71,6 +71,8 @@ run(python, ["skills/curate-web-digest/scripts/curate_links.py", "--check", "--s
 run(process.execPath, ["scripts/resolve_wayback_links.mjs", "--check"]);
 run(python, ["scripts/check_digest_consistency.py", "--site", "."]);
 run(process.execPath, ["scripts/check-journal-french.mjs"]);
+run(process.execPath, ["scripts/test-import-keredit-journal.mjs"]);
+run(process.execPath, ["scripts/check-journal-public-safety.mjs"]);
 run("hugo", [
   "--gc",
   "--minify",
