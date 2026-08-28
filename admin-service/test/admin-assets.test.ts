@@ -72,7 +72,7 @@ test("the private dashboard displays the current site version after logout", () 
 
   assert.match(
     page,
-    /<button id="admin-logout" type="button">Déconnexion<\/button>\s*<span class="admin-version" aria-label="Version v1\.23\.8">v1\.23\.8<\/span>/,
+    /<button id="admin-logout" type="button">Déconnexion<\/button>\s*<span class="admin-version" aria-label="Version v1\.23\.9">v1\.23\.9<\/span>/,
   );
   assert.match(adminCss, /\.admin-version\{/);
   assert.match(adminCss, /\.admin-version\{[^}]*background:var\(--ink\);color:var\(--paper\)/);
@@ -184,6 +184,19 @@ test("the admin exposes the complete tag register and its lifecycle", () => {
   assert.match(adminCss, /@media\(max-width:900px\)\{\.admin-nav\{grid-template-columns:repeat\(3/);
   assert.match(adminCss, /@media\(max-width:520px\)[\s\S]*\.admin-nav\{grid-template-columns:repeat\(2/);
   assert.match(adminJs, /button\.setAttribute\("aria-pressed",String\(active\)\)/);
+});
+
+test("taxonomy mutations retain one idempotency key until success", () => {
+  assert.match(adminJs, /digest-taxonomy-mutation:/);
+  assert.match(adminJs, /localStorage\.getItem\(key\)/);
+  assert.match(adminJs, /requestId:request\.requestId/);
+  assert.match(adminJs, /request\.complete\(\)/);
+  assert.match(adminJs, /\["rename-category",current,replacement,description\]/);
+  assert.match(
+    adminJs,
+    /\["update-theme",current,replacement,description,aliases\]/,
+  );
+  assert.match(adminJs, /\["archive-theme",current\]/);
 });
 
 test("publication uses one count-aware action and keeps server validation implicit", () => {
