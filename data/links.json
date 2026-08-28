@@ -1,5 +1,291 @@
 [
   {
+    "title": "Swarms — composer des nuées d’agents",
+    "url": "https://github.com/kyegomez/swarms",
+    "category": "IA & Agents",
+    "added": "2026-08-28",
+    "id": "8e7e6f00-f860-5b73-9da6-ffbf5410fa87",
+    "description": "Un framework consacré aux architectures, topologies et protocoles nécessaires pour coordonner de grands collectifs d’agents.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Pydantic AI — des agents Python typés de bout en bout",
+    "url": "https://github.com/pydantic/pydantic-ai",
+    "category": "IA & Agents",
+    "added": "2026-08-28",
+    "id": "25207362-67f3-54d4-8835-37a94b34fc3c",
+    "description": "Un framework Python qui applique le typage et la validation de Pydantic aux agents, à leurs outils, à leurs dépendances et à leurs sorties structurées.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "Python",
+      "développement"
+    ]
+  },
+  {
+    "title": "Paperclip — administrer une entreprise d’agents",
+    "url": "https://github.com/paperclipai/paperclip",
+    "category": "IA & Agents",
+    "added": "2026-08-28",
+    "id": "db2868c2-83ff-5dee-a070-48fc94f7c3f4",
+    "description": "Un control plane pour recruter des agents comme employés, les organiser en organigramme et suivre leurs objectifs, tâches, budgets et validations.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "automatisation"
+    ]
+  },
+  {
+    "title": "OpenHands — une plateforme d’agents développeurs",
+    "url": "https://github.com/OpenHands/OpenHands",
+    "category": "IA & Agents",
+    "added": "2026-08-28",
+    "id": "9f737c42-e03f-5575-86eb-846d8b8ff798",
+    "description": "Une plateforme mature d’agents capables de modifier du code et d’agir dans un environnement informatique contrôlé.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "code",
+      "développement"
+    ]
+  },
+  {
+    "title": "OpenAI Agents SDK — agents, handoffs et garde-fous",
+    "url": "https://github.com/openai/openai-agents-python",
+    "category": "IA & Agents",
+    "added": "2026-08-28",
+    "id": "37fbfbb1-a8e7-5fc2-9b0b-03c320cc0206",
+    "description": "Une bibliothèque légère pour faire circuler une tâche entre agents spécialisés, tracer leurs actions et encadrer leurs sorties.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "développement"
+    ]
+  },
+  {
+    "title": "NVIDIA NeMo Agent Toolkit — observer et optimiser des équipes d’agents",
+    "url": "https://github.com/NVIDIA/NeMo-Agent-Toolkit",
+    "category": "IA & Agents",
+    "added": "2026-08-28",
+    "id": "069e17f4-795d-5135-90c6-fecb6efafcc7",
+    "description": "Une bibliothèque indépendante des frameworks pour connecter, observer, évaluer et optimiser des agents et leurs workflows en production.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "observabilité",
+      "évaluation"
+    ]
+  },
+  {
+    "title": "Microsoft Agent Framework — le successeur d’AutoGen",
+    "url": "https://github.com/microsoft/agent-framework",
+    "category": "IA & Agents",
+    "added": "2026-08-28",
+    "id": "bc99870a-0faa-5250-9570-7df7c0e5b5af",
+    "description": "Le framework unifié de Microsoft pour construire, orchestrer et déployer des agents et des workflows multi-agents en Python et .NET.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "développement"
+    ]
+  },
+  {
+    "title": "Mastra — le framework agentique TypeScript",
+    "url": "https://github.com/mastra-ai/mastra",
+    "category": "IA & Agents",
+    "added": "2026-08-28",
+    "id": "984bf087-1cb2-5628-a537-9f87c9ecf696",
+    "description": "Un framework TypeScript moderne réunissant agents, workflows, mémoire, évaluations, observabilité et déploiement ; son cœur est sous Apache 2.0.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "JavaScript"
+    ]
+  },
+  {
+    "title": "Letta — donner une mémoire durable aux agents",
+    "url": "https://github.com/letta-ai/letta",
+    "category": "IA & Agents",
+    "added": "2026-08-28",
+    "id": "02ec9698-3bae-5afe-bbfd-6b0671bf4d3c",
+    "description": "Une plateforme d’agents persistants construite autour de la mémoire, de l’état et de l’apprentissage au fil des interactions.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "LLM"
+    ]
+  },
+  {
+    "title": "LangGraph — orchestrer des agents durables",
+    "url": "https://github.com/langchain-ai/langgraph",
+    "category": "IA & Agents",
+    "added": "2026-08-28",
+    "id": "40307519-2ddb-5ce6-bd8d-9c7a77b91412",
+    "description": "Un moteur d’orchestration par graphes d’état pour construire des agents contrôlables, persistants et capables de reprendre une exécution interrompue.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource"
+    ]
+  },
+  {
+    "title": "Hermes Agent — apprendre, mémoriser et déléguer",
+    "url": "https://github.com/NousResearch/hermes-agent",
+    "category": "IA & Agents",
+    "added": "2026-08-28",
+    "id": "504d0a00-03fe-59a3-8de7-ae5c3f3ae206",
+    "description": "Un agent persistant qui transforme son expérience en compétences réutilisables, planifie des automatisations et lance des sous-agents isolés.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "automatisation"
+    ]
+  },
+  {
+    "title": "Google ADK — construire et déployer des systèmes d’agents",
+    "url": "https://github.com/google/adk-python",
+    "category": "IA & Agents",
+    "added": "2026-08-28",
+    "id": "a76823fd-a870-58ea-96d0-47408a629acc",
+    "description": "Un toolkit Python code-first pour composer, évaluer et déployer des agents sophistiqués sans les enfermer dans un seul modèle.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "développement"
+    ]
+  },
+  {
+    "title": "E2B — des environnements isolés pour les agents",
+    "url": "https://github.com/e2b-dev/E2B",
+    "category": "IA & Agents",
+    "added": "2026-08-28",
+    "id": "f087e29f-d63e-54c3-bb95-228f3b971dee",
+    "description": "Une infrastructure de sandboxes sécurisées pour exécuter le code et les outils d’une flotte d’agents sans leur abandonner la machine hôte.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "cybersécurité",
+      "DevOps"
+    ]
+  },
+  {
+    "title": "Daytona — isoler le code produit par les agents",
+    "url": "https://github.com/daytonaio/daytona",
+    "category": "IA & Agents",
+    "added": "2026-08-28",
+    "id": "e8872f26-abdd-53de-aeee-a5710b8f983d",
+    "description": "Une infrastructure open source de sandboxes persistantes et isolées pour exécuter, à grande échelle, le code et les workflows générés par des agents.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "cybersécurité",
+      "DevOps"
+    ]
+  },
+  {
+    "title": "ChatDev — une société de développement simulée",
+    "url": "https://github.com/OpenBMB/ChatDev",
+    "category": "IA & Agents",
+    "added": "2026-08-28",
+    "id": "bcf4c5aa-217a-5ab8-a3ee-fcd7715a361e",
+    "description": "Une entreprise virtuelle où plusieurs agents conçoivent et développent un logiciel en collaborant par conversations structurées.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "recherche",
+      "code"
+    ]
+  },
+  {
+    "title": "CAMEL — expérimenter des sociétés d’agents",
+    "url": "https://github.com/camel-ai/camel",
+    "category": "IA & Agents",
+    "added": "2026-08-28",
+    "id": "8dd968b7-e0e7-538c-9a96-4ddba45a3965",
+    "description": "Un projet de recherche actif sur les jeux de rôles, la coopération et les comportements émergents dans les systèmes multi-agents.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "recherche"
+    ]
+  },
+  {
+    "title": "AWorld — construire des flottes d’agents qui s’évaluent",
+    "url": "https://github.com/inclusionAI/AWorld",
+    "category": "IA & Agents",
+    "added": "2026-08-28",
+    "id": "f84d3ef8-adf9-58ff-8c0d-e4b3c5a7ad55",
+    "description": "Un harnais multi-agent qui orchestre des spécialistes, encode l’expertise d’un domaine et boucle entre construction, évaluation et amélioration.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "multi-agents",
+      "évaluation"
+    ]
+  },
+  {
+    "title": "Agno — bâtir et administrer une plateforme d’agents",
+    "url": "https://github.com/agno-agi/agno",
+    "category": "IA & Agents",
+    "added": "2026-08-28",
+    "id": "4e0024a5-7e50-5d4c-9eb2-286324ca2b8a",
+    "description": "Une plateforme Python complète pour construire, exécuter et superviser des agents, des équipes et leurs connaissances.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "développement"
+    ]
+  },
+  {
+    "title": "AgentScope — des agents que l’on peut observer",
+    "url": "https://github.com/agentscope-ai/agentscope",
+    "category": "IA & Agents",
+    "added": "2026-08-28",
+    "id": "b48c2bcc-cf68-539f-80b6-76a1ff5d1650",
+    "description": "Un framework multi-agent centré sur l’observabilité, la compréhension des exécutions et le passage de l’expérimentation à la production.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "DevOps"
+    ]
+  },
+  {
+    "title": "Agent Zero — un agent qui crée ses propres outils",
+    "url": "https://github.com/agent0ai/agent-zero",
+    "category": "IA & Agents",
+    "added": "2026-08-28",
+    "id": "7656dfa2-d464-5a90-b6db-0e83cbac0bd5",
+    "description": "Un agent généraliste, local et persistant qui utilise l’ordinateur, fabrique ses outils et délègue des sous-tâches à des agents subordonnés.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "IA-locale",
+      "outils"
+    ]
+  },
+  {
     "title": "You Don’t Know JS Yet — Comprendre JavaScript en profondeur",
     "url": "https://github.com/getify/You-Dont-Know-JS",
     "category": "Développement",
