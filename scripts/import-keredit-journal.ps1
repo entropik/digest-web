@@ -454,6 +454,20 @@ function Protect-PublicInfrastructureDetails([string]$Text) {
       return $match.Groups['before'].Value + '[nom privé]'
     })
 
+  # Les récits de déploiement citent parfois la machine sans la préfixer par
+  # « VPS » ou « serveur », par exemple « sur `machine` ».
+  $protected = [regex]::Replace($protected, '(?im)^(?<line>(?=[^\r\n]*(?:déploiement|deploiement|deploy|rediffusion|publication|mise en ligne))[^\r\n]*)$', {
+      param($match)
+      return [regex]::Replace($match.Groups['line'].Value, '(?i)(?<before>\b(?:sur|vers|viser(?:\s+uniquement)?|cibler|destination)\s+)`(?!\[nom privé\])(?<name>[a-z0-9][a-z0-9_-]*)`', {
+          param($target)
+          if ($target.Groups['name'].Value -in @('main', 'master', 'dev', 'production', 'staging')) { return $target.Value }
+          return $target.Groups['before'].Value + '`[nom privé]`'
+        })
+    })
+
+  # Les messages de merge GitHub exposent le compte source avant la branche.
+  $protected = [regex]::Replace($protected, '(?i)(?<before>\bMerge pull request #\d+ from )(?!\[compte GitHub\]/)[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})/', '${before}[compte GitHub]/')
+
   # Ne masquer un libellé de clé que si la ligne parle réellement d'accès SSH.
   $protected = [regex]::Replace($protected, '(?im)^(?<line>(?=[^\r\n]*(?:SSH|authorized_keys|IdentityFile))[^\r\n]*)$', {
       param($match)
