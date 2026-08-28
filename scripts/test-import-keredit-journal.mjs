@@ -27,6 +27,12 @@ Connexion SSH vers backup@edge-prod-42.
 WordPress vit sous /home/adminooblik/htdocs/ooblik.com.
 Les clés \`portable-ooblik-2026\` et clé \`recovery-prod\` sont installées dans \`authorized_keys\` pour SSH.
 Deux machines portent encore le hostname \`gof\`.
+Rediffusion manuelle du blog sur \`kerooblik\` puis le deploy doit viser uniquement \`kerooblik\`.
+Commit observé : \`Merge pull request #43 from kerooblik/dev\`.
+Ressource documentaire publique : https://93.184.216.34/reference.
+Il y a environ douze fichiers ; les attributs sont geres dans des emplacements geres.
+Points verifies, contrats verifies et objets sont verifies ; tu verifies le résultat.
+Le travail est preserve, le ClipPath preserve, le module dedie ; la journée a ramene 41 fichiers deplaces.
 
 Contrôles préservés : vite@8.0.16, @vitejs/plugin-react, dev@e9016cd,
 contact@example.org, KEREDIT, GOF, VPS KEREDIT, serveur GOF,
@@ -71,6 +77,13 @@ try {
   assert.match(firstOutput, /\/home\/\[compte\]\/\[chemin privé\]/);
   assert.match(firstOutput, /clé `\[libellé privé\]`/);
   assert.match(firstOutput, /hostname `\[nom privé\]`/);
+  assert.match(firstOutput, /blog sur `\[nom privé\]`/);
+  assert.match(firstOutput, /viser uniquement `\[nom privé\]`/);
+  assert.match(firstOutput, /Merge pull request #43 from \[compte GitHub\]\/dev/);
+  assert.match(firstOutput, /Il y a environ douze fichiers ; les attributs sont gérés dans des emplacements gérés\./);
+  assert.doesNotMatch(firstOutput, /il y à environ/i);
+  assert.match(firstOutput, /Points vérifiés, contrats vérifiés et objets sont vérifiés ; tu vérifies le résultat\./);
+  assert.match(firstOutput, /Le travail est préservé, le ClipPath préservé, le module dédié ; la journée a ramené 41 fichiers déplacés\./);
 
   for (const control of [
     "vite@8.0.16",
@@ -88,6 +101,7 @@ try {
     "/api/health",
     "deploy/run.sh",
     "thumbnail_key",
+    "https://93.184.216.34/reference",
   ]) {
     assert(firstOutput.includes(control), `Le contrôle légitime « ${control} » a été modifié.`);
   }
@@ -103,6 +117,8 @@ try {
     "backup@edge-prod-42",
     "/opt/apps/keredit/current",
     "hostname `gof`",
+    "`kerooblik`",
+    "from kerooblik/dev",
   ]) {
     assert(!firstOutput.includes(secret), `La donnée « ${secret} » reste publiée.`);
   }
