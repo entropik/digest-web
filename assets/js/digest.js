@@ -39,8 +39,12 @@
   );
   const faviconFallbackSrc = faviconFallbackData.dataset.fallbackSrc;
   const indexUrl = grid.dataset.indexUrl;
+  const supplementalIndexUrl = grid.dataset.supplementalIndexUrl;
+  const detailIndexUrl = grid.dataset.detailIndexUrl;
   let links = null;
-  let linksPromise = null;
+  const indexPromises = new Map();
+  const linksByScope = new Map();
+  let detailPromise = null;
   let linkCountByDate = new Map();
   const modal = document.querySelector("#digest-modal");
   const modalClose = modal.querySelector(".digest-modal-close");
@@ -104,10 +108,10 @@
     url: entry.u,
     category: entry.c,
     description: entry.d || "",
-    archive_text: entry.x || "",
+    archive_text: "",
     tags: entry.g || [],
     added: entry.a,
-    stream: entry.m || "",
+    searchText: "",
     status: entry.s || "",
     status_note: entry.n || "",
     archive_url: entry.r || "",
@@ -117,10 +121,9 @@
     origin_url: entry.q || "",
   });
 
-  const loadLinks = () => {
-    if (links) return Promise.resolve(links);
-    if (!linksPromise) {
-      linksPromise = fetch(indexUrl, {
+  const fetchIndex = (url) => {
+    if (!indexPromises.has(url)) {
+      indexPromises.set(url, fetch(url, {
         credentials: "same-origin",
         headers: { Accept: "application/json" },
       })
@@ -130,25 +133,64 @@
         })
         .then((entries) => {
           if (!Array.isArray(entries)) throw new Error("INDEX_INVALID");
-          links = entries.map(decodeLink);
-          linkCountByDate = links.filter((link) => !link.stream || (link.stream === "blog-ooblik" && link.origin_url)).reduce((counts, link) => {
-            const dateKey = String(link.added || "").slice(0, 10);
-            if (dateKey) counts.set(dateKey, (counts.get(dateKey) || 0) + 1);
-            return counts;
-          }, new Map());
-          return links;
+          return entries.map(decodeLink);
         })
         .catch((error) => {
-          linksPromise = null;
+          indexPromises.delete(url);
+          throw error;
+        }));
+    }
+    return indexPromises.get(url);
+  };
+
+  const loadLinks = async () => {
+    const scope = category === "all" ? "base" : "expanded";
+    if (!linksByScope.has(scope)) {
+      const requiredIndexes =
+        scope === "base"
+          ? [indexUrl]
+          : [indexUrl, supplementalIndexUrl];
+      const groups = await Promise.all(requiredIndexes.map(fetchIndex));
+      const unique = new Map();
+      groups.flat().forEach((link) => unique.set(link.id, link));
+      linksByScope.set(scope, [...unique.values()]);
+    }
+    const scopedLinks = linksByScope.get(scope);
+    if (!linkCountByDate.size) {
+      linkCountByDate = scopedLinks.reduce((counts, link) => {
+        const dateKey = String(link.added || "").slice(0, 10);
+        if (dateKey) counts.set(dateKey, (counts.get(dateKey) || 0) + 1);
+        return counts;
+      }, new Map());
+    }
+    return scopedLinks;
+  };
+
+  const loadDetails = () => {
+    if (!detailPromise) {
+      detailPromise = fetch(detailIndexUrl, {
+        credentials: "same-origin",
+        headers: { Accept: "application/json" },
+      })
+        .then((response) => {
+          if (!response.ok) throw new Error(`DETAIL_INDEX_${response.status}`);
+          return response.json();
+        })
+        .then((entries) => {
+          if (!Array.isArray(entries)) throw new Error("DETAIL_INDEX_INVALID");
+          return new Map(entries.map((entry) => [entry.i, entry.x || ""]));
+        })
+        .catch((error) => {
+          detailPromise = null;
           throw error;
         });
     }
-    return linksPromise;
+    return detailPromise;
   };
 
   const withLinks = async (task, onError = null) => {
     try {
-      await loadLinks();
+      links = await loadLinks();
     } catch {
       onError?.();
       empty.textContent =
@@ -258,14 +300,13 @@
   };
 
   const getSearchableText = (link) =>
-    normalize(
+    link.searchText ||= normalize(
       [
         link.title,
         link.category,
         link.url,
         getHost(link.url),
         link.description,
-        link.archive_text,
         link.status,
         link.status_note,
         ...(link.tags || []),
@@ -435,7 +476,7 @@
     const selectedDate = dateFilter.value;
     return links.filter((link) => {
       const matchesCategory =
-        (category === "all" && (!link.stream || (link.stream === "blog-ooblik" && link.origin_url))) ||
+        category === "all" ||
         (category === "favorites" ? isFavorite(link.url) : link.category === category);
       const searchableText = getSearchableText(link);
       const matchesQuery = terms.every((term) => searchableText.includes(term));
@@ -547,16 +588,18 @@
     const button = event.target.closest("button[data-category-label]");
     if (!button) return;
     const requestedCategory = button.dataset.categoryLabel;
+    category = requestedCategory;
+    searchRevision += 1;
     if (requestedCategory === "favorites") {
-      searchRevision += 1;
       search.value = "";
       dateFilter.value = "";
       dateValue.textContent = "cliquer sur le calendrier";
       dateToggle.classList.remove("has-value");
       closeCalendar();
     }
+    const requestedSearchRevision = searchRevision;
     void withLinks(() => {
-      category = requestedCategory;
+      if (requestedSearchRevision !== searchRevision) return;
       currentPage = 1;
       clearRandomSelection();
       syncCategoryBrowser(button, requestedCategory);
@@ -566,8 +609,11 @@
 
   categoryReset.addEventListener("click", () => {
     const allButton = filters.querySelector('button[data-category-label="all"]');
+    category = "all";
+    searchRevision += 1;
+    const requestedSearchRevision = searchRevision;
     void withLinks(() => {
-      category = "all";
+      if (requestedSearchRevision !== searchRevision) return;
       currentPage = 1;
       clearRandomSelection();
       syncCategoryBrowser(allButton, "all");
@@ -699,7 +745,13 @@
     void withLinks(() => undefined);
   });
 
-  const renderModalLink = (link) => {
+  const renderModalLink = async (link) => {
+    try {
+      const details = await loadDetails();
+      link.archive_text = details.get(link.id) || "";
+    } catch {
+      link.archive_text = "";
+    }
     const isDead = link.status === "dead";
     const archiveUrl = link.archive_url || "";
     const host = getHost(link.url);
@@ -782,7 +834,7 @@
     const nextIndex = modalNavigationIndex + offset;
     if (nextIndex < 0 || nextIndex >= modalNavigationLinks.length) return;
     modalNavigationIndex = nextIndex;
-    renderModalLink(modalNavigationLinks[modalNavigationIndex]);
+    void renderModalLink(modalNavigationLinks[modalNavigationIndex]);
   };
 
   grid.addEventListener("click", (event) => {
@@ -803,9 +855,9 @@
       );
       if (modalNavigationIndex < 0) return;
 
-      renderModalLink(modalNavigationLinks[modalNavigationIndex]);
       modal.showModal();
       document.body.classList.add("digest-modal-open");
+      void renderModalLink(modalNavigationLinks[modalNavigationIndex]);
     });
   });
 

@@ -8,9 +8,12 @@
 {{ end }}
 {{ $allLinks := sort $publicLinks "added" "desc" }}
 {{ $editorialLinks := slice }}
+{{ $supplementalLinks := slice }}
 {{ range $allLinks }}
   {{ if or (not (.stream | default "")) (and (eq (.stream | default "") "blog-ooblik") .origin_url) }}
     {{ $editorialLinks = $editorialLinks | append . }}
+  {{ else }}
+    {{ $supplementalLinks = $supplementalLinks | append . }}
   {{ end }}
 {{ end }}
 {{ $links := sort $editorialLinks "added" "desc" }}
@@ -27,8 +30,8 @@
 {{ $categories = uniq $categories | sort }}
 {{ $initialLinks := first 51 $links }}
 {{ $pageCount := div (add (len $links) 50) 51 }}
-{{ $compactIndex := slice }}
-{{ range $allLinks }}
+{{ $baseIndex := slice }}
+{{ range $links }}
   {{ $entry := dict
     "i" .id
     "t" .title
@@ -37,18 +40,44 @@
     "d" (.description | default "")
     "g" (.tags | default (slice))
     "a" .added
-    "m" (.stream | default "")
   }}
-  {{ with .archive_text }}{{ $entry = merge $entry (dict "x" .) }}{{ end }}
   {{ if .image }}{{ $entry = merge $entry (dict "p" .image "l" (.image_alt | default "")) }}{{ end }}
   {{ with .origin_url }}{{ $entry = merge $entry (dict "q" .) }}{{ end }}
   {{ with .status }}{{ $entry = merge $entry (dict "s" .) }}{{ end }}
   {{ with .status_note }}{{ $entry = merge $entry (dict "n" .) }}{{ end }}
   {{ with .archive_url }}{{ $entry = merge $entry (dict "r" .) }}{{ end }}
   {{ with .archive_scope }}{{ $entry = merge $entry (dict "o" .) }}{{ end }}
-  {{ $compactIndex = $compactIndex | append $entry }}
+  {{ $baseIndex = $baseIndex | append $entry }}
 {{ end }}
-{{ $digestIndex := resources.FromString "data/digest-index.json" ($compactIndex | jsonify) | minify | fingerprint }}
+{{ $supplementalIndex := slice }}
+{{ range $supplementalLinks }}
+  {{ $entry := dict
+    "i" .id
+    "t" .title
+    "u" .url
+    "c" .category
+    "d" (.description | default "")
+    "g" (.tags | default (slice))
+    "a" .added
+  }}
+  {{ if .image }}{{ $entry = merge $entry (dict "p" .image "l" (.image_alt | default "")) }}{{ end }}
+  {{ with .origin_url }}{{ $entry = merge $entry (dict "q" .) }}{{ end }}
+  {{ with .status }}{{ $entry = merge $entry (dict "s" .) }}{{ end }}
+  {{ with .status_note }}{{ $entry = merge $entry (dict "n" .) }}{{ end }}
+  {{ with .archive_url }}{{ $entry = merge $entry (dict "r" .) }}{{ end }}
+  {{ with .archive_scope }}{{ $entry = merge $entry (dict "o" .) }}{{ end }}
+  {{ $supplementalIndex = $supplementalIndex | append $entry }}
+{{ end }}
+{{ $detailIndex := slice }}
+{{ range $allLinks }}
+  {{ $link := . }}
+  {{ with .archive_text }}
+    {{ $detailIndex = $detailIndex | append (dict "i" $link.id "x" .) }}
+  {{ end }}
+{{ end }}
+{{ $digestIndex := resources.FromString "data/digest-index-base.json" ($baseIndex | jsonify) | minify | fingerprint }}
+{{ $digestSupplementalIndex := resources.FromString "data/digest-index-supplemental.json" ($supplementalIndex | jsonify) | minify | fingerprint }}
+{{ $digestDetailIndex := resources.FromString "data/digest-index-details.json" ($detailIndex | jsonify) | minify | fingerprint }}
 
 <section class="digest-hero">
   <p class="digest-kicker">Veille personnelle</p>
@@ -143,7 +172,9 @@
   class="digest-grid"
   id="digest-grid"
   aria-live="polite"
-  data-index-url="{{ $digestIndex.RelPermalink }}">
+  data-index-url="{{ $digestIndex.RelPermalink }}"
+  data-supplemental-index-url="{{ $digestSupplementalIndex.RelPermalink }}"
+  data-detail-index-url="{{ $digestDetailIndex.RelPermalink }}">
   {{ range $index, $link := $initialLinks }}
     {{ $host := urls.Parse $link.url }}
     <article
