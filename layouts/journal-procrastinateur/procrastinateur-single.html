@@ -63,7 +63,9 @@
   </div>
 
   <div class="procrastinator-entry-body">
-    {{ .Content }}
+    {{ $content := .Content }}
+    {{ $content = replaceRE `<li>Temps cumulé minimal depuis le début du journal : <strong>(?:environ )?([^<]+)</strong>(.*?)</li>` `<li class="procrastinator-total-time"><span class="procrastinator-total-label">Temps cumulé :</span><strong class="procrastinator-total-hours">$1</strong><span class="procrastinator-total-details">$2</span></li>` $content }}
+    {{ $content | safeHTML }}
   </div>
 
   <nav class="procrastinator-navigation" aria-label="Navigation entre les billets">

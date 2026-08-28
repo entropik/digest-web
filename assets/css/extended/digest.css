@@ -3822,7 +3822,6 @@ body.digest-modal-open {
   grid-template-columns: minmax(180px, .45fr) minmax(0, 1.55fr);
   gap: var(--journal-gutter);
   padding: clamp(3rem, 7vw, 7rem) var(--journal-gutter);
-  border-top: 1px solid var(--digest-line);
   border-bottom: 1px solid var(--digest-line);
 }
 .procrastinator-entry-meta { display: flex; flex-direction: column; gap: .8rem; color: var(--digest-muted); }
@@ -4047,6 +4046,7 @@ body.procrastinator-viewer-open { overflow: hidden; }
   font-weight: 700;
 }
 .procrastinator-entry-body blockquote { margin: 2.5rem 0; padding: .2rem 0 .2rem 1.5rem; border-left: 4px solid var(--digest-accent); color: var(--digest-muted); }
+.procrastinator-parenthetical { font-style: italic; }
 
 .procrastinator-entry-body h2#horaires-de-session {
   margin: 0;
@@ -4090,6 +4090,30 @@ body.procrastinator-viewer-open { overflow: hidden; }
   color: #fff;
 }
 .procrastinator-entry-body h2#horaires-de-session + ul li:last-child strong { color: #fff; }
+.procrastinator-entry-body h2#horaires-de-session + ul .procrastinator-total-time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.procrastinator-total-label {
+  display: block;
+  font-weight: 700;
+}
+.procrastinator-entry-body .procrastinator-total-hours {
+  display: block;
+  margin: .18rem 0 .28rem;
+  font-family: var(--digest-font-heading);
+  font-size: clamp(1.65rem, 2.7vw, 2.35rem);
+  letter-spacing: -.045em;
+  line-height: .9;
+}
+.procrastinator-total-details {
+  display: block;
+  color: #c9c6c0;
+  font-size: .58rem;
+  line-height: 1.35;
+}
+.procrastinator-total-details:empty { display: none; }
 
 .procrastinator-navigation {
   display: grid;

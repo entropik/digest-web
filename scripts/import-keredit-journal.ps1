@@ -2,7 +2,9 @@
 param(
   [string]$SourceDirectory = "\\wsl.localhost\Ubuntu\home\marc\code\krampouz\docs\blog",
   [string]$DestinationDirectory = (Join-Path $PSScriptRoot "..\content\flux\journal-procrastinateur"),
-  [switch]$Publish
+  [switch]$Publish,
+  [switch]$RepairFrench,
+  [switch]$CheckFrench
 )
 
 $ErrorActionPreference = "Stop"
@@ -77,8 +79,8 @@ function Get-FrenchDiacriticLexicon([System.IO.FileInfo[]]$Files) {
     'derriere' = 'derrière'; 'frontiere' = 'frontière'; 'frontieres' = 'frontières'
     'reelle' = 'réelle'; 'reelles' = 'réelles'; 'differente' = 'différente'; 'differentes' = 'différentes'
     'intermediaire' = 'intermédiaire'; 'intermediaires' = 'intermédiaires'
-    'concrete' = 'concrète'; 'tete' = 'tête'; 'requete' = 'requête'; 'requetes' = 'requêtes'
-    'cumule' = 'cumulé'; 'livree' = 'livrée'; 'creee' = 'créée'; 'confirmee' = 'confirmée'
+    'concrete' = 'concrète'; 'concretes' = 'concrètes'; 'avancee' = 'avancée'; 'avancees' = 'avancées'; 'tete' = 'tête'; 'requete' = 'requête'; 'requetes' = 'requêtes'
+    'cumule' = 'cumulé'; 'livree' = 'livrée'; 'creee' = 'créée'; 'confirmee' = 'confirmée'; 'mergee' = 'mergée'; 'mergees' = 'mergées'
     'travaillees' = 'travaillées'; 'europeen' = 'européen'; 'europeenne' = 'européenne'
     'commite' = 'commité'; 'commitee' = 'commitée'; 'prouvee' = 'prouvée'; 'desormais' = 'désormais'
     'lateraux' = 'latéraux'; 'securite' = 'sécurité'; 'volee' = 'volée'; 'degradation' = 'dégradation'
@@ -94,7 +96,7 @@ function Get-FrenchDiacriticLexicon([System.IO.FileInfo[]]$Files) {
     'regles' = 'règles'; 'alignes' = 'alignés'; 'retires' = 'retirés'; 'observes' = 'observés'
     'obsolete' = 'obsolète'; 'obsoletes' = 'obsolètes'; 'repetait' = 'répétait'
     'activite' = 'activité'; 'qualite' = 'qualité'; 'realite' = 'réalité'; 'autorite' = 'autorité'
-    'fragilite' = 'fragilité'; 'reflexion' = 'réflexion'; 'sante' = 'santé'; 'equipe' = 'équipe'
+    'fragilite' = 'fragilité'; 'reflexion' = 'réflexion'; 'reflexions' = 'réflexions'; 'sante' = 'santé'; 'equipe' = 'équipe'
     # Noms, adjectifs et infinitifs absents des graphies accentuées du corpus source.
     # Cette liste volontairement explicite évite de « corriger » les noms techniques
     # et les formes réellement ambiguës (Compose, email, faite, corrige, expose…).
@@ -137,7 +139,7 @@ function Get-FrenchDiacriticLexicon([System.IO.FileInfo[]]$Files) {
     'referentiels' = 'référentiels'; 'poignee' = 'poignée'; 'poignees' = 'poignées'; 'temoin' = 'témoin'; 'temoins' = 'témoins'
     'merite' = 'mérite'; 'meritent' = 'méritent'; 'proteger' = 'protéger'; 'regression' = 'régression'; 'regressions' = 'régressions'
     'enorme' = 'énorme'; 'enormes' = 'énormes'; 'deduplication' = 'déduplication'; 'numerique' = 'numérique'; 'numeriques' = 'numériques'
-    'grace' = 'grâce'; 'executer' = 'exécuter'; 'general' = 'général'; 'generale' = 'générale'; 'generaux' = 'généraux'; 'generales' = 'générales'
+    'grace' = 'grâce'; 'executer' = 'exécuter'; 'enchaine' = 'enchaîne'; 'general' = 'général'; 'generale' = 'générale'; 'generaux' = 'généraux'; 'generales' = 'générales'
     'recuperer' = 'récupérer'; 'operation' = 'opération'; 'operations' = 'opérations'; 'decalage' = 'décalage'; 'decalages' = 'décalages'
     'dedoublonnage' = 'dédoublonnage'; 'strategie' = 'stratégie'; 'strategies' = 'stratégies'; 'deployer' = 'déployer'; 'evoluer' = 'évoluer'
     'metal' = 'métal'; 'generation' = 'génération'; 'generations' = 'générations'; 'ecraser' = 'écraser'; 'montee' = 'montée'; 'montees' = 'montées'
@@ -240,9 +242,33 @@ function Restore-FrenchDiacritics([string]$Text, [hashtable]$Lexicon) {
     })
   $restored = [regex]::Replace($restored, "(?i)\b(sert|consiste|oblige|continue|commence|reste|revient|vise|aide) a\b", '$1 à')
   $restored = [regex]::Replace($restored, "(?i)\b(a) (nommer|mieux|séparer|protéger|définir|corriger|tester|vérifier|rendre|conserver|éviter|remplir|choisir|partager|livrer|relier|mesurer|comprendre)\b", 'à $2')
+  $restored = [regex]::Replace($restored, '(?i)\ba (chaque|cause|juste titre|Enter)\b', 'à $1')
+  $restored = [regex]::Replace($restored, '(?i)\ba ce (stade|moment|ping)\b', 'à ce $1')
   $restored = [regex]::Replace($restored, "(?i)\b(a) (la|l[’']|une?\b|partir\b|travers\b|nouveau\b|droite\b|gauche\b|jour\b|cote\b|propos\b)", 'à $2')
   $restored = [regex]::Replace($restored, '(?i)\b(a) (?=\d{1,2}(?::|h)\d{2})', 'à ')
   $restored = [regex]::Replace($restored, '(?i)\b(?:chantier|objet|lot|cas|élément) isole\b', { param($m) $m.Value -replace 'isole$', 'isolé' })
+  $restored = [regex]::Replace($restored, '(?i)\bAvancees concretes\b', 'Avancées concrètes')
+  $restored = [regex]::Replace($restored, '(?i)\bproduits? imprimes\b', { param($m) $m.Value -replace 'imprimes$', 'imprimés' -replace 'imprime$', 'imprimé' })
+  $restored = [regex]::Replace($restored, '(?i)\bclients(?<middle>[^.\r\n]{0,180})\bgenerent\b', { param($m) 'clients' + $m.Groups['middle'].Value + 'génèrent' })
+  $restored = [regex]::Replace($restored, "(?i)\b(?:n['’]est|ne sont) pas lance(s)?\b", { param($m) $m.Value -replace 'lances$', 'lancés' -replace 'lance$', 'lancé' })
+  $restored = [regex]::Replace($restored, '(?i)\bmal encapsule\b', 'mal encapsulé')
+  $restored = [regex]::Replace($restored, '(?i)\b(CI|build|test|pipeline|workflow) a casse\b', '$1 a cassé')
+  $restored = [regex]::Replace($restored, '(?i)\blockfile desynchronise\b', 'lockfile désynchronisé')
+  $restored = [regex]::Replace($restored, '(?i)\bse desynchronise\b', 'se désynchronise')
+  $restored = [regex]::Replace($restored, "(?i)\bCe qui s['’]est passe\b", "Ce qui s’est passé")
+  $restored = [regex]::Replace($restored, '(?i)\b(store\s+Zustand|Zustand) gere\b', '$1 gère')
+  $restored = [regex]::Replace($restored, '(?i)\bdes le\b', 'dès le')
+  $restored = [regex]::Replace($restored, '(?i)\bforce a\b', 'force à')
+  $restored = [regex]::Replace($restored, "(?i)\bqu['’]a taper\b", "qu’à taper")
+  $restored = [regex]::Replace($restored, '(?i)\baurait du\b', 'aurait dû')
+  $restored = [regex]::Replace($restored, '(?i)\bpas lance avant\b', 'pas lancé avant')
+  $restored = [regex]::Replace($restored, '(?i)\bSaaS ou les clients\b', 'SaaS où les clients')
+  $restored = [regex]::Replace($restored, '(?i)\bon connait\b', 'on connaît')
+  $restored = [regex]::Replace($restored, '(?i)\bdocumentation est\.\.\. creative\b', 'documentation est… créative')
+  $restored = [regex]::Replace($restored, '(?i)\b(et|puis) On enchaîne\b', '$1 on enchaîne')
+  $restored = [regex]::Replace($restored, '(?i): On enchaîne\b', ': on enchaîne')
+  $restored = [regex]::Replace($restored, '(?i)\bmoment-la\b', 'moment-là')
+  $restored = [regex]::Replace($restored, '(?i)\b(on|il|elle) à\b', '$1 a')
   $restored = [regex]::Replace($restored, '^\s*à ', 'À ')
   return $restored
 }
@@ -272,6 +298,30 @@ function Convert-PublicBody([string]$Body) {
 $entries = Get-ChildItem -LiteralPath $source -File -Filter "2026-??-??.md" | Sort-Object Name
 if ($entries.Count -eq 0) { throw "Aucun billet daté trouvé dans $source." }
 $diacriticLexicon = Get-FrenchDiacriticLexicon $entries
+
+if ($RepairFrench -and $CheckFrench) {
+  throw "Utiliser soit -RepairFrench, soit -CheckFrench."
+}
+
+if ($RepairFrench -or $CheckFrench) {
+  $publishedEntries = Get-ChildItem -LiteralPath $destination -File -Filter "2026-??-??.md" | Sort-Object Name
+  $changedEntries = [System.Collections.Generic.List[string]]::new()
+  foreach ($publishedEntry in $publishedEntries) {
+    $current = Get-Content -LiteralPath $publishedEntry.FullName -Raw -Encoding UTF8
+    $restored = Restore-FrenchDiacritics $current $diacriticLexicon
+    if ($restored -ceq $current) { continue }
+    $changedEntries.Add($publishedEntry.Name)
+    if ($RepairFrench) {
+      [System.IO.File]::WriteAllText($publishedEntry.FullName, $restored, [System.Text.UTF8Encoding]::new($false))
+    }
+  }
+  if ($CheckFrench -and $changedEntries.Count -gt 0) {
+    throw "Accents français à restaurer dans $($changedEntries.Count) billet(s) : $($changedEntries -join ', ')."
+  }
+  $action = if ($RepairFrench) { 'réparés' } else { 'contrôlés' }
+  Write-Output "Accents français : $($publishedEntries.Count) billets $action, $($changedEntries.Count) fichier(s) modifié(s)."
+  return
+}
 
 foreach ($entry in $entries) {
   $raw = Get-Content -LiteralPath $entry.FullName -Raw -Encoding UTF8
