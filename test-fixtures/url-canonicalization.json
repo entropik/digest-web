@@ -73,5 +73,15 @@
     "name": "ordinary editorial anchor",
     "input": "https://example.com/article#comments",
     "expected": "https://example.com/article#comments"
+  },
+  {
+    "name": "ordinary code documentation anchor",
+    "input": "https://example.com/docs#code",
+    "expected": "https://example.com/docs#code"
+  },
+  {
+    "name": "ordinary API key documentation anchor",
+    "input": "https://example.com/docs#api-key",
+    "expected": "https://example.com/docs#api-key"
   }
 ]

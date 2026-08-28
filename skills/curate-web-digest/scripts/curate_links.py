@@ -109,7 +109,7 @@ def canonicalize(raw_url: str, reject_sensitive: bool = False) -> str:
         fragment = decode_url_component(parts.fragment)
         fragment_path_value, separator, fragment_query = fragment.partition("?")
         if not separator:
-            fragment_query = fragment
+            fragment_query = fragment if "=" in fragment else ""
         fragment_path = "/" + fragment_path_value.lstrip("/")
         if SENSITIVE_PATH_SEGMENT.search(
             decode_url_component(parts.path)

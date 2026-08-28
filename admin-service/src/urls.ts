@@ -173,7 +173,11 @@ export const canonicalizePublicUrl = (rawUrl: string): string => {
     : fragment
   ).replace(/^\/+/, "")}`;
   const fragmentQuery =
-    fragmentSeparator >= 0 ? fragment.slice(fragmentSeparator + 1) : fragment;
+    fragmentSeparator >= 0
+      ? fragment.slice(fragmentSeparator + 1)
+      : fragment.includes("=")
+        ? fragment
+        : "";
   if (
     SENSITIVE_PATH_SEGMENT.test(decodeUrlComponent(url.pathname)) ||
     SENSITIVE_PATH_SEGMENT.test(fragmentPath)

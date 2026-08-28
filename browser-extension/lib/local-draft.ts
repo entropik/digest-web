@@ -89,7 +89,11 @@ export const canonicalLocalDraftUrl = (rawUrl: string): string => {
   const fragment = decodeUrlComponent(url.hash.slice(1));
   const fragmentSeparator = fragment.indexOf("?");
   const fragmentQuery =
-    fragmentSeparator >= 0 ? fragment.slice(fragmentSeparator + 1) : fragment;
+    fragmentSeparator >= 0
+      ? fragment.slice(fragmentSeparator + 1)
+      : fragment.includes("=")
+        ? fragment
+        : "";
   const fragmentPath = `/${(fragmentSeparator >= 0
     ? fragment.slice(0, fragmentSeparator)
     : fragment
