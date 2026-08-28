@@ -5,6 +5,16 @@ export class NetworkDeadlineError extends Error {
   }
 }
 
+export class ResponseBodyTooLargeError extends Error {
+  constructor(
+    readonly maximumBytes: number,
+    readonly receivedBytes: number,
+  ) {
+    super(`Response body exceeded its ${maximumBytes}-byte limit`);
+    this.name = "ResponseBodyTooLargeError";
+  }
+}
+
 export const withDeadline = async <T>(
   operation: () => Promise<T>,
   timeoutMs: number,
@@ -48,4 +58,34 @@ export const fetchWithDeadline = async <T>(
   } finally {
     clearTimeout(timer);
   }
+};
+
+export const readResponseTextWithLimit = async (
+  response: Response,
+  maximumBytes: number,
+): Promise<string> => {
+  const advertisedLength = Number(response.headers.get("content-length"));
+  if (
+    Number.isFinite(advertisedLength) &&
+    advertisedLength > maximumBytes
+  ) {
+    throw new ResponseBodyTooLargeError(maximumBytes, advertisedLength);
+  }
+  if (!response.body) return "";
+
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let receivedBytes = 0;
+  let text = "";
+  while (true) {
+    const chunk = await reader.read();
+    if (chunk.done) break;
+    receivedBytes += chunk.value.byteLength;
+    if (receivedBytes > maximumBytes) {
+      await reader.cancel("response body limit reached");
+      throw new ResponseBodyTooLargeError(maximumBytes, receivedBytes);
+    }
+    text += decoder.decode(chunk.value, { stream: true });
+  }
+  return text + decoder.decode();
 };
