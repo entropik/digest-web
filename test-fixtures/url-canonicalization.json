@@ -70,6 +70,16 @@
     "error": true
   },
   {
+    "name": "encoded authenticated fragment with malformed query escape",
+    "input": "https://example.com/#/%61dmin?x=%ZZ",
+    "error": true
+  },
+  {
+    "name": "malformed editorial fragment escape",
+    "input": "https://example.com/article#section%ZZ",
+    "error": true
+  },
+  {
     "name": "ordinary editorial anchor",
     "input": "https://example.com/article#comments",
     "expected": "https://example.com/article#comments"

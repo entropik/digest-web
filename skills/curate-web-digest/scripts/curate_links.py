@@ -86,7 +86,12 @@ def is_sensitive_key(key: str) -> bool:
 def decode_url_component(value: str) -> str:
     decoded = value
     for _ in range(3):
-        next_value = unquote(decoded)
+        if re.search(r"%(?![0-9a-f]{2})", decoded, re.I):
+            raise ValueError("invalid URL encoding")
+        try:
+            next_value = unquote(decoded, errors="strict")
+        except UnicodeDecodeError as error:
+            raise ValueError("invalid URL encoding") from error
         if next_value == decoded:
             break
         decoded = next_value

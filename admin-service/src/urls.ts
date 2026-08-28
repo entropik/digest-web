@@ -56,7 +56,7 @@ const decodeUrlComponent = (value: string): string => {
       if (next === decoded) break;
       decoded = next;
     } catch {
-      break;
+      throw new UnsafeUrlError("INVALID_URL_ENCODING");
     }
   }
   return decoded;
