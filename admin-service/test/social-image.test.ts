@@ -342,6 +342,12 @@ test("local, CI and deployment verification share one cross-platform command", a
   }
   assert.match(verification, /process\.platform === "win32" \? "npm\.cmd" : "npm"/);
   assert.match(verification, /"python3", "python"/);
+  assert.match(verification, /PYTHONDONTWRITEBYTECODE: "1"/);
+  const curatorTests = verification.indexOf('"skills/curate-web-digest/tests"');
+  const catalogCheck = verification.indexOf(
+    '"skills/curate-web-digest/scripts/curate_links.py"',
+  );
+  assert.ok(curatorTests > 0 && curatorTests < catalogCheck);
   assert.match(verification, /Development URL found in production output/);
   assert.match(verification, /contents\.toString\("latin1"\)/);
   assert.doesNotMatch(verification, /contents\.includes\(0\)/);
