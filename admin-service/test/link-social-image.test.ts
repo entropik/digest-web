@@ -5,6 +5,7 @@ import { basename, join } from "node:path";
 import test from "node:test";
 import sharp from "sharp";
 import {
+  capturePublicPage,
   LinkSocialImageService,
   pruneCaptureCache,
 } from "../src/link-social-image.js";
@@ -14,6 +15,13 @@ const link = {
   title: "Design Better Periodic Table",
   url: "https://db-periodic-table.vercel.app/",
 };
+
+test("capture rejects a private IPv4-mapped IPv6 destination before launch", async () => {
+  await assert.rejects(
+    capturePublicPage("http://[::ffff:127.0.0.1]/"),
+    /PRIVATE_URL/,
+  );
+});
 
 test("a link screenshot becomes a cached 1200 by 1200 editorial image", async () => {
   const directory = await mkdtemp(join(tmpdir(), "digest-link-image-"));

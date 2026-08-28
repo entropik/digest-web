@@ -47,6 +47,33 @@ test("private or mixed DNS answers are never approved", async () => {
     mixed.resolve("rebinding.example"),
     /UNSAFE_SCREENSHOT_DESTINATION/,
   );
+
+  const mapped = new PinnedAddressBook(async () => [
+    { address: "::ffff:8.8.8.8", family: 6 },
+    { address: "::ffff:192.168.1.10", family: 6 },
+  ]);
+  await assert.rejects(
+    mapped.resolve("mapped-rebinding.example"),
+    /UNSAFE_SCREENSHOT_DESTINATION/,
+  );
+});
+
+test("public IPv4 and IPv6 DNS answers remain approved", async () => {
+  const ipv4 = new PinnedAddressBook(async () => [
+    { address: "8.8.8.8", family: 4 },
+  ]);
+  assert.deepEqual(await ipv4.resolve("ipv4.example"), {
+    address: "8.8.8.8",
+    family: 4,
+  });
+
+  const ipv6 = new PinnedAddressBook(async () => [
+    { address: "2001:4860:4860::8888", family: 6 },
+  ]);
+  assert.deepEqual(await ipv6.resolve("ipv6.example"), {
+    address: "2001:4860:4860::8888",
+    family: 6,
+  });
 });
 
 test("closing a CONNECT client destroys its still-pending upstream socket", async () => {
