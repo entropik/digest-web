@@ -43,6 +43,10 @@ Read [references/data-contract.md](references/data-contract.md) when changing th
 - Deduplicate on canonical URL, not title.
 - Prefer the supplied title. Derive a short readable title only when absent.
 - Preserve an existing entry when an incoming duplicate has less metadata.
+- Preserve the existing catalog byte-for-byte during a merge, except for the
+  newly inserted JSON objects. Never globally reserialize, normalize, or sort
+  historical entries merely to add links.
+- When every incoming URL is already present, do not write `data/links.json`.
 - Treat category inference as a first pass. Use the project's current taxonomy.
 - Do not fetch every destination merely to enrich metadata unless the user asks for enrichment.
 - Do not import browser mail, account, console, payment, local-network, or authenticated application pages.

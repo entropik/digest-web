@@ -30,6 +30,7 @@ BARE_URL = re.compile(r"(?<!\()(https?://[^\s<>\]]+)")
 MARKDOWN_ENTRY = re.compile(r"^### \[([^\]]+)\]\((https?://[^)]+)\)\s*$")
 MARKDOWN_SECTION = re.compile(r"^## (.+?)\s*$")
 MARKDOWN_TAGS = re.compile(r"`#([^`]+)`")
+MARKDOWN_TAGS_LINE = re.compile(r"^\*\*Tags\s*:\*\*\s*(.*?)\s*$", re.I)
 SECTION_CATEGORIES = {
     "Intelligence artificielle et agents": "IA & Agents",
     "Développement et outillage": "Développement",
@@ -159,8 +160,15 @@ def load_input(path: Path, fallback_date: str) -> list[dict[str, object]]:
         tags: list[str] = []
         while index < len(lines) and not lines[index].startswith(("## ", "### ")):
             stripped = lines[index].strip()
-            if stripped.startswith("**Tags"):
-                tags = MARKDOWN_TAGS.findall(stripped)
+            tag_line = MARKDOWN_TAGS_LINE.match(stripped)
+            if tag_line:
+                tags = MARKDOWN_TAGS.findall(tag_line.group(1))
+                if not tags:
+                    tags = [
+                        tag.strip().lstrip("#")
+                        for tag in tag_line.group(1).split(",")
+                        if tag.strip().lstrip("#")
+                    ]
             elif stripped and not stripped.startswith(">"):
                 description_lines.append(stripped)
             index += 1
@@ -360,6 +368,41 @@ def write_tag_pages(site: Path, items: list[dict[str, object]], dry_run: bool) -
     return len(tags_by_slug)
 
 
+def json_line_ending(text: str) -> str:
+    return "\r\n" if "\r\n" in text else "\n"
+
+
+def serialize_json(items: list[dict[str, object]], line_ending: str = "\n") -> str:
+    rendered = json.dumps(items, ensure_ascii=False, indent=2) + "\n"
+    return rendered if line_ending == "\n" else rendered.replace("\n", line_ending)
+
+
+def insert_json_array_items(
+    existing_text: str, additions: list[dict[str, object]]
+) -> str:
+    """Insert new objects without rewriting any existing catalog bytes."""
+    if not additions:
+        return existing_text
+
+    opening = re.match(r"^\ufeff?\s*\[", existing_text)
+    if not opening:
+        raise ValueError("existing catalog must be a top-level JSON array")
+
+    line_ending = json_line_ending(existing_text)
+    serialized = serialize_json(additions, line_ending)
+    first_break = serialized.find(line_ending)
+    closing_break = serialized.rfind(line_ending + "]")
+    inner = serialized[first_break + len(line_ending) : closing_break]
+    insertion_at = opening.end()
+    return (
+        existing_text[:insertion_at]
+        + line_ending
+        + inner
+        + ","
+        + existing_text[insertion_at:]
+    )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("input", nargs="?", type=Path, help="JSON or Markdown file to import")
@@ -376,7 +419,8 @@ def main() -> int:
     args = parser.parse_args()
 
     target = args.site.resolve() / "data" / "links.json"
-    existing = json.loads(target.read_text(encoding="utf-8")) if target.exists() else []
+    existing_text = target.read_bytes().decode("utf-8") if target.exists() else ""
+    existing = json.loads(existing_text) if existing_text else []
 
     if args.check:
         errors = validate(existing)
@@ -390,14 +434,15 @@ def main() -> int:
         parser.error("input is required unless --check is used")
 
     incoming = load_input(args.input, args.date)
-    result: dict[str, dict[str, object]] = {}
+    known_urls: set[str] = set()
+    additions: list[dict[str, object]] = []
     skipped: list[str] = []
     duplicates = 0
 
     if not args.replace:
         for item in existing:
             normalized = normalize_item(item, args.date)
-            result[normalized["url"]] = normalized
+            known_urls.add(str(normalized["url"]))
 
     for item in incoming:
         try:
@@ -405,16 +450,18 @@ def main() -> int:
         except (ValueError, TypeError) as exc:
             skipped.append(f"{item.get('url', '<missing URL>')}: {exc}")
             continue
-        if normalized["url"] in result:
+        normalized_url = str(normalized["url"])
+        if normalized_url in known_urls:
             duplicates += 1
             continue
-        result[normalized["url"]] = normalized
+        known_urls.add(normalized_url)
+        additions.append(normalized)
 
-    output = sorted(
-        result.values(),
+    additions.sort(
         key=lambda item: (item["added"], item["title"].casefold()),
         reverse=True,
     )
+    output = additions if args.replace else [*additions, *existing]
     accepted = len(incoming) - len(skipped) - duplicates
     print(
         f"input={len(incoming)} accepted={accepted} duplicates={duplicates} "
@@ -423,10 +470,16 @@ def main() -> int:
     for warning in skipped:
         print(f"SKIP: {warning}", file=sys.stderr)
 
-    if not args.dry_run:
+    if not args.dry_run and (args.replace or additions or not target.exists()):
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        if args.replace or not existing:
+            rendered = serialize_json(output, json_line_ending(existing_text))
+        else:
+            rendered = insert_json_array_items(existing_text, additions)
+        target.write_bytes(rendered.encode("utf-8"))
         print(f"Wrote {target}")
+    elif not args.dry_run:
+        print(f"Unchanged {target}")
     if args.tag_pages:
         tag_count = write_tag_pages(args.site.resolve(), output, args.dry_run)
         print(f"{'Would generate' if args.dry_run else 'Generated'} {tag_count} tag pages")
