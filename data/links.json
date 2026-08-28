@@ -1,5 +1,134 @@
 [
   {
+    "title": "Superset — l’IDE agentique à grande échelle",
+    "url": "https://github.com/superset-sh/superset",
+    "category": "IA & Agents",
+    "added": "2026-08-29",
+    "id": "99a78755-07bc-5f5b-9974-a3e9596339ca",
+    "description": "Un environnement source-available conçu pour piloter de nombreux agents CLI en parallèle dans des espaces isolés, avec suivi d’attention, diffs et sessions persistantes.",
+    "tags": [
+      "IA",
+      "agents",
+      "source-available",
+      "ADE",
+      "développement",
+      "Git"
+    ],
+    "visibility": "hidden",
+    "hidden_at": "2026-08-28T12:00:00.000Z"
+  },
+  {
+    "title": "Orca — le cockpit des flottes d’agents",
+    "url": "https://github.com/stablyai/orca",
+    "category": "IA & Agents",
+    "added": "2026-08-29",
+    "id": "0c91e357-65d1-528d-91fa-f3e581629195",
+    "description": "Un ADE open source qui exécute Claude Code, Codex, OpenCode et d’autres agents en parallèle, chacun dans son propre worktree, avec supervision, comparaison des diffs et contrôle à distance.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "ADE",
+      "développement",
+      "Git"
+    ],
+    "visibility": "hidden",
+    "hidden_at": "2026-08-28T12:00:00.000Z"
+  },
+  {
+    "title": "OpenADE — planifier, réviser, puis exécuter",
+    "url": "https://github.com/bearlyai/OpenADE",
+    "category": "IA & Agents",
+    "added": "2026-08-29",
+    "id": "a20c8320-3c7c-51de-982f-fb6949602062",
+    "description": "Un environnement local sous licence MIT qui place la planification et la révision avant l’exécution par Claude Code ou Codex, avec fichiers, terminal, diff et snapshots Git.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "ADE",
+      "développement",
+      "Git"
+    ],
+    "visibility": "hidden",
+    "hidden_at": "2026-08-28T12:00:00.000Z"
+  },
+  {
+    "title": "Frame — conserver l’intention du projet",
+    "url": "https://github.com/kaanozhan/Frame",
+    "category": "IA & Agents",
+    "added": "2026-08-29",
+    "id": "934d468c-12ae-5249-a2a4-e468d790463f",
+    "description": "Un ADE Apache 2.0 centré sur les spécifications et le contexte durable : décisions, structure et tâches restent versionnées afin d’être comprises par les agents suivants.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "ADE",
+      "contexte",
+      "développement",
+      "Git"
+    ],
+    "visibility": "hidden",
+    "hidden_at": "2026-08-28T12:00:00.000Z"
+  },
+  {
+    "title": "Emdash — l’ADE open source et agnostique",
+    "url": "https://github.com/generalaction/emdash",
+    "category": "IA & Agents",
+    "added": "2026-08-29",
+    "id": "a7c321aa-c7fc-5107-8821-cbfdb6ee9022",
+    "description": "Un environnement Apache 2.0 qui relie tickets, agents de code, worktrees, revue, tests et pull requests, sur la machine locale ou à distance par SSH.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "ADE",
+      "développement",
+      "Git"
+    ],
+    "visibility": "hidden",
+    "hidden_at": "2026-08-28T12:00:00.000Z"
+  },
+  {
+    "title": "Agent Deck — le poste de contrôle dans le terminal",
+    "url": "https://github.com/asheshgoplani/agent-deck",
+    "category": "IA & Agents",
+    "added": "2026-08-29",
+    "id": "7877d443-a94b-5818-a772-48a034524054",
+    "description": "Un gestionnaire MIT fondé sur tmux pour suivre les sessions d’agents, leurs états et leurs worktrees sans quitter le terminal.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "terminal",
+      "ADE",
+      "développement",
+      "Git"
+    ],
+    "visibility": "hidden",
+    "hidden_at": "2026-08-28T12:00:00.000Z"
+  },
+  {
+    "title": "ADE — un environnement commun du Mac au mobile",
+    "url": "https://github.com/arul28/ADE",
+    "category": "IA & Agents",
+    "added": "2026-08-29",
+    "id": "45736262-3087-5462-84b7-5fda61a736d4",
+    "description": "Un jeune projet AGPL qui réunit application de bureau, CLI, runtime persistant, worktrees et compagnon mobile autour de plusieurs agents de code.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "ADE",
+      "développement",
+      "Git",
+      "mobile"
+    ],
+    "visibility": "hidden",
+    "hidden_at": "2026-08-28T12:00:00.000Z"
+  },
+  {
     "title": "Swarms — composer des nuées d’agents",
     "url": "https://github.com/kyegomez/swarms",
     "category": "IA & Agents",
