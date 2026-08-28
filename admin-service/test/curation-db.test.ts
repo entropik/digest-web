@@ -19,13 +19,15 @@ test("draft lifecycle retains a private audit record", () => {
   assert.equal(draft.state, "draft");
   assert.equal(draft.privateNote, draftInput.privateNote);
 
-  store.createPublication({
+  const publication = store.createPublication({
     id: "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
     digestDate: "2026-07-27",
     title: "27 juillet 2026",
     introduction: "Introduction",
     seoDescription: "Description",
   });
+  assert.equal(publication.action, "publish");
+  assert.equal(publication.source, "curation");
   store.markDraftsPublishing(
     [draft.id],
     "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
@@ -41,6 +43,50 @@ test("draft lifecycle retains a private audit record", () => {
   assert.equal(published.state, "published");
   assert.equal(published.privateNote, draftInput.privateNote);
   assert.equal(published.publishedCommit, "commit");
+  database.close();
+});
+
+test("publication actions persist and legacy databases migrate to publish", () => {
+  const database = new Database(":memory:");
+  database.exec(`
+    CREATE TABLE digest_publications (
+      id TEXT PRIMARY KEY,
+      digest_date TEXT NOT NULL,
+      title TEXT NOT NULL,
+      introduction TEXT NOT NULL,
+      seo_description TEXT NOT NULL,
+      state TEXT NOT NULL,
+      commit_sha TEXT,
+      validate_url TEXT,
+      deploy_url TEXT,
+      error_code TEXT,
+      created_at TEXT NOT NULL,
+      updated_at TEXT NOT NULL,
+      last_checked_at TEXT
+    );
+    INSERT INTO digest_publications
+      (id, digest_date, title, introduction, seo_description, state,
+       created_at, updated_at)
+    VALUES
+      ('legacy', '2026-07-26', 'Legacy', 'Introduction', 'Description',
+       'live', '2026-07-26T10:00:00.000Z', '2026-07-26T10:00:00.000Z');
+  `);
+
+  const store = new CurationStore(database);
+  assert.equal(store.findPublication("legacy")?.action, "publish");
+  assert.equal(store.findPublication("legacy")?.source, "curation");
+
+  const withdrawal = store.createPublication({
+    id: "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+    digestDate: "2026-07-27",
+    title: "27 juillet 2026",
+    introduction: "Introduction",
+    seoDescription: "Description",
+    action: "unpublish",
+    source: "edition",
+  });
+  assert.equal(withdrawal.action, "unpublish");
+  assert.equal(withdrawal.source, "edition");
   database.close();
 });
 

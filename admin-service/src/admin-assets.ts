@@ -60,7 +60,7 @@ export const dashboardPage = (name: string) =>
         <a href="/"><span>Digest</span><span aria-hidden="true">↗</span></a>
         <a href="https://chromewebstore.google.com/detail/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer"><span>Extension</span><span aria-hidden="true">↗</span></a>
         <button id="admin-logout" type="button">Déconnexion</button>
-        <span class="admin-version" aria-label="Version v1.23.15">v1.23.15</span>
+        <span class="admin-version" aria-label="Version v1.24.0">v1.24.0</span>
       </div>
     </header>
     <nav class="admin-nav" aria-label="Administration">
@@ -120,14 +120,26 @@ export const dashboardPage = (name: string) =>
 
     <section class="admin-panel" data-panel="editions">
       <div class="section-heading">
-        <div><p class="kicker">Archives</p><h2>Corriger une édition</h2></div>
-        <div class="toolbar"><select id="edition-select"><option value="">Choisir une date</option></select></div>
+        <div><p class="kicker">Archives</p><h2>Gérer une édition</h2></div>
+        <div class="toolbar edition-toolbar">
+          <select id="edition-filter" aria-label="Filtrer les éditions"><option value="all">Toutes les éditions</option><option value="draft">Brouillons</option><option value="published">Publiées</option></select>
+          <select id="edition-select" aria-label="Choisir une édition"><option value="">Choisir une date</option></select>
+        </div>
       </div>
       <form id="edition-form" class="edition-form is-hidden">
+        <div class="edition-lifecycle" id="edition-lifecycle" role="status" aria-live="polite">
+          <div><p class="kicker">État de l’archive</p><strong id="edition-link-count"></strong></div>
+          <span class="status" id="edition-state"></span>
+        </div>
+        <p class="edition-warning is-hidden" id="edition-warning">Le front matter et le catalogue ne décrivent pas le même état. La publication est bloquée jusqu’à correction.</p>
         <label>Titre<input name="title" required maxlength="240"></label>
         <label>Introduction<textarea name="introduction" rows="8" required></textarea></label>
         <label>Description SEO<textarea name="seoDescription" rows="3" required></textarea></label>
-        <div class="form-actions"><button class="primary" type="submit">Enregistrer la correction</button></div>
+        <div class="form-actions">
+          <button type="submit">Enregistrer la correction</button>
+          <button class="primary is-hidden" id="edition-publish" type="button" data-edition-action="publish">Publier l’édition</button>
+          <button class="danger is-hidden" id="edition-unpublish" type="button" data-edition-action="unpublish">Remettre en brouillon</button>
+        </div>
       </form>
     </section>
 
@@ -293,6 +305,14 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .missing{color:var(--warn);font-size:.78rem}
 .complete{color:var(--ok);font-size:.78rem}
 .edition-form{display:grid;gap:1rem;max-width:900px}
+.edition-toolbar{display:grid;grid-template-columns:minmax(10rem,.8fr) minmax(12rem,1fr);gap:0}
+.edition-toolbar>*+*{margin-left:-1px}
+.edition-lifecycle{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:1rem;border:1px solid var(--line);padding:1rem}
+.edition-lifecycle .kicker{margin:0 0 .25rem}
+.edition-warning{margin:0;border-left:3px solid var(--error);padding:.8rem 1rem;background:#f5d6cf;color:var(--error);font-size:.8rem;line-height:1.5}
+.status-draft{background:#fff1c7;color:#6f5210}
+.status-published{background:#d6eddf;color:var(--ok)}
+.status-inconsistent{background:#f5d6cf;color:var(--error)}
 .linkedin-setup{display:grid;gap:1rem;max-width:760px}
 .field-row{display:grid;grid-template-columns:1fr 2fr;gap:1rem}
 input,select,textarea{width:100%;border:1px solid var(--line);border-radius:0;background:#fff;color:var(--ink);padding:.72rem}
@@ -327,7 +347,7 @@ input,select,textarea{width:100%;border:1px solid var(--line);border-radius:0;ba
 @media(min-width:1000px){.admin-nav{position:sticky;z-index:10;top:0}}
 @media(max-width:900px){.admin-nav{grid-template-columns:repeat(3,minmax(0,1fr))}.admin-nav button:last-child{grid-column:span 1}.section-heading{grid-template-columns:1fr}.section-heading .toolbar{width:100%;justify-self:stretch}}
 @media(max-width:760px){main{width:min(100% - 1rem,1240px);padding-top:0}.admin-header,.section-heading,.publication-card,.admin-link,.category-row,.category-create-form,.theme-row,.theme-create-form,.tag-register-tools{display:grid;grid-template-columns:1fr}.header-actions{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto;min-width:0;border-top:1px solid var(--line);border-left:0}.header-actions a,.header-actions button{border-right:1px solid var(--line);border-bottom:0}.admin-version{grid-column:1/-1;border-top:1px solid var(--line)}.admin-heading{padding:1rem}.admin-heading .intro{max-width:56ch}.draft-grid,.published-grid,.field-row{grid-template-columns:1fr}.toolbar{width:100%}.toolbar input,.toolbar select{min-width:0}.section-heading .toolbar{width:100%;justify-self:stretch}.section-heading .toolbar>*{flex:1 1 12rem}.tag-register-stats{min-width:0;width:100%}.tag-register-tools>input{max-width:none}.tag-register-views{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.theme-actions{justify-content:flex-start}.progress-steps{font-size:.62rem}}
-@media(max-width:520px){h1{font-size:clamp(2.5rem,14vw,4rem)}h2{font-size:clamp(1.9rem,11vw,3rem)}.admin-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-nav button{min-height:48px}.admin-nav button:last-child{grid-column:span 2}.header-actions a,.header-actions button{gap:.35rem;padding-inline:.5rem;font-size:.62rem}.section-heading{gap:.8rem}.toolbar,.form-actions{display:grid;grid-template-columns:1fr;width:100%}.draft-toolbar{grid-template-columns:1fr;width:100%!important}.toolbar>*+*,.form-actions>*+*{margin-top:-1px;margin-left:0}.toolbar>*,.form-actions>*{width:100%}.category-actions,.theme-actions{display:grid;grid-template-columns:1fr}.category-actions>*+*,.theme-actions>*+*{margin-top:-1px;margin-left:0}.publication-links>*+*{margin-top:-1px;margin-left:0}.publication-links{display:grid}}
+@media(max-width:520px){h1{font-size:clamp(2.5rem,14vw,4rem)}h2{font-size:clamp(1.9rem,11vw,3rem)}.admin-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-nav button{min-height:48px}.admin-nav button:last-child{grid-column:span 2}.header-actions a,.header-actions button{gap:.35rem;padding-inline:.5rem;font-size:.62rem}.section-heading{gap:.8rem}.toolbar,.form-actions,.edition-lifecycle{display:grid;grid-template-columns:1fr;width:100%}.draft-toolbar,.edition-toolbar{grid-template-columns:1fr;width:100%!important}.toolbar>*+*,.form-actions>*+*,.edition-toolbar>*+*{margin-top:-1px;margin-left:0}.toolbar>*,.form-actions>*{width:100%}.category-actions,.theme-actions{display:grid;grid-template-columns:1fr}.category-actions>*+*,.theme-actions>*+*{margin-top:-1px;margin-left:0}.publication-links>*+*{margin-top:-1px;margin-left:0}.publication-links{display:grid}}
 @media(prefers-reduced-motion:reduce){.progress-segment.is-active::after{width:100%;animation:none;opacity:.72}}
 `;
 
@@ -472,24 +492,28 @@ const publicationStages={committing:1,validating:2,deploying:3,live:4};
 const publicationStepLabels=["Préparation","Validation","Déploiement","En ligne"];
 const publicationStateLabels={committing:"Préparation",validating:"Validation",deploying:"Déploiement",live:"En ligne",failed:"Échec"};
 const publicationStateCopy={committing:"Préparation du Digest…",validating:"Validation et build GitHub en cours…",deploying:"Mise en ligne en cours…",live:"Le Digest est en ligne.",failed:"Publication interrompue."};
+const unpublicationStateCopy={committing:"Préparation du retrait…",validating:"Validation et build GitHub en cours…",deploying:"Retrait du site en cours…",live:"L’édition est maintenant en brouillon.",failed:"Remise en brouillon interrompue."};
+const publicationCopy=(item)=>(item.action==="unpublish"?unpublicationStateCopy:publicationStateCopy)[item.state]||item.state;
 const publicationProgressMarkup=(item)=>{
-  if(item.state==="failed")return '<div class="publication-detail" role="status"><p class="publication-copy publication-error">'+esc(publicationStateCopy.failed)+(item.errorCode?' · '+esc(item.errorCode):'')+'</p></div>';
+  const copy=publicationCopy(item);
+  if(item.state==="failed")return '<div class="publication-detail" role="status"><p class="publication-copy publication-error">'+esc(copy)+(item.errorCode?' · '+esc(item.errorCode):'')+'</p></div>';
   const stage=publicationStages[item.state]||1;
-  const segments=publicationStepLabels.map((label,index)=>{
+  const stepLabels=item.action==="unpublish"?["Préparation","Validation","Déploiement","En brouillon"]:publicationStepLabels;
+  const segments=stepLabels.map((label,index)=>{
     const step=index+1;const state=step<stage||item.state==="live"?"is-complete":step===stage?"is-active":"";
     return '<span class="progress-segment '+state+'" aria-hidden="true"></span>';
   }).join("");
-  const labels=publicationStepLabels.map((label,index)=>{
+  const labels=stepLabels.map((label,index)=>{
     const step=index+1;const state=step<stage||item.state==="live"?"is-complete":step===stage?"is-current":"";
     return '<span class="progress-step '+state+'">'+esc(label)+'</span>';
   }).join("");
-  return '<div class="publication-detail"><div class="publication-progress" role="progressbar" aria-label="Progression de la publication" aria-valuemin="1" aria-valuemax="4" aria-valuenow="'+stage+'" aria-valuetext="'+esc(publicationStateCopy[item.state]||item.state)+'"><div class="progress-track">'+segments+'</div><div class="progress-steps" aria-hidden="true">'+labels+'</div></div><p class="publication-copy">'+esc(publicationStateCopy[item.state]||item.state)+'</p></div>';
+  return '<div class="publication-detail"><div class="publication-progress" role="progressbar" aria-label="Progression de la publication" aria-valuemin="1" aria-valuemax="4" aria-valuenow="'+stage+'" aria-valuetext="'+esc(copy)+'"><div class="progress-track">'+segments+'</div><div class="progress-steps" aria-hidden="true">'+labels+'</div></div><p class="publication-copy">'+esc(copy)+'</p></div>';
 };
 const publicationLinksMarkup=(item)=>{
   const links=[];
   const workflowUrl=item.deployUrl||item.validateUrl;
   if(workflowUrl)links.push('<a href="'+esc(workflowUrl)+'" target="_blank" rel="noopener">GitHub Actions</a>');
-  if(item.state==="live")links.push('<a href="/archives/'+encodeURIComponent(item.digestDate)+'/">Voir l’édition</a>');
+  if(item.state==="live"&&item.action!=="unpublish")links.push('<a href="/archives/'+encodeURIComponent(item.digestDate)+'/">Voir l’édition</a>');
   if(item.state==="failed")links.push('<button type="button" data-refresh-publication>Revérifier</button>');
   return links.length?'<p class="publication-links">'+links.join("")+'</p>':"";
 };
@@ -498,7 +522,7 @@ const renderPublications=(items)=>{
   if(!items.length){list.innerHTML='<p class="empty">Aucune publication initiée depuis cet atelier.</p>';return}
   const activeIndex=items.findIndex((item)=>activePublicationStates.has(item.state));
   const detailedIndex=activeIndex>=0?activeIndex:0;
-  list.innerHTML=items.map((item,index)=>'<article class="publication-card" data-publication-id="'+esc(item.id)+'"><div><p class="kicker">'+esc(item.digestDate)+'</p><h3>'+esc(item.title)+'</h3><p class="draft-url">'+esc(item.commitSha||"Commit en préparation")+'</p>'+publicationLinksMarkup(item)+'</div><div><span class="status status-'+esc(item.state)+'">'+esc(publicationStateLabels[item.state]||item.state)+'</span></div>'+(index===detailedIndex?publicationProgressMarkup(item):'')+'</article>').join("");
+  list.innerHTML=items.map((item,index)=>'<article class="publication-card" data-publication-id="'+esc(item.id)+'"><div><p class="kicker">'+esc(item.action==="unpublish"?"Remise en brouillon · ":"Publication · ")+esc(item.digestDate)+'</p><h3>'+esc(item.title)+'</h3><p class="draft-url">'+esc(item.commitSha||"Commit en préparation")+'</p>'+publicationLinksMarkup(item)+'</div><div><span class="status status-'+esc(item.state)+'">'+esc(item.state==="live"&&item.action==="unpublish"?"En brouillon":publicationStateLabels[item.state]||item.state)+'</span></div>'+(index===detailedIndex?publicationProgressMarkup(item):'')+'</article>').join("");
 };
 const loadPublications=async()=>{const data=await api("/api/admin/curation/publications");renderPublications(data.publications);return data.publications};
 document.querySelector("#publication-list")?.addEventListener("click",async(event)=>{
@@ -519,7 +543,7 @@ const schedulePublicationPoll=(id)=>{if(publicationPollTimer)clearTimeout(public
 const announcePublicationState=(item)=>{
   const previous=announcedPublicationStates.get(item.id);
   announcedPublicationStates.set(item.id,item.state);
-  if(previous!==item.state)show(publicationStateCopy[item.state]+(item.state==="failed"&&item.errorCode?" "+item.errorCode:""));
+  if(previous!==item.state)show(publicationCopy(item)+(item.state==="failed"&&item.errorCode?" "+item.errorCode:""));
 };
 const pollPublication=async(id)=>{
   if(activePublicationId!==id||publicationPollInFlight)return;
@@ -562,7 +586,7 @@ document.querySelector("#publication-form")?.addEventListener("submit",async(eve
       const payload=publicationPayload(pendingPublicationRequestId);payload.confirm=true;
       const data=await api("/api/admin/curation/publications",{method:"POST",body:JSON.stringify(payload)});
       publication=data.publication;
-    }catch(error){if(error.status)pendingPublicationRequestId=null;setSubmissionStatus("failed","Publication impossible : "+error.message);show("Publication impossible : "+error.message);return}
+    }catch(error){if(error.status&&error.message!=="GITHUB_COMMIT_OUTCOME_UNKNOWN")pendingPublicationRequestId=null;setSubmissionStatus("failed","Publication impossible : "+error.message);show("Publication impossible : "+error.message);return}
     pendingPublicationRequestId=null;announcedPublicationStates.set(publication.id,publication.state);selected.clear();
     openPanel("publications");clearSubmissionStatus();show("Commit créé. Validation GitHub en cours…");startPublicationPolling(publication.id,false);
     try{await Promise.all([loadDrafts(),loadPublications()])}catch(error){show("Publication lancée. Actualisation momentanément indisponible ; le suivi continue automatiquement.")}
@@ -578,9 +602,49 @@ const renderPublishedLinks=(links)=>{
 document.querySelector("#link-search-form")?.addEventListener("submit",async(event)=>{event.preventDefault();show("Recherche…");try{const query=document.querySelector("#link-search").value;const data=await api("/api/admin/links?q="+encodeURIComponent(query)+"&limit=100");renderPublishedLinks(data.links);show(data.links.length+" résultat(s).")}catch(error){show(error.message)}});
 document.querySelector("#published-links")?.addEventListener("click",async(event)=>{const button=event.target.closest("[data-save-link]");if(!button)return;const card=button.closest("[data-link-id]");const urlInput=card.querySelector('[name="url"]');if(!urlInput.checkValidity()){urlInput.reportValidity();return}button.disabled=true;try{const reactivateControl=card.querySelector('[name="reactivate"]');const body={url:urlInput.value,title:card.querySelector('[name="title"]').value,category:card.querySelector('[name="category"]').value,description:card.querySelector('[name="description"]').value,tags:pickerTags(card.querySelector('[data-theme-picker]')),reactivate:Boolean(reactivateControl?.checked),confirm:true};const data=await api("/api/admin/links/"+encodeURIComponent(card.dataset.linkId),{method:"PATCH",body:JSON.stringify(body)});urlInput.value=data.link.url;updateThemePicker(card.querySelector('[data-theme-picker]'),data.link.tags);card.querySelector("[data-link-title]").textContent=data.link.title;card.querySelector("[data-link-status]").textContent=data.link.status||"";if(data.reactivated)reactivateControl?.closest(".reactivate-control")?.remove();show(data.reactivated?"Lien corrigé et réactivé. Le statut « lien mort » a été retiré ; un nouveau déploiement est lancé.":data.changed?"Lien corrigé. Un nouveau déploiement est lancé.":"Aucune modification à enregistrer.")}catch(error){show("Correction impossible : "+correctionErrorLabel(error.message))}finally{button.disabled=false}});
 
-const loadEditions=async()=>{const data=await api("/api/admin/editions");const select=document.querySelector("#edition-select");select.innerHTML='<option value="">Choisir une date</option>'+data.editions.map((date)=>'<option>'+esc(date)+'</option>').join("")};
-document.querySelector("#edition-select")?.addEventListener("change",async(event)=>{const form=document.querySelector("#edition-form");if(!event.target.value){form.classList.add("is-hidden");return}try{const data=await api("/api/admin/editions?date="+encodeURIComponent(event.target.value));form.elements.title.value=data.edition.title;form.elements.introduction.value=data.edition.introduction;form.elements.seoDescription.value=data.edition.description;form.dataset.date=event.target.value;form.classList.remove("is-hidden")}catch(error){show(error.message)}});
-document.querySelector("#edition-form")?.addEventListener("submit",async(event)=>{event.preventDefault();const button=event.submitter;button.disabled=true;const form=event.currentTarget;try{await api("/api/admin/editions/"+encodeURIComponent(form.dataset.date),{method:"PATCH",body:JSON.stringify({title:form.elements.title.value,introduction:form.elements.introduction.value,seoDescription:form.elements.seoDescription.value,confirm:true})});show("Édition corrigée. Un nouveau déploiement est lancé.")}catch(error){show(error.message)}finally{button.disabled=false}});
+let editions=[];
+let pendingEditionTransition=null;
+const editionStateLabels={draft:"Brouillon",published:"Publiée",inconsistent:"État incohérent"};
+const renderEditionOptions=()=>{
+  const select=document.querySelector("#edition-select"),filter=document.querySelector("#edition-filter")?.value||"all",current=select.value;
+  const filtered=editions.filter((edition)=>filter==="all"||edition.state===filter);
+  select.innerHTML='<option value="">Choisir une date</option>'+filtered.map((edition)=>'<option value="'+esc(edition.date)+'">'+esc(edition.date)+' · '+esc(editionStateLabels[edition.state]||edition.state)+'</option>').join("");
+  if(filtered.some((edition)=>edition.date===current))select.value=current;else document.querySelector("#edition-form")?.classList.add("is-hidden");
+};
+const updateEditionLifecycle=(edition)=>{
+  const form=document.querySelector("#edition-form"),state=document.querySelector("#edition-state"),count=document.querySelector("#edition-link-count"),warning=document.querySelector("#edition-warning"),publish=document.querySelector("#edition-publish"),unpublish=document.querySelector("#edition-unpublish");
+  form.dataset.state=edition.state;
+  state.className="status status-"+edition.state;state.textContent=editionStateLabels[edition.state]||edition.state;
+  count.textContent=edition.state==="draft"?edition.stagedLinkCount+" lien"+(edition.stagedLinkCount>1?"s":"")+" préparé"+(edition.stagedLinkCount>1?"s":"")+" sur "+edition.linkCount:edition.visibleLinkCount+" lien"+(edition.visibleLinkCount>1?"s":"")+" public"+(edition.visibleLinkCount>1?"s":"")+" sur "+edition.linkCount;
+  warning.classList.toggle("is-hidden",edition.state!=="inconsistent");
+  publish.classList.toggle("is-hidden",edition.state!=="draft");publish.disabled=edition.stagedLinkCount===0;
+  unpublish.classList.toggle("is-hidden",edition.state!=="published");
+};
+const loadEdition=async(date)=>{
+  const form=document.querySelector("#edition-form");
+  if(!date){form.classList.add("is-hidden");return}
+  const data=await api("/api/admin/editions?date="+encodeURIComponent(date));
+  form.elements.title.value=data.edition.title;form.elements.introduction.value=data.edition.introduction;form.elements.seoDescription.value=data.edition.description;form.dataset.date=date;updateEditionLifecycle(data.edition);form.classList.remove("is-hidden");
+};
+const loadEditions=async()=>{const data=await api("/api/admin/editions");editions=data.editions;renderEditionOptions()};
+document.querySelector("#edition-filter")?.addEventListener("change",renderEditionOptions);
+document.querySelector("#edition-select")?.addEventListener("change",async(event)=>{try{await loadEdition(event.target.value)}catch(error){show(error.message)}});
+document.querySelector("#edition-form")?.addEventListener("submit",async(event)=>{event.preventDefault();const button=event.submitter;button.disabled=true;const form=event.currentTarget;try{await api("/api/admin/editions/"+encodeURIComponent(form.dataset.date),{method:"PATCH",body:JSON.stringify({title:form.elements.title.value,introduction:form.elements.introduction.value,seoDescription:form.elements.seoDescription.value,confirm:true})});await loadEdition(form.dataset.date);show("Édition corrigée. Un nouveau déploiement est lancé.")}catch(error){show(error.message)}finally{button.disabled=false}});
+document.querySelector("#edition-form")?.addEventListener("click",async(event)=>{
+  const button=event.target.closest("[data-edition-action]");if(!button)return;
+  const form=event.currentTarget,date=form.dataset.date,action=button.dataset.editionAction;
+  const question=action==="publish"?"Publier cette édition et rendre ses liens préparés publics ?":"Remettre cette édition en brouillon et retirer ses liens publics du site ?";
+  if(!window.confirm(question))return;
+  button.disabled=true;
+  if(!pendingEditionTransition||pendingEditionTransition.date!==date||pendingEditionTransition.action!==action)pendingEditionTransition={date,action,requestId:crypto.randomUUID()};
+  try{
+    const data=await api("/api/admin/editions/"+encodeURIComponent(date)+"/"+action,{method:"POST",body:JSON.stringify({requestId:pendingEditionTransition.requestId,confirm:true})});
+    pendingEditionTransition=null;announcedPublicationStates.set(data.publication.id,data.publication.state);
+    await Promise.all([loadEditions(),loadPublications()]);
+    openPanel("publications");show(action==="publish"?"Publication lancée. Validation GitHub en cours…":"Remise en brouillon lancée. Validation GitHub en cours…");startPublicationPolling(data.publication.id,false);
+  }catch(error){if(error.message!=="GITHUB_COMMIT_OUTCOME_UNKNOWN")pendingEditionTransition=null;show((action==="publish"?"Publication":"Remise en brouillon")+" impossible : "+error.message)}
+  finally{button.disabled=false}
+});
 
 const loadHidden=async()=>{const list=document.querySelector("#hidden-links");try{const data=await api("/api/admin/links/hidden");if(!data.links.length){list.innerHTML='<p class="empty">Aucun lien n’est actuellement retiré.</p>';return}list.innerHTML=data.links.map((link)=>'<article class="admin-link" data-hidden-id="'+esc(link.id)+'"><div><h3>'+esc(link.title)+'</h3><p>'+esc(link.category)+' · '+esc(link.added)+'</p><p>'+esc(link.url)+'</p></div><button type="button" data-restore>Restaurer</button></article>').join("")}catch(error){list.innerHTML='<p class="empty">'+esc(error.message)+'</p>'}};
 document.querySelector("#hidden-links")?.addEventListener("click",async(event)=>{const button=event.target.closest("[data-restore]");if(!button)return;const article=button.closest("[data-hidden-id]");button.disabled=true;try{await api("/api/admin/links/"+encodeURIComponent(article.dataset.hiddenId)+"/restore",{method:"POST",body:JSON.stringify({confirm:true})});article.remove();show("Lien restauré. Le déploiement est lancé.")}catch(error){button.disabled=false;show(error.message)}});

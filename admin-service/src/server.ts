@@ -19,9 +19,11 @@ import { CurationError, CurationService } from "./curation.js";
 import type {
   DraftInput,
   DraftState,
+  EditionTransitionInput,
   PublicationInput,
 } from "./curation-types.js";
 import {
+  GitHubMutationOutcomeUnknownError,
   listAdminLinks,
   listHiddenLinks,
 } from "./github.js";
@@ -204,6 +206,9 @@ const handle = async <T>(
         { error: error.code, details: error.details },
         error.status as 400,
       );
+    }
+    if (error instanceof GitHubMutationOutcomeUnknownError) {
+      return context.json({ error: "GITHUB_COMMIT_OUTCOME_UNKNOWN" }, 502);
     }
     console.error("Admin operation failed", error);
     return context.json({ error: "ADMIN_OPERATION_FAILED" }, 502);
@@ -577,6 +582,33 @@ app.patch("/api/admin/editions/:date", async (context) =>
     requireConfirmation(body);
     return curation.updateEdition(context.req.param("date"), body);
   }),
+);
+
+const editionTransition = async (
+  context: Context,
+  action: EditionTransitionInput["action"],
+) =>
+  handle(context, async () => {
+    const body = await jsonBody<{ confirm?: boolean; requestId?: unknown }>(
+      context,
+    );
+    requireConfirmation(body);
+    const date = context.req.param("date");
+    if (!date) throw new CurationError("INVALID_DIGEST_DATE");
+    return {
+      publication: await curation.transitionEdition(date, {
+        requestId: String(body.requestId ?? ""),
+        action,
+      }),
+    };
+  });
+
+app.post("/api/admin/editions/:date/publish", (context) =>
+  editionTransition(context, "publish"),
+);
+
+app.post("/api/admin/editions/:date/unpublish", (context) =>
+  editionTransition(context, "unpublish"),
 );
 
 app.notFound((context) => context.json({ error: "NOT_FOUND" }, 404));

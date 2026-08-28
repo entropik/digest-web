@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  editEdition,
   parseEdition,
   renderEdition,
   setEditionDraft,
@@ -38,4 +39,28 @@ test("an empty edition becomes a private draft and can be restored", () => {
   const restored = setEditionDraft(hidden, false);
   assert.doesNotMatch(restored, /\ndraft:/);
   assert.equal(parseEdition(restored).draft, undefined);
+});
+
+test("editing an edition preserves its draft state", () => {
+  const source = renderEdition({
+    digestDate: "2026-08-29",
+    title: "Titre initial",
+    description: "Description initiale.",
+    introduction: "Introduction initiale.",
+    draft: true,
+  });
+
+  const edited = editEdition(source, {
+    title: "Titre corrigé",
+    description: "Description corrigée.",
+    introduction: "Introduction corrigée.",
+  });
+
+  assert.deepEqual(parseEdition(edited), {
+    digestDate: "2026-08-29",
+    title: "Titre corrigé",
+    description: "Description corrigée.",
+    introduction: "Introduction corrigée.",
+    draft: true,
+  });
 });

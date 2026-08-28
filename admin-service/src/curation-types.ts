@@ -24,12 +24,17 @@ export type PublicationState =
   | "live"
   | "failed";
 
+export type PublicationAction = "publish" | "unpublish";
+export type PublicationSource = "curation" | "edition";
+
 export type DigestPublication = {
   id: string;
   digestDate: string;
   title: string;
   introduction: string;
   seoDescription: string;
+  action: PublicationAction;
+  source: PublicationSource;
   state: PublicationState;
   commitSha: string | null;
   validateUrl: string | null;
@@ -74,4 +79,9 @@ export type TaxonomyMutation = {
   commitSha: string | null;
   createdAt: string;
   updatedAt: string;
+};
+
+export type EditionTransitionInput = {
+  requestId: string;
+  action: PublicationAction;
 };

@@ -62,3 +62,12 @@ export const setEditionDraft = (source: string, draft: boolean): string => {
     draft: draft ? true : undefined,
   });
 };
+
+export const editEdition = (
+  source: string,
+  changes: Pick<EditionDocument, "title" | "description" | "introduction">,
+): string =>
+  renderEdition({
+    ...parseEdition(source),
+    ...changes,
+  });

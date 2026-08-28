@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   addPublishedTags,
   catalogCategories,
+  changeEditionVisibility,
   changePublishedMetadata,
   changeVisibility,
   parseCatalog,
@@ -188,12 +189,74 @@ test("hide is reversible and keeps editorial metadata", () => {
   assert.equal(hidden.changed, true);
   assert.equal(hidden.link.visibility, "hidden");
   assert.equal(hidden.link.hidden_at, "2026-07-27T10:00:00.000Z");
+  assert.equal(hidden.link.visibility_reason, "editorial");
   assert.equal(hidden.link.title, "Example");
 
   const restored = changeVisibility(hidden.links, link().id, "restore");
   assert.equal(restored.changed, true);
   assert.equal(restored.link.visibility, undefined);
   assert.equal(restored.link.hidden_at, undefined);
+  assert.equal(restored.link.visibility_reason, undefined);
+});
+
+test("edition visibility restores only links staged by the draft", () => {
+  const visible = link();
+  const editoriallyHidden: DigestLink = {
+    ...link(),
+    id: "editorial-link",
+    url: "https://editorial.example.com",
+    visibility: "hidden",
+    visibility_reason: "editorial",
+    hidden_at: "2026-07-26T10:00:00.000Z",
+  };
+  const otherEdition: DigestLink = {
+    ...link(),
+    id: "other-edition",
+    url: "https://other.example.com",
+    added: "2026-07-28",
+  };
+
+  const staged = changeEditionVisibility(
+    [visible, editoriallyHidden, otherEdition],
+    "2026-07-27",
+    "draft",
+    new Date("2026-07-27T11:00:00.000Z"),
+  );
+  assert.equal(staged.changed, 1);
+  assert.equal(staged.links[0]?.visibility, "hidden");
+  assert.equal(staged.links[0]?.visibility_reason, "edition-draft");
+  assert.equal(staged.links[0]?.hidden_at, "2026-07-27T11:00:00.000Z");
+  assert.equal(staged.links[1]?.hidden_at, editoriallyHidden.hidden_at);
+  assert.equal(staged.links[2]?.visibility, undefined);
+
+  const published = changeEditionVisibility(
+    staged.links,
+    "2026-07-27",
+    "published",
+  );
+  assert.equal(published.changed, 1);
+  assert.equal(published.links[0]?.visibility, undefined);
+  assert.equal(published.links[0]?.visibility_reason, undefined);
+  assert.equal(published.links[1]?.visibility, "hidden");
+  assert.equal(published.links[1]?.visibility_reason, "editorial");
+  assert.equal(published.links[2]?.visibility, undefined);
+});
+
+test("catalog parsing rejects an unsupported visibility reason", () => {
+  assert.throws(
+    () =>
+      parseCatalog(
+        JSON.stringify([
+          {
+            ...link(),
+            visibility: "hidden",
+            hidden_at: "2026-07-27T10:00:00.000Z",
+            visibility_reason: "unknown",
+          },
+        ]),
+      ),
+    /visibility reason/,
+  );
 });
 
 test("repeated actions are idempotent", () => {

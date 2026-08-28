@@ -112,6 +112,16 @@ et après. L’affiche est affichée entière dans ses proportions propres : une
 version carrée ne doit jamais être recadrée au ratio panoramique de l’image Open
 Graph.
 
+Dans l’administration, le registre des éditions peut être filtré entre
+brouillons et publications. L’édition choisie affiche son état et ses comptes
+de liens dans un cartouche rectangulaire avant les champs éditoriaux. Les
+actions « Publier l’édition » et « Remettre en brouillon » sont mutuellement
+exclusives, demandent une confirmation explicite et rejoignent le panneau de
+suivi. Une divergence entre l’archive Markdown et le catalogue utilise un état
+d’erreur lisible, accompagné d’une explication, et masque les deux transitions.
+Sur mobile, les filtres, le cartouche d’état et les actions s’empilent sans
+changer leur ordre logique.
+
 ## Taxonomie et contenu
 
 `data/categories.json` est la source de vérité. Chaque entrée possède un `name`
