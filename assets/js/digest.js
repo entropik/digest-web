@@ -524,7 +524,10 @@
               ? tools.getBoundingClientRect().height
               : 0;
           const top = Math.max(0, gridTop - headerHeight - stickyToolsHeight);
-          window.scrollTo({ top, behavior: "smooth" });
+          const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            ? "auto"
+            : "smooth";
+          window.scrollTo({ top, behavior });
         });
       });
     }
