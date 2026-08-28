@@ -36,6 +36,10 @@ import {
   workflowRunsForCommit,
 } from "./github.js";
 import { recordTiming, startTimer } from "./observability.js";
+import {
+  fetchWithDeadline,
+  readResponseTextWithLimit,
+} from "./network.js";
 import { buildPublicationFiles } from "./publication.js";
 import { deploymentWorkflowProgress } from "./publication-workflow.js";
 import {
@@ -70,15 +74,35 @@ const cleanText = (value: unknown, maximum: number): string =>
     .trim()
     .slice(0, maximum);
 
-const publicationIsLive = async (
+const PUBLICATION_LIVE_TIMEOUT_MS = 10_000;
+const PUBLICATION_HTML_LIMIT_BYTES = 256 * 1_024;
+
+type PublicationLiveCheckOptions = {
+  fetcher?: typeof globalThis.fetch;
+  timeoutMs?: number;
+  maximumBytes?: number;
+};
+
+export const publicationIsLive = async (
   publication: DigestPublication,
+  options: PublicationLiveCheckOptions = {},
 ): Promise<boolean> => {
   try {
-    const response = await fetch(
+    const { response, html } = await fetchWithDeadline(
+      options.fetcher ?? globalThis.fetch,
       `${config.origin}/archives/${publication.digestDate}/`,
       { headers: { "User-Agent": "digest-admin-service-deploy-check" } },
+      options.timeoutMs ?? PUBLICATION_LIVE_TIMEOUT_MS,
+      async (response) => ({
+        response,
+        html: response.ok
+          ? await readResponseTextWithLimit(
+              response,
+              options.maximumBytes ?? PUBLICATION_HTML_LIMIT_BYTES,
+            )
+          : "",
+      }),
     );
-    const html = response.ok ? await response.text() : "";
     const visibleText = html
       .replace(/<[^>]+>/g, " ")
       .replace(/&#(\d+);/g, (_, value: string) =>
@@ -206,6 +230,7 @@ type PublicationDependencies = {
   tryReadRepositoryFile: typeof tryReadRepositoryFile;
   commitRepositoryFiles: typeof commitRepositoryFiles;
   buildPublicationFiles: typeof buildPublicationFiles;
+  publicationIsLive?: typeof publicationIsLive;
 };
 
 type RepositoryHead = Awaited<ReturnType<typeof readRepositoryHead>>;
@@ -220,6 +245,7 @@ const publicationDependencies: PublicationDependencies = {
   tryReadRepositoryFile,
   commitRepositoryFiles,
   buildPublicationFiles,
+  publicationIsLive,
 };
 
 export class CurationService {
@@ -1215,7 +1241,9 @@ export class CurationService {
       return publication;
     }
     if (publication.state === "failed") {
-      const live = await publicationIsLive(publication);
+      const live = await (this.publication.publicationIsLive ?? publicationIsLive)(
+        publication,
+      );
       return live
         ? this.store.updatePublication(id, {
             state: "live",
@@ -1252,7 +1280,9 @@ export class CurationService {
       });
     }
 
-    const live = await publicationIsLive(publication);
+    const live = await (this.publication.publicationIsLive ?? publicationIsLive)(
+      publication,
+    );
     return this.store.updatePublication(id, {
       state: live ? "live" : "deploying",
       validateUrl: null,

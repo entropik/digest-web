@@ -15,9 +15,87 @@ process.env.GITHUB_APP_INSTALLATION_ID = "1";
 process.env.GITHUB_APP_PRIVATE_KEY_BASE64 = Buffer.from("unused").toString("base64");
 
 const { CurationStore } = await import("../src/curation-db.js");
-const { CurationError, CurationService } = await import("../src/curation.js");
+const { CurationError, CurationService, publicationIsLive } = await import(
+  "../src/curation.js"
+);
 const { GitHubMutationOutcomeUnknownError, GitHubResponseError } = await import("../src/github.js");
 const { stableLinkId } = await import("../src/publication.js");
+
+const publicationCheckFixture: DigestPublication = {
+  id: "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+  digestDate: "2026-08-28",
+  title: "Digest borné",
+  introduction: "",
+  seoDescription: "",
+  state: "deploying",
+  commitSha: "commit-sha",
+  validateUrl: null,
+  deployUrl: null,
+  errorCode: null,
+  createdAt: "2026-08-28T00:00:00.000Z",
+  updatedAt: "2026-08-28T00:00:00.000Z",
+  lastCheckedAt: null,
+};
+
+test("the live check bounds a stalled origin connection", async () => {
+  let aborted = false;
+  const fetcher = (_input: string | URL | Request, init?: RequestInit) =>
+    new Promise<Response>((_resolve, reject) => {
+      init?.signal?.addEventListener("abort", () => {
+        aborted = true;
+        reject(new DOMException("Aborted", "AbortError"));
+      });
+    });
+
+  assert.equal(
+    await publicationIsLive(publicationCheckFixture, {
+      fetcher: fetcher as typeof fetch,
+      timeoutMs: 10,
+    }),
+    false,
+  );
+  assert.equal(aborted, true);
+});
+
+test("the live check bounds a response body that stops producing data", async () => {
+  let bodyAborted = false;
+  const fetcher = async (_input: string | URL | Request, init?: RequestInit) =>
+    new Response(
+      new ReadableStream({
+        start(controller) {
+          controller.enqueue(new TextEncoder().encode("<main>"));
+          init?.signal?.addEventListener("abort", () => {
+            bodyAborted = true;
+            controller.error(new DOMException("Aborted", "AbortError"));
+          });
+        },
+      }),
+      { status: 200 },
+    );
+
+  assert.equal(
+    await publicationIsLive(publicationCheckFixture, {
+      fetcher: fetcher as typeof fetch,
+      timeoutMs: 10,
+    }),
+    false,
+  );
+  assert.equal(bodyAborted, true);
+});
+
+test("the live check rejects an excessive HTML response", async () => {
+  const fetcher = async () =>
+    new Response(`<main>${"x".repeat(128)}</main>`, { status: 200 });
+
+  assert.equal(
+    await publicationIsLive(publicationCheckFixture, {
+      fetcher: fetcher as typeof fetch,
+      timeoutMs: 100,
+      maximumBytes: 64,
+    }),
+    false,
+  );
+});
 
 class FailingPostCommitStore extends CurationStore {
   failValidatingUpdate = true;
@@ -302,6 +380,54 @@ test("a failed publication stays failed when the expected archive is absent", as
     globalThis.fetch = originalFetch;
     database.close();
   }
+});
+
+test("a timed-out live check leaves the next polling attempt recoverable", async () => {
+  const database = new Database(":memory:");
+  const store = new CurationStore(database);
+  const id = "abababab-abab-4bab-8bab-abababababab";
+  store.createPublication({
+    id,
+    digestDate: "2026-08-22",
+    title: "22 août 2026",
+    introduction: "Une édition récupérable.",
+    seoDescription: "Une édition de test.",
+  });
+  store.updatePublication(id, {
+    state: "failed",
+    commitSha: "failed-workflow-sha",
+    errorCode: "WORKFLOW_FAILED",
+  });
+  let checks = 0;
+  const dependencies = {
+    readRepositoryHead: async () => ({
+      commitSha: "failed-workflow-sha",
+      treeSha: "tree-sha",
+      links: [],
+    }),
+    tryReadRepositoryFile: async () => null,
+    buildPublicationFiles: async () => {
+      throw new Error("unused publication builder");
+    },
+    commitRepositoryFiles: async () => {
+      throw new Error("unused repository commit");
+    },
+    publicationIsLive: async () => {
+      checks += 1;
+      return checks > 1;
+    },
+  };
+  const service = new CurationService(store, dependencies);
+
+  const timedOut = await service.refreshPublication(id);
+  assert.equal(timedOut.state, "failed");
+  assert.equal(timedOut.errorCode, "WORKFLOW_FAILED");
+
+  const recovered = await service.refreshPublication(id);
+  assert.equal(recovered.state, "live");
+  assert.equal(recovered.errorCode, null);
+  assert.equal(checks, 2);
+  database.close();
 });
 
 test("a failure before the GitHub commit restores every reserved draft", async () => {
