@@ -170,7 +170,7 @@ function Get-FrenchDiacriticLexicon([System.IO.FileInfo[]]$Files) {
     'dedie' = 'dédie'; 'precise' = 'précise'; 'selecteur' = 'sélecteur'; 'selecteurs' = 'sélecteurs'
     'decorative' = 'décorative'; 'decoratif' = 'décoratif'; 'decoratifs' = 'décoratifs'; 'partagees' = 'partagées'
     'poussee' = 'poussée'; 'retrouvee' = 'retrouvée'; 'signee' = 'signée'; 'utilisee' = 'utilisée'
-    'cachees' = 'cachées'; 'deborde' = 'déborde'; 'fermees' = 'fermées'; 'ignorees' = 'ignorées'; 'verifies' = 'vérifies'
+    'cachees' = 'cachées'; 'deborde' = 'déborde'; 'fermees' = 'fermées'; 'ignorees' = 'ignorées'
     'affichees' = 'affichées'; 'ciblee' = 'ciblée'; 'decouvre' = 'découvre'; 'ecrase' = 'écrase'
     'finalisee' = 'finalisée'; 'lancees' = 'lancées'; 'manipulee' = 'manipulée'; 'pretend' = 'prétend'
     'recalee' = 'recalée'; 'restauree' = 'restaurée'; 'reussi' = 'réussi'; 'simplifiee' = 'simplifiée'; 'structuree' = 'structurée'
@@ -402,6 +402,10 @@ function Restore-FrenchDiacritics([string]$Text, [hashtable]$Lexicon, [hashtable
   $restored = [regex]::Replace($restored, '(?i)\bjusqu.a environ\b', "jusqu’à environ")
   $restored = [regex]::Replace($restored, '(?i)\b(?<aux>sont|étaient|seront) geres\b', '${aux} gérés')
   $restored = [regex]::Replace($restored, '(?i)\b(?<subject>emplacements|attributs|éléments|fichiers|objets|formats|choix) geres\b', '${subject} gérés')
+  $restored = [regex]::Replace($restored, '(?i)\b(?<aux>sont|étaient|seront|ont été) verifies\b', '${aux} vérifiés')
+  $restored = [regex]::Replace($restored, '(?i)\b(?<subject>points|contrats|identifiants|credentials|éléments|fichiers|objets|comptages) verifies\b', '${subject} vérifiés')
+  $restored = [regex]::Replace($restored, '(?i)\bpas assez verifies\b', 'pas assez vérifiés')
+  $restored = [regex]::Replace($restored, '(?i)\btu verifies\b', 'tu vérifies')
   $restored = [regex]::Replace($restored, '^\s*à ', 'À ')
   return $restored
 }

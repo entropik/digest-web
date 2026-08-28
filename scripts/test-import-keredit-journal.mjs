@@ -31,6 +31,7 @@ Rediffusion manuelle du blog sur \`kerooblik\` puis le deploy doit viser uniquem
 Commit observé : \`Merge pull request #43 from kerooblik/dev\`.
 Ressource documentaire publique : https://93.184.216.34/reference.
 Il y a environ douze fichiers ; les attributs sont geres dans des emplacements geres.
+Points verifies, contrats verifies et objets sont verifies ; tu verifies le résultat.
 
 Contrôles préservés : vite@8.0.16, @vitejs/plugin-react, dev@e9016cd,
 contact@example.org, KEREDIT, GOF, VPS KEREDIT, serveur GOF,
@@ -80,6 +81,7 @@ try {
   assert.match(firstOutput, /Merge pull request #43 from \[compte GitHub\]\/dev/);
   assert.match(firstOutput, /Il y a environ douze fichiers ; les attributs sont gérés dans des emplacements gérés\./);
   assert.doesNotMatch(firstOutput, /il y à environ/i);
+  assert.match(firstOutput, /Points vérifiés, contrats vérifiés et objets sont vérifiés ; tu vérifies le résultat\./);
 
   for (const control of [
     "vite@8.0.16",
