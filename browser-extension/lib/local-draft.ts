@@ -77,7 +77,7 @@ const decodeUrlComponent = (value: string): string => {
       if (next === decoded) break;
       decoded = next;
     } catch {
-      if (pass > 0) break;
+      if (pass > 0 && !/%[0-9a-f]{2}/i.test(decoded)) break;
       throw new Error("SENSITIVE_URL");
     }
   }

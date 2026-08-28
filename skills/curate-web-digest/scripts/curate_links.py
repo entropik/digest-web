@@ -87,13 +87,13 @@ def decode_url_component(value: str) -> str:
     decoded = value
     for pass_index in range(3):
         if re.search(r"%(?![0-9a-f]{2})", decoded, re.I):
-            if pass_index > 0:
+            if pass_index > 0 and not re.search(r"%[0-9a-f]{2}", decoded, re.I):
                 break
             raise ValueError("invalid URL encoding")
         try:
             next_value = unquote(decoded, errors="strict")
         except UnicodeDecodeError as error:
-            if pass_index > 0:
+            if pass_index > 0 and not re.search(r"%[0-9a-f]{2}", decoded, re.I):
                 break
             raise ValueError("invalid URL encoding") from error
         if next_value == decoded:

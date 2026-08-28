@@ -75,6 +75,11 @@
     "error": true
   },
   {
+    "name": "double encoded authenticated fragment with encoded malformed query escape",
+    "input": "https://example.com/#/%2561dmin?x=%25ZZ",
+    "error": true
+  },
+  {
     "name": "malformed editorial fragment escape",
     "input": "https://example.com/article#section%ZZ",
     "error": true
