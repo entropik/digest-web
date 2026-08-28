@@ -218,6 +218,10 @@ Une seule action publie le lot : le serveur valide automatiquement les données,
 crée la page d’archive et met à jour `data/links.json` dans un commit idempotent.
 L’administration affiche ensuite une progression reprenable entre préparation,
 validation, déploiement et présence effective de l’édition en production.
+Le panneau `Éditions` permet aussi de corriger une archive sans perdre son état,
+de publier un brouillon ou de remettre une édition en brouillon. Ces transitions
+mettent à jour l’archive, le catalogue et les affiches sociales dans un seul
+commit, puis utilisent le même suivi reprenable.
 
 L’extension Manifest V3 se trouve dans `browser-extension/` :
 

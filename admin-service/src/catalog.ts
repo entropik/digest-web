@@ -19,6 +19,7 @@ export type DigestLink = {
   origin_url?: string;
   stream?: string;
   visibility?: "hidden";
+  visibility_reason?: "editorial" | "edition-draft";
   hidden_at?: string;
   previous_urls?: string[];
   [key: string]: unknown;
@@ -90,6 +91,15 @@ export const parseCatalog = (text: string): DigestLink[] => {
     if (link.visibility === "hidden" && !link.hidden_at) {
       throw new Error(`Hidden link ${link.id} has no hidden_at timestamp`);
     }
+    if (
+      link.visibility_reason !== undefined &&
+      !["editorial", "edition-draft"].includes(link.visibility_reason)
+    ) {
+      throw new Error(`Link ${link.id} has an unsupported visibility reason`);
+    }
+    if (link.visibility_reason && link.visibility !== "hidden") {
+      throw new Error(`Visible link ${link.id} cannot have a visibility reason`);
+    }
     return link;
   });
 };
@@ -116,15 +126,52 @@ export const changeVisibility = (
   const updated: DigestLink = { ...current };
   if (action === "hide") {
     updated.visibility = "hidden";
+    updated.visibility_reason = "editorial";
     updated.hidden_at = now.toISOString();
   } else {
     delete updated.visibility;
+    delete updated.visibility_reason;
     delete updated.hidden_at;
   }
 
   const next = links.slice();
   next[index] = updated;
   return { links: next, link: updated, changed: true };
+};
+
+export const changeEditionVisibility = (
+  links: DigestLink[],
+  digestDate: string,
+  state: "draft" | "published",
+  now = new Date(),
+): { links: DigestLink[]; changed: number } => {
+  let changed = 0;
+  const next = links.map((link) => {
+    if (link.added !== digestDate) return link;
+    if (state === "draft") {
+      if (link.visibility === "hidden") return link;
+      changed += 1;
+      return {
+        ...link,
+        visibility: "hidden" as const,
+        visibility_reason: "edition-draft" as const,
+        hidden_at: now.toISOString(),
+      };
+    }
+    if (
+      link.visibility !== "hidden" ||
+      link.visibility_reason !== "edition-draft"
+    ) {
+      return link;
+    }
+    changed += 1;
+    const updated = { ...link };
+    delete updated.visibility;
+    delete updated.visibility_reason;
+    delete updated.hidden_at;
+    return updated;
+  });
+  return { links: changed ? next : links, changed };
 };
 
 export const serializeCatalog = (links: DigestLink[]): string =>

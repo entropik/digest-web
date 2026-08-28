@@ -16,6 +16,7 @@ chaque journée ayant produit une évolution du projet.
 | 20 août 2026 | [Du cartouche suisse à la mémoire du Blog OOBLIK](2026-08-20.md) | 24 | Taxonomie, registre suisse et import patrimonial WordPress |
 | 25 août 2026 | [Répéter sans effacer sur LinkedIn](2026-08-25.md) | 3 | Republication volontaire et historique LinkedIn |
 | 27 août 2026 | [Quarante-cinq dépôts et quelques filets](2026-08-27.md) | 8 | Curation GitHub, archives et ajustements d’interface |
+| 28 août 2026 | [Le brouillon devient un état éditorial](2026-08-28.md) | — | Cycle de vie réversible des éditions |
 
 ## Provenance
 

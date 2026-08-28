@@ -27,6 +27,8 @@ const publicationCheckFixture: DigestPublication = {
   title: "Digest borné",
   introduction: "",
   seoDescription: "",
+  action: "publish",
+  source: "curation",
   state: "deploying",
   commitSha: "commit-sha",
   validateUrl: null,

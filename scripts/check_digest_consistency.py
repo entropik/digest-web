@@ -114,6 +114,7 @@ def validate(site: Path) -> list[str]:
     errors.extend(validate_blog_media(links, site))
 
     link_dates: Counter[str] = Counter()
+    visible_link_dates: Counter[str] = Counter()
     tag_usage: Counter[str] = Counter()
     tag_labels: dict[str, str] = {}
     for index, link in enumerate(links, start=1):
@@ -124,7 +125,22 @@ def validate(site: Path) -> list[str]:
         if not DATE_PATTERN.fullmatch(added):
             errors.append(f"{links_path}: entrée {index}, date added invalide: {added!r}")
             continue
-        if str(link.get("visibility", "")).strip() != "hidden":
+        visibility = str(link.get("visibility", "")).strip()
+        visibility_reason = str(link.get("visibility_reason", "")).strip()
+        if visibility not in ("", "hidden"):
+            errors.append(
+                f"{links_path}: entrée {index}, visibility invalide: {visibility!r}"
+            )
+        if visibility_reason not in ("", "editorial", "edition-draft"):
+            errors.append(
+                f"{links_path}: entrée {index}, visibility_reason invalide: "
+                f"{visibility_reason!r}"
+            )
+        if visibility != "hidden" and visibility_reason:
+            errors.append(
+                f"{links_path}: entrée {index}, visibility_reason exige visibility=hidden"
+            )
+        if visibility != "hidden":
             raw_tags = link.get("tags", [])
             if not isinstance(raw_tags, list):
                 errors.append(f"{links_path}: entrée {index}, tags invalides")
@@ -141,8 +157,11 @@ def validate(site: Path) -> list[str]:
         ):
             continue
         link_dates[added] += 1
+        if visibility != "hidden":
+            visible_link_dates[added] += 1
 
     archive_dates: set[str] = set()
+    archive_drafts: dict[str, bool] = {}
     for archive_path in sorted(archives_dir.glob("*.md")):
         if archive_path.name == "_index.md":
             continue
@@ -168,6 +187,7 @@ def validate(site: Path) -> list[str]:
         if not params.get("title"):
             errors.append(f"{archive_path}: title manquant")
         archive_dates.add(filename_date)
+        archive_drafts[filename_date] = params.get("draft", "").lower() == "true"
 
     for missing_date in sorted(set(link_dates) - archive_dates):
         errors.append(
@@ -179,6 +199,15 @@ def validate(site: Path) -> list[str]:
         errors.append(
             f"édition orpheline: content/archives/{orphan_date}.md ne possède aucun lien"
         )
+
+    for date in sorted(archive_dates & set(link_dates)):
+        markdown_is_draft = archive_drafts[date]
+        catalog_is_draft = visible_link_dates[date] == 0
+        if markdown_is_draft != catalog_is_draft:
+            errors.append(
+                f"édition incohérente {date}: draft={str(markdown_is_draft).lower()} "
+                f"mais {visible_link_dates[date]} lien(s) public(s) dans data/links.json"
+            )
 
     registered_tags: set[str] = set()
     for tag_path in tags_dir.glob("*.md"):

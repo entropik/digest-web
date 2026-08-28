@@ -5,6 +5,8 @@ import type {
   DigestPublication,
   DraftInput,
   DraftState,
+  PublicationAction,
+  PublicationSource,
   PublicationState,
   TaxonomyMutation,
   TaxonomyMutationKind,
@@ -34,6 +36,8 @@ type PublicationRow = {
   title: string;
   introduction: string;
   seo_description: string;
+  action: PublicationAction;
+  source: PublicationSource;
   state: PublicationState;
   commit_sha: string | null;
   validate_url: string | null;
@@ -83,6 +87,8 @@ const publicationFromRow = (row: PublicationRow): DigestPublication => ({
   title: row.title,
   introduction: row.introduction,
   seoDescription: row.seo_description,
+  action: row.action,
+  source: row.source,
   state: row.state,
   commitSha: row.commit_sha,
   validateUrl: row.validate_url,
@@ -134,6 +140,10 @@ export const ensureCurationSchema = (database: Database.Database): void => {
       title TEXT NOT NULL,
       introduction TEXT NOT NULL,
       seo_description TEXT NOT NULL,
+      action TEXT NOT NULL DEFAULT 'publish'
+        CHECK (action IN ('publish', 'unpublish')),
+      source TEXT NOT NULL DEFAULT 'curation'
+        CHECK (source IN ('curation', 'edition')),
       state TEXT NOT NULL
         CHECK (state IN ('committing', 'validating', 'deploying', 'live', 'failed')),
       commit_sha TEXT,
@@ -162,6 +172,23 @@ export const ensureCurationSchema = (database: Database.Database): void => {
     CREATE INDEX IF NOT EXISTS taxonomy_mutations_updated
       ON taxonomy_mutations(updated_at DESC);
   `);
+  const publicationColumns = database
+    .prepare("PRAGMA table_info(digest_publications)")
+    .all() as Array<{ name: string }>;
+  if (!publicationColumns.some((column) => column.name === "action")) {
+    database.exec(`
+      ALTER TABLE digest_publications
+      ADD COLUMN action TEXT NOT NULL DEFAULT 'publish'
+        CHECK (action IN ('publish', 'unpublish'));
+    `);
+  }
+  if (!publicationColumns.some((column) => column.name === "source")) {
+    database.exec(`
+      ALTER TABLE digest_publications
+      ADD COLUMN source TEXT NOT NULL DEFAULT 'curation'
+        CHECK (source IN ('curation', 'edition'));
+    `);
+  }
 };
 
 export class CurationStore {
@@ -367,14 +394,16 @@ export class CurationStore {
     title: string;
     introduction: string;
     seoDescription: string;
+    action?: PublicationAction;
+    source?: PublicationSource;
   }): DigestPublication {
     const now = new Date().toISOString();
     this.database
       .prepare(
         `INSERT INTO digest_publications
-          (id, digest_date, title, introduction, seo_description, state,
+          (id, digest_date, title, introduction, seo_description, action, source, state,
            created_at, updated_at)
-         VALUES (?, ?, ?, ?, ?, 'committing', ?, ?)`,
+         VALUES (?, ?, ?, ?, ?, ?, ?, 'committing', ?, ?)`,
       )
       .run(
         input.id,
@@ -382,6 +411,8 @@ export class CurationStore {
         input.title,
         input.introduction,
         input.seoDescription,
+        input.action ?? "publish",
+        input.source ?? "curation",
         now,
         now,
       );

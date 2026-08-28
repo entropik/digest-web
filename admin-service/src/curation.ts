@@ -3,6 +3,7 @@ import {
   catalogCategoryDefinitions,
   catalogTaxonomy,
   categoryUsage,
+  changeEditionVisibility,
   changeVisibility,
   publicAdminLink,
   replaceCatalogTag,
@@ -19,10 +20,15 @@ import type {
   CurationDraft,
   DigestPublication,
   DraftInput,
+  EditionTransitionInput,
   PublicationInput,
   TaxonomyMutationKind,
 } from "./curation-types.js";
-import { parseEdition, renderEdition, setEditionDraft } from "./editions.js";
+import {
+  editEdition,
+  parseEdition,
+  setEditionDraft,
+} from "./editions.js";
 import {
   addTagsToPublishedLink,
   GitHubResponseError,
@@ -103,6 +109,7 @@ export const publicationIsLive = async (
           : "",
       }),
     );
+    if (publication.action === "unpublish") return response.status === 404;
     const visibleText = html
       .replace(/<[^>]+>/g, " ")
       .replace(/&#(\d+);/g, (_, value: string) =>
@@ -240,6 +247,15 @@ type TaxonomyMutationPlan<Result extends Record<string, unknown>> = {
   result: Result;
 };
 
+type EditionDependencies = {
+  readRepositoryHead: typeof readRepositoryHead;
+  tryReadRepositoryFile: typeof tryReadRepositoryFile;
+  listRepositoryDirectory: typeof listRepositoryDirectory;
+  commitRepositoryFiles: typeof commitRepositoryFiles;
+  generateOptimizedSocialImage: typeof generateOptimizedSocialImage;
+  generateOptimizedLinkedInImage: typeof generateOptimizedLinkedInImage;
+};
+
 const publicationDependencies: PublicationDependencies = {
   readRepositoryHead,
   tryReadRepositoryFile,
@@ -248,10 +264,20 @@ const publicationDependencies: PublicationDependencies = {
   publicationIsLive,
 };
 
+const editionDependencies: EditionDependencies = {
+  readRepositoryHead,
+  tryReadRepositoryFile,
+  listRepositoryDirectory,
+  commitRepositoryFiles,
+  generateOptimizedSocialImage,
+  generateOptimizedLinkedInImage,
+};
+
 export class CurationService {
   constructor(
     readonly store: CurationStore,
     private readonly publication: PublicationDependencies = publicationDependencies,
+    private readonly edition: EditionDependencies = editionDependencies,
   ) {}
 
   private async durableTaxonomyMutation<Result extends Record<string, unknown>>(
@@ -1189,6 +1215,9 @@ export class CurationService {
     if (!["committing", "validating"].includes(publication.state)) {
       return publication;
     }
+    if (publication.source === "edition") {
+      return this.recoverEditionTransition(publication);
+    }
     const drafts = this.store
       .listDraftsByPublication(publication.id)
       .filter((draft) => draft.state === "publishing");
@@ -1231,6 +1260,48 @@ export class CurationService {
       state: "validating",
       commitSha: head.commitSha,
     });
+  }
+
+  private async recoverEditionTransition(
+    publication: DigestPublication,
+  ): Promise<DigestPublication> {
+    if (publication.commitSha) return publication;
+    const head = await this.edition.readRepositoryHead();
+    const source = await this.edition.tryReadRepositoryFile(
+      editionPath(publication.digestDate),
+      head.commitSha,
+    );
+    const edition = source ? parseEdition(source) : null;
+    const editionLinks = head.links.filter(
+      (link) => link.added === publication.digestDate,
+    );
+    const visibleCount = editionLinks.filter(
+      (link) => link.visibility !== "hidden",
+    ).length;
+    const targetReached = publication.action === "publish"
+      ? Boolean(edition && !edition.draft && visibleCount > 0)
+      : Boolean(edition?.draft && visibleCount === 0);
+
+    if (targetReached) {
+      return this.store.updatePublication(publication.id, {
+        state: "validating",
+        commitSha: head.commitSha,
+        errorCode: null,
+      });
+    }
+    if (
+      publication.state === "committing" &&
+      !publication.commitSha &&
+      publication.errorCode === "GITHUB_COMMIT_OUTCOME_UNKNOWN"
+    ) {
+      const ambiguityAge = Date.now() - new Date(publication.updatedAt).valueOf();
+      if (ambiguityAge < AMBIGUOUS_COMMIT_GRACE_MS) return publication;
+      return this.store.updatePublication(publication.id, {
+        state: "failed",
+        errorCode: "GITHUB_COMMIT_NOT_FOUND",
+      });
+    }
+    return publication;
   }
 
   async refreshPublication(id: string): Promise<DigestPublication> {
@@ -1336,25 +1407,62 @@ export class CurationService {
   }
 
   async listEditions() {
-    const head = await readRepositoryHead();
-    const items = await listRepositoryDirectory("content/archives", head.commitSha);
+    const head = await this.edition.readRepositoryHead();
+    const items = await this.edition.listRepositoryDirectory(
+      "content/archives",
+      head.commitSha,
+    );
     return items
       .filter(
         (item) =>
           item.type === "file" &&
           /^\d{4}-\d{2}-\d{2}\.md$/.test(item.name),
       )
-      .map((item) => item.name.slice(0, 10))
-      .sort()
+      .map((item) => {
+        const date = item.name.slice(0, 10);
+        const links = head.links.filter((link) => link.added === date);
+        const visibleLinkCount = links.filter(
+          (link) => link.visibility !== "hidden",
+        ).length;
+        return {
+          date,
+          state: visibleLinkCount === 0 ? "draft" as const : "published" as const,
+          linkCount: links.length,
+          visibleLinkCount,
+          stagedLinkCount: links.filter(
+            (link) => link.visibility_reason === "edition-draft",
+          ).length,
+        };
+      })
+      .sort((left, right) => left.date.localeCompare(right.date))
       .reverse();
   }
 
   async getEdition(date: string) {
     if (!validDate(date)) throw new CurationError("INVALID_DIGEST_DATE");
-    const head = await readRepositoryHead();
-    const source = await tryReadRepositoryFile(editionPath(date), head.commitSha);
+    const head = await this.edition.readRepositoryHead();
+    const source = await this.edition.tryReadRepositoryFile(
+      editionPath(date),
+      head.commitSha,
+    );
     if (!source) throw new CurationError("EDITION_NOT_FOUND", 404);
-    return parseEdition(source);
+    const edition = parseEdition(source);
+    const links = head.links.filter((link) => link.added === date);
+    const visibleLinkCount = links.filter(
+      (link) => link.visibility !== "hidden",
+    ).length;
+    const catalogIsDraft = visibleLinkCount === 0;
+    return {
+      ...edition,
+      state: Boolean(edition.draft) === catalogIsDraft
+        ? catalogIsDraft ? "draft" as const : "published" as const
+        : "inconsistent" as const,
+      linkCount: links.length,
+      visibleLinkCount,
+      stagedLinkCount: links.filter(
+        (link) => link.visibility_reason === "edition-draft",
+      ).length,
+    };
   }
 
   async updateEdition(
@@ -1363,8 +1471,8 @@ export class CurationService {
   ) {
     if (!validDate(date)) throw new CurationError("INVALID_DIGEST_DATE");
     for (let attempt = 0; attempt < 2; attempt += 1) {
-      const head = await readRepositoryHead();
-      const source = await tryReadRepositoryFile(
+      const head = await this.edition.readRepositoryHead();
+      const source = await this.edition.tryReadRepositoryFile(
         editionPath(date),
         head.commitSha,
       );
@@ -1376,8 +1484,7 @@ export class CurationService {
       if (!title || !description || !introduction) {
         throw new CurationError("INCOMPLETE_EDITION");
       }
-      const next = renderEdition({
-        digestDate: date,
+      const next = editEdition(source, {
         title,
         description,
         introduction,
@@ -1394,11 +1501,11 @@ export class CurationService {
         ).length,
       };
       const [socialImage, linkedInImage] = await Promise.all([
-        generateOptimizedSocialImage(socialInput),
-        generateOptimizedLinkedInImage(socialInput),
+        this.edition.generateOptimizedSocialImage(socialInput),
+        this.edition.generateOptimizedLinkedInImage(socialInput),
       ]);
       try {
-        const commit = await commitRepositoryFiles(
+        const commit = await this.edition.commitRepositoryFiles(
           head.commitSha,
           head.treeSha,
           {
@@ -1425,6 +1532,158 @@ export class CurationService {
       }
     }
     throw new Error("CONCURRENT_UPDATE");
+  }
+
+  async transitionEdition(
+    date: string,
+    input: EditionTransitionInput,
+  ): Promise<DigestPublication> {
+    if (!validDate(date)) throw new CurationError("INVALID_DIGEST_DATE");
+    if (
+      !/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
+        input.requestId,
+      )
+    ) {
+      throw new CurationError("INVALID_REQUEST_ID");
+    }
+    if (!(["publish", "unpublish"] as const).includes(input.action)) {
+      throw new CurationError("INVALID_EDITION_ACTION");
+    }
+    const existing = this.store.findPublication(input.requestId);
+    if (existing) return this.recoverOrReturn(existing);
+
+    const initialHead = await this.edition.readRepositoryHead();
+    const initialSource = await this.edition.tryReadRepositoryFile(
+      editionPath(date),
+      initialHead.commitSha,
+    );
+    if (!initialSource) throw new CurationError("EDITION_NOT_FOUND", 404);
+    const initialEdition = parseEdition(initialSource);
+    this.assertEditionTransition(
+      date,
+      initialEdition,
+      initialHead.links,
+      input.action,
+    );
+    this.store.createPublication({
+      id: input.requestId,
+      digestDate: date,
+      title: initialEdition.title,
+      introduction: initialEdition.introduction,
+      seoDescription: initialEdition.description,
+      action: input.action,
+      source: "edition",
+    });
+
+    let remoteCommitSucceeded = false;
+    try {
+      for (let attempt = 0; attempt < 2; attempt += 1) {
+        const head = attempt === 0
+          ? initialHead
+          : await this.edition.readRepositoryHead();
+        const source = attempt === 0
+          ? initialSource
+          : await this.edition.tryReadRepositoryFile(
+              editionPath(date),
+              head.commitSha,
+            );
+        if (!source) throw new CurationError("EDITION_NOT_FOUND", 404);
+        const current = parseEdition(source);
+        this.assertEditionTransition(date, current, head.links, input.action);
+        const target = input.action === "publish" ? "published" : "draft";
+        const mutation = changeEditionVisibility(head.links, date, target);
+        if (!mutation.changed) {
+          throw new CurationError("NO_EDITION_LINKS_TO_TRANSITION", 409);
+        }
+        const nextSource = setEditionDraft(source, target === "draft");
+        const linkCount = mutation.links.filter(
+          (link) => link.added === date && link.visibility !== "hidden",
+        ).length;
+        const socialInput = {
+          digestDate: date,
+          title: current.title,
+          description: current.description,
+          linkCount,
+        };
+        const [socialImage, linkedInImage] = await Promise.all([
+          this.edition.generateOptimizedSocialImage(socialInput),
+          this.edition.generateOptimizedLinkedInImage(socialInput),
+        ]);
+        try {
+          const commitSha = await this.edition.commitRepositoryFiles(
+            head.commitSha,
+            head.treeSha,
+            {
+              [editionPath(date)]: nextSource,
+              "data/links.json": serializeCatalog(mutation.links),
+              [`static/social/${date}.png`]: socialImage,
+              [`static/social/${date}-linkedin.png`]: linkedInImage,
+            },
+            input.action === "publish"
+              ? `Publier le Digest du ${date}`
+              : `Remettre en brouillon le Digest du ${date}`,
+          );
+          remoteCommitSucceeded = true;
+          return this.store.updatePublication(input.requestId, {
+            state: "validating",
+            commitSha,
+            errorCode: null,
+          });
+        } catch (error) {
+          if (error instanceof GitHubMutationOutcomeUnknownError) {
+            remoteCommitSucceeded = true;
+            this.store.updatePublication(input.requestId, {
+              state: "committing",
+              errorCode: "GITHUB_COMMIT_OUTCOME_UNKNOWN",
+            });
+          }
+          if (
+            attempt === 0 &&
+            error instanceof GitHubResponseError &&
+            [409, 422].includes(error.status)
+          ) {
+            continue;
+          }
+          throw error;
+        }
+      }
+      throw new Error("CONCURRENT_UPDATE");
+    } catch (error) {
+      if (!remoteCommitSucceeded) {
+        this.store.updatePublication(input.requestId, {
+          state: "failed",
+          errorCode: error instanceof CurationError
+            ? error.code
+            : "EDITION_TRANSITION_FAILED",
+        });
+      }
+      throw error;
+    }
+  }
+
+  private assertEditionTransition(
+    date: string,
+    edition: ReturnType<typeof parseEdition>,
+    links: Awaited<ReturnType<typeof readRepositoryHead>>["links"],
+    action: EditionTransitionInput["action"],
+  ): void {
+    const editionLinks = links.filter((link) => link.added === date);
+    if (!editionLinks.length) throw new CurationError("EMPTY_EDITION", 409);
+    const visibleCount = editionLinks.filter(
+      (link) => link.visibility !== "hidden",
+    ).length;
+    if (Boolean(edition.draft) !== (visibleCount === 0)) {
+      throw new CurationError("EDITION_STATE_INCONSISTENT", 409, {
+        draft: Boolean(edition.draft),
+        visibleCount,
+      });
+    }
+    if (action === "publish" && !edition.draft) {
+      throw new CurationError("EDITION_ALREADY_PUBLISHED", 409);
+    }
+    if (action === "unpublish" && edition.draft) {
+      throw new CurationError("EDITION_ALREADY_DRAFT", 409);
+    }
   }
 }
 

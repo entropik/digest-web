@@ -251,3 +251,26 @@ sert uniquement à retrouver le contexte WordPress et apparaît sous un filet,
 comme métadonnée discrète. Cette hiérarchie empêche le permalink historique de
 ressembler à l’action principale ou de remplacer par erreur une destination
 encore vivante.
+
+## 28 août 2026
+
+### Une édition possède un cycle de vie réversible
+
+Une correction de titre, d’introduction ou de description ne change jamais
+implicitement l’état d’une édition. La publication et la remise en brouillon
+sont deux actions distinctes, confirmées et suivies jusqu’au déploiement.
+
+### Le motif de masquage protège les retraits éditoriaux
+
+Un lien masqué par une remise en brouillon reçoit
+`visibility_reason: "edition-draft"`. Seuls ces liens sont restaurés lors de la
+publication suivante ; un retrait `editorial` ou historique sans motif reste
+masqué. Cette distinction rend la transition réversible sans annuler une
+décision éditoriale indépendante.
+
+### Le front matter et le catalogue forment un invariant
+
+`draft: true` exige qu’aucun lien de l’édition ne soit public, et une édition
+publiée exige au moins un lien visible. Le contrôle de cohérence bloque les
+divergences, tandis que l’administration les signale explicitement au lieu de
+proposer une transition risquée.

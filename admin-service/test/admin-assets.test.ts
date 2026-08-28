@@ -72,7 +72,7 @@ test("the private dashboard displays the current site version after logout", () 
 
   assert.match(
     page,
-    /<button id="admin-logout" type="button">Déconnexion<\/button>\s*<span class="admin-version" aria-label="Version v1\.23\.15">v1\.23\.15<\/span>/,
+    /<button id="admin-logout" type="button">Déconnexion<\/button>\s*<span class="admin-version" aria-label="Version v1\.24\.0">v1\.24\.0<\/span>/,
   );
   assert.match(adminCss, /\.admin-version\{/);
   assert.match(adminCss, /\.admin-version\{[^}]*background:var\(--ink\);color:var\(--paper\)/);
@@ -102,10 +102,28 @@ test("publication wording uses Publier throughout the dashboard", () => {
   const page = dashboardPage("Marc");
 
   assert.doesNotMatch(page, /Composer/);
-  assert.equal((page.match(/Publier/g) ?? []).length, 3);
+  assert.equal((page.match(/Publier/g) ?? []).length, 4);
   assert.match(adminJs, /publicationTitleForDate=\(value\)=>"Digest — "/);
   assert.match(adminJs, /new Intl\.DateTimeFormat\("fr-FR"/);
   assert.match(adminJs, /publication-title"\)\.value=publicationTitleForDate\(today\)/);
+});
+
+test("editions expose draft filters and explicit lifecycle actions", () => {
+  const page = dashboardPage("Marc");
+
+  assert.match(page, /<h2>Gérer une édition<\/h2>/);
+  assert.match(page, /id="edition-filter"[^>]*>[\s\S]*Brouillons[\s\S]*Publiées/);
+  assert.match(page, /id="edition-state"/);
+  assert.match(page, /id="edition-link-count"/);
+  assert.match(page, /id="edition-warning"/);
+  assert.match(page, /data-edition-action="publish">Publier l’édition/);
+  assert.match(page, /data-edition-action="unpublish">Remettre en brouillon/);
+  assert.match(adminJs, /editionStateLabels=\{draft:"Brouillon",published:"Publiée",inconsistent:"État incohérent"\}/);
+  assert.match(adminJs, /edition\.stagedLinkCount/);
+  assert.match(adminJs, /crypto\.randomUUID\(\)/);
+  assert.match(adminJs, /\/api\/admin\/editions\/"\+encodeURIComponent\(date\)\+"\/"\+action/);
+  assert.match(adminJs, /window\.confirm\(question\)/);
+  assert.match(adminCss, /\.status-inconsistent\{/);
 });
 
 test("LinkedIn credentials can be configured without server access", () => {
@@ -256,7 +274,10 @@ test("a confirmed publication is tracked before ancillary refreshes", () => {
     adminJs,
     /startPublicationPolling\(publication\.id,false\);\s*try\{await Promise\.all\(\[loadDrafts\(\),loadPublications\(\)\]\)\}/,
   );
-  assert.match(adminJs, /if\(error\.status\)pendingPublicationRequestId=null/);
+  assert.match(
+    adminJs,
+    /if\(error\.status&&error\.message!=="GITHUB_COMMIT_OUTCOME_UNKNOWN"\)pendingPublicationRequestId=null/,
+  );
   assert.doesNotMatch(adminJs, /error\.status&&error\.status<500/);
 });
 

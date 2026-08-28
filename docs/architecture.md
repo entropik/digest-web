@@ -254,3 +254,12 @@ de présence de l’archive.
 
 Une date existante est refusée avec `409 EDITION_EXISTS`. Un brouillon
 incomplet peut être enregistré, mais jamais publié.
+
+Une édition existante possède aussi un cycle de vie administrable. Son état
+est cohérent seulement si `draft: true` correspond à zéro lien public dans
+`data/links.json`. La remise en brouillon masque les liens encore visibles avec
+`visibility_reason: "edition-draft"`; une publication ne restaure que ces liens
+préparés et laisse les retraits éditoriaux, anciens ou explicitement marqués
+`editorial`, hors ligne. L’archive, le catalogue et les deux affiches sociales
+sont écrits dans un même commit. Les deux transitions utilisent le suivi
+persisté des publications et peuvent reprendre une réponse GitHub ambiguë.

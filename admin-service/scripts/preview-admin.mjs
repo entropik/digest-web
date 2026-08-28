@@ -46,6 +46,7 @@ const sampleDrafts = [
 ];
 
 let publicationStep = 0;
+let publicationAction = "publish";
 const publicationStates = ["validating", "deploying", "live"];
 const samplePublication = () => {
   const state = publicationStates[Math.min(publicationStep, publicationStates.length - 1)];
@@ -53,6 +54,8 @@ const samplePublication = () => {
     id: "publication",
     digestDate: "2026-08-16",
     title: "16 août 2026",
+    action: publicationAction,
+    source: "edition",
     state,
     commitSha: "0123456789abcdef",
     validateUrl: "https://github.com/example/digest/actions/runs/1",
@@ -169,8 +172,42 @@ createServer((request, response) => {
     json(response, { publication: samplePublication() });
     return;
   }
+  if (
+    /^\/api\/admin\/editions\/\d{4}-\d{2}-\d{2}\/(publish|unpublish)$/.test(
+      url.pathname,
+    ) && request.method === "POST"
+  ) {
+    publicationStep = 0;
+    publicationAction = url.pathname.endsWith("/unpublish")
+      ? "unpublish"
+      : "publish";
+    json(response, { publication: samplePublication() });
+    return;
+  }
+  if (url.pathname === "/api/admin/editions" && url.searchParams.has("date")) {
+    const draft = url.searchParams.get("date") === "2026-08-29";
+    json(response, {
+      edition: {
+        digestDate: url.searchParams.get("date"),
+        title: draft ? "Après l’IDE, voici l’ADE" : "Une édition publiée",
+        description: "Une description éditoriale pour vérifier le cycle de vie.",
+        introduction: "Une introduction administrable conservée avec son état.",
+        ...(draft ? { draft: true } : {}),
+        state: draft ? "draft" : "published",
+        linkCount: draft ? 7 : 20,
+        visibleLinkCount: draft ? 0 : 20,
+        stagedLinkCount: draft ? 7 : 0,
+      },
+    });
+    return;
+  }
   if (url.pathname === "/api/admin/editions") {
-    json(response, { editions: ["2026-07-24", "2022-04-14"] });
+    json(response, {
+      editions: [
+        { date: "2026-08-29", state: "draft", linkCount: 7, visibleLinkCount: 0, stagedLinkCount: 7 },
+        { date: "2026-08-28", state: "published", linkCount: 20, visibleLinkCount: 20, stagedLinkCount: 0 },
+      ],
+    });
     return;
   }
   if (url.pathname === "/api/admin/links/hidden") {
