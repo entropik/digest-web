@@ -163,11 +163,11 @@ function Get-FrenchDiacriticLexicon([System.IO.FileInfo[]]$Files) {
     'hypotheses' = 'hypothèses'; 'immediate' = 'immédiate'; 'instantanees' = 'instantanées'
     'melangeait' = 'mélangeait'; 'mediane' = 'médiane'; 'negatives' = 'négatives'; 'observees' = 'observées'
     'possede' = 'possède'; 'prepare' = 'prépare'; 'present' = 'présent'; 'procedures' = 'procédures'
-    'ramene' = 'ramène'; 'recoivent' = 'reçoivent'; 'reduisent' = 'réduisent'; 'schemas' = 'schémas'
+    'ramene' = 'ramène'; 'ramenee' = 'ramenée'; 'ramenes' = 'ramenés'; 'ramenees' = 'ramenées'; 'recoivent' = 'reçoivent'; 'reduisent' = 'réduisent'; 'schemas' = 'schémas'
     'selectionne' = 'sélectionne'; 'supprimee' = 'supprimée'; 'supprimees' = 'supprimées'
     'declaree' = 'déclarée'; 'declarees' = 'déclarées'; 'presigne' = 'présigné'; 'presignes' = 'présignés'
     'pret' = 'prêt'; 'prets' = 'prêts'; 'repoussee' = 'repoussée'; 'repoussees' = 'repoussées'
-    'dedie' = 'dédié'; 'dedies' = 'dédiés'; 'precise' = 'précise'; 'selecteur' = 'sélecteur'; 'selecteurs' = 'sélecteurs'
+    'dedie' = 'dédié'; 'dedies' = 'dédiés'; 'dediees' = 'dédiées'; 'precise' = 'précise'; 'selecteur' = 'sélecteur'; 'selecteurs' = 'sélecteurs'
     'decorative' = 'décorative'; 'decoratif' = 'décoratif'; 'decoratifs' = 'décoratifs'; 'partagees' = 'partagées'
     'poussee' = 'poussée'; 'retrouvee' = 'retrouvée'; 'signee' = 'signée'; 'utilisee' = 'utilisée'
     'cachees' = 'cachées'; 'deborde' = 'déborde'; 'fermees' = 'fermées'; 'ignorees' = 'ignorées'
@@ -176,7 +176,7 @@ function Get-FrenchDiacriticLexicon([System.IO.FileInfo[]]$Files) {
     'recalee' = 'recalée'; 'restauree' = 'restaurée'; 'reussi' = 'réussi'; 'simplifiee' = 'simplifiée'; 'structuree' = 'structurée'
     'arteres' = 'artères'; 'bornees' = 'bornées'; 'cadree' = 'cadrée'; 'clarifiee' = 'clarifiée'
     'consacree' = 'consacrée'; 'conservees' = 'conservées'; 'decoupe' = 'découpe'; 'depasse' = 'dépasse'
-    'deplaces' = 'déplacés'; 'edite' = 'édite'; 'envoyes' = 'envoyés'; 'exposees' = 'exposées'
+    'deplace' = 'déplacé'; 'deplaces' = 'déplacés'; 'edite' = 'édite'; 'envoyes' = 'envoyés'; 'exposees' = 'exposées'
     'gardee' = 'gardée'; 'geante' = 'géante'; 'guidee' = 'guidée'; 'identifiees' = 'identifiées'
     'implemente' = 'implémente'; 'isolees' = 'isolées'; 'lancee' = 'lancée'; 'marquee' = 'marquée'; 'masquee' = 'masquée'
     'matieres' = 'matières'; 'melanges' = 'mélanges'; 'posees' = 'posées'; 'prouvees' = 'prouvées'
@@ -425,7 +425,9 @@ function Restore-FrenchDiacritics([string]$Text, [hashtable]$Lexicon, [hashtable
   $restored = [regex]::Replace($restored, '(?i)\bdédie\b', 'dédié')
   $restored = [regex]::Replace($restored, '(?i)\bdéplaces\b', 'déplacés')
   $restored = [regex]::Replace($restored, '(?i)\b(?<subject>il|elle|on) d[ée]di[ée]\b', '${subject} dédie')
+  $restored = [regex]::Replace($restored, '(?i)\b(?<subject>il|elle|on) d[ée]plac[ée]\b', '${subject} déplace')
   $restored = [regex]::Replace($restored, '(?i)\btu d[ée]plac[ée]s\b', 'tu déplaces')
+  $restored = [regex]::Replace($restored, '(?i)\btu ramenés\b', 'tu ramènes')
   $restored = [regex]::Replace($restored, '^\s*à ', 'À ')
   return $restored
 }
