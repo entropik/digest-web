@@ -99,6 +99,8 @@ def decode_url_component(value: str) -> str:
         if next_value == decoded:
             break
         decoded = next_value
+    if re.search(r"%[0-9a-f]{2}", decoded, re.I):
+        raise ValueError("URL encoding exceeds decode limit")
     return decoded
 
 
@@ -119,7 +121,11 @@ def canonicalize(raw_url: str, reject_sensitive: bool = False) -> str:
         fragment_path_value, separator, fragment_query = fragment.partition("?")
         if not separator:
             fragment_query = fragment if "=" in fragment else ""
-        fragment_path = "/" + fragment_path_value.lstrip("/")
+        fragment_path = (
+            "/" + fragment_path_value.lstrip("/")
+            if fragment_path_value.startswith("/")
+            else ""
+        )
         if SENSITIVE_PATH_SEGMENT.search(
             decode_url_component(parts.path)
         ) or SENSITIVE_PATH_SEGMENT.search(fragment_path):

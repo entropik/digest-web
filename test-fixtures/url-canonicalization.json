@@ -70,6 +70,11 @@
     "error": true
   },
   {
+    "name": "authenticated path beyond decode limit",
+    "input": "https://example.com/%25252561dmin/report",
+    "error": true
+  },
+  {
     "name": "encoded authenticated fragment with malformed query escape",
     "input": "https://example.com/#/%61dmin?x=%ZZ",
     "error": true
@@ -108,5 +113,15 @@
     "name": "ordinary API key documentation anchor",
     "input": "https://example.com/docs#api-key",
     "expected": "https://example.com/docs#api-key"
+  },
+  {
+    "name": "ordinary OAuth documentation anchor",
+    "input": "https://example.com/docs#oauth",
+    "expected": "https://example.com/docs#oauth"
+  },
+  {
+    "name": "ordinary verification documentation anchor",
+    "input": "https://example.com/docs#verification",
+    "expected": "https://example.com/docs#verification"
   }
 ]

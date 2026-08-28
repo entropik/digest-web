@@ -81,6 +81,9 @@ const decodeUrlComponent = (value: string): string => {
       throw new Error("SENSITIVE_URL");
     }
   }
+  if (/%[0-9a-f]{2}/i.test(decoded)) {
+    throw new Error("SENSITIVE_URL");
+  }
   return decoded;
 };
 
@@ -95,10 +98,11 @@ export const canonicalLocalDraftUrl = (rawUrl: string): string => {
       : fragment.includes("=")
         ? fragment
         : "";
-  const fragmentPath = `/${(fragmentSeparator >= 0
-    ? fragment.slice(0, fragmentSeparator)
-    : fragment
-  ).replace(/^\/+/, "")}`;
+  const fragmentPathValue =
+    fragmentSeparator >= 0 ? fragment.slice(0, fragmentSeparator) : fragment;
+  const fragmentPath = fragmentPathValue.startsWith("/")
+    ? `/${fragmentPathValue.replace(/^\/+/, "")}`
+    : "";
   if (
     !isSupportedCaptureUrl(url.toString()) ||
     SENSITIVE_PATH_SEGMENT.test(decodeUrlComponent(url.pathname)) ||

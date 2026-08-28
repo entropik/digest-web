@@ -60,6 +60,9 @@ const decodeUrlComponent = (value: string): string => {
       throw new UnsafeUrlError("INVALID_URL_ENCODING");
     }
   }
+  if (/%[0-9a-f]{2}/i.test(decoded)) {
+    throw new UnsafeUrlError("INVALID_URL_ENCODING");
+  }
   return decoded;
 };
 
@@ -169,10 +172,11 @@ export const canonicalizePublicUrl = (rawUrl: string): string => {
   }
   const fragment = decodeUrlComponent(url.hash.slice(1));
   const fragmentSeparator = fragment.indexOf("?");
-  const fragmentPath = `/${(fragmentSeparator >= 0
-    ? fragment.slice(0, fragmentSeparator)
-    : fragment
-  ).replace(/^\/+/, "")}`;
+  const fragmentPathValue =
+    fragmentSeparator >= 0 ? fragment.slice(0, fragmentSeparator) : fragment;
+  const fragmentPath = fragmentPathValue.startsWith("/")
+    ? `/${fragmentPathValue.replace(/^\/+/, "")}`
+    : "";
   const fragmentQuery =
     fragmentSeparator >= 0
       ? fragment.slice(fragmentSeparator + 1)
