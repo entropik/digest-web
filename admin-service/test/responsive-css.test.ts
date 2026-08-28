@@ -62,3 +62,24 @@ test("public link layouts cannot force horizontal scrolling", async () => {
     /\.tag-archive-header h1\s*\{[^}]*overflow-wrap:\s*anywhere;/s,
   );
 });
+
+test("Journal components keep one canonical rule plus intentional responsive overrides", async () => {
+  const css = await readFile(cssPath, "utf8");
+  const occurrences = (selector: string) => {
+    const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    return css.match(new RegExp(`^\\s*${escaped}\\s*\\{`, "gm"))?.length ?? 0;
+  };
+
+  assert.equal(occurrences(".journal-grid"), 2);
+  assert.equal(occurrences(".journal-header .archive-single-count"), 2);
+  assert.equal(occurrences(".journal-chronology"), 2);
+  assert.equal(occurrences(".journal-month"), 1);
+  assert.equal(occurrences(".journal-month-header"), 2);
+  assert.equal(occurrences(".journal-card"), 1);
+  assert.equal(occurrences(".journal-card a"), 3);
+  assert.equal(occurrences(".journal-post"), 1);
+  assert.equal(occurrences(".journal-post-header"), 1);
+  assert.equal(occurrences(".journal-post-visual figcaption"), 2);
+  assert.equal(occurrences(".journal-post-content"), 1);
+  assert.equal(occurrences(".journal-post-folio"), 1);
+});
