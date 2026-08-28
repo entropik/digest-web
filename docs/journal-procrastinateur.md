@@ -78,11 +78,13 @@ hugo server --buildDrafts
 ```
 
 L’import est idempotent et produit par défaut des brouillons. Il retire de la
-copie les chemins absolus de poste, URL locales, adresses LAN et comptes OOBLIK
-mentionnés dans les récits. Il restaure également les diacritiques françaises
-dans la prose et les titres, en excluant les blocs de code, le code en ligne,
-les URL et les formes techniques ambiguës. Il ne modifie jamais les fichiers
-KEREDIT.
+copie les chemins absolus de poste ou de serveur, URL locales, adresses IP,
+comptes distants, noms de machines et libellés de clés SSH mentionnés dans les
+récits. Les noms d’infrastructure sont masqués dans leur contexte afin de
+préserver les références techniques ordinaires. Il restaure également les
+diacritiques françaises dans la prose et les titres, en excluant les blocs de
+code, le code en ligne, les URL et les formes techniques ambiguës. Il ne modifie
+jamais les fichiers KEREDIT.
 
 Après relecture éditoriale, `-Publish` rend la copie publiable :
 
