@@ -125,6 +125,13 @@ catégorie portent en revanche sur tous ses liens publics : une catégorie comme
 « Mémoire du web social » peut donc ouvrir ses archives Twitter, Instagram,
 Tumblr et blog sans transformer la page d’accueil en flux continu.
 
+L’index interactif respecte un budget après chaque build. Le fragment initial
+`Tout` reste sous 280 Kio gzip et 230 Kio Brotli ; le complément des flux sous
+240/200 Kio ; les textes d’archive, chargés seulement à l’ouverture d’une
+modale, sous 140/120 Kio. Une catégorie ou les favoris chargent le complément
+sans perdre de résultat. Le filtrage synchrone d’une requête doit rester sous
+50 ms afin de ne pas créer de tâche longue sur le profil mobile de contrôle.
+
 Les cartes issues des « Archives du blog OOBLIK » peuvent recevoir un bandeau
 photographique 16:9 local. L’image réserve sa hauteur avant chargement, garde
 des angles droits et un filet inférieur. La même image ouvre la modale ; une
