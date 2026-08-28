@@ -80,6 +80,16 @@
     "error": true
   },
   {
+    "name": "encoded literal percent in path",
+    "input": "https://example.com/discount/100%25",
+    "expected": "https://example.com/discount/100%25"
+  },
+  {
+    "name": "encoded literal percent in fragment",
+    "input": "https://example.com/article#100%25-complete",
+    "expected": "https://example.com/article#100%25-complete"
+  },
+  {
     "name": "ordinary editorial anchor",
     "input": "https://example.com/article#comments",
     "expected": "https://example.com/article#comments"
