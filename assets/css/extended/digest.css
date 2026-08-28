@@ -2294,6 +2294,12 @@ body.digest-modal-open {
   line-height: 1.08;
 }
 
+.archive-intro h3 {
+  margin: clamp(2.75rem, 6vw, 3.5rem) 0 clamp(1rem, 3vw, 1.4rem);
+  color: var(--digest-ink);
+  line-height: 1.15;
+}
+
 .archive-intro blockquote {
   margin: 1.5rem 0 0;
   padding: .2rem 0 .2rem 1.5rem;
