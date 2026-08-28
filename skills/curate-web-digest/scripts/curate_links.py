@@ -74,7 +74,9 @@ def is_private_host(host: str) -> bool:
 
 
 def is_sensitive_key(key: str) -> bool:
-    separated = re.sub(r"([a-z0-9])([A-Z])", r"\1_\2", key)
+    separated = re.sub(
+        r"([a-z0-9])([A-Z])", r"\1_\2", decode_url_component(key, completed_passes=1)
+    )
     compact = re.sub(r"[^a-z0-9]", "", separated.lower())
     return bool(
         SENSITIVE_QUERY_KEY.search(separated)
@@ -83,9 +85,9 @@ def is_sensitive_key(key: str) -> bool:
     )
 
 
-def decode_url_component(value: str) -> str:
+def decode_url_component(value: str, completed_passes: int = 0) -> str:
     decoded = value
-    for pass_index in range(3):
+    for pass_index in range(completed_passes, 3):
         if re.search(r"%(?![0-9a-f]{2})", decoded, re.I):
             if pass_index > 0 and not re.search(r"%[0-9a-f]{2}", decoded, re.I):
                 break
@@ -121,11 +123,8 @@ def canonicalize(raw_url: str, reject_sensitive: bool = False) -> str:
         fragment_path_value, separator, fragment_query = fragment.partition("?")
         if not separator:
             fragment_query = fragment if "=" in fragment else ""
-        fragment_path = (
-            "/" + fragment_path_value.lstrip("/")
-            if fragment_path_value.startswith("/")
-            else ""
-        )
+        fragment_route = re.fullmatch(r"!?(/.*)", fragment_path_value)
+        fragment_path = "/" + fragment_route.group(1).lstrip("/") if fragment_route else ""
         if SENSITIVE_PATH_SEGMENT.search(
             decode_url_component(parts.path)
         ) or SENSITIVE_PATH_SEGMENT.search(fragment_path):

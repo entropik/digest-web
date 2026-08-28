@@ -38,19 +38,9 @@ const SENSITIVE_COMPACT_KEYS = new Set([
   "verificationtoken",
 ]);
 
-const isSensitiveKey = (key: string): boolean => {
-  const separated = key.replace(/([a-z0-9])([A-Z])/g, "$1_$2");
-  const compact = separated.toLowerCase().replace(/[^a-z0-9]/g, "");
-  return (
-    SENSITIVE_QUERY_KEY.test(separated) ||
-    SENSITIVE_COMPACT_KEYS.has(compact) ||
-    /^tickets?(?:id|key|token)?$/.test(compact)
-  );
-};
-
-const decodeUrlComponent = (value: string): string => {
+const decodeUrlComponent = (value: string, completedPasses = 0): string => {
   let decoded = value;
-  for (let pass = 0; pass < 3; pass += 1) {
+  for (let pass = completedPasses; pass < 3; pass += 1) {
     try {
       const next = decodeURIComponent(decoded);
       if (next === decoded) break;
@@ -64,6 +54,19 @@ const decodeUrlComponent = (value: string): string => {
     throw new UnsafeUrlError("INVALID_URL_ENCODING");
   }
   return decoded;
+};
+
+const isSensitiveKey = (key: string): boolean => {
+  const separated = decodeUrlComponent(key, 1).replace(
+    /([a-z0-9])([A-Z])/g,
+    "$1_$2",
+  );
+  const compact = separated.toLowerCase().replace(/[^a-z0-9]/g, "");
+  return (
+    SENSITIVE_QUERY_KEY.test(separated) ||
+    SENSITIVE_COMPACT_KEYS.has(compact) ||
+    /^tickets?(?:id|key|token)?$/.test(compact)
+  );
 };
 
 const isPrivateIpv4 = (host: string): boolean => {
@@ -174,8 +177,9 @@ export const canonicalizePublicUrl = (rawUrl: string): string => {
   const fragmentSeparator = fragment.indexOf("?");
   const fragmentPathValue =
     fragmentSeparator >= 0 ? fragment.slice(0, fragmentSeparator) : fragment;
-  const fragmentPath = fragmentPathValue.startsWith("/")
-    ? `/${fragmentPathValue.replace(/^\/+/, "")}`
+  const fragmentRoute = fragmentPathValue.match(/^!?(\/.*)$/)?.[1];
+  const fragmentPath = fragmentRoute
+    ? `/${fragmentRoute.replace(/^\/+/, "")}`
     : "";
   const fragmentQuery =
     fragmentSeparator >= 0

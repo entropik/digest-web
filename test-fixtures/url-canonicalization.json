@@ -50,6 +50,11 @@
     "error": true
   },
   {
+    "name": "nested percent encoded sensitive key",
+    "input": "https://example.com/callback?%2561uth=SECRET",
+    "error": true
+  },
+  {
     "name": "sensitive fragment parameter",
     "input": "https://example.com/article#accessToken=secret",
     "error": true
@@ -57,6 +62,11 @@
   {
     "name": "authenticated fragment route",
     "input": "https://example.com/#/oauth/callback",
+    "error": true
+  },
+  {
+    "name": "authenticated hashbang fragment route",
+    "input": "https://example.com/#!/admin/report",
     "error": true
   },
   {
