@@ -60,8 +60,29 @@ const SENSITIVE_COMPACT_KEYS = new Set([
   "token",
   "verificationtoken",
 ]);
+const decodeUrlComponent = (value: string, completedPasses = 0): string => {
+  let decoded = value;
+  for (let pass = completedPasses; pass < 3; pass += 1) {
+    try {
+      const next = decodeURIComponent(decoded);
+      if (next === decoded) break;
+      decoded = next;
+    } catch {
+      if (pass > 0 && !/%[0-9a-f]{2}/i.test(decoded)) break;
+      throw new Error("SENSITIVE_URL");
+    }
+  }
+  if (/%[0-9a-f]{2}/i.test(decoded)) {
+    throw new Error("SENSITIVE_URL");
+  }
+  return decoded;
+};
+
 const isSensitiveKey = (key: string): boolean => {
-  const separated = key.replace(/([a-z0-9])([A-Z])/g, "$1_$2");
+  const separated = decodeUrlComponent(key, 1).replace(
+    /([a-z0-9])([A-Z])/g,
+    "$1_$2",
+  );
   const compact = separated.toLowerCase().replace(/[^a-z0-9]/g, "");
   return (
     SENSITIVE_QUERY_KEY.test(separated) ||
@@ -69,22 +90,24 @@ const isSensitiveKey = (key: string): boolean => {
     /^tickets?(?:id|key|token)?$/.test(compact)
   );
 };
-const decodeUrlComponent = (value: string): string => {
-  try {
-    return decodeURIComponent(value);
-  } catch {
-    return value;
-  }
-};
 
 export const canonicalLocalDraftUrl = (rawUrl: string): string => {
   const url = new URL(rawUrl.trim());
   url.hostname = url.hostname.toLowerCase().replace(/\.$/, "");
   const fragment = decodeUrlComponent(url.hash.slice(1));
-  const fragmentQuery = fragment.includes("?")
-    ? fragment.slice(fragment.indexOf("?") + 1)
-    : fragment;
-  const fragmentPath = `/${(fragment.split("?")[0] ?? "").replace(/^\/+/, "")}`;
+  const fragmentSeparator = fragment.indexOf("?");
+  const fragmentQuery =
+    fragmentSeparator >= 0
+      ? fragment.slice(fragmentSeparator + 1)
+      : fragment.includes("=")
+        ? fragment
+        : "";
+  const fragmentPathValue =
+    fragmentSeparator >= 0 ? fragment.slice(0, fragmentSeparator) : fragment;
+  const fragmentRoute = fragmentPathValue.match(/^!?(\/.*)$/)?.[1];
+  const fragmentPath = fragmentRoute
+    ? `/${fragmentRoute.replace(/^\/+/, "")}`
+    : "";
   if (
     !isSupportedCaptureUrl(url.toString()) ||
     SENSITIVE_PATH_SEGMENT.test(decodeUrlComponent(url.pathname)) ||

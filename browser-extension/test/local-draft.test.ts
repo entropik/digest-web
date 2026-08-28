@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { beforeEach, describe, expect, test } from "vitest";
 import {
   canonicalLocalDraftUrl,
@@ -9,6 +10,19 @@ import {
   type LocalDraftFields,
   type LocalStorageArea,
 } from "../lib/local-draft";
+
+type UrlFixture = {
+  name: string;
+  input: string;
+  error?: boolean;
+};
+
+const sharedUrlFixtures = JSON.parse(
+  readFileSync(
+    new URL("../../test-fixtures/url-canonicalization.json", import.meta.url),
+    "utf8",
+  ),
+) as UrlFixture[];
 
 const fields: LocalDraftFields = {
   url: "https://example.com/article",
@@ -49,6 +63,17 @@ beforeEach(() => {
 });
 
 describe("temporary local drafts", () => {
+  test.each(sharedUrlFixtures)(
+    "matches the shared server decision: $name",
+    ({ input, error }) => {
+      if (error) {
+        expect(() => canonicalLocalDraftUrl(input)).toThrow("SENSITIVE_URL");
+      } else {
+        expect(() => canonicalLocalDraftUrl(input)).not.toThrow();
+      }
+    },
+  );
+
   test("restores recent fields through the canonical URL", async () => {
     await saveLocalDraft(
       storage,
@@ -151,6 +176,7 @@ describe("temporary local drafts", () => {
     "https://example.com/callback?apikey=SECRET",
     "https://example.com/#accessToken=SECRET",
     "https://example.com/%61dmin",
+    "https://example.com/%2561dmin",
     "https://example.com/#/%61dmin",
     "https://user:password@example.com/article",
     "http://localhost/article",

@@ -38,5 +38,100 @@
     "name": "authenticated path",
     "input": "https://example.com/admin/report",
     "error": true
+  },
+  {
+    "name": "camel case sensitive key",
+    "input": "https://example.com/callback?accessToken=secret",
+    "error": true
+  },
+  {
+    "name": "compact sensitive key",
+    "input": "https://example.com/callback?apikey=secret",
+    "error": true
+  },
+  {
+    "name": "nested percent encoded sensitive key",
+    "input": "https://example.com/callback?%2561uth=SECRET",
+    "error": true
+  },
+  {
+    "name": "sensitive fragment parameter",
+    "input": "https://example.com/article#accessToken=secret",
+    "error": true
+  },
+  {
+    "name": "authenticated fragment route",
+    "input": "https://example.com/#/oauth/callback",
+    "error": true
+  },
+  {
+    "name": "authenticated hashbang fragment route",
+    "input": "https://example.com/#!/admin/report",
+    "error": true
+  },
+  {
+    "name": "percent encoded authenticated path",
+    "input": "https://example.com/%61dmin/report",
+    "error": true
+  },
+  {
+    "name": "nested percent encoded authenticated path",
+    "input": "https://example.com/%2561dmin/report",
+    "error": true
+  },
+  {
+    "name": "authenticated path beyond decode limit",
+    "input": "https://example.com/%25252561dmin/report",
+    "error": true
+  },
+  {
+    "name": "encoded authenticated fragment with malformed query escape",
+    "input": "https://example.com/#/%61dmin?x=%ZZ",
+    "error": true
+  },
+  {
+    "name": "double encoded authenticated fragment with encoded malformed query escape",
+    "input": "https://example.com/#/%2561dmin?x=%25ZZ",
+    "error": true
+  },
+  {
+    "name": "malformed editorial fragment escape",
+    "input": "https://example.com/article#section%ZZ",
+    "error": true
+  },
+  {
+    "name": "encoded literal percent in path",
+    "input": "https://example.com/discount/100%25",
+    "expected": "https://example.com/discount/100%25"
+  },
+  {
+    "name": "encoded literal percent in fragment",
+    "input": "https://example.com/article#100%25-complete",
+    "expected": "https://example.com/article#100%25-complete"
+  },
+  {
+    "name": "ordinary editorial anchor",
+    "input": "https://example.com/article#comments",
+    "expected": "https://example.com/article#comments"
+  },
+  {
+    "name": "ordinary code documentation anchor",
+    "input": "https://example.com/docs#code",
+    "expected": "https://example.com/docs#code"
+  },
+  {
+    "name": "ordinary API key documentation anchor",
+    "input": "https://example.com/docs#api-key",
+    "expected": "https://example.com/docs#api-key"
+  },
+  {
+    "name": "ordinary OAuth documentation anchor",
+    "input": "https://example.com/docs#oauth",
+    "expected": "https://example.com/docs#oauth"
+  },
+  {
+    "name": "ordinary verification documentation anchor",
+    "input": "https://example.com/docs#verification",
+    "expected": "https://example.com/docs#verification"
   }
 ]

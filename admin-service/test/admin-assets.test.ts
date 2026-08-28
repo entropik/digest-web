@@ -253,6 +253,7 @@ test("published link correction exposes and submits an editable URL", () => {
   assert.match(adminJs, /urlInput\.checkValidity\(\)/);
   assert.match(adminJs, /urlInput\.value=data\.link\.url/);
   assert.match(adminJs, /DUPLICATE_LINK_URL:"Cette URL est déjà utilisée/);
+  assert.match(adminJs, /INVALID_URL_ENCODING:"Corrigez les caractères percent-encodés invalides/);
   assert.match(adminJs, /L’identifiant et la date d’ajout ne changeront pas/);
 });
 
