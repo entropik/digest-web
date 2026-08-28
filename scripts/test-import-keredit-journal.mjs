@@ -32,6 +32,7 @@ Commit observé : \`Merge pull request #43 from kerooblik/dev\`.
 Ressource documentaire publique : https://93.184.216.34/reference.
 Il y a environ douze fichiers ; les attributs sont geres dans des emplacements geres.
 Points verifies, contrats verifies et objets sont verifies ; tu verifies le résultat.
+Le travail est preserve, le ClipPath preserve, le module dedie ; la journée a ramene 41 fichiers deplaces.
 
 Contrôles préservés : vite@8.0.16, @vitejs/plugin-react, dev@e9016cd,
 contact@example.org, KEREDIT, GOF, VPS KEREDIT, serveur GOF,
@@ -82,6 +83,7 @@ try {
   assert.match(firstOutput, /Il y a environ douze fichiers ; les attributs sont gérés dans des emplacements gérés\./);
   assert.doesNotMatch(firstOutput, /il y à environ/i);
   assert.match(firstOutput, /Points vérifiés, contrats vérifiés et objets sont vérifiés ; tu vérifies le résultat\./);
+  assert.match(firstOutput, /Le travail est préservé, le ClipPath préservé, le module dédié ; la journée a ramené 41 fichiers déplacés\./);
 
   for (const control of [
     "vite@8.0.16",

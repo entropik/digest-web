@@ -167,7 +167,7 @@ function Get-FrenchDiacriticLexicon([System.IO.FileInfo[]]$Files) {
     'selectionne' = 'sélectionne'; 'supprimee' = 'supprimée'; 'supprimees' = 'supprimées'
     'declaree' = 'déclarée'; 'declarees' = 'déclarées'; 'presigne' = 'présigné'; 'presignes' = 'présignés'
     'pret' = 'prêt'; 'prets' = 'prêts'; 'repoussee' = 'repoussée'; 'repoussees' = 'repoussées'
-    'dedie' = 'dédie'; 'precise' = 'précise'; 'selecteur' = 'sélecteur'; 'selecteurs' = 'sélecteurs'
+    'dedie' = 'dédié'; 'dedies' = 'dédiés'; 'precise' = 'précise'; 'selecteur' = 'sélecteur'; 'selecteurs' = 'sélecteurs'
     'decorative' = 'décorative'; 'decoratif' = 'décoratif'; 'decoratifs' = 'décoratifs'; 'partagees' = 'partagées'
     'poussee' = 'poussée'; 'retrouvee' = 'retrouvée'; 'signee' = 'signée'; 'utilisee' = 'utilisée'
     'cachees' = 'cachées'; 'deborde' = 'déborde'; 'fermees' = 'fermées'; 'ignorees' = 'ignorées'
@@ -176,7 +176,7 @@ function Get-FrenchDiacriticLexicon([System.IO.FileInfo[]]$Files) {
     'recalee' = 'recalée'; 'restauree' = 'restaurée'; 'reussi' = 'réussi'; 'simplifiee' = 'simplifiée'; 'structuree' = 'structurée'
     'arteres' = 'artères'; 'bornees' = 'bornées'; 'cadree' = 'cadrée'; 'clarifiee' = 'clarifiée'
     'consacree' = 'consacrée'; 'conservees' = 'conservées'; 'decoupe' = 'découpe'; 'depasse' = 'dépasse'
-    'deplaces' = 'déplaces'; 'edite' = 'édite'; 'envoyes' = 'envoyés'; 'exposees' = 'exposées'
+    'deplaces' = 'déplacés'; 'edite' = 'édite'; 'envoyes' = 'envoyés'; 'exposees' = 'exposées'
     'gardee' = 'gardée'; 'geante' = 'géante'; 'guidee' = 'guidée'; 'identifiees' = 'identifiées'
     'implemente' = 'implémente'; 'isolees' = 'isolées'; 'lancee' = 'lancée'; 'marquee' = 'marquée'; 'masquee' = 'masquée'
     'matieres' = 'matières'; 'melanges' = 'mélanges'; 'posees' = 'posées'; 'prouvees' = 'prouvées'
@@ -280,6 +280,16 @@ function Get-FrenchPastParticipleLexicon([System.IO.FileInfo[]]$Files) {
       }
     }
   }
+  # Ces formes sont grammaticalement ambiguës et certaines sources contiennent
+  # des accents partiels (par exemple « preservé »). Les variantes apprises ne
+  # deviennent donc jamais autoritaires pour ces participes validés.
+  $curatedParticiples = @{
+    'preserve' = 'préservé'; 'preservee' = 'préservée'; 'preserves' = 'préservés'; 'preservees' = 'préservées'
+    'ramene' = 'ramené'; 'ramenee' = 'ramenée'; 'ramenes' = 'ramenés'; 'ramenees' = 'ramenées'
+    'dedie' = 'dédié'; 'dediee' = 'dédiée'; 'dedies' = 'dédiés'; 'dediees' = 'dédiées'
+    'deplace' = 'déplacé'; 'deplacee' = 'déplacée'; 'deplaces' = 'déplacés'; 'deplacees' = 'déplacées'
+  }
+  foreach ($entry in $curatedParticiples.GetEnumerator()) { $lexicon[$entry.Key] = $entry.Value }
   return $lexicon
 }
 
@@ -406,6 +416,16 @@ function Restore-FrenchDiacritics([string]$Text, [hashtable]$Lexicon, [hashtable
   $restored = [regex]::Replace($restored, '(?i)\b(?<subject>points|contrats|identifiants|credentials|éléments|fichiers|objets|comptages) verifies\b', '${subject} vérifiés')
   $restored = [regex]::Replace($restored, '(?i)\bpas assez verifies\b', 'pas assez vérifiés')
   $restored = [regex]::Replace($restored, '(?i)\btu verifies\b', 'tu vérifies')
+  $restored = [regex]::Replace($restored, '(?i)\b(?<subject>worker|module|dialog|namespace|préfixe|skill|document|test|backoffice|écran|store|script|VPS|NVMe|chantier) d[ée]die\b', '${subject} dédié')
+  $restored = [regex]::Replace($restored, '(?i)\b(?<subject>commits|blocs|types|tokens|styles|hooks|tests|outils|guides|workflows|worktrees) dedies\b', '${subject} dédiés')
+  $restored = [regex]::Replace($restored, '(?i)\b(?<subject>fichiers|guides|éléments|objets|blocs) d[ée]places\b', '${subject} déplacés')
+  $restored = [regex]::Replace($restored, '(?i)\bêtre d[ée]places\b', 'être déplacés')
+  $restored = [regex]::Replace($restored, '(?i)\bClipPath pr[eé]serv[eé]\b', 'ClipPath préservé')
+  $restored = [regex]::Replace($restored, '(?i)\b(?<subject>la journée|la fin de journée) à ramène\b', '${subject} a ramené')
+  $restored = [regex]::Replace($restored, '(?i)\bdédie\b', 'dédié')
+  $restored = [regex]::Replace($restored, '(?i)\bdéplaces\b', 'déplacés')
+  $restored = [regex]::Replace($restored, '(?i)\b(?<subject>il|elle|on) d[ée]di[ée]\b', '${subject} dédie')
+  $restored = [regex]::Replace($restored, '(?i)\btu d[ée]plac[ée]s\b', 'tu déplaces')
   $restored = [regex]::Replace($restored, '^\s*à ', 'À ')
   return $restored
 }
