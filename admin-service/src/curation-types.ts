@@ -58,3 +58,20 @@ export type PublicationInput = {
   seoDescription: string;
 };
 
+export type TaxonomyMutationKind =
+  | "rename_category"
+  | "update_theme"
+  | "archive_theme";
+
+export type TaxonomyMutationState = "committing" | "applying" | "complete";
+
+export type TaxonomyMutation = {
+  id: string;
+  kind: TaxonomyMutationKind;
+  input: Record<string, unknown>;
+  result: Record<string, unknown>;
+  state: TaxonomyMutationState;
+  commitSha: string | null;
+  createdAt: string;
+  updatedAt: string;
+};

@@ -366,6 +366,7 @@ app.patch("/api/admin/categories/:name", async (context) =>
     const body = await jsonBody<{
       name?: unknown;
       description?: unknown;
+      requestId?: unknown;
       confirm?: boolean;
     }>(context);
     requireConfirmation(body);
@@ -373,6 +374,7 @@ app.patch("/api/admin/categories/:name", async (context) =>
       context.req.param("name"),
       body.name,
       body.description,
+      body.requestId,
     );
   }),
 );
@@ -399,17 +401,23 @@ app.post("/api/admin/themes", async (context) =>
 
 app.patch("/api/admin/themes/:name", async (context) =>
   handle(context, async () => {
-    const body = await jsonBody<Record<string, unknown> & { confirm?: boolean }>(context);
+    const body = await jsonBody<
+      Record<string, unknown> & { confirm?: boolean; requestId?: unknown }
+    >(context);
     requireConfirmation(body);
-    return curation.updateTheme(context.req.param("name"), body);
+    return curation.updateTheme(
+      context.req.param("name"),
+      body,
+      body.requestId,
+    );
   }),
 );
 
 app.delete("/api/admin/themes/:name", async (context) =>
   handle(context, async () => {
-    const body = await jsonBody<{ confirm?: boolean }>(context);
+    const body = await jsonBody<{ confirm?: boolean; requestId?: unknown }>(context);
     requireConfirmation(body);
-    return curation.archiveTheme(context.req.param("name"));
+    return curation.archiveTheme(context.req.param("name"), body.requestId);
   }),
 );
 

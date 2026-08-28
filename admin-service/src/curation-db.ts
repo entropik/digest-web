@@ -6,6 +6,9 @@ import type {
   DraftInput,
   DraftState,
   PublicationState,
+  TaxonomyMutation,
+  TaxonomyMutationKind,
+  TaxonomyMutationState,
 } from "./curation-types.js";
 
 type DraftRow = {
@@ -39,6 +42,17 @@ type PublicationRow = {
   created_at: string;
   updated_at: string;
   last_checked_at: string | null;
+};
+
+type TaxonomyMutationRow = {
+  id: string;
+  kind: TaxonomyMutationKind;
+  input_json: string;
+  result_json: string;
+  state: TaxonomyMutationState;
+  commit_sha: string | null;
+  created_at: string;
+  updated_at: string;
 };
 
 const parseTags = (value: string): string[] => {
@@ -77,6 +91,19 @@ const publicationFromRow = (row: PublicationRow): DigestPublication => ({
   createdAt: row.created_at,
   updatedAt: row.updated_at,
   lastCheckedAt: row.last_checked_at,
+});
+
+const taxonomyMutationFromRow = (
+  row: TaxonomyMutationRow,
+): TaxonomyMutation => ({
+  id: row.id,
+  kind: row.kind,
+  input: JSON.parse(row.input_json) as Record<string, unknown>,
+  result: JSON.parse(row.result_json) as Record<string, unknown>,
+  state: row.state,
+  commitSha: row.commit_sha,
+  createdAt: row.created_at,
+  updatedAt: row.updated_at,
 });
 
 export const ensureCurationSchema = (database: Database.Database): void => {
@@ -119,6 +146,21 @@ export const ensureCurationSchema = (database: Database.Database): void => {
     );
     CREATE INDEX IF NOT EXISTS digest_publications_created
       ON digest_publications(created_at DESC);
+
+    CREATE TABLE IF NOT EXISTS taxonomy_mutations (
+      id TEXT PRIMARY KEY,
+      kind TEXT NOT NULL
+        CHECK (kind IN ('rename_category', 'update_theme', 'archive_theme')),
+      input_json TEXT NOT NULL,
+      result_json TEXT NOT NULL,
+      state TEXT NOT NULL
+        CHECK (state IN ('committing', 'applying', 'complete')),
+      commit_sha TEXT,
+      created_at TEXT NOT NULL,
+      updated_at TEXT NOT NULL
+    );
+    CREATE INDEX IF NOT EXISTS taxonomy_mutations_updated
+      ON taxonomy_mutations(updated_at DESC);
   `);
 };
 
@@ -394,5 +436,62 @@ export class CurationStore {
         id,
       );
     return this.findPublication(id)!;
+  }
+
+  createTaxonomyMutation(input: {
+    id: string;
+    kind: TaxonomyMutationKind;
+    payload: Record<string, unknown>;
+    result: Record<string, unknown>;
+  }): TaxonomyMutation {
+    const now = new Date().toISOString();
+    this.database
+      .prepare(
+        `INSERT INTO taxonomy_mutations
+          (id, kind, input_json, result_json, state, created_at, updated_at)
+         VALUES (?, ?, ?, ?, 'committing', ?, ?)`,
+      )
+      .run(
+        input.id,
+        input.kind,
+        JSON.stringify(input.payload),
+        JSON.stringify(input.result),
+        now,
+        now,
+      );
+    return this.findTaxonomyMutation(input.id)!;
+  }
+
+  findTaxonomyMutation(id: string): TaxonomyMutation | null {
+    const row = this.database
+      .prepare("SELECT * FROM taxonomy_mutations WHERE id = ?")
+      .get(id) as TaxonomyMutationRow | undefined;
+    return row ? taxonomyMutationFromRow(row) : null;
+  }
+
+  updateTaxonomyMutation(
+    id: string,
+    values: {
+      state?: TaxonomyMutationState;
+      result?: Record<string, unknown>;
+      commitSha?: string | null;
+    },
+  ): TaxonomyMutation {
+    const current = this.findTaxonomyMutation(id);
+    if (!current) throw new Error("TAXONOMY_MUTATION_NOT_FOUND");
+    this.database
+      .prepare(
+        `UPDATE taxonomy_mutations
+         SET state = ?, result_json = ?, commit_sha = ?, updated_at = ?
+         WHERE id = ?`,
+      )
+      .run(
+        values.state ?? current.state,
+        JSON.stringify(values.result ?? current.result),
+        values.commitSha === undefined ? current.commitSha : values.commitSha,
+        new Date().toISOString(),
+        id,
+      );
+    return this.findTaxonomyMutation(id)!;
   }
 }
