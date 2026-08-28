@@ -60,7 +60,7 @@ export const dashboardPage = (name: string) =>
         <a href="/"><span>Digest</span><span aria-hidden="true">↗</span></a>
         <a href="https://chromewebstore.google.com/detail/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer"><span>Extension</span><span aria-hidden="true">↗</span></a>
         <button id="admin-logout" type="button">Déconnexion</button>
-        <span class="admin-version" aria-label="Version v1.23.12">v1.23.12</span>
+        <span class="admin-version" aria-label="Version v1.23.13">v1.23.13</span>
       </div>
     </header>
     <nav class="admin-nav" aria-label="Administration">
@@ -553,7 +553,7 @@ const publicationPayload=(requestId)=>{
 const publicationTitleForDate=(value)=>"Digest — "+new Intl.DateTimeFormat("fr-FR",{day:"numeric",month:"long",year:"numeric",timeZone:"Europe/Paris"}).format(new Date(value+"T12:00:00Z"));
 document.querySelector("#publication-form")?.addEventListener("submit",async(event)=>{
   event.preventDefault();if(!selected.size)return;
-  const button=document.querySelector("#submit-publication");button.dataset.busy="true";updateSelection();
+  const button=document.querySelector("#submit-publication");if(button.dataset.busy==="true")return;button.dataset.busy="true";updateSelection();
   pendingPublicationRequestId=pendingPublicationRequestId||crypto.randomUUID();
   setSubmissionStatus("committing","Contrôle et création du commit…");
   try{
