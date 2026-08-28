@@ -50,7 +50,7 @@ params:
   ShowCodeCopyButtons: true
   disableSpecial1stPost: true
   footer:
-      text: "v1.23.7 · [Admin](/admin) · [Confidentialité](/confidentialite/)"
+      text: "v1.23.8 · [Admin](/admin) · [Confidentialité](/confidentialite/)"
   label:
     text: "OOBLIK DIGEST"
   homeInfoParams:

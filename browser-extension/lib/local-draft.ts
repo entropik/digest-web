@@ -70,21 +70,30 @@ const isSensitiveKey = (key: string): boolean => {
   );
 };
 const decodeUrlComponent = (value: string): string => {
-  try {
-    return decodeURIComponent(value);
-  } catch {
-    return value;
+  let decoded = value;
+  for (let pass = 0; pass < 3; pass += 1) {
+    try {
+      const next = decodeURIComponent(decoded);
+      if (next === decoded) break;
+      decoded = next;
+    } catch {
+      break;
+    }
   }
+  return decoded;
 };
 
 export const canonicalLocalDraftUrl = (rawUrl: string): string => {
   const url = new URL(rawUrl.trim());
   url.hostname = url.hostname.toLowerCase().replace(/\.$/, "");
   const fragment = decodeUrlComponent(url.hash.slice(1));
-  const fragmentQuery = fragment.includes("?")
-    ? fragment.slice(fragment.indexOf("?") + 1)
-    : fragment;
-  const fragmentPath = `/${(fragment.split("?")[0] ?? "").replace(/^\/+/, "")}`;
+  const fragmentSeparator = fragment.indexOf("?");
+  const fragmentQuery =
+    fragmentSeparator >= 0 ? fragment.slice(fragmentSeparator + 1) : fragment;
+  const fragmentPath = `/${(fragmentSeparator >= 0
+    ? fragment.slice(0, fragmentSeparator)
+    : fragment
+  ).replace(/^\/+/, "")}`;
   if (
     !isSupportedCaptureUrl(url.toString()) ||
     SENSITIVE_PATH_SEGMENT.test(decodeUrlComponent(url.pathname)) ||
