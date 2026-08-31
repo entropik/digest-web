@@ -1,3 +1,5 @@
+import { typographyJs } from "./typography-asset.js";
+
 const pageShell = (body: string, title = "Administration · Digest") => `<!doctype html>
 <html lang="fr">
 <head>
@@ -17,7 +19,6 @@ const pageShell = (body: string, title = "Administration · Digest") => `<!docty
 <body>
   <main>${body}</main>
   <script src="/admin/app.js" defer></script>
-  <script src="/js/typography.js?v=1.24.4" defer></script>
 </body>
 </html>`;
 
@@ -61,7 +62,7 @@ export const dashboardPage = (name: string) =>
         <a href="/"><span>Digest</span><span aria-hidden="true">↗</span></a>
         <a href="https://chromewebstore.google.com/detail/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer"><span>Extension</span><span aria-hidden="true">↗</span></a>
         <button id="admin-logout" type="button">Déconnexion</button>
-        <span class="admin-version" aria-label="Version v1.24.4">v1.24.4</span>
+        <span class="admin-version" aria-label="Version v1.24.5">v1.24.5</span>
       </div>
     </header>
     <nav class="admin-nav" aria-label="Administration">
@@ -353,7 +354,7 @@ input,select,textarea{width:100%;border:1px solid var(--line);border-radius:0;ba
 @media(prefers-reduced-motion:reduce){.progress-segment.is-active::after{width:100%;animation:none;opacity:.72}}
 `;
 
-export const adminJs = `
+export const adminJs = typographyJs + "\n" + `
 const feedback=document.querySelector("#admin-feedback");
 const show=(message)=>{if(feedback)feedback.textContent=message||""};
 const linkedinReturn=sessionStorage.getItem("digest-linkedin-return");
