@@ -1,0 +1,37 @@
+{{- $edition := eq .Page.Section "archives" -}}
+{{- $headers := index .THead 0 -}}
+<table{{ if $edition }} class="edition-table" role="table"{{ end }}>
+  {{ if $edition }}
+    <caption><span>Registre {{ printf "%02d" (add .Ordinal 1) }}</span><span>{{ printf "%02d" (len .TBody) }} entrées</span></caption>
+  {{ end }}
+  <thead{{ if $edition }} role="rowgroup"{{ end }}>
+    {{ range .THead }}
+      <tr{{ if $edition }} role="row"{{ end }}>
+        {{ range . }}
+          <th scope="col"{{ if $edition }} role="columnheader"{{ end }}{{ with .Alignment }} style="text-align: {{ . }}"{{ end }}>{{ .Text }}</th>
+        {{ end }}
+      </tr>
+    {{ end }}
+  </thead>
+  <tbody{{ if $edition }} role="rowgroup"{{ end }}>
+    {{ range $rowIndex, $row := .TBody }}
+      <tr{{ if $edition }} role="row"{{ end }}>
+        {{ range $column, $cell := $row }}
+          {{ if and $edition (eq $column 0) }}
+            <th scope="row" role="rowheader">
+              <span class="edition-table-index" aria-hidden="true">{{ printf "%02d" (add $rowIndex 1) }}</span>
+              {{ .Text }}
+            </th>
+          {{ else }}
+            <td{{ if $edition }} role="cell"{{ else }}{{ with .Alignment }} style="text-align: {{ . }}"{{ end }}{{ end }}>
+              {{ if $edition }}
+                <span class="edition-table-label" aria-hidden="true">{{ (index $headers $column).Text | plainify }}</span>
+                <span class="edition-table-value{{ if eq .Alignment "right" }} is-numeric{{ end }}">{{ .Text }}</span>
+              {{ else }}{{ .Text }}{{ end }}
+            </td>
+          {{ end }}
+        {{ end }}
+      </tr>
+    {{ end }}
+  </tbody>
+</table>
