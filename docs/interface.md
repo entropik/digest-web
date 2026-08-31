@@ -37,6 +37,12 @@ attributs. Le code, les champs de saisie et les zones éditables sont exclus ;
 éditoriales nouvelles doivent employer directement les espaces insécables,
 pour conserver cette qualité même sans JavaScript.
 
+Sur le site public, Hugo donne à ce script une URL avec empreinte de contenu.
+Dans l’administration et son aperçu local, le même script est inclus dans
+`/admin/app.js` : il ne dépend pas du déploiement séparé du site statique et
+ne peut pas charger prématurément un fichier encore absent, puis mis en cache
+comme une erreur 404.
+
 Ne jamais imposer `white-space: nowrap` à tout un paragraphe : le texte doit
 continuer à s’adapter à l’écran. Vérifier la phrase signalée dans l’édition du
 29 août 2026, les cartes et les modales, sur ordinateur et à 320 px de largeur.

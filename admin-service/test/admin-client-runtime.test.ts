@@ -168,6 +168,19 @@ test("the shipped admin client has valid JavaScript syntax", () => {
   assert.doesNotThrow(() => Function(adminJs));
 });
 
+test("the admin bundle normalizes dynamic feedback without a public asset request", async () => {
+  const harness = await createHarness();
+  try {
+    const feedback = harness.document.querySelector("#admin-feedback")!;
+    feedback.textContent = "Publication : prête !";
+    await harness.flush();
+    assert.equal(feedback.textContent, "Publication\u00a0: prête\u00a0!");
+    assert.equal(harness.document.querySelector('script[src^="/js/"]'), null);
+  } finally {
+    await harness.window.happyDOM.close();
+  }
+});
+
 test("the admin client route remains compatible with the self-only CSP", async () => {
   const server = await readFile(
     new URL("../src/server.ts", import.meta.url),
