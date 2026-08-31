@@ -41,6 +41,14 @@
 
 body {
   font-family: var(--digest-font-body);
+  line-break: strict;
+  word-break: normal;
+}
+
+/* Prefer complete final lines. typography.js binds French punctuation with
+   non-breaking spaces: CSS alone cannot make an ordinary space non-breaking. */
+:where(p, li, dt, dd, blockquote, figcaption, th, td) {
+  text-wrap: pretty;
 }
 
 html,
