@@ -17,6 +17,7 @@ const pageShell = (body: string, title = "Administration · Digest") => `<!docty
 <body>
   <main>${body}</main>
   <script src="/admin/app.js" defer></script>
+  <script src="/js/typography.js?v=1.24.4" defer></script>
 </body>
 </html>`;
 
@@ -60,7 +61,7 @@ export const dashboardPage = (name: string) =>
         <a href="/"><span>Digest</span><span aria-hidden="true">↗</span></a>
         <a href="https://chromewebstore.google.com/detail/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer"><span>Extension</span><span aria-hidden="true">↗</span></a>
         <button id="admin-logout" type="button">Déconnexion</button>
-        <span class="admin-version" aria-label="Version v1.24.3">v1.24.3</span>
+        <span class="admin-version" aria-label="Version v1.24.4">v1.24.4</span>
       </div>
     </header>
     <nav class="admin-nav" aria-label="Administration">
@@ -203,7 +204,8 @@ export const dashboardPage = (name: string) =>
 export const adminCss = `
 :root{color-scheme:light;--paper:#f5f3ee;--ink:#171717;--muted:#68645e;--line:#d7d2c9;--accent:#ff5a36;--accent-text:#b72e10;--ok:#237a4b;--warn:#9b6400;--error:#8f2d1d;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink)}
+body{margin:0;background:var(--paper);color:var(--ink);line-break:strict;word-break:normal}
+:where(p,li,dt,dd,blockquote,figcaption,th,td){text-wrap:pretty}
 main{width:min(1240px,calc(100% - 2rem));margin:auto;padding:0 0 5rem}
 .admin-header{display:grid;grid-template-columns:minmax(0,1fr) auto;border:1px solid var(--line);border-top:0}
 .admin-heading{min-width:0;padding:clamp(1rem,2.5vw,1.75rem)}

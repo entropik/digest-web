@@ -22,6 +22,25 @@ Les arrondis ne sont pas interdits partout. Ils doivent correspondre à une
 fonction identifiable, comme le cœur des favoris. La navigation taxonomique,
 elle, reste rectangulaire et ne prend pas la forme de pilules.
 
+## Ponctuation et retours à la ligne
+
+Ne pas laisser la ponctuation seule en début de ligne. La règle globale
+`line-break: strict`, complétée par `text-wrap: pretty` pour la prose, accompagne
+les espaces insécables avant `: ; ! ? »` et après `«`. Un point, une virgule ou
+des points de suspension se collent au mot précédent.
+
+`static/js/typography.js` applique ces corrections aux nœuds de texte affichés,
+sur toutes les pages publiques et dans l’administration, puis aux contenus
+ajoutés dynamiquement. Il ne modifie ni les données enregistrées ni les URL et
+attributs. Le code, les champs de saisie et les zones éditables sont exclus ;
+`data-typography="off"` permet de préserver un autre texte littéral. Les sources
+éditoriales nouvelles doivent employer directement les espaces insécables,
+pour conserver cette qualité même sans JavaScript.
+
+Ne jamais imposer `white-space: nowrap` à tout un paragraphe : le texte doit
+continuer à s’adapter à l’écran. Vérifier la phrase signalée dans l’édition du
+29 août 2026, les cartes et les modales, sur ordinateur et à 320 px de largeur.
+
 ## Registre des catégories
 
 Au repos, les catégories forment un index compact :
