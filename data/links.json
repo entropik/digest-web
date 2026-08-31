@@ -13,10 +13,7 @@
       "ADE",
       "développement",
       "Git"
-    ],
-    "visibility": "hidden",
-    "visibility_reason": "edition-draft",
-    "hidden_at": "2026-08-28T12:00:00.000Z"
+    ]
   },
   {
     "title": "Orca — le cockpit des flottes d’agents",
@@ -32,10 +29,7 @@
       "ADE",
       "développement",
       "Git"
-    ],
-    "visibility": "hidden",
-    "visibility_reason": "edition-draft",
-    "hidden_at": "2026-08-28T12:00:00.000Z"
+    ]
   },
   {
     "title": "OpenADE — planifier, réviser, puis exécuter",
@@ -51,10 +45,7 @@
       "ADE",
       "développement",
       "Git"
-    ],
-    "visibility": "hidden",
-    "visibility_reason": "edition-draft",
-    "hidden_at": "2026-08-28T12:00:00.000Z"
+    ]
   },
   {
     "title": "Frame — conserver l’intention du projet",
@@ -71,10 +62,7 @@
       "contexte",
       "développement",
       "Git"
-    ],
-    "visibility": "hidden",
-    "visibility_reason": "edition-draft",
-    "hidden_at": "2026-08-28T12:00:00.000Z"
+    ]
   },
   {
     "title": "Emdash — l’ADE open source et agnostique",
@@ -90,10 +78,7 @@
       "ADE",
       "développement",
       "Git"
-    ],
-    "visibility": "hidden",
-    "visibility_reason": "edition-draft",
-    "hidden_at": "2026-08-28T12:00:00.000Z"
+    ]
   },
   {
     "title": "Agent Deck — le poste de contrôle dans le terminal",
@@ -110,10 +95,7 @@
       "ADE",
       "développement",
       "Git"
-    ],
-    "visibility": "hidden",
-    "visibility_reason": "edition-draft",
-    "hidden_at": "2026-08-28T12:00:00.000Z"
+    ]
   },
   {
     "title": "ADE — un environnement commun du Mac au mobile",
@@ -130,10 +112,7 @@
       "développement",
       "Git",
       "mobile"
-    ],
-    "visibility": "hidden",
-    "visibility_reason": "edition-draft",
-    "hidden_at": "2026-08-28T12:00:00.000Z"
+    ]
   },
   {
     "title": "Swarms — composer des nuées d’agents",
