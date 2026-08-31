@@ -112,6 +112,13 @@ et après. L’affiche est affichée entière dans ses proportions propres : une
 version carrée ne doit jamais être recadrée au ratio panoramique de l’image Open
 Graph.
 
+Les tableaux Markdown des éditions forment des cartouches numérotés à filets
+partagés : en-têtes compacts, première colonne en titre de ligne et valeurs
+numériques alignées à droite. Sous 640 px, chaque ligne devient un cartouche
+avec son titre, deux cellules de données par rangée et les libellés rappelés.
+Les en-têtes et la sémantique du tableau restent accessibles aux lecteurs
+d’écran ; aucune donnée ne disparaît et aucun défilement horizontal n’est requis.
+
 Dans l’administration, le registre des éditions peut être filtré entre
 brouillons et publications. L’édition choisie affiche son état et ses comptes
 de liens dans un cartouche rectangulaire avant les champs éditoriaux. Les

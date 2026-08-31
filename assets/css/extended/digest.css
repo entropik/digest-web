@@ -2325,6 +2325,155 @@ body.digest-modal-open {
   overflow-wrap: anywhere;
 }
 
+/* Editorial comparisons share the geometry of an architect's title block. */
+.archive-intro .edition-table {
+  display: table;
+  width: 100%;
+  margin: 0 0 1.5rem;
+  border: 1px solid var(--digest-line);
+  border-collapse: collapse;
+  table-layout: fixed;
+  color: var(--digest-ink);
+  font-size: .85rem;
+  line-height: 1.5;
+}
+
+.edition-table caption {
+  padding: .75rem 1rem;
+  border: 1px solid var(--digest-line);
+  border-bottom: 0;
+  background: var(--digest-paper);
+  color: var(--digest-muted);
+  font-size: .65rem;
+  letter-spacing: .09em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.edition-table caption span:last-child {
+  float: right;
+}
+
+.edition-table th,
+.edition-table td {
+  padding: 1rem;
+  border: 1px solid var(--digest-line);
+  vertical-align: top;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+
+.edition-table thead th {
+  border-bottom-color: var(--digest-ink);
+  color: var(--digest-muted);
+  font-size: .65rem;
+  font-weight: 500;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.edition-table thead th:first-child {
+  width: 23%;
+}
+
+.edition-table thead th:last-child {
+  width: 32%;
+}
+
+.edition-table tbody th {
+  font-family: var(--digest-font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.edition-table-index {
+  margin-right: .65rem;
+  color: var(--digest-accent-text);
+  font-family: var(--digest-font-body);
+  font-size: .65rem;
+  font-weight: 400;
+}
+
+.edition-table-label {
+  display: none;
+}
+
+.edition-table-value {
+  display: block;
+}
+
+.edition-table-value.is-numeric {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+@media (max-width: 640px) {
+  .archive-intro .edition-table {
+    display: block;
+    border: 0;
+  }
+
+  .edition-table caption {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid var(--digest-line);
+  }
+
+  .edition-table caption span:last-child {
+    float: none;
+  }
+
+  .edition-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .edition-table tbody {
+    display: block;
+  }
+
+  .edition-table tbody tr {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-left: 1px solid var(--digest-line);
+  }
+
+  .edition-table tbody th,
+  .edition-table td {
+    min-width: 0;
+    padding: .8rem 1rem;
+    border-top: 0;
+    border-left: 0;
+  }
+
+  .edition-table tbody th {
+    grid-column: 1 / -1;
+    background: var(--digest-paper);
+  }
+
+  .edition-table td:last-child:nth-child(even) {
+    grid-column: 1 / -1;
+  }
+
+  .edition-table-label {
+    display: block;
+    margin-bottom: .35rem;
+    color: var(--digest-muted);
+    font-size: .6rem;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+
+  .edition-table-value.is-numeric {
+    text-align: left;
+  }
+}
+
 .archive-group {
   padding: 3rem 0 1rem;
 }
