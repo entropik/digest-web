@@ -290,6 +290,7 @@ test("publication revalidates stale aliases and accepts an empty theme list", as
     privateNote: "",
   });
   let publishedTags: string[][] = [];
+  let committedFiles: Record<string, string | Buffer | null> = {};
   const dependencies = {
     readRepositoryHead: async () => ({
       commitSha: "initial-sha",
@@ -306,7 +307,14 @@ test("publication revalidates stale aliases and accepts an empty theme list", as
         linkIdsByDraft: new Map(input.drafts.map((draft) => [draft.id, draft.id])),
       };
     },
-    commitRepositoryFiles: async () => "committed-sha",
+    commitRepositoryFiles: async (
+      _commit: string,
+      _tree: string,
+      files: Record<string, string | Buffer | null>,
+    ) => {
+      committedFiles = files;
+      return "committed-sha";
+    },
   };
   const publication = await new CurationService(store, dependencies).publish({
     requestId: "77777777-7777-4777-8777-777777777777",
@@ -318,6 +326,8 @@ test("publication revalidates stale aliases and accepts an empty theme list", as
   });
   assert.equal(publication.state, "validating");
   assert.deepEqual(publishedTags, [["automobile"], []]);
+  assert.match(String(committedFiles["content/tags/automobile.md"]), /tag: "automobile"/);
+  assert.equal(committedFiles["content/tags/car.md"], undefined);
   database.close();
 });
 
@@ -562,7 +572,7 @@ test("a concurrent GitHub update rebuilds once on the fresh repository head", as
     title: "Publication concurrente",
     category: "Développement web",
     description: "Le lot est reconstruit sur la nouvelle tête.",
-    tags: ["Tests"],
+    tags: ["Tests", "Nouveau"],
     privateNote: "",
   });
   const initialLink = {
@@ -583,6 +593,7 @@ test("a concurrent GitHub update rebuilds once on the fresh repository head", as
   let headReads = 0;
   let builds = 0;
   const parents: string[] = [];
+  const tagRefs: string[] = [];
   const dependencies = {
     readRepositoryHead: async () => {
       headReads += 1;
@@ -590,7 +601,11 @@ test("a concurrent GitHub update rebuilds once on the fresh repository head", as
         ? { commitSha: "initial-sha", treeSha: "initial-tree", links: [initialLink] }
         : { commitSha: "fresh-sha", treeSha: "fresh-tree", links: [competingLink, initialLink] };
     },
-    tryReadRepositoryFile: async () => null,
+    tryReadRepositoryFile: async (path: string, ref: string) => {
+      if (path !== "content/tags/nouveau.md") return null;
+      tagRefs.push(ref);
+      return ref === "fresh-sha" ? "Page créée par la modification concurrente" : null;
+    },
     buildPublicationFiles: async ({ currentLinks }: { currentLinks: unknown[] }) => {
       builds += 1;
       assert.equal(currentLinks.length, builds === 1 ? 1 : 2);
@@ -599,11 +614,17 @@ test("a concurrent GitHub update rebuilds once on the fresh repository head", as
         linkIdsByDraft: new Map([[draft.id, stableLinkId(draft.url)]]),
       };
     },
-    commitRepositoryFiles: async (parentSha: string) => {
+    commitRepositoryFiles: async (
+      parentSha: string,
+      _tree: string,
+      files: Record<string, string | Buffer | null>,
+    ) => {
       parents.push(parentSha);
       if (parents.length === 1) {
+        assert.match(String(files["content/tags/nouveau.md"]), /tag: "Nouveau"/);
         throw new GitHubResponseError("ref changed", 422);
       }
+      assert.equal(files["content/tags/nouveau.md"], undefined);
       return "publication-sha";
     },
   };
@@ -619,6 +640,7 @@ test("a concurrent GitHub update rebuilds once on the fresh repository head", as
   assert.equal(publication.state, "validating");
   assert.equal(publication.commitSha, "publication-sha");
   assert.deepEqual(parents, ["initial-sha", "fresh-sha"]);
+  assert.deepEqual(tagRefs, ["initial-sha", "fresh-sha"]);
   assert.equal(builds, 2);
   assert.equal(store.findDraft(draft.id)?.state, "published");
   database.close();

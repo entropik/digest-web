@@ -230,6 +230,43 @@ const tagPage = (definition: DigestTagDefinition): string => {
     "",
   ].join("\n");
 };
+
+const missingPublicationTagPages = async (
+  tags: string[],
+  head: Awaited<ReturnType<typeof readRepositoryHead>>,
+  readFile: typeof tryReadRepositoryFile,
+): Promise<Record<string, string>> => {
+  // Already-public tags have validated routes, including historical aliases.
+  const publicTags = new Set(head.links
+    .filter((link) => link.visibility !== "hidden")
+    .flatMap((link) => link.tags ?? []));
+  const labelsByPath = new Map<string, Set<string>>();
+  for (const tag of tags) {
+    if (publicTags.has(tag)) continue;
+    const slug = tagSlug(tag);
+    if (!slug) throw new CurationError("INVALID_TAG");
+    const path = `content/tags/${slug}.md`;
+    const labels = labelsByPath.get(path) ?? new Set<string>();
+    labels.add(tag);
+    labelsByPath.set(path, labels);
+  }
+  const files: Record<string, string> = {};
+  for (const [path, labels] of labelsByPath) {
+    // Read at the parent commit, and never replace an existing editorial page.
+    if (await readFile(path, head.commitSha) !== null) continue;
+    const variants = [...labels];
+    files[path] = [
+      "---",
+      `title: ${JSON.stringify(`#${variants[0]}`)}`,
+      `tag: ${JSON.stringify(variants[0])}`,
+      `tags: ${JSON.stringify(variants)}`,
+      'generated_by: "digest-admin"',
+      "---",
+      "",
+    ].join("\n");
+  }
+  return files;
+};
 const AMBIGUOUS_COMMIT_GRACE_MS = 2 * 60 * 1_000;
 
 type PublicationDependencies = {
@@ -1140,11 +1177,16 @@ export class CurationService {
           seoDescription: cleanText(input.seoDescription, 500),
           introduction: cleanText(input.introduction, 10_000),
         });
+        const tagFiles = await missingPublicationTagPages(
+          prepared.drafts.flatMap((draft) => draft.tags),
+          head,
+          this.publication.tryReadRepositoryFile,
+        );
         try {
           const commitSha = await this.publication.commitRepositoryFiles(
             head.commitSha,
             head.treeSha,
-            publication.files,
+            { ...publication.files, ...tagFiles },
             `Publier le Digest du ${input.digestDate}`,
           );
           remoteCommitSucceeded = true;
@@ -1596,6 +1638,15 @@ export class CurationService {
           throw new CurationError("NO_EDITION_LINKS_TO_TRANSITION", 409);
         }
         const nextSource = setEditionDraft(source, target === "draft");
+        const tagFiles = target === "published"
+          ? await missingPublicationTagPages(
+              mutation.links
+                .filter((link) => link.added === date && link.visibility !== "hidden")
+                .flatMap((link) => link.tags ?? []),
+              head,
+              this.edition.tryReadRepositoryFile,
+            )
+          : {};
         const linkCount = mutation.links.filter(
           (link) => link.added === date && link.visibility !== "hidden",
         ).length;
@@ -1614,6 +1665,7 @@ export class CurationService {
             head.commitSha,
             head.treeSha,
             {
+              ...tagFiles,
               [editionPath(date)]: nextSource,
               "data/links.json": serializeCatalog(mutation.links),
               [`static/social/${date}.png`]: socialImage,

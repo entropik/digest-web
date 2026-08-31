@@ -185,6 +185,68 @@ test("unpublishing an edition stages visible links without changing editorial wi
   database.close();
 });
 
+test("edition publication includes missing tag routes without replacing historical pages", async () => {
+  const database = new Database(":memory:");
+  const store = new CurationStore(database);
+  const fixture = editionDependencies(source(true), [
+    { ...link("first", "draft"), tags: ["ADE", "source-available", "IA"] },
+    { ...link("second", "draft"), tags: ["ADE", "ade", "historical alias"] },
+    { ...link("withdrawn", "editorial"), tags: ["private-tag"] },
+    { ...link("older"), added: "2026-08-20", tags: ["historical alias"] },
+  ]);
+  const reads: string[] = [];
+  const service = new CurationService(store, undefined, {
+    ...fixture.dependencies,
+    tryReadRepositoryFile: async (path, ref) => {
+      assert.equal(ref, "initial-sha");
+      if (path === editionPath) return source(true);
+      reads.push(path);
+      return path === "content/tags/ia.md"
+        ? '---\ntag: "IA"\ntags: ["IA"]\naliases: ["/tags/ia-generative/"]\n---\nTexte conservé.\n'
+        : null;
+    },
+  });
+  const request = {
+    requestId: "ffffffff-ffff-4fff-8fff-ffffffffffff",
+    action: "publish" as const,
+  };
+  await service.transitionEdition(digestDate, request);
+
+  const files = fixture.files()!;
+  assert.match(String(files["content/tags/ade.md"]), /tags: \["ADE","ade"\]/);
+  assert.match(String(files["content/tags/source-available.md"]), /tag: "source-available"/);
+  assert.equal(files["content/tags/ia.md"], undefined);
+  assert.deepEqual(reads.sort(), [
+    "content/tags/ade.md", "content/tags/ia.md", "content/tags/source-available.md",
+  ]);
+  assert.equal(files["content/tags/private-tag.md"], undefined);
+  const readCount = reads.length;
+  await service.transitionEdition(digestDate, request);
+  assert.equal(reads.length, readCount);
+  database.close();
+});
+
+test("edition publication aborts when a tag page cannot be checked", async () => {
+  const database = new Database(":memory:");
+  const store = new CurationStore(database);
+  const fixture = editionDependencies(source(true), [
+    { ...link("staged", "draft"), tags: ["ADE"] },
+  ]);
+  const service = new CurationService(store, undefined, {
+    ...fixture.dependencies,
+    tryReadRepositoryFile: async (path) => {
+      if (path === editionPath) return source(true);
+      throw new Error("GitHub unavailable");
+    },
+  });
+  await assert.rejects(service.transitionEdition(digestDate, {
+    requestId: "ffffffff-ffff-4fff-8fff-ffffffffffff",
+    action: "publish",
+  }), /GitHub unavailable/);
+  assert.equal(fixture.files(), undefined);
+  database.close();
+});
+
 test("an ambiguous edition commit is recovered from the repository state", async () => {
   const database = new Database(":memory:");
   const store = new CurationStore(database);
