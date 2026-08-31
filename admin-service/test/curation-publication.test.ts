@@ -327,6 +327,7 @@ test("publication revalidates stale aliases and accepts an empty theme list", as
   assert.equal(publication.state, "validating");
   assert.deepEqual(publishedTags, [["automobile"], []]);
   assert.match(String(committedFiles["content/tags/automobile.md"]), /tag: "automobile"/);
+  assert.match(String(committedFiles["content/tags/automobile.md"]), /aliases: \["\/tags\/car\/"\]/);
   assert.equal(committedFiles["content/tags/car.md"], undefined);
   database.close();
 });

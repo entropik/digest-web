@@ -215,7 +215,10 @@ const editionPath = (date: string): string => `content/archives/${date}.md`;
 const tagSlug = (value: string): string =>
   value.normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("fr")
     .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-const tagPage = (definition: DigestTagDefinition): string => {
+const tagPage = (
+  definition: DigestTagDefinition,
+  variants: string[] = [definition.name],
+): string => {
   const aliases = definition.aliases
     .map((alias) => `"/tags/${tagSlug(alias)}/"`)
     .filter((route) => route !== `"/tags/${tagSlug(definition.name)}/"`);
@@ -223,7 +226,7 @@ const tagPage = (definition: DigestTagDefinition): string => {
     "---",
     `title: "#${definition.name.replaceAll('"', '\\"')}"`,
     `tag: ${JSON.stringify(definition.name)}`,
-    `tags: ${JSON.stringify([definition.name])}`,
+    `tags: ${JSON.stringify(variants)}`,
     ...(aliases.length ? [`aliases: [${aliases.join(", ")}]`] : []),
     'generated_by: "digest-admin"',
     "---",
@@ -255,6 +258,13 @@ const missingPublicationTagPages = async (
     // Read at the parent commit, and never replace an existing editorial page.
     if (await readFile(path, head.commitSha) !== null) continue;
     const variants = [...labels];
+    const definition = head.tags?.find(
+      (tag) => `content/tags/${tagSlug(tag.name)}.md` === path,
+    );
+    if (definition) {
+      files[path] = tagPage(definition, [...new Set([definition.name, ...variants])]);
+      continue;
+    }
     files[path] = [
       "---",
       `title: ${JSON.stringify(`#${variants[0]}`)}`,

@@ -247,6 +247,34 @@ test("edition publication aborts when a tag page cannot be checked", async () =>
   database.close();
 });
 
+test("edition publication preserves registered aliases and colliding legacy labels", async () => {
+  const database = new Database(":memory:");
+  const store = new CurationStore(database);
+  const fixture = editionDependencies(source(true), [
+    { ...link("first", "draft"), tags: ["Automobile", "ADE"] },
+    { ...link("second", "draft"), tags: ["automobile", "ade"] },
+  ]);
+  const service = new CurationService(store, undefined, {
+    ...fixture.dependencies,
+    readRepositoryHead: async () => ({
+      ...await fixture.dependencies.readRepositoryHead(),
+      tags: [{ name: "automobile", description: "", aliases: ["car", "voiture"] }],
+    }),
+  });
+  await service.transitionEdition(digestDate, {
+    requestId: "ffffffff-ffff-4fff-8fff-ffffffffffff",
+    action: "publish",
+  });
+  const files = fixture.files()!;
+  const automobile = String(files["content/tags/automobile.md"]);
+  assert.match(automobile, /tag: "automobile"/);
+  assert.match(automobile, /tags: \["automobile","Automobile"\]/);
+  assert.match(automobile, /aliases: \["\/tags\/car\/", "\/tags\/voiture\/"\]/);
+  assert.match(String(files["content/tags/ade.md"]), /tags: \["ADE","ade"\]/);
+  assert.equal(files["content/tags/car.md"], undefined);
+  database.close();
+});
+
 test("an ambiguous edition commit is recovered from the repository state", async () => {
   const database = new Database(":memory:");
   const store = new CurationStore(database);
