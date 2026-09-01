@@ -1,5 +1,322 @@
 [
   {
+    "id": "33e4b75c-6ed0-5f51-a50a-5d7ff8dd3fd4",
+    "title": "Zoo Code — Open source AI coding assistant",
+    "url": "https://www.zoocode.dev/",
+    "category": "IA & Agents",
+    "added": "2026-09-01",
+    "description": "Zoo Code is a community-maintained AI coding assistant for your IDE, built on the foundation of Roo Code. Everything you relied on, still here.",
+    "tags": [
+      "code"
+    ]
+  },
+  {
+    "id": "3e4f828d-bb4d-56ef-af7d-8f00727e9860",
+    "title": "Vécu · Le versioning de GitHub, la simplicité d'Obsidian",
+    "url": "https://www.forward-ai.fr/vecu",
+    "category": "IA & Agents",
+    "added": "2026-09-01",
+    "description": "Le contexte et les skills de ta boîte dans un dossier commun, avec des droits dossier par dossier et sans commit ni merge. Git tourne côté serveur, personne n'a de commande à taper. Lu par Claude Code, Cursor et Codex. Open source, hébergé chez toi.",
+    "tags": [
+      "agents",
+      "IA",
+      "code"
+    ]
+  },
+  {
+    "id": "f8cf60f7-0580-5533-beee-43092d929a98",
+    "title": "Understand Anything — Graphs that teach the codebase",
+    "url": "https://understand-anything.com/#features",
+    "category": "IA & Agents",
+    "added": "2026-09-01",
+    "description": "Turn any codebase into an interactive knowledge graph you can explore, search, and learn from.",
+    "tags": [
+      "code"
+    ]
+  },
+  {
+    "id": "da3455c8-fd3d-592f-9fa6-75fd58b65f93",
+    "title": "typomanie* | actualités, histoire, théorie, pour tous les amateurs de typographie et les typographes-amateurs…",
+    "url": "https://typomanie.fr/",
+    "category": "Design & Création",
+    "added": "2026-09-01",
+    "description": "Typomanie.fr propose des actualités, de l’histoire, de la théorie, pour tous les amateurs de typographie et les typographes-amateurs…",
+    "tags": [
+      "typographie",
+      "design",
+      "design-graphique"
+    ]
+  },
+  {
+    "id": "c0ccaffd-6000-5d67-87f2-7d4ce990b38e",
+    "title": "Tutanka01/glm5.3-flash-2x-dgx-spark-nvfp4: Recette de déploiement reproductible pour servir LibertAIDAI/GLM-5.3-Flash-NVFP4 sur deux machines GB10 en tensor parallel (TP=2), avec SGLang et une API compatible OpenAI.",
+    "url": "https://github.com/Tutanka01/glm5.3-flash-2x-dgx-spark-nvfp4",
+    "category": "IA & Agents",
+    "added": "2026-09-01",
+    "description": "Recette de déploiement reproductible pour servir LibertAIDAI/GLM-5.3-Flash-NVFP4 sur deux machines GB10 en tensor parallel (TP=2), avec SGLang et une API compatible OpenAI. - Tutanka01/glm5.3-flash-2x-dgx-spark-nvfp4",
+    "tags": [
+      "agents",
+      "recherche",
+      "code"
+    ]
+  },
+  {
+    "id": "cf0cb9e5-e686-59cb-b953-0d55eba56fbe",
+    "title": "thecodacus/understory: understory — memory that grows. Self-wiring, plain-markdown memory for AI agents (MCP + local models + a living graph).",
+    "url": "https://github.com/thecodacus/understory",
+    "category": "IA & Agents",
+    "added": "2026-09-01",
+    "description": "understory — memory that grows. Self-wiring, plain-markdown memory for AI agents (MCP + local models + a living graph). - thecodacus/understory",
+    "tags": [
+      "memory",
+      "agents",
+      "LLM"
+    ]
+  },
+  {
+    "id": "1fb5cf7f-b79e-5210-9b0d-9f1246449f6b",
+    "title": "T3 Code",
+    "url": "https://t3.codes/",
+    "category": "Développement",
+    "added": "2026-09-01",
+    "description": "T3 Code — The open-source control plane for coding agents.",
+    "tags": [
+      "code",
+      "agents",
+      "UI"
+    ]
+  },
+  {
+    "id": "59e4c946-0d3d-52ed-b63f-047487bc96eb",
+    "title": "Skritur: Brito",
+    "url": "https://www.skritur.eu/fonts/brito",
+    "category": "Cultures & Combats",
+    "added": "2026-09-01",
+    "description": "Issu de recherches menées par Fañch Le Henaff au début des années 1990 (l’ouvrage de référence Skritur, typographie et identité paru en 1995 et le prototype de caractère Tir na Nog)",
+    "tags": [
+      "typographie"
+    ]
+  },
+  {
+    "id": "327626e9-0c50-5d90-825f-d5f430d565f8",
+    "title": "RooCodeInc/Roomote: Your own cloud coding agent. Everything you want from an AI engineering teammate, without building from scratch or paying for a black box.",
+    "url": "https://github.com/RooCodeInc/Roomote",
+    "category": "IA & Agents",
+    "added": "2026-09-01",
+    "description": "Your own cloud coding agent. Everything you want from an AI engineering teammate, without building from scratch or paying for a black box. - RooCodeInc/Roomote",
+    "tags": [
+      "code",
+      "agents"
+    ]
+  },
+  {
+    "id": "249e4a79-7944-5cb9-8324-ad23f4382bc8",
+    "title": "Réseau Université de la Pluralité",
+    "url": "https://www.plurality-university.org/fr",
+    "category": "Cultures & Combats",
+    "added": "2026-09-01",
+    "description": "The Plurality University Network (U+) is a global, open organization that connects artists, designers, utopians and activists who use the power of imagination to enable alternative futures.",
+    "tags": [
+      "recherche"
+    ]
+  },
+  {
+    "id": "c37318b1-b1e6-5c74-ba94-87c86eb47af6",
+    "title": "omp — a coding agent with the IDE wired in",
+    "url": "https://omp.sh/",
+    "category": "IA & Agents",
+    "added": "2026-09-01",
+    "description": "omp is a coding agent for the terminal: subagents, plan mode, LSP, DAP, hindsight memory, hashline edits, and time-traveling rules — with a native Rust engine doing the heavy lifting. Built by Stencil.",
+    "tags": [
+      "IA"
+    ]
+  },
+  {
+    "id": "609e1637-4992-5dd3-9681-94326fb900b5",
+    "title": "Next Computer",
+    "url": "https://www.sohappy-studio.com/next-computer",
+    "category": "Design & Création",
+    "added": "2026-09-01",
+    "description": "Retour sur NeXT, Inc de Steve Jobs. L’échec le plus réussi de tous les temps…",
+    "tags": [
+      "code"
+    ]
+  },
+  {
+    "id": "608fed03-083d-5503-abab-2b2c5e52ec8d",
+    "title": "Malou Verlomme",
+    "url": "https://malouverlomme.com/",
+    "category": "Design & Création",
+    "added": "2026-09-01",
+    "description": "Persona",
+    "tags": [
+      "art"
+    ]
+  },
+  {
+    "id": "d0871de1-f3ec-5c68-b0ee-b67ec2e1fb7a",
+    "title": "Luminar - Éditeur de photos facile | Logiciel pour Mac et PC",
+    "url": "https://skylum.com/fr/luminar",
+    "category": "Design & Création",
+    "added": "2026-09-01",
+    "description": "Téléchargez Luminar Neo, le logiciel de retouche photo pour PC et Mac ! Éditeur photo simple basé sur l'IA pour retoucher vos photos comme vous le souhaitez.",
+    "tags": [
+      "IA",
+      "photographie",
+      "édition"
+    ]
+  },
+  {
+    "id": "82c7cf08-7878-5b4c-8905-d3f4a9901e62",
+    "title": "Les Rencontres internationales de Lure | Accueil",
+    "url": "https://delure.org/",
+    "category": "Design & Création",
+    "added": "2026-09-01",
+    "description": "L’association des Rencontres internationales de Lure questionne l’écriture, son évolution et ses formes (typographique, littéraire, visuelle ou numérique).",
+    "tags": [
+      "typographie"
+    ]
+  },
+  {
+    "id": "717f9b4a-b803-578c-b586-5dabd32711ad",
+    "title": "growgraph/ontocast: Agentic Ontology Assisted Framework for Semantic Triple Extraction",
+    "url": "https://github.com/growgraph/ontocast",
+    "category": "IA & Agents",
+    "added": "2026-09-01",
+    "description": "Agentic Ontology Assisted Framework for Semantic Triple Extraction - growgraph/ontocast",
+    "tags": [
+      "agents",
+      "LLM",
+      "memory"
+    ]
+  },
+  {
+    "id": "07bc9a7e-de59-5b4d-a12a-f9cebbe787d9",
+    "title": "Graphify-Labs/graphify: Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explai",
+    "url": "https://github.com/Graphify-Labs/graphify",
+    "category": "IA & Agents",
+    "added": "2026-09-01",
+    "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store. - Graphify-Labs/graphify",
+    "tags": [
+      "code",
+      "design",
+      "LLM"
+    ]
+  },
+  {
+    "id": "410dc763-dfbb-56fd-a92f-9b03d77a7a2f",
+    "title": "Graphify · the code knowledge graph for AI coding assistants",
+    "url": "https://graphify.com/",
+    "category": "IA & Agents",
+    "added": "2026-09-01",
+    "description": "111k+ GitHub stars. Graphify turns your codebase into a knowledge graph your AI assistant queries instead of grepping: no embeddings, just a graph it can trace and cite. Open source, on-device, Apache 2.0.",
+    "tags": [
+      "code",
+      "memory",
+      "LLM"
+    ]
+  },
+  {
+    "id": "5e58d6ea-0d30-51e4-8f02-4870650e5ae1",
+    "title": "Galerie | Acid Studio Lab",
+    "url": "https://www.acid-studio.net/gallery",
+    "category": "Design & Création",
+    "added": "2026-09-01",
+    "description": "Acid Studio Lab | Générateur d'Animations Algorithmiques & Design Génératif\n\nExplorez Acid Studio Lab par Étienne Mineur. Un outil puissant de création d'animations procédurales et de trames algorithmiques. Exportez vos créations en PNG, SVG et MP4.\n\nIntroduction :\nBienvenue sur Acid Studio Lab, une plateforme dédiée à l'expérimentation visuelle et à la création de formes par le code. Conçu par le designer Étienne Mineur, ce studio numérique permet de générer des structures complexes et des animations fluides à partir d'algorithmes mathématiques. Que vous soyez designer graphique, motion designer ou artiste numérique, Acid Studio Lab transforme la logique du code en une expérience esthétique unique.\n\nCréez des Motifs et des Trames Procédurales Uniques.\nAcid Studio Lab n'est pas qu'un simple générateur ; c'est un laboratoire de creative coding. Grâce à différentes familles de trames et de paramètres modulables, vous pouvez :\n\nGénérer des patterns dynamiques évoluant en temps réel.\n\nManipuler des structures géométriques complexes.\n\nExplorer la frontière entre le design organique et la précision mathématique.\n\nL'outil est pensé pour s'intégrer parfaitement dans votre flux de productio",
+    "tags": [
+      "design",
+      "design-génératif",
+      "code",
+      "art"
+    ]
+  },
+  {
+    "id": "fa3caa3d-e1df-5134-8eaf-059004f7cf18",
+    "title": "Fuite de données en France 2026 | FrenchBreaches",
+    "url": "https://frenchbreaches.com/",
+    "category": "Développement",
+    "added": "2026-09-01",
+    "description": "Fuite de données en France : annuaire complet des violations, cyberattaques et données compromises. Consultez les derniers incidents et protégez-vous.",
+    "tags": [
+      "code",
+      "cybersécurité",
+      "société"
+    ]
+  },
+  {
+    "id": "67c19ac5-0e90-521e-8898-41df3e7b7f4d",
+    "title": "firetower-cloud/firetower: Run any coding agent, on your own servers, from anywhere",
+    "url": "https://github.com/firetower-cloud/firetower",
+    "category": "IA & Agents",
+    "added": "2026-09-01",
+    "description": "Run any coding agent, on your own servers, from anywhere - firetower-cloud/firetower",
+    "tags": [
+      "agents",
+      "code"
+    ]
+  },
+  {
+    "id": "b508eb2f-7018-51bd-bf7c-c9af973cee40",
+    "title": "do•doc | Accueil",
+    "url": "https://dodoc.fr/",
+    "category": "Design & Création",
+    "added": "2026-09-01",
+    "description": "do•doc est un logiciel libre et gratuit pour documenter des projets, animé par une communauté de designers, enseignants, artistes, formateurs, créateurs et passionnés de documentation et développé par le collectif l’Atelier des chercheurs depuis 2014.",
+    "tags": [
+      "design",
+      "code",
+      "développement"
+    ]
+  },
+  {
+    "id": "da12971b-f357-5185-9801-1b5792c35df3",
+    "title": "De l’illusion des connaissances ou des compétences apportées par l’IA - FredCavazza.net",
+    "url": "https://fredcavazza.net/2026/08/26/de-lillusion-des-connaissances-ou-des-competences-apportees-par-lia",
+    "category": "Krisis",
+    "added": "2026-09-01",
+    "description": "L’IA générative donne aujourd’hui accès à des connaissances et à des capacités qui étaient autrefois réservées à des spécialistes. Le risque est de confondre cette puissance de production avec nos propres connaissances ou compétences : produire ne signifie pas nécessairement comprendre, juger ou savoir reprendre la main. Je vous propose dans cet article d’examiner cette […]",
+    "tags": [
+      "IA"
+    ]
+  },
+  {
+    "id": "3025a40a-b102-53c7-b792-860edbdf604e",
+    "title": "D0UBLE ZER0",
+    "url": "https://www.dblzr.com/fonts",
+    "category": "Design & Création",
+    "added": "2026-09-01",
+    "description": "D0UBLE ZER0 is a french type foundry founded in 2022 by Malou Verlomme. Our fonts are made with love and crafted to the highest quality.",
+    "tags": [
+      "typographie"
+    ]
+  },
+  {
+    "id": "d9f057b6-5c10-5c58-8716-859f77f41c44",
+    "title": "C & F Éditions",
+    "url": "https://cfeditions.com/composition-typographique",
+    "category": "Cultures & Combats",
+    "added": "2026-09-01",
+    "description": "Ce petit manuel a pour but de donner des bases théoriques et pratiques aux étudiants en design graphique.",
+    "tags": [
+      "édition",
+      "design-graphique",
+      "typographie"
+    ]
+  },
+  {
+    "id": "e721283c-7c01-5d7b-b6d6-6c61c076268e",
+    "title": "Actualités informatiques et numériques au quotidien",
+    "url": "https://next.ink/",
+    "category": "Cultures & Combats",
+    "added": "2026-09-01",
+    "description": "Actualités informatiques et numériques au quotidien. Articles de fond, nouvelles du quotidien, dossiers, dessins, débats, venez vous affûter sur Next",
+    "tags": [
+      "IA",
+      "outils",
+      "société"
+    ]
+  },
+  {
     "title": "Superset — l’IDE agentique à grande échelle",
     "url": "https://github.com/superset-sh/superset",
     "category": "IA & Agents",
@@ -1788,20 +2105,6 @@
     ]
   },
   {
-    "id": "1e7ba8b7-d930-5576-bae0-bc792b23b43d",
-    "title": "Browser Use — Piloter le web avec des agents IA",
-    "url": "https://github.com/browser-use/browser-use",
-    "category": "IA & Agents",
-    "added": "2026-08-16",
-    "description": "Une bibliothèque qui permet à des agents IA d’observer des pages web, d’interagir avec un navigateur et d’automatiser des tâches en ligne.",
-    "tags": [
-      "IA",
-      "agents",
-      "navigateur",
-      "automatisation"
-    ]
-  },
-  {
     "id": "3f769ef6-8430-55fb-8d1c-90845cbda39d",
     "title": "localsend/localsend: An open-source cross-platform alternative to AirDrop",
     "url": "https://github.com/localsend/localsend?tab=readme-ov-file#screenshots",
@@ -1900,6 +2203,20 @@
       "IA",
       "dev",
       "IA-locale"
+    ]
+  },
+  {
+    "id": "1e7ba8b7-d930-5576-bae0-bc792b23b43d",
+    "title": "Browser Use — Piloter le web avec des agents IA",
+    "url": "https://github.com/browser-use/browser-use",
+    "category": "IA & Agents",
+    "added": "2026-08-16",
+    "description": "Une bibliothèque qui permet à des agents IA d’observer des pages web, d’interagir avec un navigateur et d’automatiser des tâches en ligne.",
+    "tags": [
+      "IA",
+      "agents",
+      "navigateur",
+      "automatisation"
     ]
   },
   {
@@ -73135,17 +73452,6 @@
     "id": "de55bf4a-a747-5a1f-83bf-d239e10489e9"
   },
   {
-    "title": "Blog officiel du service de marque-pages",
-    "url": "https://blog.pinboard.in/",
-    "category": "IA & Agents",
-    "added": "2014-07-15",
-    "description": "_ j'ai retrouvé MON PINBOARD ! je savais que j'avais un truc en ligne pour gérer mes liens...je vous le conseille.",
-    "tags": [
-      "IA"
-    ],
-    "id": "b81f1f0d-d1f8-551a-8647-64b5c2140d2e"
-  },
-  {
     "title": "Instagram",
     "url": "http://instagram.com/p/qev-COy7j5",
     "category": "Mémoire du web social",
@@ -73171,6 +73477,17 @@
       "youtube"
     ],
     "id": "15fbb0a4-2d04-5e2e-b8e5-6a5d9866c549"
+  },
+  {
+    "title": "Blog officiel du service de marque-pages",
+    "url": "https://blog.pinboard.in/",
+    "category": "IA & Agents",
+    "added": "2014-07-15",
+    "description": "_ j'ai retrouvé MON PINBOARD ! je savais que j'avais un truc en ligne pour gérer mes liens...je vous le conseille.",
+    "tags": [
+      "IA"
+    ],
+    "id": "b81f1f0d-d1f8-551a-8647-64b5c2140d2e"
   },
   {
     "title": "Pricing - Craft",
