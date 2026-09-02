@@ -152,6 +152,12 @@ avec son titre, deux cellules de données par rangée et les libellés rappelés
 Les en-têtes et la sémantique du tableau restent accessibles aux lecteurs
 d’écran ; aucune donnée ne disparaît et aucun défilement horizontal n’est requis.
 
+Le registre de projets de la Software Factory emploie une variante large à
+quatre colonnes. Le projet vient en premier, les étoiles et la licence partagent
+une cellule, le rôle reçoit 44 % de la grille et la maturité ferme la ligne. Le
+tableau peut s’élargir jusqu’à 1120 px au-delà de la colonne de lecture. Sur
+mobile, ses quatre champs s’empilent pour préserver des lignes lisibles.
+
 Dans l’administration, le registre des éditions peut être filtré entre
 brouillons et publications. L’édition choisie affiche son état et ses comptes
 de liens dans un cartouche rectangulaire avant les champs éditoriaux. Les

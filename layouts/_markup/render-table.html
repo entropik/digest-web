@@ -1,6 +1,7 @@
 {{- $edition := eq .Page.Section "archives" -}}
 {{- $headers := index .THead 0 -}}
-<table{{ if $edition }} class="edition-table" role="table"{{ end }}>
+{{- $isProjectRegister := and $edition (eq (len $headers) 4) (eq ((index $headers 0).Text | plainify) "Projet") (eq ((index $headers 2).Text | plainify) "Rôle") -}}
+<table{{ if $edition }} class="edition-table{{ if $isProjectRegister }} edition-table--projects{{ end }}" role="table"{{ end }}>
   {{ if $edition }}
     <caption><span>Registre {{ printf "%02d" (add .Ordinal 1) }}</span><span>{{ printf "%02d" (len .TBody) }} entrées</span></caption>
   {{ end }}

@@ -191,6 +191,22 @@ test("Focus archive cards use their technical thumbnail and explicit title prefi
   assert.match(stylesheet, /\.archive-focus-prefix/);
 });
 
+test("the Software Factory register gives its role column the dominant width", async () => {
+  const [content, renderer, stylesheet] = await Promise.all([
+    readFile(new URL("../../content/archives/2026-09-02.md", import.meta.url), "utf8"),
+    readFile(new URL("../../layouts/_markup/render-table.html", import.meta.url), "utf8"),
+    readFile(new URL("../../assets/css/extended/digest.css", import.meta.url), "utf8"),
+  ]);
+  assert.match(content, /\| Projet \| Étoiles · licence \| Rôle \| Maturité \|/);
+  assert.doesNotMatch(content, /\| Rang \| Projet \|/);
+  assert.match(renderer, /edition-table--projects/);
+  assert.match(stylesheet, /--project-table-width:\s*min\(1120px/);
+  assert.match(
+    stylesheet,
+    /\.edition-table--projects thead th:nth-child\(3\)\s*\{[^}]*width:\s*44%/s,
+  );
+});
+
 test("Digest editions keep editorial paragraph indents and native poster ratios", async () => {
   const stylesheet = await readFile(
     new URL("../../assets/css/extended/digest.css", import.meta.url),
