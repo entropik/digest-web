@@ -12,17 +12,11 @@ create_fake_commands() {
 
   cat >"$fake_bin/git" <<'EOF'
 #!/bin/sh
+if [ "$1" = "-c" ]; then
+  shift 2
+fi
 if [ "$1" = "ls-remote" ]; then
   printf '%s\trefs/heads/main\n' newsha
-  exit 0
-fi
-if [ "$1" = "clone" ]; then
-  eval "target=\${$#}"
-  mkdir -p "$target/admin-service/dist/src"
-  printf 'server\n' >"$target/admin-service/dist/src/server.js"
-  printf 'module.exports = {}\n' >"$target/admin-service/ecosystem.config.cjs"
-  printf '{}\n' >"$target/admin-service/package.json"
-  mkdir -p "$target/.git"
   exit 0
 fi
 exit 1
@@ -76,6 +70,17 @@ EOF
 
   cat >"$fake_bin/curl" <<'EOF'
 #!/bin/sh
+case "$*" in
+  *"/archive/newsha.tar.gz"*)
+    archive_root="$TEST_BASE/archive/digest-web-newsha"
+    mkdir -p "$archive_root/admin-service/dist/src"
+    printf 'server\n' >"$archive_root/admin-service/dist/src/server.js"
+    printf 'module.exports = {}\n' >"$archive_root/admin-service/ecosystem.config.cjs"
+    printf '{}\n' >"$archive_root/admin-service/package.json"
+    tar -czf - -C "$TEST_BASE/archive" digest-web-newsha
+    exit 0
+    ;;
+esac
 if { [ "$TEST_SCENARIO" = "health" ] ||
      [ "$TEST_SCENARIO" = "rollback-switch" ]; } &&
    [ "$(readlink "$TEST_BASE/current")" = "releases/newsha/admin-service" ]; then
