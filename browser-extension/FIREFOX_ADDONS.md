@@ -30,6 +30,14 @@ publique, le formulaire préremplit correctement l’URL et le titre, vérifie l
 lien et rend le brouillon enregistrable. Le contrôle de référence n’a créé
 aucun brouillon.
 
+## Correctif de capture 1.5.2
+
+La version 1.5.2 conserve les mêmes permissions et la même identité Gecko. Si
+Firefox refuse ponctuellement l’injection par l’API `scripting` dans l’onglet
+actif, elle retente la même fonction locale par l’API Manifest V2 `tabs`. Elle
+affiche aussi séparément les refus d’origine du service et les refus de lecture
+de l’onglet. Aucun code distant ni accès permanent aux pages n’est ajouté.
+
 ## Construction et validation
 
 ```shell

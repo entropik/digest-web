@@ -454,16 +454,46 @@ const fillDraftPreservingEdits = (draft: StoredDraft): void => {
   });
 };
 
+const executeCaptureScript = async (
+  tabId: number,
+): Promise<ReturnType<typeof extractPageMetadata> | null> => {
+  try {
+    const [result] = await browser.scripting.executeScript({
+      target: { tabId },
+      func: extractPageMetadata,
+    });
+    return result?.result ?? null;
+  } catch (scriptingError) {
+    const legacyTabs = browser.tabs as typeof browser.tabs & {
+      executeScript?: (
+        tabId: number,
+        details: { code: string },
+      ) => Promise<unknown[]>;
+    };
+    if (!legacyTabs.executeScript) throw scriptingError;
+    try {
+      const results = await legacyTabs.executeScript(tabId, {
+        code: `(${extractPageMetadata.toString()})()`,
+      });
+      const result = results?.[0];
+      return (result as ReturnType<typeof extractPageMetadata> | undefined) ?? null;
+    } catch {
+      throw scriptingError;
+    }
+  }
+};
+
 const captureActivePage = async (): Promise<ActivePageCapture> => {
   const [tab] = await browser.tabs.query({ active: true, currentWindow: true });
   if (!tab?.id || !tab.url || !isSupportedCaptureUrl(tab.url)) {
     throw new Error("PAGE_NOT_SUPPORTED");
   }
-  const [result] = await browser.scripting.executeScript({
-    target: { tabId: tab.id },
-    func: extractPageMetadata,
-  });
-  const capture = result?.result;
+  let capture: ReturnType<typeof extractPageMetadata> | null;
+  try {
+    capture = await executeCaptureScript(tab.id);
+  } catch {
+    throw new Error("PAGE_CAPTURE_FAILED");
+  }
   if (!capture || !isSupportedCaptureUrl(capture.url)) {
     throw new Error("PAGE_NOT_SUPPORTED");
   }
@@ -653,10 +683,12 @@ const initialize = async (): Promise<void> => {
     }
     await verifyCapture(field("url").value.trim());
   } catch (error) {
-    feedback.textContent =
-      error instanceof Error && error.message === "PAGE_NOT_SUPPORTED"
-        ? "Cette page ne peut pas être publiée : seules les pages web publiques HTTP(S) sont acceptées."
-        : "Impossible de préparer la capture. Vérifiez votre connexion au Digest.";
+    const message = error instanceof Error ? error.message : "CAPTURE_FAILED";
+    feedback.textContent = message === "PAGE_NOT_SUPPORTED"
+      ? "Cette page ne peut pas être publiée : seules les pages web publiques HTTP(S) sont acceptées."
+      : message === "PAGE_CAPTURE_FAILED"
+        ? "Firefox n’autorise pas la lecture de cet onglet. Rechargez la page puis rouvrez l’extension."
+        : "Impossible de préparer la capture. Fermez puis rouvrez l’extension.";
   }
 };
 

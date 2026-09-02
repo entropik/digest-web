@@ -5,7 +5,7 @@ export default defineConfig({
     name: "OOBLIK Digest — Curation",
     description:
       "Capture la page active dans la file éditoriale privée d’OOBLIK Digest.",
-    version: "1.5.1",
+    version: "1.5.2",
     ...(browser === "chrome" ? { minimum_chrome_version: "120" } : {}),
     ...(browser === "firefox"
       ? {

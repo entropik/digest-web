@@ -21,6 +21,7 @@ const browserMock = vi.hoisted(() => ({
   },
   tabs: {
     create: vi.fn(),
+    executeScript: vi.fn(),
     query: vi.fn(),
   },
 }));
@@ -102,6 +103,7 @@ beforeEach(() => {
   browserMock.scripting.executeScript.mockResolvedValue([
     { result: capture },
   ]);
+  browserMock.tabs.executeScript.mockResolvedValue([capture]);
   browserMock.storage.local.get.mockResolvedValue({});
   browserMock.storage.local.set.mockResolvedValue(undefined);
   browserMock.storage.local.remove.mockResolvedValue(undefined);
@@ -143,6 +145,42 @@ describe("états asynchrones du popup", () => {
         "Lien vérifié · prêt à enregistrer.",
       );
       expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+    });
+  });
+
+  test("utilise l’injection Manifest V2 lorsque scripting échoue dans Firefox", async () => {
+    browserMock.scripting.executeScript.mockRejectedValueOnce(
+      new Error("Unexpected error"),
+    );
+    vi.stubGlobal("fetch", vi.fn(async () => response(bootstrap())));
+
+    await loadPopup();
+
+    await vi.waitFor(() => {
+      expect(element("#feedback").textContent).toBe(
+        "Lien vérifié · prêt à enregistrer.",
+      );
+    });
+    expect(browserMock.tabs.executeScript).toHaveBeenCalledWith(
+      7,
+      expect.objectContaining({ code: expect.stringContaining("document") }),
+    );
+  });
+
+  test("explique un refus de lecture persistant dans Firefox", async () => {
+    browserMock.scripting.executeScript.mockRejectedValueOnce(
+      new Error("Missing host permission"),
+    );
+    browserMock.tabs.executeScript.mockRejectedValueOnce(
+      new Error("Missing host permission"),
+    );
+
+    await loadPopup();
+
+    await vi.waitFor(() => {
+      expect(element("#feedback").textContent).toBe(
+        "Firefox n’autorise pas la lecture de cet onglet. Rechargez la page puis rouvrez l’extension.",
+      );
     });
   });
 
