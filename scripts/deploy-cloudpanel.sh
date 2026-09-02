@@ -25,9 +25,10 @@ temporary="$base/releases/.tmp-$remote_sha"
 
 if [ ! -d "$release" ]; then
   rm -rf -- "$temporary"
-  git -c protocol.version=1 clone --quiet --depth 1 --single-branch --branch "$branch" \
-    "$repository" "$temporary"
-  rm -rf -- "$temporary/.git"
+  mkdir -p "$temporary"
+  curl --fail --location --silent --show-error --retry 3 \
+    "${repository%.git}/archive/$remote_sha.tar.gz" |
+    tar -xz --strip-components=1 -C "$temporary"
   mv -- "$temporary" "$release"
 fi
 

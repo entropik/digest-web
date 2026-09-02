@@ -71,7 +71,8 @@ Le serveur conserve les cinq dernières releases et le lien symbolique
 `current` permet une bascule ou un retour arrière atomique.
 
 Le dépôt public permet à CloudPanel de récupérer la branche sans clé ni
-identifiant de serveur stocké dans GitHub.
+identifiant de serveur stocké dans GitHub. Le serveur résout le SHA publié puis
+télécharge son archive immuable ; il ne dépend pas d’un clone Git persistant.
 
 ## Administration propriétaire
 
