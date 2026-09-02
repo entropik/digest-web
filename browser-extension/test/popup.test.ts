@@ -648,6 +648,30 @@ describe("états asynchrones du popup", () => {
     expect(browserMock.storage.local.set).not.toHaveBeenCalled();
   });
 
+  test("distingue un profil Firefox non autorisé d’une session expirée", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi
+        .fn()
+        .mockResolvedValueOnce(response(bootstrap()))
+        .mockResolvedValueOnce(response({ error: "INVALID_ORIGIN" }, 403)),
+    );
+    await loadPopup();
+    await vi.waitFor(() => {
+      expect(element<HTMLButtonElement>("#save").disabled).toBe(false);
+    });
+
+    element<HTMLFormElement>("#capture-form").dispatchEvent(
+      new Event("submit", { bubbles: true, cancelable: true }),
+    );
+
+    await vi.waitFor(() => {
+      expect(element("#feedback").textContent).toBe(
+        "Ce profil Firefox n’est pas autorisé par le service du Digest.",
+      );
+    });
+  });
+
   test("signale une sauvegarde locale automatique impossible", async () => {
     browserMock.storage.local.set.mockRejectedValueOnce(
       new Error("STORAGE_UNAVAILABLE"),

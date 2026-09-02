@@ -491,6 +491,9 @@ const bootstrapErrorMessage = (error: DigestApiError): string => {
 
 const tagErrorMessage = (error: unknown): string => {
   if (!(error instanceof DigestApiError)) return "L’opération sur le tag a échoué.";
+  if (error.code === "INVALID_ORIGIN") {
+    return "Ce profil Firefox n’est pas autorisé par le service du Digest.";
+  }
   if (error.status === 401 || error.status === 403) {
     return "La session a expiré. Reconnectez-vous à l’administration.";
   }
