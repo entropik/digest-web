@@ -2437,6 +2437,7 @@ body.digest-modal-open {
   --project-table-width: min(1120px, calc(100vw - 3rem));
   width: var(--project-table-width);
   margin-left: calc((100% - var(--project-table-width)) / 2);
+  font-variant-numeric: tabular-nums;
 }
 
 .edition-table--projects thead th:nth-child(1) {

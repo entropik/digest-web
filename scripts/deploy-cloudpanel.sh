@@ -9,7 +9,7 @@ branch="production"
 mkdir -p "$base/releases"
 
 remote_sha="$(
-  git ls-remote "$repository" "refs/heads/$branch" |
+  git -c protocol.version=1 ls-remote "$repository" "refs/heads/$branch" |
     awk 'NR == 1 { print $1 }'
 )"
 
@@ -25,7 +25,7 @@ temporary="$base/releases/.tmp-$remote_sha"
 
 if [ ! -d "$release" ]; then
   rm -rf -- "$temporary"
-  git clone --quiet --depth 1 --single-branch --branch "$branch" \
+  git -c protocol.version=1 clone --quiet --depth 1 --single-branch --branch "$branch" \
     "$repository" "$temporary"
   rm -rf -- "$temporary/.git"
   mv -- "$temporary" "$release"
