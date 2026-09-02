@@ -83,7 +83,7 @@ restore_previous() {
 test -s "$base/shared/.env"
 
 remote_sha="$(
-  git ls-remote "$repository" "refs/heads/$branch" |
+  git -c protocol.version=1 ls-remote "$repository" "refs/heads/$branch" |
     awk 'NR == 1 { print $1 }'
 )"
 test -n "$remote_sha"
@@ -101,8 +101,10 @@ temporary="$base/releases/.tmp-$remote_sha"
 
 if [ ! -d "$release" ]; then
   rm -rf -- "$temporary"
-  git clone --quiet --depth 1 --single-branch --branch "$branch" \
-    "$repository" "$temporary"
+  mkdir -p "$temporary"
+  curl --fail --location --silent --show-error --retry 3 \
+    "${repository%.git}/archive/$remote_sha.tar.gz" |
+    tar -xz --strip-components=1 -C "$temporary"
   cd "$temporary/admin-service"
   ln -s "$base/shared/.env" .env
   npm ci
@@ -110,7 +112,6 @@ if [ ! -d "$release" ]; then
     npx playwright install chromium --only-shell
   npm run build
   npm prune --omit=dev
-  rm -rf -- "$temporary/.git"
   cd "$base"
   mv -- "$temporary" "$release"
 fi
