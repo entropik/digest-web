@@ -38,6 +38,13 @@ actif, elle retente la même fonction locale par l’API Manifest V2 `tabs`. Ell
 affiche aussi séparément les refus d’origine du service et les refus de lecture
 de l’onglet. Aucun code distant ni accès permanent aux pages n’est ajouté.
 
+La version signée 1.5.2 a été installée puis validée dans Firefox sur une page
+HTTPS publique : la capture et le formulaire fonctionnent. Un essai depuis
+`addons.mozilla.org` affiche volontairement le refus de lecture, car Firefox
+interdit par défaut l’injection des extensions dans ses pages protégées. Il ne
+faut pas activer l’accès aux sites restreints pour le fonctionnement normal du
+Digest.
+
 ## Construction et validation
 
 ```shell
