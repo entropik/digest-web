@@ -6,13 +6,13 @@ sur l’installation et l’exploitation.
 
 ## État documenté
 
-Dernière mise à jour : 28 août 2026.
+Dernière mise à jour : 2 septembre 2026.
 
-- 4 961 liens dans le catalogue, avec autant d’URL et d’identifiants uniques ;
-- 843 éditions archivées ;
-- 964 routes de tags cohérentes ;
-- journal couvrant douze journées actives, du 24 juillet au 28 août 2026 ;
-- site public Hugo, administration propriétaire et extension Chrome de
+- 4 987 liens dans le catalogue, avec autant d’URL et d’identifiants uniques ;
+- 844 éditions archivées ;
+- 966 routes de tags cohérentes ;
+- journal couvrant treize journées actives, du 24 juillet au 2 septembre 2026 ;
+- site public Hugo, administration propriétaire et extension Chrome/Firefox de
   curation, taxonomie administrable, import patrimonial WordPress, images
   sociales et publication LinkedIn native.
 
@@ -27,6 +27,8 @@ Dernière mise à jour : 28 août 2026.
   commits, validations et déploiements.
 - [Procédure Chrome Web Store](../browser-extension/CHROME_WEB_STORE.md) :
   préparation et diffusion de l’extension.
+- [Procédure Firefox Add-ons](../browser-extension/FIREFOX_ADDONS.md) :
+  validation, signature et installation de la variante Firefox.
 - [Exploitation de l’administration](operations.md) : récupération des états
   de publication ambigus et opérations sensibles.
 

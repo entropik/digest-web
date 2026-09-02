@@ -1,14 +1,14 @@
 ---
 title: "Règles de confidentialité"
-description: "Règles de confidentialité de l’extension Chrome OOBLIK Digest — Curation."
+description: "Règles de confidentialité de l’extension de navigateur OOBLIK Digest — Curation."
 url: "/confidentialite/"
 aliases:
   - "/confidentialite-extension/"
-lastmod: 2026-07-27
+lastmod: 2026-09-02
 ---
 
-Les présentes règles décrivent les données traitées par l’extension Chrome
-**OOBLIK Digest — Curation**, leur utilisation et les choix laissés à
+Les présentes règles décrivent les données traitées par l’extension Chrome et
+Firefox **OOBLIK Digest — Curation**, leur utilisation et les choix laissés à
 l’utilisateur.
 
 L’objectif unique de l’extension est d’enregistrer manuellement la page active
@@ -26,9 +26,10 @@ raccourci clavier. Elle peut alors préremplir le formulaire avec :
 - la catégorie, le résumé et les tags saisis ou corrigés dans le formulaire ;
 - une note éditoriale privée saisie par l’utilisateur.
 
-Ces données relèvent principalement de l’historique Web et du contenu du site
-Web au sens du Chrome Web Store. L’extension ne surveille pas la navigation, ne
-constitue aucun historique général et ne collecte rien en arrière-plan.
+Ces données relèvent principalement de l’historique de navigation et du contenu
+du site Web au sens des déclarations Chrome Web Store et Firefox Add-ons.
+L’extension ne surveille pas la navigation, ne constitue aucun historique
+général et ne collecte rien en arrière-plan.
 
 ## Moment de l’envoi et finalité
 
@@ -82,9 +83,9 @@ service d’administration exige une authentification propriétaire, limite les
 origines autorisées et conserve ses données dans un espace serveur privé.
 
 L’extension n’utilise aucun code distant : tout le JavaScript exécuté est inclus
-dans le package distribué par le Chrome Web Store.
+dans les packages distribués par Chrome Web Store et Firefox Add-ons.
 
-## Permissions Chrome
+## Permissions du navigateur
 
 - `activeTab` permet de lire l’URL et le titre de l’onglet actif uniquement
   après une action de l’utilisateur ;
@@ -95,12 +96,16 @@ dans le package distribué par le Chrome Web Store.
 
 L’extension ne demande ni accès à tous les sites, ni accès à l’API des cookies.
 
+Firefox présente en outre, avant l’installation, les catégories de données
+requises `browsingActivity` et `websiteContent`. Elles correspondent uniquement
+à l’URL et au contenu que l’utilisateur choisit d’enregistrer manuellement.
+
 ## Utilisation limitée
 
-L’utilisation des informations reçues par l’extension respecte le règlement
-Chrome Web Store relatif aux données utilisateur, y compris les exigences
-**Limited Use**. Les données sont utilisées uniquement pour fournir la fonction
-de curation décrite sur cette page.
+L’utilisation des informations reçues par l’extension respecte les règlements
+Chrome Web Store et Firefox Add-ons relatifs aux données utilisateur, y compris
+les exigences **Limited Use** de Chrome. Les données sont utilisées uniquement
+pour fournir la fonction de curation décrite sur cette page.
 
 ## Modifications et contact
 

@@ -19,6 +19,8 @@ process.env.GITHUB_APP_PRIVATE_KEY_BASE64 =
   Buffer.from("not-used-in-these-tests").toString("base64");
 process.env.CHROME_EXTENSION_ORIGINS =
   "chrome-extension://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+process.env.FIREFOX_EXTENSION_ORIGINS =
+  "moz-extension://12345678-1234-4234-9234-123456789abc";
 
 const { auth, authDatabase } = await import("../src/auth.js");
 const { runMigrations } = await getMigrations(auth.options);
@@ -56,6 +58,26 @@ test("CORS only trusts the configured extension origin", async () => {
   });
   assert.equal(denied.status, 403);
   assert.equal(denied.headers.get("Access-Control-Allow-Origin"), null);
+
+  const firefox = await app.request("/api/admin/session", {
+    method: "OPTIONS",
+    headers: {
+      Origin: "moz-extension://12345678-1234-4234-9234-123456789abc",
+    },
+  });
+  assert.equal(firefox.status, 204);
+  assert.equal(
+    firefox.headers.get("Access-Control-Allow-Origin"),
+    "moz-extension://12345678-1234-4234-9234-123456789abc",
+  );
+
+  const unknownFirefox = await app.request("/api/admin/session", {
+    method: "OPTIONS",
+    headers: {
+      Origin: "moz-extension://87654321-4321-4321-8321-cba987654321",
+    },
+  });
+  assert.equal(unknownFirefox.status, 403);
 });
 
 test("session endpoint is readable but mutations require authentication", async () => {

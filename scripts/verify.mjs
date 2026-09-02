@@ -63,6 +63,7 @@ run(npm, ["test"], { cwd: extension });
 run(npm, ["run", "icons"], { cwd: extension });
 run("git", ["diff", "--exit-code", "--", "browser-extension/public/icon"]);
 run(npm, ["run", "build"], { cwd: extension });
+run(npm, ["run", "lint:firefox"], { cwd: extension });
 run(npm, ["run", "zip"], { cwd: extension });
 
 run(python, ["scripts/ensure_link_ids.py", "--check"]);

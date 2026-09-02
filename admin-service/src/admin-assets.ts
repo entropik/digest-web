@@ -62,7 +62,7 @@ export const dashboardPage = (name: string) =>
         <a href="/"><span>Digest</span><span aria-hidden="true">↗</span></a>
         <a href="https://chromewebstore.google.com/detail/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer"><span>Extension</span><span aria-hidden="true">↗</span></a>
         <button id="admin-logout" type="button">Déconnexion</button>
-        <span class="admin-version" aria-label="Version v1.24.5">v1.24.5</span>
+        <span class="admin-version" aria-label="Version v1.25.0">v1.25.0</span>
       </div>
     </header>
     <nav class="admin-nav" aria-label="Administration">
@@ -431,7 +431,7 @@ const missing=(draft)=>[!draft.title&&"titre",!draft.category&&"catégorie",!dra
 const renderDrafts=()=>{
   const list=document.querySelector("#draft-list");if(!list)return;
   document.querySelector("#draft-count").textContent=String(drafts.length);
-  if(!drafts.length){list.innerHTML='<p class="empty">Aucun brouillon. L’extension Chrome peut alimenter cette file.</p>';updateSelection();return}
+  if(!drafts.length){list.innerHTML='<p class="empty">Aucun brouillon. L’extension de navigateur peut alimenter cette file.</p>';updateSelection();return}
   list.innerHTML=drafts.map((draft)=>{
     const gaps=missing(draft);
     return '<article class="draft-card" data-draft-id="'+esc(draft.id)+'" data-complete="'+(!gaps.length)+'">'+

@@ -1,4 +1,4 @@
-name: Package Chrome extension
+name: Package browser extensions
 
 on:
   push:
@@ -28,6 +28,8 @@ jobs:
           npm ci
           npm run typecheck
           npm test
+          npm run build
+          npm run lint:firefox
           npm run zip
 
       - name: Upload Chrome Web Store package
@@ -35,6 +37,15 @@ jobs:
         with:
           name: ooblik-digest-curator-${{ github.ref_name }}
           path: browser-extension/.output/*-chrome.zip
+          if-no-files-found: error
+          include-hidden-files: true
+          retention-days: 30
+
+      - name: Upload Firefox Add-ons package
+        uses: actions/upload-artifact@v4
+        with:
+          name: ooblik-digest-curator-firefox-${{ github.ref_name }}
+          path: browser-extension/.output/*-firefox.zip
           if-no-files-found: error
           include-hidden-files: true
           retention-days: 30

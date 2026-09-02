@@ -23,17 +23,27 @@ if (base.protocol !== "https:" && process.env.NODE_ENV === "production") {
   throw new Error("BETTER_AUTH_URL must use HTTPS in production");
 }
 
-const extensionOrigins = (process.env.CHROME_EXTENSION_ORIGINS ?? "")
-  .split(",")
+const configuredExtensionOrigins = [
+  process.env.CHROME_EXTENSION_ORIGINS,
+  process.env.FIREFOX_EXTENSION_ORIGINS,
+]
+  .filter((value): value is string => !!value)
+  .flatMap((value) => value.split(","))
   .map((value) => value.trim().replace(/\/+$/, ""))
   .filter(Boolean);
-for (const origin of extensionOrigins) {
-  if (!/^chrome-extension:\/\/[a-p]{32}$/.test(origin)) {
+
+const chromeExtensionOrigin = /^chrome-extension:\/\/[a-p]{32}$/;
+const firefoxExtensionOrigin =
+  /^moz-extension:\/\/[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
+
+for (const origin of configuredExtensionOrigins) {
+  if (!chromeExtensionOrigin.test(origin) && !firefoxExtensionOrigin.test(origin)) {
     throw new Error(
-      "CHROME_EXTENSION_ORIGINS must contain exact chrome-extension origins",
+      "Extension origins must be exact chrome-extension or moz-extension origins",
     );
   }
 }
+const extensionOrigins = [...new Set(configuredExtensionOrigins)];
 
 const linkedinClientId = process.env.LINKEDIN_CLIENT_ID?.trim() || null;
 const linkedinClientSecret = process.env.LINKEDIN_CLIENT_SECRET?.trim() || null;

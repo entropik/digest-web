@@ -1,18 +1,24 @@
 {
   "name": "ooblik-digest-curator",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "private": true,
   "type": "module",
   "scripts": {
     "postinstall": "wxt prepare",
     "dev": "wxt",
+    "dev:firefox": "wxt --browser firefox",
     "icons": "node scripts/generate-icons.mjs",
     "icons:check": "node scripts/generate-icons.mjs --check",
     "store-assets": "python scripts/generate-store-assets.py",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "build": "npm run icons:check && wxt build",
-    "zip": "npm run icons:check && wxt zip"
+    "build": "npm run build:chrome && npm run build:firefox",
+    "build:chrome": "npm run icons:check && wxt build --browser chrome",
+    "build:firefox": "npm run icons:check && wxt build --browser firefox",
+    "lint:firefox": "npx --yes --package web-ext@10.6.0 web-ext lint --source-dir .output/firefox-mv2",
+    "zip": "npm run zip:chrome && npm run zip:firefox",
+    "zip:chrome": "npm run icons:check && wxt zip --browser chrome",
+    "zip:firefox": "npm run icons:check && wxt zip --browser firefox"
   },
   "devDependencies": {
     "jsdom": "27.4.0",

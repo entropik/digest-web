@@ -86,12 +86,17 @@ vérifie le résultat servi par le site.
 Le texte sélectionné et la note éditoriale ne doivent apparaître ni dans un
 commit, ni dans les journaux applicatifs, ni dans les messages d’erreur.
 
-### Le Chrome Web Store fournit l’identité et les mises à jour
+### Les boutiques fournissent la signature et les mises à jour
 
-La diffusion est non répertoriée. L’examen Google reste obligatoire, mais
-apporte une extension signée, un identifiant stable et les mises à jour
-automatiques. Le backend reste inutilisable sans l’identité GitHub
-propriétaire.
+La diffusion reste non répertoriée sur Chrome Web Store et Firefox Add-ons.
+Les examens Google et Mozilla apportent des paquets signés et les mises à jour
+automatiques. Le backend reste inutilisable sans l’identité GitHub propriétaire.
+
+Chrome expose une origine stable issue de l’identifiant de boutique. Firefox
+utilise au contraire un UUID interne propre au profil. Autoriser tout le schéma
+`moz-extension` rendrait n’importe quelle extension installée candidate aux
+requêtes authentifiées ; le service exige donc une liste exacte des UUID des
+profils Firefox propriétaires.
 
 ## 16 août 2026
 

@@ -17,6 +17,7 @@ chaque journée ayant produit une évolution du projet.
 | 25 août 2026 | [Répéter sans effacer sur LinkedIn](2026-08-25.md) | 3 | Republication volontaire et historique LinkedIn |
 | 27 août 2026 | [Quarante-cinq dépôts et quelques filets](2026-08-27.md) | 8 | Curation GitHub, archives et ajustements d’interface |
 | 28 août 2026 | [Le brouillon devient un état éditorial](2026-08-28.md) | — | Cycle de vie réversible des éditions |
+| 2 septembre 2026 | [La curation traverse Firefox](2026-09-02.md) | — | Extension Firefox, signature AMO et installation officielle |
 
 ## Provenance
 

@@ -73,7 +73,7 @@ jamais autoriser `chrome-extension://*`.
 
 1. Incrémenter `version` dans `package.json` et `wxt.config.ts`.
 2. Créer un tag `extension-vX.Y.Z`.
-3. Télécharger l’artefact ZIP du workflow `Package Chrome extension`.
+3. Télécharger l’artefact ZIP Chrome du workflow `Package browser extensions`.
 4. Téléverser et publier manuellement cette version dans le tableau de bord.
 
 Chrome met ensuite automatiquement à jour les installations existantes.

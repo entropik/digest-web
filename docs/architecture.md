@@ -210,10 +210,11 @@ Un lien publié peut être corrigé sans perdre son identifiant, son URL, sa dat
 ou son historique. Un retrait public modifie sa visibilité sans effacer la
 ressource.
 
-## Extension Chrome
+## Extension Chrome et Firefox
 
-`browser-extension/` contient une extension Manifest V3 construite avec WXT,
-TypeScript et une interface HTML/CSS sans framework.
+`browser-extension/` contient une même extension construite avec WXT,
+TypeScript et une interface HTML/CSS sans framework. Chrome reçoit un manifeste
+V3 et Firefox un manifeste V2 ciblant Firefox 142 ou plus récent.
 
 Une action explicite sur l’icône ou le raccourci autorise la lecture ponctuelle
 de la page active. L’extension extrait l’URL, le titre, l’adresse canonique, la
@@ -221,11 +222,17 @@ meta description et, si elle existe, la sélection de texte. La sélection et
 la note restent privées.
 
 L’extension ne possède aucun jeton GitHub. Elle communique uniquement avec
-`https://digest.ooblik.com/*`, et le serveur n’accepte que l’origine exacte de
-l’extension publiée :
-`chrome-extension://nlejcccmpbajpoaknlecegkpgdegiflf`.
-La fiche Chrome Web Store reste non listée et son lien d’installation est
-présenté uniquement dans l’administration après authentification propriétaire.
+`https://digest.ooblik.com/*`, et le serveur n’accepte que les origines exactes
+configurées. Chrome possède l’origine publiée stable
+`chrome-extension://nlejcccmpbajpoaknlecegkpgdegiflf`. Firefox attribue une
+origine interne `moz-extension://<UUID>` différente à chaque profil : chaque
+profil propriétaire est donc explicitement inscrit dans
+`FIREFOX_EXTENSION_ORIGINS`. Aucun joker d’origine n’est accepté.
+
+La fiche Chrome Web Store et la distribution Firefox Add-ons sont non listées.
+Le manifeste Firefox déclare l’identifiant `curation@digest.ooblik.com`, la
+version minimale 142 et la transmission requise de l’URL et du contenu choisi
+par l’utilisateur.
 
 Le popup présente d’abord les tags suggérés à partir du contenu de la page,
 puis une recherche dans le registre actif. Une saisie sans correspondance peut

@@ -211,7 +211,7 @@ branche `production` ne contient que la sortie Hugo. Une fois connecté sur
 `/admin`, les commandes propriétaire apparaissent automatiquement dans les
 fiches du Digest.
 
-### Curation et extension Chrome
+### Curation et extension de navigateur
 
 Le service conserve les captures dans SQLite jusqu’à leur sélection explicite.
 Une seule action publie le lot : le serveur valide automatiquement les données,
@@ -223,7 +223,8 @@ de publier un brouillon ou de remettre une édition en brouillon. Ces transition
 mettent à jour l’archive, le catalogue et les affiches sociales dans un seul
 commit, puis utilisent le même suivi reprenable.
 
-L’extension Manifest V3 se trouve dans `browser-extension/` :
+L’extension Chrome Manifest V3 et Firefox Manifest V2 se trouvent dans
+`browser-extension/` :
 
 ```shell
 cd browser-extension
@@ -233,12 +234,15 @@ npm run build
 npm run zip
 ```
 
-Pour le développement, charger `.output/chrome-mv3` comme extension non
-empaquetée. L’origine Chrome Web Store de production est
+Pour le développement, charger `.output/chrome-mv3` dans Chrome ou
+`.output/firefox-mv2` depuis `about:debugging` dans Firefox. L’origine Chrome
+Web Store de production est
 `chrome-extension://nlejcccmpbajpoaknlecegkpgdegiflf` ; l’ajouter à
-`CHROME_EXTENSION_ORIGINS` dans le fichier `.env` du service. La procédure
-Chrome Web Store et les textes de fiche sont documentés dans
-`browser-extension/CHROME_WEB_STORE.md`.
+`CHROME_EXTENSION_ORIGINS`. Firefox attribue à chaque profil une origine interne
+`moz-extension://<UUID>` : relever sa valeur dans `about:debugging` et l’ajouter
+exactement à `FIREFOX_EXTENSION_ORIGINS`. Les jokers sont refusés. Les procédures
+de diffusion sont documentées dans `browser-extension/CHROME_WEB_STORE.md` et
+`browser-extension/FIREFOX_ADDONS.md`.
 
 Le dépôt impose les fins de ligne LF via `.gitattributes`. Après tout changement
 entre Windows, WSL ou Linux, supprimer `node_modules` puis relancer `npm ci`
