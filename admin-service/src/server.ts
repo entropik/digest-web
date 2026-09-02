@@ -578,6 +578,7 @@ app.patch("/api/admin/editions/:date", async (context) =>
       title?: unknown;
       introduction?: unknown;
       seoDescription?: unknown;
+      editorialType?: unknown;
     }>(context);
     requireConfirmation(body);
     return curation.updateEdition(context.req.param("date"), body);

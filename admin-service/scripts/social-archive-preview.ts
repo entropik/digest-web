@@ -64,6 +64,7 @@ const samples = await Promise.all(
       title: scalar(frontMatter, "title") || digestDate,
       description: scalar(frontMatter, "description") || "Archive du Digest Ooblik.",
       linkCount: linksByDate.get(digestDate) ?? 0,
+      editorialType: scalar(frontMatter, "editorial_type") === "focus" ? "focus" : "digest",
     };
     const variation = socialImageSvg(input);
     return {

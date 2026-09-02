@@ -47,6 +47,31 @@ test("LinkedIn image generation is deterministic and produces a square PNG", asy
   assert.ok(optimized.length < MAX_SOCIAL_IMAGE_BYTES);
 });
 
+test("Focus images use technical archives and a distinct typographic system", async () => {
+  const focusInput = {
+    ...input,
+    title: "Software Factory : le code n’est plus le goulot",
+    editorialType: "focus" as const,
+  };
+  const variation = socialImageSvg(focusInput);
+  assert.equal(variation.family, "focus-archive");
+  assert.match(variation.svg, /OOBLIK · FOCUS/);
+  assert.match(variation.svg, /ARCHIVES NASA/);
+  assert.match(variation.svg, /data:image\/jpeg;base64,/);
+  assert.match(variation.svg, /SOFTWARE FACTORY/);
+  assert.equal((variation.svg.match(/<image /g) ?? []).length, 1);
+  assert.doesNotMatch(variation.svg, />FOCUS<\/text>/);
+
+  const landscape = await generateOptimizedSocialImage(focusInput);
+  const square = await generateOptimizedLinkedInImage(focusInput);
+  assert.equal(landscape.readUInt32BE(16), 1200);
+  assert.equal(landscape.readUInt32BE(20), 627);
+  assert.equal(square.readUInt32BE(16), 1200);
+  assert.equal(square.readUInt32BE(20), 1200);
+  assert.ok(landscape.length < MAX_SOCIAL_IMAGE_BYTES);
+  assert.ok(square.length < MAX_SOCIAL_IMAGE_BYTES);
+});
+
 test("the seeded system reaches every composition family", () => {
   const families = new Set<SocialImageFamily>();
   const accents = new Set<string>();
@@ -110,7 +135,9 @@ test("archive pages expose a native LinkedIn publication with image, text and pe
   ]);
   assert.match(layout, /data-linkedin-share/);
   assert.match(layout, /data-share-image/);
-  assert.match(layout, /data-share-title="Web Digest — \{\{ \$\.Title \}\}"/);
+  assert.match(layout, /data-share-title="\{\{ \$displayTitle \}\}"/);
+  assert.match(layout, /FOCUS - %s/);
+  assert.match(layout, /editorial_type/);
   assert.match(layout, /type="button"\s+hidden\s+data-linkedin-share/);
   assert.doesNotMatch(layout, /data-share-text=/);
   assert.match(layout, /data-share-tags="\{\{ \$tags \| jsonify \}\}"/);
@@ -142,13 +169,26 @@ test("archive pages expose a native LinkedIn publication with image, text and pe
   assert.match(layout, /imageConfig/);
   assert.match(
     layout,
-    /<h1><span class="archive-title-prefix">DIGEST - <\/span>\{\{ \.Title \}\}<\/h1>/,
+    /<h1><span class="archive-title-prefix">\{\{ if \$isFocus \}\}FOCUS - \{\{ else \}\}DIGEST - \{\{ end \}\}<\/span>\{\{ \.Title \}\}<\/h1>/,
   );
   assert.match(composer, /width="1200"/);
   assert.match(composer, /1200\{\{ else \}\}627/);
   assert.match(layout, /data-archive-delete-link/);
   assert.match(layout, /class="archive-delete-link"/);
   assert.match(layout, /Retirer/);
+});
+
+test("Focus archive cards use their technical thumbnail and explicit title prefix", async () => {
+  const [layout, stylesheet] = await Promise.all([
+    readFile(new URL("../../layouts/archives/list.html", import.meta.url), "utf8"),
+    readFile(new URL("../../assets/css/extended/digest.css", import.meta.url), "utf8"),
+  ]);
+  assert.match(layout, /archive-edition--focus/);
+  assert.match(layout, /\.Params\.archive_image/);
+  assert.match(layout, /archive-focus-prefix">FOCUS -/);
+  assert.match(layout, /Dossier thématique/);
+  assert.match(stylesheet, /\.archive-edition--focus \.archive-edition-poster/);
+  assert.match(stylesheet, /\.archive-focus-prefix/);
 });
 
 test("Digest editions keep editorial paragraph indents and native poster ratios", async () => {

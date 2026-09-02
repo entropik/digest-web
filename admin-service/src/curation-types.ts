@@ -61,6 +61,7 @@ export type PublicationInput = {
   title: string;
   introduction: string;
   seoDescription: string;
+  editorialType?: "digest" | "focus";
 };
 
 export type TaxonomyMutationKind =

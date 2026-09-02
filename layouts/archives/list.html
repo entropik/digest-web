@@ -5,30 +5,32 @@
   <div>
     <p class="digest-kicker">Toutes les éditions</p>
     <h1>Archives</h1>
-    <p>Chaque digest garde sa date, ses liens, ses descriptions et ses tags pour rester consultable longtemps après sa publication.</p>
+    <p>Chaque Digest ou Focus garde sa date, ses liens, ses descriptions et ses tags pour rester consultable longtemps après sa publication.</p>
   </div>
 </header>
 
 <section class="archive-editions" aria-label="Éditions archivées">
   {{ range $paginator.Pages }}
     {{ $digestDate := .Params.digest_date }}
+    {{ $isFocus := eq (.Params.editorial_type | default "digest") "focus" }}
     {{ $links := index $linksByDate $digestDate | default slice }}
     {{ $categories := slice }}
     {{ range $links }}
       {{ $categories = $categories | append .category }}
     {{ end }}
-    <article class="archive-edition">
+    <article class="archive-edition{{ if $isFocus }} archive-edition--focus{{ end }}">
       <a href="{{ .RelPermalink }}">
-        {{ with .Params.images }}
-          {{ with index . 0 }}
+        {{ $poster := "" }}
+        {{ with .Params.images }}{{ $poster = index . 0 }}{{ end }}
+        {{ if and $isFocus .Params.archive_image }}{{ $poster = .Params.archive_image }}{{ end }}
+        {{ with $poster }}
             <span class="archive-edition-poster" aria-hidden="true">
               <img data-src="{{ . | relURL }}" width="1200" height="627" alt="" decoding="async">
             </span>
-          {{ end }}
         {{ end }}
         <span class="archive-edition-content">
-          <span class="archive-edition-kicker">Édition</span>
-          <h2>{{ .Title }}</h2>
+          <span class="archive-edition-kicker">{{ if $isFocus }}Dossier thématique{{ else }}Édition{{ end }}</span>
+          <h2>{{ if $isFocus }}<span class="archive-focus-prefix">FOCUS -</span>{{ end }}{{ .Title }}</h2>
           <span class="archive-edition-meta">
             <span>{{ len $links }} liens</span>
             <span>{{ len (uniq $categories) }} rubriques ↗</span>

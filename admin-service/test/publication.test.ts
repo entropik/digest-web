@@ -60,3 +60,19 @@ test("stable link ids match UUID v5 URL namespace", () => {
     "ded9467b-4ded-55ce-b3c1-2217b99bcc3e",
   );
 });
+
+test("Focus publication writes its type into the archive", async () => {
+  const result = await buildPublicationFiles({
+    currentLinks: [],
+    drafts: [draft],
+    digestDate: "2026-09-02",
+    title: "Software Factory",
+    introduction: "Introduction",
+    seoDescription: "Description SEO",
+    editorialType: "focus",
+  });
+  assert.match(
+    result.files["content/archives/2026-09-02.md"] as string,
+    /editorial_type: "focus"/,
+  );
+});

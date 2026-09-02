@@ -72,7 +72,7 @@ test("the private dashboard displays the current site version after logout", () 
 
   assert.match(
     page,
-    /<button id="admin-logout" type="button">Déconnexion<\/button>\s*<span class="admin-version" aria-label="Version v1\.25\.2">v1\.25\.2<\/span>/,
+    /<button id="admin-logout" type="button">Déconnexion<\/button>\s*<span class="admin-version" aria-label="Version v1\.26\.0">v1\.26\.0<\/span>/,
   );
   assert.match(adminCss, /\.admin-version\{/);
   assert.match(adminCss, /\.admin-version\{[^}]*background:var\(--ink\);color:var\(--paper\)/);
@@ -106,6 +106,16 @@ test("publication wording uses Publier throughout the dashboard", () => {
   assert.match(adminJs, /publicationTitleForDate=\(value\)=>"Digest — "/);
   assert.match(adminJs, /new Intl\.DateTimeFormat\("fr-FR"/);
   assert.match(adminJs, /publication-title"\)\.value=publicationTitleForDate\(today\)/);
+});
+
+test("publication and edition forms expose the Focus editorial type", () => {
+  const page = dashboardPage("Marc");
+
+  assert.match(page, /id="publication-editorial-type" name="editorialType"/);
+  assert.match(page, /<option value="focus">Focus<\/option>/);
+  assert.match(page, /préfixe « FOCUS - » est ajouté automatiquement/);
+  assert.match(adminJs, /editorialType:String\(form\.get\("editorialType"\)\|\|"digest"\)/);
+  assert.match(adminJs, /form\.elements\.editorialType\.value=data\.edition\.editorialType\|\|"digest"/);
 });
 
 test("editions expose draft filters and explicit lifecycle actions", () => {

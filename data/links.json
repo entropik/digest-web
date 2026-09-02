@@ -1,5 +1,110 @@
 [
   {
+    "title": "Tessl — Inside Kikimora: We Built a Dark Software Factory",
+    "url": "https://www.youtube.com/watch?v=u37qkpp5eB8",
+    "category": "IA & Agents",
+    "added": "2026-09-02",
+    "id": "e45669f2-4882-57e2-9c67-5e87bd810be3",
+    "description": "Le retour d’expérience de Tessl sur Kikimora, une factory dite « dark » qui délègue la majorité du travail et fait apparaître le vrai frein : la confiance nécessaire pour signer une PR que l’on n’a pas écrite.",
+    "tags": [
+      "IA",
+      "agents",
+      "automatisation",
+      "code",
+      "développement"
+    ]
+  },
+  {
+    "title": "Owain Lewis — I Built an Agentic Software Factory with Codex and Claude Code",
+    "url": "https://www.youtube.com/watch?v=AbpyqAfxZ8c",
+    "category": "IA & Agents",
+    "added": "2026-09-02",
+    "id": "f1c7d0b1-2702-5c60-b2a8-63483c3dc92e",
+    "description": "Une démonstration de Factory, projet Rust qui transforme des issues GitHub en spécifications, implémentations testées, revues et pull requests dans des worktrees isolés.",
+    "tags": [
+      "IA",
+      "agents",
+      "automatisation",
+      "code",
+      "développement"
+    ]
+  },
+  {
+    "title": "Owain Lewis — I Built A Self-Improving AI Software Factory",
+    "url": "https://www.youtube.com/watch?v=ZDOTYfJBuLw",
+    "category": "IA & Agents",
+    "added": "2026-09-02",
+    "id": "b93c9a52-b2db-557e-8ab4-b63cb1d5cfd0",
+    "description": "Machinist présenté comme une factory mesurable : plan de contrôle, workers distants, déclencheurs GitHub, traces, coûts et évaluations servent à comparer modèles, prompts et workflows.",
+    "tags": [
+      "IA",
+      "agents",
+      "automatisation",
+      "code",
+      "développement"
+    ]
+  },
+  {
+    "title": "Matt Pocock — I Open-Sourced My Own AFK Software Factory",
+    "url": "https://www.youtube.com/watch?v=E5-QK3CDVQM",
+    "category": "IA & Agents",
+    "added": "2026-09-02",
+    "id": "6d112f4f-072e-522d-8091-ffceb385add2",
+    "description": "Présentation de Sandcastle, bibliothèque TypeScript pour exécuter en parallèle des agents de code dans des sandboxes, de la prise de tâche jusqu’à la revue et à la fusion.",
+    "tags": [
+      "IA",
+      "agents",
+      "automatisation",
+      "code",
+      "développement"
+    ]
+  },
+  {
+    "title": "Mastra — Build Your Own Software Factory with Mastra Factory",
+    "url": "https://www.youtube.com/watch?v=PS15AyJfFNg",
+    "category": "IA & Agents",
+    "added": "2026-09-02",
+    "id": "aef196cc-b67e-51b4-aaea-7f983ca0d882",
+    "description": "Un atelier consacré à Mastra Factory : workflow typé d’une heure reliant GitHub ou Linear à des agents persistants, une implémentation révisée et des validations humaines auditables.",
+    "tags": [
+      "IA",
+      "agents",
+      "automatisation",
+      "code",
+      "développement"
+    ]
+  },
+  {
+    "title": "IndyDevDan — My Super Simple Software Factory",
+    "url": "https://www.youtube.com/watch?v=haUfb1ievTE",
+    "category": "IA & Agents",
+    "added": "2026-09-02",
+    "id": "526d09ef-f181-5827-9dbe-4d54aea175fc",
+    "description": "Une factory minimale fondée sur des phases explicites, des passages de contexte typés, des modèles spécialisés et des contrôles déterministes entre planification, code, test, revue et commit.",
+    "tags": [
+      "IA",
+      "agents",
+      "automatisation",
+      "code",
+      "développement"
+    ]
+  },
+  {
+    "title": "Boundary — How to Build a Software Factory for AI Coding Agents",
+    "url": "https://www.youtube.com/watch?v=tGbjIvvYuHE",
+    "category": "IA & Agents",
+    "added": "2026-09-02",
+    "id": "0b49f209-df03-5d5a-a53d-0e584a10de4e",
+    "description": "Une cartographie de la pile technique d’une software factory : environnements de développement, harnais d’agents, plan de contrôle, boucles de revue et arbitrage entre composants construits ou achetés.",
+    "tags": [
+      "IA",
+      "agents",
+      "automatisation",
+      "code",
+      "développement"
+    ]
+  },
+  {
     "id": "33e4b75c-6ed0-5f51-a50a-5d7ff8dd3fd4",
     "title": "Zoo Code — Open source AI coding assistant",
     "url": "https://www.zoocode.dev/",

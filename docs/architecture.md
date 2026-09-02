@@ -241,7 +241,7 @@ l’administration gère ensuite noms, descriptions, alias, fusions, archivages 
 réactivations ; les définitions archivées ne sont jamais réactivées depuis
 l’extension.
 
-## Publication d’un Digest
+## Publication d’un Digest ou d’un Focus
 
 1. Les captures sont conservées comme brouillons SQLite.
 2. L’administration sélectionne explicitement un lot.
@@ -261,6 +261,12 @@ de présence de l’archive.
 
 Une date existante est refusée avec `409 EDITION_EXISTS`. Un brouillon
 incomplet peut être enregistré, mais jamais publié.
+
+Le front matter peut déclarer `editorial_type: "focus"`. L’administration
+propose ce format à la création comme à la correction. Les gabarits ajoutent
+alors le préfixe `FOCUS -` sans le dupliquer dans le titre éditorial, et le
+générateur social compose une famille distincte à partir d’archives techniques
+NASA préparées localement. Sans ce champ, l’édition reste un Digest classique.
 
 Une édition existante possède aussi un cycle de vie administrable. Son état
 est cohérent seulement si `draft: true` correspond à zéro lien public dans

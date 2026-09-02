@@ -2138,6 +2138,40 @@ body.digest-modal-open {
   transform: translate(var(--poster-x), var(--poster-y)) rotate(calc(var(--poster-angle) * .25)) scale(1.14);
 }
 
+.archive-edition--focus a {
+  min-height: 320px;
+}
+
+.archive-edition--focus .archive-edition-poster {
+  inset: 0;
+  background: #d8bd45;
+  transform: none;
+}
+
+.archive-edition--focus .archive-edition-poster::before {
+  background: #e2ca5b;
+  mix-blend-mode: color;
+  opacity: .68;
+}
+
+.archive-edition--focus .archive-edition-poster::after {
+  background: linear-gradient(155deg, rgba(8, 10, 12, .12) 5%, rgba(8, 10, 12, .48) 48%, rgba(8, 10, 12, .94) 100%);
+}
+
+.archive-edition--focus .archive-edition-poster img {
+  filter: grayscale(1) contrast(1.12);
+}
+
+.archive-edition--focus a:hover .archive-edition-poster,
+.archive-edition--focus a:focus-visible .archive-edition-poster {
+  transform: scale(1.035);
+}
+
+.archive-edition--focus a:hover .archive-edition-poster::before,
+.archive-edition--focus a:focus-visible .archive-edition-poster::before {
+  opacity: .42;
+}
+
 .archive-edition a:hover .archive-edition-poster::before,
 .archive-edition a:focus-visible .archive-edition-poster::before {
   opacity: 0;
@@ -2178,6 +2212,17 @@ body.digest-modal-open {
   letter-spacing: -.045em;
   line-height: .98;
   text-shadow: 0 2px 8px rgba(0, 0, 0, .65);
+}
+
+.archive-focus-prefix {
+  display: block;
+  margin-bottom: .35rem;
+  color: #ffe000;
+  font-family: var(--digest-font-body);
+  font-size: .44em;
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1;
 }
 
 .archive-edition-meta {

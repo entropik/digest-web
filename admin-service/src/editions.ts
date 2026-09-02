@@ -3,6 +3,7 @@ export type EditionDocument = {
   title: string;
   description: string;
   introduction: string;
+  editorialType?: "focus";
   draft?: boolean;
 };
 
@@ -37,6 +38,9 @@ export const parseEdition = (source: string): EditionDocument => {
     description,
     introduction: match[2]!.trim(),
   };
+  if (unquote(values.get("editorial_type") ?? "").toLowerCase() === "focus") {
+    edition.editorialType = "focus";
+  }
   if (unquote(values.get("draft") ?? "").toLowerCase() === "true") {
     edition.draft = true;
   }
@@ -48,6 +52,7 @@ export const renderEdition = (edition: EditionDocument): string =>
   `title: ${JSON.stringify(edition.title)}\n` +
   `date: ${edition.digestDate}\n` +
   `digest_date: ${JSON.stringify(edition.digestDate)}\n` +
+  (edition.editorialType === "focus" ? `editorial_type: "focus"\n` : "") +
   (edition.draft ? `draft: true\n` : "") +
   `description: ${JSON.stringify(edition.description)}\n` +
   `images:\n` +
@@ -65,7 +70,8 @@ export const setEditionDraft = (source: string, draft: boolean): string => {
 
 export const editEdition = (
   source: string,
-  changes: Pick<EditionDocument, "title" | "description" | "introduction">,
+  changes: Pick<EditionDocument, "title" | "description" | "introduction"> &
+    Partial<Pick<EditionDocument, "editorialType">>,
 ): string =>
   renderEdition({
     ...parseEdition(source),

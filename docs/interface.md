@@ -125,13 +125,21 @@ ce contrôle reste caché aux visiteurs non authentifiés.
 
 Sur grand écran, les éditions archivées forment un registre de trois colonnes ;
 la grille passe à deux colonnes sur tablette puis à une seule sur mobile. Les
-affiches sont unifiées par l’encre corail au repos et retrouvent leur palette
-d’origine au survol comme au focus clavier. Le folio des archives reprend le
-même cartouche à trois cellules jointives que la pagination des liens, y compris
-sur petit écran.
+affiches Digest sont unifiées par l’encre corail au repos et retrouvent leur
+palette d’origine au survol comme au focus clavier. Les cartes Focus emploient
+à la place une photographie technique ancienne en bichromie jaune et noir, sans
+rotation, avec le préfixe `FOCUS -` séparé du titre. Le folio des archives
+reprend le même cartouche à trois cellules jointives que la pagination des
+liens, y compris sur petit écran.
 
-Sur la page d’une édition, le titre principal commence toujours par
-`DIGEST -`. Le texte éditorial emploie un retrait de première ligne de `1,75 em`
+Sur la page d’une édition, le titre principal commence par `DIGEST -` ou, pour
+un dossier thématique déclaré `editorial_type: "focus"`, par `FOCUS -`. Les
+cartes d’archives reprennent le même signal. Les affiches Focus conservent les
+formats panoramique et carré mais emploient un langage distinct : une seule
+photographie technique ancienne en plein cadre, bichromie, grille et titre
+massif. Le mot `FOCUS` reste un petit cartouche de format et ne concurrence pas
+le sujet du billet.
+Le texte éditorial emploie un retrait de première ligne de `1,75 em`
 pour chaque paragraphe, et les intertitres ménagent une respiration nette avant
 et après. L’affiche est affichée entière dans ses proportions propres : une
 version carrée ne doit jamais être recadrée au ratio panoramique de l’image Open

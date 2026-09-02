@@ -62,7 +62,7 @@ export const dashboardPage = (name: string) =>
         <a href="/"><span>Digest</span><span aria-hidden="true">↗</span></a>
         <a href="https://chromewebstore.google.com/detail/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer"><span>Extension</span><span aria-hidden="true">↗</span></a>
         <button id="admin-logout" type="button">Déconnexion</button>
-        <span class="admin-version" aria-label="Version v1.25.2">v1.25.2</span>
+        <span class="admin-version" aria-label="Version v1.26.0">v1.26.0</span>
       </div>
     </header>
     <nav class="admin-nav" aria-label="Administration">
@@ -95,8 +95,9 @@ export const dashboardPage = (name: string) =>
       <form id="publication-form" class="edition-form">
         <div class="field-row">
           <label>Date<input id="publication-date" name="digestDate" type="date" required></label>
-          <label>Titre<input id="publication-title" name="title" required maxlength="240"></label>
+          <label>Format<select id="publication-editorial-type" name="editorialType"><option value="digest">Digest</option><option value="focus">Focus</option></select></label>
         </div>
+        <label>Titre<input id="publication-title" name="title" required maxlength="240"><small>Pour un Focus, le préfixe « FOCUS - » est ajouté automatiquement sur le site et dans les visuels.</small></label>
         <label>Introduction<textarea name="introduction" rows="6" required>Une sélection de ressources choisies et documentées.</textarea></label>
         <label>Description SEO<textarea name="seoDescription" rows="3" required>Intelligence artificielle, développement, design, édition et création numérique.</textarea></label>
         <div class="selection-summary" id="publication-selection">Aucun lien sélectionné.</div>
@@ -134,7 +135,8 @@ export const dashboardPage = (name: string) =>
           <span class="status" id="edition-state"></span>
         </div>
         <p class="edition-warning is-hidden" id="edition-warning">Le front matter et le catalogue ne décrivent pas le même état. La publication est bloquée jusqu’à correction.</p>
-        <label>Titre<input name="title" required maxlength="240"></label>
+        <label>Format<select name="editorialType"><option value="digest">Digest</option><option value="focus">Focus</option></select></label>
+        <label>Titre<input name="title" required maxlength="240"><small>Le préfixe du format reste géré automatiquement.</small></label>
         <label>Introduction<textarea name="introduction" rows="8" required></textarea></label>
         <label>Description SEO<textarea name="seoDescription" rows="3" required></textarea></label>
         <div class="form-actions">
@@ -575,7 +577,7 @@ const setSubmissionStatus=(state,message)=>{
 const clearSubmissionStatus=()=>{const target=document.querySelector("#publication-submit-status");if(target){target.classList.add("is-hidden");target.innerHTML=""}};
 const publicationPayload=(requestId)=>{
   const form=new FormData(document.querySelector("#publication-form"));
-  return {requestId,draftIds:[...selected],digestDate:String(form.get("digestDate")||""),title:String(form.get("title")||""),introduction:String(form.get("introduction")||""),seoDescription:String(form.get("seoDescription")||"")};
+  return {requestId,draftIds:[...selected],digestDate:String(form.get("digestDate")||""),title:String(form.get("title")||""),introduction:String(form.get("introduction")||""),seoDescription:String(form.get("seoDescription")||""),editorialType:String(form.get("editorialType")||"digest")};
 };
 const publicationTitleForDate=(value)=>"Digest — "+new Intl.DateTimeFormat("fr-FR",{day:"numeric",month:"long",year:"numeric",timeZone:"Europe/Paris"}).format(new Date(value+"T12:00:00Z"));
 document.querySelector("#publication-form")?.addEventListener("submit",async(event)=>{
@@ -627,12 +629,12 @@ const loadEdition=async(date)=>{
   const form=document.querySelector("#edition-form");
   if(!date){form.classList.add("is-hidden");return}
   const data=await api("/api/admin/editions?date="+encodeURIComponent(date));
-  form.elements.title.value=data.edition.title;form.elements.introduction.value=data.edition.introduction;form.elements.seoDescription.value=data.edition.description;form.dataset.date=date;updateEditionLifecycle(data.edition);form.classList.remove("is-hidden");
+  form.elements.editorialType.value=data.edition.editorialType||"digest";form.elements.title.value=data.edition.title;form.elements.introduction.value=data.edition.introduction;form.elements.seoDescription.value=data.edition.description;form.dataset.date=date;updateEditionLifecycle(data.edition);form.classList.remove("is-hidden");
 };
 const loadEditions=async()=>{const data=await api("/api/admin/editions");editions=data.editions;renderEditionOptions()};
 document.querySelector("#edition-filter")?.addEventListener("change",renderEditionOptions);
 document.querySelector("#edition-select")?.addEventListener("change",async(event)=>{try{await loadEdition(event.target.value)}catch(error){show(error.message)}});
-document.querySelector("#edition-form")?.addEventListener("submit",async(event)=>{event.preventDefault();const button=event.submitter;button.disabled=true;const form=event.currentTarget;try{await api("/api/admin/editions/"+encodeURIComponent(form.dataset.date),{method:"PATCH",body:JSON.stringify({title:form.elements.title.value,introduction:form.elements.introduction.value,seoDescription:form.elements.seoDescription.value,confirm:true})});await loadEdition(form.dataset.date);show("Édition corrigée. Un nouveau déploiement est lancé.")}catch(error){show(error.message)}finally{button.disabled=false}});
+document.querySelector("#edition-form")?.addEventListener("submit",async(event)=>{event.preventDefault();const button=event.submitter;button.disabled=true;const form=event.currentTarget;try{await api("/api/admin/editions/"+encodeURIComponent(form.dataset.date),{method:"PATCH",body:JSON.stringify({title:form.elements.title.value,introduction:form.elements.introduction.value,seoDescription:form.elements.seoDescription.value,editorialType:form.elements.editorialType.value,confirm:true})});await loadEdition(form.dataset.date);show("Édition corrigée. Un nouveau déploiement est lancé.")}catch(error){show(error.message)}finally{button.disabled=false}});
 document.querySelector("#edition-form")?.addEventListener("click",async(event)=>{
   const button=event.target.closest("[data-edition-action]");if(!button)return;
   const form=event.currentTarget,date=form.dataset.date,action=button.dataset.editionAction;

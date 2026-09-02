@@ -90,6 +90,7 @@ run(process.execPath, ["scripts/test-import-keredit-journal.mjs"]);
 run(process.execPath, ["scripts/check-journal-public-safety.mjs"]);
 run("hugo", [
   "--gc",
+  "--cleanDestinationDir",
   "--minify",
   "--panicOnWarning",
   "--baseURL",

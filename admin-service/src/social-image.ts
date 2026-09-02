@@ -1,15 +1,21 @@
 import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { Resvg } from "@resvg/resvg-js";
 import sharp from "sharp";
 
-export type SocialImageFamily = "collision" | "screens" | "broken-grid";
+export type SocialImageFamily =
+  | "collision"
+  | "screens"
+  | "broken-grid"
+  | "focus-archive";
 
 export type SocialImageInput = {
   digestDate: string;
   title: string;
   description: string;
   linkCount: number;
+  editorialType?: "digest" | "focus";
 };
 
 const WIDTH = 1200;
@@ -20,6 +26,26 @@ const RED = "#E10600";
 const BLACK = "#0A0A0A";
 const PAPER = "#F4F2ED";
 const ACCENTS = ["#00AEEF", "#FFD500", "#EC008C", "#1646D8"] as const;
+const FOCUS_ACCENTS = ["#FF3B00", "#FFD500", "#3155FF", "#00A693"] as const;
+
+const TECHNICAL_ARCHIVES = [
+  {
+    file: "social/focus-archives/2026-03-12.jpg",
+    label: "CHRISTINE DARDEN · COMPUTER ROOM · 1973",
+  },
+  {
+    file: "social/focus-archives/2026-03-13.jpg",
+    label: "DATA PROCESSING · AMES RESEARCH CENTER",
+  },
+  {
+    file: "social/focus-archives/2026-04-16.jpg",
+    label: "IBM 704 COMPUTER OPERATIONS · 1957",
+  },
+  {
+    file: "social/focus-archives/2026-04-17.jpg",
+    label: "GEMINI 7 · MISSION CONTROL · 1965",
+  },
+] as const;
 
 type Atmosphere = {
   accidents: string;
@@ -375,9 +401,108 @@ const brokenGrid = (
     })}`;
 };
 
+const technicalArchive = (seed: number) => {
+  const archive = TECHNICAL_ARCHIVES[seed % TECHNICAL_ARCHIVES.length]!;
+  const source = readFileSync(resolve(process.cwd(), "../static", archive.file));
+  return {
+    ...archive,
+    href: `data:image/jpeg;base64,${source.toString("base64")}`,
+  };
+};
+
+const focusDefinitions = (
+  accent: string,
+  canvasHeight: number,
+): string => `
+  <defs>
+    <clipPath id="canvas"><rect width="${WIDTH}" height="${canvasHeight}"/></clipPath>
+    <pattern id="focus-grid" width="38" height="38" patternUnits="userSpaceOnUse">
+      <path d="M38 0H0V38" fill="none" stroke="${PAPER}" stroke-width="1" opacity=".18"/>
+    </pattern>
+    <linearGradient id="focus-fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="${BLACK}" stop-opacity="0"/>
+      <stop offset="1" stop-color="${BLACK}" stop-opacity=".92"/>
+    </linearGradient>
+    <filter id="archive-treatment" color-interpolation-filters="sRGB">
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="1.3" intercept="-.12"/>
+        <feFuncG type="linear" slope="1.3" intercept="-.12"/>
+        <feFuncB type="linear" slope="1.3" intercept="-.12"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  <style>
+    text { font-family: "Bricolage Grotesque"; font-kerning: normal; }
+    .focus-title { font-size: 78px; font-weight: 800; letter-spacing: -3px; }
+    .focus-label { font-size: 20px; font-weight: 750; letter-spacing: 1px; }
+    .focus-micro { font-size: 14px; font-weight: 700; letter-spacing: 1.2px; }
+  </style>`;
+
+const focusSocialImageSvg = (
+  input: SocialImageInput,
+): { svg: string; family: SocialImageFamily; accent: string } => {
+  const seed = seedFrom(`focus:${input.digestDate}:${input.title}:${input.description}`);
+  const archive = technicalArchive(seed);
+  const accent = FOCUS_ACCENTS[(seed >>> 8) % FOCUS_ACCENTS.length]!;
+  const topic = wrap(input.title.replace(/\s+:/g, ":"), 25, 4);
+  const titleY = 255 + (4 - topic.length) * 39;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}">
+    ${focusDefinitions(accent, HEIGHT)}
+    <g clip-path="url(#canvas)">
+      <rect width="${WIDTH}" height="${HEIGHT}" fill="${BLACK}"/>
+      <image href="${archive.href}" x="0" y="0" width="${WIDTH}" height="${HEIGHT}" preserveAspectRatio="xMidYMid slice" filter="url(#archive-treatment)"/>
+      <rect width="${WIDTH}" height="${HEIGHT}" fill="${accent}" opacity=".28" style="mix-blend-mode:multiply"/>
+      <rect width="${WIDTH}" height="${HEIGHT}" fill="url(#focus-grid)"/>
+      <rect y="145" width="${WIDTH}" height="375" fill="${BLACK}" opacity=".7"/>
+      <rect y="145" width="18" height="375" fill="${accent}"/>
+      <rect y="545" width="${WIDTH}" height="82" fill="${BLACK}" opacity=".94"/>
+      <rect x="0" y="30" width="146" height="31" fill="${BLACK}"/>
+      <text x="18" y="52" class="focus-micro" fill="${PAPER}">OOBLIK · FOCUS</text>
+      ${textLines(topic, 44, titleY, 84, `class="focus-title" fill="${PAPER}"`)}
+      <text x="790" y="596" class="focus-label" fill="${accent}">${escapeXml(formattedDate(input.digestDate))}</text>
+      <text x="1170" y="596" text-anchor="end" class="focus-label" fill="${PAPER}">${input.linkCount} LIENS</text>
+      <text x="18" y="607" class="focus-micro" fill="${PAPER}">ARCHIVES NASA · ${escapeXml(archive.label)}</text>
+    </g>
+  </svg>`;
+  return { svg, family: "focus-archive", accent };
+};
+
+const focusLinkedInImageSvg = (
+  input: SocialImageInput,
+): { svg: string; family: SocialImageFamily; accent: string } => {
+  const seed = seedFrom(`focus:${input.digestDate}:${input.title}:${input.description}`);
+  const archive = technicalArchive(seed);
+  const accent = FOCUS_ACCENTS[(seed >>> 8) % FOCUS_ACCENTS.length]!;
+  const topic = wrap(input.title.replace(/\s+:/g, ":"), 22, 4);
+  const titleY = 650 + (4 - topic.length) * 52;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${LINKEDIN_HEIGHT}" viewBox="0 0 ${WIDTH} ${LINKEDIN_HEIGHT}">
+    ${focusDefinitions(accent, LINKEDIN_HEIGHT)}
+    <style>
+      .focus-square-title { font-size: 94px; font-weight: 800; letter-spacing: -4px; }
+    </style>
+    <g clip-path="url(#canvas)">
+      <rect width="${WIDTH}" height="${LINKEDIN_HEIGHT}" fill="${BLACK}"/>
+      <image href="${archive.href}" x="0" y="0" width="${WIDTH}" height="${LINKEDIN_HEIGHT}" preserveAspectRatio="xMidYMid slice" filter="url(#archive-treatment)"/>
+      <rect width="${WIDTH}" height="${LINKEDIN_HEIGHT}" fill="${accent}" opacity=".28" style="mix-blend-mode:multiply"/>
+      <rect width="${WIDTH}" height="${LINKEDIN_HEIGHT}" fill="url(#focus-grid)"/>
+      <rect y="500" width="${WIDTH}" height="700" fill="${BLACK}" opacity=".78"/>
+      <rect y="500" width="${WIDTH}" height="22" fill="${accent}"/>
+      <rect x="38" y="40" width="188" height="39" fill="${BLACK}"/>
+      <text x="55" y="67" class="focus-label" fill="${PAPER}">OOBLIK · FOCUS</text>
+      ${textLines(topic, 48, titleY, 104, `class="focus-square-title" fill="${PAPER}"`)}
+      <text x="48" y="1122" class="focus-label" fill="${accent}">${escapeXml(formattedDate(input.digestDate))}</text>
+      <text x="1152" y="1122" text-anchor="end" class="focus-label" fill="${PAPER}">${input.linkCount} LIENS DOCUMENTÉS</text>
+      <text x="48" y="1170" class="focus-micro" fill="${PAPER}">ARCHIVES NASA · ${escapeXml(archive.label)}</text>
+    </g>
+  </svg>`;
+  return { svg, family: "focus-archive", accent };
+};
+
 export const socialImageSvg = (
   input: SocialImageInput,
 ): { svg: string; family: SocialImageFamily; accent: string } => {
+  if (input.editorialType === "focus") return focusSocialImageSvg(input);
   const seed = seedFrom(`${input.digestDate}:${input.title}:${input.description}`);
   const random = mulberry32(seed);
   const family = choose<SocialImageFamily>(
@@ -426,6 +551,7 @@ export const socialImageSvg = (
 export const linkedInImageSvg = (
   input: SocialImageInput,
 ): { svg: string; family: SocialImageFamily; accent: string } => {
+  if (input.editorialType === "focus") return focusLinkedInImageSvg(input);
   const landscape = socialImageSvg(input);
   const random = mulberry32(
     seedFrom(`${input.digestDate}:${input.title}:${input.description}:linkedin`),

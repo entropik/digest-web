@@ -64,3 +64,17 @@ test("editing an edition preserves its draft state", () => {
     draft: true,
   });
 });
+
+test("Focus editions round trip and keep their editorial type", () => {
+  const source = renderEdition({
+    digestDate: "2026-09-02",
+    title: "Software Factory",
+    description: "Un dossier thématique.",
+    introduction: "Une introduction.",
+    editorialType: "focus",
+  });
+
+  assert.match(source, /editorial_type: "focus"/);
+  assert.equal(parseEdition(source).editorialType, "focus");
+  assert.equal(setEditionDraft(source, true).includes('editorial_type: "focus"'), true);
+});

@@ -933,6 +933,7 @@ export class CurationService {
         title: edition.title,
         description: edition.description,
         linkCount: publicLinkCount,
+        editorialType: edition.editorialType,
       };
       const editionSource = setEditionDraft(source, publicLinkCount === 0);
       const [socialImage, linkedInImage] = await Promise.all([
@@ -1092,6 +1093,9 @@ export class CurationService {
     ) {
       throw new CurationError("INCOMPLETE_EDITION");
     }
+    if (input.editorialType && !["digest", "focus"].includes(input.editorialType)) {
+      throw new CurationError("INVALID_EDITORIAL_TYPE");
+    }
     const uniqueIds = [...new Set(input.draftIds)];
     if (!uniqueIds.length) throw new CurationError("EMPTY_PUBLICATION");
     const drafts = uniqueIds.map((id) => this.store.findDraft(id));
@@ -1186,6 +1190,7 @@ export class CurationService {
           title: cleanText(input.title, 240),
           seoDescription: cleanText(input.seoDescription, 500),
           introduction: cleanText(input.introduction, 10_000),
+          editorialType: input.editorialType === "focus" ? "focus" : "digest",
         });
         const tagFiles = await missingPublicationTagPages(
           prepared.drafts.flatMap((draft) => draft.tags),
@@ -1197,7 +1202,7 @@ export class CurationService {
             head.commitSha,
             head.treeSha,
             { ...publication.files, ...tagFiles },
-            `Publier le Digest du ${input.digestDate}`,
+          `Publier le ${input.editorialType === "focus" ? "Focus" : "Digest"} du ${input.digestDate}`,
           );
           remoteCommitSucceeded = true;
           const committed = this.store.updatePublication(input.requestId, {
@@ -1519,7 +1524,12 @@ export class CurationService {
 
   async updateEdition(
     date: string,
-    body: { title?: unknown; introduction?: unknown; seoDescription?: unknown },
+    body: {
+      title?: unknown;
+      introduction?: unknown;
+      seoDescription?: unknown;
+      editorialType?: unknown;
+    },
   ) {
     if (!validDate(date)) throw new CurationError("INVALID_DIGEST_DATE");
     for (let attempt = 0; attempt < 2; attempt += 1) {
@@ -1536,10 +1546,18 @@ export class CurationService {
       if (!title || !description || !introduction) {
         throw new CurationError("INCOMPLETE_EDITION");
       }
+      if (
+        body.editorialType !== undefined &&
+        !["digest", "focus"].includes(String(body.editorialType))
+      ) {
+        throw new CurationError("INVALID_EDITORIAL_TYPE");
+      }
+      const editorialType = body.editorialType === "focus" ? "focus" as const : undefined;
       const next = editEdition(source, {
         title,
         description,
         introduction,
+        editorialType,
       });
       if (next === source) {
         return { changed: false, commit: head.commitSha, edition: current };
@@ -1551,6 +1569,7 @@ export class CurationService {
         linkCount: head.links.filter(
           (link) => link.added === date && link.visibility !== "hidden",
         ).length,
+        editorialType,
       };
       const [socialImage, linkedInImage] = await Promise.all([
         this.edition.generateOptimizedSocialImage(socialInput),
@@ -1565,7 +1584,7 @@ export class CurationService {
             [`static/social/${date}.png`]: socialImage,
             [`static/social/${date}-linkedin.png`]: linkedInImage,
           },
-          `Corriger le Digest du ${date}`,
+          `Corriger le ${editorialType === "focus" ? "Focus" : "Digest"} du ${date}`,
         );
         return {
           changed: true,
@@ -1665,6 +1684,7 @@ export class CurationService {
           title: current.title,
           description: current.description,
           linkCount,
+          editorialType: current.editorialType,
         };
         const [socialImage, linkedInImage] = await Promise.all([
           this.edition.generateOptimizedSocialImage(socialInput),
@@ -1682,8 +1702,8 @@ export class CurationService {
               [`static/social/${date}-linkedin.png`]: linkedInImage,
             },
             input.action === "publish"
-              ? `Publier le Digest du ${date}`
-              : `Remettre en brouillon le Digest du ${date}`,
+              ? `Publier le ${current.editorialType === "focus" ? "Focus" : "Digest"} du ${date}`
+              : `Remettre en brouillon le ${current.editorialType === "focus" ? "Focus" : "Digest"} du ${date}`,
           );
           remoteCommitSucceeded = true;
           return this.store.updatePublication(input.requestId, {

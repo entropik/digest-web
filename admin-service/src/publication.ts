@@ -38,6 +38,7 @@ export const buildPublicationFiles = async (input: {
   title: string;
   introduction: string;
   seoDescription: string;
+  editorialType?: "digest" | "focus";
 }) => {
   const linkIdsByDraft = new Map<string, string>();
   const newLinks: DigestLink[] = input.drafts.map((draft) => {
@@ -58,6 +59,7 @@ export const buildPublicationFiles = async (input: {
     title: input.title,
     description: input.seoDescription,
     linkCount: newLinks.length,
+    editorialType: input.editorialType,
   };
   const [socialImage, linkedInImage] = await Promise.all([
     generateOptimizedSocialImage(socialInput),
@@ -73,6 +75,7 @@ export const buildPublicationFiles = async (input: {
         title: input.title,
         description: input.seoDescription,
         introduction: input.introduction,
+        editorialType: input.editorialType === "focus" ? "focus" : undefined,
       }),
       [`static/social/${input.digestDate}.png`]: socialImage,
       [`static/social/${input.digestDate}-linkedin.png`]: linkedInImage,

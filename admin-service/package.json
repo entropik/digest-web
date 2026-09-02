@@ -17,6 +17,7 @@
     "recover:wordpress-destinations": "tsx scripts/recover-wordpress-destinations.ts",
     "social:archives": "tsx scripts/social-archive-preview.ts",
     "social:backfill": "node --import tsx scripts/social-backfill.ts",
+    "social:focus-assets": "tsx scripts/focus-archive-assets.ts",
     "social:preview": "tsx scripts/social-preview.ts",
     "start": "node dist/src/server.js",
     "test": "node --import tsx --test test/*.test.ts",
