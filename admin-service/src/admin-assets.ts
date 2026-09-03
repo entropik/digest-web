@@ -62,7 +62,7 @@ export const dashboardPage = (name: string) =>
         <a href="/"><span>Digest</span><span aria-hidden="true">↗</span></a>
         <a href="https://chromewebstore.google.com/detail/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer"><span>Extension</span><span aria-hidden="true">↗</span></a>
         <button id="admin-logout" type="button">Déconnexion</button>
-        <span class="admin-version" aria-label="Version v1.26.2">v1.26.2</span>
+        <span class="admin-version" aria-label="Version v1.26.3">v1.26.3</span>
       </div>
     </header>
     <nav class="admin-nav" aria-label="Administration">

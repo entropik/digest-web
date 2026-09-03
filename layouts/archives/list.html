@@ -30,7 +30,7 @@
         {{ end }}
         <span class="archive-edition-content">
           <span class="archive-edition-kicker">{{ if $isFocus }}Dossier thématique{{ else }}Édition{{ end }}</span>
-          <h2>{{ if $isFocus }}<span class="archive-focus-prefix">FOCUS -</span>{{ end }}{{ .Title }}</h2>
+          <h2>{{ if $isFocus }}<span class="archive-focus-prefix">FOCUS -</span>{{ .Title }}{{ else }}{{ partial "archive-title.html" .Title }}{{ end }}</h2>
           <span class="archive-edition-meta">
             <span>{{ len $links }} liens</span>
             <span>{{ len (uniq $categories) }} rubriques ↗</span>

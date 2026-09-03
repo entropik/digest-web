@@ -1,0 +1,2 @@
+{{- $title := . | strings.TrimPrefix "DIGEST - " | strings.TrimPrefix "Digest - " | strings.TrimPrefix "Digest — " -}}
+<span class="archive-title-prefix">DIGEST - </span>{{ $title -}}

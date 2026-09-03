@@ -169,7 +169,7 @@ test("archive pages expose a native LinkedIn publication with image, text and pe
   assert.match(layout, /imageConfig/);
   assert.match(
     layout,
-    /<h1><span class="archive-title-prefix">\{\{ if \$isFocus \}\}FOCUS - \{\{ else \}\}DIGEST - \{\{ end \}\}<\/span>\{\{ \.Title \}\}<\/h1>/,
+    /<h1>\{\{ if \$isFocus \}\}<span class="archive-title-prefix">FOCUS - <\/span>\{\{ \.Title \}\}\{\{ else \}\}\{\{ partial "archive-title\.html" \.Title \}\}\{\{ end \}\}<\/h1>/,
   );
   assert.match(composer, /width="1200"/);
   assert.match(composer, /1200\{\{ else \}\}627/);
@@ -186,6 +186,7 @@ test("Focus archive cards use their technical thumbnail and explicit title prefi
   assert.match(layout, /archive-edition--focus/);
   assert.match(layout, /\.Params\.archive_image/);
   assert.match(layout, /archive-focus-prefix">FOCUS -/);
+  assert.match(layout, /\{\{ else \}\}\{\{ partial "archive-title\.html" \.Title \}\}\{\{ end \}\}<\/h2>/);
   assert.match(layout, /Dossier thématique/);
   assert.match(stylesheet, /\.archive-edition--focus \.archive-edition-poster/);
   assert.match(stylesheet, /\.archive-focus-prefix/);
