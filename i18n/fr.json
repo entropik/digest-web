@@ -667,5 +667,8 @@
   },
   "archive_og_image_alt": {
     "other": "Affiche générative de l’édition %s du Digest"
+  },
+  "procrastinator_stats_label": {
+    "other": "Le journal en chiffres"
   }
 }

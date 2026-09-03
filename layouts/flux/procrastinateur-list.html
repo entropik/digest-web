@@ -17,7 +17,7 @@
     </aside>
   </header>
 
-  <dl class="procrastinator-stats" aria-label="Le journal en chiffres">
+  <dl class="procrastinator-stats" aria-label="{{ i18n "procrastinator_stats_label" }}">
     <div><dt>{{ len $entries }}</dt><dd>{{ i18n "ui_202a4d80ef91" }}</dd></div>
     <div><dt>{{ $first.Date.Format "02.01" }}</dt><dd>{{ i18n "ui_e889902e6452" }} {{ $first.Date.Format "2006" }}</dd></div>
     <div><dt>{{ $latest.Date.Format "02.01" }}</dt><dd>{{ i18n "ui_609fecee47ec" }} {{ $latest.Date.Format "2006" }}</dd></div>
@@ -29,6 +29,7 @@
       <p class="archive-edition-kicker">{{ i18n "ui_7ee922e94313" }} {{ $latest.Date | time.Format ":date_long" }}</p>
       <h2 id="latest-entry"><a href="{{ $latest.RelPermalink }}">{{ $latest.Title }}</a></h2>
       <p>{{ $latest.Description }}</p>
+      {{ if $latest.Params.translation_pending }}<p class="translation-pending">Translation pending</p>{{ end }}
       <a class="procrastinator-read" href="{{ $latest.RelPermalink }}">{{ i18n "ui_1976853f6b58" }} {{ $latest.ReadingTime }} min ↗</a>
     </div>
   </section>
@@ -52,6 +53,7 @@
                 <span>
                   <strong>{{ .Title }}</strong>
                   <small>{{ .Description }}</small>
+                  {{ if .Params.translation_pending }}<small class="translation-pending">Translation pending</small>{{ end }}
                 </span>
                 <em>{{ .ReadingTime }} min</em>
               </a>
