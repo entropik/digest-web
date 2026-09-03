@@ -17,6 +17,7 @@
     </div>
   </header>
 
+  {{ if and $document.translationPending (not .Params.translation_pending) }}<p class="translation-pending" lang="en-GB">{{ i18n "translation_pending_detail" }}</p>{{ end }}
   <figure class="procrastinator-document">
     <div class="procrastinator-document-image">
       <button class="procrastinator-document-open" type="button" aria-label="{{ i18n "ui_55f8d31e7868" }} {{ $document.title }}">

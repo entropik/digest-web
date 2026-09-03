@@ -24,6 +24,7 @@
     </div>
     {{ partial "linkedin-composer.html" (dict "image" $poster.image "format" "square") }}
   </header>
+  {{ if and $poster.translationPending (not .Params.translation_pending) }}<p class="translation-pending" lang="en-GB">{{ i18n "translation_pending_detail" }}</p>{{ end }}
   <figure class="journal-post-visual">
     <a href="{{ $poster.source_url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ i18n "ui_86cc18801b11" }} {{ $poster.title }} {{ i18n "ui_5c324aba1f73" }}">
       <img src="{{ $poster.image }}" alt="{{ $poster.title }}" width="{{ $poster.width }}" height="{{ $poster.height }}" decoding="async">

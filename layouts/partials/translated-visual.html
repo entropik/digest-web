@@ -1,9 +1,16 @@
 {{- $visual := . -}}
 {{- $id := printf "visual:%s" .image -}}
+{{- $pending := false -}}
 {{- range $field := slice "title" "alt" "themeLabel" "date" "rights" -}}
   {{- with index $visual $field -}}
+    {{- if eq site.Language.Lang "en" -}}
+      {{- $sourceField := partial "translation-field.html" (dict "source" .) -}}
+      {{- $entry := index (index (hugo.Data.translations_en.entries | default dict) $id | default dict) $field -}}
+      {{- if not (and $entry (eq $entry.hash $sourceField.hash)) -}}{{- $pending = true -}}{{- end -}}
+    {{- end -}}
     {{- $text := partial "translated.html" (dict "id" $id "field" $field "source" .) -}}
     {{- $visual = merge $visual (dict $field $text) -}}
   {{- end -}}
 {{- end -}}
+{{- $visual = merge $visual (dict "translationPending" $pending) -}}
 {{- return $visual -}}

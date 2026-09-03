@@ -23,7 +23,7 @@
 {{- end }}
     {{ partialCached "header.html" . .Page -}}
     <main class="main">
-        {{ if and (eq site.Language.Lang "en") .Params.translation_pending }}<p class="translation-pending" lang="en-GB">Translation pending · original text shown below.</p>{{ end }}
+        {{ if and (eq site.Language.Lang "en") .Params.translation_pending }}<p class="translation-pending" lang="en-GB">{{ i18n "translation_pending_detail" }}</p>{{ end }}
         {{- block "main" . }}{{ end }}
     </main>
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") site.Language.Lang -}}

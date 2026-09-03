@@ -9,14 +9,14 @@ import {sourceHash,snapshotRevision} from "../src/translation-types.js";
 test("Hugo English adapter reuses current fields, falls back after edits and preserves equivalent routes",async()=>{
   const directory=await mkdtemp(path.join(tmpdir(),"digest-english-"));
   try {
-    for(const name of ["content","data","layouts/partials","static/js","static/social/en",".build-i18n"])await mkdir(path.join(directory,name),{recursive:true});
-    for(const file of ["content/_content.en.gotmpl","layouts/partials/english-content.html","layouts/partials/public-route-map.html","layouts/partials/about-liquid-script.html","static/js/about-liquid.js"]){
+    for(const name of ["content","data","i18n","layouts/partials","static/js","static/social/en",".build-i18n"])await mkdir(path.join(directory,name),{recursive:true});
+    for(const file of ["content/_content.en.gotmpl","i18n/en.json","i18n/fr.json","layouts/partials/english-content.html","layouts/partials/public-route-map.html","layouts/partials/about-liquid-script.html","layouts/partials/archive-og-image-alt.html","layouts/partials/translated-visual.html","layouts/partials/translated.html","layouts/partials/translation-field.html","static/js/about-liquid.js"]){
       await writeFile(path.join(directory,file),await readFile(new URL("../../"+file,import.meta.url)));
     }
     await writeFile(path.join(directory,"hugo.toml"),'baseURL="https://digest.ooblik.com/"\ndefaultContentLanguage="fr"\ndisableKinds=["RSS","sitemap","taxonomy","term"]\n[security]\nallowContent=["text/html","text/markdown"]\n[languages.fr]\nweight=1\n[languages.en]\nweight=2\n');
     await writeFile(path.join(directory,"content/page.md"),'---\ntitle: Bonjour\n---\nTexte français');
     await writeFile(path.join(directory,"content/a-propos.md"),'---\ntitle: À propos\n---\nTexte à survoler');
-    await writeFile(path.join(directory,"layouts/single.html"),'<html lang="{{ site.Language.Lang }}"><h1>{{ .Title }}</h1><p>{{ .Params.translation_pending }}</p><p>{{ index .Params.images 0 }}|{{ .Params.visual }}|{{ .Params.translation_artwork_current }}</p>{{ .Content }}{{ partial "about-liquid-script.html" . }}</html>');
+    await writeFile(path.join(directory,"layouts/single.html"),'<html lang="{{ site.Language.Lang }}"><h1>{{ .Title }}</h1><p>{{ .Params.translation_pending }}</p><p>{{ index .Params.images 0 }}|{{ .Params.visual }}|{{ .Params.translation_artwork_current }}</p>{{ $visual := partial "translated-visual.html" (dict "image" "/poster.png" "title" "Affiche") }}<p>visual-pending={{ $visual.translationPending }}</p><meta name="fixture-og-alt" content="{{ partial "archive-og-image-alt.html" .Title }}">{{ .Content }}{{ partial "about-liquid-script.html" . }}</html>');
     await writeFile(path.join(directory,"layouts/home.html"),'Home');
     const body='<p>Bonjour <a href="/page/#detail">ici</a> <a href="https://example.com/">ailleurs</a></p><pre><code>x()</code></pre>';
     const fields={title:{source:"Titre changé",format:"text",hash:sourceHash("Titre changé","text")},description:{source:"Résumé",format:"text",hash:sourceHash("Résumé","text")},body:{source:body,format:"html",hash:sourceHash(body,"html")}};
@@ -29,10 +29,12 @@ test("Hugo English adapter reuses current fields, falls back after edits and pre
     const html=await readFile(path.join(directory,"public/en/page/index.html"),"utf8");
     assert.match(html,/<h1>Titre changé<\/h1>/);assert.doesNotMatch(html,/Outdated/);assert.match(html,/<p>true<\/p>/);
     assert.match(html,/Hello/);assert.match(html,/href="\/en\/page\/#detail"/);assert.match(html,/href="https:\/\/example.com\/"/);assert.match(html,/<code>x\(\)<\/code>/);
+    assert.match(html,/visual-pending=true/);assert.match(html,/content="Generative poster for Digest edition Titre changé"/);
     assert.match(html,/\/social\/2026-09-01\.png\|\/social\/2026-09-01-linkedin\.png\|false/);assert.doesNotMatch(html,/\/social\/en\//);
     const alias=await readFile(path.join(directory,"public/en/old-page/index.html"),"utf8");
     assert.match(alias,/https:\/\/digest.ooblik.com\/en\/page\//);
-    assert.match(await readFile(path.join(directory,"public/page/index.html"),"utf8"),/Texte français/);
+    const frenchHtml=await readFile(path.join(directory,"public/page/index.html"),"utf8");
+    assert.match(frenchHtml,/Texte français/);assert.match(frenchHtml,/visual-pending=false/);assert.match(frenchHtml,/content="Affiche générative de l’édition Bonjour du Digest"/);
     for(const locale of ["", "en/"]) {
       assert.match(await readFile(path.join(directory,"public/"+locale+"a-propos/index.html"),"utf8"),/src="\/js\/about-liquid[^\"]*\.js"/);
       assert.doesNotMatch(await readFile(path.join(directory,"public/"+locale+"page/index.html"),"utf8"),/about-liquid/);

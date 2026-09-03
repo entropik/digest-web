@@ -661,5 +661,11 @@
   },
   "about_liquid_credit": {
     "other": "thanks, pretext.js!!!"
+  },
+  "translation_pending_detail": {
+    "other": "Translation pending · original text shown below."
+  },
+  "archive_og_image_alt": {
+    "other": "Generative poster for Digest edition %s"
   }
 }
