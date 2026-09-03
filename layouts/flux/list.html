@@ -30,6 +30,7 @@
         <span class="flux-journal-latest">
           <span>{{ i18n "ui_ca8fa8b6aa3a" }} {{ time.Format "02 January 2006" .Date }}</span>
           <strong>{{ .Title }}</strong>
+          {{ if .Params.translation_pending }}<span class="translation-pending">Translation pending</span>{{ end }}
         </span>
         <span class="flux-journal-action">{{ len $journalPosts }} {{ i18n "ui_49ca7519f303" }}<br>{{ i18n "ui_e9c3a1d999b1" }}</span>
       </a>
@@ -48,6 +49,7 @@
           <span class="flux-journal-latest">
             <span>{{ i18n "ui_ca8fa8b6aa3a" }} {{ time.Format "02 January 2006" .Date }}</span>
             <strong>{{ .Title }}</strong>
+            {{ if .Params.translation_pending }}<span class="translation-pending">Translation pending</span>{{ end }}
           </span>
           <span class="flux-journal-action">{{ len $procrastinatorPosts }} {{ i18n "ui_49ca7519f303" }}<br>{{ i18n "ui_e9c3a1d999b1" }}</span>
         </a>
@@ -64,7 +66,7 @@
       <a href="{{ printf "flux/%s/" .slug | relLangURL }}">
         <span class="archive-edition-kicker">{{ .note }}</span>
         <h2>{{ .title }}</h2>
-        <p>{{ len $streamLinks }} publications · {{ len $dead }} {{ i18n "ui_a894fa69d705" }}</p>
+        <p>{{ len $streamLinks }} {{ i18n "ui_0447f8d1cb0f" }} {{ len $dead }} {{ i18n "ui_a894fa69d705" }}</p>
         <span>{{ i18n "ui_2c1d2f735b82" }}</span>
       </a>
     </article>

@@ -23,8 +23,9 @@ const fixture = () => {
 };
 test("a missing public snapshot keeps a fresh inventory unavailable", async () => {
   const {db,store}=fixture();
+  let source:unknown=manifest(item("a"));
   let published:unknown=null;
-  const service=new TranslationService(store,new DeepLClient(""),{manifest:async()=>manifest(item("a")),published:async()=>published,export:async()=>({commit:"unused"})});
+  const service=new TranslationService(store,new DeepLClient(""),{manifest:async()=>source,published:async()=>published,export:async()=>({commit:"unused"})});
   for(const invalid of [null,{version:2,revision:"bad",entries:{}},{version:1,revision:"bad",entries:{}}]){
     published=invalid;
     await assert.rejects(service.sync(),/SNAPSHOT_INVALID/);
@@ -32,6 +33,10 @@ test("a missing public snapshot keeps a fresh inventory unavailable", async () =
     assert.throws(()=>store.start(),/MANIFEST_UNAVAILABLE/);
   }
   published=emptySnapshot();
+  source=manifest();
+  await assert.rejects(service.sync(),/MANIFEST_INVALID/);
+  assert.equal(store.overview().initialized,false);
+  source=manifest(item("a"));
   await service.sync();
   assert.equal(store.overview().initialized,true);
   db.close();

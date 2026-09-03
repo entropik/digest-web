@@ -49,7 +49,7 @@ export function validateSnapshot(value: unknown): TranslationSnapshot {
 export function validateManifest(value: unknown): TranslationManifest {
   if (!value || typeof value !== "object") throw new Error("MANIFEST_INVALID");
   const manifest = value as TranslationManifest;
-  if (manifest.version !== 1 || !Array.isArray(manifest.items) || manifest.items.length > 30_000) {
+  if (manifest.version !== 1 || !Array.isArray(manifest.items) || manifest.items.length === 0 || manifest.items.length > 30_000) {
     throw new Error("MANIFEST_INVALID");
   }
   const ids = new Set<string>();
