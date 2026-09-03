@@ -1,10 +1,10 @@
 import { DeepLClient, TranslationError } from "./deepl.js";
 import { TranslationStore } from "./translation-store.js";
-import { validateManifest, type TranslationSnapshot } from "./translation-types.js";
+import { validateManifest, validateSnapshot, type TranslationSnapshot } from "./translation-types.js";
 
 type Dependencies = {
   manifest: () => Promise<unknown>;
-  published: () => Promise<TranslationSnapshot | null>;
+  published: () => Promise<unknown>;
   deploymentFailed?: (commit: string) => Promise<boolean>;
   export: (snapshot: TranslationSnapshot, retryDeployment?: boolean) => Promise<{ commit: string; revision?: string }>;
 };
@@ -25,21 +25,19 @@ export class TranslationService {
   }
   async sync() {
     const manifest = validateManifest(await this.dependencies.manifest());
-    const published = await this.dependencies.published();
+    const published = validateSnapshot(await this.dependencies.published());
     this.store.sync(manifest);
-    if (published) {
-      this.store.restore(published);
-      this.store.set("liveRevision", published.revision);
-      this.store.set("liveEntries", published.entries);
-      const publication = this.store.get<{ revision?: string; state?: string; commit?: string }>("publication", {});
-      if (publication.revision === published.revision && publication.state !== "live") {
-        this.store.set("publication", { ...publication, state: "live" });
-        this.store.record("live");
-      } else if (publication.state === "deploying" && published.sourceRevision === publication.revision) {
-        // Hugo served this export but filtered fields/artwork made stale by newer French edits.
-        this.store.set("publication", { ...publication, state: "idle" });
-        this.store.record("publication_filtered");
-      }
+    this.store.restore(published);
+    this.store.set("liveRevision", published.revision);
+    this.store.set("liveEntries", published.entries);
+    const publication = this.store.get<{ revision?: string; state?: string; commit?: string }>("publication", {});
+    if (publication.revision === published.revision && publication.state !== "live") {
+      this.store.set("publication", { ...publication, state: "live" });
+      this.store.record("live");
+    } else if (publication.state === "deploying" && published.sourceRevision === publication.revision) {
+      // Hugo served this export but filtered fields/artwork made stale by newer French edits.
+      this.store.set("publication", { ...publication, state: "idle" });
+      this.store.record("publication_filtered");
     }
     const pending = this.store.get<{ state?: string; commit?: string; revision?: string }>("publication", {});
     if (pending.state === "deploying" && pending.commit && await this.dependencies.deploymentFailed?.(pending.commit)) {

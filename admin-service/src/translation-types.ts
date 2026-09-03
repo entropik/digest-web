@@ -27,6 +27,25 @@ export const snapshotRevision = (entries: TranslationSnapshot["entries"], artwor
   return createHash("sha256").update(canonical).digest("hex");
 };
 
+const record = (value: unknown): value is Record<string,unknown> => Boolean(value) && typeof value === "object" && !Array.isArray(value);
+export function validateSnapshot(value: unknown): TranslationSnapshot {
+  if (!record(value) || value.version !== 1 || typeof value.revision !== "string" || !record(value.entries) || (value.sourceRevision !== undefined && typeof value.sourceRevision !== "string")) throw new Error("SNAPSHOT_INVALID");
+  for (const fields of Object.values(value.entries)) {
+    if (!record(fields)) throw new Error("SNAPSHOT_INVALID");
+    for (const entry of Object.values(fields)) {
+      if (!record(entry) || typeof entry.hash !== "string" || !/^[a-f0-9]{64}$/.test(entry.hash) || typeof entry.text !== "string" || (entry.manual !== undefined && typeof entry.manual !== "boolean")) throw new Error("SNAPSHOT_INVALID");
+    }
+  }
+  const artwork = value.artwork === undefined ? {} : value.artwork;
+  if (!record(artwork)) throw new Error("SNAPSHOT_INVALID");
+  for (const entry of Object.values(artwork)) {
+    if (!record(entry) || typeof entry.title !== "string" || typeof entry.description !== "string" || !Number.isSafeInteger(entry.linkCount) || Number(entry.linkCount) < 0 || !["digest","focus"].includes(String(entry.editorialType))) throw new Error("SNAPSHOT_INVALID");
+  }
+  const snapshot = value as unknown as TranslationSnapshot;
+  if (snapshot.revision !== snapshotRevision(snapshot.entries, snapshot.artwork)) throw new Error("SNAPSHOT_INVALID");
+  return snapshot;
+}
+
 export function validateManifest(value: unknown): TranslationManifest {
   if (!value || typeof value !== "object") throw new Error("MANIFEST_INVALID");
   const manifest = value as TranslationManifest;

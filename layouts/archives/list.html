@@ -31,6 +31,7 @@
         <span class="archive-edition-content">
           <span class="archive-edition-kicker">{{ if $isFocus }}{{ i18n "ui_48d55d78f37b" }}{{ else }}{{ i18n "ui_b8056d299bbe" }}{{ end }}</span>
           <h2>{{ if $isFocus }}<span class="archive-focus-prefix">FOCUS -</span>{{ .Title }}{{ else }}{{ partial "archive-title.html" .Title }}{{ end }}</h2>
+          {{ if .Params.translation_pending }}<span class="translation-pending">Translation pending</span>{{ end }}
           <span class="archive-edition-meta">
             <span>{{ len $links }} {{ i18n "ui_132d6192dc26" }}</span>
             <span>{{ len (uniq $categories) }} {{ i18n "ui_3e1d77f3e4df" }}</span>

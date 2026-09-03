@@ -14,6 +14,7 @@ const item = (id: string, source = "Bonjour", date = "2026-09-01"): TranslationI
   dependencies: [], fields: { title: { source, format: "text", hash: sourceHash(source, "text") } },
 });
 const manifest = (...items: TranslationItem[]): TranslationManifest => ({ version: 1, items });
+const emptySnapshot = (): TranslationSnapshot => ({version:1,revision:snapshotRevision({}),entries:{}});
 const fixture = () => {
   const db = new Database(":memory:");
   const store = new TranslationStore(db);
@@ -22,15 +23,15 @@ const fixture = () => {
 };
 test("a missing public snapshot keeps a fresh inventory unavailable", async () => {
   const {db,store}=fixture();
-  let snapshotAvailable=false;
-  const service=new TranslationService(store,new DeepLClient(""),{manifest:async()=>manifest(item("a")),published:async()=>{
-    if(!snapshotAvailable) throw new Error("snapshot unavailable");
-    return null;
-  },export:async()=>({commit:"unused"})});
-  await assert.rejects(service.sync(),/snapshot unavailable/);
-  assert.equal(store.overview().initialized,false);
-  assert.throws(()=>store.start(),/MANIFEST_UNAVAILABLE/);
-  snapshotAvailable=true;
+  let published:unknown=null;
+  const service=new TranslationService(store,new DeepLClient(""),{manifest:async()=>manifest(item("a")),published:async()=>published,export:async()=>({commit:"unused"})});
+  for(const invalid of [null,{version:2,revision:"bad",entries:{}},{version:1,revision:"bad",entries:{}}]){
+    published=invalid;
+    await assert.rejects(service.sync(),/SNAPSHOT_INVALID/);
+    assert.equal(store.overview().initialized,false);
+    assert.throws(()=>store.start(),/MANIFEST_UNAVAILABLE/);
+  }
+  published=emptySnapshot();
   await service.sync();
   assert.equal(store.overview().initialized,true);
   db.close();
@@ -202,7 +203,7 @@ test("service publishes prepared output and only marks it live when the deployed
   const source = manifest(item("a"));
   store.sync(source);
   store.start();
-  let live: TranslationSnapshot | null = null;
+  let live: TranslationSnapshot = emptySnapshot();
   let exported: TranslationSnapshot | null = null;
   let calls = 0;
   const request = (async (url: string | URL | Request) => {
@@ -219,7 +220,7 @@ test("service publishes prepared output and only marks it live when the deployed
   assert.equal((store.overview().publication as { state: string }).state, "deploying");
   assert.equal(store.overview().publication.preparedCharacters, 7);
   assert.equal(store.overview().publication.liveCharacters, 0);
-  live = exported;
+  live = exported!;
   await service.tick();
   assert.equal(calls, 1);
   assert.equal((store.overview().publication as { state: string }).state, "live");
@@ -236,7 +237,7 @@ test("quota errors do not consume requests or prevent public fallback generation
     if (String(url).endsWith("/usage")) return new Response("", { status: 503 });
     translations++; return Response.json({});
   }) as typeof fetch);
-  const service = new TranslationService(store, client, { manifest: async () => source, published: async () => null, export: async () => ({ commit: "unused" }) });
+  const service = new TranslationService(store, client, { manifest: async () => source, published: async () => emptySnapshot(), export: async () => ({ commit: "unused" }) });
   await service.tick();
   assert.equal(translations, 0);
   assert.equal(store.overview().quota.error, "DEEPL_503");
@@ -308,7 +309,7 @@ test("a ceiling reached by history still permits new content, until total credit
     if (String(url).endsWith("/usage")) return Response.json({character_count:consumed,character_limit:1_000_000});
     calls++; consumed += 7; return Response.json({translations:[{text:"New item",billed_characters:7}]});
   }) as typeof fetch);
-  const service = new TranslationService(store, client, {manifest:async()=>source,published:async()=>null,export:async()=>({commit:"simulated"})});
+  const service = new TranslationService(store, client, {manifest:async()=>source,published:async()=>emptySnapshot(),export:async()=>({commit:"simulated"})});
   await service.tick();
   assert.equal(calls,0); assert.equal(store.overview().backfill,false);
   source = manifest(item("old", "Historique"),item("new","Nouveau"));
@@ -329,7 +330,7 @@ test("suspending an in-flight lot preserves it and deployment retries reuse prep
   const service = new TranslationService(store,new DeepLClient("fake",undefined,(async url=>{
     if(String(url).endsWith("/usage"))return Response.json({character_count:0,character_limit:1_000_000});
     calls++;store.pause();return Response.json({translations:[{text:"Hello",billed_characters:7}]});
-  }) as typeof fetch),{manifest:async()=>source,published:async()=>null,deploymentFailed:async()=>true,export:async()=>{exports++;return {commit:"failed-deploy"}}});
+  }) as typeof fetch),{manifest:async()=>source,published:async()=>emptySnapshot(),deploymentFailed:async()=>true,export:async()=>{exports++;return {commit:"failed-deploy"}}});
   await service.tick();
   assert.equal(calls,1);assert.equal(store.overview().backfill,true);assert.equal(store.overview().paused,true);
   await service.sync();

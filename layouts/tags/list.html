@@ -53,16 +53,17 @@
   <div class="tag-explorer-scene" data-tag-scene aria-label="{{ i18n "ui_c6db3ae3a9da" }}">
     {{ range sort $visibleTagPages "Title" }}
       {{ $tag := .Params.tag }}
+      {{ $tagLabel := partial "tag-label.html" $tag }}
       {{ $count := $counts.Get $tag }}
       {{ $importance := div (math.Log (add (float $count) 1)) (math.Log (add (float $maxCount) 1)) }}
       <a
         class="tag-cloud-item"
         href="{{ .RelPermalink }}"
-        data-tag="{{ partial "tag-label.html" $tag }}"
+        data-tag="{{ $tagLabel }}"
         data-count="{{ $count }}"
         style="--tag-importance: {{ printf "%.4f" $importance }};"
-        aria-label="{{ $tag }}, {{ $count }} {{ cond (eq $count 1) "lien" "liens" }}">
-        <span>#{{ partial "tag-label.html" $tag }}</span>
+        aria-label="{{ $tagLabel }}, {{ $count }} {{ if eq $count 1 }}{{ i18n "ui_80bf0c8d3c58" }}{{ else }}{{ i18n "ui_132d6192dc26" }}{{ end }}">
+        <span>#{{ $tagLabel }}</span>
         <sup>{{ $count }}</sup>
       </a>
     {{ end }}
