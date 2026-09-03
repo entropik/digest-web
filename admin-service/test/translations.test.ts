@@ -133,8 +133,25 @@ test("reservation includes previous usage, uncertain requests stay reserved afte
   assert.equal(restarted.overview().quota.used, 700_005);
   restarted.retry();
   assert.equal(restarted.next(), undefined);
-  restarted.retry(true);
+  restarted.retry([next.hash]);
   assert.equal(restarted.memory(next.hash)?.state, "pending");
+  db.close();
+});
+test("uncertain retries reopen only the fifty requests shown for confirmation", () => {
+  const { db, store } = fixture();
+  const items = Array.from({length:55},(_,index)=>item("uncertain-"+index,"Source "+index));
+  store.sync(manifest(...items));store.start();
+  for(let index=0;index<items.length;index++){
+    const next=store.next()!;
+    assert(store.reserve(next.hash,next.chars,false));
+    store.fail(next.hash,"REQUEST_OUTCOME_UNKNOWN",true);
+  }
+  const confirmed=(store.overview().uncertain as {hash:string}[]).map(row=>row.hash);
+  assert.equal(confirmed.length,50);
+  store.retry(confirmed);
+  const states=db.prepare("SELECT state,COUNT(*) AS count FROM translation_memory GROUP BY state ORDER BY state").all();
+  assert.deepEqual(states,[{state:"pending",count:50},{state:"uncertain",count:5}]);
+  assert(confirmed.includes(store.next()!.hash));
   db.close();
 });
 test("published removal or replacement of a manual correction is respected on the same source", () => {

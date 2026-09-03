@@ -143,18 +143,20 @@ export class TranslationStore {
     this.set("batch", null);
     this.record(reason);
   }
-  retry(includeUncertain = false) {
+  retry(uncertainHashes: string[] = []) {
     const publication = this.get<{state?: string}>("publication", {});
     if (publication.state === "deploy_failed") this.set("publication", { ...publication, state: "retrying" });
-    const errors = "state='error'" + (includeUncertain ? " OR state='uncertain'" : "");
+    const confirmed = [...new Set(uncertainHashes)];
+    const placeholders = confirmed.map(() => "?").join(",");
+    const retryable = confirmed.length ? "(state='error' OR (state='uncertain' AND hash IN (" + placeholders + ")))" : "state='error'";
     const changed = this.db.transaction(() => {
-      this.db.prepare("UPDATE translation_fields SET lane='retry' WHERE lane IS NULL AND hash IN (SELECT hash FROM translation_memory WHERE " + errors + ")").run();
-      return this.db.prepare("UPDATE translation_memory SET state='pending',error=NULL WHERE " + errors).run().changes;
+      this.db.prepare("UPDATE translation_fields SET lane='retry' WHERE lane IS NULL AND hash IN (SELECT hash FROM translation_memory WHERE " + retryable + ")").run(...confirmed);
+      return this.db.prepare("UPDATE translation_memory SET state='pending',error=NULL WHERE " + retryable).run(...confirmed).changes;
     })();
     // Retry just these fields; keep the user's current backfill mode and budget lanes.
     if (changed) this.resume();
     // Reservations on uncertain requests remain consumed: a retry may be billed again.
-    this.record(includeUncertain ? "retry_uncertain" : "retry");
+    this.record(confirmed.length ? "retry_uncertain" : "retry");
   }
   next(): (Memory & { novelty: boolean; itemId: string; title: string }) | undefined {
     if (this.get("paused", false)) return;

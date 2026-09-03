@@ -628,7 +628,7 @@ app.get("/api/admin/translations/history", context => handle(context, () => {
   return { days: translations.store.history(month) };
 }));
 app.post("/api/admin/translations/:action", context => handle(context, async () => {
-  const body = await jsonBody<{ confirm?: boolean; includeUncertain?: boolean }>(context);
+  const body = await jsonBody<{ confirm?: boolean; uncertainHashes?: unknown }>(context);
   requireConfirmation(body);
   switch (context.req.param("action")) {
     case "refresh": await translations.sync(); await translations.refreshQuota(); break;
@@ -636,8 +636,9 @@ app.post("/api/admin/translations/:action", context => handle(context, async () 
     case "pause": translations.store.pause(); break;
     case "resume": translations.store.resume(); break;
     case "retry":
+      if (body.uncertainHashes !== undefined && (!Array.isArray(body.uncertainHashes) || body.uncertainHashes.length > 50 || body.uncertainHashes.some(hash => typeof hash !== "string" || !/^[a-f0-9]{64}$/.test(hash)))) throw new CurationError("INVALID_UNCERTAIN_HASHES");
       if (translations.client.key && translations.store.overview().counts.errors) await translations.refreshQuota();
-      translations.store.retry(body.includeUncertain === true);
+      translations.store.retry(body.uncertainHashes as string[] | undefined);
       break;
     default: throw new CurationError("INVALID_TRANSLATION_ACTION");
   }

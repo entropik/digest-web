@@ -139,7 +139,7 @@ export const translationAdminJs = String.raw`
     if (action === "retry-uncertain") {
       const affected = (status?.uncertain || []).map(item => item.title + " · " + item.field + " · " + item.hash.slice(0,8)).join("\n");
       if (!confirm("Requêtes à facturation incertaine (50 premières au maximum) :\n\n" + affected + "\n\nLes rejouer peut consommer du crédit une seconde fois. Relancer les requêtes incertaines ?")) return;
-      action = "retry"; body.includeUncertain = true;
+      action = "retry"; body.uncertainHashes = (status?.uncertain || []).map(item => item.hash);
     }
     button.disabled = true;
     try { render(await request(action, body)); await Promise.all([history(),items()]); }
