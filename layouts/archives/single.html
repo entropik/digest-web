@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ $digestDate := .Params.digest_date }}
 {{ $isFocus := eq (.Params.editorial_type | default "digest") "focus" }}
-{{ $displayTitle := cond $isFocus (printf "FOCUS - %s" .Title) (printf "DIGEST - %s" .Title) }}
+{{ $displayTitle := cond $isFocus (printf "FOCUS - %s" .Title) (partial "archive-title.html" .Title | plainify | htmlUnescape) }}
 {{ $linksByDate := partialCached "public-links-by-date.html" hugo.Data.links "public-links-by-date" }}
 {{ $links := index $linksByDate $digestDate | default slice }}
 {{ $categories := slice }}
@@ -46,7 +46,7 @@
 <article class="archive-single">
   <header class="archive-single-header">
     <p class="digest-kicker">{{ if $isFocus }}OOBLIK — dossier thématique{{ else }}Web Digest’s — édition{{ end }}</p>
-    <h1><span class="archive-title-prefix">{{ if $isFocus }}FOCUS - {{ else }}DIGEST - {{ end }}</span>{{ .Title }}</h1>
+    <h1>{{ if $isFocus }}<span class="archive-title-prefix">FOCUS - </span>{{ .Title }}{{ else }}{{ partial "archive-title.html" .Title }}{{ end }}</h1>
     <p>{{ .Description }}</p>
     <div class="archive-single-actions">
       <div class="archive-single-count"><strong>{{ len $links }}</strong><span>liens documentés</span></div>

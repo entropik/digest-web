@@ -134,8 +134,13 @@ liens, y compris sur petit écran.
 
 Sur la page d’une édition, le titre principal commence par `DIGEST -` ou, pour
 un dossier thématique déclaré `editorial_type: "focus"`, par `FOCUS -`. Les
-cartes d’archives reprennent le même signal. Les affiches Focus conservent les
-formats panoramique et carré mais emploient un langage distinct : une seule
+cartes d’archives reprennent le même signal. Pour les Digest, les titres
+historiques déjà préfixés (`DIGEST -`, `Digest -` ou `Digest —`) sont normalisés à l’affichage :
+un seul `DIGEST -` apparaît sur les cartes, les pages et dans le titre proposé
+au partage LinkedIn, sans modifier le titre éditorial enregistré.
+
+Les affiches Focus conservent les formats panoramique et carré mais emploient
+un langage distinct : une seule
 photographie technique ancienne en plein cadre, bichromie, grille et titre
 massif. Le mot `FOCUS` reste un petit cartouche de format et ne concurrence pas
 le sujet du billet.
