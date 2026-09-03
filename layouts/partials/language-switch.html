@@ -1,4 +1,8 @@
 {{- $path := .RelPermalink -}}
+{{- if and (eq .Kind "section") (eq .Section "archives") -}}
+  {{- $paginator := .Paginate .Pages.ByDate.Reverse 24 -}}
+  {{- $path = $paginator.URL -}}
+{{- end -}}
 {{- if eq site.Language.Lang "en" -}}{{- $path = strings.TrimPrefix "/en" $path -}}{{- end -}}
 {{- $path = $path | default "/" -}}
 <nav class="language-switch" aria-label="{{ if eq site.Language.Lang "fr" }}Langue{{ else }}Language{{ end }}">

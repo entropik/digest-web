@@ -76,3 +76,29 @@ test("public snapshot fingerprints only current fields and artwork actually pres
     }
   } finally {await rm(directory,{recursive:true,force:true});}
 });
+
+test("language switch preserves the active archive paginator page",async()=>{
+  const directory=await mkdtemp(path.join(tmpdir(),"digest-language-pager-"));
+  try {
+    for(const name of ["content/archives","layouts/_default","layouts/archives","layouts/partials"])await mkdir(path.join(directory,name),{recursive:true});
+    await writeFile(path.join(directory,"layouts/partials/language-switch.html"),await readFile(new URL("../../layouts/partials/language-switch.html",import.meta.url)));
+    await writeFile(path.join(directory,"hugo.toml"),'baseURL="https://digest.ooblik.com/"\ndefaultContentLanguage="fr"\ndisableKinds=["RSS","sitemap","taxonomy","term"]\n[languages.fr]\nweight=1\n[languages.en]\nweight=2\n');
+    await writeFile(path.join(directory,"content/archives/_index.md"),'---\ntitle: Archives\n---');
+    await writeFile(path.join(directory,"content/archives/_index.en.md"),'---\ntitle: Archives\n---');
+    for(let index=1;index<=25;index++){
+      const name=String(index).padStart(2,"0"),frontmatter=`---\ntitle: Edition ${name}\ndate: 2026-08-${name}\n---\n`;
+      await writeFile(path.join(directory,`content/archives/${name}.md`),frontmatter);
+      await writeFile(path.join(directory,`content/archives/${name}.en.md`),frontmatter);
+    }
+    await writeFile(path.join(directory,"layouts/_default/baseof.html"),'<html><body>{{ partial "language-switch.html" . }}{{ block "main" . }}{{ end }}</body></html>');
+    await writeFile(path.join(directory,"layouts/_default/single.html"),'{{ define "main" }}Page{{ end }}');
+    await writeFile(path.join(directory,"layouts/home.html"),'{{ define "main" }}Home{{ end }}');
+    await writeFile(path.join(directory,"layouts/archives/list.html"),'{{ define "main" }}{{ $paginator := .Paginate .Pages.ByDate.Reverse 24 }}<p>{{ $paginator.PageNumber }}</p>{{ end }}');
+    const build=spawnSync("hugo",["--source",directory,"--panicOnWarning"],{encoding:"utf8"});
+    assert.equal(build.status,0,build.stdout+build.stderr);
+    const french=await readFile(path.join(directory,"public/archives/page/2/index.html"),"utf8");
+    assert.match(french,/href="\/archives\/page\/2\/"[^>]+aria-current="true"/);assert.match(french,/href="\/en\/archives\/page\/2\/"/);
+    const english=await readFile(path.join(directory,"public/en/archives/page/2/index.html"),"utf8");
+    assert.match(english,/href="\/archives\/page\/2\/"/);assert.match(english,/href="\/en\/archives\/page\/2\/"[^>]+aria-current="true"/);
+  } finally {await rm(directory,{recursive:true,force:true});}
+});
