@@ -1,0 +1,67 @@
+{{- $items := slice -}}
+{{- $links := where hugo.Data.links "visibility" "ne" "hidden" -}}
+{{- range $links -}}
+  {{- $fields := dict -}}
+  {{- $link := . -}}
+  {{- range $name := slice "title" "description" "archive_text" "status_note" "image_alt" -}}
+    {{- with index $link $name -}}{{- $fields = merge $fields (dict $name (partial "translation-field.html" (dict "source" .))) -}}{{- end -}}
+  {{- end -}}
+  {{- $items = $items | append (dict "id" (printf "link:%s" .id) "kind" "link" "title" .title "date" .added "route" "/" "group" (.stream | default "catalogue") "dependencies" slice "fields" $fields) -}}
+{{- end -}}
+{{- range site.Pages -}}
+  {{- if and (not .IsHome) (ne .Section "review") (in (slice "page" "section") .Kind) -}}
+    {{- $page := . -}}
+    {{- $fields := dict "title" (partial "translation-field.html" (dict "source" .Title)) -}}
+    {{- with .Description -}}{{- $fields = merge $fields (dict "description" (partial "translation-field.html" (dict "source" .))) -}}{{- end -}}
+    {{- with .Content -}}{{- $fields = merge $fields (dict "body" (partial "translation-field.html" (dict "source" (printf "%s" .) "format" "html"))) -}}{{- end -}}
+    {{- $dependencies := slice -}}
+    {{- with .Params.digest_date -}}
+      {{- range where $links "added" . -}}{{- $dependencies = $dependencies | append (printf "link:%s" .id) -}}{{- end -}}
+    {{- end -}}
+    {{- with index (index hugo.Data "journal-documents") (.Date.Format "2006-01-02") -}}
+      {{- if in $page.RelPermalink "/journal-procrastinateur/" -}}{{- $dependencies = $dependencies | append (printf "visual:%s" .image) -}}{{- end -}}
+    {{- end -}}
+    {{- $params := dict -}}
+    {{- range $name := slice "digest_date" "editorial_type" "archive_image" "images" "visual" "stream" "tag" "tags" "ShowBreadCrumbs" -}}
+      {{- with index $page.Params (lower $name) -}}{{- $params = merge $params (dict $name .) -}}{{- end -}}
+    {{- end -}}
+    {{- $group := .Section | default "foundation" -}}
+    {{- if in .RelPermalink "/flux/journal-procrastinateur/" -}}{{- $group = "journal-procrastinateur" -}}{{- end -}}
+    {{- if in .RelPermalink "/flux/journal-du-digest/" -}}{{- $group = "journal-du-digest" -}}{{- end -}}
+    {{- if or (eq .Kind "section") .Params.stream -}}{{- $group = "foundation" -}}{{- end -}}
+    {{- $item := dict "id" (printf "page:%s" .Path) "kind" "page" "title" .Title "date" (.Date.Format "2006-01-02") "route" .RelPermalink "group" $group "dependencies" $dependencies "fields" $fields "page" (dict "path" .Path "kind" .Kind "type" .Type "layout" .Layout "aliases" .Aliases "params" $params) -}}
+    {{- with .Params.digest_date -}}{{- $item = merge $item (dict "artwork" (dict "date" . "linkCount" (len $dependencies) "editorialType" ($page.Params.editorial_type | default "digest"))) -}}{{- end -}}
+    {{- $items = $items | append $item -}}
+  {{- end -}}
+{{- end -}}
+{{- range $kind := slice "category" "tag" -}}
+  {{- $entries := hugo.Data.categories -}}
+  {{- if eq $kind "tag" -}}
+    {{- $entries = hugo.Data.tags -}}
+    {{- $names := dict -}}
+    {{- range $entries -}}{{- $names = merge $names (dict .name true) -}}{{- end -}}
+    {{- range $links -}}{{- range .tags -}}
+      {{- if not (index $names .) -}}
+        {{- $entries = $entries | append (dict "name" .) -}}
+        {{- $names = merge $names (dict . true) -}}
+      {{- end -}}
+    {{- end -}}{{- end -}}
+  {{- end -}}
+  {{- range $entries -}}
+    {{- $fields := dict "name" (partial "translation-field.html" (dict "source" .name)) -}}
+    {{- with .description -}}{{- $fields = merge $fields (dict "description" (partial "translation-field.html" (dict "source" .))) -}}{{- end -}}
+    {{- $items = $items | append (dict "id" (printf "%s:%s" $kind .name) "kind" $kind "title" .name "date" "" "route" "/" "group" "foundation" "dependencies" slice "fields" $fields) -}}
+  {{- end -}}
+{{- end -}}
+{{- range hugo.Data.journal_posters.posters -}}
+  {{- $fields := dict "title" (partial "translation-field.html" (dict "source" .title)) -}}
+  {{- $items = $items | append (dict "id" (printf "visual:%s" .image) "kind" "visual" "title" .title "date" "" "route" "/" "group" "visual" "dependencies" slice "fields" $fields) -}}
+{{- end -}}
+{{- range $date, $document := index hugo.Data "journal-documents" -}}
+  {{- $fields := dict -}}
+  {{- range $name := slice "title" "alt" "themeLabel" "date" "rights" -}}
+    {{- with index $document $name -}}{{- $fields = merge $fields (dict $name (partial "translation-field.html" (dict "source" .))) -}}{{- end -}}
+  {{- end -}}
+  {{- $items = $items | append (dict "id" (printf "visual:%s" .image) "kind" "visual" "title" .title "date" $date "route" (printf "/flux/journal-procrastinateur/%s/" $date) "group" "visual" "dependencies" slice "fields" $fields) -}}
+{{- end -}}
+{{- dict "version" 1 "items" $items | jsonify -}}

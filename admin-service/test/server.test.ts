@@ -32,6 +32,20 @@ after(async () => {
   await rm(temporary, { recursive: true, force: true });
 });
 
+test("every translation endpoint requires the owner session", async () => {
+  for (const path of ["status", "items", "history"]) {
+    const response = await app.request("/api/admin/translations/" + path);
+    assert.equal(response.status, 401);
+  }
+  for (const path of ["start", "pause", "resume", "retry", "refresh"]) {
+    const response = await app.request("/api/admin/translations/" + path, {
+      method: "POST", headers: { Origin: "https://digest.ooblik.com", "Content-Type": "application/json" },
+      body: JSON.stringify({ confirm: true }),
+    });
+    assert.equal(response.status, 401);
+  }
+});
+
 test("CORS only trusts the configured extension origin", async () => {
   const allowed = await app.request("/api/admin/session", {
     method: "OPTIONS",

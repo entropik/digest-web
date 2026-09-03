@@ -1,25 +1,26 @@
 {{ define "main" }}
 {{ $documents := index hugo.Data "journal-documents" }}
-{{ $document := index $documents (.Date.Format "2006-01-02") }}
+{{ $document := partial "translated-visual.html" (index $documents (.Date.Format "2006-01-02")) }}
 {{ $sourceLabel := $document.sourceLabel | default "Library of Congress" }}
 <article class="procrastinator-single">
   <header class="procrastinator-entry-header">
     <div class="procrastinator-entry-meta">
-      <a href="{{ .Parent.RelPermalink }}">Journal d’un procrastinateur</a>
+      <a href="{{ .Parent.RelPermalink }}">{{ i18n "ui_bbef3a4cc8d5" }}</a>
       <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
-      <span>{{ .ReadingTime }} min de lecture</span>
+      <span>{{ .ReadingTime }} {{ i18n "ui_8f7b4410d8e0" }}</span>
       <a class="procrastinator-index-link" href="{{ .Parent.RelPermalink }}">/ Index</a>
     </div>
     <div>
-      <p class="digest-kicker">Carnet de fabrication · {{ .Date.Format "2006.01.02" }}</p>
+      <p class="digest-kicker">{{ i18n "ui_d2bbd389dcae" }} {{ .Date.Format "2006.01.02" }}</p>
       <h1>{{ .Title }}</h1>
       <p class="procrastinator-deck">{{ .Description }}</p>
     </div>
   </header>
 
+  {{ if and $document.translationPending (not .Params.translation_pending) }}<p class="translation-pending" lang="en-GB">{{ i18n "translation_pending_detail" }}</p>{{ end }}
   <figure class="procrastinator-document">
     <div class="procrastinator-document-image">
-      <button class="procrastinator-document-open" type="button" aria-label="Agrandir le document {{ $document.title }}">
+      <button class="procrastinator-document-open" type="button" aria-label="{{ i18n "ui_55f8d31e7868" }} {{ $document.title }}">
         <img
           src="{{ $document.image | relURL }}"
           alt="{{ $document.alt }}"
@@ -30,7 +31,7 @@
       </button>
     </div>
     <figcaption>
-      <span>Document {{ printf "%03.0f" $document.number }} · {{ $document.themeLabel }}</span>
+      <span>{{ i18n "ui_e214b8a29923" }} {{ printf "%03.0f" $document.number }} · {{ $document.themeLabel }}</span>
       <strong>{{ $document.title }}</strong>
       <p>{{ $document.creator }} · {{ $document.date }}</p>
       <a href="{{ $document.sourceUrl }}" target="_blank" rel="noopener noreferrer">{{ $sourceLabel }} · {{ $document.identifier }} ↗</a>
@@ -39,7 +40,7 @@
   </figure>
 
   <div class="procrastinator-viewer" role="dialog" aria-modal="true" aria-labelledby="procrastinator-viewer-title" hidden>
-    <button class="procrastinator-viewer-close" type="button" aria-label="Fermer le document">×</button>
+    <button class="procrastinator-viewer-close" type="button" aria-label="{{ i18n "ui_c36f99e795a5" }}">×</button>
     <figure>
       <div class="procrastinator-viewer-image">
         <img
@@ -51,7 +52,7 @@
         >
       </div>
       <figcaption>
-        <span>Document {{ printf "%03.0f" $document.number }} · {{ $document.themeLabel }}</span>
+        <span>{{ i18n "ui_e214b8a29923" }} {{ printf "%03.0f" $document.number }} · {{ $document.themeLabel }}</span>
         <strong id="procrastinator-viewer-title">{{ $document.title }}</strong>
         <p>{{ $document.creator }} · {{ $document.date }}</p>
         <div class="procrastinator-viewer-source">
@@ -68,12 +69,12 @@
     {{ $content | safeHTML }}
   </div>
 
-  <nav class="procrastinator-navigation" aria-label="Navigation entre les billets">
+  <nav class="procrastinator-navigation" aria-label="{{ i18n "ui_65cf41d36ff5" }}">
     {{ with .NextInSection }}
-      <a href="{{ .RelPermalink }}"><span>Billet précédent</span><strong>{{ .Title }}</strong></a>
+      <a href="{{ .RelPermalink }}"><span>{{ i18n "ui_caf833eb3673" }}</span><strong>{{ .Title }}</strong></a>
     {{ else }}<span aria-hidden="true"></span>{{ end }}
     {{ with .PrevInSection }}
-      <a href="{{ .RelPermalink }}"><span>Billet suivant</span><strong>{{ .Title }}</strong></a>
+      <a href="{{ .RelPermalink }}"><span>{{ i18n "ui_77f41eb5a566" }}</span><strong>{{ .Title }}</strong></a>
     {{ end }}
   </nav>
 </article>

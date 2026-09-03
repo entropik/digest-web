@@ -31,6 +31,8 @@ Dernière mise à jour : 2 septembre 2026.
   validation, signature et installation de la variante Firefox.
 - [Exploitation de l’administration](operations.md) : récupération des états
   de publication ambigus et opérations sensibles.
+- [Traductions FR / GB](translations.md) : crédit Developer, file progressive,
+  suivi de couverture, construction bilingue et reprise des erreurs.
 
 ## Règle de maintenance
 

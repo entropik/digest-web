@@ -1,4 +1,6 @@
 (() => {
+  const t = window.digestI18n?.t || ((text) => text);
+  const locale = window.digestI18n?.locale || "fr-FR";
   const button = document.querySelector("[data-linkedin-share]");
   const linkButtons = [...document.querySelectorAll("[data-linkedin-link-share]")];
   const shareButtons = [button, ...linkButtons].filter(Boolean);
@@ -80,13 +82,13 @@
     link.href = postUrl;
     link.target = "_blank";
     link.rel = "noopener noreferrer";
-    link.textContent = "Voir sur LinkedIn ↗";
+    link.textContent = t("Voir sur LinkedIn ↗");
     target.append(link);
     if (alreadyPublished && prepareRepublish) {
       target.append(document.createTextNode(" "));
       const republishButton = document.createElement("button");
       republishButton.type = "button";
-      republishButton.textContent = "Republier sur LinkedIn";
+      republishButton.textContent = t("Republier sur LinkedIn");
       republishButton.addEventListener("click", () => {
         republishButton.disabled = true;
         prepareRepublish();
@@ -99,7 +101,7 @@
     republishRequested = publicationStatus.alreadyPublished === true;
     confirmButton.textContent = republishRequested
       ? "Confirmer la republication"
-      : "Confirmer la publication";
+      : t("Confirmer la publication");
     if (!republishRequested) {
       feedback.textContent = fallbackMessage;
       return;
@@ -107,9 +109,9 @@
     activeButton.dataset.published = "true";
     const label = activeButton.querySelector("span:last-child");
     if (label) {
-      label.textContent = "Republier";
+      label.textContent = t("Republier");
     } else {
-      activeButton.textContent = "Republier sur LinkedIn";
+      activeButton.textContent = t("Republier sur LinkedIn");
     }
     showPost(
       feedback,
@@ -120,7 +122,7 @@
   };
 
   if (new URLSearchParams(window.location.search).get("linkedin") === "connected") {
-    feedback.textContent = "Compte LinkedIn connecté. Cliquez pour publier cette édition.";
+    feedback.textContent = t("Compte LinkedIn connecté. Cliquez pour publier cette édition.");
     history.replaceState(null, "", window.location.pathname);
   }
 
@@ -169,7 +171,7 @@
       .map((part) =>
         part === part.toUpperCase()
           ? part
-          : part.charAt(0).toLocaleUpperCase("fr") + part.slice(1),
+          : part.charAt(0).toLocaleUpperCase(locale) + part.slice(1),
       )
       .join("");
   };
@@ -185,7 +187,7 @@
     tags.forEach((tag, index) => {
       const label = normalizeHashtag(tag);
       if (!label) return;
-      const key = label.toLocaleLowerCase("fr");
+      const key = label.toLocaleLowerCase(locale);
       const previous = counts.get(key);
       counts.set(key, previous
         ? { ...previous, count: previous.count + 1 }
@@ -253,8 +255,8 @@
     activeButton.dataset.shareImage = result.imageUrl;
     await displayPreview(result.imageUrl);
     feedback.textContent = result.source === "fallback"
-      ? "Le site a refusé la capture. Une carte OOBLIK propre à ce lien a été créée."
-      : "Capture prête : noir et blanc, corail et titre du lien.";
+      ? t("Le site a refusé la capture. Une carte OOBLIK propre à ce lien a été créée.")
+      : t("Capture prête : noir et blanc, corail et titre du lien.");
     confirmButton.disabled = false;
     if (regenerateButton) regenerateButton.disabled = false;
   };
@@ -269,9 +271,9 @@
     if (!isSingleLink && !imageUrl) return;
     shareButton.disabled = true;
     republishRequested = false;
-    confirmButton.textContent = "Confirmer la publication";
+    confirmButton.textContent = t("Confirmer la publication");
     confirmButton.disabled = false;
-    feedback.textContent = "Vérification du compte LinkedIn…";
+    feedback.textContent = t("Vérification du compte LinkedIn…");
 
     try {
       const [status, publicationStatus] = await Promise.all([
@@ -285,7 +287,7 @@
       ]);
       if (!status.configured) {
         feedback.textContent =
-          "L’application LinkedIn doit encore être configurée dans l’administration.";
+          t("L’application LinkedIn doit encore être configurée dans l’administration.");
         shareButton.disabled = false;
         return;
       }
@@ -299,7 +301,7 @@
       if (tagsNote) {
         tagsNote.textContent = hashtags.length
           ? `${hashtags.length} hashtags ont été ajoutés automatiquement. Ils restent modifiables.`
-          : "Aucun hashtag automatique pour cette publication.";
+          : t("Aucun hashtag automatique pour cette publication.");
       }
       if (regenerateButton) regenerateButton.hidden = !isSingleLink;
       if (imageStatus) imageStatus.textContent = "";
@@ -308,7 +310,7 @@
       updateCharacterCount();
       accountField.textContent = `Publication sur le compte ${status.memberName}`;
       feedback.textContent = isSingleLink
-        ? "Préparation de l’image propre à ce lien…"
+        ? t("Préparation de l’image propre à ce lien…")
         : "Personnalisez le texte avant de confirmer.";
       if (!isSingleLink) {
         applyPublicationStatus(
@@ -333,15 +335,15 @@
         } catch (error) {
           if (error?.message === "AUTHENTICATION_REQUIRED") return;
           if (imageStatus) {
-            imageStatus.textContent = "La création de l’image a échoué. Vous pouvez réessayer.";
+            imageStatus.textContent = t("La création de l’image a échoué. Vous pouvez réessayer.");
           }
-          feedback.textContent = "Impossible de préparer l’image LinkedIn.";
+          feedback.textContent = t("Impossible de préparer l’image LinkedIn.");
           if (regenerateButton) regenerateButton.disabled = false;
         }
       }
     } catch (error) {
       if (error?.message === "AUTHENTICATION_REQUIRED") return;
-      feedback.textContent = "La vérification du compte LinkedIn a échoué.";
+      feedback.textContent = t("La vérification du compte LinkedIn a échoué.");
       shareButton.disabled = false;
     }
   };
@@ -355,22 +357,22 @@
       await generateLinkPreview({ refresh: true });
     } catch (error) {
       if (error?.message === "AUTHENTICATION_REQUIRED") return;
-      if (imageStatus) imageStatus.textContent = "La nouvelle capture a échoué.";
-      feedback.textContent = "Impossible de régénérer l’image pour le moment.";
+      if (imageStatus) imageStatus.textContent = t("La nouvelle capture a échoué.");
+      feedback.textContent = t("Impossible de régénérer l’image pour le moment.");
       regenerateButton.disabled = false;
     }
   });
 
   deleteButtons.forEach((deleteButton) => {
     deleteButton.addEventListener("click", async () => {
-      const title = deleteButton.dataset.linkTitle || "ce lien";
+      const title = deleteButton.dataset.linkTitle || t("ce lien");
       if (!window.confirm(`Retirer « ${title} » du Digest ? Le lien restera restaurable dans l’administration.`)) {
         return;
       }
       const item = deleteButton.closest(".archive-link");
       const itemFeedback = item?.querySelector("[data-archive-item-feedback]");
       deleteButton.disabled = true;
-      if (itemFeedback) itemFeedback.textContent = "Retrait en cours…";
+      if (itemFeedback) itemFeedback.textContent = t("Retrait en cours…");
       try {
         await api(
           `/api/admin/links/${encodeURIComponent(deleteButton.dataset.linkId || "")}/hide`,
@@ -382,13 +384,13 @@
           },
         );
         if (itemFeedback) {
-          itemFeedback.textContent = "Lien retiré. Le nouveau déploiement est lancé.";
+          itemFeedback.textContent = t("Lien retiré. Le nouveau déploiement est lancé.");
         }
         item?.classList.add("is-removed");
         window.setTimeout(() => item?.remove(), 1200);
       } catch (error) {
         if (error?.message === "AUTHENTICATION_REQUIRED") return;
-        if (itemFeedback) itemFeedback.textContent = "Le retrait du lien a échoué.";
+        if (itemFeedback) itemFeedback.textContent = t("Le retrait du lien a échoué.");
         deleteButton.disabled = false;
       }
     });
@@ -402,7 +404,7 @@
     }
     confirmButton.disabled = true;
     try {
-      feedback.textContent = "Téléversement de la grande image et publication…";
+      feedback.textContent = t("Téléversement de la grande image et publication…");
       const isSingleLink = Boolean(data.linkId);
       const publication = await api(
         isSingleLink
@@ -453,9 +455,9 @@
       activeButton.dataset.published = "true";
       if (isSingleLink) {
         const label = activeButton.querySelector("span:last-child");
-        if (label) label.textContent = "Republier";
+        if (label) label.textContent = t("Republier");
       } else {
-        activeButton.textContent = "Republier sur LinkedIn";
+        activeButton.textContent = t("Republier sur LinkedIn");
       }
       activeButton.disabled = false;
     } catch (error) {
@@ -466,7 +468,7 @@
       }
       if (error?.code === "LINKEDIN_PUBLICATION_IN_PROGRESS") {
         feedback.textContent =
-          "Cette publication LinkedIn est déjà en cours dans un autre onglet.";
+          t("Cette publication LinkedIn est déjà en cours dans un autre onglet.");
         return;
       }
       if (error?.code === "LINKEDIN_PUBLICATION_OUTCOME_UNKNOWN") {
@@ -475,7 +477,7 @@
         return;
       }
       feedback.textContent =
-        "La publication LinkedIn a échoué. Aucun second post n’a été créé automatiquement.";
+        t("La publication LinkedIn a échoué. Aucun second post n’a été créé automatiquement.");
     } finally {
       confirmButton.disabled = false;
       activeButton.disabled = false;

@@ -1,5 +1,5 @@
 <header class="header">
-  <nav class="header-nav" aria-label="Navigation principale">
+  <nav class="header-nav" aria-label="{{ i18n "ui_aa3ac56ee26d" }}">
     {{- $labelText := site.Params.label.text | default site.Title }}
     <a class="header-brand" href="{{ "" | absLangURL }}" accesskey="h" title="{{ $labelText }} (Alt + H)">
       {{- $labelText -}}
@@ -19,19 +19,20 @@
     </ul>
 
     <div class="header-actions">
+      {{ partial "language-switch.html" . }}
       <a
         class="header-admin-switch"
         data-admin-switch
-        href="{{ "admin" | absLangURL }}"
+        href="{{ "admin" | absURL }}"
         accesskey="a"
-        title="Ouvrir l’atelier (Alt + A)"
+        title="{{ i18n "ui_405ebc88324c" }}"
         hidden>
-        <span class="header-admin-switch-label">Atelier</span>
+        <span class="header-admin-switch-label">{{ i18n "ui_e105f808eaa3" }}</span>
         <span class="header-admin-switch-short" aria-hidden="true">A</span>
         <span aria-hidden="true">↗</span>
       </a>
       {{- if not site.Params.disableThemeToggle }}
-      <button id="theme-toggle" class="theme-toggle" type="button" accesskey="t" title="Changer de thème (Alt + T)" aria-label="Changer de thème">
+      <button id="theme-toggle" class="theme-toggle" type="button" accesskey="t" title="{{ i18n "ui_2602795054c1" }}" aria-label="{{ i18n "ui_5113d95e5271" }}">
         <svg class="moon" aria-hidden="true" viewBox="0 0 24 24">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"></path>
         </svg>
@@ -45,7 +46,7 @@
         class="header-menu-toggle"
         id="header-menu-toggle"
         type="button"
-        aria-label="Ouvrir le menu"
+        aria-label="{{ i18n "ui_43c7e150dbdd" }}"
         aria-expanded="false"
         aria-controls="header-mobile-menu">
         <span></span><span></span><span></span>
@@ -56,14 +57,14 @@
   <dialog class="header-mobile-menu" id="header-mobile-menu" aria-labelledby="header-mobile-menu-title">
     <div class="header-mobile-menu-shell">
       <div class="header-mobile-menu-top">
-        <p id="header-mobile-menu-title">Navigation</p>
-        <button class="header-mobile-menu-close" type="button" aria-label="Fermer le menu">
+        <p id="header-mobile-menu-title">{{ i18n "ui_cf03cf2e9cdf" }}</p>
+        <button class="header-mobile-menu-close" type="button" aria-label="{{ i18n "ui_177b10aa357b" }}">
           <svg aria-hidden="true" viewBox="0 0 24 24">
             <path d="M6 6 18 18M18 6 6 18"></path>
           </svg>
         </button>
       </div>
-      <nav aria-label="Navigation mobile">
+      <nav aria-label="{{ i18n "ui_dc49c549fc14" }}">
         <ul>
           {{- range $index, $item := site.Menus.main }}
             {{- $menuItemURL := (cond (strings.HasSuffix $item.URL "/") $item.URL (printf "%s/" $item.URL)) | absLangURL }}

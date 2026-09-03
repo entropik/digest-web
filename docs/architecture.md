@@ -22,6 +22,13 @@ branche main ── GitHub Actions ── branche production
 
 ## Site public
 
+La construction bilingue passe par `scripts/build-site.mjs` : manifeste public
+français, puis adaptation des champs traduits vers `/en/`. La file DeepL et son
+historique résident dans SQLite, dans le service Node existant. Les snapshots
+de traduction et affiches anglaises suivent le circuit GitHub de publication.
+Les contrats de quota, empreintes et reprise sont détaillés dans
+[Traductions FR / GB](translations.md).
+
 Le site est construit avec Hugo et PaperMod. Le catalogue éditorial réside
 dans `data/links.json`; la taxonomie et ses descriptions résident dans
 `data/categories.json`; les éditions sont décrites dans

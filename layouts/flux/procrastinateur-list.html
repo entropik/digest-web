@@ -7,42 +7,43 @@
 <article class="procrastinator-index">
   <header class="procrastinator-hero">
     <div class="procrastinator-hero-copy">
-      <p class="digest-kicker">Flux 05 · Journal de fabrication</p>
+      <p class="digest-kicker">{{ i18n "ui_1aaa008c6e3a" }}</p>
       <h1>{{ .Title }}</h1>
       <p class="procrastinator-deck">{{ .Description }}</p>
     </div>
-    <aside class="procrastinator-manifesto" aria-label="Note d’intention">
-      <span>Note d’intention</span>
-      <p>Construire l’outil qui permettra enfin de travailler, puis documenter avec méthode toutes les raisons pour lesquelles il n’est pas encore terminé.</p>
+    <aside class="procrastinator-manifesto" aria-label="{{ i18n "ui_97b986217100" }}">
+      <span>{{ i18n "ui_97b986217100" }}</span>
+      <p>{{ i18n "ui_6e5023c8e462" }}</p>
     </aside>
   </header>
 
-  <dl class="procrastinator-stats" aria-label="Le journal en chiffres">
-    <div><dt>{{ len $entries }}</dt><dd>billets conservés</dd></div>
-    <div><dt>{{ $first.Date.Format "02.01" }}</dt><dd>première trace · {{ $first.Date.Format "2006" }}</dd></div>
-    <div><dt>{{ $latest.Date.Format "02.01" }}</dt><dd>dernière trace · {{ $latest.Date.Format "2006" }}</dd></div>
+  <dl class="procrastinator-stats" aria-label="{{ i18n "procrastinator_stats_label" }}">
+    <div><dt>{{ len $entries }}</dt><dd>{{ i18n "ui_202a4d80ef91" }}</dd></div>
+    <div><dt>{{ $first.Date.Format "02.01" }}</dt><dd>{{ i18n "ui_e889902e6452" }} {{ $first.Date.Format "2006" }}</dd></div>
+    <div><dt>{{ $latest.Date.Format "02.01" }}</dt><dd>{{ i18n "ui_609fecee47ec" }} {{ $latest.Date.Format "2006" }}</dd></div>
   </dl>
 
   <section class="procrastinator-latest" aria-labelledby="latest-entry">
     <div class="procrastinator-folio" aria-hidden="true">{{ printf "%03d" (len $entries) }}</div>
     <div>
-      <p class="archive-edition-kicker">Dernier détour · {{ $latest.Date | time.Format ":date_long" }}</p>
+      <p class="archive-edition-kicker">{{ i18n "ui_7ee922e94313" }} {{ $latest.Date | time.Format ":date_long" }}</p>
       <h2 id="latest-entry"><a href="{{ $latest.RelPermalink }}">{{ $latest.Title }}</a></h2>
       <p>{{ $latest.Description }}</p>
-      <a class="procrastinator-read" href="{{ $latest.RelPermalink }}">Lire le billet · {{ $latest.ReadingTime }} min ↗</a>
+      {{ if $latest.Params.translation_pending }}<p class="translation-pending">Translation pending</p>{{ end }}
+      <a class="procrastinator-read" href="{{ $latest.RelPermalink }}">{{ i18n "ui_1976853f6b58" }} {{ $latest.ReadingTime }} min ↗</a>
     </div>
   </section>
 
   <section class="procrastinator-chronology" aria-labelledby="chronology-title">
     <header>
-      <p class="digest-kicker">Index chronologique</p>
-      <h2 id="chronology-title">Le travail, les détours, les reprises</h2>
+      <p class="digest-kicker">{{ i18n "ui_5ced6ff2d79b" }}</p>
+      <h2 id="chronology-title">{{ i18n "ui_082e668d5a44" }}</h2>
     </header>
     {{ range $entries.GroupByDate "2006-01" }}
       <details class="procrastinator-month"{{ if eq .Key $latestMonth }} open{{ end }}>
         <summary>
           <span>{{ (index .Pages 0).Date | time.Format "January 2006" }}</span>
-          <span>{{ len .Pages }} billets</span>
+          <span>{{ len .Pages }} {{ i18n "ui_49ca7519f303" }}</span>
         </summary>
         <ol class="procrastinator-entry-list" reversed>
           {{ range .Pages }}
@@ -52,6 +53,7 @@
                 <span>
                   <strong>{{ .Title }}</strong>
                   <small>{{ .Description }}</small>
+                  {{ if .Params.translation_pending }}<small class="translation-pending">Translation pending</small>{{ end }}
                 </span>
                 <em>{{ .ReadingTime }} min</em>
               </a>

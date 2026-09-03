@@ -5,6 +5,10 @@ set -eu
 repository_root="$(CDPATH= cd -- "$(dirname "$0")/.." && pwd)"
 temporary="$(mktemp -d)"
 trap 'rm -rf -- "$temporary"' EXIT
+TEST_REAL_LN="$(command -v ln)"
+TEST_REAL_MV="$(command -v mv)"
+TEST_REAL_READLINK="$(command -v readlink)"
+export TEST_REAL_LN TEST_REAL_MV TEST_REAL_READLINK
 
 create_fake_commands() {
   fake_bin="$1"
@@ -105,7 +109,7 @@ EOF
 if [ "$1" = "$TEST_BASE/current" ]; then
   cat "$TEST_CURRENT_TARGET_FILE"
 else
-  /usr/bin/readlink "$@"
+  "$TEST_REAL_READLINK" "$@"
 fi
 EOF
 
@@ -126,7 +130,7 @@ if [ "$destination" = "$TEST_BASE/current.new" ] ||
   fi
   printf '%s\n' "$target" >"$TEST_PENDING_TARGET"
 else
-  /usr/bin/ln "$@"
+  "$TEST_REAL_LN" "$@"
 fi
 EOF
 
@@ -136,7 +140,7 @@ eval "destination=\${$#}"
 if [ "$destination" = "$TEST_BASE/current" ]; then
   cp "$TEST_PENDING_TARGET" "$TEST_CURRENT_TARGET_FILE"
 else
-  /usr/bin/mv "$@"
+  "$TEST_REAL_MV" "$@"
 fi
 EOF
 

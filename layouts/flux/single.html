@@ -1,22 +1,26 @@
 {{ define "main" }}
 {{ $stream := .Params.stream }}
-{{ $links := where (partialCached "public-links.html" hugo.Data.links "public-links") "stream" $stream }}
+{{ $links := where (partialCached "public-links.html" hugo.Data.links "public-links" site.Language.Lang) "stream" $stream }}
 {{ $years := slice }}
 {{ range $links }}
   {{ $years = $years | append (time.Format "2006" .added) }}
 {{ end }}
 {{ $years = sort (uniq $years) "value" "desc" }}
 {{ $dead := where $links "status" "dead" }}
+{{ $tags := slice }}
+{{ range $links }}{{ range (.tags | default slice) }}{{ $tags = $tags | append . }}{{ end }}{{ end }}
 
 <article class="archive-single flux-single">
   <header class="archive-single-header">
-    <p class="digest-kicker">Flux mémoire</p>
+    <p class="digest-kicker">{{ i18n "ui_a8a93f4499a7" }}</p>
     <h1>{{ .Title }}</h1>
     <p>{{ .Description }}</p>
     <div class="archive-single-count">
-      <strong>{{ len $links }}</strong><span>publications · {{ len $dead }} liens morts</span>
+      <strong>{{ len $links }}</strong><span>{{ i18n "ui_0447f8d1cb0f" }} {{ len $dead }} {{ i18n "ui_1fc38637b80e" }}</span>
     </div>
   </header>
+
+  {{ if and (not .Params.translation_pending) (partial "taxonomy-translation-pending.html" (dict "tags" (uniq $tags))) }}<p class="translation-pending" lang="en-GB">{{ i18n "translation_pending_detail" }}</p>{{ end }}
 
   {{ range $years }}
     {{ $year := . }}
@@ -24,7 +28,7 @@
     <details class="flux-year"{{ if eq $year (index $years 0) }} open{{ end }}>
       <summary>
         <span>{{ $year }}</span>
-        <span>{{ len $yearLinks }} publications</span>
+        <span>{{ len $yearLinks }} {{ i18n "ui_1a4f2b107128" }}</span>
       </summary>
       <div class="archive-link-list">
         {{ range sort $yearLinks "added" "desc" }}
@@ -38,16 +42,17 @@
                 </a>
               </h3>
               {{ if eq (.status | default "") "dead" }}
-                <span class="archive-status">Lien mort · conservé pour mémoire</span>
+                <span class="archive-status">{{ i18n "ui_6a518b9b9a4e" }}</span>
               {{ end }}
               <span class="archive-url">{{ .url }}</span>
             </div>
             <div>
               {{ with .status_note }}<p class="archive-status-note">{{ . }}</p>{{ end }}
-              {{ with .description }}<p class="archive-link-description">{{ . }}</p>{{ end }}
+              {{ if .translation_pending }}<p class="translation-pending">Translation pending</p>{{ end }}
+            {{ with .description }}<p class="archive-link-description">{{ . }}</p>{{ end }}
               {{ with .tags }}
                 <div class="archive-tags" aria-label="Tags">
-                  {{ range . }}<a href="{{ partialCached "tag-url.html" . . }}">#{{ . }}</a>{{ end }}
+                  {{ range . }}<a href="{{ partialCached "tag-url.html" . . site.Language.Lang }}">#{{ partial "tag-label.html" . }}</a>{{ end }}
                 </div>
               {{ end }}
             </div>

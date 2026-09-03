@@ -2,7 +2,7 @@
 {{ $digestDate := .Params.digest_date }}
 {{ $isFocus := eq (.Params.editorial_type | default "digest") "focus" }}
 {{ $displayTitle := cond $isFocus (printf "FOCUS - %s" .Title) (partial "archive-title.html" .Title | plainify | htmlUnescape) }}
-{{ $linksByDate := partialCached "public-links-by-date.html" hugo.Data.links "public-links-by-date" }}
+{{ $linksByDate := partialCached "public-links-by-date.html" hugo.Data.links "public-links-by-date" site.Language.Lang }}
 {{ $links := index $linksByDate $digestDate | default slice }}
 {{ $categories := slice }}
 {{ $tags := slice }}
@@ -29,8 +29,11 @@
   {{ end }}
 {{ end }}
 {{ $linkedinImagePath := printf "static/social/%s-linkedin.png" $digestDate }}
+{{ if and (eq site.Language.Lang "en") .Params.translation_artwork_current (fileExists (printf "static/social/en/%s-linkedin.png" $digestDate)) }}
+  {{ $linkedinImagePath = printf "static/social/en/%s-linkedin.png" $digestDate }}
+{{ end }}
 {{ if fileExists $linkedinImagePath }}
-  {{ $linkedinImage = printf "/social/%s-linkedin.png" $digestDate }}
+  {{ $linkedinImage = strings.TrimPrefix "static" $linkedinImagePath }}
   {{ $linkedinFormat = "square" }}
 {{ else }}
   {{ $linkedinImage = $socialImage }}
@@ -45,11 +48,11 @@
 
 <article class="archive-single">
   <header class="archive-single-header">
-    <p class="digest-kicker">{{ if $isFocus }}OOBLIK — dossier thématique{{ else }}Web Digest’s — édition{{ end }}</p>
+    <p class="digest-kicker">{{ if $isFocus }}{{ i18n "ui_034f8946fc60" }}{{ else }}{{ i18n "ui_570547943a82" }}{{ end }}</p>
     <h1>{{ if $isFocus }}<span class="archive-title-prefix">FOCUS - </span>{{ .Title }}{{ else }}{{ partial "archive-title.html" .Title }}{{ end }}</h1>
     <p>{{ .Description }}</p>
     <div class="archive-single-actions">
-      <div class="archive-single-count"><strong>{{ len $links }}</strong><span>liens documentés</span></div>
+      <div class="archive-single-count"><strong>{{ len $links }}</strong><span>{{ i18n "ui_0666141a3685" }}</span></div>
       <div class="archive-linkedin-actions">
         {{ with $linkedinImage }}
           <button
@@ -61,7 +64,7 @@
             data-share-title="{{ $displayTitle }}"
             data-share-tags="{{ $tags | jsonify }}"
             data-share-url="{{ $.Permalink }}">
-            Publier sur LinkedIn
+            {{ i18n "ui_9826b821e01e" }}
           </button>
         {{ end }}
         <span class="archive-linkedin-feedback" data-linkedin-feedback role="status" aria-live="polite"></span>
@@ -70,13 +73,15 @@
     {{ if $linkedinImage }}{{ partial "linkedin-composer.html" (dict "image" $linkedinImage "format" $linkedinFormat) }}{{ end }}
   </header>
 
+  {{ if and (not .Params.translation_pending) (partial "taxonomy-translation-pending.html" (dict "categories" $categories "tags" (uniq $tags))) }}<p class="translation-pending" lang="en-GB">{{ i18n "translation_pending_detail" }}</p>{{ end }}
+
   {{ with $displayImage }}
       <figure class="archive-social-visual">
         <img
           src="{{ . | relURL }}"
           width="{{ $displayWidth }}"
           height="{{ $displayHeight }}"
-          alt="{{ if $isFocus }}Affiche du Focus mêlant archives techniques et composition typographique{{ else }}Affiche générative de cette édition du Digest{{ end }}"
+          alt="{{ if $isFocus }}{{ i18n "ui_d862fb325049" }}{{ else }}{{ i18n "ui_aa4c5d054003" }}{{ end }}"
           decoding="async">
       </figure>
   {{ end }}
@@ -91,7 +96,7 @@
     {{ $category := . }}
     {{ $categoryLinks := where $links "category" $category }}
     <section class="archive-group">
-      <h2>{{ $category }}</h2>
+      <h2>{{ partial "category-label.html" $category }}</h2>
       <div class="archive-link-list">
         {{ range sort $categoryLinks "title" }}
           {{ $targetURL := partial "link-target-url.html" . }}
@@ -106,20 +111,20 @@
                 </a>
               </h3>
               {{ if eq (.status | default "") "dead" }}
-                <span class="archive-status">Lien mort · conservé pour mémoire</span>
+                <span class="archive-status">{{ i18n "ui_6a518b9b9a4e" }}</span>
                 {{ with .archive_url }}
                   <span class="archive-stream">
-                    {{ if eq $archiveScope "site" }}Dernière capture du site{{ else }}Capture archivée{{ end }}
+                    {{ if eq $archiveScope "site" }}{{ i18n "ui_9cbcf9c39727" }}{{ else }}{{ i18n "ui_4f28420844b8" }}{{ end }}
                   </span>
                 {{ end }}
               {{ end }}
               {{ with .stream }}
-                <a class="archive-stream" href="{{ printf "flux/%s/" . | relURL }}">Flux {{ humanize . }}</a>
+                <a class="archive-stream" href="{{ printf "flux/%s/" . | relLangURL }}">{{ i18n "ui_889e1c2f5289" }} {{ humanize . }}</a>
               {{ end }}
               <span class="archive-url">{{ .url }}</span>
               {{ with .previous_urls }}
                 <details class="archive-previous-urls">
-                  <summary>Anciennes adresses</summary>
+                  <summary>{{ i18n "ui_75cdadd0a471" }}</summary>
                   <ul>
                     {{ range . }}
                       <li><a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ . }}</a></li>
@@ -133,11 +138,11 @@
                   type="button"
                   data-favorite-url="{{ .url }}"
                   aria-pressed="false"
-                  aria-label="Ajouter ce lien aux favoris">
+                  aria-label="{{ i18n "ui_33090a129f6b" }}">
                   <svg aria-hidden="true" viewBox="0 0 24 24">
                     <path d="M12 20.5 4.7 13.8A5.4 5.4 0 0 1 12 5.9a5.4 5.4 0 0 1 7.3 7.9Z"></path>
                   </svg>
-                  <span>Favoris</span>
+                  <span>{{ i18n "ui_1020d9085c8a" }}</span>
                 </button>
                 <button
                   class="archive-linkedin-share"
@@ -148,7 +153,7 @@
                   data-share-title="{{ .title }}"
                   data-share-tags="{{ $linkTags | jsonify }}"
                   data-share-url="{{ .url }}"
-                  aria-label="Publier ce lien sur LinkedIn">
+                  aria-label="{{ i18n "ui_22cb597ce186" }}">
                   <span aria-hidden="true">in</span>
                   <span>LinkedIn</span>
                 </button>
@@ -159,21 +164,22 @@
                   data-archive-delete-link
                   data-link-id="{{ .id }}"
                   data-link-title="{{ .title }}"
-                  aria-label="Retirer ce lien du Digest">
+                  aria-label="{{ i18n "ui_197a19e5dc80" }}">
                   <svg aria-hidden="true" viewBox="0 0 24 24">
                     <path d="M4 7h16M9 7V4h6v3m-9 0 1 13h10l1-13M10 11v5m4-5v5"></path>
                   </svg>
-                  <span>Retirer</span>
+                  <span>{{ i18n "ui_54ec24a19c21" }}</span>
                 </button>
               </div>
               <span class="archive-item-feedback" data-archive-item-feedback role="status" aria-live="polite"></span>
             </div>
             <div>
               {{ with .status_note }}<p class="archive-status-note">{{ . }}</p>{{ end }}
-              {{ with .description }}<p class="archive-link-description">{{ . }}</p>{{ end }}
+              {{ if .translation_pending }}<p class="translation-pending">Translation pending</p>{{ end }}
+            {{ with .description }}<p class="archive-link-description">{{ . }}</p>{{ end }}
               {{ with .tags }}
                 <div class="archive-tags" aria-label="Tags">
-                  {{ range . }}<a href="{{ partialCached "tag-url.html" . . }}">#{{ . }}</a>{{ end }}
+                  {{ range . }}<a href="{{ partialCached "tag-url.html" . . site.Language.Lang }}">#{{ partial "tag-label.html" . }}</a>{{ end }}
                 </div>
               {{ end }}
             </div>

@@ -54,6 +54,8 @@ if (!!linkedinClientId !== !!linkedinClientSecret) {
 }
 
 export const config = {
+  deeplApiKey: process.env.DEEPL_API_KEY?.trim() || null,
+  deeplApiUrl: process.env.DEEPL_API_URL?.trim() || undefined,
   nodeEnv: process.env.NODE_ENV ?? "development",
   port: positiveInteger("PORT", 3210),
   baseUrl,
