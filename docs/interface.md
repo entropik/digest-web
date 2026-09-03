@@ -243,6 +243,25 @@ signature autonome.
 - désactiver transitions et animations avec `prefers-reduced-motion` ;
 - vérifier contraste, lisibilité et débordements sur ordinateur et mobile.
 
+Les deux interactions ludiques historiques restent disponibles lorsque le
+mouvement est autorisé : le texte liquide d’À propos au survol et la dérive
+automatique des tags. Le survol dépend d’un pointeur fin capable de survoler,
+pas d’un seuil de largeur de fenêtre. L’indice `plouf ?` est masqué lorsque
+l’effet est indisponible, notamment sur écran tactile ou en mouvement réduit.
+Un changement de préférence système est pris en compte sans rechargement.
+
+La boucle des tags s’arrête à `pagehide` et reprend à `pageshow`, y compris
+après plusieurs retours arrière depuis le cache du navigateur, sans multiplier
+les boucles. Les scripts des deux effets portent une empreinte de contenu pour
+ne pas conserver une ancienne version après publication.
+
+Les régressions sont couvertes par `admin-service/test/public-motion.test.ts`.
+Avec un serveur Hugo de test déjà lancé, la vérification dans Chromium se lance
+depuis `admin-service/` avec
+`node scripts/check-public-motion.mjs http://127.0.0.1:1314/`.
+Elle couvre les fenêtres de bureau larges et étroites, le tactile, la préférence
+de mouvement, la restauration de page, la recherche et les débordements.
+
 ## Points d’implémentation
 
 - gabarit et données : `layouts/index.html` et `data/categories.json` ;
