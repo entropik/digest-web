@@ -62,7 +62,9 @@ Les affiches typographiques anglaises sont produites dans `static/social/en/`.
 Les documents historiques et captures restent inchangés. Le snapshot public
 `/translation-snapshot.json` confirme ce qui est effectivement déployé.
 Un déploiement échoué se réessaie avec « Réessayer les erreurs », sans nouvel
-appel de traduction. Aucun export supplémentaire n’est lancé pendant un
+appel de traduction. Réessayer des champs en erreur conserve le mode de
+rattrapage choisi : cette commande ne lance jamais tout l’historique en attente.
+Aucun export supplémentaire n’est lancé pendant un
 déploiement déjà en cours.
 
 Une traduction absente ou devenue obsolète laisse apparaître la source avec
@@ -100,7 +102,9 @@ facturé à nouveau. Le tableau indique le contenu et le motif concernés.
 Une correction manuelle peut être conservée dans le snapshot Git en ajoutant
 `manual: true` au champ corrigé, sans changer son `hash`. Le service la réimporte
 après publication et la préserve tant que la source ne change pas. Une source
-modifiée produit une nouvelle empreinte et une nouvelle traduction.
+modifiée produit une nouvelle empreinte et une nouvelle traduction. La correction
+reste propre au contenu et au champ concernés, y compris lors de la reconstruction
+de SQLite depuis le snapshot ; elle ne remplace pas la mémoire partagée.
 
 Les routes `/api/admin/translations/*` utilisent l’authentification propriétaire
 et les contrôles d’origine existants. La clé n’est jamais incluse dans le site,

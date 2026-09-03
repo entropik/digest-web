@@ -18,7 +18,16 @@ export function ensureTranslationSchema(db: Database.Database): void {
     "CREATE INDEX IF NOT EXISTS translation_fields_hash ON translation_fields(hash);" +
     "CREATE TABLE IF NOT EXISTS translation_history (id INTEGER PRIMARY KEY,at TEXT NOT NULL,event TEXT NOT NULL,chars INTEGER NOT NULL DEFAULT 0,total INTEGER NOT NULL,translated INTEGER NOT NULL,used INTEGER,batch_id TEXT);" +
     "CREATE TABLE IF NOT EXISTS translation_batches (id TEXT PRIMARY KEY,started_at TEXT NOT NULL,finished_at TEXT,state TEXT NOT NULL,estimated INTEGER NOT NULL,translated INTEGER NOT NULL DEFAULT 0);" +
-    "CREATE INDEX IF NOT EXISTS translation_history_at ON translation_history(at);"
+    "CREATE INDEX IF NOT EXISTS translation_history_at ON translation_history(at);" +
+    // Resolve corrections per item/field without putting them in hash-shared memory.
+    "CREATE VIEW IF NOT EXISTS translation_current_fields AS " +
+    "SELECT f.*,m.chars,COALESCE(json_extract(c.value,'$.text'),m.translated) AS translated," +
+    "CASE WHEN c.value IS NOT NULL THEN 'done' ELSE m.state END AS state," +
+    "CASE WHEN c.value IS NULL THEN m.error END AS error," +
+    "CASE WHEN c.value IS NOT NULL THEN 1 ELSE 0 END AS manual " +
+    "FROM translation_fields f JOIN translation_memory m ON m.hash=f.hash " +
+    "LEFT JOIN json_each((SELECT value FROM translation_settings WHERE key='corrections')) ci ON ci.key=f.item_id " +
+    "LEFT JOIN json_each(ci.value) c ON c.key=f.field AND json_extract(c.value,'$.hash')=f.hash;"
   );
 }
 export class TranslationStore {
@@ -44,7 +53,7 @@ export class TranslationStore {
       this.db.prepare("UPDATE translation_items SET active=0").run();
       for (const item of manifest.items) {
         const old = this.db.prepare("SELECT id FROM translation_items WHERE id=?").get(item.id);
-        const previous = this.db.prepare("SELECT f.field,f.hash,f.lane,m.translated FROM translation_fields f JOIN translation_memory m ON m.hash=f.hash WHERE f.item_id=?")
+        const previous = this.db.prepare("SELECT f.field,f.hash,f.lane,m.translated FROM translation_fields f JOIN translation_current_fields m ON m.item_id=f.item_id AND m.field=f.field WHERE f.item_id=?")
           .all(item.id) as { field: string; hash: string; lane: string | null; translated: string | null }[];
         this.db.prepare("INSERT INTO translation_items(id,title,kind,date,route,group_name,dependencies,active) VALUES(?,?,?,?,?,?,?,1) ON CONFLICT(id) DO UPDATE SET title=excluded.title,kind=excluded.kind,date=excluded.date,route=excluded.route,group_name=excluded.group_name,dependencies=excluded.dependencies,active=1")
           .run(item.id, item.title, item.kind, item.date, item.route, item.group, JSON.stringify(item.dependencies));
@@ -97,7 +106,7 @@ export class TranslationStore {
     return translationBudget(this.get<number | null>("used", null), this.get<number | null>("limit", null), novelty);
   }
   estimate() {
-    return (this.db.prepare("SELECT COALESCE(SUM(chars),0) AS chars FROM translation_memory WHERE translated IS NULL AND hash IN (SELECT f.hash FROM translation_fields f JOIN translation_items i ON i.id=f.item_id WHERE i.active=1)")
+    return (this.db.prepare("SELECT COALESCE(SUM(chars),0) AS chars FROM translation_memory WHERE translated IS NULL AND hash IN (SELECT f.hash FROM translation_current_fields f JOIN translation_items i ON i.id=f.item_id WHERE i.active=1 AND f.translated IS NULL)")
       .get() as { chars: number }).chars;
   }
   start() {
@@ -136,8 +145,13 @@ export class TranslationStore {
   retry(includeUncertain = false) {
     const publication = this.get<{state?: string}>("publication", {});
     if (publication.state === "deploy_failed") this.set("publication", { ...publication, state: "retrying" });
-    const changed = this.db.prepare("UPDATE translation_memory SET state='pending',error=NULL WHERE state='error'" + (includeUncertain ? " OR state='uncertain'" : "")).run().changes;
-    if (changed && this.budget() > 0) this.start();
+    const errors = "state='error'" + (includeUncertain ? " OR state='uncertain'" : "");
+    const changed = this.db.transaction(() => {
+      this.db.prepare("UPDATE translation_fields SET lane='retry' WHERE lane IS NULL AND hash IN (SELECT hash FROM translation_memory WHERE " + errors + ")").run();
+      return this.db.prepare("UPDATE translation_memory SET state='pending',error=NULL WHERE " + errors).run().changes;
+    })();
+    // Retry just these fields; keep the user's current backfill mode and budget lanes.
+    if (changed) this.resume();
     // Reservations on uncertain requests remain consumed: a retry may be billed again.
     this.record(includeUncertain ? "retry_uncertain" : "retry");
   }
@@ -147,8 +161,8 @@ export class TranslationStore {
     const rows = this.db.prepare(
       "SELECT m.*,i.id AS itemId,i.title,MAX(CASE WHEN f.lane IN ('new','update') THEN 1 ELSE 0 END) AS novelty," +
       "MIN(CASE WHEN f.lane IN ('new','update') THEN 0 WHEN i.group_name='foundation' OR i.kind IN ('category','tag') THEN 1 WHEN i.initial=1 THEN 2 ELSE 3 END) AS rank,MAX(i.date) AS priority_date " +
-      "FROM translation_memory m JOIN translation_fields f ON f.hash=m.hash JOIN translation_items i ON i.id=f.item_id " +
-      "WHERE i.active=1 AND m.state='pending' AND m.translated IS NULL AND (f.lane IN ('new','update') OR ?=1) " +
+      "FROM translation_memory m JOIN translation_current_fields f ON f.hash=m.hash JOIN translation_items i ON i.id=f.item_id " +
+      "WHERE i.active=1 AND m.state='pending' AND f.translated IS NULL AND (f.lane IN ('new','update','retry') OR ?=1) " +
       "GROUP BY m.hash ORDER BY rank,priority_date DESC,m.hash LIMIT 1"
     ).get(backfill ? 1 : 0) as (Memory & { novelty: number; itemId: string; title: string }) | undefined;
     return rows && { ...rows, novelty: Boolean(rows.novelty) };
@@ -193,6 +207,7 @@ export class TranslationStore {
         if (entry.manual) {
           corrections[id] ??= {};
           corrections[id]![field] = entry;
+          continue;
         }
         this.db.prepare("UPDATE translation_memory SET translated=?,state='done',error=NULL,updated_at=? WHERE hash=? AND translated IS NULL")
           .run(entry.text, this.now(), entry.hash);
@@ -203,7 +218,7 @@ export class TranslationStore {
   snapshot(): TranslationSnapshot {
     const entries: TranslationSnapshot["entries"] = {};
     const corrections = this.get<TranslationSnapshot["entries"]>("corrections", {});
-    const rows = this.db.prepare("SELECT f.item_id,f.field,m.hash,m.translated,m.manual FROM translation_fields f JOIN translation_items i ON i.id=f.item_id JOIN translation_memory m ON m.hash=f.hash WHERE i.active=1 AND m.translated IS NOT NULL ORDER BY f.item_id,f.field")
+    const rows = this.db.prepare("SELECT f.item_id,f.field,m.hash,m.translated,m.manual FROM translation_fields f JOIN translation_items i ON i.id=f.item_id JOIN translation_current_fields m ON m.item_id=f.item_id AND m.field=f.field WHERE i.active=1 AND m.translated IS NOT NULL ORDER BY f.item_id,f.field")
       .all() as { item_id: string; field: string; hash: string; translated: string; manual: number }[];
     for (const row of rows) {
       entries[row.item_id] ??= {};
@@ -213,7 +228,7 @@ export class TranslationStore {
     return { version: 1, revision: snapshotRevision(entries), entries };
   }
   stats() {
-    const counts = this.db.prepare("SELECT COALESCE(SUM(m.chars),0) AS total,COALESCE(SUM(CASE WHEN m.translated IS NOT NULL THEN m.chars ELSE 0 END),0) AS translated FROM translation_fields f JOIN translation_items i ON i.id=f.item_id JOIN translation_memory m ON m.hash=f.hash WHERE i.active=1")
+    const counts = this.db.prepare("SELECT COALESCE(SUM(m.chars),0) AS total,COALESCE(SUM(CASE WHEN m.translated IS NOT NULL THEN m.chars ELSE 0 END),0) AS translated FROM translation_fields f JOIN translation_items i ON i.id=f.item_id JOIN translation_current_fields m ON m.item_id=f.item_id AND m.field=f.field WHERE i.active=1")
       .get() as { total: number; translated: number };
     return { ...counts, percent: counts.total ? Math.round(counts.translated / counts.total * 1000) / 10 : 0 };
   }
@@ -221,21 +236,21 @@ export class TranslationStore {
     return this.db.prepare(
       "SELECT i.id,i.title,i.kind,i.date,i.route,COUNT(*) AS fields,SUM(CASE WHEN m.translated IS NOT NULL THEN 1 ELSE 0 END) AS done," +
       "SUM(CASE WHEN m.state IN ('error','uncertain') THEN 1 ELSE 0 END) AS errors,MAX(m.error) AS error,SUM(m.chars) AS chars,MAX(CASE WHEN f.lane='update' AND m.translated IS NULL THEN 1 ELSE 0 END) AS stale " +
-      "FROM translation_items i JOIN translation_fields f ON f.item_id=i.id JOIN translation_memory m ON m.hash=f.hash WHERE i.active=1 " +
+      "FROM translation_items i JOIN translation_fields f ON f.item_id=i.id JOIN translation_current_fields m ON m.item_id=f.item_id AND m.field=f.field WHERE i.active=1 " +
       "GROUP BY i.id ORDER BY i.date DESC,i.id LIMIT ? OFFSET ?"
     ).all(limit, offset);
   }
   liveCharacters() {
     const entries = this.get<TranslationSnapshot["entries"]>("liveEntries", {});
     const prepared = this.snapshot().entries;
-    const rows = this.db.prepare("SELECT f.item_id,f.field,m.hash,m.chars,m.translated FROM translation_fields f JOIN translation_items i ON i.id=f.item_id JOIN translation_memory m ON m.hash=f.hash WHERE i.active=1").all() as {item_id:string;field:string;hash:string;chars:number;translated:string|null}[];
+    const rows = this.db.prepare("SELECT f.item_id,f.field,m.hash,m.chars,m.translated FROM translation_fields f JOIN translation_items i ON i.id=f.item_id JOIN translation_current_fields m ON m.item_id=f.item_id AND m.field=f.field WHERE i.active=1").all() as {item_id:string;field:string;hash:string;chars:number;translated:string|null}[];
     return rows.reduce((total, row) => {
       const live = entries[row.item_id]?.[row.field];
       return total + (live?.hash === row.hash && live.text === prepared[row.item_id]?.[row.field]?.text ? row.chars : 0);
     }, 0);
   }
   overview() {
-    const rows = this.db.prepare("SELECT i.id,COUNT(*) AS fields,SUM(CASE WHEN m.translated IS NOT NULL THEN 1 ELSE 0 END) AS done,SUM(CASE WHEN m.state IN ('error','uncertain') THEN 1 ELSE 0 END) AS errors,MAX(CASE WHEN f.lane='update' AND m.translated IS NULL THEN 1 ELSE 0 END) AS stale FROM translation_items i JOIN translation_fields f ON f.item_id=i.id JOIN translation_memory m ON m.hash=f.hash WHERE i.active=1 GROUP BY i.id").all() as { fields: number; done: number; errors: number; stale: number }[];
+    const rows = this.db.prepare("SELECT i.id,COUNT(*) AS fields,SUM(CASE WHEN m.translated IS NOT NULL THEN 1 ELSE 0 END) AS done,SUM(CASE WHEN m.state IN ('error','uncertain') THEN 1 ELSE 0 END) AS errors,MAX(CASE WHEN f.lane='update' AND m.translated IS NULL THEN 1 ELSE 0 END) AS stale FROM translation_items i JOIN translation_fields f ON f.item_id=i.id JOIN translation_current_fields m ON m.item_id=f.item_id AND m.field=f.field WHERE i.active=1 GROUP BY i.id").all() as { fields: number; done: number; errors: number; stale: number }[];
     return {
       initialized: this.get("initialized", false), paused: this.get("paused", false), backfill: this.get("backfill", false),
       coverage: this.stats(),
@@ -244,7 +259,7 @@ export class TranslationStore {
       estimated: Math.min(this.estimate(), this.budget()),
       publication: { ...this.get("publication", { state: "idle" }), preparedCharacters: this.stats().translated, liveCharacters: this.liveCharacters() },
       lastError: this.get("lastError", null),
-      uncertain: this.db.prepare("SELECT m.hash,i.title,f.field FROM translation_memory m JOIN translation_fields f ON f.hash=m.hash JOIN translation_items i ON i.id=f.item_id WHERE m.state='uncertain' AND i.active=1 GROUP BY m.hash ORDER BY i.date DESC LIMIT 50").all(),
+      uncertain: this.db.prepare("SELECT m.hash,i.title,f.field FROM translation_memory m JOIN translation_current_fields f ON f.hash=m.hash JOIN translation_items i ON i.id=f.item_id WHERE m.state='uncertain' AND i.active=1 GROUP BY m.hash ORDER BY i.date DESC LIMIT 50").all(),
       batches: this.db.prepare("SELECT * FROM translation_batches ORDER BY started_at DESC LIMIT 20").all(),
     };
   }

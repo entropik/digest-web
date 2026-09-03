@@ -59,6 +59,64 @@ test("identical fields share memory; unchanged and manually restored translation
   assert.equal(store.overview().counts.pending, 1);
   db.close();
 });
+test("retrying a novelty never starts pending history, including above the backfill ceiling", () => {
+  for (const used of [0, 700_100]) {
+    const { db, store } = fixture();
+    const old = item("old", "Historique"), fresh = item("new", "Nouveau");
+    store.sync(manifest(old)); store.sync(manifest(old, fresh)); store.quota(used, 1_000_000);
+    const next = store.next()!;
+    assert(store.reserve(next.hash, 7, true)); store.fail(next.hash, "DEEPL_429", false);
+    store.retry();
+    assert.equal(store.overview().backfill, false);
+    assert.equal(store.next()?.itemId, "new");
+    assert(store.reserve(next.hash, 7, true)); store.complete(next.hash, "New item", 7);
+    assert.equal(store.next(), undefined);
+    assert.equal(store.overview().batches.length, 0);
+    db.close();
+  }
+});
+test("retrying a completed backfill only reopens its failed fields", () => {
+  const { db, store } = fixture();
+  store.sync(manifest(item("a"), item("b", "Ancien", "2020-01-01"))); store.start();
+  const next = store.next()!;
+  assert(store.reserve(next.hash, 7, false)); store.fail(next.hash, "DEEPL_429", false);
+  store.stopBackfill("complete_with_errors"); store.retry();
+  assert.equal(store.overview().backfill, false);
+  assert.equal(store.next()?.hash, next.hash);
+  assert.equal(store.next()?.novelty, false);
+  assert(store.reserve(next.hash, 7, false)); store.complete(next.hash, "Hello", 7);
+  assert.equal(store.next(), undefined);
+  db.close();
+});
+test("cold restore keeps manual fields separate from shared memory and uncorrected fields", () => {
+  for (const withSharedTranslation of [false, true]) {
+    const { db, store } = fixture();
+    store.sync(manifest(item("a"), item("b")));
+    const hash = sourceHash("Bonjour", "text");
+    const entries: TranslationSnapshot["entries"] = { a: { title: { hash, text: "Good day", manual: true } } };
+    if (withSharedTranslation) entries.b = { title: { hash, text: "Hello" } };
+    store.restore({ version: 1, revision: "restored", entries });
+    store.set("liveEntries", entries);
+    assert.equal(store.snapshot().entries.a?.title?.text, "Good day");
+    assert.equal(store.snapshot().entries.b?.title?.text, withSharedTranslation ? "Hello" : undefined);
+    assert.equal(store.memory(hash)?.translated, withSharedTranslation ? "Hello" : null);
+    assert.equal(store.overview().coverage.percent, withSharedTranslation ? 100 : 50);
+    assert.equal(store.overview().counts.done, withSharedTranslation ? 2 : 1);
+    assert.equal(store.overview().publication.liveCharacters, withSharedTranslation ? 14 : 7);
+    assert.equal((store.items() as { id: string; done: number }[]).find(row => row.id === "a")?.done, 1);
+    store.start();
+    assert.equal(store.next()?.itemId, withSharedTranslation ? undefined : "b");
+    if (!withSharedTranslation) {
+      store.sync(manifest(item("a")));
+      assert.equal(store.next(), undefined);
+      assert.equal(store.estimate(), 0);
+      store.sync(manifest(item("a", "Bonjour modifié")));
+      assert.equal(store.next()?.novelty, true);
+      assert.equal(store.overview().counts.stale, 1);
+    }
+    db.close();
+  }
+});
 test("reservation includes previous usage, uncertain requests stay reserved after a restart", () => {
   const { db, store } = fixture();
   store.sync(manifest(item("a")));
