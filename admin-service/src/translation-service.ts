@@ -25,8 +25,8 @@ export class TranslationService {
   }
   async sync() {
     const manifest = validateManifest(await this.dependencies.manifest());
-    this.store.sync(manifest);
     const published = await this.dependencies.published();
+    this.store.sync(manifest);
     if (published) {
       this.store.restore(published);
       this.store.set("liveRevision", published.revision);

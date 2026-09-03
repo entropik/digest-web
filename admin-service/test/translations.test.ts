@@ -20,6 +20,21 @@ const fixture = () => {
   store.quota(0, 1_000_000);
   return { db, store };
 };
+test("a missing public snapshot keeps a fresh inventory unavailable", async () => {
+  const {db,store}=fixture();
+  let snapshotAvailable=false;
+  const service=new TranslationService(store,new DeepLClient(""),{manifest:async()=>manifest(item("a")),published:async()=>{
+    if(!snapshotAvailable) throw new Error("snapshot unavailable");
+    return null;
+  },export:async()=>({commit:"unused"})});
+  await assert.rejects(service.sync(),/snapshot unavailable/);
+  assert.equal(store.overview().initialized,false);
+  assert.throws(()=>store.start(),/MANIFEST_UNAVAILABLE/);
+  snapshotAvailable=true;
+  await service.sync();
+  assert.equal(store.overview().initialized,true);
+  db.close();
+});
 test("first inventory stays idle, first lot precedes history, later novelty wins and removed items disappear", () => {
   const { db, store } = fixture();
   const old = Array.from({ length: 12 }, (_, n) => item("old" + n, "texte" + n, "2020-01-" + String(n + 1).padStart(2, "0")));

@@ -1,1 +1,2 @@
-{{- return (partial "translated.html" (dict "id" (printf "tag:%s" .) "field" "name" "source" .)) -}}
+{{- $status := partial "translation-status.html" (dict "id" (printf "tag:%s" .) "field" "name" "source" .) -}}
+{{- return $status.text -}}

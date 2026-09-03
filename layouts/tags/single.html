@@ -12,6 +12,8 @@
     {{ end }}
   {{ end }}
 {{ end }}
+{{ $visibleTags := $tags }}
+{{ range $links }}{{ range (.tags | default slice) }}{{ $visibleTags = $visibleTags | append . }}{{ end }}{{ end }}
 
 <article class="archive-single">
   <header class="archive-single-header tag-archive-header">
@@ -22,6 +24,8 @@
     <span class="archive-linkedin-feedback" data-linkedin-feedback role="status" aria-live="polite"></span>
     {{ partial "linkedin-composer.html" (dict) }}
   </header>
+
+  {{ if and (not .Params.translation_pending) (partial "taxonomy-translation-pending.html" (dict "tags" (uniq $visibleTags))) }}<p class="translation-pending" lang="en-GB">{{ i18n "translation_pending_detail" }}</p>{{ end }}
 
   <section class="archive-group">
     <div class="archive-link-list">

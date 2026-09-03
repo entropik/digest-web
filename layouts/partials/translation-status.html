@@ -1,0 +1,8 @@
+{{- $text := .source | default "" -}}
+{{- $pending := false -}}
+{{- if and (eq site.Language.Lang "en") $text -}}
+  {{- $entry := index (index (hugo.Data.translations_en.entries | default dict) .id | default dict) .field -}}
+  {{- $hash := crypto.SHA256 (printf "%s\n%s" (.format | default "text") $text) -}}
+  {{- if and $entry (eq $entry.hash $hash) -}}{{- $text = $entry.text -}}{{- else -}}{{- $pending = true -}}{{- end -}}
+{{- end -}}
+{{- return (dict "text" $text "pending" $pending) -}}

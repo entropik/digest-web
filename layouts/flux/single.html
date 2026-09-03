@@ -7,6 +7,8 @@
 {{ end }}
 {{ $years = sort (uniq $years) "value" "desc" }}
 {{ $dead := where $links "status" "dead" }}
+{{ $tags := slice }}
+{{ range $links }}{{ range (.tags | default slice) }}{{ $tags = $tags | append . }}{{ end }}{{ end }}
 
 <article class="archive-single flux-single">
   <header class="archive-single-header">
@@ -14,9 +16,11 @@
     <h1>{{ .Title }}</h1>
     <p>{{ .Description }}</p>
     <div class="archive-single-count">
-      <strong>{{ len $links }}</strong><span>publications · {{ len $dead }} {{ i18n "ui_1fc38637b80e" }}</span>
+      <strong>{{ len $links }}</strong><span>{{ i18n "ui_0447f8d1cb0f" }} {{ len $dead }} {{ i18n "ui_1fc38637b80e" }}</span>
     </div>
   </header>
+
+  {{ if and (not .Params.translation_pending) (partial "taxonomy-translation-pending.html" (dict "tags" (uniq $tags))) }}<p class="translation-pending" lang="en-GB">{{ i18n "translation_pending_detail" }}</p>{{ end }}
 
   {{ range $years }}
     {{ $year := . }}

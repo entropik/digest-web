@@ -22,6 +22,8 @@
     {{ if gt $count $maxCount }}{{ $maxCount = $count }}{{ end }}
   {{ end }}
 {{ end }}
+{{ $visibleTags := slice }}
+{{ range $visibleTagPages }}{{ range (.Params.tags | default (slice .Params.tag)) }}{{ $visibleTags = $visibleTags | append . }}{{ end }}{{ end }}
 
 <section class="tag-explorer" data-tag-explorer aria-labelledby="tag-explorer-title">
   <header class="tag-explorer-header">
@@ -45,6 +47,8 @@
       <div class="tag-alphabet" data-tag-alphabet aria-label="{{ i18n "ui_68b38a86c0fd" }}" hidden></div>
     </div>
   </header>
+
+  {{ if and (not .Params.translation_pending) (partial "taxonomy-translation-pending.html" (dict "tags" (uniq $visibleTags))) }}<p class="translation-pending" lang="en-GB">{{ i18n "translation_pending_detail" }}</p>{{ end }}
 
   <div class="tag-explorer-scene" data-tag-scene aria-label="{{ i18n "ui_c6db3ae3a9da" }}">
     {{ range sort $visibleTagPages "Title" }}

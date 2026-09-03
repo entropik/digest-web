@@ -28,6 +28,9 @@
   {{ $categoryDescriptions = merge $categoryDescriptions (dict .name (partial "translated.html" (dict "id" (printf "category:%s" .name) "field" "description" "source" (.description | default "")))) }}
 {{ end }}
 {{ $categories = uniq $categories | sort }}
+{{ $taxonomyTags := slice }}
+{{ range $allLinks }}{{ range (.tags | default slice) }}{{ $taxonomyTags = $taxonomyTags | append . }}{{ end }}{{ end }}
+{{ $taxonomyTags = uniq $taxonomyTags }}
 {{ $initialLinks := first 51 $links }}
 {{ $pageCount := div (add (len $links) 50) 51 }}
 {{ $baseIndex := slice }}
@@ -89,6 +92,8 @@
   <p class="digest-intro">{{ i18n "ui_3525583467fd" }}</p>
   <div class="digest-stat"><strong>{{ len $links }}</strong><span>{{ i18n "ui_cf0f7d739d76" }}</span></div>
 </section>
+
+{{ if and (not .Params.translation_pending) (partial "taxonomy-translation-pending.html" (dict "categories" $categories "tags" $taxonomyTags)) }}<p class="translation-pending" lang="en-GB">{{ i18n "translation_pending_detail" }}</p>{{ end }}
 
 <section class="digest-tools" aria-label="{{ i18n "ui_e7254e946187" }}">
   <div class="digest-query-tools">

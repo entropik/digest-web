@@ -19,10 +19,7 @@ export function createTranslationService(database: Database.Database) {
   const store = new TranslationStore(database);
   return new TranslationService(store, new DeepLClient(config.deeplApiKey || "", config.deeplApiUrl), {
     manifest: () => publicJson("/translation-source.json"),
-    published: async () => {
-      try { return await publicJson("/translation-snapshot.json") as TranslationSnapshot; }
-      catch { return null; }
-    },
+    published: () => publicJson("/translation-snapshot.json") as Promise<TranslationSnapshot>,
     deploymentFailed: async commit => {
       const run = (await workflowRunsForCommit(commit)).find(run => run.name === "Deploy production");
       return run?.status === "completed" && run.conclusion !== "success";
