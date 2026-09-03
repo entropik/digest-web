@@ -2,16 +2,19 @@
   {{- $manifest := os.ReadFile ".build-i18n/manifest.json" | transform.Unmarshal -}}
   {{- range $manifest.items -}}
     {{- if eq .kind "page" -}}
-      {{- $item := . -}}{{- $values := dict -}}{{- $pending := false -}}
+      {{- $item := . -}}{{- $values := dict -}}{{- $current := dict -}}{{- $pending := false -}}
       {{- range $field, $source := .fields -}}
         {{- $entry := index (index (hugo.Data.translations_en.entries | default dict) $item.id | default dict) $field -}}
         {{- $text := $source.source -}}
-        {{- if and $entry (eq $entry.hash $source.hash) -}}{{- $text = $entry.text -}}{{- else -}}{{- if $source.source -}}{{- $pending = true -}}{{- end -}}{{- end -}}
+        {{- if and $entry (eq $entry.hash $source.hash) -}}{{- $text = $entry.text -}}{{- $current = merge $current (dict $field true) -}}{{- else -}}{{- if $source.source -}}{{- $pending = true -}}{{- end -}}{{- end -}}
         {{- $values = merge $values (dict $field $text) -}}
       {{- end -}}
       {{- $params := merge .page.params (dict "translation_pending" $pending) -}}
       {{- with $params.digest_date -}}
-        {{- if os.FileExists (printf "static/social/en/%s.png" .) -}}
+        {{- $artwork := index (hugo.Data.translations_en.artwork | default dict) . -}}
+        {{- $metadata := $item.artwork -}}
+        {{- $validArtwork := and $metadata $artwork (index $current "title") (index $current "description") (eq $artwork.title ($values.title | default "")) (eq $artwork.description ($values.description | default "")) (eq $artwork.linkCount $metadata.linkCount) (eq $artwork.editorialType $metadata.editorialType) -}}
+        {{- if and $validArtwork (os.FileExists (printf "static/social/en/%s.png" .)) (os.FileExists (printf "static/social/en/%s-linkedin.png" .)) -}}
           {{- $params = merge $params (dict "images" (slice (printf "/social/en/%s.png" .))) -}}
           {{- if or (not $params.visual) (strings.HasPrefix ($params.visual | default "") "/social/") -}}
             {{- $params = merge $params (dict "visual" (printf "/social/en/%s-linkedin.png" .)) -}}
