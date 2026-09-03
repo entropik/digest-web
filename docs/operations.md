@@ -1,5 +1,52 @@
 # Exploitation de l’administration
 
+## Cron et version Node de l’administration
+
+Le site statique et le service Node sont déployés séparément. Une exécution
+réussie de `Deploy production` prouve la publication de la branche statique,
+pas la mise à jour de l’administration. Le cron admin récupère `main`, construit
+une release, sauvegarde les données, applique les migrations puis bascule le
+service. Les deux versions affichées doivent être vérifiées après déploiement.
+
+Le 3 septembre 2026, la ligne de la crontab du compte `digest` utilisait Node
+20.20.2 alors que le service exige Node.js 22 ou supérieur. L’installation de
+`better-sqlite3` échouait avec `prebuild-install: not found` et
+`node-gyp: not found`, avant la bascule. L’ancienne release restait donc active.
+La ligne corrigée sélectionne désormais l’installation Node 22 du compte :
+
+```cron
+* * * * * PATH=/home/digest/.local/node22/bin:/usr/local/bin:/usr/bin:/bin /bin/sh /home/digest/bin/deploy-admin-cloudpanel.sh >> /home/digest/logs/digest-admin-deploy.log 2>&1
+```
+
+L’affectation `PATH` ne concerne que cette commande, pas le cron du site public.
+Node 22.23.1 et npm 10.9.8 ont été vérifiés dans un environnement minimal.
+Le script ne sélectionne pas lui-même Node : ne pas compter sur un profil de
+connexion ou sur la version utilisée par le processus PM2 déjà lancé.
+
+Avant toute modification, sauvegarder la crontab complète et comparer son état
+au moment de l’installation pour préserver les changements concurrents.
+Inventorier à la fois la crontab du compte et les fichiers de `/etc/cron.d`.
+Lors du contrôle du 3 septembre, `/etc/cron.d/digest` contenait aussi une tâche
+admin utilisant déjà Node 22, un verrou externe et un contrôle de santé. Cette
+tâche a été conservée : l’ajout du `PATH` n’a pas supprimé le doublon. Ne pas
+ajouter une troisième planification. Une consolidation devra préserver le
+contrôle de santé et faire l’objet d’une intervention distincte.
+
+Pour contrôler une correction sans forcer un déploiement :
+
+- Vérifier sous le compte de service, avec le `PATH` ci-dessus, les résultats
+  de `command -v node`, `node --version`, `npm --version` et `command -v pm2`.
+- Confirmer dans les journaux cron l’exécution de la ligne corrigée à la minute
+  suivante, puis examiner `/home/digest/logs/digest-admin-deploy.log`.
+- Lire la cible de `/home/digest/apps/digest-admin/current` et la comparer au
+  SHA attendu de `main`.
+- Vérifier `http://127.0.0.1:3210/health`, puis la version affichée dans une
+  session authentifiée de `/admin` et dans le pied de page public.
+
+Une modification de la crontab seule ne nécessite ni redémarrage PM2 ni
+modification de SQLite. Pour revenir en arrière, restaurer la ligne concernée
+depuis la sauvegarde en conservant les éventuelles modifications ultérieures.
+
 ## Republication éditoriale sur LinkedIn
 
 Quand le Digest possède déjà l’URN d’une URL, une nouvelle demande ne publie

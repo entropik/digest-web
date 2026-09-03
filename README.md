@@ -201,16 +201,22 @@ releases suivantes.
 
 Ajouter au vhost les routes fournies dans
 `deploy/cloudpanel-digest-admin.nginx.conf`, puis exécuter le déploiement
-administratif depuis un cron distinct du déploiement Hugo. Exemple :
+administratif depuis un cron distinct du déploiement Hugo. Le cron doit
+sélectionner explicitement Node.js 22 : il ne charge pas le profil interactif.
+Avec l’installation locale du compte de service, la ligne est :
 
 ```cron
-* * * * * /bin/sh /home/digest/bin/deploy-admin-cloudpanel.sh >> /home/digest/logs/digest-admin-deploy.log 2>&1
+* * * * * PATH=/home/digest/.local/node22/bin:/usr/local/bin:/usr/bin:/bin /bin/sh /home/digest/bin/deploy-admin-cloudpanel.sh >> /home/digest/logs/digest-admin-deploy.log 2>&1
 ```
 
 Copier ce script dans `/home/digest/bin/` avant d’activer le cron, car la
 branche `production` ne contient que la sortie Hugo. Une fois connecté sur
 `/admin`, les commandes propriétaire apparaissent automatiquement dans les
 fiches du Digest.
+
+Vérifier le chemin Node installé et inventorier les autres planifications avant
+d’ajouter cette ligne. La [procédure d’exploitation](docs/operations.md#cron-et-version-node-de-ladministration)
+décrit les contrôles et le doublon observé lors de la correction.
 
 ### Curation et extension de navigateur
 
