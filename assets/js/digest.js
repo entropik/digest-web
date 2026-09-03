@@ -1,4 +1,8 @@
 (() => {
+  const t = (text, values = {}) => (window.digestI18n?.t(text) || text).replace(/\{(\w+)\}/g, (_, key) => String(values[key] ?? "{" + key + "}"));
+  const categoryText = name => window.digestI18n?.category(name) || name;
+  const tagText = name => window.digestI18n?.tag(name) || name;
+  const locale = window.digestI18n?.locale || "fr-FR";
   const PAGE_SIZE = 51;
   const FAVORITES_STORAGE_KEY = "digest-favorites-v1";
   const search = document.querySelector("#digest-search");
@@ -72,16 +76,16 @@
   const modalAdmin = document.querySelector("#digest-modal-admin");
   const modalAdminFeedback = document.querySelector("#digest-modal-admin-feedback");
   const adminNotice = document.querySelector("#digest-admin-notice");
-  const dateFormatter = new Intl.DateTimeFormat("fr-FR", {
+  const dateFormatter = new Intl.DateTimeFormat(locale, {
     day: "2-digit",
     month: "short",
     year: "numeric",
   });
-  const calendarMonthFormatter = new Intl.DateTimeFormat("fr-FR", {
+  const calendarMonthFormatter = new Intl.DateTimeFormat(locale, {
     month: "long",
     year: "numeric",
   });
-  const calendarValueFormatter = new Intl.DateTimeFormat("fr-FR");
+  const calendarValueFormatter = new Intl.DateTimeFormat(locale);
   const today = new Date();
   today.setHours(12, 0, 0, 0);
   let calendarMonth = new Date(today.getFullYear(), today.getMonth(), 1, 12);
@@ -104,6 +108,7 @@
 
   const decodeLink = (entry) => ({
     id: entry.i,
+    translation_pending: Boolean(entry.z),
     title: entry.t,
     url: entry.u,
     category: entry.c,
@@ -194,7 +199,7 @@
     } catch {
       onError?.();
       empty.textContent =
-        "L’index de recherche n’a pas pu être chargé. Réessaie dans un instant.";
+        t("L’index de recherche n’a pas pu être chargé. Réessaie dans un instant.");
       empty.hidden = false;
       return undefined;
     }
@@ -231,9 +236,9 @@
     button.setAttribute("aria-pressed", String(active));
     button.setAttribute(
       "aria-label",
-      active ? "Retirer ce lien des favoris" : "Ajouter ce lien aux favoris",
+      active ? t("Retirer ce lien des favoris") : t("Ajouter ce lien aux favoris"),
     );
-    button.title = active ? "Retirer des favoris" : "Ajouter aux favoris";
+    button.title = active ? t("Retirer des favoris") : t("Ajouter aux favoris");
     if (expandedLabel) {
       const heart = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       heart.setAttribute("aria-hidden", "true");
@@ -242,7 +247,7 @@
       path.setAttribute("d", "M12 20.5 4.7 13.8A5.4 5.4 0 0 1 12 5.9a5.4 5.4 0 0 1 7.3 7.9Z");
       heart.append(path);
       const label = document.createElement("span");
-      label.textContent = "Favoris";
+      label.textContent = t("Favoris");
       button.replaceChildren(heart, label);
     } else {
       button.textContent = active ? "♥" : "♡";
@@ -303,13 +308,13 @@
     link.searchText ||= normalize(
       [
         link.title,
-        link.category,
+        categoryText(link.category),
         link.url,
         getHost(link.url),
         link.description,
         link.status,
         link.status_note,
-        ...(link.tags || []),
+        ...(link.tags || []).map(tagText),
       ].join(" "),
     );
 
@@ -362,7 +367,7 @@
       day.classList.toggle("has-links", linkCount > 0);
       day.setAttribute(
         "aria-label",
-        `${calendarValueFormatter.format(date)}${linkCount ? ` · ${linkCount} lien${linkCount > 1 ? "s" : ""}` : ""}`,
+        `${calendarValueFormatter.format(date)}${linkCount ? ` · ${linkCount} ${t(linkCount === 1 ? "lien" : "liens")}` : ""}`,
       );
       if (dateKey === selectedDate) day.setAttribute("aria-current", "date");
       fragment.append(day);
@@ -396,7 +401,7 @@
     trigger.dataset.image = link.image || "";
     trigger.dataset.imageAlt = link.image_alt || "";
     trigger.dataset.originUrl = link.origin_url || "";
-    trigger.setAttribute("aria-label", `${link.title} — afficher le résumé`);
+    trigger.setAttribute("aria-label", t("{title} — afficher le résumé", {title:link.title}));
 
     if (link.image) {
       const image = document.createElement("img");
@@ -419,12 +424,12 @@
     labels.className = "digest-card-labels";
     const categoryLabel = document.createElement("span");
     categoryLabel.className = "digest-category";
-    categoryLabel.textContent = link.category;
+    categoryLabel.textContent = categoryText(link.category);
     labels.append(categoryLabel);
     if (link.status === "dead") {
       const status = document.createElement("span");
       status.className = "digest-status";
-      status.textContent = "Lien mort · conservé pour mémoire";
+      status.textContent = t("Lien mort · conservé pour mémoire");
       labels.append(status);
     }
     const arrow = document.createElement("span");
@@ -467,6 +472,12 @@
     favorite.dataset.favoriteUrl = link.url;
     updateFavoriteButton(favorite, link.url);
 
+    if (link.translation_pending) {
+      const pending = document.createElement("p");
+      pending.className = "translation-pending";
+      pending.textContent = "Translation pending";
+      trigger.querySelector(".digest-card-content").append(pending);
+    }
     article.append(trigger, favorite);
     return article;
   };
@@ -503,11 +514,11 @@
     categoryDetail.hidden = !hasDetail;
     if (!hasDetail) return;
 
-    const label = button.dataset.categoryLabel;
+    const label = categoryText(button.dataset.categoryLabel);
     categoryDetailTitle.textContent = label;
     categoryDetailDescription.textContent =
       button.dataset.categoryDescription.trim() ||
-      `Une sélection de liens consacrés à « ${label} ».`;
+      t("Une sélection de liens consacrés à « {label} ».", {label});
   };
 
   const getDisplayState = () => {
@@ -549,7 +560,7 @@
     pageNext.disabled = currentPage === pageCount;
     const folio = String(currentPage).padStart(2, "0");
     const folioCount = String(pageCount).padStart(2, "0");
-    pageStatus.textContent = `Folio ${folio}/${folioCount} · ${filteredLinks.length} liens`;
+    pageStatus.textContent = t("Folio {folio}/{pages} · {count} liens", {folio,pages:folioCount,count:filteredLinks.length});
     renderedSearchRevision = searchRevision;
     renderedPage = currentPage;
 
@@ -593,7 +604,7 @@
     if (requestedCategory === "favorites") {
       search.value = "";
       dateFilter.value = "";
-      dateValue.textContent = "cliquer sur le calendrier";
+      dateValue.textContent = t("cliquer sur le calendrier");
       dateToggle.classList.remove("has-value");
       closeCalendar();
     }
@@ -683,7 +694,7 @@
 
   calendarClear.addEventListener("click", () => {
     dateFilter.value = "";
-    dateValue.textContent = "cliquer sur le calendrier";
+    dateValue.textContent = t("cliquer sur le calendrier");
     dateToggle.classList.remove("has-value");
     currentPage = 1;
     clearRandomSelection();
@@ -757,10 +768,11 @@
     const host = getHost(link.url);
 
     modalTitle.textContent = link.title;
-    modalCategory.textContent = isDead ? `${link.category} · LIEN MORT` : link.category;
+    document.querySelector("#digest-modal-translation-pending").hidden = !link.translation_pending;
+    modalCategory.textContent = isDead ? `${categoryText(link.category)} · ${t("LIEN MORT")}` : categoryText(link.category);
     modalDescription.textContent =
       [link.status_note, link.description].filter(Boolean).join(" ") ||
-      "Aucun résumé n’est encore disponible pour cette ressource.";
+      t("Aucun résumé n’est encore disponible pour cette ressource.");
     modalArchive.hidden = !link.archive_text;
     modalArchiveText.textContent = link.archive_text || "";
     modalImage.hidden = !link.image;
@@ -775,14 +787,14 @@
     if (link.origin_url) modalOrigin.href = link.origin_url;
     modalUrl.textContent = link.url;
     modalLink.href = isDead && archiveUrl ? archiveUrl : link.url;
-    modalLink.textContent = isDead ? "Tester l’URL" : "Visiter le site";
+    modalLink.textContent = isDead ? t("Tester l’URL") : t("Visiter le site");
     modalLink.setAttribute(
       "aria-label",
       isDead && archiveUrl
-        ? `Tester l’URL archivée de ${link.title}`
+        ? t("Tester l’URL archivée de {title}", {title:link.title})
         : isDead
-          ? `Tester l’adresse d’origine de ${link.title}`
-          : `Visiter ${host}`,
+          ? t("Tester l’adresse d’origine de {title}", {title:link.title})
+          : t("Visiter {host}", {host}),
     );
     modalFavoriteUrl = link.url;
     modalAdminId = link.id;
@@ -795,10 +807,10 @@
     modalLinkedIn.dataset.shareTitle = link.title;
     modalLinkedIn.dataset.shareTags = JSON.stringify(link.tags || []);
     modalLinkedIn.dataset.shareUrl = link.url;
-    modalLinkedIn.querySelector("span:last-child").textContent = "Partager sur LinkedIn";
+    modalLinkedIn.querySelector("span:last-child").textContent = t("Partager sur LinkedIn");
     modalAdmin.hidden = !isAdmin;
     modalAdmin.disabled = false;
-    modalAdmin.textContent = "Retirer du Digest";
+    modalAdmin.textContent = t("Retirer du Digest");
     modalTagEditor.open = false;
     modalTagInput.value = "";
     modalTagSubmit.disabled = false;
@@ -809,7 +821,7 @@
     (link.tags || []).forEach((tag) => {
       const route = tagRoutes.get(normalize(tag));
       const chip = document.createElement(route ? "a" : "span");
-      chip.textContent = `#${tag}`;
+      chip.textContent = `#${tagText(tag)}`;
       if (route) chip.href = route;
       modalTags.append(chip);
     });
@@ -821,11 +833,11 @@
     modalNext.disabled = !nextLink;
     modalPrev.setAttribute(
       "aria-label",
-      previousLink ? `Lien précédent : ${previousLink.title}` : "Aucun lien précédent",
+      previousLink ? t("Lien précédent : {title}", {title:previousLink.title}) : t("Aucun lien précédent"),
     );
     modalNext.setAttribute(
       "aria-label",
-      nextLink ? `Lien suivant : ${nextLink.title}` : "Aucun lien suivant",
+      nextLink ? t("Lien suivant : {title}", {title:nextLink.title}) : t("Aucun lien suivant"),
     );
     modal.scrollTop = 0;
   };
@@ -892,8 +904,8 @@
   window.addEventListener("digest:linkedin-published", (event) => {
     showAdminNotice(
       event.detail?.alreadyPublished
-        ? "Cette ressource était déjà publiée sur LinkedIn."
-        : "Ressource publiée sur LinkedIn avec la grande image.",
+        ? t("Cette ressource était déjà publiée sur LinkedIn.")
+        : t("Ressource publiée sur LinkedIn avec la grande image."),
     );
   });
 
@@ -946,12 +958,12 @@
         if (response.status === 401 || response.status === 403) {
           isAdmin = false;
           modalAdminTools.hidden = true;
-          throw new Error("La session propriétaire a expiré. Reconnecte-toi sur /admin.");
+          throw new Error(t("La session propriétaire a expiré. Reconnecte-toi sur /admin."));
         }
         throw new Error(
           result.error === "UNKNOWN_TAG"
             ? "Choisis un tag existant dans l’index."
-            : result.error || "Les tags n’ont pas pu être enregistrés.",
+            : result.error || t("Les tags n’ont pas pu être enregistrés."),
         );
       }
 
@@ -959,13 +971,13 @@
       renderModalLink(link);
       showAdminNotice(
         result.changed
-          ? "Tags ajoutés. La version publique sera mise à jour dans quelques minutes."
-          : "Ces tags étaient déjà présents.",
+          ? t("Tags ajoutés. La version publique sera mise à jour dans quelques minutes.")
+          : t("Ces tags étaient déjà présents."),
       );
     } catch (error) {
       modalTagSubmit.disabled = false;
       modalAdminFeedback.textContent =
-        error instanceof Error ? error.message : "L’ajout des tags a échoué.";
+        error instanceof Error ? error.message : t("L’ajout des tags a échoué.");
     }
   });
 
@@ -975,7 +987,7 @@
     if (!link) return;
 
     modalAdmin.disabled = true;
-    modalAdmin.textContent = "Retrait en cours…";
+    modalAdmin.textContent = t("Retrait en cours…");
     modalAdminFeedback.textContent = "";
     try {
       const response = await fetch(
@@ -993,9 +1005,9 @@
           isAdmin = false;
           modalAdminTools.hidden = true;
           modalAdmin.hidden = true;
-          throw new Error("La session propriétaire a expiré. Reconnecte-toi sur /admin.");
+          throw new Error(t("La session propriétaire a expiré. Reconnecte-toi sur /admin."));
         }
-        throw new Error(result.error || "Le retrait n’a pas pu être enregistré.");
+        throw new Error(result.error || t("Le retrait n’a pas pu être enregistré."));
       }
 
       const index = links.findIndex((candidate) => candidate.id === modalAdminId);
@@ -1004,13 +1016,13 @@
       clearRandomSelection();
       render({ urlMode: "replace" });
       showAdminNotice(
-        "Lien retiré. La version publique sera mise à jour dans quelques minutes.",
+        t("Lien retiré. La version publique sera mise à jour dans quelques minutes."),
       );
     } catch (error) {
       modalAdmin.disabled = false;
-      modalAdmin.textContent = "Retirer du Digest";
+      modalAdmin.textContent = t("Retirer du Digest");
       modalAdminFeedback.textContent =
-        error instanceof Error ? error.message : "Le retrait a échoué.";
+        error instanceof Error ? error.message : t("Le retrait a échoué.");
     }
   });
   document.addEventListener("click", (event) => {

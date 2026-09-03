@@ -1,0 +1,9 @@
+{{- $visual := . -}}
+{{- $id := printf "visual:%s" .image -}}
+{{- range $field := slice "title" "alt" "themeLabel" "date" "rights" -}}
+  {{- with index $visual $field -}}
+    {{- $text := partial "translated.html" (dict "id" $id "field" $field "source" .) -}}
+    {{- $visual = merge $visual (dict $field $text) -}}
+  {{- end -}}
+{{- end -}}
+{{- return $visual -}}

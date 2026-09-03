@@ -4,38 +4,38 @@
 {{ $months := $posts.GroupByDate "2006-01" }}
 <article class="journal-index">
   <header class="archive-single-header journal-header">
-    <p class="digest-kicker">Carnet de développement</p>
+    <p class="digest-kicker">{{ i18n "ui_af50034ccb6f" }}</p>
     <h1>{{ .Title }}</h1>
     <p>{{ .Description }}</p>
     <div class="archive-single-count">
-      <strong>{{ len $posts }}</strong><span>billets · depuis le {{ with index $posts (sub (len $posts) 1) }}{{ time.Format "02 January 2006" .Date }}{{ end }}</span>
+      <strong>{{ len $posts }}</strong><span>{{ i18n "ui_7d782a26d427" }} {{ with index $posts (sub (len $posts) 1) }}{{ time.Format "02 January 2006" .Date }}{{ end }}</span>
     </div>
   </header>
 
-  <nav class="journal-chronology" aria-label="Navigation chronologique du journal">
-    <span class="journal-chronology-label">Repères</span>
+  <nav class="journal-chronology" aria-label="{{ i18n "ui_919a1b5b0839" }}">
+    <span class="journal-chronology-label">{{ i18n "ui_1bbb61000ea4" }}</span>
     {{ range $years }}
-      <a href="#annee-{{ .Key }}" data-journal-anchor="annee-{{ .Key }}"><span>Année</span><strong>{{ .Key }}</strong></a>
+      <a href="#annee-{{ .Key }}" data-journal-anchor="annee-{{ .Key }}"><span>{{ i18n "ui_1f910d98d7d2" }}</span><strong>{{ .Key }}</strong></a>
     {{ end }}
     {{ range $index, $month := $months }}
       {{ $monthDate := time.AsTime (printf "%s-01" $month.Key) }}
       <a href="#mois-{{ $month.Key }}" data-journal-anchor="mois-{{ $month.Key }}"{{ if eq $index 0 }} aria-current="location"{{ end }}><span>{{ time.Format "January" $monthDate }}</span><strong>{{ len $month.Pages }}</strong></a>
     {{ end }}
-    <a class="journal-rss" href="{{ .RelPermalink }}index.xml"><span>Syndication</span><strong>RSS ↗</strong></a>
+    <a class="journal-rss" href="{{ .RelPermalink }}index.xml"><span>{{ i18n "ui_7f44b11de375" }}</span><strong>RSS ↗</strong></a>
   </nav>
 
   {{ $counter := newScratch }}
   {{ $counter.Set "post" 0 }}
   {{ range $years }}
     <section class="journal-year" id="annee-{{ .Key }}" aria-labelledby="titre-annee-{{ .Key }}">
-      <h2 class="sr-only" id="titre-annee-{{ .Key }}">Billets de {{ .Key }}</h2>
+      <h2 class="sr-only" id="titre-annee-{{ .Key }}">{{ i18n "ui_5d9649a95fd4" }} {{ .Key }}</h2>
       {{ range (.Pages.GroupByDate "2006-01") }}
         {{ $monthDate := time.AsTime (printf "%s-01" .Key) }}
         <section class="journal-month" id="mois-{{ .Key }}" aria-labelledby="titre-mois-{{ .Key }}">
           <header class="journal-month-header">
             <span>{{ $monthDate.Format "01/2006" }}</span>
             <h3 id="titre-mois-{{ .Key }}">{{ time.Format "January 2006" $monthDate }}</h3>
-            <span>{{ len .Pages }} billets</span>
+            <span>{{ len .Pages }} {{ i18n "ui_49ca7519f303" }}</span>
           </header>
           <div class="journal-grid">
             {{ range .Pages }}
@@ -51,7 +51,7 @@
                     <span class="journal-card-meta"><span>{{ printf "%02d" ($counter.Get "post") }}</span><time datetime="{{ .Date.Format "2006-01-02" }}">{{ time.Format "02 January 2006" .Date }}</time></span>
                     <h4>{{ .Title }}</h4>
                     <span class="journal-card-summary">{{ .Description }}</span>
-                    <span class="journal-card-action">Lire le billet ↗</span>
+                    <span class="journal-card-action">{{ i18n "ui_01aef494f3c2" }}</span>
                   </span>
                 </a>
               </article>

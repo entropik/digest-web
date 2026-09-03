@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ $publicLinks := partialCached "public-links.html" hugo.Data.links "public-links" }}
+{{ $publicLinks := partialCached "public-links.html" hugo.Data.links "public-links" site.Language.Lang }}
 {{ $tagRoutes := dict }}
 {{ range where site.RegularPages "Section" "tags" }}
   {{ $tagRoute := .RelPermalink }}
@@ -25,7 +25,7 @@
 {{ $categoryDescriptions := dict }}
 {{ range hugo.Data.categories }}
   {{ $categories = $categories | append .name }}
-  {{ $categoryDescriptions = merge $categoryDescriptions (dict .name (.description | default "")) }}
+  {{ $categoryDescriptions = merge $categoryDescriptions (dict .name (partial "translated.html" (dict "id" (printf "category:%s" .name) "field" "description" "source" (.description | default "")))) }}
 {{ end }}
 {{ $categories = uniq $categories | sort }}
 {{ $initialLinks := first 51 $links }}
@@ -40,6 +40,7 @@
     "d" (.description | default "")
     "g" (.tags | default (slice))
     "a" .added
+    "z" (.translation_pending | default false)
   }}
   {{ if .image }}{{ $entry = merge $entry (dict "p" .image "l" (.image_alt | default "")) }}{{ end }}
   {{ with .origin_url }}{{ $entry = merge $entry (dict "q" .) }}{{ end }}
@@ -59,6 +60,7 @@
     "d" (.description | default "")
     "g" (.tags | default (slice))
     "a" .added
+    "z" (.translation_pending | default false)
   }}
   {{ if .image }}{{ $entry = merge $entry (dict "p" .image "l" (.image_alt | default "")) }}{{ end }}
   {{ with .origin_url }}{{ $entry = merge $entry (dict "q" .) }}{{ end }}
@@ -75,27 +77,28 @@
     {{ $detailIndex = $detailIndex | append (dict "i" $link.id "x" .) }}
   {{ end }}
 {{ end }}
-{{ $digestIndex := resources.FromString "data/digest-index-base.json" ($baseIndex | jsonify) | minify | fingerprint }}
-{{ $digestSupplementalIndex := resources.FromString "data/digest-index-supplemental.json" ($supplementalIndex | jsonify) | minify | fingerprint }}
-{{ $digestDetailIndex := resources.FromString "data/digest-index-details.json" ($detailIndex | jsonify) | minify | fingerprint }}
+{{ $indexPrefix := cond (eq site.Language.Lang "en") "en/" "" }}
+{{ $digestIndex := resources.FromString (printf "%sdata/digest-index-base.json" $indexPrefix) ($baseIndex | jsonify) | minify | fingerprint }}
+{{ $digestSupplementalIndex := resources.FromString (printf "%sdata/digest-index-supplemental.json" $indexPrefix) ($supplementalIndex | jsonify) | minify | fingerprint }}
+{{ $digestDetailIndex := resources.FromString (printf "%sdata/digest-index-details.json" $indexPrefix) ($detailIndex | jsonify) | minify | fingerprint }}
 
 <section class="digest-hero">
-  <p class="digest-kicker">Veille personnelle</p>
+  <p class="digest-kicker">{{ i18n "ui_dfe0bbc53e88" }}</p>
   <h1>Web Digest’s</h1>
-  <p class="digest-tagline">Ce qui mérite d’être gardé… ou pas.</p>
-  <p class="digest-intro">Une collection resserrée de ressources sur l’IA, le code, le design et l’image. Pas de flux infini&nbsp;: juste les liens qui valent le détour.</p>
-  <div class="digest-stat"><strong>{{ len $links }}</strong><span>liens sélectionnés</span></div>
+  <p class="digest-tagline">{{ i18n "ui_d6b51f8f9470" }}</p>
+  <p class="digest-intro">{{ i18n "ui_3525583467fd" }}</p>
+  <div class="digest-stat"><strong>{{ len $links }}</strong><span>{{ i18n "ui_cf0f7d739d76" }}</span></div>
 </section>
 
-<section class="digest-tools" aria-label="Filtrer le digest">
+<section class="digest-tools" aria-label="{{ i18n "ui_e7254e946187" }}">
   <div class="digest-query-tools">
     <label class="digest-search">
-      <span class="sr-only">Rechercher</span>
-      <input id="digest-search" type="search" placeholder="Rechercher un outil, un sujet…" autocomplete="off">
+      <span class="sr-only">{{ i18n "ui_91f7d3e9dc3d" }}</span>
+      <input id="digest-search" type="search" placeholder="{{ i18n "ui_1d265fe989e3" }}" autocomplete="off">
       <kbd>/</kbd>
     </label>
     <div class="digest-date">
-      <span class="digest-date-label">Par date</span>
+      <span class="digest-date-label">{{ i18n "ui_e97653743093" }}</span>
       <input id="digest-date" type="hidden">
       <button
         class="digest-date-toggle"
@@ -104,38 +107,38 @@
         aria-expanded="false"
         aria-controls="digest-calendar"
         aria-haspopup="dialog">
-        <span class="digest-date-value" id="digest-date-value">cliquer sur le calendrier</span>
+        <span class="digest-date-value" id="digest-date-value">{{ i18n "ui_851248a8eb7d" }}</span>
         <svg aria-hidden="true" viewBox="0 0 24 24">
           <path d="M7 3v3M17 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Z"></path>
         </svg>
       </button>
-      <div class="digest-calendar" id="digest-calendar" role="dialog" aria-label="Choisir une date" hidden>
+      <div class="digest-calendar" id="digest-calendar" role="dialog" aria-label="{{ i18n "ui_2550642b3d31" }}" hidden>
         <div class="digest-calendar-header">
-          <button id="digest-calendar-prev" type="button" aria-label="Mois précédent">←</button>
+          <button id="digest-calendar-prev" type="button" aria-label="{{ i18n "ui_535707c762c5" }}">←</button>
           <strong id="digest-calendar-title"></strong>
-          <button id="digest-calendar-next" type="button" aria-label="Mois suivant">→</button>
+          <button id="digest-calendar-next" type="button" aria-label="{{ i18n "ui_7b08eaecd203" }}">→</button>
         </div>
         <div class="digest-calendar-weekdays" aria-hidden="true">
-          <span>lu</span><span>ma</span><span>me</span><span>je</span><span>ve</span><span>sa</span><span>di</span>
+          <span>{{ i18n "ui_3f76228c99e5" }}</span><span>{{ i18n "ui_1382244e1784" }}</span><span>{{ i18n "ui_b1c1d8736f20" }}</span><span>{{ i18n "ui_68d2ad23b5e1" }}</span><span>{{ i18n "ui_934cff2debe7" }}</span><span>{{ i18n "ui_3608a6d1a05a" }}</span><span>{{ i18n "ui_f502e82c25bb" }}</span>
         </div>
         <div class="digest-calendar-grid" id="digest-calendar-grid"></div>
         <div class="digest-calendar-footer">
-          <button id="digest-calendar-clear" type="button">Effacer</button>
-          <button id="digest-calendar-today" type="button">Aujourd’hui</button>
+          <button id="digest-calendar-clear" type="button">{{ i18n "ui_fe23de7b572d" }}</button>
+          <button id="digest-calendar-today" type="button">{{ i18n "ui_ba0603b43d81" }}</button>
         </div>
       </div>
     </div>
   </div>
   <div class="digest-category-browser" id="digest-category-browser">
-    <div class="digest-filters" id="digest-filters" aria-label="Catégories">
+    <div class="digest-filters" id="digest-filters" aria-label="{{ i18n "ui_d463d7d2a3db" }}">
       <button class="is-active" type="button" data-category-label="all" aria-pressed="true">
         <span class="digest-filter-index" aria-hidden="true">00</span>
-        <span class="digest-filter-name">Tout</span>
+        <span class="digest-filter-name">{{ i18n "ui_6b0b09b8a698" }}</span>
         <span class="digest-filter-count">{{ len $links }}</span>
       </button>
       <button class="digest-random" id="digest-random" type="button" aria-pressed="false">
         <span class="digest-filter-index" aria-hidden="true">R</span>
-        <span class="digest-filter-name">Aléatoire</span>
+        <span class="digest-filter-name">{{ i18n "ui_6dbd11ff8a4a" }}</span>
         <span class="digest-filter-mark" aria-hidden="true">↗</span>
       </button>
       {{ range $index, $category := $categories }}
@@ -145,24 +148,24 @@
           data-category-description="{{ index $categoryDescriptions $category | default "" }}"
           aria-pressed="false">
           <span class="digest-filter-index" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
-          <span class="digest-filter-name">{{ $category }}</span>
+          <span class="digest-filter-name">{{ partial "category-label.html" $category }}</span>
           <span class="digest-filter-count">{{ len (where $allLinks "category" $category) }}</span>
         </button>
       {{ end }}
       <button type="button" data-category-label="favorites" aria-pressed="false">
         <span class="digest-filter-index" aria-hidden="true">F</span>
-        <span class="digest-filter-name">Favoris</span>
+        <span class="digest-filter-name">{{ i18n "ui_1020d9085c8a" }}</span>
         <span class="digest-filter-count" id="digest-favorites-count">0</span>
       </button>
     </div>
     <aside class="digest-category-detail" id="digest-category-detail" aria-labelledby="digest-category-detail-title" hidden>
       <div class="digest-category-detail-copy">
-        <p class="digest-category-detail-kicker">Catégorie sélectionnée</p>
+        <p class="digest-category-detail-kicker">{{ i18n "ui_bc6a8bf681fe" }}</p>
         <h2 id="digest-category-detail-title"></h2>
         <p id="digest-category-detail-description"></p>
       </div>
       <button class="digest-category-reset" id="digest-category-reset" type="button">
-        <span aria-hidden="true">←</span> Toutes les catégories
+        <span aria-hidden="true">←</span> {{ i18n "ui_ac8ab261bbc7" }}
       </button>
     </aside>
   </div>
@@ -196,15 +199,16 @@
         data-image="{{ $link.image | default "" }}"
         data-image-alt="{{ $link.image_alt | default "" }}"
         data-origin-url="{{ $link.origin_url | default "" }}"
-        aria-label="{{ $link.title }} — afficher le résumé">
+        data-translation-pending="{{ $link.translation_pending | default false }}"
+        aria-label="{{ $link.title }} {{ i18n "ui_1d30defedaef" }}">
         {{ with $link.image }}
           <img class="digest-card-image" src="{{ . }}" alt="{{ $link.image_alt | default "" }}" width="960" height="540" loading="lazy" decoding="async">
         {{ end }}
         <div class="digest-card-content">
           <div class="digest-card-top">
             <div class="digest-card-labels">
-              <span class="digest-category">{{ $link.category }}</span>
-              {{ if eq ($link.status | default "") "dead" }}<span class="digest-status">Lien mort · conservé pour mémoire</span>{{ end }}
+              <span class="digest-category">{{ partial "category-label.html" $link.category }}</span>
+              {{ if eq ($link.status | default "") "dead" }}<span class="digest-status">{{ i18n "ui_6a518b9b9a4e" }}</span>{{ end }}
             </div>
             <span class="digest-arrow" aria-hidden="true">＋</span>
           </div>
@@ -212,6 +216,7 @@
             {{ partial "link-favicon.html" $link.url }}
             <span>{{ $link.title }}</span>
           </h2>
+          {{ if $link.translation_pending }}<p class="translation-pending">Translation pending</p>{{ end }}
           <div class="digest-meta">
             <span>{{ $host.Host | strings.TrimPrefix "www." }}</span>
             <time datetime="{{ $link.added }}">{{ time.Format "02 Jan 2006" $link.added }}</time>
@@ -223,31 +228,31 @@
         type="button"
         data-favorite-url="{{ $link.url }}"
         aria-pressed="false"
-        aria-label="Ajouter ce lien aux favoris">♡</button>
+        aria-label="{{ i18n "ui_33090a129f6b" }}">♡</button>
     </article>
   {{ end }}
 </section>
 
-<p class="digest-empty" id="digest-empty" hidden>Aucun lien ne correspond à cette recherche.</p>
+<p class="digest-empty" id="digest-empty" hidden>{{ i18n "ui_9dcfb5210338" }}</p>
 
-<nav class="digest-pagination" id="digest-pagination" aria-label="Pagination des liens"{{ if le $pageCount 1 }} hidden{{ end }}>
+<nav class="digest-pagination" id="digest-pagination" aria-label="{{ i18n "ui_42991cfe15c1" }}"{{ if le $pageCount 1 }} hidden{{ end }}>
   <button id="digest-page-prev" type="button" disabled>
-    <span aria-hidden="true">←</span><span>Précédent</span>
+    <span aria-hidden="true">←</span><span>{{ i18n "ui_a527f171f7b6" }}</span>
   </button>
-  <span id="digest-page-status" aria-live="polite">Folio 01/{{ printf "%02d" $pageCount }} · {{ len $links }} liens</span>
+  <span id="digest-page-status" aria-live="polite">Folio 01/{{ printf "%02d" $pageCount }} · {{ len $links }} {{ i18n "ui_132d6192dc26" }}</span>
   <button id="digest-page-next" type="button">
-    <span>Suivant</span><span aria-hidden="true">→</span>
+    <span>{{ i18n "ui_596d29a7e33c" }}</span><span aria-hidden="true">→</span>
   </button>
 </nav>
 
 <dialog class="digest-modal" id="digest-modal" aria-labelledby="digest-modal-title">
-  <button class="digest-modal-nav digest-modal-prev" type="button" aria-label="Lien précédent">
+  <button class="digest-modal-nav digest-modal-prev" type="button" aria-label="{{ i18n "ui_a510df06c2cb" }}">
     <svg aria-hidden="true" viewBox="0 0 24 24">
       <path d="m15 18-6-6 6-6"></path>
     </svg>
   </button>
   <div class="digest-modal-shell">
-    <button class="digest-modal-close" type="button" aria-label="Fermer la fenêtre" autofocus>
+    <button class="digest-modal-close" type="button" aria-label="{{ i18n "ui_2569136f241c" }}" autofocus>
       <svg aria-hidden="true" viewBox="0 0 24 24">
         <path d="M6 6 18 18M18 6 6 18"></path>
       </svg>
@@ -255,9 +260,10 @@
     <img class="digest-modal-image" id="digest-modal-image" alt="" width="960" height="540" hidden>
     <p class="digest-kicker" id="digest-modal-category"></p>
     <h2 id="digest-modal-title"></h2>
+    <p class="translation-pending" id="digest-modal-translation-pending" hidden>Translation pending</p>
     <p class="digest-modal-description" id="digest-modal-description"></p>
     <section class="digest-modal-archive" id="digest-modal-archive" hidden>
-      <p class="digest-modal-archive-label">Texte archivé</p>
+      <p class="digest-modal-archive-label">{{ i18n "ui_26a30a04d088" }}</p>
       <div class="digest-modal-archive-text" id="digest-modal-archive-text"></div>
     </section>
     <div class="archive-tags digest-modal-tags" id="digest-modal-tags" aria-label="Tags"></div>
@@ -269,12 +275,12 @@
           <svg aria-hidden="true" viewBox="0 0 24 24">
             <path d="M12 20.5 4.7 13.8A5.4 5.4 0 0 1 12 5.9a5.4 5.4 0 0 1 7.3 7.9Z"></path>
           </svg>
-          <span>Favoris</span>
+          <span>{{ i18n "ui_1020d9085c8a" }}</span>
         </button>
-        <a id="digest-modal-link" target="_blank" rel="noopener noreferrer">Visiter le site</a>
+        <a id="digest-modal-link" target="_blank" rel="noopener noreferrer">{{ i18n "ui_d2171751fcd5" }}</a>
       </div>
       <div class="digest-modal-origin-row" id="digest-modal-origin-row" hidden>
-        <a class="digest-modal-origin" id="digest-modal-origin" target="_blank" rel="noopener noreferrer">Billet d’origine</a>
+        <a class="digest-modal-origin" id="digest-modal-origin" target="_blank" rel="noopener noreferrer">{{ i18n "ui_d560c901e11c" }}</a>
       </div>
     </div>
     <div class="digest-modal-admin-tools" id="digest-modal-admin-tools" hidden>
@@ -285,29 +291,29 @@
         hidden
         data-linkedin-link-share>
         <span aria-hidden="true">in</span>
-        <span>Partager sur LinkedIn</span>
+        <span>{{ i18n "ui_985eb3f25b2a" }}</span>
       </button>
       <details class="digest-modal-tag-editor" id="digest-modal-tag-editor">
-        <summary>Ajouter des tags</summary>
+        <summary>{{ i18n "ui_55cdf37f2879" }}</summary>
         <form class="digest-modal-tag-form" id="digest-modal-tag-form">
-          <label class="sr-only" for="digest-modal-tag-input">Tags à ajouter</label>
+          <label class="sr-only" for="digest-modal-tag-input">{{ i18n "ui_584f0aea4819" }}</label>
           <input
             id="digest-modal-tag-input"
             type="text"
-            placeholder="design, grille, outil…"
+            placeholder="{{ i18n "ui_11ac893b9cba" }}"
             autocomplete="off"
           >
-          <button type="submit">Ajouter</button>
+          <button type="submit">{{ i18n "ui_87c57ed173ea" }}</button>
         </form>
-        <small>Sépare plusieurs tags par des virgules.</small>
+        <small>{{ i18n "ui_f3c106388cc8" }}</small>
       </details>
       <button class="digest-modal-admin" id="digest-modal-admin" type="button">
-        Retirer du Digest
+        {{ i18n "ui_a54f86c4344a" }}
       </button>
       <p class="digest-modal-admin-feedback" id="digest-modal-admin-feedback" role="status"></p>
     </div>
   </div>
-  <button class="digest-modal-nav digest-modal-next" type="button" aria-label="Lien suivant">
+  <button class="digest-modal-nav digest-modal-next" type="button" aria-label="{{ i18n "ui_15e4d4093131" }}">
     <svg aria-hidden="true" viewBox="0 0 24 24">
       <path d="m9 18 6-6-6-6"></path>
     </svg>

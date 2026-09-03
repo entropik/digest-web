@@ -210,6 +210,10 @@ chargées.
 **The Protected Copy Rule.** Une lettre décorative peut être coupée ; un titre
 informatif, une métadonnée ou une commande ne l’est jamais.
 
+La ponctuation suit la langue du document. Les espaces insécables françaises
+ne sont pas appliquées aux pages anglaises : `static/js/typography.js` ignore
+les documents dont la langue commence par `en`.
+
 ## Layout
 
 Le site public s’inscrit dans un conteneur maximal de 1180px. Les surfaces
@@ -225,11 +229,16 @@ deux zones s’empilent sous 520px. Les paginations gardent trois cellules
 jointives sur toutes les largeurs. Le site évite tout débordement horizontal et
 réduit les dimensions plutôt que de supprimer les libellés.
 
-L’administration reprend un conteneur de 1180px et bascule ses rangées complexes
+L’administration utilise un conteneur de 1240px et bascule ses rangées complexes
 en une colonne sous 760px. L’extension condense la même hiérarchie dans une
 fenêtre fixe de 540px. L’espacement suit principalement une cadence de 8px,
 avec 16px pour le rythme courant, 32px pour séparer les groupes et 64px pour
 les grandes respirations.
+
+Le registre de navigation de l’administration comporte dix cellules : cinq
+colonnes sur grand écran, trois sous 900px et deux sous 520px. Le suivi des
+traductions place ses trois métriques dans un cartouche jointif ; sous 680px,
+elles s’empilent, puis les deux jauges s’empilent dans le même ordre de lecture.
 
 La composition suit trois échelles simples : la page fournit la respiration,
 le registre fournit la structure et la cellule fournit l’information. Les
@@ -343,6 +352,28 @@ reprend les indices, grands titres et lignes jointives du registre. Les
 catégories associent systématiquement indice, nom et compteur ; la sélection
 conserve `aria-pressed` et ouvre une fiche descriptive. La pagination associe
 `Précédent`, folio et `Suivant` dans un seul cartouche.
+
+Le sélecteur public `FR / GB` reste visible dans l’en-tête, y compris sur
+mobile. Ses liens textuels compacts conservent une hauteur de cible de 44px et
+un focus explicite. La langue courante est soulignée et signalée par
+`aria-current` ; les noms accessibles sont « Français » et « English ».
+Le changement mène à la version correspondante de la page courante.
+
+### Suivi des traductions
+
+Le panneau prolonge le registre administratif, sans palette ni forme nouvelle.
+Son premier niveau distingue **Couverture éditoriale**, **Crédit consommé** et
+**Rattrapage disponible**. Les valeurs utilisent des chiffres tabulaires, un
+libellé stable et une précision sur leur unité ou leur périmètre. Les deux
+jauges restent séparées et nommées : texte traduit à jour et crédit consommé
+ne mesurent pas la même chose. Une valeur inconnue s’affiche par un tiret.
+
+Les états et volumes préparés ou en ligne précèdent les commandes jointives.
+L’historique vient ensuite : courbe de couverture, filtre mensuel, retour à
+toute la période et valeurs quotidiennes dépliables. Les lots puis le tableau
+des contenus complètent ce suivi, avec état textuel et nombre de champs traités.
+Les erreurs et les requêtes à facturation incertaine restent explicites ; une
+couleur seule ne suffit jamais à expliquer leur état.
 
 ### Affiche générative
 

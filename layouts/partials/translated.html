@@ -1,0 +1,7 @@
+{{- $result := .source | default "" -}}
+{{- if eq site.Language.Lang "en" -}}
+  {{- $entry := index (index (hugo.Data.translations_en.entries | default dict) .id | default dict) .field -}}
+  {{- $hash := crypto.SHA256 (printf "%s\n%s" (.format | default "text") $result) -}}
+  {{- if and $entry (eq $entry.hash $hash) -}}{{- $result = $entry.text -}}{{- end -}}
+{{- end -}}
+{{- return $result -}}

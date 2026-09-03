@@ -37,6 +37,10 @@ attributs. Le code, les champs de saisie et les zones éditables sont exclus ;
 éditoriales nouvelles doivent employer directement les espaces insécables,
 pour conserver cette qualité même sans JavaScript.
 
+Ces corrections suivent la langue du document : `typography.js` ignore les
+pages dont l’attribut `lang` commence par `en`. La version anglaise conserve
+ainsi sa propre ponctuation, sans insertion d’espaces françaises.
+
 Sur le site public, Hugo donne à ce script une URL avec empreinte de contenu.
 Dans l’administration et son aperçu local, le même script est inclus dans
 `/admin/app.js` : il ne dépend pas du déploiement séparé du site statique et
@@ -46,6 +50,57 @@ comme une erreur 404.
 Ne jamais imposer `white-space: nowrap` à tout un paragraphe : le texte doit
 continuer à s’adapter à l’écran. Vérifier la phrase signalée dans l’édition du
 29 août 2026, les cartes et les modales, sur ordinateur et à 320 px de largeur.
+
+## Langue de consultation
+
+Le sélecteur `FR / GB` reste dans l’en-tête public sur ordinateur et mobile,
+à côté des autres commandes. Il utilise deux liens textuels, une séparation
+discrète et un soulignement de la langue active ; il conserve une hauteur de
+cible de 44 px et un focus visible. `aria-current` indique la langue courante,
+les noms accessibles sont « Français » et « English » et `hreflang` distingue
+le français de l’anglais britannique.
+
+Le changement de langue mène à la même page sous `/` ou `/en/`. Lorsqu’un texte
+anglais manque, le français reste consultable avec une mention explicite de
+traduction en attente, discrète et lisible. Le choix de langue ne doit pas
+faire croire que tous les contenus sont déjà traduits.
+
+## Suivi des traductions
+
+`Traductions` est la dixième cellule du registre administratif. La navigation
+forme deux rangées de cinq cellules sur grand écran, passe à trois colonnes
+sous 900 px puis à deux sous 520 px. Les indices, les libellés et l’inversion
+de la cellule active prolongent les autres panneaux.
+
+L’ordre de lecture est stable : titre et actualisation du quota, état du
+traitement, trois métriques, deux jauges, actions, historique, lots et contenus.
+Le cartouche de métriques distingue :
+
+- la couverture éditoriale, en pourcentage et en caractères sources à jour ;
+- le crédit consommé, avec limite, relevé disponible et réservations depuis
+  ce relevé ;
+- le rattrapage disponible, avec le plafond du compte rappelé séparément.
+
+Couverture et consommation disposent chacune d’une jauge nommée. Le crédit
+Developer est présenté comme non renouvelable mensuellement. Les valeurs
+inconnues sont des tirets ; elles ne doivent pas devenir des zéros trompeurs.
+Les nombres utilisent des chiffres tabulaires et les légendes peuvent revenir
+à la ligne. Sous 680 px, les trois métriques et les deux jauges s’empilent sans
+changer d’ordre ni créer de débordement horizontal.
+
+Les comptes de contenus et les volumes préparés ou en ligne précèdent les
+commandes de rattrapage, suspension, reprise et nouvelle tentative. Ces actions
+restent jointives et reflètent leur disponibilité réelle. Les retours d’état
+sont annoncés dans une zone `role="status"` ; les erreurs ont un libellé lisible.
+Le lancement du rattrapage précise le volume maximal dans sa confirmation et
+la reprise de requêtes incertaines signale le risque de seconde facturation.
+
+L’historique trace la couverture éditoriale et propose un mois ou toute la
+période. Ses valeurs quotidiennes sont aussi consultables dans un tableau
+dépliable, avec les caractères facturés dans une colonne distincte. Les lots
+restent des lignes de registre. Le tableau des contenus garde le titre et le
+type en premier, puis la date, l’état et les champs terminés ; les titres longs
+reviennent à la ligne et les états restent compréhensibles sans couleur.
 
 ## Registre des catégories
 

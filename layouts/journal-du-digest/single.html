@@ -1,9 +1,9 @@
 {{ define "main" }}
 {{ $posterIndex := mod (div .Date.Unix 86400) (len hugo.Data.journal_posters.posters) }}
-{{ $poster := index hugo.Data.journal_posters.posters $posterIndex }}
+{{ $poster := partial "translated-visual.html" (index hugo.Data.journal_posters.posters $posterIndex) }}
 <article class="journal-post">
   <header class="journal-post-header">
-    <p class="digest-kicker">Journal du Digest</p>
+    <p class="digest-kicker">{{ i18n "ui_0491df6eb41e" }}</p>
     <a class="journal-index-link" href="{{ .CurrentSection.RelPermalink }}">/index</a>
     <time datetime="{{ .Date.Format "2006-01-02" }}">{{ time.Format "02 January 2006" .Date }}</time>
     <h1>{{ .Title }}</h1>
@@ -18,18 +18,18 @@
         data-share-title="Journal du Digest — {{ .Title }}"
         data-share-tags="{{ slice "design" "web" "Codex" | jsonify }}"
         data-share-url="{{ .Permalink }}">
-        Publier sur LinkedIn
+        {{ i18n "ui_9826b821e01e" }}
       </button>
       <span class="archive-linkedin-feedback" data-linkedin-feedback role="status" aria-live="polite"></span>
     </div>
     {{ partial "linkedin-composer.html" (dict "image" $poster.image "format" "square") }}
   </header>
   <figure class="journal-post-visual">
-    <a href="{{ $poster.source_url }}" target="_blank" rel="noopener noreferrer" aria-label="Voir l’affiche {{ $poster.title }} dans les collections de Northwestern University Libraries">
+    <a href="{{ $poster.source_url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ i18n "ui_86cc18801b11" }} {{ $poster.title }} {{ i18n "ui_5c324aba1f73" }}">
       <img src="{{ $poster.image }}" alt="{{ $poster.title }}" width="{{ $poster.width }}" height="{{ $poster.height }}" decoding="async">
     </a>
     <figcaption>
-      <span>Archive visuelle · propagande américaine · {{ $poster.date }}</span>
+      <span>{{ i18n "ui_c000b20dd2f3" }} {{ $poster.date }}</span>
       <a href="{{ $poster.source_url }}" target="_blank" rel="noopener noreferrer">{{ $poster.title }} · Northwestern University Libraries ↗</a>
     </figcaption>
   </figure>
@@ -37,17 +37,17 @@
     {{ .Content }}
   </div>
 
-  <nav class="journal-post-folio" aria-label="Navigation entre les billets">
+  <nav class="journal-post-folio" aria-label="{{ i18n "ui_65cf41d36ff5" }}">
     {{ with .PrevInSection }}
-      <a href="{{ .RelPermalink }}"><span>← Précédent</span><strong>{{ time.Format "02 Jan 2006" .Date }}</strong></a>
+      <a href="{{ .RelPermalink }}"><span>{{ i18n "ui_3ec988c1b0f8" }}</span><strong>{{ time.Format "02 Jan 2006" .Date }}</strong></a>
     {{ else }}
-      <span aria-disabled="true"><span>← Précédent</span><strong>—</strong></span>
+      <span aria-disabled="true"><span>{{ i18n "ui_3ec988c1b0f8" }}</span><strong>—</strong></span>
     {{ end }}
-    <a href="{{ .CurrentSection.RelPermalink }}"><span>Journal</span><strong>Index</strong></a>
+    <a href="{{ .CurrentSection.RelPermalink }}"><span>{{ i18n "ui_57d7f743bbd1" }}</span><strong>Index</strong></a>
     {{ with .NextInSection }}
-      <a href="{{ .RelPermalink }}"><span>Suivant →</span><strong>{{ time.Format "02 Jan 2006" .Date }}</strong></a>
+      <a href="{{ .RelPermalink }}"><span>{{ i18n "ui_ea96c11e6b8f" }}</span><strong>{{ time.Format "02 Jan 2006" .Date }}</strong></a>
     {{ else }}
-      <span aria-disabled="true"><span>Suivant →</span><strong>—</strong></span>
+      <span aria-disabled="true"><span>{{ i18n "ui_ea96c11e6b8f" }}</span><strong>—</strong></span>
     {{ end }}
   </nav>
 </article>

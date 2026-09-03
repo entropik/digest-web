@@ -88,14 +88,7 @@ run(python, ["scripts/check_digest_consistency.py", "--site", "."]);
 run(process.execPath, ["scripts/check-journal-french.mjs"]);
 run(process.execPath, ["scripts/test-import-keredit-journal.mjs"]);
 run(process.execPath, ["scripts/check-journal-public-safety.mjs"]);
-run("hugo", [
-  "--gc",
-  "--cleanDestinationDir",
-  "--minify",
-  "--panicOnWarning",
-  "--baseURL",
-  "https://digest.ooblik.com/",
-]);
+run(process.execPath, ["scripts/build-site.mjs"]);
 run(process.execPath, ["scripts/check-search-index-budget.mjs"]);
 run(process.execPath, ["scripts/check_journal_output.mjs"]);
 

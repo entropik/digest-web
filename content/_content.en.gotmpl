@@ -1,0 +1,25 @@
+{{- if os.FileExists ".build-i18n/manifest.json" -}}
+  {{- $manifest := os.ReadFile ".build-i18n/manifest.json" | transform.Unmarshal -}}
+  {{- range $manifest.items -}}
+    {{- if eq .kind "page" -}}
+      {{- $item := . -}}{{- $values := dict -}}{{- $pending := false -}}
+      {{- range $field, $source := .fields -}}
+        {{- $entry := index (index (hugo.Data.translations_en.entries | default dict) $item.id | default dict) $field -}}
+        {{- $text := $source.source -}}
+        {{- if and $entry (eq $entry.hash $source.hash) -}}{{- $text = $entry.text -}}{{- else -}}{{- if $source.source -}}{{- $pending = true -}}{{- end -}}{{- end -}}
+        {{- $values = merge $values (dict $field $text) -}}
+      {{- end -}}
+      {{- $params := merge .page.params (dict "translation_pending" $pending) -}}
+      {{- with $params.digest_date -}}
+        {{- if os.FileExists (printf "static/social/en/%s.png" .) -}}
+          {{- $params = merge $params (dict "images" (slice (printf "/social/en/%s.png" .))) -}}
+          {{- if or (not $params.visual) (strings.HasPrefix ($params.visual | default "") "/social/") -}}
+            {{- $params = merge $params (dict "visual" (printf "/social/en/%s-linkedin.png" .)) -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $body := partial "english-content.html" ($values.body | default "") -}}
+      {{- $.AddPage (dict "path" (strings.TrimPrefix "/" .page.path) "kind" .page.kind "type" .page.type "layout" .page.layout "aliases" .page.aliases "title" ($values.title | default .title) "description" ($values.description | default "") "dates" (dict "date" (time.AsTime .date)) "params" $params "content" (dict "mediaType" "text/html" "value" $body)) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

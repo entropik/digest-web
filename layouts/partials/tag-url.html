@@ -7,5 +7,5 @@
 {{- with $matches -}}
   {{- (index . 0).RelPermalink -}}
 {{- else -}}
-  {{- "tags/" | relURL -}}
+  {{- "tags/" | relLangURL -}}
 {{- end -}}

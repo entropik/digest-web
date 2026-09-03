@@ -1,5 +1,11 @@
 # Exploitation de l’administration
 
+## Traductions
+
+La [procédure FR / GB](translations.md) décrit la configuration privée DeepL,
+le plafond de rattrapage, les sauvegardes, les erreurs à facturation incertaine
+et les reprises de déploiement sans retraduction.
+
 ## Republication éditoriale sur LinkedIn
 
 Quand le Digest possède déjà l’URN d’une URL, une nouvelle demande ne publie

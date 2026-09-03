@@ -16,6 +16,7 @@ export type SocialImageInput = {
   description: string;
   linkCount: number;
   editorialType?: "digest" | "focus";
+  locale?: "fr-FR" | "en-GB";
 };
 
 const WIDTH = 1200;
@@ -77,10 +78,10 @@ const choose = <T>(items: readonly T[], random: () => number): T =>
 const integer = (min: number, max: number, random: () => number): number =>
   Math.floor(random() * (max - min + 1)) + min;
 
-const formattedDate = (digestDate: string): string => {
+const formattedDate = (digestDate: string, locale = "fr-FR"): string => {
   const [year, month, day] = digestDate.split("-").map(Number);
   const date = new Date(Date.UTC(year!, month! - 1, day!));
-  return new Intl.DateTimeFormat("fr-FR", {
+  return new Intl.DateTimeFormat(locale, {
     day: "2-digit",
     month: "long",
     year: "numeric",
@@ -283,8 +284,8 @@ const commonMetadata = (
   return `
     <text x="48" y="42" class="label" fill="${options.brandFill ?? options.fill}">OOBLIK DIGEST</text>
     ${textLines(lines, topicX, topicY, 31, `class="topic" fill="${options.fill}"`)}
-    <text x="${dateX}" y="${dateY}" class="label" fill="${options.fill}">${escapeXml(formattedDate(input.digestDate))}</text>
-    <text x="${countX}" y="${countY}" text-anchor="end" class="label" fill="${options.fill}">${input.linkCount} LIENS</text>`;
+    <text x="${dateX}" y="${dateY}" class="label" fill="${options.fill}">${escapeXml(formattedDate(input.digestDate, input.locale))}</text>
+    <text x="${countX}" y="${countY}" text-anchor="end" class="label" fill="${options.fill}">${input.linkCount} ${input.locale === "en-GB" ? "LINKS" : "LIENS"}</text>`;
 };
 
 const collision = (
@@ -460,8 +461,8 @@ const focusSocialImageSvg = (
       <rect x="0" y="30" width="146" height="31" fill="${BLACK}"/>
       <text x="18" y="52" class="focus-micro" fill="${PAPER}">OOBLIK · FOCUS</text>
       ${textLines(topic, 44, titleY, 84, `class="focus-title" fill="${PAPER}"`)}
-      <text x="790" y="596" class="focus-label" fill="${accent}">${escapeXml(formattedDate(input.digestDate))}</text>
-      <text x="1170" y="596" text-anchor="end" class="focus-label" fill="${PAPER}">${input.linkCount} LIENS</text>
+      <text x="790" y="596" class="focus-label" fill="${accent}">${escapeXml(formattedDate(input.digestDate, input.locale))}</text>
+      <text x="1170" y="596" text-anchor="end" class="focus-label" fill="${PAPER}">${input.linkCount} ${input.locale === "en-GB" ? "LINKS" : "LIENS"}</text>
       <text x="18" y="607" class="focus-micro" fill="${PAPER}">ARCHIVES NASA · ${escapeXml(archive.label)}</text>
     </g>
   </svg>`;
@@ -491,8 +492,8 @@ const focusLinkedInImageSvg = (
       <rect x="38" y="40" width="188" height="39" fill="${BLACK}"/>
       <text x="55" y="67" class="focus-label" fill="${PAPER}">OOBLIK · FOCUS</text>
       ${textLines(topic, 48, titleY, 104, `class="focus-square-title" fill="${PAPER}"`)}
-      <text x="48" y="1122" class="focus-label" fill="${accent}">${escapeXml(formattedDate(input.digestDate))}</text>
-      <text x="1152" y="1122" text-anchor="end" class="focus-label" fill="${PAPER}">${input.linkCount} LIENS DOCUMENTÉS</text>
+      <text x="48" y="1122" class="focus-label" fill="${accent}">${escapeXml(formattedDate(input.digestDate, input.locale))}</text>
+      <text x="1152" y="1122" text-anchor="end" class="focus-label" fill="${PAPER}">${input.linkCount} ${input.locale === "en-GB" ? "DOCUMENTED LINKS" : "LIENS DOCUMENTÉS"}</text>
       <text x="48" y="1170" class="focus-micro" fill="${PAPER}">ARCHIVES NASA · ${escapeXml(archive.label)}</text>
     </g>
   </svg>`;
@@ -611,8 +612,8 @@ export const linkedInImageSvg = (
         <text x="0" y="0" class="repeat" fill="${PAPER}">${day} ${day} ${day} ${day}</text>
       </g>
       ${textLines(topic, 54, 850, 50, `class="square-topic" fill="${PAPER}"`)}
-      <text x="54" y="1135" class="square-label" fill="${PAPER}">${escapeXml(formattedDate(input.digestDate))}</text>
-      <text x="1145" y="1135" text-anchor="end" class="square-label" fill="${PAPER}">${input.linkCount} LIENS</text>
+      <text x="54" y="1135" class="square-label" fill="${PAPER}">${escapeXml(formattedDate(input.digestDate, input.locale))}</text>
+      <text x="1145" y="1135" text-anchor="end" class="square-label" fill="${PAPER}">${input.linkCount} ${input.locale === "en-GB" ? "LINKS" : "LIENS"}</text>
     </g>
   </svg>`;
   return { svg, family: landscape.family, accent };

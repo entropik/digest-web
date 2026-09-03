@@ -36,7 +36,7 @@
   <channel>
     <title>{{ if eq .Title site.Title }}{{ site.Title }}{{ else }}{{ with .Title }}{{ . }} on {{ end }}{{ site.Title }}{{ end }}</title>
     <link>{{ .Permalink }}</link>
-    <description>Recent content {{ if ne .Title site.Title }}{{ with .Title }}in {{ . }} {{ end }}{{ end }}on {{ site.Title }}</description>
+    <description>{{ if eq site.Language.Lang "en" }}Recent content from{{ else }}Publications récentes de{{ end }} {{ site.Title }}</description>
     {{- with site.Params.images }}
     <image>
       <title>{{ site.Title }}</title>
@@ -61,7 +61,7 @@
       <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
       {{- with $authorEmail }}<author>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</author>{{ end }}
       <guid>{{ .Permalink }}</guid>
-      <description>{{ with .Description | html }}{{ . }}{{ else }}{{ .Summary | html }}{{ end -}}</description>
+      <description>{{ if .Params.translation_pending }}Translation pending · {{ end }}{{ with .Description | html }}{{ . }}{{ else }}{{ .Summary | html }}{{ end -}}</description>
       {{- if and site.Params.ShowFullTextinRSS .Content }}
       <content:encoded>{{ (printf "<![CDATA[%s]]>" .Content) | safeHTML }}</content:encoded>
       {{- end }}

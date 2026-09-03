@@ -24,6 +24,7 @@ git submodule update --init --recursive
 Lancer le serveur local :
 
 ```shell
+node scripts/build-site.mjs
 hugo server
 ```
 
@@ -62,8 +63,8 @@ production est <https://digest.ooblik.com/>.
 ## Déploiement
 
 Les pull requests sont validées par GitHub Actions. Sur `main`, le workflow
-`Deploy production` valide le commit, construit Hugo une seule fois et publie
-ce même résultat sur la branche `production`. Un cron exécuté par l’utilisateur
+`Deploy production` valide le commit, construit les deux langues avec
+`scripts/build-site.mjs` et publie ce résultat validé sur la branche `production`. Un cron exécuté par l’utilisateur
 CloudPanel du site transforme chaque révision de cette branche en release
 locale.
 
