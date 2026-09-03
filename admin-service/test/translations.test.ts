@@ -6,7 +6,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { TranslationStore } from "../src/translation-store.js";
 import { TranslationService } from "../src/translation-service.js";
-import { DeepLClient, TranslationError, validateTranslation } from "../src/deepl.js";
+import { DeepLClient, TranslationError, protectHtml, validateTranslation } from "../src/deepl.js";
 import { sourceHash, snapshotRevision, type TranslationItem, type TranslationManifest, type TranslationSnapshot } from "../src/translation-types.js";
 
 const item = (id: string, source = "Bonjour", date = "2026-09-01"): TranslationItem => ({
@@ -255,6 +255,10 @@ test("HTML translation rejects rewritten destinations, code and executable addit
     assert.throws(() => validateTranslation(source, unsafe, "html"), TranslationError);
   }
   assert.throws(()=>validateTranslation("Voir https://example.com/original", "See https://example.com/changed", "text"),TranslationError);
+  const protectedSource=protectHtml(source);
+  assert.match(protectedSource,/<pre translate="no"><code>x\(\)<\/code><\/pre>/);
+  assert.doesNotMatch(protectedSource,/<code translate=/);
+  assert.doesNotThrow(()=>validateTranslation(source,protectedSource.replace("Bonjour","Hello"),"html"));
 });
 test("API timeouts are uncertain and no automatic retry can duplicate a billed call", async () => {
   let calls = 0;

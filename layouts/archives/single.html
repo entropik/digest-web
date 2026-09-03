@@ -29,7 +29,7 @@
   {{ end }}
 {{ end }}
 {{ $linkedinImagePath := printf "static/social/%s-linkedin.png" $digestDate }}
-{{ if and (eq site.Language.Lang "en") (fileExists (printf "static/social/en/%s-linkedin.png" $digestDate)) }}
+{{ if and (eq site.Language.Lang "en") .Params.translation_artwork_current (fileExists (printf "static/social/en/%s-linkedin.png" $digestDate)) }}
   {{ $linkedinImagePath = printf "static/social/en/%s-linkedin.png" $digestDate }}
 {{ end }}
 {{ if fileExists $linkedinImagePath }}

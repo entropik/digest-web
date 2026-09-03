@@ -14,7 +14,9 @@ const structure = (html: string) => {
 };
 export function protectHtml(source: string) {
   const root = parse(source);
-  for (const node of root.querySelectorAll("code,pre,script,style")) node.setAttribute("translate", "no");
+  for (const node of root.querySelectorAll("pre,script,style,code")) {
+    if (node.tagName !== "CODE" || !node.closest("pre")) node.setAttribute("translate", "no");
+  }
   return root.toString();
 }
 export function validateTranslation(source: string, result: string, format: string) {

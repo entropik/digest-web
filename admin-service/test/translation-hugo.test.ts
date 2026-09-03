@@ -16,7 +16,7 @@ test("Hugo English adapter reuses current fields, falls back after edits and pre
     await writeFile(path.join(directory,"hugo.toml"),'baseURL="https://digest.ooblik.com/"\ndefaultContentLanguage="fr"\ndisableKinds=["RSS","sitemap","taxonomy","term"]\n[security]\nallowContent=["text/html","text/markdown"]\n[languages.fr]\nweight=1\n[languages.en]\nweight=2\n');
     await writeFile(path.join(directory,"content/page.md"),'---\ntitle: Bonjour\n---\nTexte français');
     await writeFile(path.join(directory,"content/a-propos.md"),'---\ntitle: À propos\n---\nTexte à survoler');
-    await writeFile(path.join(directory,"layouts/single.html"),'<html lang="{{ site.Language.Lang }}"><h1>{{ .Title }}</h1><p>{{ .Params.translation_pending }}</p><p>{{ index .Params.images 0 }}|{{ .Params.visual }}</p>{{ .Content }}{{ partial "about-liquid-script.html" . }}</html>');
+    await writeFile(path.join(directory,"layouts/single.html"),'<html lang="{{ site.Language.Lang }}"><h1>{{ .Title }}</h1><p>{{ .Params.translation_pending }}</p><p>{{ index .Params.images 0 }}|{{ .Params.visual }}|{{ .Params.translation_artwork_current }}</p>{{ .Content }}{{ partial "about-liquid-script.html" . }}</html>');
     await writeFile(path.join(directory,"layouts/home.html"),'Home');
     const body='<p>Bonjour <a href="/page/#detail">ici</a> <a href="https://example.com/">ailleurs</a></p><pre><code>x()</code></pre>';
     const fields={title:{source:"Titre changé",format:"text",hash:sourceHash("Titre changé","text")},description:{source:"Résumé",format:"text",hash:sourceHash("Résumé","text")},body:{source:body,format:"html",hash:sourceHash(body,"html")}};
@@ -29,7 +29,7 @@ test("Hugo English adapter reuses current fields, falls back after edits and pre
     const html=await readFile(path.join(directory,"public/en/page/index.html"),"utf8");
     assert.match(html,/<h1>Titre changé<\/h1>/);assert.doesNotMatch(html,/Outdated/);assert.match(html,/<p>true<\/p>/);
     assert.match(html,/Hello/);assert.match(html,/href="\/en\/page\/#detail"/);assert.match(html,/href="https:\/\/example.com\/"/);assert.match(html,/<code>x\(\)<\/code>/);
-    assert.match(html,/\/social\/2026-09-01\.png\|\/social\/2026-09-01-linkedin\.png/);assert.doesNotMatch(html,/\/social\/en\//);
+    assert.match(html,/\/social\/2026-09-01\.png\|\/social\/2026-09-01-linkedin\.png\|false/);assert.doesNotMatch(html,/\/social\/en\//);
     const alias=await readFile(path.join(directory,"public/en/old-page/index.html"),"utf8");
     assert.match(alias,/https:\/\/digest.ooblik.com\/en\/page\//);
     assert.match(await readFile(path.join(directory,"public/page/index.html"),"utf8"),/Texte français/);
