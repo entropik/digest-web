@@ -59,8 +59,14 @@ source. Une publication de traduction ne change donc pas les empreintes
 Les résultats sont sauvegardés immédiatement dans SQLite, puis exportés par
 lots dans `data/translations_en.json` avec le mécanisme GitHub App existant.
 Les affiches typographiques anglaises sont produites dans `static/social/en/`.
+Le snapshot conserve leurs textes, le nombre de liens visibles et le type
+Digest/Focus. Une modification de ces données ou un fichier manquant déclenche
+leur régénération, même sans nouveau texte à traduire.
 Les documents historiques et captures restent inchangés. Le snapshot public
 `/translation-snapshot.json` confirme ce qui est effectivement déployé.
+Son empreinte est calculée après exclusion des traductions périmées et des
+affiches absentes ou obsolètes. La référence de l’export d’origine permet de
+reprendre une publication filtrée sans la déclarer intégralement en ligne.
 Un déploiement échoué se réessaie avec « Réessayer les erreurs », sans nouvel
 appel de traduction. Réessayer des champs en erreur conserve le mode de
 rattrapage choisi : cette commande ne lance jamais tout l’historique en attente.
@@ -105,6 +111,8 @@ après publication et la préserve tant que la source ne change pas. Une source
 modifiée produit une nouvelle empreinte et une nouvelle traduction. La correction
 reste propre au contenu et au champ concernés, y compris lors de la reconstruction
 de SQLite depuis le snapshot ; elle ne remplace pas la mémoire partagée.
+Supprimer cette correction du snapshot, ou retirer son indicateur `manual`,
+retire également la correction locale lors de la prochaine synchronisation.
 
 Les routes `/api/admin/translations/*` utilisent l’authentification propriétaire
 et les contrôles d’origine existants. La clé n’est jamais incluse dans le site,

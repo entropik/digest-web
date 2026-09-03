@@ -649,5 +649,17 @@
   },
   "ui_0447f8d1cb0f": {
     "other": "publications ·"
+  },
+  "about_liquid_cue": {
+    "other": "plouf ?"
+  },
+  "about_liquid_hover": {
+    "other": "survolez"
+  },
+  "about_liquid_text": {
+    "other": "le texte"
+  },
+  "about_liquid_credit": {
+    "other": "merci pretext.js !!!"
   }
 }

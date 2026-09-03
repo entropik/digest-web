@@ -27,6 +27,7 @@
         {{- block "main" . }}{{ end }}
     </main>
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") site.Language.Lang -}}
+    {{ partial "about-liquid-script.html" . -}}
     {{- $typography := resources.FromString "js/typography.js" (readFile "static/js/typography.js") | minify | fingerprint }}
     <script src="{{ $typography.RelPermalink }}" integrity="{{ $typography.Data.Integrity }}" defer></script>
 </body>

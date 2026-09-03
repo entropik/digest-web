@@ -35,6 +35,10 @@ export class TranslationService {
       if (publication.revision === published.revision && publication.state !== "live") {
         this.store.set("publication", { ...publication, state: "live" });
         this.store.record("live");
+      } else if (publication.state === "deploying" && published.sourceRevision === publication.revision) {
+        // Hugo served this export but filtered fields/artwork made stale by newer French edits.
+        this.store.set("publication", { ...publication, state: "idle" });
+        this.store.record("publication_filtered");
       }
     }
     const pending = this.store.get<{ state?: string; commit?: string; revision?: string }>("publication", {});

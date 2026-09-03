@@ -29,7 +29,9 @@
     {{- if in .RelPermalink "/flux/journal-procrastinateur/" -}}{{- $group = "journal-procrastinateur" -}}{{- end -}}
     {{- if in .RelPermalink "/flux/journal-du-digest/" -}}{{- $group = "journal-du-digest" -}}{{- end -}}
     {{- if or (eq .Kind "section") .Params.stream -}}{{- $group = "foundation" -}}{{- end -}}
-    {{- $items = $items | append (dict "id" (printf "page:%s" .Path) "kind" "page" "title" .Title "date" (.Date.Format "2006-01-02") "route" .RelPermalink "group" $group "dependencies" $dependencies "fields" $fields "page" (dict "path" .Path "kind" .Kind "type" .Type "layout" .Layout "aliases" .Aliases "params" $params)) -}}
+    {{- $item := dict "id" (printf "page:%s" .Path) "kind" "page" "title" .Title "date" (.Date.Format "2006-01-02") "route" .RelPermalink "group" $group "dependencies" $dependencies "fields" $fields "page" (dict "path" .Path "kind" .Kind "type" .Type "layout" .Layout "aliases" .Aliases "params" $params) -}}
+    {{- with .Params.digest_date -}}{{- $item = merge $item (dict "artwork" (dict "date" . "linkCount" (len $dependencies) "editorialType" ($page.Params.editorial_type | default "digest"))) -}}{{- end -}}
+    {{- $items = $items | append $item -}}
   {{- end -}}
 {{- end -}}
 {{- range $kind := slice "category" "tag" -}}

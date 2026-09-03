@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "853dcd53008d67588ae3c2e84393e21f6c0f59f1c6fcbe8485aba6c4413b358e",
+  "revision": "07473c1ae711fb7453bb5b82c0d540b68c4e019ecb8463c77dc3248e7d0e89ee",
   "entries": {
     "page:/a-propos": {
       "body": {
@@ -161,6 +161,68 @@
         "hash": "c7395791f1fbaa96716934f7a452d624ba54078c84d1834903826fd72ec62f10",
         "text": "Tags"
       }
+    }
+  },
+  "artwork": {
+    "2026-08-16": {
+      "title": "Digest — 16 August 2026",
+      "description": "Artificial intelligence, development, design, publishing and digital creation.",
+      "linkCount": 13,
+      "editorialType": "digest"
+    },
+    "2026-08-18": {
+      "title": "Digest — 18 August 2026",
+      "description": "Artificial intelligence, development, design, publishing and digital creation.",
+      "linkCount": 13,
+      "editorialType": "digest"
+    },
+    "2026-08-20": {
+      "title": "Digest — 20 August 2026",
+      "description": "Artificial intelligence, development, design, publishing and digital creation.",
+      "linkCount": 12,
+      "editorialType": "digest"
+    },
+    "2026-08-24": {
+      "title": "Digest — 24 August 2026",
+      "description": "Artificial intelligence, development, design, publishing and digital creation.",
+      "linkCount": 15,
+      "editorialType": "digest"
+    },
+    "2026-08-25": {
+      "title": "Digest — 25 August 2026",
+      "description": "Artificial intelligence, development, design, publishing and digital creation.",
+      "linkCount": 26,
+      "editorialType": "digest"
+    },
+    "2026-08-27": {
+      "title": "Digest — 27 August 2026",
+      "description": "Learn how to develop and build agents, run models and choose specialist tools.",
+      "linkCount": 45,
+      "editorialType": "digest"
+    },
+    "2026-08-28": {
+      "title": "Agent farms",
+      "description": "Twenty open-source projects for orchestrating agent farms: multi-agent frameworks, memory management, sandboxes, monitoring and artificial enterprises.",
+      "linkCount": 20,
+      "editorialType": "focus"
+    },
+    "2026-08-29": {
+      "title": "After the IDE, here comes the ADE",
+      "description": "For thirty years, the development environment was designed around a developer working with files. Claude Code and Codex have changed this unit of work. A new generation of tools — Orca, Superset, Emdash — no longer seeks to help us write code: it organises agents to write it for us.",
+      "linkCount": 7,
+      "editorialType": "focus"
+    },
+    "2026-09-01": {
+      "title": "Digest — 1 September 2026",
+      "description": "Artificial intelligence, development, design, publishing and digital creation.",
+      "linkCount": 26,
+      "editorialType": "digest"
+    },
+    "2026-09-02": {
+      "title": "Software Factory: code is no longer the bottleneck",
+      "description": "Seven videos all point to the same idea: automating the build, code, testing, review and pull request pipeline shifts the bottleneck to human attention.",
+      "linkCount": 7,
+      "editorialType": "focus"
     }
   }
 }

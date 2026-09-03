@@ -649,5 +649,17 @@
   },
   "ui_0447f8d1cb0f": {
     "other": "publications ·"
+  },
+  "about_liquid_cue": {
+    "other": "splash?"
+  },
+  "about_liquid_hover": {
+    "other": "hover over"
+  },
+  "about_liquid_text": {
+    "other": "the text"
+  },
+  "about_liquid_credit": {
+    "other": "thanks, pretext.js!!!"
   }
 }

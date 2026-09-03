@@ -7,7 +7,7 @@ import { join } from "node:path";
 import { TranslationStore } from "../src/translation-store.js";
 import { TranslationService } from "../src/translation-service.js";
 import { DeepLClient, TranslationError, validateTranslation } from "../src/deepl.js";
-import { sourceHash, type TranslationItem, type TranslationManifest, type TranslationSnapshot } from "../src/translation-types.js";
+import { sourceHash, snapshotRevision, type TranslationItem, type TranslationManifest, type TranslationSnapshot } from "../src/translation-types.js";
 
 const item = (id: string, source = "Bonjour", date = "2026-09-01"): TranslationItem => ({
   id, title: id, kind: "page", date, route: "/archives/" + id + "/", group: "archives",
@@ -137,6 +137,21 @@ test("reservation includes previous usage, uncertain requests stay reserved afte
   assert.equal(restarted.memory(next.hash)?.state, "pending");
   db.close();
 });
+test("published removal or replacement of a manual correction is respected on the same source", () => {
+  const { db, store } = fixture();
+  store.sync(manifest(item("a")));
+  const hash = sourceHash("Bonjour", "text");
+  const corrected: TranslationSnapshot = {version:1,revision:"manual",entries:{a:{title:{hash,text:"Good day",manual:true}}}};
+  store.restore(corrected);
+  store.restore({version:1,revision:"removed",entries:{}});
+  assert.deepEqual(store.snapshot().entries,{});
+  assert.equal(store.overview().coverage.translated,0);
+  store.restore(corrected);
+  store.restore({version:1,revision:"replacement",entries:{a:{title:{hash,text:"Hello"}}}});
+  assert.equal(store.snapshot().entries.a?.title?.text,"Hello");
+  assert.equal(store.snapshot().entries.a?.title?.manual,undefined);
+  db.close();
+});
 test("paused work and history survive store reconstruction; failed quota stops calls", () => {
   const { db, store } = fixture();
   store.sync(manifest(item("a")));
@@ -194,6 +209,43 @@ test("quota errors do not consume requests or prevent public fallback generation
   assert.equal(translations, 0);
   assert.equal(store.overview().quota.error, "DEEPL_503");
   assert.deepEqual(store.snapshot().entries, {});
+  db.close();
+});
+test("a deployed export filtered by Hugo is not marked fully live or left blocking newer publication", async () => {
+  const {db,store}=fixture();const source=manifest(item("a","Source modifiée"));store.sync(source);
+  store.set("publication",{state:"deploying",revision:"old-export",commit:"old-commit"});
+  const published:TranslationSnapshot={version:1,revision:snapshotRevision({}),sourceRevision:"old-export",entries:{}};
+  let exports=0;
+  const service=new TranslationService(store,new DeepLClient(""),{manifest:async()=>source,published:async()=>published,export:async()=>{exports++;return {commit:"next-export"}}});
+  await service.sync();assert.equal(store.get("publication",{state:""}).state,"idle");
+  assert.equal(store.overview().publication.liveCharacters,0);
+  store.restore({version:1,revision:"new",entries:{a:{title:{hash:source.items[0]!.fields.title!.hash,text:"Updated source"}}}});
+  await service.publish();assert.equal(exports,1);
+  assert.equal(store.get("publication",{state:""}).state,"deploying");db.close();
+});
+test("edition metadata changes publish fresh artwork even when no text needs translation", async () => {
+  const {db,store}=fixture();
+  const edition=item("page:/archives/2026-09-01");
+  edition.fields.description={source:"Résumé",format:"text",hash:sourceHash("Résumé","text")};
+  edition.artwork={date:"2026-09-01",linkCount:1,editorialType:"digest"};
+  const source=manifest(edition);store.sync(source);
+  const entries:TranslationSnapshot["entries"]={[edition.id]:{title:{hash:edition.fields.title!.hash,text:"Hello"},description:{hash:edition.fields.description.hash,text:"Summary"}}};
+  store.restore({version:1,revision:"seed",entries});
+  const live=store.snapshot();
+  const exports:TranslationSnapshot[]=[];let requests=0;
+  const service=new TranslationService(store,new DeepLClient("fake",undefined,(async url=>{
+    if(String(url).endsWith("/usage"))return Response.json({character_count:0,character_limit:1_000_000});
+    requests++;throw new Error("Unexpected translation");
+  }) as typeof fetch),{manifest:async()=>source,published:async()=>live,export:async snapshot=>{exports.push(snapshot);return {commit:"artwork-update"}}});
+  await service.tick();assert.equal(exports.length,0);
+  edition.artwork.linkCount=2;edition.artwork.editorialType="focus";
+  await service.tick();
+  const exported=exports[0];
+  assert(exported);assert.equal(exported.artwork?.["2026-09-01"]?.linkCount,2);
+  assert.equal(exported.artwork?.["2026-09-01"]?.editorialType,"focus");
+  assert.notEqual(exported.revision,live.revision);assert.equal(requests,0);
+  assert.equal(store.overview().backfill,false);
+  assert.equal(exported.revision,snapshotRevision(exported.entries,exported.artwork));
   db.close();
 });
 test("HTML translation rejects rewritten destinations, code and executable additions", () => {

@@ -74,6 +74,7 @@ export class TranslationStore {
       const currentIds = new Set(manifest.items.map(item => item.id));
       if (previousIds.some(id => !currentIds.has(id))) changed = true;
       this.set("initialized", true);
+      this.set("artworkSources", Object.fromEntries(manifest.items.filter(item => item.artwork).map(item => [item.id, item.artwork])));
       if (!initialized) this.chooseInitial();
     })();
     if (changed || !initialized) this.record("inventory");
@@ -199,7 +200,7 @@ export class TranslationStore {
   memory(hash: string) { return this.db.prepare("SELECT * FROM translation_memory WHERE hash=?").get(hash) as Memory | undefined; }
   restore(snapshot: TranslationSnapshot) {
     if (snapshot.version !== 1) return;
-    const corrections = this.get<TranslationSnapshot["entries"]>("corrections", {});
+    const corrections: TranslationSnapshot["entries"] = {};
     for (const [id, fields] of Object.entries(snapshot.entries)) {
       for (const [field, entry] of Object.entries(fields)) {
         const current = this.db.prepare("SELECT hash FROM translation_fields WHERE item_id=? AND field=?").get(id, field) as { hash: string } | undefined;
@@ -225,7 +226,13 @@ export class TranslationStore {
       const correction = corrections[row.item_id]?.[row.field];
       entries[row.item_id]![row.field] = correction?.hash === row.hash ? correction : { hash: row.hash, text: row.translated };
     }
-    return { version: 1, revision: snapshotRevision(entries), entries };
+    const artwork: NonNullable<TranslationSnapshot["artwork"]> = {};
+    const sources = this.get<Record<string, NonNullable<TranslationManifest["items"][number]["artwork"]>>>("artworkSources", {});
+    for (const [id, source] of Object.entries(sources)) {
+      const fields = entries[id];
+      if (fields?.title && fields.description) artwork[source.date] = {title:fields.title.text,description:fields.description.text,linkCount:source.linkCount,editorialType:source.editorialType};
+    }
+    return { version: 1, revision: snapshotRevision(entries, artwork), entries, artwork };
   }
   stats() {
     const counts = this.db.prepare("SELECT COALESCE(SUM(m.chars),0) AS total,COALESCE(SUM(CASE WHEN m.translated IS NOT NULL THEN m.chars ELSE 0 END),0) AS translated FROM translation_fields f JOIN translation_items i ON i.id=f.item_id JOIN translation_current_fields m ON m.item_id=f.item_id AND m.field=f.field WHERE i.active=1")

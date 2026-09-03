@@ -41,6 +41,11 @@ Ces corrections suivent la langue du document : `typography.js` ignore les
 pages dont l’attribut `lang` commence par `en`. La version anglaise conserve
 ainsi sa propre ponctuation, sans insertion d’espaces françaises.
 
+L’effet de survol du texte sur À propos / About est identique dans les deux
+langues, avec une aide localisée. Son script est chargé pour cette page hors
+du pied de page mis en cache. Le mouvement reste réservé aux grands écrans
+avec pointeur précis et respecte `prefers-reduced-motion`.
+
 Sur le site public, Hugo donne à ce script une URL avec empreinte de contenu.
 Dans l’administration et son aperçu local, le même script est inclus dans
 `/admin/app.js` : il ne dépend pas du déploiement séparé du site statique et
