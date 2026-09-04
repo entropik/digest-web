@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Diary of a Procrastinator on Digest</title>
+    <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/</link>
+    <description>Recent content from Digest</description>
+    <generator>Hugo</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Wed, 26 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://digest.ooblik.com/en/flux/journal-procrastinateur/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jour 137 - Ranger l&#39;ère Claude sans perdre la mémoire</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-26/</link>
+      <pubDate>Wed, 26 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-26/</guid>
+      <description>Translation pending · Jour 137 du journal : les anciennes commandes et copies de skills Claude sont retirées, tandis que leurs deux dernières règles utiles rejoignent AGENTS.md.</description>
+    </item>
+    <item>
+      <title>Jour 136 - Fermer les courses avant de livrer</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-25/</link>
+      <pubDate>Tue, 25 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-25/</guid>
+      <description>Translation pending · Jour 136 du journal : KEREDIT verrouille les sauvegardes, le checkout, les assets et les droits PDF avant de préparer la version 0.23.1.</description>
+    </item>
+    <item>
+      <title>Jour 135 - Mesurer la souveraineté, fermer les angles morts</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-24/</link>
+      <pubDate>Mon, 24 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-24/</guid>
+      <description>Translation pending · Jour 135 du journal : les mesures OVH sont rendues honnetes, les clés sont securisees, un incident de propriété d&amp;#39;objets est réparé et les workflows KEREDIT-GOF deviennent portables.</description>
+    </item>
+    <item>
+      <title>Jour 134 - La bascule OVH devient une preuve de production</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-23/</link>
+      <pubDate>Sun, 23 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-23/</guid>
+      <description>Translation pending · Jour 134 du journal : KEREDIT et GOF valident OVH 3-AZ Paris en production, sans remise Accurio de recette et sans régression de charge.</description>
+    </item>
+    <item>
+      <title>Jour 133 - Les données clients prennent la route de Paris</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-22/</link>
+      <pubDate>Sat, 22 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-22/</guid>
+      <description>Translation pending · Jour 133 du journal : 78 Go sont copiés de R2 vers OVH 3-AZ Paris et KEREDIT engage une bascule européenne réversible.</description>
+    </item>
+    <item>
+      <title>Jour 132 - Préparer la souveraineté sans fragiliser les uploads</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-21/</link>
+      <pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-21/</guid>
+      <description>Translation pending · Jour 132 du journal : KEREDIT durcit les uploads présignés avant la bascule OVH et livre la version 0.22.6.</description>
+    </item>
+    <item>
+      <title>Jour 131 - La release approche, le corps dit stop</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-20/</link>
+      <pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-20/</guid>
+      <description>Translation pending · Jour 131 du journal : le POC et le benchmark depuis le VPS choisissent OVH 3-AZ Paris pour ramener les données clients dans une infrastructure européenne.</description>
+    </item>
+    <item>
+      <title>Jour 130 - Sauver avant de sortir, choisir avant de migrer</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-18/</link>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-18/</guid>
+      <description>Translation pending · Jour 130 du journal : l&amp;#39;éditeur durcit sauvegarde, checkout et responsive pendant qu&amp;#39;un audit remet en cause la migration instinctive de R2 vers Hetzner.</description>
+    </item>
+    <item>
+      <title>Jour 129 - Fermer le chantier des chantiers</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-15/</link>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-15/</guid>
+      <description>Translation pending · Jour 129 du journal : le workflow d&amp;#39;isolation Codex commence le 9 août et trouve enfin son commit, sans PR ni publication sur dev.</description>
+    </item>
+    <item>
+      <title>Jour 128 - Une option visible, un chantier isolé</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-09/</link>
+      <pubDate>Sun, 09 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-09/</guid>
+      <description>Translation pending · Jour 128 du journal : le test client expose enfin les options produit et le workflow de chantiers Codex commence à prendre forme dans un worktree sépare.</description>
+    </item>
+    <item>
+      <title>Jour 127 - Le Builder traverse toute la chaîne</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-08/</link>
+      <pubDate>Sat, 08 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-08/</guid>
+      <description>Translation pending · Jour 127 du journal : KEREDIT relie simulation, composition, libertés client, recette PDF et quantités de tirage, tandis que GOF ouvre prudemment la question SaaS.</description>
+    </item>
+    <item>
+      <title>Jour 126 - Le produit se montre, le panier se souvient</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-07/</link>
+      <pubDate>Fri, 07 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-07/</guid>
+      <description>Translation pending · Jour 126 du journal : l&amp;#39;aperçu produit dynamique arrive, les projets du panier deviennent indestructibles, la grille tarifaire gagne sa matrice et le Builder commence à centraliser l&amp;#39;authoring.</description>
+    </item>
+    <item>
+      <title>Jour 125 - La nuit des deux sessions</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-06/</link>
+      <pubDate>Thu, 06 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-06/</guid>
+      <description>Translation pending · Jour 125 du journal : après la nuit de la synchro Woo et des remises panier, la journée fiabilise les suppressions, le checkout et prépare l&amp;#39;aperçu produit dynamique.</description>
+    </item>
+    <item>
+      <title>Jour 124 - Le bouton Synchroniser prend sa retraite</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-05/</link>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-05/</guid>
+      <description>Translation pending · Jour 124 du journal : une fiche produit testée trop vite, un coup de ralage injuste, puis la synchronisation KEREDIT vers WooCommerce devient automatique et prouvée en production.</description>
+    </item>
+    <item>
+      <title>Jour 123 - Mesurer la charge, garder la maison</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-04/</link>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-04/</guid>
+      <description>Translation pending · Jour 123 du journal : la campagne éditeur passe a 50 utilisateurs virtuels, la sécurité et l&amp;#39;audit CI sont remis a niveau, puis le journal rattrape ses semaines de fatigue et de vacances.</description>
+    </item>
+    <item>
+      <title>Jour 122 - Les forges retrouvent leur propre vérité</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-03/</link>
+      <pubDate>Mon, 03 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-03/</guid>
+      <description>Translation pending · Jour 122 du journal : GOF 0.8.1 lit le registre Production v2, expose l&amp;#39;activité réelle de chaque forge et consolide les métriques sans revenir au snapshot historique.</description>
+    </item>
+    <item>
+      <title>Jour 121 - Revenir, consolider, publier</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-30/</link>
+      <pubDate>Thu, 30 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-30/</guid>
+      <description>Translation pending · Jour 121 du journal : après six jours sans commit, KEREDIT consolide la charge, l&amp;#39;email, les dépendances, le panier, le connecteur et la recette GOF, puis remet le VPS sur une release vérifiée.</description>
+    </item>
+    <item>
+      <title>Jour 120 - Fermer les portes restées ouvertes</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-23/</link>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-23/</guid>
+      <description>Translation pending · Jour 120 du journal : KEREDIT verrouille les templates, le partage GOF, l&amp;#39;authentification, les assets, les frontières tenant et commerce, puis ajoute quotas et purge des uploads.</description>
+    </item>
+    <item>
+      <title>Jour 119 - La commande se revérifie, le partage se simplifie</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-22/</link>
+      <pubDate>Wed, 22 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-22/</guid>
+      <description>Translation pending · Jour 119 du journal : la commande et le partage sont durcis, puis KEREDIT et GOF adoptent les regenerations, les itérations immuables et les verrous serveur qui manquaient au contrat Production v2.</description>
+    </item>
+    <item>
+      <title>Jour 118 - Durcir les accès, découvrir Kimi K3</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-20/</link>
+      <pubDate>Mon, 20 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-20/</guid>
+      <description>Translation pending · Jour 118 du journal : le PDF web payant est conditionné à une commande Woo réellement payée, la configuration GOF passe sous rôle admin, les sessions Better Auth se révoquent proprement, et la journée s&amp;#39;ouvre sur la découverte de Kimi K3.</description>
+    </item>
+    <item>
+      <title>Jour 117 - Les archives se souviennent de PrestaShop</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-19/</link>
+      <pubDate>Sun, 19 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-19/</guid>
+      <description>Translation pending · Jour 117 du journal : KEREDIT intègre l&amp;#39;historique PrestaShop dans ses archives atelier, avec import legacy, écran admin dédié et poignées de timeline restaurées.</description>
+    </item>
+    <item>
+      <title>Jour 116 - La forge passe enfin sous la minute</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-18/</link>
+      <pubDate>Sat, 18 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-18/</guid>
+      <description>Translation pending · Jour 116 du journal : GOF et KEREDIT abandonnent les états massifs et les jobs concurrents au profit d&amp;#39;une Production v2 simple, mesurée et validée sur les deux forges réelles sans envoyer vers Accurio.</description>
+    </item>
+    <item>
+      <title>Jour 115 - Dix heures trente-deux pour mériter un merge</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-16/</link>
+      <pubDate>Thu, 16 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-16/</guid>
+      <description>Translation pending · Jour 115 du journal : deux PR GOF sont fusionnées après 10 h 32 de corrections, de CI et de revues Codex répétées jusqu&amp;#39;au verdict propre sur le SHA exact.</description>
+    </item>
+    <item>
+      <title>Jour 114 - Mesurer avant de conserver</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-15/</link>
+      <pubDate>Wed, 15 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-15/</guid>
+      <description>Translation pending · Jour 114 du journal : les limites d&amp;#39;action des agents deviennent explicites et le stockage photo est chiffré avant de définir sobriété, rétention ou archivage.</description>
+    </item>
+    <item>
+      <title>Jour 113 - Fiabiliser partout, sans perdre la limite</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-14/</link>
+      <pubDate>Tue, 14 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-14/</guid>
+      <description>Translation pending · Jour 113 du journal : checkout photo, sauvegarde projet, CI et runtime sont durcis, GOF devient multicloud, puis un miroir R2 non autorise rappelle la limite des agents.</description>
+    </item>
+    <item>
+      <title>Jour 112 - Passer du pilote au système exploitable</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-13/</link>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-13/</guid>
+      <description>Translation pending · Jour 112 du journal : GOF Flux devient canonique, l&amp;#39;ancien monolithe passe en rollback et KEREDIT durcit aide, sécurité, déploiement et devis panier.</description>
+    </item>
+    <item>
+      <title>Jour 111 - Quand la forge devient une décision économique</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-12/</link>
+      <pubDate>Sun, 12 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-12/</guid>
+      <description>Translation pending · Jour 111 du journal : provenance KEREDIT, deux forges et Accurio valides, cache mesure et pilote Cloud Run confronte au coût de la compagnie X.</description>
+    </item>
+    <item>
+      <title>Jour 110 - De l&#39;aide client aux forges distribuées</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-11/</link>
+      <pubDate>Sat, 11 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-11/</guid>
+      <description>Translation pending · Jour 110 du journal : espace Projets et aide KEREDIT, puis construction du pilote GOF Flux distribue sur deux forges isolées de la production.</description>
+    </item>
+    <item>
+      <title>Jour 109 - Le contrat print traverse les deux dépôts</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-10/</link>
+      <pubDate>Fri, 10 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-10/</guid>
+      <description>Translation pending · Jour 109 du journal : styles de polices, géométrie clipart et payload print alignés entre KEREDIT et GOF, puis migration P340 sécurisée.</description>
+    </item>
+    <item>
+      <title>Jour 108 - La pagination devient un contrat print</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-09/</link>
+      <pubDate>Thu, 09 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-09/</guid>
+      <description>Translation pending · Jour 108 du journal : pagination durcie dans KEREDIT, rendue avec les polices GOF et protégée jusqu&amp;#39;au deploy et a Accurio.</description>
+    </item>
+    <item>
+      <title>Jour 107 - Le texte dynamique rejoint les photos</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-08/</link>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-08/</guid>
+      <description>Translation pending · Jour 107 du journal : lecteur mobile, champs texte dynamiques, métadonnées IPTC et pagination jusqu&amp;#39;à la version 0.10.14.</description>
+    </item>
+    <item>
+      <title>Jour 106 - Presque 600 heures, et la peur du jugement</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-07/</link>
+      <pubDate>Tue, 07 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-07/</guid>
+      <description>Translation pending · Jour 106 du journal : presque 600 heures, peur du jugement, puis complément technique sur KEREDIT, GOF et la sauvegarde Plakar.</description>
+    </item>
+    <item>
+      <title>Jour 105 - Nettoyer, mesurer, aligner</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-06/</link>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-06/</guid>
+      <description>Translation pending · Jour 105 du journal : CI, refactors frontend/backend, fine art, observabilité WooCommerce et alignement multi-blocs jusqu&amp;#39;à la release 0.10.8.</description>
+    </item>
+    <item>
+      <title>Jour 104 - Alléger les imports photo</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-05/</link>
+      <pubDate>Sun, 05 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-05/</guid>
+      <description>Translation pending · Jour 104 du journal : confirmation upload plus légère, import Google Photos progressif, files asset séparées et guides de pli livre.</description>
+    </item>
+    <item>
+      <title>Jour 103 - Donner une carte aux agents</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-04/</link>
+      <pubDate>Sat, 04 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-04/</guid>
+      <description>Translation pending · Jour 103 du journal : wiki KEREDIT pour les agents, schéma Obsidian et petite correction de lien Prisma.</description>
+    </item>
+    <item>
+      <title>Jour 102 - Relier le prix, le zine et la forge</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-03/</link>
+      <pubDate>Fri, 03 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-03/</guid>
+      <description>Translation pending · Jour 102 du journal : règles de pages supplémentaires, plans d&amp;#39;exécution, stabilisation du flux zine et corrections GOF sur les cahiers.</description>
+    </item>
+    <item>
+      <title>Jour 101 - Ne plus déployer à l&#39;aveugle</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-02/</link>
+      <pubDate>Thu, 02 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-02/</guid>
+      <description>Translation pending · Jour 101 du journal : petit resserrage du déploiement VPS autour du couple version &#43; SHA, puis bump KEREDIT 0.9.52.</description>
+    </item>
+    <item>
+      <title>Jour 100 - Rendre simple ce que le code a complique</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-01/</link>
+      <pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-01/</guid>
+      <description>Translation pending · Jour 100 du journal : simplification KISS du remplissage carnet, preview globale, actions locales, historique court et lutte contre l&amp;#39;entropie UI.</description>
+    </item>
+    <item>
+      <title>Jour 99 - Protege la base, simplifie les panneaux</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-30/</link>
+      <pubDate>Tue, 30 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-30/</guid>
+      <description>Translation pending · Journée de migration pnpm, guardrails Fabric, runtime templates, protection anti-seed local/VPS et simplification du panneau Templates.</description>
+    </item>
+    <item>
+      <title>Jour 98 - Réduire le bruit, outiller le flux</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-29/</link>
+      <pubDate>Mon, 29 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-29/</guid>
+      <description>Translation pending · Journée de durcissement opérationnel : refill carnet, lint, backlog éditeur, observabilité bêta, commande test-flux, WooCommerce et durcissement GOF.</description>
+    </item>
+    <item>
+      <title>Jour 97 - L&#39;assistant arrive, puis l&#39;UX reprend la main</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-28/</link>
+      <pubDate>Sun, 28 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-28/</guid>
+      <description>Translation pending · Journée carnet photo entre assistant narratif, enrichissement des templates, stabilisation hooks et polish de la modale de remplissage automatique.</description>
+    </item>
+    <item>
+      <title>Jour 96 - Les gabarits deviennent un langage</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-27/</link>
+      <pubDate>Sat, 27 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-27/</guid>
+      <description>Translation pending · Journée de structuration des gabarits photo pour les carnets : navigation page, couvertures, templates, tri et rythme du remplissage automatique.</description>
+    </item>
+    <item>
+      <title>Jour 95 - Séparer le print du PDF web</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-26/</link>
+      <pubDate>Fri, 26 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-26/</guid>
+      <description>Translation pending · Journée de consolidation KEREDIT/GOF : régressions editor, remplissage automatique, commande Zine 60 pages, PDF web, artefacts HD et contrat de versioning GOF.</description>
+    </item>
+    <item>
+      <title>Jour 94 - Arrêter de jouer au pompier</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-25/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-25/</guid>
+      <description>Translation pending · Journée et session nocturne de régressions KEREDIT : drag photo, spreads livre, panneau Calques, contrats Fabric, deploy VPS et fatigue de régression.</description>
+    </item>
+    <item>
+      <title>Rattrapage du 24 juin - Le carnet trouve son rythme</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-24/</link>
+      <pubDate>Wed, 24 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-24/</guid>
+      <description>Translation pending · Billet retrouve du 24 juin : WooCommerce clarifie les options BAT et PDF web, les photos respectent enfin leur orientation et leur surface, et le remplissage automatique transforme le carnet en véritable composition.</description>
+    </item>
+    <item>
+      <title>Jour 93 - Durcir avant d&#39;élargir</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-23/</link>
+      <pubDate>Tue, 23 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-23/</guid>
+      <description>Translation pending · Bilan provisoire d&amp;#39;une journée de durcissement KEREDIT : auth, partage public, CI sécurité, affichage produit du partage et panier WooCommerce encore en cours.</description>
+    </item>
+    <item>
+      <title>Jour 92 - Du partage public au livrable web</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-22/</link>
+      <pubDate>Mon, 22 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-22/</guid>
+      <description>Translation pending · Journée de consolidation KEREDIT : couverture livre, lecteur public, PDF web téléchargeable, roadmap septembre, audit dépendances et vente WooCommerce du livrable PDF web.</description>
+    </item>
+    <item>
+      <title>Jour 91 - Durcir le partage, simplifier le déploiement</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-21/</link>
+      <pubDate>Sun, 21 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-21/</guid>
+      <description>Translation pending · Journée de consolidation KEREDIT : issues d&amp;#39;amélioration du partage, durcissement StPageFlip/GOF, simplification GitHub Actions, correction auth de l&amp;#39;ouverture éditeur backoffice et deploy VPS 0.9.11.</description>
+    </item>
+    <item>
+      <title>Jour 90 - Le partage trouve son geste</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-20/</link>
+      <pubDate>Sat, 20 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-20/</guid>
+      <description>Translation pending · Chantier partage public KEREDIT : sortie du mode image plat, intégration StPageFlip réelle, nettoyage du rendu public, correction des artefacts et deploy VPS en 0.9.10.</description>
+    </item>
+    <item>
+      <title>Jour 88 - Mesurer le réel, corriger le contrat, partager le projet</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-18/</link>
+      <pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-18/</guid>
+      <description>Translation pending · Journée de recalage atelier : guides globaux, audit bêta, contrat Zine/GOF, dos pique métal mesure, suivi GOF plus fiable et début du partage public de projets KEREDIT.</description>
+    </item>
+    <item>
+      <title>Jour 87 - Sortir le doublon PDF, choisir GOF</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-17/</link>
+      <pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-17/</guid>
+      <description>Translation pending · Journée de clarification PDF : la forge GOF passe un PDF de plus de 400 Mo a 19 Mo, KEREDIT retire son moteur en doublon et redevient l&amp;#39;autorité du projet et du JSON.</description>
+    </item>
+    <item>
+      <title>Jour 86 - Zine, GOF, Accurio : le produit rejoint la chaîne atelier</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-16/</link>
+      <pubDate>Tue, 16 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-16/</guid>
+      <description>Translation pending · Journée Zine, prix, GOF et Accurio : le zine devient vendable en quantité libre, le contrat livre se sépare en couverture/cahier, GOF pivote vers un cockpit de dossiers et le deploy VPS retrouve un chemin GitHub propre.</description>
+    </item>
+    <item>
+      <title>Jour 85 - Permissions client, templates et documentation vivante</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-15/</link>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-15/</guid>
+      <description>Translation pending · Billet provisoire du 15 juin : reprise live des permissions template/client, deploy 0.7.17 et remise en cohérence de la documentation.</description>
+    </item>
+    <item>
+      <title>Jour 84 - Dimanche off</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-14/</link>
+      <pubDate>Sun, 14 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-14/</guid>
+      <description>Translation pending · Dimanche sans chantier code : conserver la trace d&amp;#39;une pause, sans gonfler artificiellement le journal.</description>
+    </item>
+    <item>
+      <title>Jour 83 - Outiller la bêta, entre WooCommerce et observabilité</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-13/</link>
+      <pubDate>Sat, 13 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-13/</guid>
+      <description>Translation pending · Journée courte mais dense autour du connecteur KEREDIT : messages bêta, synchronisation WooCommerce, SMTP OpenReplay et instrumentation du dashboard bêta.</description>
+    </item>
+    <item>
+      <title>Jour 82 - Rendre la documentation moins oubliable, puis regarder le produit fini</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-12/</link>
+      <pubDate>Fri, 12 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-12/</guid>
+      <description>Translation pending · Contraste des actions projet WooCommerce, documentation rendue auditable, wordmark éditeur poli et mode Aperçu final deploye pour voir la carte sans fond perdu.</description>
+    </item>
+    <item>
+      <title>Jour 81 - Observer la bêta avant de l&#39;élargir</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-11/</link>
+      <pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-11/</guid>
+      <description>Translation pending · Nettoyage VPS, observabilité bêta, ouverture 0.7.0, correction OpenReplay et polissage de l&amp;#39;espace projets client WooCommerce.</description>
+    </item>
+    <item>
+      <title>Jour 80 - Les templates deviennent des familles de formats</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-10/</link>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-10/</guid>
+      <description>Translation pending · Audit du contrat JSON KEREDIT-GOF, durcissement TLS, placeholder photo, stabilisation live des templates multi-formats et remplacement photo fluide dans les blocs image.</description>
+    </item>
+    <item>
+      <title>Jour 79 - Images plus nettes, projets plus prudents, contrat JSON réparé</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-09/</link>
+      <pubDate>Tue, 09 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-09/</guid>
+      <description>Translation pending · Amélioration du rendu image dans l&amp;#39;éditeur, confort de zoom, projets WooCommerce plus prudents, puis correction GOF 0.1.49 du contrat JSON/rendu image KEREDIT.</description>
+    </item>
+    <item>
+      <title>Jour 78 - Verrouiller la bêta avant d&#39;élargir</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-08/</link>
+      <pubDate>Mon, 08 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-08/</guid>
+      <description>Translation pending · Reconnexion éditeur, durcissement sécurité WooCommerce, audit bêta publique et verrouillage strict du contrat texte PDF entre KEREDIT et GOF.</description>
+    </item>
+    <item>
+      <title>Jour 77 - Le texte devient un contrat de production</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-07/</link>
+      <pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-07/</guid>
+      <description>Translation pending · Stabilisation du texte pendant le zoom, canonisation du rich text pour le PDF, duplication WooCommerce plus sûre et alignement KEREDIT-GOF autour du rendu typographique.</description>
+    </item>
+    <item>
+      <title>Jour 76 - WooCommerce devient une vraie porte KEREDIT</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-06/</link>
+      <pubDate>Sat, 06 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-06/</guid>
+      <description>Translation pending · Google Photos reconnecté proprement, aperçus de pages remis en confiance, puis refonte du plugin WooCommerce pour laisser KEREDIT piloter quantités, formats et options.</description>
+    </item>
+    <item>
+      <title>Jour 75 - De GOF a Accurio, puis le feu en prod</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-05/</link>
+      <pubDate>Fri, 05 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-05/</guid>
+      <description>Translation pending · Journée de production intense : dispatch KEREDIT vers GOF, rendu PDF et polices, quantités Accurio, sécurisation du deploy, correction live des photos expirées et retouches Google Photos.</description>
+    </item>
+    <item>
+      <title>Jour 74 - KEREDIT, GOF, Accurio : le flux sort de l&#39;atelier</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-04/</link>
+      <pubDate>Thu, 04 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-04/</guid>
+      <description>Translation pending · Journée dense de raccord entre KEREDIT, GOF, Accurio Flux et WooCommerce : configuration guidée, pairing, catalogue Accurio lu par GOF, contrats de production et bugs révélés par les tests réels.</description>
+    </item>
+    <item>
+      <title>Jour 73 - Stabiliser l&#39;éditeur pendant que GOF prend corps</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-03/</link>
+      <pubDate>Wed, 03 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-03/</guid>
+      <description>Translation pending · Journée charnière entre fiabilisation bêta KEREDIT, upload direct, assets, autosave, contrôles de texte et naissance Git de GOF comme forge PDF atelier.</description>
+    </item>
+    <item>
+      <title>Jour 72 - Reprendre la bêta par les détails visibles</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-02/</link>
+      <pubDate>Tue, 02 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-02/</guid>
+      <description>Translation pending · Reprise active après la journée blanche : références PDF, billet rétrospectif, cadrage logo rond éditable, début d&amp;#39;exposition GOF dans l&amp;#39;admin et nettoyage des tests bêta.</description>
+    </item>
+    <item>
+      <title>Jour 71 - Une journée hors atelier</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-01/</link>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-06-01/</guid>
+      <description>Translation pending · Journée volontairement blanche côté atelier : pas de session Krampouz/KEREDIT, pas de commit, pas de validation technique, mais une trace utile dans le journal.</description>
+    </item>
+    <item>
+      <title>Jour 70 - Quand le poste devient lui-même un risque</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-29/</link>
+      <pubDate>Fri, 29 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-29/</guid>
+      <description>Translation pending · Journée de coupures et de décision : trois interruptions du poste, commande d&amp;#39;un Mac mini M4 Pro et report prudent de la bêta clients amis d&amp;#39;une semaine.</description>
+    </item>
+    <item>
+      <title>Jour 69 - Garder la bêta petite et la mémoire propre</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-28/</link>
+      <pubDate>Thu, 28 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-28/</guid>
+      <description>Translation pending · Journée de consolidation documentaire : point Go/No-Go du 1er juin, formalisation du journal Codex, workflow poubelle et premiers audits archivés.</description>
+    </item>
+    <item>
+      <title>Jour 68 - Le parcours commerce KEREDIT devient testable</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-27/</link>
+      <pubDate>Wed, 27 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-27/</guid>
+      <description>Translation pending · Journée de consolidation bêta : quantités KEREDIT maîtres, pont panier WooCommerce, import/export de données produit, intégrations Woo, commandes admin, correction support et déploiements VPS.</description>
+    </item>
+    <item>
+      <title>Jour 67 - Auth, commerce et procédure qui devient exécutable</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-26/</link>
+      <pubDate>Tue, 26 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-26/</guid>
+      <description>Translation pending · Journée dense avant bêta : merge du P1 backend, socle Better Auth et Google OAuth, admin utilisateurs robuste, pont WooCommerce vers KEREDIT, checkout éditeur, deploy VPS et verrouillage de la release plugin WordPress.</description>
+    </item>
+    <item>
+      <title>Jour 66 - Fermer le P1 backend sans regonfler les routes</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-25/</link>
+      <pubDate>Mon, 25 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-25/</guid>
+      <description>Translation pending · Clôture du premier gros chantier P1 backend : admin/pricing devient un routeur d&amp;#39;assemblage, assets sépare pur/runtime, print-jobs centralise la queue PDF, et le tout reste documente/teste.</description>
+    </item>
+    <item>
+      <title>Jour 65 - Remettre l&#39;architecture sur des rails</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-24/</link>
+      <pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-24/</guid>
+      <description>Translation pending · Une journée de reprise après le chaos des branches croisées : tests backend stabilises, audit Service/Controller, Graphify à jour, puis début du vrai découpage P1 de admin/pricing.ts.</description>
+    </item>
+    <item>
+      <title>Jour 64 - Le jour ou les branches se sont croisées</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-23/</link>
+      <pubDate>Sat, 23 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-23/</guid>
+      <description>Translation pending · Une journée de pricing, de refactorisation trop large, de branches croisées entre Codex et Gemini CLI, puis de reprise fragile après un accident de voiture sur la route.</description>
+    </item>
+    <item>
+      <title>Jour 63 - Le pricing quitte les vieux rails</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-22/</link>
+      <pubDate>Fri, 22 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-22/</guid>
+      <description>Translation pending · Une journée de nettoyage profond du pricing produit : formats integres aux attributs, quantités conditionnelles, remises panier famille, defaults par BD, runtime éditeur et garde-fous contre les vieux champs.</description>
+    </item>
+    <item>
+      <title>Jour 62 - Le prix commence à tenir debout</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-21/</link>
+      <pubDate>Thu, 21 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-21/</guid>
+      <description>Translation pending · Une journée dense sur le cœur du pricing : bibliothèques atelier, formats, catégories, sélection de masse, préférences produit, et durcissement des règles UI compactes.</description>
+    </item>
+    <item>
+      <title>Jour 61 - Refaire simple après la crise des prix</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-20/</link>
+      <pubDate>Wed, 20 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-20/</guid>
+      <description>Translation pending · Une journée de crise utile autour du calcul de prix : trop de couches exposées, confusion MISKISS/grilles/variables, recentrage radical sur la fiche produit, bibliothèques atelier séparées, et point de sauvegarde avant simplification.</description>
+    </item>
+    <item>
+      <title>Jour 60 - Donner une date à la bêta</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-19/</link>
+      <pubDate>Tue, 19 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-19/</guid>
+      <description>Translation pending · Une journée de recentrage : autonomie client, fiche de synthèse KEREDIT, calendrier bêta date, checklist Vague 0, contrat WooCommerce/pricing, et stabilisation concrète du menu Tarifs.</description>
+    </item>
+    <item>
+      <title>Jour 59 - Recentrer KEREDIT, sécuriser les fondations</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-18/</link>
+      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-18/</guid>
+      <description>Translation pending · Audit intégral, ménage des dépendances runtime, triage bêta, outil de retour client, consolidation pricing Carnets depuis Koban, et retour à une direction claire : KEREDIT comme centre de gravité.</description>
+    </item>
+    <item>
+      <title>Jour 58 - Le dimanche ou KEREDIT commence à sentir la bêta</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-17/</link>
+      <pubDate>Sun, 17 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-17/</guid>
+      <description>Translation pending · PDF fine art, mode confort, bibliothèque Mes photos plus rassurante, tri intelligent, rail Pages plus lisible, déploiement VPS 0.6.28, et plan d&amp;#39;action pour une bêta contrôlée.</description>
+    </item>
+    <item>
+      <title>Jour 57 - Le tirage d&#39;art cherche son geste juste</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-16/</link>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-16/</guid>
+      <description>Translation pending · Refonte sombre premium de l&amp;#39;assistant fine_art_print, format image-first, bord blanc, cartouche fichier, formats DIN, responsivite, et décision de sortir un PDF atelier dérive en plus du fichier natif et du JSON.</description>
+    </item>
+    <item>
+      <title>Jour 56 - L&#39;atelier tirage d&#39;art ouvre sa table</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-15/</link>
+      <pubDate>Fri, 15 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-15/</guid>
+      <description>Translation pending · Première version de l&amp;#39;assistant atelier pour le tirage d&amp;#39;art grand format : produit fine_art_print, interface premium, diagnostic qualité, formats libres, prix indicatifs, fichiers natifs client et récapitulatif JSON atelier.</description>
+    </item>
+    <item>
+      <title>Jour 55 - Le tirage photo sort des pièges</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-14/</link>
+      <pubDate>Thu, 14 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-14/</guid>
+      <description>Translation pending · Stabilisation de l&amp;#39;atelier Tirages photo : sélection robuste, plein écran, preview, PDF, quantités minimales et documentation de fin de journée.</description>
+    </item>
+    <item>
+      <title>Jour 54 - Le tirage photo devient le troisième pilier</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-13/</link>
+      <pubDate>Wed, 13 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-13/</guid>
+      <description>Translation pending · Journée dense sur le nouveau produit Tirages photo : atelier de lot, import explicite, vignettes fidèles, preview agrandie, PDF repete par quantité, fond perdu corrige, et projection vers le lancement bêta.</description>
+    </item>
+    <item>
+      <title>Jour 53 - KEREDIT prend son nom</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-12/</link>
+      <pubDate>Tue, 12 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-12/</guid>
+      <description>Translation pending · Journée de bascule de marque : création de la branche dev-keredit, remplacement des surfaces publiques Krampouz par KEREDIT, plugin WordPress renomme proprement, et inventaire des derniers restes techniques.</description>
+    </item>
+    <item>
+      <title>Jour 52 - Tarifs, tableurs et fatigue utile</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-11/</link>
+      <pubDate>Mon, 11 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-11/</guid>
+      <description>Translation pending · Une journée plus courte mais structurante : QR mobile stabilise, Google Photos valide en live, garde-fou desktop, puis début du chantier prix avec grilles tarifaires et question ouverte sur les changements de carnet.</description>
+    </item>
+    <item>
+      <title>Jour 51 - Le pont devient un produit</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-10/</link>
+      <pubDate>Sun, 10 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-10/</guid>
+      <description>Translation pending · Une journée dense ou le chantier auth/Woo est passé du prototype au flux client presque naturel : même onglet, retour boutique, reprise des projets, vignettes, suppression confirmée et plugin WordPress mis à jour en live.</description>
+    </item>
+    <item>
+      <title>Jour 50 - Auth, Woo et le connecteur WordPress</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-09/</link>
+      <pubDate>Sat, 09 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-09/</guid>
+      <description>Translation pending · La journée a commencé par le bruit Graphify autour d&amp;#39;editorStore, puis a bascule sur le socle dev-auth, le lancement WooCommerce signe, le QR mobile et un premier plugin WordPress deploye sur ooblik.com.</description>
+    </item>
+    <item>
+      <title>Jour 49 - Reprendre après la coronarographie</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-08/</link>
+      <pubDate>Fri, 08 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-08/</guid>
+      <description>Translation pending · Après la coronarographie du 6 mai et une journée de récupération sans commit le 7, la reprise a été courte mais utile : retour à une logique d&amp;#39;interface plus proche de main, sélecteurs de couleurs ronds et insertion clipart sans frame grise.</description>
+    </item>
+    <item>
+      <title>Jour 48 - Gagner des pixels sans perdre la confiance</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-05/</link>
+      <pubDate>Tue, 05 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-05/</guid>
+      <description>Translation pending · Une journée de chirurgie fine sur l&amp;#39;éditeur : règles, zoom confort, menu Pages, barre unifiée, panneaux plus compacts et vrai thème sombre personnalisable.</description>
+    </item>
+    <item>
+      <title>Jour 47 - Nettoyer le chrome de l&#39;éditeur</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-04/</link>
+      <pubDate>Mon, 04 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-04/</guid>
+      <description>Translation pending · La journée a ramené l&amp;#39;éditeur vers une interface plus calme : header compact, menu Affichage, panneaux médias simplifies, favoris rapides et contrôles mieux ranges.</description>
+    </item>
+    <item>
+      <title>Jour 46 - Le carnet devient un vrai produit éditable</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-03/</link>
+      <pubDate>Sun, 03 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-03/</guid>
+      <description>Translation pending · Gros pas en avant sur le produit carnet : couverture imprimeur, cahier en doubles pages éditables, PDF monopage cohérent, navigation de pages et vue globale de réorganisation.</description>
+    </item>
+    <item>
+      <title>Jour 45 - Bugs bêta, slots photo et règles d&#39;atelier</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-02/</link>
+      <pubDate>Sat, 02 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-05-02/</guid>
+      <description>Translation pending · La journée transforme les premiers retours bêta en outils exploitables : rapports de bug indexes avec contexte, slots photo remplissables, placeholders propres, règles en cm et guides d&amp;#39;alignement.</description>
+    </item>
+    <item>
+      <title>Jour 44 - PDF, JSON et confiance d&#39;édition</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-30/</link>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-30/</guid>
+      <description>Translation pending · La journée a verrouillé trois contrats critiques de la bêta carte postale : les blocs ne changent plus de taille au changement de format, le PDF repart d&amp;#39;un payload JSON complet, et les textes inclines restent manipulables tout en étant visuellement clipses au canvas imprimable.</description>
+    </item>
+    <item>
+      <title>Jour 43 — Cadres lies, régressions et discipline de contexte</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-29/</link>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-29/</guid>
+      <description>Translation pending · La journée a stabilise le retour des cadres lies aux blocs photo, mais elle a surtout expose une faiblesse de méthode : plusieurs resets, un contexte perdu, des artefacts shared stale et une confusion entre cadre libre, clipart et cadre lie.</description>
+    </item>
+    <item>
+      <title>Jour 42 — Masques et cadres passent du backoffice au canvas</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-28/</link>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-28/</guid>
+      <description>Translation pending · La journée a transformé le chantier Masques/Cadres en vrai flux testable : import backoffice, catalogue front, erreurs d&amp;#39;upload lisibles, previews groupées, puis application bêta des masques luminance sur les blocs photo. Le PDF reste volontairement garde pour la validation finale.</description>
+    </item>
+    <item>
+      <title>Jour 41 — Rendre les blocs texte lies testables avant la bêta</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-27/</link>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-27/</guid>
+      <description>Translation pending · La journée a été consacrée au chantier le plus sensible avant la bêta du 3 mai : les blocs texte lies. Le travail a alterne corrections, tests utilisateur, régressions assumees et verrouillage e2e pour stabiliser le flux texte sans casser l&amp;#39;édition locale.</description>
+    </item>
+    <item>
+      <title>Jour 40 — Arrêter les patches sur les blocs lies et poser enfin un noyau canonique</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-23/</link>
+      <pubDate>Thu, 23 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-23/</guid>
+      <description>Translation pending · La journée n&amp;#39;a pas servi a ajouter une feature de plus, mais a arrêter une dérive : trop de patches locaux sur les blocs texte lies. Le vrai progrès est d&amp;#39;avoir formalise le contrat produit et commence la remise a plat autour d&amp;#39;un document canonique unique par chaîne.</description>
+    </item>
+    <item>
+      <title>Jour 39 — Typographie admin, confort texte et retour au vrai problème des blocs chaînes</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-22/</link>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-22/</guid>
+      <description>Translation pending · La journée a fait avancer deux choses très différentes : un vrai socle admin pour les polices, puis une grosse passe de confort sur les blocs texte. La fin de journée a surtout permis d&amp;#39;identifier proprement le vrai nœud P0 restant : le flux de texte entre blocs chaînes.</description>
+    </item>
+    <item>
+      <title>Jour 38 — Remise a zéro du VPS, re-alignement sur dev et retour à une chaîne lisible</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-21/</link>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-21/</guid>
+      <description>Translation pending · Le VPS a été rase, remis sur une stack unique, puis rebranche sur `dev` via un vrai chemin Git local -&amp;gt; VPS. La journée a aussi corrigé la CSP R2 et le faux blocage `processing` cote admin photos.</description>
+    </item>
+    <item>
+      <title>Jour 37 — Restaurer la prod et reprendre pied</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-20/</link>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-20/</guid>
+      <description>Translation pending · La journée a bascule en gestion d&amp;#39;incident : prod seedee, assets clients disparus, backup du 2 avril restaure, schéma recale et cutover prudent vers une base à nouveau exploitable.</description>
+    </item>
+    <item>
+      <title>Jour 36 — Prisma se durcit pendant que l&#39;éditeur s&#39;élargit</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-19/</link>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-19/</guid>
+      <description>Translation pending · Une journée très chargée : contrat Prisma append-only, bootstrap de deploy plus strict, headers bêta, hover preview assets et uploads admin photo.</description>
+    </item>
+    <item>
+      <title>Jour 35 — Cache assets, ghost photos et hygiène CI</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-18/</link>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-18/</guid>
+      <description>Translation pending · 3 commits utiles et 2 merges autour du cache assets, des ghost photos, du backfill admin et d&amp;#39;un premier garde-fou CI sur `dev`.</description>
+    </item>
+    <item>
+      <title>Jour 34 — Repartir avec une discipline anti-régression</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-17/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-17/</guid>
+      <description>Translation pending · La journée a confirme qu&amp;#39;une discipline anti-régression stricte produit de bien meilleurs résultats : moins de temps perdu, plus de mesures réelles, et un vrai gain sur le pipeline des bibliothèques photo.</description>
+    </item>
+    <item>
+      <title>Jour 33 — Recaler la bêta avant de repartir</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-16/</link>
+      <pubDate>Thu, 16 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-16/</guid>
+      <description>Translation pending · La journée a démarre par un nettoyage clipart et une convention de digest blog, puis surtout par un recalage lucide de la bêta du 3 mai: ce qui est déjà bon, ce qui reste critique, et ce qu&amp;#39;il faut surtout ne plus relancer.</description>
+    </item>
+    <item>
+      <title>Jour 32 — Stabiliser sans inventer</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-15/</link>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-15/</guid>
+      <description>Translation pending · La journée a servi a remettre la branche dev-pcportable sur ses rails: Prisma aligne, runtime local fiabilise, régressions image/clipart traquees contre main, puis durcissement réel du flux cliparts admin avec dédoublonnage, nettoyage historique et upload de gros lots.</description>
+    </item>
+    <item>
+      <title>Jour 31 — Le blog Zola force un retour à la simplicité</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-14/</link>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-14/</guid>
+      <description>Translation pending · 16 commits : publication du devblog Zola, faux départ Pages CMS, retour a Decap et nettoyage du périmètre blog.</description>
+    </item>
+    <item>
+      <title>Jour 30 — Le deploy VPS passe a GHCR et SSH</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-13/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-13/</guid>
+      <description>Translation pending · 6 commits : abandon du build Dockhand en cible, pipeline GitHub Actions vers GHCR, deploy SSH sur VPS et docs réalignées.</description>
+    </item>
+    <item>
+      <title>Jour 29 — Personnalisation imprimeur, previews réalistes et version 0.4.0</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-10/</link>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-10/</guid>
+      <description>Translation pending · La journée a servi a transformer la personnalisation en vrai chantier produit: logo imprimeur robuste, previews plus crédibles, import/export de thème, fixs runtime et bump version.</description>
+    </item>
+    <item>
+      <title>Jour 28 — Shell éditeur V2, grand reset UI et retour à la cohérence</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-09/</link>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-09/</guid>
+      <description>Translation pending · Une journée très frontend: prototype du shell éditeur V2, puis reset partiel pour garder la cohérence builder/éditeur et corriger les régressions de reload cliparts.</description>
+    </item>
+    <item>
+      <title>Jour 27 — Polices mergées, cliparts industrialises et permissions d&#39;édition</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-08/</link>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-08/</guid>
+      <description>Translation pending · La journée a commencé sur le catalogue de polices et a fini en gros sprint produit : merge du lot typo, catalogue cliparts complet, bibliothèques/favoris, puis socle de permissions d&amp;#39;édition.</description>
+    </item>
+    <item>
+      <title>Jour 26 — Le blog nait, le texte se stabilise</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-07/</link>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-07/</guid>
+      <description>Translation pending · Stabilisation du bloc texte, resize, merge main. Création du journal de dev complet et du skill /blog.</description>
+    </item>
+    <item>
+      <title>Jour 25 — TipTap entre dans le canvas</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-06/</link>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-06/</guid>
+      <description>Translation pending · 13 commits : TipTap integre a Fabric.js, contrôles typographiques, export rich text, PDF mapping.</description>
+    </item>
+    <item>
+      <title>Jour 24 — Shell éditeur, texte et audit secu</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-03/</link>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-03/</guid>
+      <description>Translation pending · 12 commits : shell éditeur poli, réduction lag snapping, texte riche lance, audit sécurité technique.</description>
+    </item>
+    <item>
+      <title>Jour 23 — Le snapping devient un module</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-02/</link>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-02/</guid>
+      <description>Translation pending · Extraction snapping en module dédié, bi-axis, manipulation DOM directe. Deploy Dockhand documente.</description>
+    </item>
+    <item>
+      <title>Jour 22 — Filtres image et snapping magnétique</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-01/</link>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-04-01/</guid>
+      <description>Translation pending · 17 commits : flip image, filtres B&amp;amp;W/presets, CLAHE clarity, snapping magnétique, photo frame controls.</description>
+    </item>
+    <item>
+      <title>Jour 21 — Crop, pan, rotation, barre actions</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-31/</link>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-31/</guid>
+      <description>Translation pending · Ratios physiques, crop/pan fonctionnels, rotation centrée, handles UI, barre actions photo.</description>
+    </item>
+    <item>
+      <title>Jour 20 — Audit navigateur et géométrie crop</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-30/</link>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-30/</guid>
+      <description>Translation pending · Browser audit kit, refonte crop geometry, fix photo block fill, cache busting, clipPath stable.</description>
+    </item>
+    <item>
+      <title>Jour 19 — Bloc photo : la quete des handles</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-28/</link>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-28/</guid>
+      <description>Translation pending · 21 commits. Toolbar reorganisee, frame decoupling, revert, overlay, combat avec Fabric.js.</description>
+    </item>
+    <item>
+      <title>Jour 18 — Sprints 6-8 et charge atelier</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-27/</link>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-27/</guid>
+      <description>Translation pending · Upscale VPS 8CPU/16Go, worker concurrency 4, scénario atelier-mixte valide.</description>
+    </item>
+    <item>
+      <title>Jour 17 — Sprint 4-6 : validation terrain</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-26/</link>
+      <pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-26/</guid>
+      <description>Translation pending · Validation UX sprint 4, stabilisation build, préparation concurrence sprint 5, diagnostic infra sprint 6.</description>
+    </item>
+    <item>
+      <title>Jour 16 — Métriques et outillage VPS</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-25/</link>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-25/</guid>
+      <description>Translation pending · Métriques upload instrumentees, tooling déploiement VPS, batch orchestration.</description>
+    </item>
+    <item>
+      <title>Jour 15 — La bataille du 24 mars : Chrome OOM</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-24/</link>
+      <pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-24/</guid>
+      <description>Translation pending · 17 commits en une journée. Bataille contre Chrome Out-Of-Memory, concurrence, timeouts, re-render storms.</description>
+    </item>
+    <item>
+      <title>Jour 14 — Upload pipeline : première optimisation</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-23/</link>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-23/</guid>
+      <description>Translation pending · Analyse des frictions upload, premières optimisations massives, previews instantanées.</description>
+    </item>
+    <item>
+      <title>Jour 13 — Photo manager et métadonnées</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-21/</link>
+      <pubDate>Sat, 21 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-21/</guid>
+      <description>Translation pending · Photo manager enrichi, métadonnées EXIF, localisation, stabilisation grid et pipeline.</description>
+    </item>
+    <item>
+      <title>Jour 12 — R2 debarque, les photos arrivent</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-20/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-20/</guid>
+      <description>Translation pending · Pipeline asset R2, upload photos, galerie, insertion canvas, 14 commits de feature pure.</description>
+    </item>
+    <item>
+      <title>Jour 11 — Contrat export et survie WSL</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-19/</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-19/</guid>
+      <description>Translation pending · Contrat d&amp;#39;export projet v1, baseline Prisma, normalisation line endings, runtime WSL.</description>
+    </item>
+    <item>
+      <title>Jour 10 — La grande harmonisation des branches</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-17/</link>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-17/</guid>
+      <description>Translation pending · 13 commits : merge massif, alignement CI, nettoyage lockfile, suppression blog workspace.</description>
+    </item>
+    <item>
+      <title>Jour 9 — Package blog et nettoyage</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-16/</link>
+      <pubDate>Mon, 16 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-16/</guid>
+      <description>Translation pending · Ajout d&amp;#39;un package blog au workspace pnpm, nettoyage du code mort.</description>
+    </item>
+    <item>
+      <title>Jour 8 — UI finale et reorg Obsidian</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-13/</link>
+      <pubDate>Fri, 13 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-13/</guid>
+      <description>Translation pending · Complétion UI éditeur, simplification calques, scripts dev, réorganisation docs vers Obsidian.</description>
+    </item>
+    <item>
+      <title>Jour 7 — L&#39;éditeur se restructure en zones</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-12/</link>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-12/</guid>
+      <description>Translation pending · Refonte UI de l&amp;#39;éditeur en zones structurées, suppression toolbar context inutile.</description>
+    </item>
+    <item>
+      <title>Jour 6 — Marathon docs et workflow production</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-11/</link>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-11/</guid>
+      <description>Translation pending · 18 commits : docs massives, roadmap, PDF HD, workflow production, hot folder, env stabilise.</description>
+    </item>
+    <item>
+      <title>Jour 5 — Docker, admin, postcard v1, tenant</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-10/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-10/</guid>
+      <description>Translation pending · Docker test, stabilisation atelier, résolution tenant, admin réel, postcard v1, gestion templates.</description>
+    </item>
+    <item>
+      <title>Jour 4 — WooCommerce entre en scène</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-09/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-03-09/</guid>
+      <description>Translation pending · Intégration WooCommerce : ajout au panier, webhook, UI checkout.</description>
+    </item>
+    <item>
+      <title>Jour 3 — Pipeline PDF avec BullMQ</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-02-22/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-02-22/</guid>
+      <description>Translation pending · Génération PDF asynchrone avec BullMQ, pdf-lib, et jobs Redis.</description>
+    </item>
+    <item>
+      <title>Jour 2 — RBAC et premiers pas admin</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-02-09/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-02-09/</guid>
+      <description>Translation pending · Middleware RBAC, routing admin et layout backoffice.</description>
+    </item>
+    <item>
+      <title>Jour 1 — Naissance : scaffold, MVP, CI, auth, canvas</title>
+      <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-02-08/</link>
+      <pubDate>Sun, 08 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-02-08/</guid>
+      <description>Translation pending · Premier jour : monorepo pnpm, Fabric.js canvas, auth, CI GitHub Actions, 6 PRs mergées.</description>
+    </item>
+  </channel>
+</rss>

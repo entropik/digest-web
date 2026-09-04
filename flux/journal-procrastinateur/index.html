@@ -1,0 +1,445 @@
+<!doctype html><html lang=fr-FR dir=auto data-theme=light><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Journal d’un procrastinateur | Digest</title><meta name=keywords content><meta name=description content="La construction de KEREDIT racontée depuis l’atelier : décisions techniques, détours nécessaires, fatigue réelle et plaisir obstiné de fabriquer."><meta name=author content="Marc"><link rel=canonical href=https://digest.ooblik.com/flux/journal-procrastinateur/><link crossorigin=anonymous href=/assets/css/stylesheet.f5e3a15546b6bee7055d6615f4fade4c61108ae7bd4626d0ea824151a8897dc5.css integrity="sha256-9eOhVUa2vucFXWYV9PreTGEQiue9RibQ6oJBUaiJfcU=" rel="preload stylesheet" as=style><link rel=icon href=https://digest.ooblik.com/favicon.svg><link rel=icon type=image/png sizes=16x16 href=https://digest.ooblik.com/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://digest.ooblik.com/favicon-32x32.png><link rel=apple-touch-icon href=https://digest.ooblik.com/apple-touch-icon.png><link rel=mask-icon href=https://digest.ooblik.com/safari-pinned-tab.svg><meta name=theme-color content="#ff5c35"><meta name=msapplication-TileColor content="#ff5c35"><link rel=alternate type=application/rss+xml href=https://digest.ooblik.com/flux/journal-procrastinateur/index.xml title=rss><link rel=alternate hreflang=fr href=https://digest.ooblik.com/flux/journal-procrastinateur/><link rel=alternate hreflang=en href=https://digest.ooblik.com/en/flux/journal-procrastinateur/><noscript><style>#theme-toggle,.top-link{display:none}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"&&(document.querySelector("html").dataset.theme="dark")</script><script src=/js/digest-language-fr.min.a5a472905519dad5546019cef82d136cdf10fb5db77bb38739d5f296c1a98bcc.js integrity="sha256-paRykFUZ2tVUYBnO+C0TbN8Q+123e7OHOdXylsGpi8w=" defer></script><script src=/js/i18n.min.a5f242ecf7280b8049516e4b66b0bfed7fd529f1be309ab3b26f4ae6d3d4020a.js integrity="sha256-pfJC7PcoC4BJUW5LZrC/7X/VKfG+MJqzsm9K5tPUAgo=" defer></script><script src=/js/external-links.min.7dd7b2e17102bd73ff0516057912f3b50daa12689610da0857b73e5a9747ec0b.js integrity="sha256-fdey4XECvXP/BRYFeRLztQ2qEmiWENoIV7c+WpdH7As=" defer></script><script src=/js/archive-favorites.min.1def4d033da89d01c2aec8aff0db3cfc9e48a27b6f38d631dde1aceb5888a75c.js integrity="sha256-He9NAz2onQHCrsiv8Ns8/J5IontvONYx3eGs61iIp1w=" defer></script><script src=/js/linkedin-image.min.97b2c092f8fadef4119fae4981cc740a769c0dff6d0a24cbac0aa669ac59e147.js integrity="sha256-l7LAkvj63vQRn65Jgcx0CnacDf9tCiTLrAqmaaxZ4Uc=" defer></script><meta property="og:url" content="https://digest.ooblik.com/flux/journal-procrastinateur/"><meta property="og:site_name" content="Digest"><meta property="og:title" content="Journal d’un procrastinateur"><meta property="og:description" content="La construction de KEREDIT racontée depuis l’atelier : décisions techniques, détours nécessaires, fatigue réelle et plaisir obstiné de fabriquer."><meta property="og:locale" content="fr_FR"><meta property="og:type" content="website"><meta name=twitter:card content="summary"><meta name=twitter:title content="Journal d’un procrastinateur"><meta name=twitter:description content="La construction de KEREDIT racontée depuis l’atelier : décisions techniques, détours nécessaires, fatigue réelle et plaisir obstiné de fabriquer."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Flux mémoire","item":"https://digest.ooblik.com/flux/"},{"@type":"ListItem","position":2,"name":"Journal d’un procrastinateur","item":"https://digest.ooblik.com/flux/journal-procrastinateur/"}]}</script></head><body class=list id=top><header class=header><nav class=header-nav aria-label="Navigation principale"><a class=header-brand href=https://digest.ooblik.com/ accesskey=h title="OOBLIK DIGEST (Alt + H)">OOBLIK DIGEST</a><ul id=menu class=menu><li><a href=https://digest.ooblik.com/><span>Liens</span></a></li><li><a href=https://digest.ooblik.com/archives/><span>Archives</span></a></li><li><a href=https://digest.ooblik.com/tags/><span>Tags</span></a></li><li><a href=https://digest.ooblik.com/flux/><span>Flux</span></a></li><li><a href=https://digest.ooblik.com/a-propos/><span>À propos</span></a></li></ul><div class=header-actions><nav class=language-switch aria-label=Langue><a href=/flux/journal-procrastinateur/ lang=fr hreflang=fr data-language-link aria-current=true aria-label=Français>FR</a>
+<span aria-hidden=true>/</span>
+<a href=/en/flux/journal-procrastinateur/ lang=en-GB hreflang=en-GB data-language-link aria-label=English>GB</a></nav><a class=header-admin-switch data-admin-switch href=https://digest.ooblik.com/admin accesskey=a title="Ouvrir l’atelier (Alt + A)" hidden><span class=header-admin-switch-label>Atelier</span>
+<span class=header-admin-switch-short aria-hidden=true>A</span>
+<span aria-hidden=true>↗</span>
+</a><button id=theme-toggle class=theme-toggle type=button accesskey=t title="Changer de thème (Alt + T)" aria-label="Changer de thème">
+<svg class="moon" aria-hidden="true" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="sun" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+</button>
+<button class=header-menu-toggle id=header-menu-toggle type=button aria-label="Ouvrir le menu" aria-expanded=false aria-controls=header-mobile-menu>
+<span></span><span></span><span></span></button></div></nav><dialog class=header-mobile-menu id=header-mobile-menu aria-labelledby=header-mobile-menu-title><div class=header-mobile-menu-shell><div class=header-mobile-menu-top><p id=header-mobile-menu-title>Navigation</p><button class=header-mobile-menu-close type=button aria-label="Fermer le menu">
+<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6 18 18M18 6 6 18"/></svg></button></div><nav aria-label="Navigation mobile"><ul><li><a href=https://digest.ooblik.com/><span>01</span>
+<strong>Liens</strong>
+<span aria-hidden=true>↗</span></a></li><li><a href=https://digest.ooblik.com/archives/><span>02</span>
+<strong>Archives</strong>
+<span aria-hidden=true>↗</span></a></li><li><a href=https://digest.ooblik.com/tags/><span>03</span>
+<strong>Tags</strong>
+<span aria-hidden=true>↗</span></a></li><li><a href=https://digest.ooblik.com/flux/><span>04</span>
+<strong>Flux</strong>
+<span aria-hidden=true>↗</span></a></li><li><a href=https://digest.ooblik.com/a-propos/><span>05</span>
+<strong>À propos</strong>
+<span aria-hidden=true>↗</span></a></li></ul></nav><p class=header-mobile-menu-signature>OOBLIK DIGEST</p></div></dialog></header><main class=main><article class=procrastinator-index><header class=procrastinator-hero><div class=procrastinator-hero-copy><p class=digest-kicker>Flux 05 · Journal de fabrication</p><h1>Journal d’un procrastinateur</h1><p class=procrastinator-deck>La construction de KEREDIT racontée depuis l’atelier : décisions techniques, détours nécessaires, fatigue réelle et plaisir obstiné de fabriquer.</p></div><aside class=procrastinator-manifesto aria-label="Note d’intention"><span>Note d’intention</span><p>Construire l’outil qui permettra enfin de travailler, puis documenter avec méthode toutes les raisons pour lesquelles il n’est pas encore terminé.</p></aside></header><dl class=procrastinator-stats aria-label="Le journal en chiffres"><div><dt>137</dt><dd>billets conservés</dd></div><div><dt>08.02</dt><dd>première trace · 2026</dd></div><div><dt>26.08</dt><dd>dernière trace · 2026</dd></div></dl><section class=procrastinator-latest aria-labelledby=latest-entry><div class=procrastinator-folio aria-hidden=true>137</div><div><p class=archive-edition-kicker>Dernier détour · 26 août 2026</p><h2 id=latest-entry><a href=/flux/journal-procrastinateur/2026-08-26/>Jour 137 - Ranger l'ère Claude sans perdre la mémoire</a></h2><p>Jour 137 du journal : les anciennes commandes et copies de skills Claude sont retirées, tandis que leurs deux dernières règles utiles rejoignent AGENTS.md.</p><a class=procrastinator-read href=/flux/journal-procrastinateur/2026-08-26/>Lire le billet · 3 min ↗</a></div></section><section class=procrastinator-chronology aria-labelledby=chronology-title><header><p class=digest-kicker>Index chronologique</p><h2 id=chronology-title>Le travail, les détours, les reprises</h2></header><details class=procrastinator-month open><summary><span>août 2026</span>
+<span>16 billets</span></summary><ol class=procrastinator-entry-list reversed><li><a href=/flux/journal-procrastinateur/2026-08-26/><time datetime=2026-08-26>26.08</time>
+<span><strong>Jour 137 - Ranger l'ère Claude sans perdre la mémoire</strong>
+<small>Jour 137 du journal : les anciennes commandes et copies de skills Claude sont retirées, tandis que leurs deux dernières règles utiles rejoignent AGENTS.md.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-08-25/><time datetime=2026-08-25>25.08</time>
+<span><strong>Jour 136 - Fermer les courses avant de livrer</strong>
+<small>Jour 136 du journal : KEREDIT verrouille les sauvegardes, le checkout, les assets et les droits PDF avant de préparer la version 0.23.1.</small>
+</span><em>5 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-08-24/><time datetime=2026-08-24>24.08</time>
+<span><strong>Jour 135 - Mesurer la souveraineté, fermer les angles morts</strong>
+<small>Jour 135 du journal : les mesures OVH sont rendues honnetes, les clés sont securisees, un incident de propriété d'objets est réparé et les workflows KEREDIT-GOF deviennent portables.</small>
+</span><em>5 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-08-23/><time datetime=2026-08-23>23.08</time>
+<span><strong>Jour 134 - La bascule OVH devient une preuve de production</strong>
+<small>Jour 134 du journal : KEREDIT et GOF valident OVH 3-AZ Paris en production, sans remise Accurio de recette et sans régression de charge.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-08-22/><time datetime=2026-08-22>22.08</time>
+<span><strong>Jour 133 - Les données clients prennent la route de Paris</strong>
+<small>Jour 133 du journal : 78 Go sont copiés de R2 vers OVH 3-AZ Paris et KEREDIT engage une bascule européenne réversible.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-08-21/><time datetime=2026-08-21>21.08</time>
+<span><strong>Jour 132 - Préparer la souveraineté sans fragiliser les uploads</strong>
+<small>Jour 132 du journal : KEREDIT durcit les uploads présignés avant la bascule OVH et livre la version 0.22.6.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-08-20/><time datetime=2026-08-20>20.08</time>
+<span><strong>Jour 131 - La release approche, le corps dit stop</strong>
+<small>Jour 131 du journal : le POC et le benchmark depuis le VPS choisissent OVH 3-AZ Paris pour ramener les données clients dans une infrastructure européenne.</small>
+</span><em>6 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-08-18/><time datetime=2026-08-18>18.08</time>
+<span><strong>Jour 130 - Sauver avant de sortir, choisir avant de migrer</strong>
+<small>Jour 130 du journal : l'éditeur durcit sauvegarde, checkout et responsive pendant qu'un audit remet en cause la migration instinctive de R2 vers Hetzner.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-08-15/><time datetime=2026-08-15>15.08</time>
+<span><strong>Jour 129 - Fermer le chantier des chantiers</strong>
+<small>Jour 129 du journal : le workflow d'isolation Codex commence le 9 août et trouve enfin son commit, sans PR ni publication sur dev.</small>
+</span><em>2 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-08-09/><time datetime=2026-08-09>09.08</time>
+<span><strong>Jour 128 - Une option visible, un chantier isolé</strong>
+<small>Jour 128 du journal : le test client expose enfin les options produit et le workflow de chantiers Codex commence à prendre forme dans un worktree sépare.</small>
+</span><em>2 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-08-08/><time datetime=2026-08-08>08.08</time>
+<span><strong>Jour 127 - Le Builder traverse toute la chaîne</strong>
+<small>Jour 127 du journal : KEREDIT relie simulation, composition, libertés client, recette PDF et quantités de tirage, tandis que GOF ouvre prudemment la question SaaS.</small>
+</span><em>4 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-08-07/><time datetime=2026-08-07>07.08</time>
+<span><strong>Jour 126 - Le produit se montre, le panier se souvient</strong>
+<small>Jour 126 du journal : l'aperçu produit dynamique arrive, les projets du panier deviennent indestructibles, la grille tarifaire gagne sa matrice et le Builder commence à centraliser l'authoring.</small>
+</span><em>4 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-08-06/><time datetime=2026-08-06>06.08</time>
+<span><strong>Jour 125 - La nuit des deux sessions</strong>
+<small>Jour 125 du journal : après la nuit de la synchro Woo et des remises panier, la journée fiabilise les suppressions, le checkout et prépare l'aperçu produit dynamique.</small>
+</span><em>7 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-08-05/><time datetime=2026-08-05>05.08</time>
+<span><strong>Jour 124 - Le bouton Synchroniser prend sa retraite</strong>
+<small>Jour 124 du journal : une fiche produit testée trop vite, un coup de ralage injuste, puis la synchronisation KEREDIT vers WooCommerce devient automatique et prouvée en production.</small>
+</span><em>4 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-08-04/><time datetime=2026-08-04>04.08</time>
+<span><strong>Jour 123 - Mesurer la charge, garder la maison</strong>
+<small>Jour 123 du journal : la campagne éditeur passe a 50 utilisateurs virtuels, la sécurité et l'audit CI sont remis a niveau, puis le journal rattrape ses semaines de fatigue et de vacances.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-08-03/><time datetime=2026-08-03>03.08</time>
+<span><strong>Jour 122 - Les forges retrouvent leur propre vérité</strong>
+<small>Jour 122 du journal : GOF 0.8.1 lit le registre Production v2, expose l'activité réelle de chaque forge et consolide les métriques sans revenir au snapshot historique.</small>
+</span><em>2 min</em></a></li></ol></details><details class=procrastinator-month><summary><span>juillet 2026</span>
+<span>22 billets</span></summary><ol class=procrastinator-entry-list reversed><li><a href=/flux/journal-procrastinateur/2026-07-30/><time datetime=2026-07-30>30.07</time>
+<span><strong>Jour 121 - Revenir, consolider, publier</strong>
+<small>Jour 121 du journal : après six jours sans commit, KEREDIT consolide la charge, l'email, les dépendances, le panier, le connecteur et la recette GOF, puis remet le VPS sur une release vérifiée.</small>
+</span><em>4 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-23/><time datetime=2026-07-23>23.07</time>
+<span><strong>Jour 120 - Fermer les portes restées ouvertes</strong>
+<small>Jour 120 du journal : KEREDIT verrouille les templates, le partage GOF, l'authentification, les assets, les frontières tenant et commerce, puis ajoute quotas et purge des uploads.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-22/><time datetime=2026-07-22>22.07</time>
+<span><strong>Jour 119 - La commande se revérifie, le partage se simplifie</strong>
+<small>Jour 119 du journal : la commande et le partage sont durcis, puis KEREDIT et GOF adoptent les regenerations, les itérations immuables et les verrous serveur qui manquaient au contrat Production v2.</small>
+</span><em>5 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-20/><time datetime=2026-07-20>20.07</time>
+<span><strong>Jour 118 - Durcir les accès, découvrir Kimi K3</strong>
+<small>Jour 118 du journal : le PDF web payant est conditionné à une commande Woo réellement payée, la configuration GOF passe sous rôle admin, les sessions Better Auth se révoquent proprement, et la journée s'ouvre sur la découverte de Kimi K3.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-19/><time datetime=2026-07-19>19.07</time>
+<span><strong>Jour 117 - Les archives se souviennent de PrestaShop</strong>
+<small>Jour 117 du journal : KEREDIT intègre l'historique PrestaShop dans ses archives atelier, avec import legacy, écran admin dédié et poignées de timeline restaurées.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-18/><time datetime=2026-07-18>18.07</time>
+<span><strong>Jour 116 - La forge passe enfin sous la minute</strong>
+<small>Jour 116 du journal : GOF et KEREDIT abandonnent les états massifs et les jobs concurrents au profit d'une Production v2 simple, mesurée et validée sur les deux forges réelles sans envoyer vers Accurio.</small>
+</span><em>5 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-16/><time datetime=2026-07-16>16.07</time>
+<span><strong>Jour 115 - Dix heures trente-deux pour mériter un merge</strong>
+<small>Jour 115 du journal : deux PR GOF sont fusionnées après 10 h 32 de corrections, de CI et de revues Codex répétées jusqu'au verdict propre sur le SHA exact.</small>
+</span><em>6 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-15/><time datetime=2026-07-15>15.07</time>
+<span><strong>Jour 114 - Mesurer avant de conserver</strong>
+<small>Jour 114 du journal : les limites d'action des agents deviennent explicites et le stockage photo est chiffré avant de définir sobriété, rétention ou archivage.</small>
+</span><em>5 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-14/><time datetime=2026-07-14>14.07</time>
+<span><strong>Jour 113 - Fiabiliser partout, sans perdre la limite</strong>
+<small>Jour 113 du journal : checkout photo, sauvegarde projet, CI et runtime sont durcis, GOF devient multicloud, puis un miroir R2 non autorise rappelle la limite des agents.</small>
+</span><em>6 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-13/><time datetime=2026-07-13>13.07</time>
+<span><strong>Jour 112 - Passer du pilote au système exploitable</strong>
+<small>Jour 112 du journal : GOF Flux devient canonique, l'ancien monolithe passe en rollback et KEREDIT durcit aide, sécurité, déploiement et devis panier.</small>
+</span><em>5 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-12/><time datetime=2026-07-12>12.07</time>
+<span><strong>Jour 111 - Quand la forge devient une décision économique</strong>
+<small>Jour 111 du journal : provenance KEREDIT, deux forges et Accurio valides, cache mesure et pilote Cloud Run confronte au coût de la compagnie X.</small>
+</span><em>7 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-11/><time datetime=2026-07-11>11.07</time>
+<span><strong>Jour 110 - De l'aide client aux forges distribuées</strong>
+<small>Jour 110 du journal : espace Projets et aide KEREDIT, puis construction du pilote GOF Flux distribue sur deux forges isolées de la production.</small>
+</span><em>4 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-10/><time datetime=2026-07-10>10.07</time>
+<span><strong>Jour 109 - Le contrat print traverse les deux dépôts</strong>
+<small>Jour 109 du journal : styles de polices, géométrie clipart et payload print alignés entre KEREDIT et GOF, puis migration P340 sécurisée.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-09/><time datetime=2026-07-09>09.07</time>
+<span><strong>Jour 108 - La pagination devient un contrat print</strong>
+<small>Jour 108 du journal : pagination durcie dans KEREDIT, rendue avec les polices GOF et protégée jusqu'au deploy et a Accurio.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-08/><time datetime=2026-07-08>08.07</time>
+<span><strong>Jour 107 - Le texte dynamique rejoint les photos</strong>
+<small>Jour 107 du journal : lecteur mobile, champs texte dynamiques, métadonnées IPTC et pagination jusqu'à la version 0.10.14.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-07/><time datetime=2026-07-07>07.07</time>
+<span><strong>Jour 106 - Presque 600 heures, et la peur du jugement</strong>
+<small>Jour 106 du journal : presque 600 heures, peur du jugement, puis complément technique sur KEREDIT, GOF et la sauvegarde Plakar.</small>
+</span><em>10 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-06/><time datetime=2026-07-06>06.07</time>
+<span><strong>Jour 105 - Nettoyer, mesurer, aligner</strong>
+<small>Jour 105 du journal : CI, refactors frontend/backend, fine art, observabilité WooCommerce et alignement multi-blocs jusqu'à la release 0.10.8.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-05/><time datetime=2026-07-05>05.07</time>
+<span><strong>Jour 104 - Alléger les imports photo</strong>
+<small>Jour 104 du journal : confirmation upload plus légère, import Google Photos progressif, files asset séparées et guides de pli livre.</small>
+</span><em>2 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-04/><time datetime=2026-07-04>04.07</time>
+<span><strong>Jour 103 - Donner une carte aux agents</strong>
+<small>Jour 103 du journal : wiki KEREDIT pour les agents, schéma Obsidian et petite correction de lien Prisma.</small>
+</span><em>2 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-03/><time datetime=2026-07-03>03.07</time>
+<span><strong>Jour 102 - Relier le prix, le zine et la forge</strong>
+<small>Jour 102 du journal : règles de pages supplémentaires, plans d'exécution, stabilisation du flux zine et corrections GOF sur les cahiers.</small>
+</span><em>2 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-02/><time datetime=2026-07-02>02.07</time>
+<span><strong>Jour 101 - Ne plus déployer à l'aveugle</strong>
+<small>Jour 101 du journal : petit resserrage du déploiement VPS autour du couple version + SHA, puis bump KEREDIT 0.9.52.</small>
+</span><em>2 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-07-01/><time datetime=2026-07-01>01.07</time>
+<span><strong>Jour 100 - Rendre simple ce que le code a complique</strong>
+<small>Jour 100 du journal : simplification KISS du remplissage carnet, preview globale, actions locales, historique court et lutte contre l'entropie UI.</small>
+</span><em>5 min</em></a></li></ol></details><details class=procrastinator-month><summary><span>juin 2026</span>
+<span>29 billets</span></summary><ol class=procrastinator-entry-list reversed><li><a href=/flux/journal-procrastinateur/2026-06-30/><time datetime=2026-06-30>30.06</time>
+<span><strong>Jour 99 - Protege la base, simplifie les panneaux</strong>
+<small>Journée de migration pnpm, guardrails Fabric, runtime templates, protection anti-seed local/VPS et simplification du panneau Templates.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-29/><time datetime=2026-06-29>29.06</time>
+<span><strong>Jour 98 - Réduire le bruit, outiller le flux</strong>
+<small>Journée de durcissement opérationnel : refill carnet, lint, backlog éditeur, observabilité bêta, commande test-flux, WooCommerce et durcissement GOF.</small>
+</span><em>4 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-28/><time datetime=2026-06-28>28.06</time>
+<span><strong>Jour 97 - L'assistant arrive, puis l'UX reprend la main</strong>
+<small>Journée carnet photo entre assistant narratif, enrichissement des templates, stabilisation hooks et polish de la modale de remplissage automatique.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-27/><time datetime=2026-06-27>27.06</time>
+<span><strong>Jour 96 - Les gabarits deviennent un langage</strong>
+<small>Journée de structuration des gabarits photo pour les carnets : navigation page, couvertures, templates, tri et rythme du remplissage automatique.</small>
+</span><em>4 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-26/><time datetime=2026-06-26>26.06</time>
+<span><strong>Jour 95 - Séparer le print du PDF web</strong>
+<small>Journée de consolidation KEREDIT/GOF : régressions editor, remplissage automatique, commande Zine 60 pages, PDF web, artefacts HD et contrat de versioning GOF.</small>
+</span><em>7 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-25/><time datetime=2026-06-25>25.06</time>
+<span><strong>Jour 94 - Arrêter de jouer au pompier</strong>
+<small>Journée et session nocturne de régressions KEREDIT : drag photo, spreads livre, panneau Calques, contrats Fabric, deploy VPS et fatigue de régression.</small>
+</span><em>8 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-24/><time datetime=2026-06-24>24.06</time>
+<span><strong>Rattrapage du 24 juin - Le carnet trouve son rythme</strong>
+<small>Billet retrouve du 24 juin : WooCommerce clarifie les options BAT et PDF web, les photos respectent enfin leur orientation et leur surface, et le remplissage automatique transforme le carnet en véritable composition.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-23/><time datetime=2026-06-23>23.06</time>
+<span><strong>Jour 93 - Durcir avant d'élargir</strong>
+<small>Bilan provisoire d'une journée de durcissement KEREDIT : auth, partage public, CI sécurité, affichage produit du partage et panier WooCommerce encore en cours.</small>
+</span><em>5 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-22/><time datetime=2026-06-22>22.06</time>
+<span><strong>Jour 92 - Du partage public au livrable web</strong>
+<small>Journée de consolidation KEREDIT : couverture livre, lecteur public, PDF web téléchargeable, roadmap septembre, audit dépendances et vente WooCommerce du livrable PDF web.</small>
+</span><em>8 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-21/><time datetime=2026-06-21>21.06</time>
+<span><strong>Jour 91 - Durcir le partage, simplifier le déploiement</strong>
+<small>Journée de consolidation KEREDIT : issues d'amélioration du partage, durcissement StPageFlip/GOF, simplification GitHub Actions, correction auth de l'ouverture éditeur backoffice et deploy VPS 0.9.11.</small>
+</span><em>8 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-20/><time datetime=2026-06-20>20.06</time>
+<span><strong>Jour 90 - Le partage trouve son geste</strong>
+<small>Chantier partage public KEREDIT : sortie du mode image plat, intégration StPageFlip réelle, nettoyage du rendu public, correction des artefacts et deploy VPS en 0.9.10.</small>
+</span><em>8 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-18/><time datetime=2026-06-18>18.06</time>
+<span><strong>Jour 88 - Mesurer le réel, corriger le contrat, partager le projet</strong>
+<small>Journée de recalage atelier : guides globaux, audit bêta, contrat Zine/GOF, dos pique métal mesure, suivi GOF plus fiable et début du partage public de projets KEREDIT.</small>
+</span><em>13 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-17/><time datetime=2026-06-17>17.06</time>
+<span><strong>Jour 87 - Sortir le doublon PDF, choisir GOF</strong>
+<small>Journée de clarification PDF : la forge GOF passe un PDF de plus de 400 Mo a 19 Mo, KEREDIT retire son moteur en doublon et redevient l'autorité du projet et du JSON.</small>
+</span><em>9 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-16/><time datetime=2026-06-16>16.06</time>
+<span><strong>Jour 86 - Zine, GOF, Accurio : le produit rejoint la chaîne atelier</strong>
+<small>Journée Zine, prix, GOF et Accurio : le zine devient vendable en quantité libre, le contrat livre se sépare en couverture/cahier, GOF pivote vers un cockpit de dossiers et le deploy VPS retrouve un chemin GitHub propre.</small>
+</span><em>8 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-15/><time datetime=2026-06-15>15.06</time>
+<span><strong>Jour 85 - Permissions client, templates et documentation vivante</strong>
+<small>Billet provisoire du 15 juin : reprise live des permissions template/client, deploy 0.7.17 et remise en cohérence de la documentation.</small>
+</span><em>4 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-14/><time datetime=2026-06-14>14.06</time>
+<span><strong>Jour 84 - Dimanche off</strong>
+<small>Dimanche sans chantier code : conserver la trace d'une pause, sans gonfler artificiellement le journal.</small>
+</span><em>2 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-13/><time datetime=2026-06-13>13.06</time>
+<span><strong>Jour 83 - Outiller la bêta, entre WooCommerce et observabilité</strong>
+<small>Journée courte mais dense autour du connecteur KEREDIT : messages bêta, synchronisation WooCommerce, SMTP OpenReplay et instrumentation du dashboard bêta.</small>
+</span><em>6 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-12/><time datetime=2026-06-12>12.06</time>
+<span><strong>Jour 82 - Rendre la documentation moins oubliable, puis regarder le produit fini</strong>
+<small>Contraste des actions projet WooCommerce, documentation rendue auditable, wordmark éditeur poli et mode Aperçu final deploye pour voir la carte sans fond perdu.</small>
+</span><em>5 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-11/><time datetime=2026-06-11>11.06</time>
+<span><strong>Jour 81 - Observer la bêta avant de l'élargir</strong>
+<small>Nettoyage VPS, observabilité bêta, ouverture 0.7.0, correction OpenReplay et polissage de l'espace projets client WooCommerce.</small>
+</span><em>5 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-10/><time datetime=2026-06-10>10.06</time>
+<span><strong>Jour 80 - Les templates deviennent des familles de formats</strong>
+<small>Audit du contrat JSON KEREDIT-GOF, durcissement TLS, placeholder photo, stabilisation live des templates multi-formats et remplacement photo fluide dans les blocs image.</small>
+</span><em>10 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-09/><time datetime=2026-06-09>09.06</time>
+<span><strong>Jour 79 - Images plus nettes, projets plus prudents, contrat JSON réparé</strong>
+<small>Amélioration du rendu image dans l'éditeur, confort de zoom, projets WooCommerce plus prudents, puis correction GOF 0.1.49 du contrat JSON/rendu image KEREDIT.</small>
+</span><em>5 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-08/><time datetime=2026-06-08>08.06</time>
+<span><strong>Jour 78 - Verrouiller la bêta avant d'élargir</strong>
+<small>Reconnexion éditeur, durcissement sécurité WooCommerce, audit bêta publique et verrouillage strict du contrat texte PDF entre KEREDIT et GOF.</small>
+</span><em>6 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-07/><time datetime=2026-06-07>07.06</time>
+<span><strong>Jour 77 - Le texte devient un contrat de production</strong>
+<small>Stabilisation du texte pendant le zoom, canonisation du rich text pour le PDF, duplication WooCommerce plus sûre et alignement KEREDIT-GOF autour du rendu typographique.</small>
+</span><em>5 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-06/><time datetime=2026-06-06>06.06</time>
+<span><strong>Jour 76 - WooCommerce devient une vraie porte KEREDIT</strong>
+<small>Google Photos reconnecté proprement, aperçus de pages remis en confiance, puis refonte du plugin WooCommerce pour laisser KEREDIT piloter quantités, formats et options.</small>
+</span><em>7 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-05/><time datetime=2026-06-05>05.06</time>
+<span><strong>Jour 75 - De GOF a Accurio, puis le feu en prod</strong>
+<small>Journée de production intense : dispatch KEREDIT vers GOF, rendu PDF et polices, quantités Accurio, sécurisation du deploy, correction live des photos expirées et retouches Google Photos.</small>
+</span><em>11 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-04/><time datetime=2026-06-04>04.06</time>
+<span><strong>Jour 74 - KEREDIT, GOF, Accurio : le flux sort de l'atelier</strong>
+<small>Journée dense de raccord entre KEREDIT, GOF, Accurio Flux et WooCommerce : configuration guidée, pairing, catalogue Accurio lu par GOF, contrats de production et bugs révélés par les tests réels.</small>
+</span><em>9 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-03/><time datetime=2026-06-03>03.06</time>
+<span><strong>Jour 73 - Stabiliser l'éditeur pendant que GOF prend corps</strong>
+<small>Journée charnière entre fiabilisation bêta KEREDIT, upload direct, assets, autosave, contrôles de texte et naissance Git de GOF comme forge PDF atelier.</small>
+</span><em>9 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-02/><time datetime=2026-06-02>02.06</time>
+<span><strong>Jour 72 - Reprendre la bêta par les détails visibles</strong>
+<small>Reprise active après la journée blanche : références PDF, billet rétrospectif, cadrage logo rond éditable, début d'exposition GOF dans l'admin et nettoyage des tests bêta.</small>
+</span><em>9 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-06-01/><time datetime=2026-06-01>01.06</time>
+<span><strong>Jour 71 - Une journée hors atelier</strong>
+<small>Journée volontairement blanche côté atelier : pas de session Krampouz/KEREDIT, pas de commit, pas de validation technique, mais une trace utile dans le journal.</small>
+</span><em>3 min</em></a></li></ol></details><details class=procrastinator-month><summary><span>mai 2026</span>
+<span>26 billets</span></summary><ol class=procrastinator-entry-list reversed><li><a href=/flux/journal-procrastinateur/2026-05-29/><time datetime=2026-05-29>29.05</time>
+<span><strong>Jour 70 - Quand le poste devient lui-même un risque</strong>
+<small>Journée de coupures et de décision : trois interruptions du poste, commande d'un Mac mini M4 Pro et report prudent de la bêta clients amis d'une semaine.</small>
+</span><em>6 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-28/><time datetime=2026-05-28>28.05</time>
+<span><strong>Jour 69 - Garder la bêta petite et la mémoire propre</strong>
+<small>Journée de consolidation documentaire : point Go/No-Go du 1er juin, formalisation du journal Codex, workflow poubelle et premiers audits archivés.</small>
+</span><em>5 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-27/><time datetime=2026-05-27>27.05</time>
+<span><strong>Jour 68 - Le parcours commerce KEREDIT devient testable</strong>
+<small>Journée de consolidation bêta : quantités KEREDIT maîtres, pont panier WooCommerce, import/export de données produit, intégrations Woo, commandes admin, correction support et déploiements VPS.</small>
+</span><em>7 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-26/><time datetime=2026-05-26>26.05</time>
+<span><strong>Jour 67 - Auth, commerce et procédure qui devient exécutable</strong>
+<small>Journée dense avant bêta : merge du P1 backend, socle Better Auth et Google OAuth, admin utilisateurs robuste, pont WooCommerce vers KEREDIT, checkout éditeur, deploy VPS et verrouillage de la release plugin WordPress.</small>
+</span><em>11 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-25/><time datetime=2026-05-25>25.05</time>
+<span><strong>Jour 66 - Fermer le P1 backend sans regonfler les routes</strong>
+<small>Clôture du premier gros chantier P1 backend : admin/pricing devient un routeur d'assemblage, assets sépare pur/runtime, print-jobs centralise la queue PDF, et le tout reste documente/teste.</small>
+</span><em>6 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-24/><time datetime=2026-05-24>24.05</time>
+<span><strong>Jour 65 - Remettre l'architecture sur des rails</strong>
+<small>Une journée de reprise après le chaos des branches croisées : tests backend stabilises, audit Service/Controller, Graphify à jour, puis début du vrai découpage P1 de admin/pricing.ts.</small>
+</span><em>7 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-23/><time datetime=2026-05-23>23.05</time>
+<span><strong>Jour 64 - Le jour ou les branches se sont croisées</strong>
+<small>Une journée de pricing, de refactorisation trop large, de branches croisées entre Codex et Gemini CLI, puis de reprise fragile après un accident de voiture sur la route.</small>
+</span><em>9 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-22/><time datetime=2026-05-22>22.05</time>
+<span><strong>Jour 63 - Le pricing quitte les vieux rails</strong>
+<small>Une journée de nettoyage profond du pricing produit : formats integres aux attributs, quantités conditionnelles, remises panier famille, defaults par BD, runtime éditeur et garde-fous contre les vieux champs.</small>
+</span><em>10 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-21/><time datetime=2026-05-21>21.05</time>
+<span><strong>Jour 62 - Le prix commence à tenir debout</strong>
+<small>Une journée dense sur le cœur du pricing : bibliothèques atelier, formats, catégories, sélection de masse, préférences produit, et durcissement des règles UI compactes.</small>
+</span><em>9 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-20/><time datetime=2026-05-20>20.05</time>
+<span><strong>Jour 61 - Refaire simple après la crise des prix</strong>
+<small>Une journée de crise utile autour du calcul de prix : trop de couches exposées, confusion MISKISS/grilles/variables, recentrage radical sur la fiche produit, bibliothèques atelier séparées, et point de sauvegarde avant simplification.</small>
+</span><em>8 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-19/><time datetime=2026-05-19>19.05</time>
+<span><strong>Jour 60 - Donner une date à la bêta</strong>
+<small>Une journée de recentrage : autonomie client, fiche de synthèse KEREDIT, calendrier bêta date, checklist Vague 0, contrat WooCommerce/pricing, et stabilisation concrète du menu Tarifs.</small>
+</span><em>10 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-18/><time datetime=2026-05-18>18.05</time>
+<span><strong>Jour 59 - Recentrer KEREDIT, sécuriser les fondations</strong>
+<small>Audit intégral, ménage des dépendances runtime, triage bêta, outil de retour client, consolidation pricing Carnets depuis Koban, et retour à une direction claire : KEREDIT comme centre de gravité.</small>
+</span><em>9 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-17/><time datetime=2026-05-17>17.05</time>
+<span><strong>Jour 58 - Le dimanche ou KEREDIT commence à sentir la bêta</strong>
+<small>PDF fine art, mode confort, bibliothèque Mes photos plus rassurante, tri intelligent, rail Pages plus lisible, déploiement VPS 0.6.28, et plan d'action pour une bêta contrôlée.</small>
+</span><em>8 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-16/><time datetime=2026-05-16>16.05</time>
+<span><strong>Jour 57 - Le tirage d'art cherche son geste juste</strong>
+<small>Refonte sombre premium de l'assistant fine_art_print, format image-first, bord blanc, cartouche fichier, formats DIN, responsivite, et décision de sortir un PDF atelier dérive en plus du fichier natif et du JSON.</small>
+</span><em>6 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-15/><time datetime=2026-05-15>15.05</time>
+<span><strong>Jour 56 - L'atelier tirage d'art ouvre sa table</strong>
+<small>Première version de l'assistant atelier pour le tirage d'art grand format : produit fine_art_print, interface premium, diagnostic qualité, formats libres, prix indicatifs, fichiers natifs client et récapitulatif JSON atelier.</small>
+</span><em>5 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-14/><time datetime=2026-05-14>14.05</time>
+<span><strong>Jour 55 - Le tirage photo sort des pièges</strong>
+<small>Stabilisation de l'atelier Tirages photo : sélection robuste, plein écran, preview, PDF, quantités minimales et documentation de fin de journée.</small>
+</span><em>6 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-13/><time datetime=2026-05-13>13.05</time>
+<span><strong>Jour 54 - Le tirage photo devient le troisième pilier</strong>
+<small>Journée dense sur le nouveau produit Tirages photo : atelier de lot, import explicite, vignettes fidèles, preview agrandie, PDF repete par quantité, fond perdu corrige, et projection vers le lancement bêta.</small>
+</span><em>10 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-12/><time datetime=2026-05-12>12.05</time>
+<span><strong>Jour 53 - KEREDIT prend son nom</strong>
+<small>Journée de bascule de marque : création de la branche dev-keredit, remplacement des surfaces publiques Krampouz par KEREDIT, plugin WordPress renomme proprement, et inventaire des derniers restes techniques.</small>
+</span><em>5 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-11/><time datetime=2026-05-11>11.05</time>
+<span><strong>Jour 52 - Tarifs, tableurs et fatigue utile</strong>
+<small>Une journée plus courte mais structurante : QR mobile stabilise, Google Photos valide en live, garde-fou desktop, puis début du chantier prix avec grilles tarifaires et question ouverte sur les changements de carnet.</small>
+</span><em>7 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-10/><time datetime=2026-05-10>10.05</time>
+<span><strong>Jour 51 - Le pont devient un produit</strong>
+<small>Une journée dense ou le chantier auth/Woo est passé du prototype au flux client presque naturel : même onglet, retour boutique, reprise des projets, vignettes, suppression confirmée et plugin WordPress mis à jour en live.</small>
+</span><em>10 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-09/><time datetime=2026-05-09>09.05</time>
+<span><strong>Jour 50 - Auth, Woo et le connecteur WordPress</strong>
+<small>La journée a commencé par le bruit Graphify autour d'editorStore, puis a bascule sur le socle dev-auth, le lancement WooCommerce signe, le QR mobile et un premier plugin WordPress deploye sur ooblik.com.</small>
+</span><em>9 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-08/><time datetime=2026-05-08>08.05</time>
+<span><strong>Jour 49 - Reprendre après la coronarographie</strong>
+<small>Après la coronarographie du 6 mai et une journée de récupération sans commit le 7, la reprise a été courte mais utile : retour à une logique d'interface plus proche de main, sélecteurs de couleurs ronds et insertion clipart sans frame grise.</small>
+</span><em>9 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-05/><time datetime=2026-05-05>05.05</time>
+<span><strong>Jour 48 - Gagner des pixels sans perdre la confiance</strong>
+<small>Une journée de chirurgie fine sur l'éditeur : règles, zoom confort, menu Pages, barre unifiée, panneaux plus compacts et vrai thème sombre personnalisable.</small>
+</span><em>9 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-04/><time datetime=2026-05-04>04.05</time>
+<span><strong>Jour 47 - Nettoyer le chrome de l'éditeur</strong>
+<small>La journée a ramené l'éditeur vers une interface plus calme : header compact, menu Affichage, panneaux médias simplifies, favoris rapides et contrôles mieux ranges.</small>
+</span><em>8 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-03/><time datetime=2026-05-03>03.05</time>
+<span><strong>Jour 46 - Le carnet devient un vrai produit éditable</strong>
+<small>Gros pas en avant sur le produit carnet : couverture imprimeur, cahier en doubles pages éditables, PDF monopage cohérent, navigation de pages et vue globale de réorganisation.</small>
+</span><em>12 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-05-02/><time datetime=2026-05-02>02.05</time>
+<span><strong>Jour 45 - Bugs bêta, slots photo et règles d'atelier</strong>
+<small>La journée transforme les premiers retours bêta en outils exploitables : rapports de bug indexes avec contexte, slots photo remplissables, placeholders propres, règles en cm et guides d'alignement.</small>
+</span><em>8 min</em></a></li></ol></details><details class=procrastinator-month><summary><span>avril 2026</span>
+<span>23 billets</span></summary><ol class=procrastinator-entry-list reversed><li><a href=/flux/journal-procrastinateur/2026-04-30/><time datetime=2026-04-30>30.04</time>
+<span><strong>Jour 44 - PDF, JSON et confiance d'édition</strong>
+<small>La journée a verrouillé trois contrats critiques de la bêta carte postale : les blocs ne changent plus de taille au changement de format, le PDF repart d'un payload JSON complet, et les textes inclines restent manipulables tout en étant visuellement clipses au canvas imprimable.</small>
+</span><em>8 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-29/><time datetime=2026-04-29>29.04</time>
+<span><strong>Jour 43 — Cadres lies, régressions et discipline de contexte</strong>
+<small>La journée a stabilise le retour des cadres lies aux blocs photo, mais elle a surtout expose une faiblesse de méthode : plusieurs resets, un contexte perdu, des artefacts shared stale et une confusion entre cadre libre, clipart et cadre lie.</small>
+</span><em>5 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-28/><time datetime=2026-04-28>28.04</time>
+<span><strong>Jour 42 — Masques et cadres passent du backoffice au canvas</strong>
+<small>La journée a transformé le chantier Masques/Cadres en vrai flux testable : import backoffice, catalogue front, erreurs d'upload lisibles, previews groupées, puis application bêta des masques luminance sur les blocs photo. Le PDF reste volontairement garde pour la validation finale.</small>
+</span><em>6 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-27/><time datetime=2026-04-27>27.04</time>
+<span><strong>Jour 41 — Rendre les blocs texte lies testables avant la bêta</strong>
+<small>La journée a été consacrée au chantier le plus sensible avant la bêta du 3 mai : les blocs texte lies. Le travail a alterne corrections, tests utilisateur, régressions assumees et verrouillage e2e pour stabiliser le flux texte sans casser l'édition locale.</small>
+</span><em>7 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-23/><time datetime=2026-04-23>23.04</time>
+<span><strong>Jour 40 — Arrêter les patches sur les blocs lies et poser enfin un noyau canonique</strong>
+<small>La journée n'a pas servi a ajouter une feature de plus, mais a arrêter une dérive : trop de patches locaux sur les blocs texte lies. Le vrai progrès est d'avoir formalise le contrat produit et commence la remise a plat autour d'un document canonique unique par chaîne.</small>
+</span><em>8 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-22/><time datetime=2026-04-22>22.04</time>
+<span><strong>Jour 39 — Typographie admin, confort texte et retour au vrai problème des blocs chaînes</strong>
+<small>La journée a fait avancer deux choses très différentes : un vrai socle admin pour les polices, puis une grosse passe de confort sur les blocs texte. La fin de journée a surtout permis d'identifier proprement le vrai nœud P0 restant : le flux de texte entre blocs chaînes.</small>
+</span><em>5 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-21/><time datetime=2026-04-21>21.04</time>
+<span><strong>Jour 38 — Remise a zéro du VPS, re-alignement sur dev et retour à une chaîne lisible</strong>
+<small>Le VPS a été rase, remis sur une stack unique, puis rebranche sur `dev` via un vrai chemin Git local -> VPS. La journée a aussi corrigé la CSP R2 et le faux blocage `processing` cote admin photos.</small>
+</span><em>4 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-20/><time datetime=2026-04-20>20.04</time>
+<span><strong>Jour 37 — Restaurer la prod et reprendre pied</strong>
+<small>La journée a bascule en gestion d'incident : prod seedee, assets clients disparus, backup du 2 avril restaure, schéma recale et cutover prudent vers une base à nouveau exploitable.</small>
+</span><em>4 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-19/><time datetime=2026-04-19>19.04</time>
+<span><strong>Jour 36 — Prisma se durcit pendant que l'éditeur s'élargit</strong>
+<small>Une journée très chargée : contrat Prisma append-only, bootstrap de deploy plus strict, headers bêta, hover preview assets et uploads admin photo.</small>
+</span><em>4 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-18/><time datetime=2026-04-18>18.04</time>
+<span><strong>Jour 35 — Cache assets, ghost photos et hygiène CI</strong>
+<small>3 commits utiles et 2 merges autour du cache assets, des ghost photos, du backfill admin et d'un premier garde-fou CI sur `dev`.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-17/><time datetime=2026-04-17>17.04</time>
+<span><strong>Jour 34 — Repartir avec une discipline anti-régression</strong>
+<small>La journée a confirme qu'une discipline anti-régression stricte produit de bien meilleurs résultats : moins de temps perdu, plus de mesures réelles, et un vrai gain sur le pipeline des bibliothèques photo.</small>
+</span><em>4 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-16/><time datetime=2026-04-16>16.04</time>
+<span><strong>Jour 33 — Recaler la bêta avant de repartir</strong>
+<small>La journée a démarre par un nettoyage clipart et une convention de digest blog, puis surtout par un recalage lucide de la bêta du 3 mai: ce qui est déjà bon, ce qui reste critique, et ce qu'il faut surtout ne plus relancer.</small>
+</span><em>8 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-15/><time datetime=2026-04-15>15.04</time>
+<span><strong>Jour 32 — Stabiliser sans inventer</strong>
+<small>La journée a servi a remettre la branche dev-pcportable sur ses rails: Prisma aligne, runtime local fiabilise, régressions image/clipart traquees contre main, puis durcissement réel du flux cliparts admin avec dédoublonnage, nettoyage historique et upload de gros lots.</small>
+</span><em>13 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-14/><time datetime=2026-04-14>14.04</time>
+<span><strong>Jour 31 — Le blog Zola force un retour à la simplicité</strong>
+<small>16 commits : publication du devblog Zola, faux départ Pages CMS, retour a Decap et nettoyage du périmètre blog.</small>
+</span><em>5 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-13/><time datetime=2026-04-13>13.04</time>
+<span><strong>Jour 30 — Le deploy VPS passe a GHCR et SSH</strong>
+<small>6 commits : abandon du build Dockhand en cible, pipeline GitHub Actions vers GHCR, deploy SSH sur VPS et docs réalignées.</small>
+</span><em>4 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-10/><time datetime=2026-04-10>10.04</time>
+<span><strong>Jour 29 — Personnalisation imprimeur, previews réalistes et version 0.4.0</strong>
+<small>La journée a servi a transformer la personnalisation en vrai chantier produit: logo imprimeur robuste, previews plus crédibles, import/export de thème, fixs runtime et bump version.</small>
+</span><em>8 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-09/><time datetime=2026-04-09>09.04</time>
+<span><strong>Jour 28 — Shell éditeur V2, grand reset UI et retour à la cohérence</strong>
+<small>Une journée très frontend: prototype du shell éditeur V2, puis reset partiel pour garder la cohérence builder/éditeur et corriger les régressions de reload cliparts.</small>
+</span><em>5 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-08/><time datetime=2026-04-08>08.04</time>
+<span><strong>Jour 27 — Polices mergées, cliparts industrialises et permissions d'édition</strong>
+<small>La journée a commencé sur le catalogue de polices et a fini en gros sprint produit : merge du lot typo, catalogue cliparts complet, bibliothèques/favoris, puis socle de permissions d'édition.</small>
+</span><em>9 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-07/><time datetime=2026-04-07>07.04</time>
+<span><strong>Jour 26 — Le blog nait, le texte se stabilise</strong>
+<small>Stabilisation du bloc texte, resize, merge main. Création du journal de dev complet et du skill /blog.</small>
+</span><em>8 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-06/><time datetime=2026-04-06>06.04</time>
+<span><strong>Jour 25 — TipTap entre dans le canvas</strong>
+<small>13 commits : TipTap integre a Fabric.js, contrôles typographiques, export rich text, PDF mapping.</small>
+</span><em>4 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-03/><time datetime=2026-04-03>03.04</time>
+<span><strong>Jour 24 — Shell éditeur, texte et audit secu</strong>
+<small>12 commits : shell éditeur poli, réduction lag snapping, texte riche lance, audit sécurité technique.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-02/><time datetime=2026-04-02>02.04</time>
+<span><strong>Jour 23 — Le snapping devient un module</strong>
+<small>Extraction snapping en module dédié, bi-axis, manipulation DOM directe. Deploy Dockhand documente.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-04-01/><time datetime=2026-04-01>01.04</time>
+<span><strong>Jour 22 — Filtres image et snapping magnétique</strong>
+<small>17 commits : flip image, filtres B&amp;W/presets, CLAHE clarity, snapping magnétique, photo frame controls.</small>
+</span><em>3 min</em></a></li></ol></details><details class=procrastinator-month><summary><span>mars 2026</span>
+<span>18 billets</span></summary><ol class=procrastinator-entry-list reversed><li><a href=/flux/journal-procrastinateur/2026-03-31/><time datetime=2026-03-31>31.03</time>
+<span><strong>Jour 21 — Crop, pan, rotation, barre actions</strong>
+<small>Ratios physiques, crop/pan fonctionnels, rotation centrée, handles UI, barre actions photo.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-03-30/><time datetime=2026-03-30>30.03</time>
+<span><strong>Jour 20 — Audit navigateur et géométrie crop</strong>
+<small>Browser audit kit, refonte crop geometry, fix photo block fill, cache busting, clipPath stable.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-03-28/><time datetime=2026-03-28>28.03</time>
+<span><strong>Jour 19 — Bloc photo : la quete des handles</strong>
+<small>21 commits. Toolbar reorganisee, frame decoupling, revert, overlay, combat avec Fabric.js.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-03-27/><time datetime=2026-03-27>27.03</time>
+<span><strong>Jour 18 — Sprints 6-8 et charge atelier</strong>
+<small>Upscale VPS 8CPU/16Go, worker concurrency 4, scénario atelier-mixte valide.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-03-26/><time datetime=2026-03-26>26.03</time>
+<span><strong>Jour 17 — Sprint 4-6 : validation terrain</strong>
+<small>Validation UX sprint 4, stabilisation build, préparation concurrence sprint 5, diagnostic infra sprint 6.</small>
+</span><em>2 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-03-25/><time datetime=2026-03-25>25.03</time>
+<span><strong>Jour 16 — Métriques et outillage VPS</strong>
+<small>Métriques upload instrumentees, tooling déploiement VPS, batch orchestration.</small>
+</span><em>2 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-03-24/><time datetime=2026-03-24>24.03</time>
+<span><strong>Jour 15 — La bataille du 24 mars : Chrome OOM</strong>
+<small>17 commits en une journée. Bataille contre Chrome Out-Of-Memory, concurrence, timeouts, re-render storms.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-03-23/><time datetime=2026-03-23>23.03</time>
+<span><strong>Jour 14 — Upload pipeline : première optimisation</strong>
+<small>Analyse des frictions upload, premières optimisations massives, previews instantanées.</small>
+</span><em>2 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-03-21/><time datetime=2026-03-21>21.03</time>
+<span><strong>Jour 13 — Photo manager et métadonnées</strong>
+<small>Photo manager enrichi, métadonnées EXIF, localisation, stabilisation grid et pipeline.</small>
+</span><em>2 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-03-20/><time datetime=2026-03-20>20.03</time>
+<span><strong>Jour 12 — R2 debarque, les photos arrivent</strong>
+<small>Pipeline asset R2, upload photos, galerie, insertion canvas, 14 commits de feature pure.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-03-19/><time datetime=2026-03-19>19.03</time>
+<span><strong>Jour 11 — Contrat export et survie WSL</strong>
+<small>Contrat d'export projet v1, baseline Prisma, normalisation line endings, runtime WSL.</small>
+</span><em>2 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-03-17/><time datetime=2026-03-17>17.03</time>
+<span><strong>Jour 10 — La grande harmonisation des branches</strong>
+<small>13 commits : merge massif, alignement CI, nettoyage lockfile, suppression blog workspace.</small>
+</span><em>2 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-03-16/><time datetime=2026-03-16>16.03</time>
+<span><strong>Jour 9 — Package blog et nettoyage</strong>
+<small>Ajout d'un package blog au workspace pnpm, nettoyage du code mort.</small>
+</span><em>2 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-03-13/><time datetime=2026-03-13>13.03</time>
+<span><strong>Jour 8 — UI finale et reorg Obsidian</strong>
+<small>Complétion UI éditeur, simplification calques, scripts dev, réorganisation docs vers Obsidian.</small>
+</span><em>2 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-03-12/><time datetime=2026-03-12>12.03</time>
+<span><strong>Jour 7 — L'éditeur se restructure en zones</strong>
+<small>Refonte UI de l'éditeur en zones structurées, suppression toolbar context inutile.</small>
+</span><em>2 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-03-11/><time datetime=2026-03-11>11.03</time>
+<span><strong>Jour 6 — Marathon docs et workflow production</strong>
+<small>18 commits : docs massives, roadmap, PDF HD, workflow production, hot folder, env stabilise.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-03-10/><time datetime=2026-03-10>10.03</time>
+<span><strong>Jour 5 — Docker, admin, postcard v1, tenant</strong>
+<small>Docker test, stabilisation atelier, résolution tenant, admin réel, postcard v1, gestion templates.</small>
+</span><em>3 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-03-09/><time datetime=2026-03-09>09.03</time>
+<span><strong>Jour 4 — WooCommerce entre en scène</strong>
+<small>Intégration WooCommerce : ajout au panier, webhook, UI checkout.</small>
+</span><em>2 min</em></a></li></ol></details><details class=procrastinator-month><summary><span>février 2026</span>
+<span>3 billets</span></summary><ol class=procrastinator-entry-list reversed><li><a href=/flux/journal-procrastinateur/2026-02-22/><time datetime=2026-02-22>22.02</time>
+<span><strong>Jour 3 — Pipeline PDF avec BullMQ</strong>
+<small>Génération PDF asynchrone avec BullMQ, pdf-lib, et jobs Redis.</small>
+</span><em>2 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-02-09/><time datetime=2026-02-09>09.02</time>
+<span><strong>Jour 2 — RBAC et premiers pas admin</strong>
+<small>Middleware RBAC, routing admin et layout backoffice.</small>
+</span><em>2 min</em></a></li><li><a href=/flux/journal-procrastinateur/2026-02-08/><time datetime=2026-02-08>08.02</time>
+<span><strong>Jour 1 — Naissance : scaffold, MVP, CI, auth, canvas</strong>
+<small>Premier jour : monorepo pnpm, Fabric.js canvas, auth, CI GitHub Actions, 6 PRs mergées.</small>
+</span><em>4 min</em></a></li></ol></details></section></article></main><footer class=footer><span>&copy; 2026 <a href=https://digest.ooblik.com/>Digest</a></span> ·
+v1.27.0 · <a href=/admin>Admin</a> · <a href=/confidentialite/>Confidentialité</a> ·
+<span>Powered by
+<a href="https://gohugo.io/?utm_source=papermod" rel=noopener target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top id=top-link class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey=g><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
+</a><script>(()=>{const e=document.querySelector("[data-admin-switch]");if(!e)return;fetch("/api/admin/session",{credentials:"same-origin",headers:{Accept:"application/json"}}).then(e=>e.ok?e.json():null).then(t=>{t?.isAdmin===!0&&(e.hidden=!1)}).catch(()=>{})})(),(()=>{const e=document.querySelector("#header-mobile-menu"),t=document.querySelector("#header-menu-toggle"),n=e?.querySelector(".header-mobile-menu-close");if(!e||!t||!n)return;const s=()=>{e.open&&e.close()};t.addEventListener("click",()=>{e.showModal(),t.setAttribute("aria-expanded","true"),document.body.classList.add("header-menu-open")}),n.addEventListener("click",s),e.querySelectorAll("a").forEach(e=>e.addEventListener("click",s)),e.addEventListener("close",()=>{t.setAttribute("aria-expanded","false"),document.body.classList.remove("header-menu-open")})})()</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var toplink=document.getElementById("top-link");window.onscroll=function(){const e=window.innerHeight;document.body.scrollTop>e||document.documentElement.scrollTop>e?toplink.classList.remove("hidden"):toplink.classList.add("hidden")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script><script src=/js/typography.min.cb6e9193bd198a0b8b4a7830a3b72af75e91a30257c7d8eb210cd253d53c78b2.js integrity="sha256-y26Rk70ZiguLSngwo7cq916RowJXx9jrIQzSU9U8eLI=" defer></script></body></html>

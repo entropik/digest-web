@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Memory flow on Digest</title>
+    <link>https://digest.ooblik.com/en/flux/</link>
+    <description>Recent content from Digest</description>
+    <generator>Hugo</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://digest.ooblik.com/en/flux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Instagram — visual archive</title>
+      <link>https://digest.ooblik.com/en/flux/instagram/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/instagram/</guid>
+      <description>Historical Instagram posts, stored separately from the editorial digest, in the exact order in which they were posted.</description>
+    </item>
+    <item>
+      <title>Ooblik Blog</title>
+      <link>https://digest.ooblik.com/en/flux/blog-ooblik/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/blog-ooblik/</guid>
+      <description>Archived posts from the Ooblik blog, separated from the main selection but included in the chronological archive.</description>
+    </item>
+    <item>
+      <title>Tumblr Design</title>
+      <link>https://digest.ooblik.com/en/flux/tumblr-ooblik/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/tumblr-ooblik/</guid>
+      <description>Posts from the old Ooblik Tumblr, preserved as a visual and editorial diary.</description>
+    </item>
+    <item>
+      <title>Twitter — a relic of the social web</title>
+      <link>https://digest.ooblik.com/en/flux/twitter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/flux/twitter/</guid>
+      <description>Tweets and images posted between 2014 and 2016, preserved at their original Twitter URLs as a record of a bygone era of social media.</description>
+    </item>
+  </channel>
+</rss>

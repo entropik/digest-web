@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Flux mémoire on Digest</title>
+    <link>https://digest.ooblik.com/flux/</link>
+    <description>Publications récentes de Digest</description>
+    <generator>Hugo</generator>
+    <language>fr-FR</language>
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://digest.ooblik.com/flux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog Ooblik</title>
+      <link>https://digest.ooblik.com/flux/blog-ooblik/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/flux/blog-ooblik/</guid>
+      <description>Billets historiques du blog Ooblik, séparés de la sélection principale mais intégrés à la mémoire chronologique.</description>
+    </item>
+    <item>
+      <title>Instagram — archive visuelle</title>
+      <link>https://digest.ooblik.com/flux/instagram/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/flux/instagram/</guid>
+      <description>Publications Instagram historiques conservées séparément du Digest éditorial, dans l’ordre exact de leur enregistrement.</description>
+    </item>
+    <item>
+      <title>Tumblr Ooblik</title>
+      <link>https://digest.ooblik.com/flux/tumblr-ooblik/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/flux/tumblr-ooblik/</guid>
+      <description>Billets de l’ancien Tumblr Ooblik, conservés comme journal visuel et éditorial.</description>
+    </item>
+    <item>
+      <title>Twitter — relique du web social</title>
+      <link>https://digest.ooblik.com/flux/twitter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/flux/twitter/</guid>
+      <description>Tweets et images enregistrés entre 2014 et 2016, conservés à leur adresse Twitter d’origine comme témoins d’un web social révolu.</description>
+    </item>
+  </channel>
+</rss>

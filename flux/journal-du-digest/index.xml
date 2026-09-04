@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Journal du Digest on Digest</title>
+    <link>https://digest.ooblik.com/flux/journal-du-digest/</link>
+    <description>Publications récentes de Digest</description>
+    <generator>Hugo</generator>
+    <language>fr-FR</language>
+    <lastBuildDate>Thu, 03 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://digest.ooblik.com/flux/journal-du-digest/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Un Digest bilingue, progressivement</title>
+      <link>https://digest.ooblik.com/flux/journal-du-digest/2026-09-03/</link>
+      <pubDate>Thu, 03 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/flux/journal-du-digest/2026-09-03/</guid>
+      <description>Le Digest prépare une version anglaise accessible depuis un sélecteur FR / GB discret. La traduction avance dans une file persistante, avec un plafond de consommation et un suivi dans l’administration. Les pages fixes et les titres des dix dernières éditions constituent le premier lot réel, vérifié dans un aperçu local.</description>
+    </item>
+    <item>
+      <title>La curation traverse Firefox</title>
+      <link>https://digest.ooblik.com/flux/journal-du-digest/2026-09-02/</link>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/flux/journal-du-digest/2026-09-02/</guid>
+      <description>L’extension de curation devient une extension Chrome et Firefox issue du même
+code. La variante Firefox 1.5.0 est validée, signée puis installée officiellement
+depuis AMO sans élargir la confiance du service à toutes les extensions du
+navigateur. Le dossier sur la « software factory » devient le premier billet
+publié sous le format `FOCUS`, avec les deux dossiers précédents sur les fermes
+d’agents et les ADE, dans une identité visuelle mêlant archives techniques NASA,
+grille et grande typographie.</description>
+    </item>
+    <item>
+      <title>Le brouillon devient un état éditorial</title>
+      <link>https://digest.ooblik.com/flux/journal-du-digest/2026-08-28/</link>
+      <pubDate>Fri, 28 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/flux/journal-du-digest/2026-08-28/</guid>
+      <description>Les éditions existantes peuvent désormais être corrigées, publiées ou remises
+en brouillon depuis l’administration. Le catalogue distingue les liens préparés
+pour une édition des retraits éditoriaux qui doivent rester hors ligne.</description>
+    </item>
+    <item>
+      <title>Quarante-cinq dépôts et quelques filets</title>
+      <link>https://digest.ooblik.com/flux/journal-du-digest/2026-08-27/</link>
+      <pubDate>Thu, 27 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/flux/journal-du-digest/2026-08-27/</guid>
+      <description>Une liste brute de cinquante références GitHub devient un Digest de quarante-cinq
+ressources vérifiées, dédupliquées et regroupées par usages. Les archives gagnent
+leur visuel, des titres centrés sur la date et une grille sans rupture blanche.
+La page d’accueil et l’administration affinent enfin leurs marges et leurs filets.</description>
+    </item>
+    <item>
+      <title>Répéter sans effacer sur LinkedIn</title>
+      <link>https://digest.ooblik.com/flux/journal-du-digest/2026-08-25/</link>
+      <pubDate>Tue, 25 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/flux/journal-du-digest/2026-08-25/</guid>
+      <description>Une ressource LinkedIn peut être republiée sans effacer ses diffusions
+précédentes. Le compositeur reste modifiable et SQLite conserve chaque
+occurrence. Le journal technique devient un mini-blog public autonome, sans
+rejoindre les archives du Blog OOBLIK.</description>
+    </item>
+    <item>
+      <title>Du cartouche suisse à la mémoire du Blog OOBLIK</title>
+      <link>https://digest.ooblik.com/flux/journal-du-digest/2026-08-20/</link>
+      <pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/flux/journal-du-digest/2026-08-20/</guid>
+      <description>Les catégories administrables donnent au Digest son langage de cartouches et
+de filets partagés. Cette grille accueille ensuite la mémoire de 831 billets
+WordPress sans confondre texte archivé, provenance et destination actuelle.
+Les cas incertains restent soumis à une décision humaine.</description>
+    </item>
+    <item>
+      <title>Le carré LinkedIn, du faux succès au post visible</title>
+      <link>https://digest.ooblik.com/flux/journal-du-digest/2026-08-18/</link>
+      <pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/flux/journal-du-digest/2026-08-18/</guid>
+      <description>Les visuels LinkedIn adoptent un carré de 1200 × 1200 pixels. Les essais réels
+révèlent les faux succès de l’API et conduisent à synchroniser l’upload, à
+autoriser la republication et à simplifier la récupération. Dix-sept commits
+portent ensemble le site et l’administration à `v1.8.6`.</description>
+    </item>
+    <item>
+      <title>Actions éditoriales et captures LinkedIn durcies</title>
+      <link>https://digest.ooblik.com/flux/journal-du-digest/2026-08-17/</link>
+      <pubDate>Mon, 17 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/flux/journal-du-digest/2026-08-17/</guid>
+      <description>Les actions éditoriales courantes deviennent accessibles depuis chaque lien au
+propriétaire. Les captures LinkedIn gagnent un repli graphique et une
+navigation Chromium protégée contre les réseaux privés. Onze commits
+consolident l’ensemble et remettent l’environnement Windows en état.</description>
+    </item>
+    <item>
+      <title>Publication, identité visuelle et partage LinkedIn</title>
+      <link>https://digest.ooblik.com/flux/journal-du-digest/2026-08-16/</link>
+      <pubDate>Sun, 16 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/flux/journal-du-digest/2026-08-16/</guid>
+      <description>L’administration gagne une publication en une action avec suivi reprenable.
+Le site reçoit son identité complète et un partage LinkedIn natif réservé au
+propriétaire. Trente-trois commits portent le catalogue à 3 992 liens et 836
+éditions.</description>
+    </item>
+    <item>
+      <title>Éclipse du soleil sur une grille suisse</title>
+      <link>https://digest.ooblik.com/flux/journal-du-digest/2026-08-12/</link>
+      <pubDate>Wed, 12 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/flux/journal-du-digest/2026-08-12/</guid>
+      <description>Une éclipse devient le point de départ d’une identité faite de Bricolage
+Grotesque, de JetBrains Mono, de noir, de papier et de corail. Le Journal du
+Digest prend forme avec Codex par une suite de prompts, d’essais et de contrôles
+dans le navigateur. Cette construction ouvre une seconde histoire : conserver
+et partager les URL, y compris lorsque le Web répond 404.</description>
+    </item>
+    <item>
+      <title>Administration et curation depuis Chrome</title>
+      <link>https://digest.ooblik.com/flux/journal-du-digest/2026-07-27/</link>
+      <pubDate>Mon, 27 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/flux/journal-du-digest/2026-07-27/</guid>
+      <description>Le Digest passe d’une archive statique à un système de curation propriétaire
+avec administration, extension Chrome et publication atomique. Quinze commits
+et trente exécutions GitHub Actions réussies installent ce nouveau parcours.</description>
+    </item>
+    <item>
+      <title>Favoris locaux et nouvelles éditions</title>
+      <link>https://digest.ooblik.com/flux/journal-du-digest/2026-07-26/</link>
+      <pubDate>Sun, 26 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/flux/journal-du-digest/2026-07-26/</guid>
+      <description>Trois anciens Digests composés à la main — les semaines 11, 12 et 14 de 2017 —
+rejoignent l’archive. Le site gagne aussi des favoris conservés uniquement dans
+le navigateur.</description>
+    </item>
+    <item>
+      <title>Exploration des tags et reprise de 2017</title>
+      <link>https://digest.ooblik.com/flux/journal-du-digest/2026-07-25/</link>
+      <pubDate>Sat, 25 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/flux/journal-du-digest/2026-07-25/</guid>
+      <description>Deux anciens Digests composés à la main, les semaines 8 et 9 de 2017,
+rejoignent l’archive. L’explorateur de tags gagne un index alphabétique et les
+liens leurs favicons, tandis que les problèmes de cache sont résolus.</description>
+    </item>
+    <item>
+      <title>Naissance du Digest et restauration des liens perdus</title>
+      <link>https://digest.ooblik.com/flux/journal-du-digest/2026-07-24/</link>
+      <pubDate>Fri, 24 Jul 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/flux/journal-du-digest/2026-07-24/</guid>
+      <description>Le Digest donne une nouvelle forme à une pratique plus ancienne : des
+sélections de liens composées à la main en HTML. Il prépare un même lieu pour
+les blogs WordPress, Tumblr, Instagram et les autres traces dispersées, sans
+effacer les adresses devenues fragiles ou mortes.</description>
+    </item>
+  </channel>
+</rss>
