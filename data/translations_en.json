@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "922456e45ca425962a5698bbc86c2176d466874694d9907f62c977190d22dfe7",
+  "revision": "eb107df378eb54253b38a38ca859cb3022edd17d01dad095f69202e16f8be005",
   "entries": {
     "category:Développement": {
       "name": {
@@ -298,6 +298,12 @@
         "text": "Tags"
       }
     },
+    "tag:11": {
+      "name": {
+        "hash": "35410757f97592c33680638448f4642a4c17c62e5736c0cd7a188303f5bd0c09",
+        "text": "11"
+      }
+    },
     "tag:2016": {
       "name": {
         "hash": "00ee0f32fa0b425152ba4c92541974777a980fe3e35b7db039d41a11f01b4b26",
@@ -322,6 +328,12 @@
         "text": "ARTPRICE"
       }
     },
+    "tag:AppleWatch": {
+      "name": {
+        "hash": "350351d4da4cfcde4a71a060a3c1f3baef95018bcaddb1a7a0bb31a204b979ce",
+        "text": "Apple Watch"
+      }
+    },
     "tag:Arles": {
       "name": {
         "hash": "0101fc722176456f42e514ddc34eaf32a961266e1466bfbd3d2c075718973bab",
@@ -332,6 +344,12 @@
       "name": {
         "hash": "226c59a7281ac45333438f881f069af6000e645b40620170c1237249b11f6a46",
         "text": "Subject"
+      }
+    },
+    "tag:BHL": {
+      "name": {
+        "hash": "39e6ed96785c859110b8ecf785cadac6e96c6d18f3f39c351a2525ef6419ace6",
+        "text": "Before Christ"
       }
     },
     "tag:COP21": {
@@ -364,10 +382,22 @@
         "text": "Definition"
       }
     },
+    "tag:Digest": {
+      "name": {
+        "hash": "3e7fb4744a67e34eb9add6c70bd8e6c53e91276ea321dab62eb48187541a6455",
+        "text": "Digest"
+      }
+    },
     "tag:Dosis": {
       "name": {
         "hash": "a210ebc8e522303412d6d0058b08927cc02b8a9b24022479bfb19d73558b3e3b",
         "text": "Dosage"
+      }
+    },
+    "tag:EFI": {
+      "name": {
+        "hash": "3c5c7c59d19ac93f123ebe1b490191b23b23a3b2318437c9a1d65f7cc0ef7775",
+        "text": "Electronic Fuel Injection"
       }
     },
     "tag:EPUB": {
@@ -380,6 +410,12 @@
       "name": {
         "hash": "1687e7b030f262ebf59991b8b843c805ec617a75a4b93210b24147071f091d39",
         "text": "Easy"
+      }
+    },
+    "tag:Git": {
+      "name": {
+        "hash": "3c7c427af80e6828555a628130da0c582e60856027e7e044699a1f1deab37398",
+        "text": "Go"
       }
     },
     "tag:GitHub": {
@@ -410,6 +446,18 @@
       "name": {
         "hash": "2bf53404452c097763e5337bd9e7bff8b4dbf1eaac42067c896ee234a504a63f",
         "text": "Hauts-de-France"
+      }
+    },
+    "tag:High": {
+      "name": {
+        "hash": "3e7d0392b1ac929c2021b44ba8bc34b2cd8eed3211a7197ea1c2e16679a7036f",
+        "text": "High"
+      }
+    },
+    "tag:IA": {
+      "name": {
+        "hash": "3b367c4098b4a01b9fd0a60eee717c6dc16541cb2ffeacdde2ab978ada38ce77",
+        "text": "I am"
       }
     },
     "tag:InDesign": {
@@ -478,10 +526,28 @@
         "text": "Markdown"
       }
     },
+    "tag:MediapartLive": {
+      "name": {
+        "hash": "38ae2320aac84f7e6897f13c1e035f391656f672b9c0c324596643d90d09a647",
+        "text": "MediapartLive"
+      }
+    },
     "tag:Mexique": {
       "name": {
         "hash": "28d3f2d1e094a0ddb3cfe712dedb03359adb5c512364b527cf9cff03cbdb11c9",
         "text": "Mexico"
+      }
+    },
+    "tag:Municipales2014": {
+      "name": {
+        "hash": "422c0c1b9ada82d9cc22a49124fd66dd5534198bb0a9432a080cb45f9dab5bfa",
+        "text": "Local Elections 2014"
+      }
+    },
+    "tag:NePas": {
+      "name": {
+        "hash": "37c8e35105bf12a318356878e7c3abbdc0c4ce2a1d3bfdf0995251a873bf37f8",
+        "text": "NePas"
       }
     },
     "tag:NiNi": {
@@ -508,10 +574,28 @@
         "text": "Paper"
       }
     },
+    "tag:PawsOnAppleTV": {
+      "name": {
+        "hash": "3eb54c78d08e197dfc27350ee4d2add5bbef42dcf7bbb928bb345084869770c0",
+        "text": "PawsOnAppleTV"
+      }
+    },
+    "tag:Periscope": {
+      "name": {
+        "hash": "415fa9fcfff9f3783977e158903d6585421c77ee75564f8e57aff18c56be18f6",
+        "text": "Periscope"
+      }
+    },
     "tag:PhotoMattFibre200": {
       "name": {
         "hash": "01a4e2089245752d21cb82644a1890635548224936a35e145e576c3606b98700",
         "text": "PhotoMattFibre200"
+      }
+    },
+    "tag:Photokina": {
+      "name": {
+        "hash": "36c126a0714314a8dea7881c182b03512431f15163e56ef1ba0b412ce0b39165",
+        "text": "Photokina"
       }
     },
     "tag:Pixelle": {
@@ -524,6 +608,18 @@
       "name": {
         "hash": "20e2c02601db839658b4d194f73d2f796db271c09db77f128ad4238d860c8f1c",
         "text": "April Fools’ Day"
+      }
+    },
+    "tag:PrimaireDroite": {
+      "name": {
+        "hash": "3fae342617503504269a70d20de8a6e4be33bd96adc0eb235ae9a48d33618f0b",
+        "text": "Primary - Right-wing"
+      }
+    },
+    "tag:Python": {
+      "name": {
+        "hash": "3b9a15f67944242ba82433d8cbe596c575fa64c244a83abecb0c5f1ed2bd3423",
+        "text": "Python"
       }
     },
     "tag:RAG": {
@@ -586,16 +682,46 @@
         "text": "Switzerland"
       }
     },
+    "tag:Syriza": {
+      "name": {
+        "hash": "41685d03cdd3648806fbee062f0c84e4137bdbd7c407b78fc1818150d1d426ec",
+        "text": "Syriza"
+      }
+    },
+    "tag:Transsibérien": {
+      "name": {
+        "hash": "407a1ee04f1dab00257713a922b9b725a358519edab7136f3d10e56a58253905",
+        "text": "Trans-Siberian Railway"
+      }
+    },
     "tag:TrueType": {
       "name": {
         "hash": "1b815d5b5e3ea63ef84c31a242ffc0047d7001a1681dc42e3a9aa9aaa0b7ca8a",
         "text": "TrueType"
       }
     },
+    "tag:UX": {
+      "name": {
+        "hash": "3f6230f43199741d834fa1453055b0460a2b953485211765551bea73be51535e",
+        "text": "user experience"
+      }
+    },
     "tag:VSCode": {
       "name": {
         "hash": "10a52f7ecb222ee55e40f48348eaa68bff093f6e5acd99f6aaf5423c25c56b7f",
         "text": "VSCode"
+      }
+    },
+    "tag:WTF": {
+      "name": {
+        "hash": "3de6e33dded1762bac1443a64efbe15020633426dda1a03882c4b5dfe903def4",
+        "text": "What the fuck"
+      }
+    },
+    "tag:WebToPrint": {
+      "name": {
+        "hash": "3f4c4514c90f357feff36e1508a260d2e5e7d13d7f846b349c0bce328dd1656a",
+        "text": "Web-to-Print"
       }
     },
     "tag:WordPress": {
@@ -634,6 +760,12 @@
         "text": "architecture"
       }
     },
+    "tag:archive": {
+      "name": {
+        "hash": "34cf91c6ddecb90c467cfcb2d1cfe5aa93c496d67b3537880f228c1778f75f57",
+        "text": "archive"
+      }
+    },
     "tag:art": {
       "name": {
         "hash": "062b7887faed285aa026c106ad780f10d179acac994cb5401ad749fa653c06e2",
@@ -641,6 +773,10 @@
       }
     },
     "tag:art-numérique": {
+      "description": {
+        "hash": "3f46ff6698e48e786a4f14fe7f63b126f543a9792f3266cf3f2d80ed7e9ed238",
+        "text": "Artistic creation using digital tools, media or systems."
+      },
       "name": {
         "hash": "21b1deeb0de15e0f3566b27bfbb2f1f4d82703b42f13636ce3cb22ffa275d623",
         "text": "digital art"
@@ -686,6 +822,12 @@
         "text": "self-hosting"
       }
     },
+    "tag:automatisation": {
+      "description": {
+        "hash": "3f48e774534c9397fda2df173cf6f50170d0edf9860298dcda55d8d338a6c058",
+        "text": "Automation of tasks, workflows and systems."
+      }
+    },
     "tag:bache": {
       "name": {
         "hash": "24e0e0d040ffb15a1e21f54ab723c8f2a51d8f4cfff57de842755ad44b97235c",
@@ -722,6 +864,12 @@
         "text": "bookshop"
       }
     },
+    "tag:boutique": {
+      "name": {
+        "hash": "3b56be15205907608c4e558c27e5cb4bdc1f52a50f70d4a82901d2688800f394",
+        "text": "shop"
+      }
+    },
     "tag:braundesign": {
       "name": {
         "hash": "16760266659012d6a9df71d12ffde9b9fbd724bc3548e890d4501d302bfab8c3",
@@ -752,10 +900,22 @@
         "text": "camarcheraja"
       }
     },
+    "tag:canon": {
+      "name": {
+        "hash": "3ca0a90f99df56d4f4e000ac3ba2a638551b8628ab26453b2e57e2c08d31a17c",
+        "text": "standard"
+      }
+    },
     "tag:chromebook": {
       "name": {
         "hash": "1bc34d193e60ffa2633e5b21db366d945f847e3a58b63f188583217c1174c0a4",
         "text": "Chromebook"
+      }
+    },
+    "tag:cinéma": {
+      "name": {
+        "hash": "3497b3a016021c822900318826710befe49a8e0886a84bb12f13726da1915bad",
+        "text": "cinema"
       }
     },
     "tag:cms": {
@@ -770,10 +930,34 @@
         "text": "code"
       }
     },
+    "tag:codebase": {
+      "name": {
+        "hash": "38c836a33d8e86c58c863318591d6faafb0da0a13325b81811e135f269e2a468",
+        "text": "code base"
+      }
+    },
     "tag:coeur": {
       "name": {
         "hash": "14d4d70a54bea2839150bc3dc67f8cab10679ac53497fe2f9374904e2e71cdb7",
         "text": "heart"
+      }
+    },
+    "tag:collectif": {
+      "name": {
+        "hash": "3b6d56e37cb69cefb81f8b6129735426acdf0c2db490d1281a8ae8736c7bd6ba",
+        "text": "collective"
+      }
+    },
+    "tag:commeunlundi": {
+      "name": {
+        "hash": "3e95c604ce1d893a6a63e93bd1265660ef0d20eb48fb0b506648c3d8cfb8cd61",
+        "text": "just like a Monday"
+      }
+    },
+    "tag:compression": {
+      "name": {
+        "hash": "3e9c9bdb61593bfc66994d2beb22ae245fd09851458f1098d7fed5c952cddb7d",
+        "text": "compression"
       }
     },
     "tag:contenu": {
@@ -786,6 +970,12 @@
       "name": {
         "hash": "2ee63d8ac2f6bbef24a1b1527562c3986886ce1b2a4d3334a34b86d48a78119a",
         "text": "context"
+      }
+    },
+    "tag:conversion": {
+      "name": {
+        "hash": "3589f4f9a26596a2406994b8c4e28b25b3ae98cc04fe47f4551d0f1de5975797",
+        "text": "conversion"
       }
     },
     "tag:cool": {
@@ -872,6 +1062,18 @@
         "text": "spacing"
       }
     },
+    "tag:est": {
+      "name": {
+        "hash": "3b0df70cf59ab23dc7904432a091103cd5477f4f3484d6b33e592e11afa33d36",
+        "text": "is"
+      }
+    },
+    "tag:extraction": {
+      "name": {
+        "hash": "3bdf8b245b62f3d1d54df24643fd5688954e9b04d42d58d700c1acd0393bce13",
+        "text": "extraction"
+      }
+    },
     "tag:fall": {
       "name": {
         "hash": "049044e7eacf5308d9df76d2526569a1c9e5a638b4dd66fe887fe4c68e7217bd",
@@ -908,6 +1110,12 @@
         "text": "font"
       }
     },
+    "tag:fonte-libre": {
+      "name": {
+        "hash": "36498397627458ede854fa762f14988c0298ccda6d8cc76792010f807857b163",
+        "text": "Free source"
+      }
+    },
     "tag:frontend": {
       "name": {
         "hash": "0d0d1fb0bbb4a5e3de79b6d026dea40054698a9d85ffd4f17658e550ed860736",
@@ -918,6 +1126,18 @@
       "name": {
         "hash": "04682dd676633989be4cefa20faccf71f63e5d2b571a2ffc60aee1fede18ff8f",
         "text": "file-manager"
+      }
+    },
+    "tag:green": {
+      "name": {
+        "hash": "3c4252b6037e0cc348852b90cfd3bc3661e8ccdbf5c7c535c746a9e8b45cae52",
+        "text": "green"
+      }
+    },
+    "tag:grenoble": {
+      "name": {
+        "hash": "3a7d9295c773364f04aca1667bce77ae3bc36e094975d087a2c9c4234e593cda",
+        "text": "Grenoble"
       }
     },
     "tag:génératif": {
@@ -974,6 +1194,18 @@
         "text": "digital image"
       }
     },
+    "tag:impression": {
+      "description": {
+        "hash": "39efd2b7a42ae83ad983538ff3739ae11aefaeceea64bd9efe7c3f0cec70bec6",
+        "text": "Printing techniques, processes and cultures."
+      }
+    },
+    "tag:imprimeur": {
+      "name": {
+        "hash": "42755f91c4c2e52146c6c088bde5a680eeae14de4e5f3973c93bb5a660a3b79a",
+        "text": "printer"
+      }
+    },
     "tag:information": {
       "name": {
         "hash": "1bf2328b57d41636899dc429390ab6c736e56aaba1773a7bb9f350de55d1f172",
@@ -1022,10 +1254,22 @@
         "text": "The Cons"
       }
     },
+    "tag:libraire": {
+      "name": {
+        "hash": "40f36939c62ccb592bb1336aee51fb158392834444f0ce8c29e90709674459e7",
+        "text": "bookseller"
+      }
+    },
     "tag:librairie": {
       "name": {
         "hash": "1e16b9aad35cb6fa53291047b9da2911d203951653fcace888b93673c793a0b8",
         "text": "bookshop"
+      }
+    },
+    "tag:lien-mort": {
+      "name": {
+        "hash": "380639ba8c017dffceed5e2af397e9bbb276d17b945803332d2bb19965131ccd",
+        "text": "dead link"
       }
     },
     "tag:liens": {
@@ -1040,6 +1284,12 @@
         "text": "readability"
       }
     },
+    "tag:livre-d’artiste": {
+      "description": {
+        "hash": "3b733f0683168081f310624dfa51bf0e45a01bc051b5acb6b8d9b334d4749bfb",
+        "text": "Books conceived as works of art or spaces for creativity."
+      }
+    },
     "tag:lost": {
       "name": {
         "hash": "05ecec6b35bd7c091e8ff8c569a547fd05c19dcb024922a7657e3ed74dfc0f7f",
@@ -1052,6 +1302,12 @@
         "text": "yoghurt"
       }
     },
+    "tag:magazine": {
+      "name": {
+        "hash": "3bd92cabd277947af29d83f55a243a796bd3c86a79763e43aff3ae87013e82a5",
+        "text": "magazine"
+      }
+    },
     "tag:manifeste": {
       "name": {
         "hash": "201be431e6ae93723152c732a7661f9e50e8c2dff3d47a883f7bcbc7d87ebbf3",
@@ -1062,6 +1318,12 @@
       "name": {
         "hash": "041356d2ab9b4fb10addd960085ab8413d2c4ccf50a33404c0ea33906fd40e95",
         "text": "manifesto"
+      }
+    },
+    "tag:master": {
+      "name": {
+        "hash": "37341710a3514a6b103b4dc46620186eedd039ae4fc15fc24a101873dc0ac758",
+        "text": "master"
       }
     },
     "tag:mat": {
@@ -1088,6 +1350,12 @@
         "text": "mural"
       }
     },
+    "tag:musées": {
+      "name": {
+        "hash": "3cf4c4a5082cb0f394b34087596e29ebdddc86f6301a01e883eec4ee3f102d74",
+        "text": "museums"
+      }
+    },
     "tag:médiation": {
       "name": {
         "hash": "2a67c94f040e72aa492f0cbdafb3baf9bd674b19931eef509b6432533bb4d1b9",
@@ -1104,6 +1372,12 @@
       "name": {
         "hash": "02b66b021d425748f1a24c0971a3af7fd5013420b31235dc1c36d0b9c323ecf8",
         "text": "snow"
+      }
+    },
+    "tag:net": {
+      "name": {
+        "hash": "36a119758d94db85209881203c605f693fabe46485932818a52879e6c1d9b0dc",
+        "text": "not"
       }
     },
     "tag:niepce": {
@@ -1148,6 +1422,12 @@
         "text": "observability"
       }
     },
+    "tag:occasion": {
+      "name": {
+        "hash": "37722b5f4123678b79d471b2eb0fe48e1eace20437dfbc07262c7b00d2e7a3bc",
+        "text": "opportunity"
+      }
+    },
     "tag:ooblikcar": {
       "name": {
         "hash": "2797cf908acf62a7b69aa6f9a4eaf23e45bb013c35f0ded128d7c6203fe9a114",
@@ -1170,6 +1450,12 @@
       "name": {
         "hash": "1383b54dce4bcec9ea42e936e5f3417239835ef6bd2970a68a6954b8b8b914d8",
         "text": "p5js"
+      }
+    },
+    "tag:paedophilia": {
+      "name": {
+        "hash": "3a76000f8d66d68433646ebcf6f30c37212c239dd713b04b74ba903b4f2e4f5e",
+        "text": "Paedophilia"
       }
     },
     "tag:pagination": {
@@ -1260,6 +1546,12 @@
       "name": {
         "hash": "185f3cded3afbe52508d4caa6a2aa0b5e04d49c669f14e4a359e445517d28d7f",
         "text": "poetry"
+      }
+    },
+    "tag:print&quot;": {
+      "name": {
+        "hash": "339596269cba02dd30ec64564a8ef14cfcb0f6cf20bd1cc3eed56699fe97e8c7",
+        "text": "print&quot;"
       }
     },
     "tag:production": {
@@ -1370,10 +1662,22 @@
         "text": "serif"
       }
     },
+    "tag:source-available": {
+      "name": {
+        "hash": "3421494e4195c4fbb17522c0d994eafdbf45cea57c69e2edf84f829f2322faa2",
+        "text": "source-available"
+      }
+    },
     "tag:startuplife": {
       "name": {
         "hash": "1770c2cd6361fd0c4da85244f62a42acdb6d51a54f90f47f32a6ffbd6e2aac43",
         "text": "startup life"
+      }
+    },
+    "tag:stimulant": {
+      "name": {
+        "hash": "3f246e32b0aca234134a550bad032444d9bd4d67067f6efd1ee35501b4fa72dc",
+        "text": "stimulating"
       }
     },
     "tag:stock-photo": {
@@ -1398,6 +1702,12 @@
       "name": {
         "hash": "156f37b64d4a2b00a9c8a4ee75b68b90a78d1bc34df2c3407f1c86c9f56ad348",
         "text": "technology"
+      }
+    },
+    "tag:tendance": {
+      "name": {
+        "hash": "41c668a2630c40dabd2484b97f0a9dd6667bcb8fc1d473a69a4daff231b22cce",
+        "text": "trend"
       }
     },
     "tag:theme": {
@@ -1425,9 +1735,19 @@
       }
     },
     "tag:transfert-de-fichiers": {
+      "description": {
+        "hash": "38b206a2b84a08573da3967a2f54ced2e926a411cecfdde4b658488b3d9208f7",
+        "text": "File exchange, synchronisation and transfer."
+      },
       "name": {
         "hash": "0496b95d21ffe8626fe95a65ee378d0c7a7d09c9d02cd142c0378220012d9cb1",
         "text": "file-transfer"
+      }
+    },
+    "tag:travailgratuit": {
+      "name": {
+        "hash": "3d29698b15cba6129d649aa35c4d92cb43187eccffaa9e2136ba9ef5e3caf549",
+        "text": "unpaid work"
       }
     },
     "tag:tumblr": {
@@ -1448,6 +1768,12 @@
         "text": "twitter"
       }
     },
+    "tag:typo": {
+      "name": {
+        "hash": "4236c99cc73aea3e99359c4e0e9a54166668ee1ded961ae9148ea794363f1146",
+        "text": "typo"
+      }
+    },
     "tag:unmondedeformats": {
       "name": {
         "hash": "2464a3e4dece9cdf2314a7d28fca0d11aad3de1567852641f5b56dba092670f2",
@@ -1458,6 +1784,16 @@
       "name": {
         "hash": "32f739d885523d7c97d61ab38d6edc9dba475bd33e71af8394761cfc5e04fb83",
         "text": "the day before"
+      }
+    },
+    "tag:vidéo": {
+      "description": {
+        "hash": "39f48e316edce38e415c946913753eeb39c8226deaf66b4b394f688306b09803",
+        "text": "Animated images, films and video publications."
+      },
+      "name": {
+        "hash": "42bc5d4f3983025acf9bcb18f3423b68db4c09904a74f08d0f5c50647f91b6c2",
+        "text": "video"
       }
     },
     "tag:vinyle": {
@@ -1484,16 +1820,34 @@
         "text": "web_development"
       }
     },
+    "tag:webdesign": {
+      "name": {
+        "hash": "3399c6d07cd743c1246631c0e700e6737a372bd9c7f21755aa1e4a57e8e30634",
+        "text": "web design"
+      }
+    },
     "tag:white": {
       "name": {
         "hash": "108179c399a6b75dba87810d7b80cd502819be86b1dbca0e62a5d4cac4626f41",
         "text": "white"
       }
     },
+    "tag:wow": {
+      "name": {
+        "hash": "3df8a02c10e9952f127bade16da7dc995bcef88597dd640751a05f189a02c518",
+        "text": "Wow, that's amazing."
+      }
+    },
     "tag:wp": {
       "name": {
         "hash": "2953ba9fe3a3d75edfeeb01e42c459b77142dd1cc25ab97cf67b3fa8ea2b8870",
         "text": "That's a pity."
+      }
+    },
+    "tag:xerox": {
+      "name": {
+        "hash": "41585b97b3e9d9620a2513e399d2af5bbde43a786ba1f4fb91e773d78cb3d691",
+        "text": "Xerox"
       }
     },
     "tag:yadubeaugraphisme": {
