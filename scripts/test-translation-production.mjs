@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
-import { isTranslationOnly, segmentConfig, validatePlan, validatePlanAgainst } from "./translation-production.mjs";
+import { isTranslationOnly, segmentConfig, segmentNames, validatePlan, validatePlanAgainst } from "./translation-production.mjs";
 
 const body = {
   version: 1, baseRevision: "a".repeat(64), targetRevision: "b".repeat(64), manifestRevision: "c".repeat(64), fullBuild: false,
@@ -25,8 +25,10 @@ test("only the closed translation file set can use a targeted build", () => {
 
 test("the render segment selects exact English paths and only the French public snapshot", () => {
   const config = segmentConfig(plan.paths);
-  assert.match(config, /languages: \[en\]/);
-  assert.match(config, /path: "\/archives\/2026-09-04"/);
+  assert.deepEqual(segmentNames(plan.paths), ["translation-target-0", "translation-target-1", "translation-snapshot"]);
+  assert.match(config, /translation-target-0:[\s\S]*languages: \[en\][\s\S]*path: "\/"/);
+  assert.match(config, /translation-target-1:[\s\S]*languages: \[en\][\s\S]*path: "\/archives\/2026-09-04"/);
+  assert.equal((config.match(/translation-target-\d+:/g) || []).length, plan.paths.length);
   assert.match(config, /languages: \[fr\][\s\S]*path: "\/"[\s\S]*kind: home[\s\S]*output: "\{translationsnapshot\}"/);
 });
 

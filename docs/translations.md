@@ -1,6 +1,6 @@
 # Traductions FR / GB
 
-La version 1.27.1 conserve le français à la racine et construit l’anglais
+La version 1.27.3 conserve le français à la racine et construit l’anglais
 britannique sous `/en/`. Le sélecteur FR / GB conserve la page, ses paramètres
 d’URL et l’ancre. Les identifiants, destinations originales, favoris et noms
 canoniques des catégories et tags restent communs. Les libellés affichés,
@@ -80,8 +80,8 @@ Aucun export supplémentaire n’est lancé pendant un déploiement déjà en co
 
 Le manifeste public v2 associe chaque élément aux pages anglaises qui le
 réutilisent. Un commit limité au snapshot, au plan et aux affiches anglaises
-autorisées repart de l’arbre `production`, rend ces routes avec les segments
-Hugo, actualise le snapshot racine, les listes, RSS et index de recherche
+autorisées repart de l’arbre `production`, rend chaque route avec un segment
+Hugo distinct, actualise le snapshot racine, les listes, RSS et index de recherche
 concernés, puis pousse un commit descendant de `production` sans force-push.
 Le script refuse l’overlay et exécute le build complet si le commit sort de la
 liste fermée, si le manifeste est encore en v1, si une révision diverge ou si

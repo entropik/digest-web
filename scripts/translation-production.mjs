@@ -90,7 +90,8 @@ const walk = async directory => {
 };
 const yamlString = value => JSON.stringify(value);
 const segmentPath = value => value === "/" ? value : "/" + value.replace(/^\/+|\/+$/g, "");
-export const segmentConfig = paths => `segments:\n  translation-target:\n    includes:\n${paths.map(value => `      - sites:\n          matrix:\n            languages: [en]\n        path: ${yamlString(segmentPath(value))}`).join("\n")}\n  translation-snapshot:\n    includes:\n      - sites:\n          matrix:\n            languages: [fr]\n        path: "/"\n        kind: home\n        output: "{translationsnapshot}"\n`;
+export const segmentNames = paths => [...paths.map((_, index) => `translation-target-${index}`), "translation-snapshot"];
+export const segmentConfig = paths => `segments:\n${paths.map((value, index) => `  translation-target-${index}:\n    includes:\n      - sites:\n          matrix:\n            languages: [en]\n        path: ${yamlString(segmentPath(value))}`).join("\n")}\n  translation-snapshot:\n    includes:\n      - sites:\n          matrix:\n            languages: [fr]\n        path: "/"\n        kind: home\n        output: "{translationsnapshot}"\n`;
 
 async function targetedBuild(plan, production, temporary) {
   const publicSnapshot = await json(path.join(production, "translation-snapshot.json"));
@@ -105,7 +106,7 @@ async function targetedBuild(plan, production, temporary) {
   const config = path.join(temporary, "segments.yaml");
   await writeFile(config, segmentConfig(plan.paths));
   const rendered = path.join(temporary, "rendered");
-  run(process.env.HUGO_BINARY || "hugo", ["--gc", "--minify", "--panicOnWarning", "--baseURL", "https://digest.ooblik.com/", "--config", `hugo.yaml,${config}`, "--renderSegments", "translation-target,translation-snapshot", "--destination", rendered, "--cleanDestinationDir"]);
+  run(process.env.HUGO_BINARY || "hugo", ["--gc", "--minify", "--panicOnWarning", "--baseURL", "https://digest.ooblik.com/", "--config", `hugo.yaml,${config}`, "--renderSegments", segmentNames(plan.paths).join(","), "--destination", rendered, "--cleanDestinationDir"]);
   const snapshotPath = path.join(rendered, "translation-snapshot.json");
   const renderedSnapshot = await json(snapshotPath);
   if (renderedSnapshot.revision !== plan.targetRevision) throw new Error("TARGET_SNAPSHOT_MISSING");
