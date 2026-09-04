@@ -29,6 +29,42 @@ export function validatePlan(plan) {
   return plan;
 }
 
+const sorted = object => Object.entries(object || {}).sort(([left], [right]) => Buffer.compare(Buffer.from(left), Buffer.from(right)));
+const snapshotRevision = snapshot => {
+  const fields = sorted(snapshot.entries).flatMap(([id, values]) => sorted(values).flatMap(([name, entry]) => [id, name, entry.hash, entry.text, Boolean(entry.manual)]));
+  const images = sorted(snapshot.artwork).flatMap(([date, entry]) => [date, entry.title, entry.description, entry.linkCount, entry.editorialType]);
+  return createHash("sha256").update(JSON.stringify([fields, images]).replaceAll("\u2028", "\\u2028").replaceAll("\u2029", "\\u2029")).digest("hex");
+};
+const same = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+const manifestRevision = items => createHash("sha256").update(JSON.stringify(items).replaceAll("&", "\\u0026").replaceAll("<", "\\u003c").replaceAll(">", "\\u003e").replaceAll("\u2028", "\\u2028").replaceAll("\u2029", "\\u2029")).digest("hex");
+
+export function validatePlanAgainst(manifest, base, target, plan) {
+  validatePlan(plan);
+  if (manifest.version !== 2 || manifest.revision !== manifestRevision(manifest.items || [])) throw new Error("PUBLIC_MANIFEST_INVALID");
+  for (const snapshot of [base, target]) if (!snapshot || snapshot.version !== 1 || !sha.test(snapshot.revision || "") || snapshot.revision !== snapshotRevision(snapshot)) throw new Error("TRANSLATION_SNAPSHOT_INVALID");
+  const ids = new Set([...Object.keys(base.entries), ...Object.keys(target.entries)]);
+  const items = [...ids].sort().flatMap(id => {
+    const names = new Set([...Object.keys(base.entries[id] || {}), ...Object.keys(target.entries[id] || {})]);
+    const fields = [...names].filter(name => !same(base.entries[id]?.[name], target.entries[id]?.[name])).sort();
+    return fields.length ? [{ id, fields }] : [];
+  });
+  const beforeArtwork = base.artwork || {}, afterArtwork = target.artwork || {};
+  const dates = new Set([...Object.keys(beforeArtwork), ...Object.keys(afterArtwork)]);
+  const upsert = [...dates].filter(date => afterArtwork[date] && !same(beforeArtwork[date], afterArtwork[date])).sort();
+  const remove = [...dates].filter(date => beforeArtwork[date] && !afterArtwork[date]).sort();
+  const changedIds = new Set(items.map(item => item.id));
+  for (const item of manifest.items) if (item.artwork && [...upsert, ...remove].includes(item.artwork.date)) {
+    changedIds.add(item.id);
+    if (!items.some(changed => changed.id === item.id)) items.push({ id: item.id, fields: ["$artwork"] });
+  }
+  items.sort((left, right) => left.id.localeCompare(right.id));
+  const body = { version: 1, baseRevision: base.revision, targetRevision: target.revision, manifestRevision: manifest.revision, fullBuild: false,
+    items, paths: [...new Set(manifest.items.filter(item => changedIds.has(item.id)).flatMap(item => item.impacts))].sort(), artwork: { upsert, remove } };
+  const expected = { ...body, revision: createHash("sha256").update(JSON.stringify(body)).digest("hex") };
+  if (!same(plan, expected)) throw new Error("PUBLICATION_PLAN_MISMATCH");
+  return plan;
+}
+
 export function isTranslationOnly(files, plan) {
   const artworkDates = new Set([...plan.artwork.upsert, ...plan.artwork.remove]);
   return files.length > 0 && files.every(file => {
@@ -63,6 +99,7 @@ async function targetedBuild(plan, production, temporary) {
   if (manifest.version !== 2 || manifest.revision !== plan.manifestRevision) throw new Error("PUBLIC_MANIFEST_DIVERGED");
   const translations = await json(path.join(root, "data/translations_en.json"));
   if (translations.revision !== plan.targetRevision) throw new Error("TRANSLATION_TARGET_DIVERGED");
+  validatePlanAgainst(manifest, publicSnapshot, translations, plan);
   await mkdir(path.join(root, ".build-i18n"), { recursive: true });
   await writeFile(path.join(root, ".build-i18n/manifest.json"), JSON.stringify(manifest));
   const config = path.join(temporary, "segments.yaml");

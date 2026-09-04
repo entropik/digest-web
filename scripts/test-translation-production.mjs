@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { createHash } from "node:crypto";
-import { isTranslationOnly, segmentConfig, validatePlan } from "./translation-production.mjs";
+import { isTranslationOnly, segmentConfig, validatePlan, validatePlanAgainst } from "./translation-production.mjs";
 
 const body = {
   version: 1, baseRevision: "a".repeat(64), targetRevision: "b".repeat(64), manifestRevision: "c".repeat(64), fullBuild: false,
@@ -22,4 +22,19 @@ test("the render segment selects exact English paths and only the French public 
   assert.match(config, /languages: \[en\]/);
   assert.match(config, /path: "\/archives\/2026-09-04"/);
   assert.match(config, /languages: \[fr\][\s\S]*path: "\/"[\s\S]*kind: home[\s\S]*output: "\{translationsnapshot\}"/);
+});
+
+test("the workflow recomputes snapshots and the exact impact plan", () => {
+  const entries = {}, artwork = {};
+  const snapshotRevision = createHash("sha256").update(JSON.stringify([[], []])).digest("hex");
+  const snapshot = { version: 1, revision: snapshotRevision, entries, artwork };
+  const items = [{ id: "link:1", kind: "link", title: "Lien", date: "", route: "/", group: "catalogue", dependencies: [], impacts: ["/"], fields: {} }];
+  const manifestRevision = createHash("sha256").update(JSON.stringify(items)).digest("hex");
+  const manifest = { version: 2, revision: manifestRevision, items };
+  const emptyBody = { version: 1, baseRevision: snapshotRevision, targetRevision: snapshotRevision, manifestRevision, fullBuild: false, items: [], paths: [], artwork: { upsert: [], remove: [] } };
+  const exact = { ...emptyBody, revision: createHash("sha256").update(JSON.stringify(emptyBody)).digest("hex") };
+  assert.equal(validatePlanAgainst(manifest, snapshot, snapshot, exact).revision, exact.revision);
+  const incompleteBody = { ...emptyBody, paths: ["/"] };
+  const incomplete = { ...incompleteBody, revision: createHash("sha256").update(JSON.stringify(incompleteBody)).digest("hex") };
+  assert.throws(() => validatePlanAgainst(manifest, snapshot, snapshot, incomplete), /MISMATCH/);
 });
