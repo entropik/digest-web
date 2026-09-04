@@ -1,11 +1,17 @@
 {
   "version": 1,
-  "revision": "992b18500287a637693f5fbb27636b6297bcb675b85e20ecc6e357369ccad7e0",
+  "revision": "cda0153a1fc93923e5f447736005bf0069280bdb58c2eb9aea1e2d5212e50724",
   "entries": {
     "category:Krisis": {
       "name": {
         "hash": "11993c1f60885dd1c45c7a3c28888b77806911fd3d2d7d898f541b502895c269",
         "text": "Crisis"
+      }
+    },
+    "category:Photographie": {
+      "name": {
+        "hash": "21b300f2d3dd69e202a26296782da42c01864e9608d23734080feebb6851da27",
+        "text": "Photography"
       }
     },
     "link:003c0224-df95-58b5-9c18-9af5865ca878": {
@@ -316,6 +322,12 @@
         "text": "Arles"
       }
     },
+    "tag:Asia": {
+      "name": {
+        "hash": "226c59a7281ac45333438f881f069af6000e645b40620170c1237249b11f6a46",
+        "text": "Subject"
+      }
+    },
     "tag:COP21": {
       "name": {
         "hash": "1989d3624155c7ee48fbaaeeddf84eea03cbf46b7977059a7e89196db9d587bd",
@@ -344,6 +356,12 @@
       "name": {
         "hash": "0b9e4cbeefd3a3a28495acade7cb7797bd1fc42c6effbf6bfeb698115ccf9456",
         "text": "Google Fonts"
+      }
+    },
+    "tag:HSBCBlackMoneyList": {
+      "name": {
+        "hash": "20c0ea2aab22a4299317359ae733536134dfb9435c549de24c3aaa49244525f6",
+        "text": "HSBC Black Money List"
       }
     },
     "tag:InDesign": {
@@ -388,6 +406,18 @@
         "text": "Member of the European Parliament"
       }
     },
+    "tag:Markdown": {
+      "name": {
+        "hash": "212b56354ad6f0fd84066576f3c2bf9a57fdc081feee2d856faa4acad1db6db0",
+        "text": "Markdown"
+      }
+    },
+    "tag:NiNi": {
+      "name": {
+        "hash": "1f5cba403d69b5f82a114f257de1b52fa2c01114cf7acd974697514fd1e20ef1",
+        "text": "No, no"
+      }
+    },
     "tag:OSP": {
       "name": {
         "hash": "01d13f9fac550e1d0273079f355566f37190af0944f6fe4b02555e84b9415ca4",
@@ -404,6 +434,18 @@
       "name": {
         "hash": "01a4e2089245752d21cb82644a1890635548224936a35e145e576c3606b98700",
         "text": "PhotoMattFibre200"
+      }
+    },
+    "tag:Pixelle": {
+      "name": {
+        "hash": "1f58ff33a3b6ba9a25539b3af0b87f4a4d7fbf5cadd69bd3478627fba2951e45",
+        "text": "Pixelle"
+      }
+    },
+    "tag:Poissondavril": {
+      "name": {
+        "hash": "20e2c02601db839658b4d194f73d2f796db271c09db77f128ad4238d860c8f1c",
+        "text": "April Fools’ Day"
       }
     },
     "tag:RAG": {
@@ -430,6 +472,12 @@
         "text": "Extreme Makeover"
       }
     },
+    "tag:Repost": {
+      "name": {
+        "hash": "19e5cfff53809b6792b7dc1921aa346de6175b662751ef14d6c80ae7a0a0789e",
+        "text": "Repost"
+      }
+    },
     "tag:Rondinax": {
       "name": {
         "hash": "1d0d1671442177a5992ada75a93f4787d37d18fdb303bed8668b7dcefea63661",
@@ -452,6 +500,12 @@
       "name": {
         "hash": "0f3537232eec24da4100f420646b7c461232342d4e5050fda902b93022873970",
         "text": "Switzerland"
+      }
+    },
+    "tag:TrueType": {
+      "name": {
+        "hash": "1b815d5b5e3ea63ef84c31a242ffc0047d7001a1681dc42e3a9aa9aaa0b7ca8a",
+        "text": "TrueType"
       }
     },
     "tag:VSCode": {
@@ -484,6 +538,24 @@
         "text": "art"
       }
     },
+    "tag:art-numérique": {
+      "name": {
+        "hash": "21b1deeb0de15e0f3566b27bfbb2f1f4d82703b42f13636ce3cb22ffa275d623",
+        "text": "digital art"
+      }
+    },
+    "tag:assistant": {
+      "name": {
+        "hash": "1e0bee8f6daf4bdb43a65607fde5a611cd6aae3f2ab956de8b8b30f6cf807c47",
+        "text": "assistant"
+      }
+    },
+    "tag:association": {
+      "name": {
+        "hash": "1db371fbe31ab009b3d1dfb4618acf529e4fe369a605760eba8874cb51f457c1",
+        "text": "association"
+      }
+    },
     "tag:asuivre": {
       "name": {
         "hash": "0bf4240d908b896fc92f00cbd798ad80bc3aecc40308211345c7631fa78c31ee",
@@ -500,6 +572,12 @@
         "text": "self-hosting"
       }
     },
+    "tag:baryte": {
+      "name": {
+        "hash": "1f83aca0084ded33a9683856631559a172afaf62ad5c7646857179112ca688f4",
+        "text": "barite"
+      }
+    },
     "tag:beau": {
       "name": {
         "hash": "77faed49451124ca735c3b6f09c80b770d073caa8ad8cfcb58e35db36edb8481",
@@ -512,6 +590,12 @@
         "text": "Brown design"
       }
     },
+    "tag:build": {
+      "name": {
+        "hash": "21b5a54fa8d9c4c2ae92e16e8121db609250251cb69c90f9ace47f5876996ef8",
+        "text": "build"
+      }
+    },
     "tag:cafe": {
       "name": {
         "hash": "00c982eb107a73b1cdc87374b25ab472c5e68f93239e2277c0f4ae7dd6048ea1",
@@ -522,6 +606,18 @@
       "name": {
         "hash": "197d1c7e9532305d188b5732c9041469eb1feee5a179e22e683f8a069161560c",
         "text": "boiler"
+      }
+    },
+    "tag:chromebook": {
+      "name": {
+        "hash": "1bc34d193e60ffa2633e5b21db366d945f847e3a58b63f188583217c1174c0a4",
+        "text": "Chromebook"
+      }
+    },
+    "tag:cms": {
+      "name": {
+        "hash": "19987a3629fb1fea537dea0001a30067457313097bf810630ec72ca21ea48e70",
+        "text": "Content Management System"
       }
     },
     "tag:code": {
@@ -548,6 +644,12 @@
         "text": "copyrightmadness"
       }
     },
+    "tag:css": {
+      "name": {
+        "hash": "1cbfa954c514598e762e113252cde1ec77f1fc692dcc43e7f95b6a3cd5be6899",
+        "text": "css"
+      }
+    },
     "tag:cuisine": {
       "name": {
         "hash": "180943fcac3212a4f9e6e51fed9e40f39375074e1f2becface721788ebfb1a10",
@@ -560,10 +662,22 @@
         "text": "from"
       }
     },
+    "tag:degooglisons": {
+      "name": {
+        "hash": "1b43fd1901caa5b6358c81bd79b390082099adfc28ed62e3dcb3709a6b024e35",
+        "text": "Let’s de-Google"
+      }
+    },
     "tag:design": {
       "description": {
         "hash": "0f3165f285644598ccb94eeb6ba85f1dde048508353eb2a59dbc08f213b1bac7",
         "text": "Visual, functional and editorial design."
+      }
+    },
+    "tag:design-system": {
+      "description": {
+        "hash": "1ef76f0dfaafdfe0eb8da7032725967b3a9cda2fdd91c9316112178fbfc63d29",
+        "text": "Design systems, components and interface rules."
       }
     },
     "tag:distribution": {
@@ -600,6 +714,18 @@
       "name": {
         "hash": "0b8b3559f634d18e5c39003941848829899982b8b3bd8ed86741a110c5ac00b6",
         "text": "organic flour"
+      }
+    },
+    "tag:façonnage": {
+      "name": {
+        "hash": "1da8a4866350ada1755b6741214bdf91ea81660c5a5be9dbd06f7f40485ee652",
+        "text": "shaping"
+      }
+    },
+    "tag:fier": {
+      "name": {
+        "hash": "20aeacfb2acd756d3a6c6812394b9f3fb6573a65853a357f654a8336e8d3d754",
+        "text": "proud"
       }
     },
     "tag:findepose": {
@@ -650,6 +776,12 @@
         "text": "identity"
       }
     },
+    "tag:information": {
+      "name": {
+        "hash": "1bf2328b57d41636899dc429390ab6c736e56aaba1773a7bb9f350de55d1f172",
+        "text": "information"
+      }
+    },
     "tag:installation": {
       "name": {
         "hash": "06a9f7ba87cd1d2c681c01fda243db3b313c3f6e07aef2273714556449c3daf7",
@@ -680,10 +812,22 @@
         "text": "Kiev"
       }
     },
+    "tag:lapsus": {
+      "name": {
+        "hash": "209f45801b5ce1a03f01f61362a4b70d20a415713249a64597b072a9b6fcb185",
+        "text": "slip of the tongue"
+      }
+    },
     "tag:lescons": {
       "name": {
         "hash": "0089fbd7fd61cd3c0dd4aaca0e35636fb01ed5ae8b808ebdac0122c04ced9dd0",
         "text": "The Cons"
+      }
+    },
+    "tag:librairie": {
+      "name": {
+        "hash": "1e16b9aad35cb6fa53291047b9da2911d203951653fcace888b93673c793a0b8",
+        "text": "bookshop"
       }
     },
     "tag:liens": {
@@ -698,16 +842,40 @@
         "text": "lost"
       }
     },
+    "tag:manifeste": {
+      "name": {
+        "hash": "201be431e6ae93723152c732a7661f9e50e8c2dff3d47a883f7bcbc7d87ebbf3",
+        "text": "manifesto"
+      }
+    },
     "tag:manifesto": {
       "name": {
         "hash": "041356d2ab9b4fb10addd960085ab8413d2c4ccf50a33404c0ea33906fd40e95",
         "text": "manifesto"
       }
     },
+    "tag:memory": {
+      "name": {
+        "hash": "1cacd357d70918545c962a6e3c5aad48994c092f8e75af3daecd18551fee6d2a",
+        "text": "memory"
+      }
+    },
+    "tag:mise-en-page": {
+      "name": {
+        "hash": "20e813a7d8b9eb1ae30013e8de14895a68af9feb41a0f9e8e0845670f0b6fc8f",
+        "text": "page layout"
+      }
+    },
     "tag:mural": {
       "name": {
         "hash": "01013c8b5186b509d1008201f16149ace0bd0589bb9ecda91eb4a788457e3b54",
         "text": "mural"
+      }
+    },
+    "tag:mémoire-web": {
+      "name": {
+        "hash": "1b62e9e0ed4e0067fc652ee1bf0b1e02cbe7345c0e926f0f1b4898322683ab01",
+        "text": "web memory"
       }
     },
     "tag:neige": {
@@ -726,6 +894,12 @@
       "name": {
         "hash": "1474088706008f7a33a8a3ace7c3791b35b07023a1717a0b50f77528f55a2c95",
         "text": "regulations"
+      }
+    },
+    "tag:num": {
+      "name": {
+        "hash": "2302f3a0865539733d4e392831ce3d4c3d47510ad7c96ffc763e4618c90983a8",
+        "text": "in one"
       }
     },
     "tag:nyc": {
@@ -776,6 +950,18 @@
         "text": "photographer"
       }
     },
+    "tag:photographie": {
+      "description": {
+        "hash": "221643499f49547caa7c58090b787b129d8065fa54824896aaeefd2445df2a76",
+        "text": "Practices, works, techniques and the history of photography."
+      }
+    },
+    "tag:piscine": {
+      "name": {
+        "hash": "1f5c6bce67bc690c7a76d5e138ad8f7d8f351b50a003a930993fcda397a0e12c",
+        "text": "swimming pool"
+      }
+    },
     "tag:plouf": {
       "name": {
         "hash": "0b07ae0507f953d03ee451c72b50a5dd60b16ba223159085b8ae729f8463521c",
@@ -812,6 +998,12 @@
         "text": "productivity"
       }
     },
+    "tag:produit": {
+      "name": {
+        "hash": "1c58828a88725773056ac4ce5a79f8b0a314374d9aeb46ddbd081554e8276f2f",
+        "text": "product"
+      }
+    },
     "tag:prépresse": {
       "name": {
         "hash": "035edeb89f38e95bd31d7666a88419b1eb167ab287329abb58186125b3e9cd58",
@@ -822,6 +1014,18 @@
       "name": {
         "hash": "099cbdfdc0e7ce854f685fa0d0932f209353f8afdf8f10b68bc175079250acf1",
         "text": "sexist advert"
+      }
+    },
+    "tag:remaniementministeriel": {
+      "name": {
+        "hash": "20bc99fa0b4b18de6e20f6c431a17bd47a4473f2b54593f7f716477bda8a37e0",
+        "text": "cabinet reshuffle"
+      }
+    },
+    "tag:report": {
+      "name": {
+        "hash": "233368dc90940c0976ec24c830966fc9cb1e0d94badde9434605df18b0e6ee50",
+        "text": "report"
       }
     },
     "tag:responsive": {
@@ -866,16 +1070,40 @@
         "text": "startup life"
       }
     },
+    "tag:stock-photo": {
+      "name": {
+        "hash": "237eeeace27ce94d8216c887be18be9ce2dd91785fce4486568da24412e28f0c",
+        "text": "stock-photo"
+      }
+    },
     "tag:svgfreebie": {
       "name": {
         "hash": "04421cdc38a8d7002ef37396136322baccaf9588bbe70e96514f380404eeacc4",
         "text": "SVG freebie"
       }
     },
+    "tag:tatoo": {
+      "name": {
+        "hash": "21bf2e34dd58078376673ebc672721a3dd75b1343e231300fdefae6308b45243",
+        "text": "tattoo"
+      }
+    },
     "tag:technologie": {
       "name": {
         "hash": "156f37b64d4a2b00a9c8a4ee75b68b90a78d1bc34df2c3407f1c86c9f56ad348",
         "text": "technology"
+      }
+    },
+    "tag:theme": {
+      "name": {
+        "hash": "224e3dd1a635a87499ebf649b15e8dadd8e0bc6ff42ce81bc1cd594d66bdfd84",
+        "text": "theme"
+      }
+    },
+    "tag:tipibookshop": {
+      "name": {
+        "hash": "20309f4be26ac82a51f8177201c1705ad125b52840eb34e29151fdebe5531d71",
+        "text": "tipibookshop"
       }
     },
     "tag:tmux": {
@@ -894,6 +1122,18 @@
       "name": {
         "hash": "0496b95d21ffe8626fe95a65ee378d0c7a7d09c9d02cd142c0378220012d9cb1",
         "text": "file-transfer"
+      }
+    },
+    "tag:vinyle": {
+      "name": {
+        "hash": "1a902f7d218fe2c03271ce5860666edff75f48695167bae27ac95b6f44291b2f",
+        "text": "vinyl"
+      }
+    },
+    "tag:visualisation": {
+      "name": {
+        "hash": "1d22b645da74d50707036c7be542237d73020e24e523d66d5cde7bf85544faa9",
+        "text": "visualisation"
       }
     },
     "tag:white": {
