@@ -9,11 +9,11 @@
     <lastBuildDate>Thu, 03 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://digest.ooblik.com/flux/journal-du-digest/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Un Digest bilingue, progressivement</title>
+      <title>Un Digest bilingue et mouvements retrouvés</title>
       <link>https://digest.ooblik.com/flux/journal-du-digest/2026-09-03/</link>
       <pubDate>Thu, 03 Sep 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/flux/journal-du-digest/2026-09-03/</guid>
-      <description>Le Digest prépare une version anglaise accessible depuis un sélecteur FR / GB discret. La traduction avance dans une file persistante, avec un plafond de consommation et un suivi dans l’administration. Les pages fixes et les titres des dix dernières éditions constituent le premier lot réel, vérifié dans un aperçu local.</description>
+      <description>Le Digest prépare une version anglaise accessible depuis un sélecteur FR / GB discret tout en avançant sa traduction par lots. Le survol d’À propos s’adapte aux fenêtres étroites comme aux changements d’accessibilité, et les tags reprennent leur mouvement après restauration de page. Les deux chantiers préservent la priorité accordée à la réduction des animations.</description>
     </item>
     <item>
       <title>La curation traverse Firefox</title>
