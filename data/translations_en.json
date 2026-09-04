@@ -1,11 +1,15 @@
 {
   "version": 1,
-  "revision": "2ab1b5b3c4b631967beb1dbe73a62405095d470816c1c44a8e237012e89f2340",
+  "revision": "49651238c2452e6ce02a9c9a5eae67285bfad8b373d9fddc190eed164de9808d",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
         "hash": "4d18aabb24d3ffbf943040a90acbe8a6e7cdc805e9f2712dfbdb2c9d41ed4c34",
         "text": "A selection of posts originally published on the old OOBLIK blog, retained with their images, dates and source links."
+      },
+      "name": {
+        "hash": "db83899a9a6265b058e13d169c6e2afc428202186d35746af461415807fc9e82",
+        "text": "OOBLIK blog archives"
       }
     },
     "category:Cultures & Combats": {
@@ -40,6 +44,12 @@
       "name": {
         "hash": "11993c1f60885dd1c45c7a3c28888b77806911fd3d2d7d898f541b502895c269",
         "text": "Crisis"
+      }
+    },
+    "category:Médias & Veille": {
+      "name": {
+        "hash": "d8bd84bf7ea40c62f6552d9e5cb3aeac1de94c9968fdbc11fb3ba209c93ef30d",
+        "text": "Media & Monitoring"
       }
     },
     "category:Mémoire du web social": {
@@ -330,6 +340,12 @@
       "title": {
         "hash": "c7395791f1fbaa96716934f7a452d624ba54078c84d1834903826fd72ec62f10",
         "text": "Tags"
+      }
+    },
+    "tag:&quot;norma": {
+      "name": {
+        "hash": "d9e980a6b0952caf3675922e6757a14ba1446c32a04f677c22f3ec13322f97e4",
+        "text": "&quot;rule&quot;"
       }
     },
     "tag:&quot;zone": {
@@ -626,6 +642,12 @@
         "text": "Claude"
       }
     },
+    "tag:Clouscard": {
+      "name": {
+        "hash": "dd295389fbff99b2b8dc90a7af87be8a5a7ff0f7c238a97b78be7b35eb913a58",
+        "text": "Clouscard"
+      }
+    },
     "tag:ConseildEtat": {
       "name": {
         "hash": "7bdc5ee12b178f12ad4fe5df7c5d26cf9526125cfe2d68e1dfb3e7282a03c4b3",
@@ -642,6 +664,12 @@
       "name": {
         "hash": "53170745a8589a816c89ed51bfa588c08cf41355e9cfea36caa6c32c972e0a9e",
         "text": "Do It Yourself"
+      }
+    },
+    "tag:DPDA": {
+      "name": {
+        "hash": "dc217f77c8c35f8a25385848bf67377cf9a7c039e38b4de55f1a54534ee6c485",
+        "text": "DPDA"
       }
     },
     "tag:Definition": {
@@ -935,9 +963,19 @@
       }
     },
     "tag:IA-locale": {
+      "description": {
+        "hash": "d4ac9cad30ce238b7b308df061da9858e9d6b3468daaa5644d0c00c6e37f5846",
+        "text": "Artificial intelligence models and tools run locally."
+      },
       "name": {
         "hash": "896cb38ba77722f696b93174501e15e29678637771c2fa697975740a7d49511c",
         "text": "Local IA"
+      }
+    },
+    "tag:ICPBardMFA": {
+      "name": {
+        "hash": "dc35b9f3107c7c9402e172ebdd43e96952d45ed4e82f85b05cd06c2fd0ea2c36",
+        "text": "International Centre for the Prevention of Blindness and the Management of Eye Diseases"
       }
     },
     "tag:IG": {
@@ -1326,6 +1364,12 @@
         "text": "Periscope"
       }
     },
+    "tag:Pesticide": {
+      "name": {
+        "hash": "dce71fe13132c6091585d77598381eb30a3ab3968e3842dc03e9991fe0541749",
+        "text": "Pesticides"
+      }
+    },
     "tag:PhotoMattFibre200": {
       "name": {
         "hash": "01a4e2089245752d21cb82644a1890635548224936a35e145e576c3606b98700",
@@ -1405,6 +1449,10 @@
       }
     },
     "tag:RAG": {
+      "description": {
+        "hash": "da251c8e33e4894dffc736e1ed9a31f0fb55e03f30d340cae2088ec0c3fcabac",
+        "text": "Generation enhanced by research and document management systems."
+      },
       "name": {
         "hash": "1960541f7a1a68a6b0fa1f2e6195107cc0d467a7bff6d7baebf22e2d1177bea6",
         "text": "Ready, Aim, Fire"
@@ -1438,6 +1486,12 @@
       "name": {
         "hash": "0ce177f1653d9219cf1ec0c52704786d6129ba46d8952467bc5f170210d69569",
         "text": "Extreme Makeover"
+      }
+    },
+    "tag:Rencontres-de-Lure": {
+      "name": {
+        "hash": "d4eda353342baa08b1b980dd270c3180259b662b36d2e14504db70fe0c3145ea",
+        "text": "Lure Encounters"
       }
     },
     "tag:Repost": {
@@ -1474,6 +1528,12 @@
       "name": {
         "hash": "96b1bbb81e09472e76d76092e793da219bf6c92ad605f2be367a709c9944f0d9",
         "text": "Peace"
+      }
+    },
+    "tag:SANS": {
+      "name": {
+        "hash": "d7df25d3358b60a9b17d34e3259f05c7ae88571deadadb2ac15ea8063b24789d",
+        "text": "WITHOUT"
       }
     },
     "tag:SEO": {
@@ -1768,6 +1828,12 @@
         "text": "algorithms"
       }
     },
+    "tag:amazon": {
+      "name": {
+        "hash": "dba086e8b17036f0bab98ec31b8ea98dd28fd9848b7f2bdc3f31351152e02e44",
+        "text": "Amazon"
+      }
+    },
     "tag:analyse": {
       "name": {
         "hash": "73a0eedfb3bd4c456c17504df70988a831b4df03fada89cabd7d6686c0325c41",
@@ -1920,6 +1986,12 @@
         "text": "workshop"
       }
     },
+    "tag:atlantico": {
+      "name": {
+        "hash": "d6e66ddb3c1fe5a7e079e1e78ca77e0157aa3eacc616d78b41b2ee97e666ed3c",
+        "text": "Atlantic"
+      }
+    },
     "tag:attali": {
       "name": {
         "hash": "7fc6443c3af1d229997bed99fc36b1ecb208459e10a4d76dff21c0dc5505176c",
@@ -2010,6 +2082,12 @@
       "name": {
         "hash": "c97cfa0d904b72a41d881644bddfe9220889641383d409a28948b7a975d07ffe",
         "text": "Beaujolais"
+      }
+    },
+    "tag:benchmark": {
+      "name": {
+        "hash": "dd5eb04df88090de7e761ef618e0c562d0a83d82ab1ca3ba8e4f03a20b971be7",
+        "text": "benchmark"
       }
     },
     "tag:best2015": {
@@ -2166,6 +2244,12 @@
       "name": {
         "hash": "197d1c7e9532305d188b5732c9041469eb1feee5a179e22e683f8a069161560c",
         "text": "boiler"
+      }
+    },
+    "tag:calibration": {
+      "name": {
+        "hash": "dd829a5701af2f4b6b2e3b894cb6bd47640905bebe0c80a7eb746dfa9222a47c",
+        "text": "calibration"
       }
     },
     "tag:camarcheraja": {
@@ -2398,6 +2482,12 @@
       "name": {
         "hash": "93713c5b1534dd974a19ca7c81f050e300227aac66e8a6379474c9da7f29e42e",
         "text": "privacy"
+      }
+    },
+    "tag:configuration": {
+      "name": {
+        "hash": "db984a8307a7ae644e88b1d924b7f0ccfa3c73befcd163a9bc444e32bd685c2d",
+        "text": "configuration"
       }
     },
     "tag:conférence": {
@@ -2864,6 +2954,12 @@
         "text": "is"
       }
     },
+    "tag:etagere": {
+      "name": {
+        "hash": "d6a4743fb7a624039032bb04884a47d7309f2e2a5e5d7bae8836c195dabc9df7",
+        "text": "tiered stands"
+      }
+    },
     "tag:exposition": {
       "name": {
         "hash": "66ac0e8a44add60b18bc67d6e1e666f537e186846aee3ec64bb0cf643af4d3d6",
@@ -2960,10 +3056,28 @@
         "text": "search bag"
       }
     },
+    "tag:fisheyelemag": {
+      "name": {
+        "hash": "da50be06e87f52a2044178c3b04458479fbf743e46e192f2f991d270727cc62c",
+        "text": "fishy smell"
+      }
+    },
+    "tag:flatsite": {
+      "name": {
+        "hash": "d8c051a05aa7fe812f3f1cc2dbcfa5af0798f8a7821817402ae53878a96c46a6",
+        "text": "flatsite"
+      }
+    },
     "tag:fondation": {
       "name": {
         "hash": "9daef5381c76d76118ebdae1ee3c000309493c27146913597dc47b26966ec47a",
         "text": "foundation"
+      }
+    },
+    "tag:fonderie": {
+      "name": {
+        "hash": "d782bd5554b731a61382f087771e40f30718d0556428e422bf2627a52a90202c",
+        "text": "foundry"
       }
     },
     "tag:font": {
@@ -3088,6 +3202,12 @@
       "name": {
         "hash": "6bbe5c47600c466c4ad99ae3f289b0a111e48b54f5def6ff724e770923fe6c3f",
         "text": "graphic design"
+      }
+    },
+    "tag:gratuit": {
+      "name": {
+        "hash": "da3606b52cb3b165357f76ec0a446ea5589bfdc5afa0071a0fd053acab9f1252",
+        "text": "free"
       }
     },
     "tag:green": {
@@ -3264,6 +3384,12 @@
         "text": "identity"
       }
     },
+    "tag:identité": {
+      "name": {
+        "hash": "db5bc02c866016d219da0af65c6e4bf5722efdb198eab25c295994d23a82cce5",
+        "text": "identity"
+      }
+    },
     "tag:illustration": {
       "description": {
         "hash": "2f27bcebb172ec4ff3ca1fa614074f8a32d4df41920f44f1d0a78a6deaaa5b76",
@@ -3374,6 +3500,12 @@
       "name": {
         "hash": "4422ffb6dfe3a998776d3fdbc1f9af4c90f6c01c53daa9ff90df4f69381e7844",
         "text": "inspiration"
+      }
+    },
+    "tag:instagram": {
+      "name": {
+        "hash": "dd781f00365ee4adf7f47369cd970cf0b90344748ab2029514bcd0a416381170",
+        "text": "Instagram"
       }
     },
     "tag:installation": {
@@ -3638,6 +3770,12 @@
         "text": "software"
       }
     },
+    "tag:logiciel-libre": {
+      "name": {
+        "hash": "da55cba9655a2b9929ee3eaa501ef2579e1d8359a8165094770932d441bab721",
+        "text": "free software"
+      }
+    },
     "tag:logiciels": {
       "name": {
         "hash": "5afcfe74106baeaffc028bd6a4b1fed502102f7325d9bd61e748cbcf1396dbaf",
@@ -3816,10 +3954,22 @@
         "text": "minivan"
       }
     },
+    "tag:moteur-de-recherche": {
+      "name": {
+        "hash": "dd0141a22640d90507abb7c3051857433d27f3e1b043cc8af43fe48cb11bf808",
+        "text": "search-engine"
+      }
+    },
     "tag:motif": {
       "name": {
         "hash": "4e7da26ec0ed6172af53c739e97f05b39a1bd77f9f0d94fef1d049ddb95f4bcd",
         "text": "reason"
+      }
+    },
+    "tag:multi-agents": {
+      "name": {
+        "hash": "d53958337a59cb5e68cb74338aa7abb237cef023c24610a97b3b87cf02c11a89",
+        "text": "multi-agents"
       }
     },
     "tag:multimédia": {
@@ -3830,6 +3980,12 @@
       "name": {
         "hash": "64c8d400536e4f8be65369d2b9d3f5f6d66748ec4fc7a8670aceed8844286a0f",
         "text": "multimedia"
+      }
+    },
+    "tag:multiplateforme": {
+      "name": {
+        "hash": "d52526b2a70a8bb08b621411e9b294e159a70c6fc3ecde466aa3558988682965",
+        "text": "cross-platform"
       }
     },
     "tag:mural": {
@@ -3854,6 +4010,12 @@
       "name": {
         "hash": "3cf4c4a5082cb0f394b34087596e29ebdddc86f6301a01e883eec4ee3f102d74",
         "text": "museums"
+      }
+    },
+    "tag:mème": {
+      "name": {
+        "hash": "dd8cc74d00687460907ac97d34624aa6f6a8f236b3d4eece1772a231bc92281b",
+        "text": "same"
       }
     },
     "tag:médias": {
@@ -3884,6 +4046,12 @@
       "name": {
         "hash": "8eb2b8a3fae46d50b51927b90e61410da80aeabaf2faf64550a8ead085df733e",
         "text": "narration"
+      }
+    },
+    "tag:nasa": {
+      "name": {
+        "hash": "d93a6d2f733f18c4dd2b50117762d0b1a0d3a4d8b7f01186bf20d1f3263f7f6d",
+        "text": "in"
       }
     },
     "tag:nature": {
@@ -4146,6 +4314,12 @@
         "text": "parallelisation"
       }
     },
+    "tag:parfait": {
+      "name": {
+        "hash": "d54f68948d0edb41d805b436604b91a5bead3c400f0dba95f53998d597c7aba8",
+        "text": "perfect"
+      }
+    },
     "tag:pattern": {
       "name": {
         "hash": "aa5d875ef527f6079de4a87286448bf85e1df5cfdeb9acc5f3287c194a718d4b",
@@ -4202,6 +4376,12 @@
       "name": {
         "hash": "66bc332dd806daa06958ef4cfa9c70d8b7ba38a030fe0ef89ead139ee4e09a24",
         "text": "photoRag308"
+      }
+    },
+    "tag:photobook": {
+      "name": {
+        "hash": "da20ed0f3e7d963e00e844c27cb5fe1a136572395ef65599bbfc7eb9ff963bc6",
+        "text": "photo book"
       }
     },
     "tag:photobooks": {
@@ -4284,6 +4464,12 @@
       "name": {
         "hash": "459b374d12d44fefc54bb53443c75aa7118b0bf553bd8e05a3bd204d3de79cec",
         "text": "spare parts"
+      }
+    },
+    "tag:plateforme": {
+      "name": {
+        "hash": "d4ff0d098784cd4a9559c7a270a233341bc100812a529611db5d45afab0c3ade",
+        "text": "platform"
       }
     },
     "tag:plieuse": {
@@ -4482,6 +4668,12 @@
         "text": "sexist advert"
       }
     },
+    "tag:pur": {
+      "name": {
+        "hash": "dc9c3933e57db50dcd3cde9fe17b1df9d7e21fd7fd39800d9e4ebf5c4b214ed9",
+        "text": "pure"
+      }
+    },
     "tag:pyongyang": {
       "name": {
         "hash": "65e2d97d73c60ecf525da597857be77725bb4bc3f5312f24814c722ff3bcfd03",
@@ -4564,6 +4756,12 @@
       "name": {
         "hash": "0b3938823ada7c5e1234833569d2bd90e5dd0e84de5859a8ca5f720b83fa7e34",
         "text": "catering"
+      }
+    },
+    "tag:revolutionenmarche": {
+      "name": {
+        "hash": "d8cf57b35505230b70085c53dc4146191a6bc3516d403914e08b244817194930",
+        "text": "revolutionenmarche"
       }
     },
     "tag:revue": {
@@ -4732,6 +4930,12 @@
         "text": "is"
       }
     },
+    "tag:site": {
+      "name": {
+        "hash": "d5b92df158cd2f88483db09103356c10b79bf2c6c22c0d4e9304f8d3232d27b1",
+        "text": "site"
+      }
+    },
     "tag:site-statique": {
       "name": {
         "hash": "afa9594e1b8836302066113e417dda494b4fc53a72049fb2275ae7f0538ff85c",
@@ -4788,6 +4992,12 @@
       "name": {
         "hash": "7114fdbde32ba0dc62d4747849894c014d51c07af56e85a4df00d7746360a459",
         "text": "stalker"
+      }
+    },
+    "tag:standard": {
+      "name": {
+        "hash": "d6f6a5fbd7dc884b7cb2ec98078ad5810d35d21aa56be6b41356696dda01a6eb",
+        "text": "standard"
       }
     },
     "tag:startuplife": {
@@ -5000,6 +5210,12 @@
         "text": "Don't walk"
       }
     },
+    "tag:tokens": {
+      "name": {
+        "hash": "d5a2a699e9927423b33c4a05603a0019a5df076bcc00e327265bc83f0a3b4d89",
+        "text": "tokens"
+      }
+    },
     "tag:tool": {
       "name": {
         "hash": "5234e7a00786b877a8ad6c211571250a205ab64e35463c8c31cfc2e45b258564",
@@ -5022,6 +5238,12 @@
       "name": {
         "hash": "4cd5b307abf8d52a8315f51e61106ce03803ec46c82908b01ee9039ee245752f",
         "text": "plotter"
+      }
+    },
+    "tag:trame": {
+      "name": {
+        "hash": "d74bd61201b6a9c5d150e44debed94213011c3e0e62b5e952467ef45e2d9bc4c",
+        "text": "plots"
       }
     },
     "tag:transfert-de-fichiers": {
@@ -5274,6 +5496,12 @@
         "text": "web"
       }
     },
+    "tag:web-sémantique": {
+      "name": {
+        "hash": "d4d893fb48a334be27756417799bdc4f4a7b6dc2cf294d96f5128e96301c040c",
+        "text": "semantic web"
+      }
+    },
     "tag:web-to-print": {
       "description": {
         "hash": "67e1d91c5cb760cf41d883732f8bce7afae078449245bbadeb45f852f63d1775",
@@ -5392,6 +5620,12 @@
       "name": {
         "hash": "648babdce8c136fbd7c4467a3bbd35a8bd0ecf00f9e7763180763c3c53117963",
         "text": "edition"
+      }
+    },
+    "tag:édition-scientifique": {
+      "name": {
+        "hash": "db5db9292d904b9ee40278d4482cc2b58511a48707df8d14d8b0d1e150fd5048",
+        "text": "scientific publishing"
       }
     },
     "tag:éphéméride": {
