@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "6e4b8d9008a8faecfa8d78ae7f1f88470434caea25a52b242cae29b0765a71aa",
+  "revision": "9e3d05e1f7ddb3fc6c00030775c58fab42874d308a96100d9e7329d33785b6b8",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -3090,6 +3090,22 @@
       "title": {
         "hash": "946546d90a07b056aaf49f70b37dd2857b2ec866c0aea388c8914c2652bc086a",
         "text": "Diary of a Procrastinator"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-06-13": {
+      "description": {
+        "hash": "4bc9f699c7adbc26829dd7ca5cdb6bb11f5bc9c6274d852919f80920706878a9",
+        "text": "A short but action-packed day focusing on the KEREDIT connector: beta messages, WooCommerce synchronisation, OpenReplay SMTP and beta dashboard instrumentation."
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-06-14": {
+      "description": {
+        "hash": "229ae249840514ff699e7c0b98aa3ed7d07abb4c52a7d637a85369e0af69ae64",
+        "text": "‘Sunday without work’ code: to keep a record of a break, without artificially padding out the log."
+      },
+      "title": {
+        "hash": "5af24684d100c43c919ebe82ac49ef29aa662c3e629f31f09747af1a3a1aa29f",
+        "text": "Day 84 – Sunday off"
       }
     },
     "page:/flux/journal-procrastinateur/2026-06-15": {
@@ -10685,6 +10701,14 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-14.webp": {
+      "alt": {
+        "hash": "20b0de3cc382246230ddcc76b36ad38bb7e81d8b11acc99599433c41b3d577bc",
+        "text": "Document NASA : Cruise Stage Testing for Mars Science Laboratory"
+      },
+      "date": {
+        "hash": "69c43fb460366a72a79d10965d2ee6480743f9ba56b01dd2a0543c0a28ac8f8c",
+        "text": "2 September 2010"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10692,6 +10716,10 @@
       "themeLabel": {
         "hash": "a1b7fca866496e50edd0c8813c0df76fa5ee63a6b1410ab95bb4c5d5f70e6608",
         "text": "Laboratories & simulation"
+      },
+      "title": {
+        "hash": "614b8d3b9b501e592d6ae814ec187d89baee5e8e862e1d47ac99fa6f80de7df2",
+        "text": "Cruise Stage Testing for Mars Science Laboratory"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-15.webp": {
