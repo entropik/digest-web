@@ -1,10 +1,40 @@
 {
   "version": 1,
-  "baseRevision": "d232d7ca6c0aa4ffeadbacd4bac7777c568611608cc7b871cdc22016edbf17af",
-  "targetRevision": "d0d34334b40694deba7d977599734e3fedd3c08e869a95417e5968523d7f3010",
+  "baseRevision": "d0d34334b40694deba7d977599734e3fedd3c08e869a95417e5968523d7f3010",
+  "targetRevision": "1bf1f7d3ebba9bfeaaad3caec4d4ca5e93b14e50382adee937e271e6e1984a0b",
   "manifestRevision": "261577e2e019b7cf9d967a9bb1dff52329a00c44f1188f132a4cdf0215a39dec",
   "fullBuild": false,
   "items": [
+    {
+      "id": "link:1e54008f-88af-519a-960b-3c79ce2b6a58",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:43c80086-b394-51a1-86b4-19e807f5ccd6",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:4ab60e22-6d90-55a5-9b22-72015fb6b1aa",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:504dca6f-2667-52fe-8d20-cc5f0ce6a207",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:d42140f0-a527-5985-b6e6-bfbfd2444a41",
+      "fields": [
+        "description"
+      ]
+    },
     {
       "id": "page:/archives/2026-08-16",
       "fields": [
@@ -66,38 +96,30 @@
       ]
     },
     {
+      "id": "page:/flux/journal-du-digest/2026-07-24",
+      "fields": [
+        "body"
+      ]
+    },
+    {
+      "id": "page:/flux/journal-du-digest/2026-07-25",
+      "fields": [
+        "body",
+        "description",
+        "title"
+      ]
+    },
+    {
       "id": "page:/flux/journal-du-digest/2026-07-26",
       "fields": [
-        "body",
-        "description"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-du-digest/2026-07-27",
-      "fields": [
-        "body",
-        "description",
         "title"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-procrastinateur/2026-07-30",
-      "fields": [
-        "body",
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-30.webp",
-      "fields": [
-        "alt",
-        "date"
       ]
     }
   ],
   "paths": [
+    "/",
     "/archives/",
+    "/archives/2026-07-24/",
     "/archives/2026-08-16/",
     "/archives/2026-08-18/",
     "/archives/2026-08-20/",
@@ -110,10 +132,26 @@
     "/archives/2026-09-02/",
     "/flux/",
     "/flux/journal-du-digest/",
+    "/flux/journal-du-digest/2026-07-24/",
+    "/flux/journal-du-digest/2026-07-25/",
     "/flux/journal-du-digest/2026-07-26/",
-    "/flux/journal-du-digest/2026-07-27/",
-    "/flux/journal-procrastinateur/",
-    "/flux/journal-procrastinateur/2026-07-30/"
+    "/tags/",
+    "/tags/agents/",
+    "/tags/atelier/",
+    "/tags/automatisation/",
+    "/tags/developpement/",
+    "/tags/experimentation/",
+    "/tags/ia/",
+    "/tags/interface/",
+    "/tags/knowledge-management/",
+    "/tags/laboratoire/",
+    "/tags/llm/",
+    "/tags/newsletter/",
+    "/tags/photo/",
+    "/tags/pratique/",
+    "/tags/technologie/",
+    "/tags/veille/",
+    "/tags/wiki/"
   ],
   "artwork": {
     "upsert": [
@@ -130,5 +168,5 @@
     ],
     "remove": []
   },
-  "revision": "a147074a6c40fb5af761a1b5356ebb159fce3fc45a19b88f0abe99293ca1e646"
+  "revision": "53704227b959bead6bce12ba23dfcccffa2ee8dd847f718a2cdc46e312d1a073"
 }

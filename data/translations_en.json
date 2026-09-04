@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "d0d34334b40694deba7d977599734e3fedd3c08e869a95417e5968523d7f3010",
+  "revision": "1bf1f7d3ebba9bfeaaad3caec4d4ca5e93b14e50382adee937e271e6e1984a0b",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -214,6 +214,12 @@
       "title": {
         "hash": "3445bc5da704611c98bf0d4581db99ca180e00748606fc8ebc2613cef82143ae",
         "text": "EverMind-AI/EverOS: One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, tools, and workflows."
+      }
+    },
+    "link:1e54008f-88af-519a-960b-3c79ce2b6a58": {
+      "title": {
+        "hash": "0358141392aec438a1b225d63aa1b210c4d049a3e944355874a9409682e27e9a",
+        "text": "LLM-Wiki"
       }
     },
     "link:1e7ba8b7-d930-5576-bae0-bc792b23b43d": {
@@ -522,6 +528,12 @@
         "text": "Graphify · the code knowledge graph for AI coding assistants"
       }
     },
+    "link:43c80086-b394-51a1-86b4-19e807f5ccd6": {
+      "description": {
+        "hash": "03dd72e6aacb550bf26ef1b07de5737cb7e62316f8160a3d5fe659e88f25a1f3",
+        "text": "A guide to running a participatory workshop focusing on photography and darkroom techniques."
+      }
+    },
     "link:45736262-3087-5462-84b7-5fda61a736d4": {
       "description": {
         "hash": "00a0fd5d76c6d4cba0443c1b70f98ea148d2e631bd8d4d9e87e0077c7ca679a6",
@@ -552,6 +564,12 @@
         "text": "i-have-adhd/skills/i-have-adhd/SKILL.md at main · ayghri/i-have-adhd"
       }
     },
+    "link:4ab60e22-6d90-55a5-9b22-72015fb6b1aa": {
+      "description": {
+        "hash": "068316d54bc20d9e002014ccb82c5f50265b09ffb314571b9196ad6088897e03",
+        "text": "An autonomous business simulation running with agents on a personal computer."
+      }
+    },
     "link:4e0024a5-7e50-5d4c-9eb2-286324ca2b8a": {
       "description": {
         "hash": "681935c863d9ba294a2becc34a29bc5f8b9c62c37a33fcd7d7aa000911b0bad1",
@@ -570,6 +588,12 @@
       "title": {
         "hash": "f529257947f45b6b578ca94f3b31ba06d108d9d20b1f00198e80f700f6d37aa9",
         "text": "Hermes Agent — learn, remember and delegate"
+      }
+    },
+    "link:504dca6f-2667-52fe-8d20-cc5f0ce6a207": {
+      "title": {
+        "hash": "04707cc216a488411964f7319e0e9c646c65b3f86d01577b27e9d2eb41f623e8",
+        "text": "Kanna"
       }
     },
     "link:512af406-225b-5ece-8d37-7ade39291255": {
@@ -1602,6 +1626,12 @@
         "text": "Supermemory — Memory and context for AI applications"
       }
     },
+    "link:d42140f0-a527-5985-b6e6-bfbfd2444a41": {
+      "description": {
+        "hash": "05265b9dd2064528ca09b3324c756d1211ac3cfd882d4cd5f57459700be3df34",
+        "text": "A weekly round-up of technology news, projects and resources."
+      }
+    },
     "link:d58f75c0-fa59-58cd-91cd-105252f10b94": {
       "description": {
         "hash": "747a1ad39b5f6586e1e17d0e4a993947a0ebe18922d117680977218025b76f89",
@@ -2176,6 +2206,26 @@
         "text": "Digest Journal"
       }
     },
+    "page:/flux/journal-du-digest/2026-07-24": {
+      "body": {
+        "hash": "00496490daa049267ec0560e76dd8dddca7810969926434dab09c75a9c4da03a",
+        "text": "<h2 id=\"demandes-et-échanges\">Requests and exchanges</h2>\n<p>This section has been reconstructed from Git, as the original conversations\nare not stored in the repository.</p>\n<p>The project therefore does not begin with a bookmarking service. It\nbuilds on hand-written Digests, fed by the OOBLIK blogs and by\nposts shared over the years on Tumblr, Instagram and other\nsocial media platforms. The changes reflect four successive requirements:</p>\n<ol>\n<li>to make the old HTML Digests searchable again.</li>\n<li>to bring together links from WordPress blogs and social media feeds without erasing\ntheir sources.</li>\n<li>to have a static, readable Digest, organised and deployable without revealing\nany server secrets to GitHub.</li>\n<li>to make this diverse archive searchable by archives and tags.</li>\n</ol>\n<p>The restoration revealed two editorial considerations: missing resources\ndeserve to be preserved and documented, whilst old, empty\nMailchimp editions provide no useful historical record.</p>\n<h2 id=\"décisions\">Decisions</h2>\n<ul>\n<li>Hugo and PaperMod form the public backbone.</li>\n<li><code translate=\"no\">data/links.json</code> centralises the links. The archives consist of dated Hugo\ncontent.</li>\n<li>The Digest is not a platform migration: it brings together multiple\nsources, multiple websites and multiple generations of URLs.</li>\n<li>GitHub Actions creates a ‘<code translate=\"no\">production</code>’ branch. CloudPanel takes over without\nany webhooks or server credentials in GitHub.</li>\n<li>A dead public URL remains viewable and is flagged as such.</li>\n<li>Domain variants and the actual validity of the destination must\nbe verified, not just their HTTP response.</li>\n<li>All external links open in a new tab.</li>\n</ul>\n<h2 id=\"réalisation\">Implementation</h2>\n<p>The first commit adds the theme, the homepage, the archives, the tags,\nthe catalogue and the curation skill. The validation and\ndeployment workflows follow immediately.</p>\n<p>The first historical restoration brings back old\neditions and several social feeds. A Pinboard export is one of the technical\nsources processed that day, alongside other batches: it is neither\nthe core of the Digest nor its origin. The import tools, consistency\nchecks and the concept of ‘<code translate=\"no\">lien-mort</code>’ instead provide a common method for these\nfragments. Imported titles are cleaned up, external links corrected and\nthe tag explorer is given a dedicated interface.</p>\n<p>Above all, this first day marks the start of a wider project. Posts from\nWordPress blogs, notably the OOBLIK Blog, will subsequently be added to the same repository\nalong with their text and provenance. Tumblr, Instagram and other feeds will\nretain their identity rather than being merged into a single source.</p>\n<p>Mailchimp entries that no longer contained a usable destination and\nsix entirely empty editions have been removed. This deletion concerns\nimport artefacts, not documented defunct public resources.</p>\n<h2 id=\"validation-et-déploiement\">Validation and deployment</h2>\n<p>The added workflows validate the data and then build Hugo. The\n16 GitHub Actions runs visible for the day were successful, with no\nfailures. The final deployment goes through the `<code translate=\"no\">production</code>` branch and is handled by\nCloudPanel.</p>\n<h2 id=\"commits\">Commits</h2>\n<table>\n\t<thead>\n\t\t\t<tr>\n\t\t\t\t\t<th>Commit</th>\n\t\t\t\t\t<th>Date · time</th>\n\t\t\t\t\t<th>Subject</th>\n\t\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/15a3360673c25f895baa464d3c40ac3ee9a27043\"><code translate=\"no\">15a33606</code></a></td>\n\t\t\t\t\t<td>24/07/2026 · 16:15</td>\n\t\t\t\t\t<td>Initialisation of the Hugo Digest</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/1c6d858fd029a45cb86ad7c3fdf6fd38a34fe146\"><code translate=\"no\">1c6d858f</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 16:45</td>\n\t\t\t\t\t<td>Preparing for production deployment</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/51c68e0f9478bd1289a045ef95a30cd8409e02b6\"><code translate=\"no\">51c68e0f</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 16:55</td>\n\t\t\t\t\t<td>Deployment via CloudPanel backup</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/12f3f116e4324b12b8d1f5c4befa2c49c86beb63\"><code translate=\"no\">12f3f116</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 17:38</td>\n\t\t\t\t\t<td>Restoring historical archives</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/66f3c2e5d8ca47e05d4fc5c15cb9758c64911190\"><code translate=\"no\">66f3c2e5</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 10.40 pm</td>\n\t\t\t\t\t<td>Pinboard and social feed import</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/a9e031d604449ef5abd3fcf6033294b9cccfe64c\"><code translate=\"no\">a9e031d6</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 10.52 pm</td>\n\t\t\t\t\t<td>Correction of links and titles</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/2f043425bb950489747315f0451e0a1521722136\"><code translate=\"no\">2f043425</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 23:03</td>\n\t\t\t\t\t<td>Opening external links</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/f5c405918bf3563d1171e3ca44d77b6fe7388e0a\"><code translate=\"no\">f5c40591</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 11.08 pm</td>\n\t\t\t\t\t<td>Redesign of the tag explorer</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/caa1bc0ea06102c1338eb6b5b33c704d12f920df\"><code translate=\"no\">caa1bc0e</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 23:10</td>\n\t\t\t\t\t<td>Merging the tag redesign</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/2f84021b0ef58713b7ff955776e05baf50329774\"><code translate=\"no\">2f84021b</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 23:12</td>\n\t\t\t\t\t<td>Cleaning up old Mailchimp references</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/1c17f9d7aec4c32665090ae93df31455cbce38b7\"><code translate=\"no\">1c17f9d7</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 23:12</td>\n\t\t\t\t\t<td>Deletion of empty Mailchimp editions</td>\n\t\t\t</tr>\n\t</tbody>\n</table>\n<h2 id=\"résultat\">Result</h2>\n<p>At the end of the day, the hand-crafted HTML digests have found a sustainable\nlong-term solution. The site now has its own editorial model, an initial history, its\nquality controls and a reproducible production workflow capable of accommodating\nblogs and scattered feeds.</p>\n"
+      }
+    },
+    "page:/flux/journal-du-digest/2026-07-25": {
+      "body": {
+        "hash": "a97d1f1da885ebbe26f2c532c09c2ebe955bd695bb03c5f2c2c0c4b5a8fd3424",
+        "text": "<h2 id=\"demandes-et-échanges\">Requests and discussions</h2>\n<p>This section has been reconstructed from the commits and their diffs.</p>\n<p>The work demonstrates a deliberate alternation between content and interface:\nre-importing an HTML version, observing how it is viewed, then improving the\nnavigation before continuing with the import. The successive fixes relating to the\ncache indicate that the actual deployment served as a test, and that a\nsimple modification to the source file did not guarantee that the browser\nwould load the new version.</p>\n<h2 id=\"décisions\">Decisions</h2>\n<ul>\n<li>The 2017 restoration is carried out edition by edition, with its tags and\nimport source preserved.</li>\n<li>Tags must be browsable alphabetically, not just filtered\nvia search.</li>\n<li>Custom front-end resources use an explicit\nversioning strategy to bypass caches.</li>\n<li>Favicons enhance visual identification without replacing the title or the\neditorial description.</li>\n</ul>\n<h2 id=\"réalisation\">Implementation</h2>\n<p>Week 8 of 2017 is added with its categories and tags. Three iterations\nthen improve the explorer: formatting, alphabetical index, then\nscript versioning.</p>\n<p>Week 9 expands the catalogue with new topics and introduces\nfavicons to the homepage, archives, feed and tag pages.\nTwo final fixes stabilise the cache busting.</p>\n<h2 id=\"validation-et-déploiement\">Validation and deployment</h2>\n<p>The 17 GitHub Actions runs visible for this day were successful.\nThe four pull request merges keep a record of the iterations\nspecific to the tag explorer.</p>\n<h2 id=\"commits\">Commits</h2>\n<table>\n\t<thead>\n\t\t\t<tr>\n\t\t\t\t\t<th>Commit</th>\n\t\t\t\t\t<th>Date · time</th>\n\t\t\t\t\t<th>Subject</th>\n\t\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/5ea572b692fade487793fbc09d0f3a6c140c4a85\"><code translate=\"no\">5ea572b6</code></a></td>\n\t\t\t\t\t<td>25/07/2026 · 10:17</td>\n\t\t\t\t\t<td>Week 8 Digest, 2017</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/80a1eacf09de51c16431bcda37848ac4f56fca02\"><code translate=\"no\">80a1eacf</code></a></td>\n\t\t\t\t\t<td>25 July 2026 · 10.21</td>\n\t\t\t\t\t<td>Refining the tag explorer</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/405ecdf6c4dd03af7d52abecd7945d68686fd417\"><code translate=\"no\">405ecdf6</code></a></td>\n\t\t\t\t\t<td>25 July 2026 · 10:25</td>\n\t\t\t\t\t<td>Alphabetical index</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/fba959c23303399a07ec6a10d56e7181ea882ae9\"><code translate=\"no\">fba959c2</code></a></td>\n\t\t\t\t\t<td>25 July 2026 · 10:35</td>\n\t\t\t\t\t<td>Resource versioning</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/fe1079bf405aab98dcb5104340da64357c2519fc\"><code translate=\"no\">fe1079bf</code></a></td>\n\t\t\t\t\t<td>25 July 2026 · 10:37</td>\n\t\t\t\t\t<td>Merging versioning</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/6a3b035f3b8254679430bcdc332c671a2e5c3744\"><code translate=\"no\">6a3b035f</code></a></td>\n\t\t\t\t\t<td>25 July 2026 · 10:42</td>\n\t\t\t\t\t<td>Versioned tag script</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/5a7a33c1cf264016541a3deb8f42f26f97ee4021\"><code translate=\"no\">5a7a33c1</code></a></td>\n\t\t\t\t\t<td>25 July 2026 · 10:44</td>\n\t\t\t\t\t<td>Merging of the versioned script</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/6908d1ea2688c33d7b17c2ab881bac388efc4bc9\"><code translate=\"no\">6908d1ea</code></a></td>\n\t\t\t\t\t<td>25 July 2026 · 10:45</td>\n\t\t\t\t\t<td>Week 9 digest and favicons</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/fc8e668e366e6b0ef11bdd3ec16a198a9741718d\"><code translate=\"no\">fc8e668e</code></a></td>\n\t\t\t\t\t<td>25 July 2026 · 10:50</td>\n\t\t\t\t\t<td>Cache correction</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/71d27b0eaae76ea8c5a2b313b6f46d45977ee303\"><code translate=\"no\">71d27b0e</code></a></td>\n\t\t\t\t\t<td>25 July 2026 · 10:52</td>\n\t\t\t\t\t<td>Merging the cache fix</td>\n\t\t\t</tr>\n\t</tbody>\n</table>\n<h2 id=\"résultat\">Result</h2>\n<p>The historical catalogue is progressing and tags are becoming a stable entry point,\neven after deployment behind the various caches.</p>\n"
+      },
+      "description": {
+        "hash": "771304a541e02afad55241aefa6ebaf01fd2d80f8461f2176d9bb23825895be6",
+        "text": "Two old hand-compiled Digests, from weeks 8 and 9 of 2017,\nhave been added to the archive. The tag browser now features an alphabetical index and the\nlinks now have favicons, whilst cache issues have been resolved."
+      },
+      "title": {
+        "hash": "5fd7626b3037fd5212e7de0b1eb7ed9498323e81cde79b55713aa55384c603e4",
+        "text": "An exploration of tags and a look back at 2017"
+      }
+    },
     "page:/flux/journal-du-digest/2026-07-26": {
       "body": {
         "hash": "2bd519d53fd784e6323e2ef56c0d9702b43aab2c650899127c212f1f488643fd",
@@ -2184,6 +2234,10 @@
       "description": {
         "hash": "3be017563a585ba39d273749b92d142a6a46c2752e0247d717d8215ca8967484",
         "text": "Three old, hand-compiled Digests — weeks 11, 12 and 14 of 2017 —\nhave been added to the archive. The site has also gained bookmarks stored solely in\nthe browser."
+      },
+      "title": {
+        "hash": "81340bf5302c8e94e6ab0ccb2045c68c666360508319616cc5a0e9ea7783990c",
+        "text": "Local favourites and new releases"
       }
     },
     "page:/flux/journal-du-digest/2026-07-27": {
