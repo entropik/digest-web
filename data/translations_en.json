@@ -1,7 +1,13 @@
 {
   "version": 1,
-  "revision": "4aadb7ae648146930fcc0b6d4da7585897bec251c3ea7ad790b590afc2d52ad7",
+  "revision": "77f4ad937ef5a1408107d3aff07baaf7e8d65d43d243732c89e1be0c6ab76485",
   "entries": {
+    "category:Krisis": {
+      "name": {
+        "hash": "11993c1f60885dd1c45c7a3c28888b77806911fd3d2d7d898f541b502895c269",
+        "text": "Crisis"
+      }
+    },
     "link:003c0224-df95-58b5-9c18-9af5865ca878": {
       "description": {
         "hash": "77faed49451124ca735c3b6f09c80b770d073caa8ad8cfcb58e35db36edb8481",
@@ -322,6 +328,12 @@
         "text": "Google Fonts"
       }
     },
+    "tag:JavaScript": {
+      "name": {
+        "hash": "108526945b5d85ca0df36080eb519c1b98b945e6261ef15b851e52308a56bdaa",
+        "text": "JavaScript"
+      }
+    },
     "tag:Jellyfin": {
       "name": {
         "hash": "0c2b0a3b417a54524652c536f7d313cb7274e6060119bda08886011d4de176aa",
@@ -394,6 +406,18 @@
         "text": "Switzerland"
       }
     },
+    "tag:VSCode": {
+      "name": {
+        "hash": "10a52f7ecb222ee55e40f48348eaa68bff093f6e5acd99f6aaf5423c25c56b7f",
+        "text": "VSCode"
+      }
+    },
+    "tag:algorithmes": {
+      "name": {
+        "hash": "10580a3f405aa5caec59a436b4c6b983846b726ca76e4327feab92c71bd9312d",
+        "text": "algorithms"
+      }
+    },
     "tag:architecture": {
       "name": {
         "hash": "02b1c8797a666d98a6e9ba22647ef9f07306be4d137480d4f3ca8894691d63c7",
@@ -410,6 +434,12 @@
       "name": {
         "hash": "0bf4240d908b896fc92f00cbd798ad80bc3aecc40308211345c7631fa78c31ee",
         "text": "to follow"
+      }
+    },
+    "tag:auto-hébergement": {
+      "name": {
+        "hash": "1056e7e1c25b3dbd20ccd032ba07035ede280c456a76981df97855d838c6fd91",
+        "text": "self-hosting"
       }
     },
     "tag:beau": {
@@ -478,6 +508,12 @@
         "text": "organic flour"
       }
     },
+    "tag:findepose": {
+      "name": {
+        "hash": "11a2cfe61cac1c2967219221955c9479491a5beb598af208377ad2c888f87e8c",
+        "text": "search bag"
+      }
+    },
     "tag:font": {
       "name": {
         "hash": "2b6f0fb5445ea9be6e5dd310358de8339f0805f5fe498f248463c851d07e6390",
@@ -538,6 +574,12 @@
         "text": "JavaScript Library"
       }
     },
+    "tag:kiev": {
+      "name": {
+        "hash": "1086fae042ccec2e12eae3aa235e8ae3d8c68ee027dd7fb9a8195c270b23123c",
+        "text": "Kiev"
+      }
+    },
     "tag:lescons": {
       "name": {
         "hash": "0089fbd7fd61cd3c0dd4aaca0e35636fb01ed5ae8b808ebdac0122c04ced9dd0",
@@ -584,6 +626,12 @@
       "name": {
         "hash": "0a808b238bc77ebdd4f07c5f52a82680bd29bba76bac9c02f0dfe379e1a8924b",
         "text": "New York City"
+      }
+    },
+    "tag:objet": {
+      "name": {
+        "hash": "10d238fcca4bc2460b8fa32804d1c0493ef1231017c8cb4cbaeaabf171d8f14f",
+        "text": "subject"
       }
     },
     "tag:observabilité": {
@@ -652,6 +700,12 @@
         "text": "retrospective"
       }
     },
+    "tag:sant": {
+      "name": {
+        "hash": "10ab30c0b117724be2cff2b3537ff4573b224ac71c06e15d30fdd1f4465d7a90",
+        "text": "sant"
+      }
+    },
     "tag:serif": {
       "name": {
         "hash": "0d63482c6b496521d82f85459b0811674f6bc31eca12d9fe590656e29ed90cec",
@@ -674,6 +728,12 @@
       "name": {
         "hash": "0496b95d21ffe8626fe95a65ee378d0c7a7d09c9d02cd142c0378220012d9cb1",
         "text": "file-transfer"
+      }
+    },
+    "tag:white": {
+      "name": {
+        "hash": "108179c399a6b75dba87810d7b80cd502819be86b1dbca0e62a5d4cac4626f41",
+        "text": "white"
       }
     },
     "tag:yadubeaugraphisme": {

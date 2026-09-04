@@ -1,0 +1,237 @@
+{
+  "version": 1,
+  "baseRevision": "4aadb7ae648146930fcc0b6d4da7585897bec251c3ea7ad790b590afc2d52ad7",
+  "targetRevision": "77f4ad937ef5a1408107d3aff07baaf7e8d65d43d243732c89e1be0c6ab76485",
+  "manifestRevision": "02fc21a7a452ae6cd9b433273caad0a567032946951cba379117500b37775688",
+  "fullBuild": false,
+  "items": [
+    {
+      "id": "category:Krisis",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "page:/archives/2026-08-16",
+      "fields": [
+        "$artwork"
+      ]
+    },
+    {
+      "id": "page:/archives/2026-08-18",
+      "fields": [
+        "$artwork"
+      ]
+    },
+    {
+      "id": "page:/archives/2026-08-20",
+      "fields": [
+        "$artwork"
+      ]
+    },
+    {
+      "id": "page:/archives/2026-08-24",
+      "fields": [
+        "$artwork"
+      ]
+    },
+    {
+      "id": "page:/archives/2026-08-25",
+      "fields": [
+        "$artwork"
+      ]
+    },
+    {
+      "id": "page:/archives/2026-08-27",
+      "fields": [
+        "$artwork"
+      ]
+    },
+    {
+      "id": "page:/archives/2026-08-28",
+      "fields": [
+        "$artwork"
+      ]
+    },
+    {
+      "id": "page:/archives/2026-08-29",
+      "fields": [
+        "$artwork"
+      ]
+    },
+    {
+      "id": "page:/archives/2026-09-01",
+      "fields": [
+        "$artwork"
+      ]
+    },
+    {
+      "id": "page:/archives/2026-09-02",
+      "fields": [
+        "$artwork"
+      ]
+    },
+    {
+      "id": "tag:algorithmes",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:auto-hébergement",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:findepose",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:JavaScript",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:kiev",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:objet",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:sant",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:VSCode",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:white",
+      "fields": [
+        "name"
+      ]
+    }
+  ],
+  "paths": [
+    "/",
+    "/archives/",
+    "/archives/2014-02-25/",
+    "/archives/2014-09-13/",
+    "/archives/2015-04-14/",
+    "/archives/2015-10-07/",
+    "/archives/2015-12-17/",
+    "/archives/2016-01-09/",
+    "/archives/2016-06-30/",
+    "/archives/2016-10-04/",
+    "/archives/2017-03-08/",
+    "/archives/2017-03-21/",
+    "/archives/2026-07-24/",
+    "/archives/2026-08-16/",
+    "/archives/2026-08-18/",
+    "/archives/2026-08-20/",
+    "/archives/2026-08-24/",
+    "/archives/2026-08-25/",
+    "/archives/2026-08-27/",
+    "/archives/2026-08-28/",
+    "/archives/2026-08-29/",
+    "/archives/2026-09-01/",
+    "/archives/2026-09-02/",
+    "/flux/",
+    "/flux/blog-ooblik/",
+    "/flux/instagram/",
+    "/flux/tumblr-ooblik/",
+    "/flux/twitter/",
+    "/tags/",
+    "/tags/agents/",
+    "/tags/algorithmes/",
+    "/tags/apprentissage/",
+    "/tags/archive/",
+    "/tags/artisanat/",
+    "/tags/auto-hebergement/",
+    "/tags/automatisation/",
+    "/tags/bhl/",
+    "/tags/blog-ooblik/",
+    "/tags/boutique/",
+    "/tags/contenu/",
+    "/tags/creation/",
+    "/tags/cuir/",
+    "/tags/curiosity/",
+    "/tags/decoupage/",
+    "/tags/demonstration/",
+    "/tags/developpement/",
+    "/tags/diy/",
+    "/tags/editeur/",
+    "/tags/editor/",
+    "/tags/findepose/",
+    "/tags/frontend/",
+    "/tags/geek/",
+    "/tags/ia/",
+    "/tags/images/",
+    "/tags/instagram/",
+    "/tags/interface/",
+    "/tags/javascript/",
+    "/tags/jquery/",
+    "/tags/kiev/",
+    "/tags/layout/",
+    "/tags/lien-mort/",
+    "/tags/livres/",
+    "/tags/llm/",
+    "/tags/memoire-web/",
+    "/tags/mobile/",
+    "/tags/newsletter/",
+    "/tags/objet/",
+    "/tags/opensource/",
+    "/tags/papier/",
+    "/tags/pdf/",
+    "/tags/performance/",
+    "/tags/pesticide/",
+    "/tags/php/",
+    "/tags/prepresse/",
+    "/tags/programmers/",
+    "/tags/ricoh/",
+    "/tags/sant/",
+    "/tags/scroll/",
+    "/tags/transfert-de-fichiers/",
+    "/tags/tumblr/",
+    "/tags/twitter/",
+    "/tags/typographie/",
+    "/tags/upload/",
+    "/tags/vscode/",
+    "/tags/web-development/",
+    "/tags/web/",
+    "/tags/white/",
+    "/tags/workflows/",
+    "/tags/youtube/",
+    "/tags/zine/"
+  ],
+  "artwork": {
+    "upsert": [
+      "2026-08-16",
+      "2026-08-18",
+      "2026-08-20",
+      "2026-08-24",
+      "2026-08-25",
+      "2026-08-27",
+      "2026-08-28",
+      "2026-08-29",
+      "2026-09-01",
+      "2026-09-02"
+    ],
+    "remove": []
+  },
+  "revision": "86ee704776762f866e2af345f92ed4998892f25e396b9a2da52706797fa10ad5"
+}
