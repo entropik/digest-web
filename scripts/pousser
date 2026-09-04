@@ -1,2 +1,12 @@
 #!/bin/sh
-exec node "$(dirname "$0")/pousser.mjs" "$@"
+TARGET="$0"
+while [ -L "$TARGET" ]; do
+  TARGET_DIR="$(cd "$(dirname "$TARGET")" && pwd -P)"
+  TARGET="$(readlink "$TARGET")"
+  case "$TARGET" in
+    /*) ;;
+    *) TARGET="$TARGET_DIR/$TARGET" ;;
+  esac
+done
+REAL_DIR="$(cd "$(dirname "$TARGET")" && pwd -P)"
+exec node "$REAL_DIR/pousser.mjs" "$@"
