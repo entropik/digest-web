@@ -48,8 +48,8 @@ test("the workflow recomputes snapshots and the exact impact plan", () => {
 });
 
 test("push classification checks the full range and falls back safely", async () => {
-  process.env.GITHUB_EVENT_BEFORE = "0".repeat(40);
   const head = "HEAD";
+  process.env.GITHUB_EVENT_BEFORE = head;
   assert.ok(Array.isArray(await classifyPushChanges(head)));
 
   process.env.GITHUB_EVENT_BEFORE = "1".repeat(40);
