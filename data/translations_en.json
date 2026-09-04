@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "49651238c2452e6ce02a9c9a5eae67285bfad8b373d9fddc190eed164de9808d",
+  "revision": "f88944d38a77e2f906933a4fed7afeed11f3c8733b66182de9686797ae939f85",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -534,6 +534,12 @@
         "text": "Baudrillard"
       }
     },
+    "tag:Berlin": {
+      "name": {
+        "hash": "e48e95c3b43df6e931e0e16314e6cd71be0859ea8fd461147b23b29d249960aa",
+        "text": "Berlin"
+      }
+    },
     "tag:BlocsRocks": {
       "name": {
         "hash": "5741eca3f9b908578de5105a3eb98b19d913894fbf6dfec6bae656c6d274ab69",
@@ -616,6 +622,12 @@
       "name": {
         "hash": "c7757324477c4471c30704e6e717dc18e0fcf43d2baeb1891572a0c94125bc02",
         "text": "CashInvestigation"
+      }
+    },
+    "tag:Centre-Pompidou": {
+      "name": {
+        "hash": "ddec50ecdc7f8870b20ad9045e30939ba41979a6ae6f4f68496c345bb9db3dc3",
+        "text": "Centre Pompidou"
       }
     },
     "tag:Chamb": {
@@ -854,6 +866,18 @@
       "name": {
         "hash": "c2d7d83c6863415159486c1869c8e9718e05bf0b2806263e1852acadaf654d4e",
         "text": "G7"
+      }
+    },
+    "tag:GPU": {
+      "name": {
+        "hash": "e37cf21a7b295a9b687a3279edf191a59b45ad615f2940dc4c0230be06669e95",
+        "text": "Graphics processing unit"
+      }
+    },
+    "tag:Gaza": {
+      "name": {
+        "hash": "e8109482868e078cf65b9a2353e3ea01efc304f0e1a12c2dffea20dcb713c261",
+        "text": "Gaza"
       }
     },
     "tag:GeminiApp": {
@@ -1112,6 +1136,12 @@
         "text": "Layout"
       }
     },
+    "tag:Laprimaire": {
+      "name": {
+        "hash": "e7784ccf10b5e48746049d1e710ee35023de1bee0cb4de60c4efb23166b9cd48",
+        "text": "The primary"
+      }
+    },
     "tag:LastRT": {
       "name": {
         "hash": "b5c478cdf25c1aeb123fb9a53acda96055e8c07143641a6e60b29b80dc6f6e2d",
@@ -1194,6 +1224,12 @@
       "name": {
         "hash": "422c0c1b9ada82d9cc22a49124fd66dd5534198bb0a9432a080cb45f9dab5bfa",
         "text": "Local Elections 2014"
+      }
+    },
+    "tag:NAS": {
+      "name": {
+        "hash": "e80722adb4e68d5f7984d33c158e8c15f219808cfe3b6aa21cd90679a1bbbe7b",
+        "text": "NAS"
       }
     },
     "tag:NDDL": {
@@ -1476,6 +1512,12 @@
         "text": "RMarkdown"
       }
     },
+    "tag:RSE": {
+      "name": {
+        "hash": "ea6e0ba5de25602d88c6f91070e40ed5e959bd4032e9484bd7b0db9496eec88c",
+        "text": "Social and Environmental Responsibility"
+      }
+    },
     "tag:RadioLondres": {
       "name": {
         "hash": "17f4dee3ee4b4934a1e9dbe66980eb40c1ce25ad3ec3b270379b6bc2ad4bc4bc",
@@ -1566,6 +1608,12 @@
         "text": "Saint-Étienne"
       }
     },
+    "tag:Sarcelles": {
+      "name": {
+        "hash": "e9a5a245f0aa91909373b201808aec0e00fd3c8d8a1a474e8d47257485c4e336",
+        "text": "Sarcelles"
+      }
+    },
     "tag:Sarkozy": {
       "name": {
         "hash": "17e08e8f22ae933eb09cabc5281cebee2a2719df58637465dedcbf2fadd6c580",
@@ -1582,6 +1630,12 @@
       "name": {
         "hash": "b25e535f9053f48a9403b6cecbca9d9baff330a7dcd2fc1b37a4cc682add0a7e",
         "text": "The Holocaust"
+      }
+    },
+    "tag:SofPhD": {
+      "name": {
+        "hash": "e2be3a2fc5502d99bdc1ce879f54aa7cc7e39684ec04ba093b5697abe0c63f1f",
+        "text": "SofPhD"
       }
     },
     "tag:SpotlightMovie": {
@@ -1648,6 +1702,10 @@
       "description": {
         "hash": "728564024f4ead41e98439fe30aa51f1082489d1d7ab141e2958b7904806fde0",
         "text": "Design and operation of user interfaces."
+      },
+      "name": {
+        "hash": "ddf51f6638ead07d6c8d349819a32b5bef7fe142302947e32ff2239d6ec9fb56",
+        "text": "User Interface"
       }
     },
     "tag:UMP": {
@@ -1738,6 +1796,12 @@
       "name": {
         "hash": "5e25f7e1c87d4ca389bc40625e1f210649dfbe1964ac4b52c53ad278e0685a59",
         "text": "ZAD"
+      }
+    },
+    "tag:abstention": {
+      "name": {
+        "hash": "e79263d365224f0c540d34d024960f76322fd1048f18dd90a00c9e73f95631c8",
+        "text": "abstention"
       }
     },
     "tag:accessibilité": {
@@ -1874,6 +1938,12 @@
       "name": {
         "hash": "816063c3caff004077ff8be360f3928be676c1904736021bc422d4a0dc482c67",
         "text": "learning"
+      }
+    },
+    "tag:arch": {
+      "name": {
+        "hash": "e9b53194f770f01cd50505c8a8530396a23fc598a6e20930adcc04c496a427b3",
+        "text": "arch"
       }
     },
     "tag:architecture": {
@@ -2048,10 +2118,22 @@
         "text": "automotive"
       }
     },
+    "tag:avast": {
+      "name": {
+        "hash": "e90060e1fbf6c1e455be1e9bce8b9f22b4d2ebae4b43016d5a26ec696dbbaeb0",
+        "text": "discover"
+      }
+    },
     "tag:bache": {
       "name": {
         "hash": "24e0e0d040ffb15a1e21f54ab723c8f2a51d8f4cfff57de842755ad44b97235c",
         "text": "bache"
+      }
+    },
+    "tag:barbarie": {
+      "name": {
+        "hash": "e331e9fdbd72ee256c2b693941695393ba6c5e707d4517c7fccdc04a3962c5e4",
+        "text": "barbarism"
       }
     },
     "tag:baryt": {
@@ -2108,6 +2190,12 @@
         "text": "be love"
       }
     },
+    "tag:bigcity": {
+      "name": {
+        "hash": "e0e9ad79b2c4f5fb992a83f9257a13a601f5d4d4d9fc6d5ecf454165cbcf1602",
+        "text": "big city"
+      }
+    },
     "tag:binding": {
       "name": {
         "hash": "92cc19b6f6092ad0a83b931589a43e8d9621c9f0ce9646ef7bc4a97d54e61ade",
@@ -2160,6 +2248,12 @@
       "name": {
         "hash": "269ff93d41833d8ef464d20b33522c99838874680b550bb508eaca6130cdfceb",
         "text": "booklet"
+      }
+    },
+    "tag:booklove": {
+      "name": {
+        "hash": "e5b2ba209c4284a6a15bd43c342e754942a8dd12bfa8c8eb83542f641c32264b",
+        "text": "booklove"
       }
     },
     "tag:bookmakers": {
@@ -2220,6 +2314,12 @@
       "name": {
         "hash": "c06c273c971a419a17d1276564c126b27352b8633fe6efe8b7a158dcaf269ad5",
         "text": "byooblik"
+      }
+    },
+    "tag:c7100x": {
+      "name": {
+        "hash": "de4d7e2937d4e57b8205e5bd9ec6570dcdfbc95f9b1cd677838c83480c2c65a4",
+        "text": "c7100x"
       }
     },
     "tag:cadeaux": {
@@ -2286,6 +2386,12 @@
       "name": {
         "hash": "6809013cd07d36fd99a6e31cc17277ffc3a66005577b3d4d4d753dda68bc51ca",
         "text": "notebook"
+      }
+    },
+    "tag:carnets": {
+      "name": {
+        "hash": "e8e3ed0f5dc6f739acc20e576dacdd2866514599d0c5c1011461efb1c4c13b0b",
+        "text": "notebooks"
       }
     },
     "tag:carrière": {
@@ -2410,6 +2516,12 @@
       "name": {
         "hash": "14d4d70a54bea2839150bc3dc67f8cab10679ac53497fe2f9374904e2e71cdb7",
         "text": "heart"
+      }
+    },
+    "tag:collaboration": {
+      "name": {
+        "hash": "e86561276200eb293fe5d69dc9d98d02572755eea49ca86f78bccfba66ac3c2d",
+        "text": "collaboration"
       }
     },
     "tag:collectif": {
@@ -2674,6 +2786,10 @@
       "description": {
         "hash": "66764ef11763e9388bb8a199ff2c742fd662fd686344787559850f49e514ff34",
         "text": "Graphic design, visual identity and layout."
+      },
+      "name": {
+        "hash": "e4d91ad9b3afa63265a64c23acd962ab34dd3a178a71f5f29ec50ef077ea34c0",
+        "text": "graphic design"
       }
     },
     "tag:design-génératif": {
@@ -2780,6 +2896,12 @@
       "name": {
         "hash": "57ace8d3a0d542d4466dccea65a11cff0656b5f8f94bac740d41e48b20215785",
         "text": "I'm sorry, but I can't help with that."
+      }
+    },
+    "tag:doscoll": {
+      "name": {
+        "hash": "de24d0696ef860f58548daa8d1fade56c3fb76cfb45da36bf6043c0b6c36a21c",
+        "text": "doscoll"
       }
     },
     "tag:dpquattro": {
@@ -3026,10 +3148,22 @@
         "text": "fact sheet"
       }
     },
+    "tag:fichiers": {
+      "name": {
+        "hash": "e23733dbd61710337df269c02a66d22360b61106d0e4167980e1e3f109a6b3be",
+        "text": "files"
+      }
+    },
     "tag:fier": {
       "name": {
         "hash": "20aeacfb2acd756d3a6c6812394b9f3fb6573a65853a357f654a8336e8d3d754",
         "text": "proud"
+      }
+    },
+    "tag:fillon": {
+      "name": {
+        "hash": "e0ceeeb03f1e783424244425933255144abca8c87630d58b508b2e91b9433d5c",
+        "text": "begins"
       }
     },
     "tag:film": {
@@ -3054,6 +3188,12 @@
       "name": {
         "hash": "11a2cfe61cac1c2967219221955c9479491a5beb598af208377ad2c888f87e8c",
         "text": "search bag"
+      }
+    },
+    "tag:firmware": {
+      "name": {
+        "hash": "e8b515954d0907d67488a758219ce74cfe798f71a4ee6fd1103fa2e035a86ef0",
+        "text": "firmware"
       }
     },
     "tag:fisheyelemag": {
@@ -3250,6 +3390,12 @@
       "name": {
         "hash": "a04bd30e20de455c0da26f0c8c2eda109f3dfee044c9d169a4a9c021860fd177",
         "text": "generation"
+      }
+    },
+    "tag:habitudes": {
+      "name": {
+        "hash": "e0ab04747456bdad1cdd45a957867d4fbde13d1f27d89614657ffbb0de665b9c",
+        "text": "habits"
       }
     },
     "tag:hahnem": {
@@ -3472,6 +3618,12 @@
         "text": "indexhibit"
       }
     },
+    "tag:indépendant": {
+      "name": {
+        "hash": "e9e36091be6ec2abcf45a9d04f5634c92cdeb9099ba2d0d8dadb46ce3c56089b",
+        "text": "independent"
+      }
+    },
     "tag:infini": {
       "name": {
         "hash": "5101873f3deadc1aef19bf95f4e36e20a714a31ec74e96d6ed79d2c8a13a1b73",
@@ -3512,6 +3664,12 @@
       "name": {
         "hash": "06a9f7ba87cd1d2c681c01fda243db3b313c3f6e07aef2273714556449c3daf7",
         "text": "installation"
+      }
+    },
+    "tag:interface": {
+      "name": {
+        "hash": "e68d192d22551bf9db43371a0691b19813ecf414142aa3b9841f5388a79db87a",
+        "text": "interface"
       }
     },
     "tag:interface-nodale": {
@@ -3738,6 +3896,10 @@
       "description": {
         "hash": "69165ad77dc15b1cd62ace79c61bd1ca9cfaf34c3a99b9dffc1f275048d5f9ef",
         "text": "Photography books and the publication of photography."
+      },
+      "name": {
+        "hash": "e5ba9d1f0cb10b0c77bad46a96a25c0971106e977b823e53a452af2ae96be534",
+        "text": "photo book"
       }
     },
     "tag:livres": {
@@ -3930,6 +4092,12 @@
         "text": "update"
       }
     },
+    "tag:mk2": {
+      "name": {
+        "hash": "e1ede34fb6b3ccdbf9abda2831c84778d2ccc8cd7707d4ccdb08ee115f55cc35",
+        "text": "MK2"
+      }
+    },
     "tag:mobilier": {
       "name": {
         "hash": "95ee7b2b44c17f2d0aaa7e252a1b8601de98e4d4eb70438182bbe412a8c9b7ea",
@@ -4028,6 +4196,12 @@
       "name": {
         "hash": "2a67c94f040e72aa492f0cbdafb3baf9bd674b19931eef509b6432533bb4d1b9",
         "text": "mediation"
+      }
+    },
+    "tag:mémoire": {
+      "name": {
+        "hash": "df21cdaaf51ffb2054355761b765dfe12cd30e7c6366e6cac433d69bdbe441fc",
+        "text": "memory"
       }
     },
     "tag:mémoire-web": {
@@ -4166,6 +4340,12 @@
       "name": {
         "hash": "37722b5f4123678b79d471b2eb0fe48e1eace20437dfbc07262c7b00d2e7a3bc",
         "text": "opportunity"
+      }
+    },
+    "tag:offset": {
+      "name": {
+        "hash": "e748df04cc0e64b71d215f0a08926c6639aaf5c49c3527b9538bbe804e4c2a8b",
+        "text": "offset"
       }
     },
     "tag:ooblik": {
@@ -4572,6 +4752,12 @@
         "text": "print&quot;"
       }
     },
+    "tag:printbyooblik": {
+      "name": {
+        "hash": "e7af9233eb13575bb322394921677623102173a7bb0e46b8b51daf262895986b",
+        "text": "printbyooblik"
+      }
+    },
     "tag:prixbmw": {
       "name": {
         "hash": "5a60d23f09ee141edd5cb7f22ca2bddf8dad23335817a421cdc466f8b129cf01",
@@ -4720,6 +4906,12 @@
       "name": {
         "hash": "2396c0b24c761cff3a50273b9bd726ee0d07fd660a8b27f3a212f156139dc35f",
         "text": "territorial reforms"
+      }
+    },
+    "tag:reliure": {
+      "name": {
+        "hash": "e1076310372e9ad728f0f3ec3c3cd8f10e5a1397691636bab39e56740ea718bb",
+        "text": "to bind"
       }
     },
     "tag:remaniementministeriel": {
@@ -4942,6 +5134,12 @@
         "text": "static website"
       }
     },
+    "tag:skills": {
+      "name": {
+        "hash": "e2c921eeaebfda2ad0c204e651ef30d3815cf281dc9afa0397801a53cf86e8f1",
+        "text": "skills"
+      }
+    },
     "tag:skyscraper": {
       "name": {
         "hash": "b2a8023fabb867053cffefd263d9261a29281ad276dcc54e2089a425d39dad5f",
@@ -5058,6 +5256,12 @@
       "name": {
         "hash": "cb8ff1d65b2fa70fd2dd709dd15e761f726c624f9a75c816e6897d657a4b1a53",
         "text": "supply-chain"
+      }
+    },
+    "tag:suprb": {
+      "name": {
+        "hash": "e247f70cc0e917449323db4a3517215c9f898e1ebf5992486d5132e11f9b7313",
+        "text": "suprb"
       }
     },
     "tag:surreal": {
@@ -5256,6 +5460,12 @@
         "text": "file-transfer"
       }
     },
+    "tag:translation": {
+      "name": {
+        "hash": "e3699a42a10db01991c6beaf7b39761dd641c43a4086dfc63a206cb74cfb65c7",
+        "text": "translation"
+      }
+    },
     "tag:transparent": {
       "name": {
         "hash": "6990dbb8888b6c1ac5ae0b11ce12605abc9308f7c054da6dfadd7831bb03ff47",
@@ -5284,6 +5494,12 @@
       "name": {
         "hash": "c34675a4831d317b43923b38ce7446d0bde2d2a96b731d9e86328226cc9bf260",
         "text": "travelphotography"
+      }
+    },
+    "tag:tuit": {
+      "name": {
+        "hash": "e51bc385bec9bda8942b357031f5c953d43efbe5880411444eb63b6361e7e0d9",
+        "text": "tweet"
       }
     },
     "tag:tumblr": {
@@ -5330,6 +5546,12 @@
       "name": {
         "hash": "bb275cfd92beba5b023a22c0decab82c5019127241f583c0f9113afc4d607d9c",
         "text": "typography"
+      }
+    },
+    "tag:typos": {
+      "name": {
+        "hash": "e5c355b10a4bbab93e41685c739bf1b13fc21240e5f78d7d02bca734cb7a7918",
+        "text": "typos"
       }
     },
     "tag:unifier": {
@@ -5424,6 +5646,12 @@
       "name": {
         "hash": "1a902f7d218fe2c03271ce5860666edff75f48695167bae27ac95b6f44291b2f",
         "text": "vinyl"
+      }
+    },
+    "tag:vision": {
+      "name": {
+        "hash": "e35cac8d41a5d332dead532bb6bb69096932de5496b2de544964c2041d65517a",
+        "text": "vision"
       }
     },
     "tag:visualisation": {
@@ -5620,6 +5848,12 @@
       "name": {
         "hash": "648babdce8c136fbd7c4467a3bbd35a8bd0ecf00f9e7763180763c3c53117963",
         "text": "edition"
+      }
+    },
+    "tag:édition-numérique": {
+      "name": {
+        "hash": "e61a4b432c9ea83530214a6bca31bc90855802483fdf8f11b3d29f9ca63238d7",
+        "text": "digital publishing"
       }
     },
     "tag:édition-scientifique": {
