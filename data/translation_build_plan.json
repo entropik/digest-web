@@ -1,7 +1,7 @@
 {
   "version": 1,
   "baseRevision": "643d5437104296e21d906ecb15b2c96ad278f20cfc4af53b12bb6069bd853726",
-  "targetRevision": "8a8e5e382de55cb398de355739e818aa56a39a2859a6779e21281f1fab4d4b48",
+  "targetRevision": "5f634ea5bfa90baa4c34d251b26bb939aeabc15b473f793cef88a6bf17ecea99",
   "manifestRevision": "4de0f0deb5fd3ca823fe6110496fa68967fc89888bd96f4a3493edd17d181155",
   "fullBuild": false,
   "items": [
@@ -2161,7 +2161,8 @@
       "id": "page:/flux/journal-du-digest/2026-09-04",
       "fields": [
         "body",
-        "description"
+        "description",
+        "title"
       ]
     },
     {
@@ -11764,5 +11765,5 @@
     ],
     "remove": []
   },
-  "revision": "2a4cac38eed67bd440cede26c9d23a2b930d1b19efeeba5135f35648a587a46d"
+  "revision": "2a5e089fba35e30128aace821dcc6a1e21363bb89a71920e515f999fd8448d5b"
 }
