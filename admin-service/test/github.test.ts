@@ -12,9 +12,11 @@ process.env.GITHUB_APP_INSTALLATION_ID = "1";
 process.env.GITHUB_APP_PRIVATE_KEY_BASE64 =
   Buffer.from("not-used-in-these-tests").toString("base64");
 
-const { createRepositoryHeadReader, repositoryBlobBody } = await import(
-  "../src/github.js"
-);
+const {
+  createRepositoryHeadReader,
+  listHiddenLinks,
+  repositoryBlobBody,
+} = await import("../src/github.js");
 
 test("serializes text and binary Git blobs with the correct encoding", () => {
   assert.deepEqual(repositoryBlobBody("bonjour"), {
@@ -196,4 +198,41 @@ test("loads the short active theme registry with the repository snapshot", async
   assert.deepEqual(head.tags, [
     { name: "automobile", description: "Mobilité", aliases: ["car"] },
   ]);
+});
+
+test("listHiddenLinks excludes links staged by draft editions", async () => {
+  const links = [
+    {
+      id: "visible-1",
+      title: "Visible",
+      url: "https://visible.example.com",
+      category: "IA",
+      added: "2026-08-29",
+    },
+    {
+      id: "staged-1",
+      title: "Staged in draft",
+      url: "https://staged.example.com",
+      category: "IA",
+      added: "2026-08-29",
+      visibility: "hidden" as const,
+      visibility_reason: "edition-draft" as const,
+      hidden_at: "2026-08-29T10:00:00.000Z",
+    },
+    {
+      id: "editorial-1",
+      title: "Withdrawn editorially",
+      url: "https://withdrawn.example.com",
+      category: "IA",
+      added: "2026-08-28",
+      visibility: "hidden" as const,
+      visibility_reason: "editorial" as const,
+      hidden_at: "2026-08-28T12:00:00.000Z",
+    },
+  ];
+
+  const hidden = await listHiddenLinks(async () => ({ links }));
+  assert.equal(hidden.length, 1);
+  assert.equal(hidden[0]?.id, "editorial-1");
+  assert.equal(hidden[0]?.title, "Withdrawn editorially");
 });

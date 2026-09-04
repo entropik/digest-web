@@ -385,3 +385,54 @@ test("edition validation keeps the transition commit when the repository advance
   assert.equal(recovered.commitSha, "transition-sha");
   database.close();
 });
+
+test("publishing an edition preserves its visual front matter", async () => {
+  const database = new Database(":memory:");
+  const store = new CurationStore(database);
+  const draftWithVisual = [
+    "---",
+    'title: "Après l’IDE, voici l’ADE"',
+    "date: 2026-08-29",
+    'digest_date: "2026-08-29"',
+    "draft: true",
+    'description: "Description avec visuel."',
+    "images:",
+    '  - "/social/2026-08-29.png"',
+    'visual: "/social/2026-08-29-linkedin.png"',
+    "---",
+    "",
+    "Intro.",
+  ].join("\n");
+
+  const fixture = editionDependencies(draftWithVisual, [link("staged", "draft")]);
+  const service = new CurationService(store, undefined, fixture.dependencies);
+
+  await service.transitionEdition(digestDate, {
+    requestId: "ffffffff-ffff-4fff-8fff-ffffffffffff",
+    action: "publish",
+  });
+
+  const files = fixture.files()!;
+  const publishedSource = String(files[editionPath]);
+  assert.doesNotMatch(publishedSource, /\ndraft:/);
+  assert.match(publishedSource, /\nvisual: "\/social\/2026-08-29-linkedin\.png"/);
+  database.close();
+});
+
+test("individual restoration of a staged edition link is rejected", async () => {
+  const database = new Database(":memory:");
+  const store = new CurationStore(database);
+  const fixture = editionDependencies(source(true), [link("staged", "draft")]);
+  const service = new CurationService(store, undefined, fixture.dependencies);
+
+  await assert.rejects(
+    () => service.updateLinkVisibility("staged", "restore"),
+    (error: unknown) => {
+      assert.ok(error instanceof Error);
+      assert.equal(error.message, "CANNOT_RESTORE_EDITION_DRAFT_LINK");
+      assert.equal((error as { status?: number }).status, 409);
+      return true;
+    },
+  );
+  database.close();
+});

@@ -557,6 +557,12 @@ const visibilityMutation = async (
       if (error instanceof Error && error.message === "LINK_NOT_FOUND") {
         throw new CurationError("LINK_NOT_FOUND", 404);
       }
+      if (
+        error instanceof Error &&
+        error.message === "CANNOT_RESTORE_EDITION_DRAFT_LINK"
+      ) {
+        throw new CurationError("CANNOT_RESTORE_EDITION_DRAFT_LINK", 409);
+      }
       throw error;
     }
   });
