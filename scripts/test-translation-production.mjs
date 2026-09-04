@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
-import { isTranslationOnly, segmentConfig, segmentNames, validatePlan, validatePlanAgainst } from "./translation-production.mjs";
+import { classifyPushChanges, isTranslationOnly, segmentConfig, segmentNames, validatePlan, validatePlanAgainst } from "./translation-production.mjs";
 
 const body = {
   version: 1, baseRevision: "a".repeat(64), targetRevision: "b".repeat(64), manifestRevision: "c".repeat(64), fullBuild: false,
@@ -45,4 +45,14 @@ test("the workflow recomputes snapshots and the exact impact plan", () => {
   const incompleteBody = { ...emptyBody, paths: ["/"] };
   const incomplete = { ...incompleteBody, revision: createHash("sha256").update(JSON.stringify(incompleteBody)).digest("hex") };
   assert.throws(() => validatePlanAgainst(manifest, snapshot, snapshot, incomplete), /MISMATCH/);
+});
+
+test("push classification checks the full range and falls back safely", async () => {
+  process.env.GITHUB_EVENT_BEFORE = "0".repeat(40);
+  const head = "HEAD";
+  assert.ok(Array.isArray(await classifyPushChanges(head)));
+
+  process.env.GITHUB_EVENT_BEFORE = "1".repeat(40);
+  assert.equal(await classifyPushChanges(head), null);
+  delete process.env.GITHUB_EVENT_BEFORE;
 });
