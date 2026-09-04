@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "baseRevision": "ed84a94dc05f152264101be36773e28ee666712760fd4f0cd99d5d20e8a688e3",
-  "targetRevision": "7ad4bcd2c4957035cfc18cf91bafbac0d1a0b63a6d43e85452c5a8b2d980b4b8",
+  "baseRevision": "7ad4bcd2c4957035cfc18cf91bafbac0d1a0b63a6d43e85452c5a8b2d980b4b8",
+  "targetRevision": "83d74996aba7b353a50971c6140068e121261db1ef02001e9a34649e15c635ee",
   "manifestRevision": "261577e2e019b7cf9d967a9bb1dff52329a00c44f1188f132a4cdf0215a39dec",
   "fullBuild": false,
   "items": [
@@ -66,241 +66,33 @@
       ]
     },
     {
+      "id": "page:/flux/journal-du-digest/2026-08-16",
+      "fields": [
+        "body",
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "page:/flux/journal-du-digest/2026-08-17",
+      "fields": [
+        "body",
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "page:/flux/journal-du-digest/2026-08-18",
+      "fields": [
+        "body",
+        "description",
+        "title"
+      ]
+    },
+    {
       "id": "page:/flux/journal-du-digest/2026-08-20",
       "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-du-digest/2026-08-25",
-      "fields": [
-        "body",
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-du-digest/2026-08-27",
-      "fields": [
-        "body",
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-du-digest/2026-08-28",
-      "fields": [
-        "body",
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-du-digest/2026-09-02",
-      "fields": [
-        "body",
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-du-digest/2026-09-03",
-      "fields": [
-        "body",
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-procrastinateur/2026-08-09",
-      "fields": [
-        "body",
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-procrastinateur/2026-08-15",
-      "fields": [
-        "body",
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-12.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-13.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-16.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-09.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-10.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-16.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-27.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-29.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-02.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-15.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-22.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-23.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-26.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-27.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-28.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-04.webp",
-      "fields": [
-        "date",
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-09.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-12.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-24.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-28.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-29.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-01.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-07.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-16.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-05.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-07.webp",
-      "fields": [
-        "themeLabel"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-09.webp",
-      "fields": [
-        "alt",
-        "date",
-        "themeLabel",
-        "title"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-15.webp",
-      "fields": [
-        "alt",
-        "date",
-        "themeLabel",
-        "title"
+        "body"
       ]
     }
   ],
@@ -318,41 +110,10 @@
     "/archives/2026-09-02/",
     "/flux/",
     "/flux/journal-du-digest/",
-    "/flux/journal-du-digest/2026-08-20/",
-    "/flux/journal-du-digest/2026-08-25/",
-    "/flux/journal-du-digest/2026-08-27/",
-    "/flux/journal-du-digest/2026-08-28/",
-    "/flux/journal-du-digest/2026-09-02/",
-    "/flux/journal-du-digest/2026-09-03/",
-    "/flux/journal-procrastinateur/",
-    "/flux/journal-procrastinateur/2026-03-12/",
-    "/flux/journal-procrastinateur/2026-03-13/",
-    "/flux/journal-procrastinateur/2026-03-16/",
-    "/flux/journal-procrastinateur/2026-04-09/",
-    "/flux/journal-procrastinateur/2026-04-10/",
-    "/flux/journal-procrastinateur/2026-04-16/",
-    "/flux/journal-procrastinateur/2026-04-27/",
-    "/flux/journal-procrastinateur/2026-04-29/",
-    "/flux/journal-procrastinateur/2026-05-02/",
-    "/flux/journal-procrastinateur/2026-05-15/",
-    "/flux/journal-procrastinateur/2026-05-22/",
-    "/flux/journal-procrastinateur/2026-05-23/",
-    "/flux/journal-procrastinateur/2026-05-26/",
-    "/flux/journal-procrastinateur/2026-05-27/",
-    "/flux/journal-procrastinateur/2026-05-28/",
-    "/flux/journal-procrastinateur/2026-06-04/",
-    "/flux/journal-procrastinateur/2026-06-09/",
-    "/flux/journal-procrastinateur/2026-06-12/",
-    "/flux/journal-procrastinateur/2026-06-24/",
-    "/flux/journal-procrastinateur/2026-06-28/",
-    "/flux/journal-procrastinateur/2026-06-29/",
-    "/flux/journal-procrastinateur/2026-07-01/",
-    "/flux/journal-procrastinateur/2026-07-07/",
-    "/flux/journal-procrastinateur/2026-07-16/",
-    "/flux/journal-procrastinateur/2026-08-05/",
-    "/flux/journal-procrastinateur/2026-08-07/",
-    "/flux/journal-procrastinateur/2026-08-09/",
-    "/flux/journal-procrastinateur/2026-08-15/"
+    "/flux/journal-du-digest/2026-08-16/",
+    "/flux/journal-du-digest/2026-08-17/",
+    "/flux/journal-du-digest/2026-08-18/",
+    "/flux/journal-du-digest/2026-08-20/"
   ],
   "artwork": {
     "upsert": [
@@ -369,5 +130,5 @@
     ],
     "remove": []
   },
-  "revision": "795bdf4b27ffe70ac0c46a2c7271dadc5606375fea8a5f0503f33c2e67bfa468"
+  "revision": "0260f14876ec78a29c37a8437e21c7a9a9ee96a1999a20267f5fd8aa4cc1ef24"
 }
