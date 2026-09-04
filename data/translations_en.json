@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "1bf1f7d3ebba9bfeaaad3caec4d4ca5e93b14e50382adee937e271e6e1984a0b",
+  "revision": "41cebf47e34bfcf2cfb2bb6fd26070bb676f1d6961a475f726e95f6a4c42f842",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -120,6 +120,12 @@
         "text": "Boundary — How to Build a Software Factory for AI Coding Agents"
       }
     },
+    "link:0c6b78c3-a7a0-5e54-8838-2df4b39c4eff": {
+      "title": {
+        "hash": "3ccbb09884b2e23fa9fc1ecec7c68a22f99a9f65dcd2e0439afe122a0ad2c138",
+        "text": "Don't cry"
+      }
+    },
     "link:0c91e357-65d1-528d-91fa-f3e581629195": {
       "description": {
         "hash": "429a80f41399517ccc482ac62f8ef2bb3c6fb48bd242beb1b9c1854032ac0462",
@@ -170,6 +176,16 @@
         "text": "Collaborative Online Photo Albums | Beesly"
       }
     },
+    "link:14f15812-b1e6-5332-8917-d25ed85c6513": {
+      "description": {
+        "hash": "4e29fdfc02ffa230b7a1d866c537563dabc57ace04bfd3961f3b2834eb7d87e3",
+        "text": "An app that allows you to use different language models with your own documents and workspaces."
+      },
+      "title": {
+        "hash": "4f4cdcb4ed608c18b04ab840bd378475f4d10c1891c633acc6ad12bfcdb765f1",
+        "text": "AnythingLLM"
+      }
+    },
     "link:1602d8cb-e898-517e-8eef-64b0f34ff45c": {
       "description": {
         "hash": "a3f2e84e0afedd853b75ebe6df0c5560bac49f7605501202fcbcf1bbcea8080e",
@@ -206,6 +222,12 @@
         "text": "RAGFlow — A document- and agent-oriented RAG engine"
       }
     },
+    "link:19622ce6-f6ad-5610-b651-0f43dc2fda99": {
+      "title": {
+        "hash": "1561220a1dbdb7ac83ed9e5ff51ca5cc1ea54b0e750c2ff4f2cc9acc6c1b8d19",
+        "text": "Hermes Agent and Paperclip"
+      }
+    },
     "link:1b0a8d58-4133-5ddd-8064-55fab2fbed14": {
       "description": {
         "hash": "85f668e1810c736db2568c607b41bb690a35185b78fc216b2212d872fbc4fd0a",
@@ -217,6 +239,10 @@
       }
     },
     "link:1e54008f-88af-519a-960b-3c79ce2b6a58": {
+      "description": {
+        "hash": "424a9b4fd8fbd30d8938ff3ef4267f7034c949ad1dab330d2f789f3a838659a9",
+        "text": "A wiki implementation for language models that uses skills to make the workflow more rigorous."
+      },
       "title": {
         "hash": "0358141392aec438a1b225d63aa1b210c4d049a3e944355874a9409682e27e9a",
         "text": "LLM-Wiki"
@@ -438,6 +464,12 @@
         "text": "OpenAI Agents SDK — agents, handoffs and safeguards"
       }
     },
+    "link:3819b7ee-7603-5d1e-bb39-03dcaef40e6b": {
+      "title": {
+        "hash": "34fc55f8db496b28744584d903c3c070fd11e6de88a8a631c063d5f5817d5785",
+        "text": "Marx will be proven right — AI and the class struggle"
+      }
+    },
     "link:38bb1626-001b-516c-86aa-78bde0337870": {
       "description": {
         "hash": "e13d9a119911ef3772d572bf9c06719da2541e63a8a1083179b6d1e1d9abfb83",
@@ -446,6 +478,12 @@
       "title": {
         "hash": "b8e47245f8bf692862726c595d5d531ccb7951f90f120cbc4c227d78f2e346f7",
         "text": "La Bible du Vibe Coding"
+      }
+    },
+    "link:3a8897d8-96b6-5588-a252-3a66a117e579": {
+      "title": {
+        "hash": "16633e0b764e5f58fb0ec696bc5681b47a1b621b94980e37102391453f2d8560",
+        "text": "Law"
       }
     },
     "link:3b143975-9f81-593e-8a83-cfd5ea4d836c": {
@@ -580,6 +618,12 @@
         "text": "Agno — building and managing an agent platform"
       }
     },
+    "link:4e68a52c-8551-52a9-b6a0-c061437b23ae": {
+      "title": {
+        "hash": "0f88d9e70a845e4c099b3fb096c2e103bf87def8981f2e8421d0a302d72131fd",
+        "text": "Medusa"
+      }
+    },
     "link:504d0a00-03fe-59a3-8de7-ae5c3f3ae206": {
       "description": {
         "hash": "534632d68b32fe9b60214b1efdab1bcb5a92444c7803b52f7a5f1d8c09a76e04",
@@ -591,6 +635,10 @@
       }
     },
     "link:504dca6f-2667-52fe-8d20-cc5f0ce6a207": {
+      "description": {
+        "hash": "12cb0d020f98504ef4f6719c768df1ece83ba47fdcb80e86ee0c6dfc2704c72f",
+        "text": "A web interface designed to control programming assistants such as Claude Code and Codex."
+      },
       "title": {
         "hash": "04707cc216a488411964f7319e0e9c646c65b3f86d01577b27e9d2eb41f623e8",
         "text": "Kanna"
@@ -614,6 +662,18 @@
       "title": {
         "hash": "65048223d8868a7bc3bf5ef4ce2ed4118c22b65d1b13dec56fbd80d5b09b721e",
         "text": "IndyDevDan — My Super Simple Software Factory"
+      }
+    },
+    "link:52887315-d62e-5ebf-9bca-5a2ed0aeee66": {
+      "description": {
+        "hash": "24dec87a0b50b833eb48bf0db29a1f7b358cfe61b7e615514f2ee680917c2a24",
+        "text": "The documentation for Browser Use’s open-source command-line interface."
+      }
+    },
+    "link:5330a455-432b-55c7-a3c2-c7dc4131c232": {
+      "description": {
+        "hash": "358ac7f16111d3af11585f83abd19239dd2e8838a6c9de95f575396a75597ce8",
+        "text": "An open-source AI research and conversation platform compatible with multiple models and information sources."
       }
     },
     "link:534ab75a-e110-52fe-b6d3-571376592bd8": {
@@ -640,6 +700,16 @@
       "title": {
         "hash": "7881879be65b5b272bcd66e8cfd8beb63d86b8f575115edba76bf77f183e43a2",
         "text": "Radical web design"
+      }
+    },
+    "link:56317a65-5744-5463-96d8-94130c3df609": {
+      "description": {
+        "hash": "495be059413e936d949098a7a76043927e862990ec928c38467887060e52280a",
+        "text": "A project that transforms cities and regions into minimalist cartographic illustrations."
+      },
+      "title": {
+        "hash": "2d0950a1f708fe6e199b1bfe28b143679fc43ccbc9e609a6d78c411385319a77",
+        "text": "Map to Poster"
       }
     },
     "link:5655daf9-7749-549b-b262-5cf1591235c2": {
@@ -676,6 +746,12 @@
       "title": {
         "hash": "2b6f0fb5445ea9be6e5dd310358de8339f0805f5fe498f248463c851d07e6390",
         "text": "font"
+      }
+    },
+    "link:5e193d62-c48a-591f-83c1-cf52b2a6cbf4": {
+      "description": {
+        "hash": "28ee68f079f7c1f5a42373f48a94776f702d0811c27fe8ca0120fb9609fe070e",
+        "text": "A free visual layout tool for quickly creating and testing layout grids."
       }
     },
     "link:5e58d6ea-0d30-51e4-8f02-4870650e5ae1": {
@@ -1004,6 +1080,12 @@
         "text": "Louis Eveillard’s Portfolio | Generative Covers"
       }
     },
+    "link:86a4fadd-e43f-595d-955b-d2166481c3ab": {
+      "title": {
+        "hash": "069df5dbc6247227f90f4a5d2f2124ea2ea0685a0aa9ae634943b729fc98d03b",
+        "text": "Guide to Jellyfin, Radarr and Sonarr"
+      }
+    },
     "link:87db8e2b-cbc3-5691-bb1f-55a09fe9a41e": {
       "description": {
         "hash": "06c5dd371e0bc6f5b62f796f6135baf6ac59ee5932ec1d64482c1ca9881da914",
@@ -1012,6 +1094,12 @@
       "title": {
         "hash": "2b498837d92bc8f838181de8f4744ae0a2d75089afae093fea4cdbf926e01952",
         "text": "Mem0 — A memory layer for AI agents"
+      }
+    },
+    "link:894c6c6f-cee7-5070-bda0-88f36854057f": {
+      "title": {
+        "hash": "320fd4a5de978132c136b23f11a21c1915b3f9bb12ca4191efe1433fc33407dc",
+        "text": "Headroom"
       }
     },
     "link:8a43ba6c-753c-5029-898c-d9075c4a3abe": {
@@ -1052,6 +1140,12 @@
       "title": {
         "hash": "0a9c18d4b672588b26d5b7f4b488ac6d869163920a513b5de94fed0dd1e92040",
         "text": "Swarms — composing swarms of agents"
+      }
+    },
+    "link:8fd51f98-c055-5878-8292-b4befd9ab3c9": {
+      "title": {
+        "hash": "3dce475904304e2ffaacfe540b79634978e01e5855062fb692659ef9cc18806f",
+        "text": "Nothing Design Skill"
       }
     },
     "link:8fe7b524-e6d3-5183-bab8-a69b6125130e": {
@@ -1132,6 +1226,12 @@
       "title": {
         "hash": "8677cfaa88f0214e5bf4edc995d53cefdddf0e2aa9b1e1bb81490c15bf331322",
         "text": "freeCodeCamp — Free programming and IT courses"
+      }
+    },
+    "link:96941f7a-948d-5723-aa96-98a27deaf203": {
+      "title": {
+        "hash": "398ad5c4bf254de67385d0e3c8715ce595764b80dfc982ec3f2b6de0a7ddf4bb",
+        "text": "Visual Studio Code extension for PDF syntax highlighting"
       }
     },
     "link:975a32c1-f413-5c6f-bf52-08c4778cfa43": {
@@ -1234,6 +1334,12 @@
         "text": "OpenHands — a platform for developer agents"
       }
     },
+    "link:9fb0f0ea-9309-5d38-b8c9-f54f4f34149c": {
+      "title": {
+        "hash": "0ca27b797604e1c462b3e5b3dc9b4510a88855633cc4360ec6ff6cb8c007e04e",
+        "text": "Impeccable"
+      }
+    },
     "link:a20c8320-3c7c-51de-982f-fb6949602062": {
       "description": {
         "hash": "538710536067d06079907b1ccef004de43750c4f11c23cfd48e75229724480ec",
@@ -1312,6 +1418,16 @@
       "title": {
         "hash": "85e91103f1e2cf720dcb6bde542ce9505ce470ab1fa2b7d4b97cfaffbd48e3ca",
         "text": "Emdash — the open-source, platform-agnostic ADE"
+      }
+    },
+    "link:a89481f8-5eff-5ea4-92c9-bca58d3e8d59": {
+      "description": {
+        "hash": "23634fc234c8c52beec9642644b127995933284a7d7d25887e06ee1ae07b464e",
+        "text": "The RTK open-source repository, including its installation, operation and integrations."
+      },
+      "title": {
+        "hash": "12cd0f3cb540b9e249bbb779d87aa3d0acfb9f95f11ba184edc6bf3cb02616b7",
+        "text": "RTK — code source"
       }
     },
     "link:aa0761a7-aad6-5d3d-9d7c-67da86606d94": {
@@ -1400,6 +1516,12 @@
         "text": "You Don’t Know JS Yet — Understanding JavaScript in Depth"
       }
     },
+    "link:b4fc0579-1bb0-5649-a81a-e215bdce75e9": {
+      "title": {
+        "hash": "068f89a05b8e69e95c913f5ac2e62260bebd4f66eb35e28eba563ff09eef82ea",
+        "text": "Feynman"
+      }
+    },
     "link:b508eb2f-7018-51bd-bf7c-c9af973cee40": {
       "description": {
         "hash": "b2a6038b1f7c5e2361c5d2db72ae96070a89c39516446098adf5f20c980fc6f8",
@@ -1408,6 +1530,12 @@
       "title": {
         "hash": "231c6f27d409403d8a40ad5e9097f632245dc447579d5dbe4dfb272ad436ad15",
         "text": "do•doc | Home"
+      }
+    },
+    "link:b524b0d4-e683-5c9a-9d34-c2ef8ba52082": {
+      "title": {
+        "hash": "1359f346ec81dc28410e3fac8740db8164b850cf4b4410c89f55172f4d35ee8a",
+        "text": "Seerr — code source"
       }
     },
     "link:b5f52802-a3ac-5412-9a59-1dbaf68a6495": {
@@ -1430,6 +1558,12 @@
         "text": "Maigret — OSINT search using a username"
       }
     },
+    "link:b78ebf82-d07b-5a21-ab8d-1997f0153a05": {
+      "title": {
+        "hash": "402b85d8808ce3f00bdb216b21bfe340e6fc3d292e95eceece006ec77e20d5d6",
+        "text": "Understand Anything"
+      }
+    },
     "link:b7b0bf90-18a1-5202-b56b-3e21b2e7c805": {
       "description": {
         "hash": "e17f575da461df157a18c9e39d2a2a3796a6df5d6c9070a9f9991b948f9c3384",
@@ -1438,6 +1572,12 @@
       "title": {
         "hash": "3ae0dc9974a6792eea7cddf72f9a3fd910f03e782868c14ead1c29c562b054bc",
         "text": "Free Programming Books — Free programming books and courses"
+      }
+    },
+    "link:b9049c7f-4c62-5254-bb4a-103e83d4b509": {
+      "description": {
+        "hash": "30337086a21e989ba79a079247573e5ed57fb62479a35181cceea18473042e17",
+        "text": "A brief overview of Medusa and its uses in orchestrating security tools."
       }
     },
     "link:b90cbd16-ebad-508e-8aeb-7c4213093001": {
@@ -1490,6 +1630,12 @@
         "text": "ChatDev — a simulated development company"
       }
     },
+    "link:bf999a82-d639-5131-a4a7-af7ea065894b": {
+      "title": {
+        "hash": "284bfb2f9784f20a9b01cd511d21ca9a950602d534163c539f92afe579db5f1a",
+        "text": "Fraunces"
+      }
+    },
     "link:c0ccaffd-6000-5d67-87f2-7d4ce990b38e": {
       "description": {
         "hash": "17ad645014e456aa7e23d720e9eccbb4aa938f7d5845ffcd86b218c70d66bc0c",
@@ -1516,6 +1662,12 @@
         "text": "omp — a coding agent with the IDE wired in"
       }
     },
+    "link:c614de9b-03c0-562a-b877-a08487b273db": {
+      "title": {
+        "hash": "3f2217cea71e1cd7113d509c5766a513e002ea9d6429f3dc4598c77e289ee1c0",
+        "text": "casier-politique.fr"
+      }
+    },
     "link:c70f2393-73a8-5d6e-9e17-01ca11306288": {
       "description": {
         "hash": "40613caa6399be6042c3c2173192178f4d949766735b8942abd9f36523d9eb58",
@@ -1534,6 +1686,16 @@
       "title": {
         "hash": "503c7f0f62ada310e8e5065bf5bcd846edae562548994e3db01fbfdf7b54d5b7",
         "text": "pocketpaw/pocketpaw: Your AI agent in 30 seconds. Not 30 hours. Self-hosted, open-source personal AI with desktop installer, multi-agent Command Center(Deep Work), and 7-layer security. Anthropic, OpenAI, or Ollama."
+      }
+    },
+    "link:cb0bcd50-82dc-5238-a5c4-8eda188c551e": {
+      "description": {
+        "hash": "36e4ed0ac6637332209339830ffc14fdc0d8bde7f30af9162cf984ca7157b680",
+        "text": "A directory of reusable skills to enhance programming assistants and agents."
+      },
+      "title": {
+        "hash": "0d7d44549070ee01dcdda86e6d24a0126f2c5e348376d854cd8dd7321594e1ef",
+        "text": "The Agent Skills Directory"
       }
     },
     "link:cbb49758-a9ab-5ad6-ba50-7eb3b78efaae": {
@@ -1652,6 +1814,12 @@
         "text": "Xirp — Know your systems, so your agents can too"
       }
     },
+    "link:d62f59f5-1d45-5755-8a51-0ff5817d8308": {
+      "description": {
+        "hash": "4157a8e50c43898307e3efc3567d86be85c0bb84d7565ec6d07c895c88afc03c",
+        "text": "A block-based content editor that produces clean JSON data rather than monolithic HTML."
+      }
+    },
     "link:d6da3dc7-daea-5e67-8ebc-fc7c58eeb560": {
       "description": {
         "hash": "161a4d3c8dd31c3d34cb88215f228861bb8331008c6c33b5b3836218ee31abd1",
@@ -1670,6 +1838,12 @@
       "title": {
         "hash": "3bf9ca8a456f18a9c7f8b9bcafc3e7c19f33eb2318c51e4542f0b73e332ff0ac",
         "text": "cmux — The terminal designed for multitasking"
+      }
+    },
+    "link:d865c3c0-1ef5-56cb-b205-8a78e2dd79dc": {
+      "description": {
+        "hash": "2454bcf3a2e6c98131274507206970c69270b3df5a7625e90d6d74ed0ee61225",
+        "text": "A library of brushes for creating painterly and expressive effects in p5.js canvases."
       }
     },
     "link:d890b9e1-8e30-591e-ac08-4399982362d7": {
@@ -1730,6 +1904,18 @@
       "title": {
         "hash": "625522dee72761938241f5fd3adb2603795664e077cc767050aa384531823767",
         "text": "Ollama — Run language models locally"
+      }
+    },
+    "link:dc4e0559-034b-502c-8123-90bf084b59ac": {
+      "description": {
+        "hash": "528b606d2ae0f39d6c954471c776355e47863135911ac81d40a4f1efdb877fe3",
+        "text": "A project that aims to provide agents with structured web data without requiring them to use traditional navigation methods."
+      }
+    },
+    "link:dfa74cdd-e638-5b8a-8056-8619885abe7a": {
+      "title": {
+        "hash": "35f823d437c4f6b2e17f1325dc8c6fc26ea656dd8f84714e539c18a6c0def6a7",
+        "text": "DESIGN.md"
       }
     },
     "link:e109deb3-ad53-5bf3-8a8b-db0a18b06497": {
@@ -1834,6 +2020,12 @@
         "text": "Catalogue - Follow-up"
       }
     },
+    "link:e9a6c855-b199-5d0d-9933-e46f25d1ee1e": {
+      "title": {
+        "hash": "4aeb9e12386b0dfe5bcda4645666864ed01fa9c292d9963a5d221eae3476afc3",
+        "text": "LM Studio"
+      }
+    },
     "link:ea2aeedc-6035-55a2-839b-2e6791f2b92f": {
       "description": {
         "hash": "ef7d22c0cc91cfd5c4d7eb1df116c084f52bd8dbada9c475cbc58fc769c22e63",
@@ -1914,6 +2106,12 @@
         "text": "Forgejo – Beyond coding. We forge."
       }
     },
+    "link:f41ea5f3-56c3-5eee-bb2b-e52e0d4f7d8b": {
+      "title": {
+        "hash": "17072094e138e88f5b0634c476eef909b2092acf5fa66efcd79c62aa2ccdcbc1",
+        "text": "Browser Use — Quick Start"
+      }
+    },
     "link:f43fde9f-9447-5a7b-a66c-fc9dc3cc9341": {
       "description": {
         "hash": "4fcf02cb21a4c0604086e59a2ba31a35a8618ab6ba8587db264de5b7964289d4",
@@ -1924,6 +2122,12 @@
         "text": "Pierre Bourdieu and *The Misery of the World* (1993) | Lumni Education"
       }
     },
+    "link:f5720f42-a2df-5994-84a2-b292b8137492": {
+      "description": {
+        "hash": "354904a6db20b6f93384efec0663550283ee2739f719390de8b1c729b6df977f",
+        "text": "A section dedicated to trends, techniques and news from the printing industry."
+      }
+    },
     "link:f61a34fc-338f-58ff-97b2-b2ae9439a035": {
       "description": {
         "hash": "a49d1436ac0ecbfdc6f63f7f8cd788beede51458e8be32b3b15a88baa898e289",
@@ -1932,6 +2136,12 @@
       "title": {
         "hash": "4e33240e3866359919b09f87803302ff3fbcdc63ea967f2c504cd83d3ab0a950",
         "text": "Awesome Claude Skills — Resources for customising Claude"
+      }
+    },
+    "link:f81e9775-14cf-5a6f-814e-f6eebe72b3b1": {
+      "description": {
+        "hash": "068a36621130335485ecb165b1a24ddb8ad5e2aa3baa8230f3995ae85fce7530",
+        "text": "An article exploring the possibilities and limitations of massively parallel processing using agents."
       }
     },
     "link:f84d3ef8-adf9-58ff-8c0d-e4b3c5a7ad55": {
@@ -1954,6 +2164,12 @@
         "text": "Understand Anything — Graphs that teach the codebase"
       }
     },
+    "link:f930a74b-ad96-5e1d-9abe-090d5c940c31": {
+      "description": {
+        "hash": "2dc8246887ee9e05d075e0e25cabf901358ae1325f3a5213dd1dcfe766541e16",
+        "text": "A workflow that utilises a powerful model to audit a project and prepare plans that can be implemented using less expensive models."
+      }
+    },
     "link:fa3caa3d-e1df-5134-8eaf-059004f7cf18": {
       "description": {
         "hash": "76387921594a3046a2a41a7944478425fc01ba521afd6faf102b100d1ed92da3",
@@ -1962,6 +2178,18 @@
       "title": {
         "hash": "a06231d7663feb957b1bc33c63c9f7197554305eb0e7b666ad33bb63ecfb37f5",
         "text": "Data breaches in France 2026 | FrenchBreaches"
+      }
+    },
+    "link:fc233b3b-388b-5586-80d3-8beafff0edfd": {
+      "description": {
+        "hash": "489c54f9448970634ba1a30258b31c6587fb6da8bb731a3de73523d376131c01",
+        "text": "A code intelligence tool for large-scale projects, combining semantic search, dependency analysis and impact analysis."
+      }
+    },
+    "link:fd3cc249-3a33-5681-9d31-b6fca8f46cb4": {
+      "description": {
+        "hash": "0f61930c82f8738847b4948feffdcbbbcc9c50cc09906735908742622293952a",
+        "text": "A terminal-based difference viewer that places code review at the heart of agent-based programming workflows."
       }
     },
     "link:fe9b7aff-52f9-5f36-8974-51573dcf1ec9": {

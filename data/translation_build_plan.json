@@ -1,36 +1,226 @@
 {
   "version": 1,
-  "baseRevision": "d0d34334b40694deba7d977599734e3fedd3c08e869a95417e5968523d7f3010",
-  "targetRevision": "1bf1f7d3ebba9bfeaaad3caec4d4ca5e93b14e50382adee937e271e6e1984a0b",
+  "baseRevision": "1bf1f7d3ebba9bfeaaad3caec4d4ca5e93b14e50382adee937e271e6e1984a0b",
+  "targetRevision": "41cebf47e34bfcf2cfb2bb6fd26070bb676f1d6961a475f726e95f6a4c42f842",
   "manifestRevision": "261577e2e019b7cf9d967a9bb1dff52329a00c44f1188f132a4cdf0215a39dec",
   "fullBuild": false,
   "items": [
     {
-      "id": "link:1e54008f-88af-519a-960b-3c79ce2b6a58",
+      "id": "link:0c6b78c3-a7a0-5e54-8838-2df4b39c4eff",
       "fields": [
         "title"
       ]
     },
     {
-      "id": "link:43c80086-b394-51a1-86b4-19e807f5ccd6",
+      "id": "link:14f15812-b1e6-5332-8917-d25ed85c6513",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:19622ce6-f6ad-5610-b651-0f43dc2fda99",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:1e54008f-88af-519a-960b-3c79ce2b6a58",
       "fields": [
         "description"
       ]
     },
     {
-      "id": "link:4ab60e22-6d90-55a5-9b22-72015fb6b1aa",
+      "id": "link:3819b7ee-7603-5d1e-bb39-03dcaef40e6b",
       "fields": [
-        "description"
+        "title"
+      ]
+    },
+    {
+      "id": "link:3a8897d8-96b6-5588-a252-3a66a117e579",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:4e68a52c-8551-52a9-b6a0-c061437b23ae",
+      "fields": [
+        "title"
       ]
     },
     {
       "id": "link:504dca6f-2667-52fe-8d20-cc5f0ce6a207",
       "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:52887315-d62e-5ebf-9bca-5a2ed0aeee66",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:5330a455-432b-55c7-a3c2-c7dc4131c232",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:56317a65-5744-5463-96d8-94130c3df609",
+      "fields": [
+        "description",
         "title"
       ]
     },
     {
-      "id": "link:d42140f0-a527-5985-b6e6-bfbfd2444a41",
+      "id": "link:5e193d62-c48a-591f-83c1-cf52b2a6cbf4",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:86a4fadd-e43f-595d-955b-d2166481c3ab",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:894c6c6f-cee7-5070-bda0-88f36854057f",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:8fd51f98-c055-5878-8292-b4befd9ab3c9",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:96941f7a-948d-5723-aa96-98a27deaf203",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:9fb0f0ea-9309-5d38-b8c9-f54f4f34149c",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:a89481f8-5eff-5ea4-92c9-bca58d3e8d59",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:b4fc0579-1bb0-5649-a81a-e215bdce75e9",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:b524b0d4-e683-5c9a-9d34-c2ef8ba52082",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:b78ebf82-d07b-5a21-ab8d-1997f0153a05",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:b9049c7f-4c62-5254-bb4a-103e83d4b509",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:bf999a82-d639-5131-a4a7-af7ea065894b",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:c614de9b-03c0-562a-b877-a08487b273db",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:cb0bcd50-82dc-5238-a5c4-8eda188c551e",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:d62f59f5-1d45-5755-8a51-0ff5817d8308",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:d865c3c0-1ef5-56cb-b205-8a78e2dd79dc",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:dc4e0559-034b-502c-8123-90bf084b59ac",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:dfa74cdd-e638-5b8a-8056-8619885abe7a",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:e9a6c855-b199-5d0d-9933-e46f25d1ee1e",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:f41ea5f3-56c3-5eee-bb2b-e52e0d4f7d8b",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:f5720f42-a2df-5994-84a2-b292b8137492",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:f81e9775-14cf-5a6f-814e-f6eebe72b3b1",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:f930a74b-ad96-5e1d-9abe-090d5c940c31",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:fc233b3b-388b-5586-80d3-8beafff0edfd",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:fd3cc249-3a33-5681-9d31-b6fca8f46cb4",
       "fields": [
         "description"
       ]
@@ -94,26 +284,6 @@
       "fields": [
         "$artwork"
       ]
-    },
-    {
-      "id": "page:/flux/journal-du-digest/2026-07-24",
-      "fields": [
-        "body"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-du-digest/2026-07-25",
-      "fields": [
-        "body",
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-du-digest/2026-07-26",
-      "fields": [
-        "title"
-      ]
     }
   ],
   "paths": [
@@ -130,27 +300,83 @@
     "/archives/2026-08-29/",
     "/archives/2026-09-01/",
     "/archives/2026-09-02/",
-    "/flux/",
-    "/flux/journal-du-digest/",
-    "/flux/journal-du-digest/2026-07-24/",
-    "/flux/journal-du-digest/2026-07-25/",
-    "/flux/journal-du-digest/2026-07-26/",
     "/tags/",
     "/tags/agents/",
-    "/tags/atelier/",
+    "/tags/analyse/",
+    "/tags/annuaire/",
     "/tags/automatisation/",
+    "/tags/cartographie/",
+    "/tags/cli/",
+    "/tags/code-review/",
+    "/tags/codebase/",
+    "/tags/compression/",
+    "/tags/contenu/",
+    "/tags/creative-coding/",
+    "/tags/cybersecurite/",
+    "/tags/design-generatif/",
+    "/tags/design-system/",
+    "/tags/design/",
+    "/tags/desktop/",
     "/tags/developpement/",
-    "/tags/experimentation/",
+    "/tags/documentation/",
+    "/tags/donnees/",
+    "/tags/editeur/",
+    "/tags/edition/",
+    "/tags/entreprise/",
+    "/tags/fiche/",
+    "/tags/frontend/",
+    "/tags/generatif/",
+    "/tags/git/",
+    "/tags/google-fonts/",
+    "/tags/graphe/",
+    "/tags/grille/",
+    "/tags/ia-locale/",
     "/tags/ia/",
+    "/tags/illustration/",
+    "/tags/impression/",
+    "/tags/inference/",
+    "/tags/information/",
     "/tags/interface/",
+    "/tags/javascript/",
+    "/tags/jellyfin/",
     "/tags/knowledge-management/",
-    "/tags/laboratoire/",
     "/tags/llm/",
-    "/tags/newsletter/",
-    "/tags/photo/",
-    "/tags/pratique/",
-    "/tags/technologie/",
+    "/tags/mise-en-page/",
+    "/tags/multimedia/",
+    "/tags/nas/",
+    "/tags/navigateur/",
+    "/tags/opensource/",
+    "/tags/optimisation/",
+    "/tags/orchestration/",
+    "/tags/outil/",
+    "/tags/outils/",
+    "/tags/p5js/",
+    "/tags/papier/",
+    "/tags/parallelisation/",
+    "/tags/pdf/",
+    "/tags/plex/",
+    "/tags/politique/",
+    "/tags/poster/",
+    "/tags/prepresse/",
+    "/tags/productivite/",
+    "/tags/rag/",
+    "/tags/recherche/",
+    "/tags/reflexion/",
+    "/tags/rust/",
+    "/tags/skills/",
+    "/tags/societe/",
+    "/tags/specification/",
+    "/tags/terminal/",
+    "/tags/tmux/",
+    "/tags/tokens/",
+    "/tags/travail/",
+    "/tags/typographie/",
+    "/tags/ui/",
+    "/tags/variable-font/",
     "/tags/veille/",
+    "/tags/video/",
+    "/tags/vscode/",
+    "/tags/web/",
     "/tags/wiki/"
   ],
   "artwork": {
@@ -168,5 +394,5 @@
     ],
     "remove": []
   },
-  "revision": "53704227b959bead6bce12ba23dfcccffa2ee8dd847f718a2cdc46e312d1a073"
+  "revision": "98f696769bd0ba274ae02d2fae6dfdaecc8c89d1f338a59e65371013785e5317"
 }
