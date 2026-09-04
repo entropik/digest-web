@@ -133,13 +133,39 @@ async function targetedBuild(plan, production, temporary) {
   for (const date of plan.artwork.remove) for (const suffix of [".png", "-linkedin.png"]) await rm(path.join(production, `social/en/${date}${suffix}`), { force: true });
 }
 
+export async function classifyPushChanges(mainSha) {
+  let beforeSha = process.env.GITHUB_EVENT_BEFORE;
+  if (!beforeSha && process.env.GITHUB_EVENT_PATH) {
+    try {
+      const payload = JSON.parse(await readFile(process.env.GITHUB_EVENT_PATH, "utf8"));
+      beforeSha = payload?.before;
+    } catch {
+      // Ignore if event payload cannot be parsed
+    }
+  }
+  if (beforeSha && !/^0+$/.test(beforeSha)) {
+    try {
+      run("git", ["rev-parse", "--verify", `${beforeSha}^{commit}`]);
+      return run("git", ["diff", "--name-only", beforeSha, mainSha], { capture: true }).split("\n").filter(Boolean);
+    } catch {
+      return null;
+    }
+  }
+  try {
+    run("git", ["rev-parse", "--verify", "HEAD~1"]);
+    return run("git", ["diff", "--name-only", "HEAD~1", mainSha], { capture: true }).split("\n").filter(Boolean);
+  } catch {
+    return null;
+  }
+}
+
 async function publish() {
   const mainSha = process.env.GITHUB_SHA || run("git", ["rev-parse", "HEAD"], { capture: true });
   const event = process.env.GITHUB_EVENT_NAME || "push";
-  const changed = event === "push" ? run("git", ["diff-tree", "--no-commit-id", "--name-only", "-r", mainSha], { capture: true }).split("\n").filter(Boolean) : [];
+  const changed = event === "push" ? await classifyPushChanges(mainSha) : null;
   let plan;
   try { plan = validatePlan(await json(path.join(root, "data/translation_build_plan.json"))); } catch { plan = null; }
-  let targeted = Boolean(plan && isTranslationOnly(changed, plan));
+  let targeted = Boolean(changed && plan && isTranslationOnly(changed, plan));
   const temporary = await mkdtemp(path.join(tmpdir(), "digest-production-"));
   const production = path.join(temporary, "production");
   try {
@@ -161,7 +187,10 @@ async function publish() {
     await writeFile(path.join(production, ".nojekyll"), "");
     run("git", ["add", "--all"], { cwd: production });
     const staged = run("git", ["diff", "--cached", "--name-only"], { cwd: production, capture: true });
-    if (!staged) throw new Error("PRODUCTION_TREE_UNCHANGED");
+    if (!staged) {
+      process.stdout.write("Production tree is already up to date; nothing to deploy.\n");
+      return;
+    }
     run("git", ["config", "user.name", "github-actions[bot]"], { cwd: production });
     run("git", ["config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com"], { cwd: production });
     run("git", ["commit", "-m", `Deploy ${mainSha}${targeted ? " (targeted translations)" : ""}`], { cwd: production });

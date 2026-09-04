@@ -43,3 +43,4 @@ jobs:
         run: node scripts/translation-production.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_EVENT_BEFORE: ${{ github.event.before }}

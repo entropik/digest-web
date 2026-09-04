@@ -392,6 +392,30 @@ select {
   transform: translate(0, -50%) scale(1);
 }
 
+.about-liquid-page .post-meta {
+  position: relative;
+}
+
+@media (max-width: 640px) {
+  .about-liquid-cue {
+    position: static;
+  }
+
+  .about-liquid-tooltip {
+    top: calc(100% + 8px);
+    left: 50%;
+    width: min(220px, calc(100vw - 32px));
+    height: min(220px, calc(100vw - 32px));
+    transform: translate(-50%, -6px) scale(.35);
+    transform-origin: 50% 0;
+  }
+
+  .about-liquid-cue:hover .about-liquid-tooltip,
+  .about-liquid-cue:focus-visible .about-liquid-tooltip {
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
 .about-liquid-pool {
   position: absolute;
   z-index: -1;
