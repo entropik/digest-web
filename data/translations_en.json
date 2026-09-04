@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "9e3d05e1f7ddb3fc6c00030775c58fab42874d308a96100d9e7329d33785b6b8",
+  "revision": "edf9b5bc93a430d10f0e57c369f9cca8477a020edd61945c5108b74af738da77",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -3092,10 +3092,28 @@
         "text": "Diary of a Procrastinator"
       }
     },
+    "page:/flux/journal-procrastinateur/2026-06-12": {
+      "body": {
+        "hash": "b7110b38eb3f9639621e58795a549323f56e0c9762de7f1cd8613b048e4b02f2",
+        "text": "<blockquote>\n<p>This post was written on Friday 12 June 2026 whilst updating the repo’s documentation, and then continued during a night session at around 1.30 am. I’m clearly tired, but the session has resolved two important issues: the documentation is now less reliant on gut feeling, and the editor can finally display the finished document without bleed.</p>\n</blockquote>\n<h2 id=\"horaires-de-session\">Session times</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Main environment: <strong>VS Code WSL, Codex plugin on the left, code in the centre, Codex terminal on the right</strong></li>\n<li>Date: <strong>Friday 12 June 2026</strong></li>\n<li>Development branch: <strong><code translate=\"no\">dev</code></strong></li>\n<li>Repo version observed at the end of the session: <strong>0.7.6</strong></li>\n<li>HEAD observed at the end of the session: <code translate=\"no\">5734f11</code></li>\n<li>Commit duration observed: <strong>00:07 -&gt; 01:23</strong>, with completion around <strong>01:30</strong></li>\n<li>Minimum observed duration: <strong>1h23+</strong></li>\n<li>Main commits: <code translate=\"no\">a0ae6e3</code>, <code translate=\"no\">239a5c0</code>, <code translate=\"no\">536ef3c</code>, <code translate=\"no\">6f3f3b1</code>, <code translate=\"no\">c2b42e0</code>, <code translate=\"no\">5734f11</code></li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 462h51+</strong></li>\n</ul>\n<h2 id=\"conclusion-courte\">Brief conclusion</h2>\n<p>The session began by fixing a client-side detail in the WordPress plugin: project actions had been condensed, but the deletion prompt needed to remain sufficiently clear to prevent a dangerous action resulting from a misreading.</p>\n<p>It then turned a recurring oversight into a workflow: a versioned documentation skill in the repo can now audit versions, HEAD, changelog, roadmap, guides and log before correcting the documentation.</p>\n<p>The end of the night was spent on visual improvements: refining the branding in the editor header, then adding a proper <strong>‘Final Preview’</strong> mode. It’s a small button in <code translate=\"no\">Affichage</code>, but it represents a real boost to customer confidence: users can view the card exactly as it will appear in their hands, without seeing the bleed area.</p>\n<h2 id=\"plugin-wordpress--contraste-des-actions-projet\">WordPress plugin: contrasting project actions</h2>\n<p>The commits <code translate=\"no\">a0ae6e3</code> and <code translate=\"no\">239a5c0</code> build on yesterday’s work on the WooCommerce client projects area.</p>\n<p>This is not merely an aesthetic issue. In a project list, <code translate=\"no\">Modifier</code>, <code translate=\"no\">Dupliquer</code> and <code translate=\"no\">Supprimer</code> do not carry the same weight. Streamlining the interface must not make deletion too subtle or ambiguous.</p>\n<p>The fix affects the plugin’s front-end CSS, the version header, <code translate=\"no\">readme.txt</code> and the example manifest. This is in line with a rule in the repository: any change under <code translate=\"no\">wordpress-plugin/keredit-connector/</code> constitutes a plugin release, not a simple local tweak.</p>\n<h2 id=\"documentation--ne-plus-compter-sur-la-mémoire\">Documentation: no longer relying on memory</h2>\n<p>The commit <code translate=\"no\">536ef3c</code> introduces the actual method change.</p>\n<p>The <code translate=\"no\">.codex-skills/doc</code> skill already existed, but it was too general. It can now trigger a brief audit, then direct the agent to the correct files:</p>\n<ul>\n<li><code translate=\"no\">AGENTS.md</code> for the repository status and working rules;</li>\n<li><code translate=\"no\">CHANGELOG.md</code> for versioned milestones;</li>\n<li><code translate=\"no\">BIBLIOTHEQUE.md</code> and <code translate=\"no\">docs/HOME.md</code> for the repo map;</li>\n<li>product documentation for the roadmap, beta and objectives;</li>\n<li>recovery guides and commands;</li>\n<li>the daily log when a significant day does not yet have an entry.</li>\n</ul>\n<p>The script <code translate=\"no\">node .codex-skills/doc/scripts/audit-docs.mjs</code> provides the facts before writing: branch, HEAD, versions of the four packages, any drift, latest commits, latest issue and cumulative timeline.</p>\n<h2 id=\"pourquoi-cest-important\">Why this is important</h2>\n<p>The problem wasn’t a lack of documentation. The repository has plenty of it. The problem was consistency: after a live fix, a version bump, a VPS deployment or a plugin tweak, it’s all too easy to forget the documentation part.</p>\n<p>Skill is no substitute for judgement. It simply forces you to take the first useful step:</p>\n<ul>\n<li>check the current facts;</li>\n<li>see if any documentation is out of date;</li>\n<li>make minor corrections;</li>\n<li>state explicitly when no version bump, roadmap or changelog is required.</li>\n</ul>\n<h2 id=\"session-de-nuit--marque-et-aperçu-final\">Night session: branding and final preview</h2>\n<p>The commits <code translate=\"no\">6f3f3b1</code> and <code translate=\"no\">c2b42e0</code> tweak the KEREDIT wordmark in the editor. This isn’t a major product overhaul, but a finishing touch: the header must convey a sense of stability, not a cobbled-together look, especially as the interface begins to be shown outside the development environment.</p>\n<p>The commit <code translate=\"no\">5734f11</code> adds the <strong>‘Final Preview’</strong> mode to the <code translate=\"no\">Affichage</code> menu.</p>\n<p>Until now, the ‘<code translate=\"no\">Fond perdu</code>’ button mainly controlled a visual cue. The canvas itself remained built across the full page, with bleed. The new mode changes the actual display area:</p>\n<ul>\n<li>in edit mode, the area remains in ‘<code translate=\"no\">format + fond perdu</code>’ view;</li>\n<li>in final preview, the area becomes the <strong>finished size</strong>, with <code translate=\"no\">bleed=0</code>;</li>\n<li>the project coordinates remain relative to the trim size;</li>\n<li>the preview is deliberately read-only: no selection, no handles, no grid, no rulers, no drag-and-drop, no inline text editing.</li>\n</ul>\n<p>This approach avoids creating a second editing geometry. You do not modify the project JSON to view the finished product. You only change the rendering surface.</p>\n<p>Deployment followed shortly afterwards:</p>\n<ul>\n<li>repo version: 0<strong>.7.6</strong>;</li>\n<li>Deployed SHA: <code translate=\"no\">5734f11295db33b1b13e051286a338786c28a0b9</code>;</li>\n<li>VPS is accessible via <code translate=\"no\">.deploy-sha</code> and <code translate=\"no\">.deploy-version</code>;</li>\n<li>Smoke tests OK for the API, theme, frontend and public URL <code translate=\"no\">https://ooblik.keredit.com/</code>.</li>\n</ul>\n<h2 id=\"vérification\">Verification</h2>\n<p>The documentation skill has been validated with:</p>\n<ul>\n<li><code translate=\"no\">node .codex-skills/doc/scripts/audit-docs.mjs</code> ;</li>\n<li><code translate=\"no\">quick_validate.py .codex-skills/doc</code> ;</li>\n<li><code translate=\"no\">git diff --check -- AGENTS.md CHANGELOG.md BIBLIOTHEQUE.md .codex-skills/doc</code>.</li>\n</ul>\n<p>The <code translate=\"no\">Apercu final</code> mode has been validated using:</p>\n<ul>\n<li><code translate=\"no\">pnpm --filter frontend test:canvas-dimensions</code> ;</li>\n<li><code translate=\"no\">pnpm --filter frontend test:production-guides</code> ;</li>\n<li><code translate=\"no\">pnpm --filter frontend typecheck</code> ;</li>\n<li><code translate=\"no\">pnpm --filter frontend build</code>.</li>\n</ul>\n<p>For this post, the log has been reconstructed from the commits of 12 June, the <code translate=\"no\">0.7.6</code> deployment and the VPS verification of the SHA served.</p>\n<h2 id=\"décision-de-clôture\">Closure decision</h2>\n<p>The key takeaway from this session is twofold.</p>\n<p>If a task recurs frequently and is discipline-specific, it must be encoded in the repository.</p>\n<p>If a client needs to understand what they are going to receive, you must be able to show them the finished product without the production marks.</p>\n<p>The Krampouz documentation now has a concrete starting point. When the version, roadmap, changelog or log are at risk of drifting, the agent can launch an audit rather than relying on gut feeling.</p>\n<p>And the postcard editor takes on a more human feel: less workshop, more finished product. At 1.30 am, that’s a good cut-off point.</p>\n"
+      },
+      "description": {
+        "hash": "220a8a4415da60f63909ee29f1e146241a3a9e7df1da15b63b811da285e02698",
+        "text": "Contrast between WooCommerce project actions, documentation made auditable, a polished publisher’s wordmark, and the Final Preview mode enabled to view the map without bleed."
+      },
+      "title": {
+        "hash": "911ad5d3cb85ab2848191390bceaa117e4c855e23fd2d0bd44e7a1f56106d7ff",
+        "text": "Day 82 – Make the documentation less likely to be forgotten, then take a look at the finished product"
+      }
+    },
     "page:/flux/journal-procrastinateur/2026-06-13": {
       "description": {
         "hash": "4bc9f699c7adbc26829dd7ca5cdb6bb11f5bc9c6274d852919f80920706878a9",
         "text": "A short but action-packed day focusing on the KEREDIT connector: beta messages, WooCommerce synchronisation, OpenReplay SMTP and beta dashboard instrumentation."
+      },
+      "title": {
+        "hash": "d186c35b66e98bb70f6147e47c9e2bd71cda4b4398b6174903cec21a69c4d290",
+        "text": "Day 83 – Setting up the beta: WooCommerce and observability"
       }
     },
     "page:/flux/journal-procrastinateur/2026-06-14": {
@@ -9901,6 +9919,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-13.webp": {
+      "date": {
+        "hash": "027fa87f083bcee3e76458a8114e43f8b3b5caa5fe5d1cf24dfc5f86235c2892",
+        "text": "29 July 1963"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10417,6 +10439,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-15.webp": {
+      "date": {
+        "hash": "027fa87f083bcee3e76458a8114e43f8b3b5caa5fe5d1cf24dfc5f86235c2892",
+        "text": "29 July 1963"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10681,6 +10707,14 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-12.webp": {
+      "alt": {
+        "hash": "c10f30c26fa7304783ee1d3b493189a4256f9a09b6c2ed170f06b6e01a1b9856",
+        "text": "Document NASA : Data Processing System at Ames Research Center."
+      },
+      "date": {
+        "hash": "027fa87f083bcee3e76458a8114e43f8b3b5caa5fe5d1cf24dfc5f86235c2892",
+        "text": "29 July 1963"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10688,9 +10722,21 @@
       "themeLabel": {
         "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
         "text": "Computers & computing"
+      },
+      "title": {
+        "hash": "3536d3bef199979c87b3f985e9b85b660120af906e1c0af17d49a6adb89828c0",
+        "text": "Data Processing System at Ames Research Center."
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-13.webp": {
+      "alt": {
+        "hash": "787156cd9b8f7efdb722f62a712f3e26dca16116f46c94e73661116739f26df3",
+        "text": "Document NASA : Space Radar Laboratory photos taken at Kennedy Space Center"
+      },
+      "date": {
+        "hash": "fb8eeb947712c0a9313ca579c26f930d4ea68430d441cfc90dfbf3d2a007e205",
+        "text": "18 March 1994"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10698,6 +10744,10 @@
       "themeLabel": {
         "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
         "text": "Telecommunications"
+      },
+      "title": {
+        "hash": "9dfd4b329cf0bcd892c093d5a7b28c5b5daf3420da1412977234f8c1449e3522",
+        "text": "Space Radar Laboratory photos taken at Kennedy Space Center"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-14.webp": {
