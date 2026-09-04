@@ -9,63 +9,63 @@
     <lastBuildDate>Thu, 03 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://digest.ooblik.com/en/flux/journal-du-digest/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Un Digest bilingue, mouvements retrouvés et cron admin</title>
+      <title>A bilingual Digest, restored movements and cron admin</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-09-03/</link>
       <pubDate>Thu, 03 Sep 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-09-03/</guid>
-      <description>Translation pending · Le Digest prépare une version anglaise accessible depuis un sélecteur FR / GB discret tout en avançant sa traduction par lots. Le survol d’À propos s’adapte aux fenêtres étroites comme aux changements d’accessibilité, et les tags reprennent leur mouvement après restauration de page. L’environnement Node du cron admin est documenté et aligné sur Node 22.</description>
+      <description>The Digest is preparing an English version, accessible via a discreet FR/GB selector, whilst continuing to work on its translation in batches. The ‘About’ tooltip adapts to narrow windows and accessibility changes, and the tags resume their behaviour after the page is refreshed. The Node environment for the admin cron is documented and aligned with Node 22.</description>
     </item>
     <item>
-      <title>La curation traverse Firefox</title>
+      <title>Curation is making its way into Firefox</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-09-02/</link>
       <pubDate>Wed, 02 Sep 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-09-02/</guid>
-      <description>Translation pending · L’extension de curation devient une extension Chrome et Firefox issue du même
-code. La variante Firefox 1.5.0 est validée, signée puis installée officiellement
-depuis AMO sans élargir la confiance du service à toutes les extensions du
-navigateur. Le dossier sur la « software factory » devient le premier billet
-publié sous le format `FOCUS`, avec les deux dossiers précédents sur les fermes
-d’agents et les ADE, dans une identité visuelle mêlant archives techniques NASA,
-grille et grande typographie.</description>
+      <description>The curation extension becomes a Chrome and Firefox extension based on the same
+code. The Firefox 1.5.0 version is validated, signed and then officially installed
+via AMO without extending the service’s trust to all the browser’s
+extensions. The feature on the ‘software factory’ becomes the first post
+published in the `FOCUS` format, alongside the two previous features on agent
+farms and ADEs, with a visual identity combining NASA technical archives,
+a grid layout and large typography.</description>
     </item>
     <item>
-      <title>Le brouillon devient un état éditorial</title>
+      <title>The draft becomes an editorial version</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-28/</link>
       <pubDate>Fri, 28 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-28/</guid>
-      <description>Translation pending · Les éditions existantes peuvent désormais être corrigées, publiées ou remises
-en brouillon depuis l’administration. Le catalogue distingue les liens préparés
-pour une édition des retraits éditoriaux qui doivent rester hors ligne.</description>
+      <description>Existing editions can now be corrected, published or returned
+to draft status via the admin panel. The catalogue distinguishes between links prepared
+for an edition and editorial withdrawals, which must remain offline.</description>
     </item>
     <item>
-      <title>Quarante-cinq dépôts et quelques filets</title>
+      <title>Forty-five boxes and a few nets</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-27/</link>
       <pubDate>Thu, 27 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-27/</guid>
-      <description>Translation pending · Une liste brute de cinquante références GitHub devient un Digest de quarante-cinq
-ressources vérifiées, dédupliquées et regroupées par usages. Les archives gagnent
-leur visuel, des titres centrés sur la date et une grille sans rupture blanche.
-La page d’accueil et l’administration affinent enfin leurs marges et leurs filets.</description>
+      <description>A raw list of fifty GitHub references is transformed into a digest of forty-five
+resources that have been verified, deduplicated and grouped by use case. The archives are given
+a visual identity, with titles centred on the date and a grid without white gaps.
+The homepage and admin panel finally refine their margins and borders.</description>
     </item>
     <item>
-      <title>Répéter sans effacer sur LinkedIn</title>
+      <title>Repeat without deleting on LinkedIn</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-25/</link>
       <pubDate>Tue, 25 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-25/</guid>
-      <description>Translation pending · Une ressource LinkedIn peut être republiée sans effacer ses diffusions
-précédentes. Le compositeur reste modifiable et SQLite conserve chaque
-occurrence. Le journal technique devient un mini-blog public autonome, sans
-rejoindre les archives du Blog OOBLIK.</description>
+      <description>A LinkedIn resource can be republished without deleting its previous
+posts. The author field remains editable and SQLite retains every
+instance. The technical log becomes a standalone public mini-blog, without
+being incorporated into the OOBLIK Blog archives.</description>
     </item>
     <item>
-      <title>Du cartouche suisse à la mémoire du Blog OOBLIK</title>
+      <title>From the Swiss cartridge to the OOBLIK blog archive</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-20/</link>
       <pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-20/</guid>
-      <description>Translation pending · Les catégories administrables donnent au Digest son langage de cartouches et
-de filets partagés. Cette grille accueille ensuite la mémoire de 831 billets
-WordPress sans confondre texte archivé, provenance et destination actuelle.
-Les cas incertains restent soumis à une décision humaine.</description>
+      <description>Translation pending · The configurable categories provide the Digest with its system of headings and
+shared subheadings. This framework then organises the archive of 831 WordPress posts
+without confusing archived text, source and current destination.
+Any cases of uncertainty remain subject to human judgement.</description>
     </item>
     <item>
       <title>Le carré LinkedIn, du faux succès au post visible</title>
