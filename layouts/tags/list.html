@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ $links := partialCached "public-links.html" hugo.Data.links "public-links" }}
+{{ $links := partialCached "public-links.html" hugo.Data.links "public-links" site.Language.Lang }}
 {{ $tagPages := where site.RegularPages "Section" "tags" }}
 {{ $visibleTagPages := slice }}
 {{ $counts := newScratch }}
@@ -22,51 +22,56 @@
     {{ if gt $count $maxCount }}{{ $maxCount = $count }}{{ end }}
   {{ end }}
 {{ end }}
+{{ $visibleTags := slice }}
+{{ range $visibleTagPages }}{{ range (.Params.tags | default (slice .Params.tag)) }}{{ $visibleTags = $visibleTags | append . }}{{ end }}{{ end }}
 
 <section class="tag-explorer" data-tag-explorer aria-labelledby="tag-explorer-title">
   <header class="tag-explorer-header">
     <div class="tag-explorer-intro">
-      <p class="digest-kicker">Index thématique</p>
-      <h1 id="tag-explorer-title">Suivez<br>un fil.</h1>
-      <p>Les obsessions du Digest, à parcourir plutôt qu’à inventorier.</p>
+      <p class="digest-kicker">{{ i18n "ui_4d717fcc10e1" }}</p>
+      <h1 id="tag-explorer-title">{{ i18n "ui_f8bda430aa0d" }}<br>{{ i18n "ui_fefcdce4b70e" }}</h1>
+      <p>{{ i18n "ui_139d373d498d" }}</p>
     </div>
 
-    <div class="tag-explorer-tools" aria-label="Explorer les tags">
+    <div class="tag-explorer-tools" aria-label="{{ i18n "ui_f3c4629f8898" }}">
       <label class="tag-search">
-        <span class="sr-only">Rechercher un tag</span>
+        <span class="sr-only">{{ i18n "ui_a32a18fcead6" }}</span>
         <span aria-hidden="true">#</span>
-        <input type="search" data-tag-search placeholder="chercher un thème" autocomplete="off">
+        <input type="search" data-tag-search placeholder="{{ i18n "ui_57cbb16a8769" }}" autocomplete="off">
       </label>
-      <div class="tag-sort" aria-label="Ordre des tags">
-        <button type="button" data-tag-sort="popular" class="is-active" aria-pressed="true">Populaires</button>
+      <div class="tag-sort" aria-label="{{ i18n "ui_cb1eb30e79bd" }}">
+        <button type="button" data-tag-sort="popular" class="is-active" aria-pressed="true">{{ i18n "ui_d2358889ddbb" }}</button>
         <button type="button" data-tag-sort="alpha" aria-pressed="false">A—Z</button>
-        <button type="button" data-tag-sort="wander" aria-pressed="false">Flâner</button>
+        <button type="button" data-tag-sort="wander" aria-pressed="false">{{ i18n "ui_79e981e70f24" }}</button>
       </div>
-      <div class="tag-alphabet" data-tag-alphabet aria-label="Choisir une initiale" hidden></div>
+      <div class="tag-alphabet" data-tag-alphabet aria-label="{{ i18n "ui_68b38a86c0fd" }}" hidden></div>
     </div>
   </header>
 
-  <div class="tag-explorer-scene" data-tag-scene aria-label="Tags à explorer">
+  {{ if and (not .Params.translation_pending) (partial "taxonomy-translation-pending.html" (dict "tags" (uniq $visibleTags))) }}<p class="translation-pending" lang="en-GB">{{ i18n "translation_pending_detail" }}</p>{{ end }}
+
+  <div class="tag-explorer-scene" data-tag-scene aria-label="{{ i18n "ui_c6db3ae3a9da" }}">
     {{ range sort $visibleTagPages "Title" }}
       {{ $tag := .Params.tag }}
+      {{ $tagLabel := partial "tag-label.html" $tag }}
       {{ $count := $counts.Get $tag }}
       {{ $importance := div (math.Log (add (float $count) 1)) (math.Log (add (float $maxCount) 1)) }}
       <a
         class="tag-cloud-item"
         href="{{ .RelPermalink }}"
-        data-tag="{{ $tag }}"
+        data-tag="{{ $tagLabel }}"
         data-count="{{ $count }}"
         style="--tag-importance: {{ printf "%.4f" $importance }};"
-        aria-label="{{ $tag }}, {{ $count }} {{ cond (eq $count 1) "lien" "liens" }}">
-        <span>#{{ $tag }}</span>
+        aria-label="{{ $tagLabel }}, {{ $count }} {{ if eq $count 1 }}{{ i18n "ui_80bf0c8d3c58" }}{{ else }}{{ i18n "ui_132d6192dc26" }}{{ end }}">
+        <span>#{{ $tagLabel }}</span>
         <sup>{{ $count }}</sup>
       </a>
     {{ end }}
   </div>
 
   <footer class="tag-explorer-footer">
-    <p data-tag-status>{{ len $visibleTagPages }} thèmes · la taille indique le nombre de liens</p>
-    <p aria-hidden="true">Survolez un mot pour l’arrêter, cliquez pour suivre le fil.</p>
+    <p data-tag-status>{{ len $visibleTagPages }} {{ i18n "ui_8283a17c3bb5" }}</p>
+    <p aria-hidden="true">{{ i18n "ui_e51710975370" }}</p>
   </footer>
 </section>
 {{ $tagExplorer := resources.Get "js/tag-explorer.js" | minify | fingerprint }}

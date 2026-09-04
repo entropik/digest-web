@@ -1,0 +1,10 @@
+{{- $fields := slice -}}{{- $images := slice -}}
+{{- range $id, $values := .entries -}}
+  {{- range $name, $entry := $values -}}
+    {{- $fields = $fields | append (slice $id $name $entry.hash $entry.text ($entry.manual | default false)) -}}
+  {{- end -}}
+{{- end -}}
+{{- range $date, $entry := .artwork -}}
+  {{- $images = $images | append (slice $date $entry.title $entry.description $entry.linkCount $entry.editorialType) -}}
+{{- end -}}
+{{- return (sha256 (jsonify (dict "noHTMLEscape" true) (slice $fields $images))) -}}

@@ -88,8 +88,25 @@ remote_sha="$(
 )"
 test -n "$remote_sha"
 
+source_repository="$base/shared/source.git"
+if [ ! -d "$source_repository" ]; then
+  git init --bare "$source_repository" >/dev/null
+fi
+git --git-dir="$source_repository" fetch --quiet --filter=blob:none "$repository" "+refs/heads/$branch:refs/remotes/origin/$branch"
+remote_admin_tree="$(git --git-dir="$source_repository" rev-parse "$remote_sha:admin-service")"
+observed_tree="$(cat "$base/shared/observed-admin-tree" 2>/dev/null || true)"
+if [ -n "$observed_tree" ] && [ "$observed_tree" = "$remote_admin_tree" ]; then
+  printf '%s\n' "$remote_sha" >"$base/shared/observed-main-sha"
+  if ! curl -fsS http://127.0.0.1:3210/health >/dev/null; then
+    start_admin
+  fi
+  exit 0
+fi
+
 previous_target="$(readlink "$base/current" 2>/dev/null || true)"
 if [ "$previous_target" = "releases/$remote_sha/admin-service" ]; then
+  printf '%s\n' "$remote_admin_tree" >"$base/shared/observed-admin-tree"
+  printf '%s\n' "$remote_sha" >"$base/shared/observed-main-sha"
   if ! curl -fsS http://127.0.0.1:3210/health >/dev/null; then
     start_admin
   fi
@@ -154,6 +171,9 @@ if ! start_admin; then
   restore_previous startup-or-health-check || true
   exit 1
 fi
+
+printf '%s\n' "$remote_admin_tree" >"$base/shared/observed-admin-tree"
+printf '%s\n' "$remote_sha" >"$base/shared/observed-main-sha"
 
 cd "$base/releases"
 ls -1dt -- */ 2>/dev/null | tail -n +6 | xargs -r rm -rf --

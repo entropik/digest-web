@@ -1,0 +1,674 @@
+{
+  "ui_aa3ac56ee26d": {
+    "other": "Main navigation"
+  },
+  "ui_dc49c549fc14": {
+    "other": "Mobile navigation"
+  },
+  "ui_cf03cf2e9cdf": {
+    "other": "Navigation"
+  },
+  "ui_43c7e150dbdd": {
+    "other": "Open menu"
+  },
+  "ui_177b10aa357b": {
+    "other": "Close menu"
+  },
+  "ui_5113d95e5271": {
+    "other": "Switch theme"
+  },
+  "ui_2602795054c1": {
+    "other": "Switch theme (Alt + T)"
+  },
+  "ui_405ebc88324c": {
+    "other": "Open workshop (Alt + A)"
+  },
+  "ui_e105f808eaa3": {
+    "other": "Workshop"
+  },
+  "ui_dfe0bbc53e88": {
+    "other": "Personal curation"
+  },
+  "ui_d6b51f8f9470": {
+    "other": "What’s worth keeping… or not."
+  },
+  "ui_3525583467fd": {
+    "other": "A focused collection of resources on AI, code, design and images. No endless feed: just links worth exploring."
+  },
+  "ui_cf0f7d739d76": {
+    "other": "selected links"
+  },
+  "ui_e7254e946187": {
+    "other": "Filter the digest"
+  },
+  "ui_91f7d3e9dc3d": {
+    "other": "Search"
+  },
+  "ui_1d265fe989e3": {
+    "other": "Search for a tool, a topic…"
+  },
+  "ui_e97653743093": {
+    "other": "By date"
+  },
+  "ui_851248a8eb7d": {
+    "other": "choose a date"
+  },
+  "ui_2550642b3d31": {
+    "other": "Choose a date"
+  },
+  "ui_535707c762c5": {
+    "other": "Previous month"
+  },
+  "ui_7b08eaecd203": {
+    "other": "Next month"
+  },
+  "ui_3f76228c99e5": {
+    "other": "Mo"
+  },
+  "ui_1382244e1784": {
+    "other": "Tu"
+  },
+  "ui_b1c1d8736f20": {
+    "other": "We"
+  },
+  "ui_68d2ad23b5e1": {
+    "other": "Th"
+  },
+  "ui_934cff2debe7": {
+    "other": "Fr"
+  },
+  "ui_3608a6d1a05a": {
+    "other": "Sa"
+  },
+  "ui_f502e82c25bb": {
+    "other": "Su"
+  },
+  "ui_fe23de7b572d": {
+    "other": "Clear"
+  },
+  "ui_ba0603b43d81": {
+    "other": "Today"
+  },
+  "ui_d463d7d2a3db": {
+    "other": "Categories"
+  },
+  "ui_6b0b09b8a698": {
+    "other": "All"
+  },
+  "ui_6dbd11ff8a4a": {
+    "other": "Random"
+  },
+  "ui_1020d9085c8a": {
+    "other": "Favourites"
+  },
+  "ui_bc6a8bf681fe": {
+    "other": "Selected category"
+  },
+  "ui_ac8ab261bbc7": {
+    "other": "All categories"
+  },
+  "ui_6a518b9b9a4e": {
+    "other": "Dead link · preserved for reference"
+  },
+  "ui_33090a129f6b": {
+    "other": "Add this link to favourites"
+  },
+  "ui_12aa497d1137": {
+    "other": "Remove this link from favourites"
+  },
+  "ui_721554924ba7": {
+    "other": "Add to favourites"
+  },
+  "ui_dcaac849fc33": {
+    "other": "Remove from favourites"
+  },
+  "ui_9dcfb5210338": {
+    "other": "No links match this search."
+  },
+  "ui_42991cfe15c1": {
+    "other": "Link pagination"
+  },
+  "ui_a527f171f7b6": {
+    "other": "Previous"
+  },
+  "ui_596d29a7e33c": {
+    "other": "Next"
+  },
+  "ui_132d6192dc26": {
+    "other": "links"
+  },
+  "ui_80bf0c8d3c58": {
+    "other": "link"
+  },
+  "ui_1a1630fcc1d7": {
+    "other": "editions"
+  },
+  "ui_a510df06c2cb": {
+    "other": "Previous link"
+  },
+  "ui_15e4d4093131": {
+    "other": "Next link"
+  },
+  "ui_2569136f241c": {
+    "other": "Close dialog"
+  },
+  "ui_26a30a04d088": {
+    "other": "Archived text"
+  },
+  "ui_d2171751fcd5": {
+    "other": "Visit website"
+  },
+  "ui_d560c901e11c": {
+    "other": "Original post"
+  },
+  "ui_985eb3f25b2a": {
+    "other": "Share on LinkedIn"
+  },
+  "ui_55cdf37f2879": {
+    "other": "Add tags"
+  },
+  "ui_584f0aea4819": {
+    "other": "Tags to add"
+  },
+  "ui_11ac893b9cba": {
+    "other": "design, grid, tool…"
+  },
+  "ui_87c57ed173ea": {
+    "other": "Add"
+  },
+  "ui_f3c106388cc8": {
+    "other": "Separate tags with commas."
+  },
+  "ui_a54f86c4344a": {
+    "other": "Remove from Digest"
+  },
+  "ui_a8a93f4499a7": {
+    "other": "Archived stream"
+  },
+  "ui_1a4f2b107128": {
+    "other": "posts"
+  },
+  "ui_1fc38637b80e": {
+    "other": "dead links"
+  },
+  "ui_a894fa69d705": {
+    "other": "dead links preserved"
+  },
+  "ui_97b986217100": {
+    "other": "Statement of intent"
+  },
+  "ui_1aaa008c6e3a": {
+    "other": "Stream 05 · Making-of journal"
+  },
+  "ui_5ced6ff2d79b": {
+    "other": "Chronological index"
+  },
+  "ui_082e668d5a44": {
+    "other": "The work, the detours, the fresh starts"
+  },
+  "ui_6e5023c8e462": {
+    "other": "Building the tool that will finally make work possible, then methodically documenting every reason it is not finished yet."
+  },
+  "ui_7ee922e94313": {
+    "other": "Latest detour ·"
+  },
+  "ui_49ca7519f303": {
+    "other": "posts"
+  },
+  "ui_202a4d80ef91": {
+    "other": "posts preserved"
+  },
+  "ui_609fecee47ec": {
+    "other": "latest entry ·"
+  },
+  "ui_e889902e6452": {
+    "other": "first entry ·"
+  },
+  "ui_1976853f6b58": {
+    "other": "Read post ·"
+  },
+  "ui_53a32859ebec": {
+    "other": "Archaeology of the social web"
+  },
+  "ui_af50034ccb6f": {
+    "other": "Development journal"
+  },
+  "ui_df21edd68988": {
+    "other": "Making-of journal"
+  },
+  "ui_ca8fa8b6aa3a": {
+    "other": "Latest post ·"
+  },
+  "ui_0491df6eb41e": {
+    "other": "Digest journal"
+  },
+  "ui_e9c3a1d999b1": {
+    "other": "Open journal ↗"
+  },
+  "ui_2c1d2f735b82": {
+    "other": "Browse stream ↗"
+  },
+  "ui_eaf88cef1ac7": {
+    "other": "Editorial journals"
+  },
+  "ui_bfba822eb5bf": {
+    "other": "Archived social streams"
+  },
+  "ui_bf4b4d3fc9c9": {
+    "other": "Relic of the social web"
+  },
+  "ui_555aae4aae69": {
+    "other": "Visual archive"
+  },
+  "ui_0ebcb691f60b": {
+    "other": "Visual journal"
+  },
+  "ui_6d450968584d": {
+    "other": "Editorial memory"
+  },
+  "ui_caf833eb3673": {
+    "other": "Previous post"
+  },
+  "ui_77f41eb5a566": {
+    "other": "Next post"
+  },
+  "ui_d2bbd389dcae": {
+    "other": "Making-of journal ·"
+  },
+  "ui_e214b8a29923": {
+    "other": "Document"
+  },
+  "ui_bbef3a4cc8d5": {
+    "other": "A procrastinator’s journal"
+  },
+  "ui_8f7b4410d8e0": {
+    "other": "min read"
+  },
+  "ui_55f8d31e7868": {
+    "other": "Enlarge document"
+  },
+  "ui_c36f99e795a5": {
+    "other": "Close document"
+  },
+  "ui_5c0eb9ee5ff6": {
+    "other": "Enlarged document"
+  },
+  "ui_65cf41d36ff5": {
+    "other": "Post navigation"
+  },
+  "ui_9826b821e01e": {
+    "other": "Publish on LinkedIn"
+  },
+  "ui_c000b20dd2f3": {
+    "other": "Visual archive · American propaganda ·"
+  },
+  "ui_86cc18801b11": {
+    "other": "View poster"
+  },
+  "ui_1f910d98d7d2": {
+    "other": "Year"
+  },
+  "ui_5d9649a95fd4": {
+    "other": "Posts from"
+  },
+  "ui_01aef494f3c2": {
+    "other": "Read post ↗"
+  },
+  "ui_1bbb61000ea4": {
+    "other": "Timeline"
+  },
+  "ui_7f44b11de375": {
+    "other": "Syndication"
+  },
+  "ui_7d782a26d427": {
+    "other": "posts · since"
+  },
+  "ui_57d7f743bbd1": {
+    "other": "Journal"
+  },
+  "ui_3ec988c1b0f8": {
+    "other": "← Previous"
+  },
+  "ui_ea96c11e6b8f": {
+    "other": "Next →"
+  },
+  "ui_45b269f37e00": {
+    "other": "Register"
+  },
+  "ui_fb0db8a4d5d1": {
+    "other": "entries"
+  },
+  "ui_75cdadd0a471": {
+    "other": "Previous addresses"
+  },
+  "ui_9cbcf9c39727": {
+    "other": "Latest website capture"
+  },
+  "ui_4f28420844b8": {
+    "other": "Archived capture"
+  },
+  "ui_034f8946fc60": {
+    "other": "OOBLIK — thematic feature"
+  },
+  "ui_570547943a82": {
+    "other": "Web Digest’s — edition"
+  },
+  "ui_54ec24a19c21": {
+    "other": "Remove"
+  },
+  "ui_0666141a3685": {
+    "other": "documented links"
+  },
+  "ui_66df5c77c328": {
+    "other": "Every Digest or Focus keeps its date, links, descriptions and tags so it remains useful long after publication."
+  },
+  "ui_48d55d78f37b": {
+    "other": "Thematic feature"
+  },
+  "ui_b8056d299bbe": {
+    "other": "Edition"
+  },
+  "ui_b0d02ed5d8e4": {
+    "other": "All editions"
+  },
+  "ui_3e1d77f3e4df": {
+    "other": "categories ↗"
+  },
+  "ui_60b704e348d0": {
+    "other": "Archive pagination"
+  },
+  "ui_d7027f546544": {
+    "other": "Tag archive"
+  },
+  "ui_06e18afc1753": {
+    "other": "All resources associated with this tag."
+  },
+  "ui_79e981e70f24": {
+    "other": "Wander"
+  },
+  "ui_4d717fcc10e1": {
+    "other": "Topic index"
+  },
+  "ui_139d373d498d": {
+    "other": "The Digest’s recurring interests, to explore rather than catalogue."
+  },
+  "ui_d2358889ddbb": {
+    "other": "Popular"
+  },
+  "ui_a32a18fcead6": {
+    "other": "Search tags"
+  },
+  "ui_f8bda430aa0d": {
+    "other": "Follow"
+  },
+  "ui_fefcdce4b70e": {
+    "other": "a thread."
+  },
+  "ui_e51710975370": {
+    "other": "Hover over a word to pause it; click to follow the thread."
+  },
+  "ui_8283a17c3bb5": {
+    "other": "topics · size reflects the number of links"
+  },
+  "ui_f3c4629f8898": {
+    "other": "Explore tags"
+  },
+  "ui_57cbb16a8769": {
+    "other": "search for a topic"
+  },
+  "ui_cb1eb30e79bd": {
+    "other": "Tag order"
+  },
+  "ui_68b38a86c0fd": {
+    "other": "Choose an initial"
+  },
+  "ui_c6db3ae3a9da": {
+    "other": "Tags to explore"
+  },
+  "ui_49ba3292420c": {
+    "other": "Cancel"
+  },
+  "ui_dbfb17902f08": {
+    "other": "Confirm publication"
+  },
+  "ui_6525ba538c05": {
+    "other": "The count includes the text, hashtags and shared URL."
+  },
+  "ui_b6c1ac0f3a70": {
+    "other": "Prepare LinkedIn post"
+  },
+  "ui_86a6f7360145": {
+    "other": "Native publication"
+  },
+  "ui_d5507cff509b": {
+    "other": "Regenerate image"
+  },
+  "ui_8992e83e9b6c": {
+    "other": "Post text"
+  },
+  "ui_d9437e987dab": {
+    "other": "Close composer"
+  },
+  "ui_cbf41273aaa8": {
+    "other": "No previous link"
+  },
+  "ui_e3bc4343493e": {
+    "other": "No next link"
+  },
+  "ui_bcd95084f50a": {
+    "other": "No summary is available for this resource yet."
+  },
+  "ui_718559833d41": {
+    "other": "These tags were already present."
+  },
+  "ui_a7a204f82422": {
+    "other": "This resource was already published on LinkedIn."
+  },
+  "ui_a3f3adecd1f3": {
+    "other": "The owner session has expired. Sign in again at /admin."
+  },
+  "ui_bfaaf626a54e": {
+    "other": "Removal failed."
+  },
+  "ui_c231fade5de8": {
+    "other": "The removal could not be saved."
+  },
+  "ui_cefbd077c512": {
+    "other": "The tags could not be saved."
+  },
+  "ui_29f5d0bf1a83": {
+    "other": "Link removed. The public version will update in a few minutes."
+  },
+  "ui_f0c2c014caa0": {
+    "other": "Adding tags failed."
+  },
+  "ui_423f08d8bdef": {
+    "other": "The search index could not be loaded. Please try again shortly."
+  },
+  "ui_13e4417de1b1": {
+    "other": "Resource published on LinkedIn with the full-size image."
+  },
+  "ui_aa4c2095a099": {
+    "other": "Tags added. The public version will update in a few minutes."
+  },
+  "ui_ac50e1f07417": {
+    "other": "Check URL"
+  },
+  "ui_ad3a8a04b088": {
+    "other": "Removing…"
+  },
+  "ui_bc79d30ea22e": {
+    "other": "most frequent"
+  },
+  "ui_11b3ebe649e7": {
+    "other": "topic"
+  },
+  "ui_2608e7d19aba": {
+    "other": "topics"
+  },
+  "ui_e3dcbf62ba3d": {
+    "other": "No automatic hashtags for this post."
+  },
+  "ui_5ce5b094b95e": {
+    "other": "Image ready: black and white, coral and the link title."
+  },
+  "ui_2060d65352b9": {
+    "other": "This LinkedIn publication is already in progress in another tab."
+  },
+  "ui_7ce79a39d0b2": {
+    "other": "LinkedIn account connected. Click to publish this edition."
+  },
+  "ui_98af8e1ef706": {
+    "other": "Unable to prepare the LinkedIn image."
+  },
+  "ui_feb69c582340": {
+    "other": "Unable to regenerate the image at the moment."
+  },
+  "ui_b0657e033fb2": {
+    "other": "Image creation failed. You can try again."
+  },
+  "ui_95892ecc2931": {
+    "other": "The new capture failed."
+  },
+  "ui_b1763f8a3aa7": {
+    "other": "LinkedIn publication failed. No second post was created automatically."
+  },
+  "ui_668288e16b53": {
+    "other": "LinkedIn account verification failed."
+  },
+  "ui_581ab8625b9a": {
+    "other": "Link removal failed."
+  },
+  "ui_d4c953041c19": {
+    "other": "The website blocked the capture. An OOBLIK card was created for this link."
+  },
+  "ui_53194accc1cf": {
+    "other": "Link removed. A new deployment has started."
+  },
+  "ui_d87b4014c983": {
+    "other": "The LinkedIn application still needs to be configured in the administration."
+  },
+  "ui_2c0c9b612501": {
+    "other": "Preparing the image for this link…"
+  },
+  "ui_44257e7084d8": {
+    "other": "Published with the full-size image."
+  },
+  "ui_d9aef6c42c4f": {
+    "other": "Publish again"
+  },
+  "ui_891d8a0e2936": {
+    "other": "Publish again on LinkedIn"
+  },
+  "ui_8adb24563421": {
+    "other": "Uploading the full-size image and publishing…"
+  },
+  "ui_70dacd16a690": {
+    "other": "View on LinkedIn ↗"
+  },
+  "ui_91b54c1dc63f": {
+    "other": "Checking LinkedIn account…"
+  },
+  "ui_041c3257367f": {
+    "other": "this link"
+  },
+  "ui_1d30defedaef": {
+    "other": "— show summary"
+  },
+  "ui_889e1c2f5289": {
+    "other": "Streams"
+  },
+  "ui_71e26a84cf44": {
+    "other": "Archive navigation"
+  },
+  "ui_441227c91d39": {
+    "other": "A selection of links about “{label}”."
+  },
+  "ui_9367f990e76e": {
+    "other": "{title} — show summary"
+  },
+  "ui_f2aa497d37ae": {
+    "other": "Folio {folio}/{pages} · {count} links"
+  },
+  "ui_0f298021dba2": {
+    "other": "DEAD LINK"
+  },
+  "ui_dd3ad91638f1": {
+    "other": "Check the archived URL for {title}"
+  },
+  "ui_ae749e926e46": {
+    "other": "Check the original URL for {title}"
+  },
+  "ui_7da5ffd9a2ec": {
+    "other": "Visit {host}"
+  },
+  "ui_741ebca5ffcb": {
+    "other": "Previous link: {title}"
+  },
+  "ui_ca5f0d81960f": {
+    "other": "Next link: {title}"
+  },
+  "ui_e494c46026d0": {
+    "other": "{shown} results out of {total} for “{query}”"
+  },
+  "ui_ab72c2f068df": {
+    "other": "No topics for “{query}”"
+  },
+  "ui_98b9cf6486d1": {
+    "other": "starting with {letter}"
+  },
+  "ui_8f3e05fc3d77": {
+    "other": "to explore"
+  },
+  "ui_30fb81880a86": {
+    "other": "{shown} topics {label} out of {total} · search to reveal more"
+  },
+  "ui_919a1b5b0839": {
+    "other": "Journal timeline navigation"
+  },
+  "ui_d862fb325049": {
+    "other": "Focus poster combining technical archives and typography"
+  },
+  "ui_aa4c5d054003": {
+    "other": "Generative poster for this Digest edition"
+  },
+  "ui_22cb597ce186": {
+    "other": "Publish this link on LinkedIn"
+  },
+  "ui_197a19e5dc80": {
+    "other": "Remove this link from the Digest"
+  },
+  "ui_8f1c23091cfb": {
+    "other": "Archived editions"
+  },
+  "ui_5ab4ec640d65": {
+    "other": "Close"
+  },
+  "ui_5c324aba1f73": {
+    "other": "in the Northwestern University Libraries collections"
+  },
+  "ui_0447f8d1cb0f": {
+    "other": "publications ·"
+  },
+  "about_liquid_cue": {
+    "other": "splash?"
+  },
+  "about_liquid_hover": {
+    "other": "hover over"
+  },
+  "about_liquid_text": {
+    "other": "the text"
+  },
+  "about_liquid_credit": {
+    "other": "thanks, pretext.js!!!"
+  },
+  "translation_pending_detail": {
+    "other": "Translation pending · original text shown below."
+  },
+  "archive_og_image_alt": {
+    "other": "Generative poster for Digest edition %s"
+  },
+  "procrastinator_stats_label": {
+    "other": "Journal statistics"
+  }
+}

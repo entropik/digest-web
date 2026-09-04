@@ -1,3 +1,4 @@
+import { translationPanel, translationCss, translationAdminJs } from "./translation-admin-assets.js";
 import { typographyJs } from "./typography-asset.js";
 
 const pageShell = (body: string, title = "Administration · Digest") => `<!doctype html>
@@ -62,7 +63,7 @@ export const dashboardPage = (name: string) =>
         <a href="/"><span>Digest</span><span aria-hidden="true">↗</span></a>
         <a href="https://chromewebstore.google.com/detail/nlejcccmpbajpoaknlecegkpgdegiflf" target="_blank" rel="noreferrer"><span>Extension</span><span aria-hidden="true">↗</span></a>
         <button id="admin-logout" type="button">Déconnexion</button>
-        <span class="admin-version" aria-label="Version v1.26.3">v1.26.3</span>
+        <span class="admin-version" aria-label="Version v1.27.4">v1.27.4</span>
       </div>
     </header>
     <nav class="admin-nav" aria-label="Administration">
@@ -75,9 +76,11 @@ export const dashboardPage = (name: string) =>
       <button type="button" data-panel-button="themes" aria-pressed="false"><span class="admin-nav-index">07</span><span class="admin-nav-label">Tags</span></button>
       <button type="button" data-panel-button="linkedin" aria-pressed="false"><span class="admin-nav-index">08</span><span class="admin-nav-label">LinkedIn</span></button>
       <button type="button" data-panel-button="hidden" aria-pressed="false"><span class="admin-nav-index">09</span><span class="admin-nav-label">Liens retirés</span></button>
+      <button type="button" data-panel-button="translations" aria-pressed="false"><span class="admin-nav-index">10</span><span class="admin-nav-label">Traductions</span></button>
     </nav>
     <p class="feedback" id="admin-feedback" role="status" aria-live="polite"></p>
 
+    ${translationPanel}
     <section class="admin-panel is-active" data-panel="drafts">
       <div class="section-heading">
         <div><p class="kicker">File privée</p><h2>Brouillons</h2></div>
@@ -204,7 +207,7 @@ export const dashboardPage = (name: string) =>
     </section>
   `);
 
-export const adminCss = `
+export const adminCss = translationCss + `
 :root{color-scheme:light;--paper:#f5f3ee;--ink:#171717;--muted:#68645e;--line:#d7d2c9;--accent:#ff5a36;--accent-text:#b72e10;--ok:#237a4b;--warn:#9b6400;--error:#8f2d1d;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);line-break:strict;word-break:normal}
@@ -243,7 +246,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 .admin-nav-count{color:var(--accent-text);font-size:.68rem}
 .admin-nav button.is-active .admin-nav-index{color:#aaa49b}
 .admin-nav button.is-active .admin-nav-count{color:var(--accent)}
-.admin-nav button:last-child{grid-column:span 2}
+.admin-nav button:last-child{grid-column:auto}
 .admin-panel{display:none;padding:2rem 0}
 .admin-panel.is-active{display:block}
 .section-heading{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:1.25rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--line)}
@@ -352,7 +355,7 @@ input,select,textarea{width:100%;border:1px solid var(--line);border-radius:0;ba
 @media(min-width:1000px){.admin-nav{position:sticky;z-index:10;top:0}}
 @media(max-width:900px){.admin-nav{grid-template-columns:repeat(3,minmax(0,1fr))}.admin-nav button:last-child{grid-column:span 1}.section-heading{grid-template-columns:1fr}.section-heading .toolbar{width:100%;justify-self:stretch}}
 @media(max-width:760px){main{width:min(100% - 1rem,1240px);padding-top:0}.admin-header,.section-heading,.publication-card,.admin-link,.category-row,.category-create-form,.theme-row,.theme-create-form,.tag-register-tools{display:grid;grid-template-columns:1fr}.header-actions{grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto;min-width:0;border-top:1px solid var(--line);border-left:0}.header-actions a,.header-actions button{border-right:1px solid var(--line);border-bottom:0}.admin-version{grid-column:1/-1;border-top:1px solid var(--line)}.admin-heading{padding:1rem}.admin-heading .intro{max-width:56ch}.draft-grid,.published-grid,.field-row{grid-template-columns:1fr}.toolbar{width:100%}.toolbar input,.toolbar select{min-width:0}.section-heading .toolbar{width:100%;justify-self:stretch}.section-heading .toolbar>*{flex:1 1 12rem}.tag-register-stats{min-width:0;width:100%}.tag-register-tools>input{max-width:none}.tag-register-views{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.theme-actions{justify-content:flex-start}.progress-steps{font-size:.62rem}}
-@media(max-width:520px){h1{font-size:clamp(2.5rem,14vw,4rem)}h2{font-size:clamp(1.9rem,11vw,3rem)}.admin-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-nav button{min-height:48px}.admin-nav button:last-child{grid-column:span 2}.header-actions a,.header-actions button{gap:.35rem;padding-inline:.5rem;font-size:.62rem}.section-heading{gap:.8rem}.toolbar,.form-actions,.edition-lifecycle{display:grid;grid-template-columns:1fr;width:100%}.draft-toolbar,.edition-toolbar{grid-template-columns:1fr;width:100%!important}.toolbar>*+*,.form-actions>*+*,.edition-toolbar>*+*{margin-top:-1px;margin-left:0}.toolbar>*,.form-actions>*{width:100%}.category-actions,.theme-actions{display:grid;grid-template-columns:1fr}.category-actions>*+*,.theme-actions>*+*{margin-top:-1px;margin-left:0}.publication-links>*+*{margin-top:-1px;margin-left:0}.publication-links{display:grid}}
+@media(max-width:520px){h1{font-size:clamp(2.5rem,14vw,4rem)}h2{font-size:clamp(1.9rem,11vw,3rem)}.admin-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-nav button{min-height:48px}.admin-nav button:last-child{grid-column:auto}.header-actions a,.header-actions button{gap:.35rem;padding-inline:.5rem;font-size:.62rem}.section-heading{gap:.8rem}.toolbar,.form-actions,.edition-lifecycle{display:grid;grid-template-columns:1fr;width:100%}.draft-toolbar,.edition-toolbar{grid-template-columns:1fr;width:100%!important}.toolbar>*+*,.form-actions>*+*,.edition-toolbar>*+*{margin-top:-1px;margin-left:0}.toolbar>*,.form-actions>*{width:100%}.category-actions,.theme-actions{display:grid;grid-template-columns:1fr}.category-actions>*+*,.theme-actions>*+*{margin-top:-1px;margin-left:0}.publication-links>*+*{margin-top:-1px;margin-left:0}.publication-links{display:grid}}
 @media(prefers-reduced-motion:reduce){.progress-segment.is-active::after{width:100%;animation:none;opacity:.72}}
 `;
 
@@ -670,4 +673,4 @@ const initialize=async()=>{
   try{options=await api("/api/admin/curation/options");const publications=loadPublications().then((items)=>{resumePublicationPolling(items);return items});await Promise.all([loadDrafts(),publications,loadEditions(),loadCategories(),loadThemes(),loadHidden(),loadLinkedIn()]);if(new URLSearchParams(location.search).get("linkedin")==="connected"){openPanel("linkedin");show("Compte LinkedIn connecté.");history.replaceState(null,"","/admin")}}catch(error){show("Initialisation impossible : "+error.message)}
 };
 initialize();
-`;
+` + "\n" + translationAdminJs;

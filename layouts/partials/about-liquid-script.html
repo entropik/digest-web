@@ -1,0 +1,4 @@
+{{- if eq .RelPermalink ("/a-propos/" | relLangURL) -}}
+  {{- $script := resources.FromString "js/about-liquid.js" (readFile "static/js/about-liquid.js") | minify | fingerprint -}}
+  <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" defer></script>
+{{- end -}}

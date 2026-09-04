@@ -1,0 +1,21 @@
+{{- $entries := dict -}}{{- $artwork := dict -}}
+{{- if os.FileExists ".build-i18n/manifest.json" -}}
+  {{- $manifest := os.ReadFile ".build-i18n/manifest.json" | transform.Unmarshal -}}
+  {{- range $manifest.items -}}
+    {{- $id := .id -}}{{- $translated := dict -}}
+    {{- range $field, $source := .fields -}}
+      {{- $entry := index (index (hugo.Data.translations_en.entries | default dict) $id | default dict) $field -}}
+      {{- if and $entry (eq $entry.hash $source.hash) -}}{{- $translated = merge $translated (dict $field $entry) -}}{{- end -}}
+    {{- end -}}
+    {{- if $translated -}}{{- $entries = merge $entries (dict $id $translated) -}}{{- end -}}
+    {{- with .artwork -}}
+      {{- $image := index (hugo.Data.translations_en.artwork | default dict) .date -}}
+      {{- if and $image $translated.title $translated.description -}}
+        {{- if and (eq $image.title $translated.title.text) (eq $image.description $translated.description.text) (eq $image.linkCount .linkCount) (eq $image.editorialType .editorialType) (os.FileExists (printf "static/social/en/%s.png" .date)) (os.FileExists (printf "static/social/en/%s-linkedin.png" .date)) -}}
+          {{- $artwork = merge $artwork (dict .date $image) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- dict "version" 1 "revision" (partial "translation-revision.html" (dict "entries" $entries "artwork" $artwork)) "sourceRevision" (hugo.Data.translations_en.revision | default "") "entries" $entries "artwork" $artwork | jsonify -}}

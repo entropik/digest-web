@@ -1,15 +1,15 @@
 {{ define "main" }}
-{{ $linksByDate := partialCached "public-links-by-date.html" hugo.Data.links "public-links-by-date" }}
+{{ $linksByDate := partialCached "public-links-by-date.html" hugo.Data.links "public-links-by-date" site.Language.Lang }}
 {{ $paginator := .Paginate .Pages.ByDate.Reverse 24 }}
 <header class="archives-hero">
   <div>
-    <p class="digest-kicker">Toutes les éditions</p>
+    <p class="digest-kicker">{{ i18n "ui_b0d02ed5d8e4" }}</p>
     <h1>Archives</h1>
-    <p>Chaque Digest ou Focus garde sa date, ses liens, ses descriptions et ses tags pour rester consultable longtemps après sa publication.</p>
+    <p>{{ i18n "ui_66df5c77c328" }}</p>
   </div>
 </header>
 
-<section class="archive-editions" aria-label="Éditions archivées">
+<section class="archive-editions" aria-label="{{ i18n "ui_8f1c23091cfb" }}">
   {{ range $paginator.Pages }}
     {{ $digestDate := .Params.digest_date }}
     {{ $isFocus := eq (.Params.editorial_type | default "digest") "focus" }}
@@ -29,11 +29,12 @@
             </span>
         {{ end }}
         <span class="archive-edition-content">
-          <span class="archive-edition-kicker">{{ if $isFocus }}Dossier thématique{{ else }}Édition{{ end }}</span>
+          <span class="archive-edition-kicker">{{ if $isFocus }}{{ i18n "ui_48d55d78f37b" }}{{ else }}{{ i18n "ui_b8056d299bbe" }}{{ end }}</span>
           <h2>{{ if $isFocus }}<span class="archive-focus-prefix">FOCUS -</span>{{ .Title }}{{ else }}{{ partial "archive-title.html" .Title }}{{ end }}</h2>
+          {{ if .Params.translation_pending }}<span class="translation-pending">Translation pending</span>{{ end }}
           <span class="archive-edition-meta">
-            <span>{{ len $links }} liens</span>
-            <span>{{ len (uniq $categories) }} rubriques ↗</span>
+            <span>{{ len $links }} {{ i18n "ui_132d6192dc26" }}</span>
+            <span>{{ len (uniq $categories) }} {{ i18n "ui_3e1d77f3e4df" }}</span>
           </span>
         </span>
       </a>
@@ -41,17 +42,17 @@
   {{ end }}
 </section>
 {{ if gt $paginator.TotalPages 1 }}
-  <nav class="archive-pagination" aria-label="Pagination des archives">
+  <nav class="archive-pagination" aria-label="{{ i18n "ui_60b704e348d0" }}">
     {{ with $paginator.Prev }}
-      <a href="{{ .URL }}" rel="prev"><span aria-hidden="true">←</span><span>Précédent</span></a>
+      <a href="{{ .URL }}" rel="prev"><span aria-hidden="true">←</span><span>{{ i18n "ui_a527f171f7b6" }}</span></a>
     {{ else }}
-      <span class="archive-pagination-disabled" aria-hidden="true"><span>←</span><span>Précédent</span></span>
+      <span class="archive-pagination-disabled" aria-hidden="true"><span>←</span><span>{{ i18n "ui_a527f171f7b6" }}</span></span>
     {{ end }}
-    <span class="archive-pagination-folio">Folio {{ printf "%02d" $paginator.PageNumber }}/{{ printf "%02d" $paginator.TotalPages }} · {{ $paginator.TotalNumberOfElements }} éditions</span>
+    <span class="archive-pagination-folio">Folio {{ printf "%02d" $paginator.PageNumber }}/{{ printf "%02d" $paginator.TotalPages }} · {{ $paginator.TotalNumberOfElements }} {{ i18n "ui_1a1630fcc1d7" }}</span>
     {{ with $paginator.Next }}
-      <a href="{{ .URL }}" rel="next"><span>Suivant</span><span aria-hidden="true">→</span></a>
+      <a href="{{ .URL }}" rel="next"><span>{{ i18n "ui_596d29a7e33c" }}</span><span aria-hidden="true">→</span></a>
     {{ else }}
-      <span class="archive-pagination-disabled" aria-hidden="true"><span>Suivant</span><span>→</span></span>
+      <span class="archive-pagination-disabled" aria-hidden="true"><span>{{ i18n "ui_596d29a7e33c" }}</span><span>→</span></span>
     {{ end }}
   </nav>
 {{ end }}

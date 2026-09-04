@@ -1,3 +1,4 @@
+{{ partialCached "language-data.html" . site.Language.Lang }}
 {{- $externalLinks := resources.Get "js/external-links.js" | minify | fingerprint }}
 <script src="{{ $externalLinks.RelPermalink }}" integrity="{{ $externalLinks.Data.Integrity }}" defer></script>
 {{- $archiveFavorites := resources.Get "js/archive-favorites.js" | minify | fingerprint }}

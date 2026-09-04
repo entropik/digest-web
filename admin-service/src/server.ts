@@ -35,6 +35,9 @@ import { LinkedInError, LinkedInService } from "./linkedin.js";
 import { LinkSocialImageService } from "./link-social-image.js";
 import { UnsafeUrlError } from "./urls.js";
 
+import { createTranslationService } from "./translation-runtime.js";
+import { TranslationError } from "./deepl.js";
+
 type Variables = {
   admin: AdminSession;
 };
@@ -43,6 +46,7 @@ const app = new Hono<{ Variables: Variables }>();
 const mutationAttempts = new Map<string, number[]>();
 const curation = new CurationService(new CurationStore(authDatabase));
 const linkedin = new LinkedInService(authDatabase);
+const translations = createTranslationService(authDatabase);
 const linkSocialImages = new LinkSocialImageService(
   config.linkedinCaptureDirectory,
 );
@@ -192,6 +196,8 @@ const handle = async <T>(
   try {
     return context.json(await operation());
   } catch (error) {
+    if (error instanceof TranslationError) return context.json({ error: error.code }, 502);
+    if (error instanceof Error && ["MANIFEST_UNAVAILABLE", "BACKFILL_BUDGET_EXHAUSTED"].includes(error.message)) return context.json({ error: error.message }, 409);
     if (error instanceof CurationError) {
       return context.json(
         { error: error.code, details: error.details },
@@ -612,9 +618,38 @@ app.post("/api/admin/editions/:date/unpublish", (context) =>
   editionTransition(context, "unpublish"),
 );
 
+app.get("/api/admin/translations/status", context => handle(context, () => translations.status()));
+app.get("/api/admin/translations/items", context => handle(context, () => ({
+  items: translations.store.items(100, Math.floor(Math.max(0, Math.min(30000, Number(context.req.query("offset")) || 0)))),
+})));
+app.get("/api/admin/translations/history", context => handle(context, () => {
+  const month = context.req.query("month") || "";
+  if (month && !/^\d{4}-\d{2}$/.test(month)) throw new CurationError("INVALID_MONTH");
+  return { days: translations.store.history(month) };
+}));
+app.post("/api/admin/translations/:action", context => handle(context, async () => {
+  const body = await jsonBody<{ confirm?: boolean; uncertainHashes?: unknown }>(context);
+  requireConfirmation(body);
+  switch (context.req.param("action")) {
+    case "refresh": await translations.sync(); await translations.refreshQuota(); break;
+    case "start": await translations.sync(); await translations.refreshQuota(); translations.store.start(); break;
+    case "pause": translations.store.pause(); break;
+    case "resume": translations.store.resume(); break;
+    case "retry":
+      if (body.uncertainHashes !== undefined && (!Array.isArray(body.uncertainHashes) || body.uncertainHashes.length > 50 || body.uncertainHashes.some(hash => typeof hash !== "string" || !/^[a-f0-9]{64}$/.test(hash)))) throw new CurationError("INVALID_UNCERTAIN_HASHES");
+      if (translations.client.key && translations.store.overview().counts.errors) await translations.refreshQuota();
+      translations.store.retry(body.uncertainHashes as string[] | undefined);
+      break;
+    default: throw new CurationError("INVALID_TRANSLATION_ACTION");
+  }
+  if (context.req.param("action") !== "pause" && context.req.param("action") !== "refresh") void translations.tick();
+  return translations.status();
+}));
+
 app.notFound((context) => context.json({ error: "NOT_FOUND" }, 404));
 
 if (config.nodeEnv !== "test") {
+  translations.startWorker();
   serve({ fetch: app.fetch, port: config.port }, (info) => {
     console.log(`Digest admin service listening on http://127.0.0.1:${info.port}`);
   });

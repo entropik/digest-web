@@ -1,5 +1,11 @@
 # Exploitation de l’administration
 
+## Traductions
+
+La [procédure FR / GB](translations.md) décrit la configuration privée DeepL,
+le plafond de rattrapage, les sauvegardes, les erreurs à facturation incertaine
+et les reprises de déploiement sans retraduction.
+
 ## Cron et version Node de l’administration
 
 Le site statique et le service Node sont déployés séparément. Une exécution

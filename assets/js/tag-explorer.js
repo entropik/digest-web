@@ -1,4 +1,6 @@
 (() => {
+  const t = (text, values = {}) => (window.digestI18n?.t(text) || text).replace(/\{(\w+)\}/g, (_, key) => String(values[key] ?? "{" + key + "}"));
+  const locale = window.digestI18n?.locale || "fr-FR";
   const explorer = document.querySelector("[data-tag-explorer]");
   const scene = explorer?.querySelector("[data-tag-scene]");
   const search = explorer?.querySelector("[data-tag-search]");
@@ -14,7 +16,7 @@
     value
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
-      .toLocaleLowerCase("fr");
+      .toLocaleLowerCase(locale);
 
   const hash = (value) => {
     let result = 2166136261;
@@ -56,12 +58,12 @@
     return 50;
   };
 
-  const compareAlpha = (a, b) => a.tag.localeCompare(b.tag, "fr");
+  const compareAlpha = (a, b) => a.tag.localeCompare(b.tag, locale);
   const comparePopular = (a, b) => b.count - a.count || compareAlpha(a, b);
   const compareWander = (a, b) =>
     ((a.seed ^ wanderSeed) >>> 0) - ((b.seed ^ wanderSeed) >>> 0);
   const initialFor = (record) => {
-    const initial = record.normalized.charAt(0).toLocaleUpperCase("fr");
+    const initial = record.normalized.charAt(0).toLocaleUpperCase(locale);
     return /^[A-Z]$/.test(initial) ? initial : "#";
   };
   const alphabetLetters = ["#", ..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
@@ -78,7 +80,7 @@
     button.dataset.tagLetter = letter;
     button.textContent = letter;
     button.disabled = count === 0;
-    button.setAttribute("aria-label", `${letter}, ${count} ${count === 1 ? "thème" : "thèmes"}`);
+    button.setAttribute("aria-label", `${letter}, ${count} ${count === 1 ? t("thème") : t("thèmes")}`);
     button.setAttribute("aria-pressed", String(letter === selectedLetter));
     button.classList.toggle("is-active", letter === selectedLetter);
     alphabet.append(button);
@@ -200,13 +202,12 @@
     const shown = visible.length;
     if (query) {
       status.textContent = matches.length
-        ? `${shown} résultat${shown > 1 ? "s" : ""}${matches.length > shown ? ` sur ${matches.length}` : ""} pour « ${search.value.trim()} »`
-        : `Aucun thème pour « ${search.value.trim()} »`;
+        ? t("{shown} résultats sur {total} pour « {query} »", {shown,total:matches.length,query:search.value.trim()})
+        : t("Aucun thème pour « {query} »", {query:search.value.trim()});
     } else {
-      const label =
-        mode === "popular" ? "les plus présents" : mode === "alpha" ? `en ${selectedLetter}` : "pour flâner";
+      const label = mode === "popular" ? t("les plus présents") : mode === "alpha" ? t("en {letter}", {letter:selectedLetter}) : t("pour flâner");
       const total = mode === "alpha" ? matches.length : records.length;
-      status.textContent = `${shown} thèmes ${label} sur ${total} · cherchez pour révéler les autres`;
+      status.textContent = t("{shown} thèmes {label} sur {total} · cherchez pour révéler les autres", {shown,label,total});
     }
 
     requestAnimationFrame(() => {
@@ -319,6 +320,15 @@
     draw();
   };
 
+  const startAnimation = () => {
+    if (!frame) frame = requestAnimationFrame(animate);
+  };
+
+  const stopAnimation = () => {
+    cancelAnimationFrame(frame);
+    frame = 0;
+  };
+
   const setLocked = (record, locked) => {
     record.locked = locked;
     record.element.classList.toggle("is-locked", locked);
@@ -374,8 +384,9 @@
   explorer.classList.add("is-enhanced");
   document.fonts.ready.then(() => {
     update();
-    frame = requestAnimationFrame(animate);
+    startAnimation();
   });
 
-  window.addEventListener("pagehide", () => cancelAnimationFrame(frame), { once: true });
+  window.addEventListener("pagehide", stopAnimation);
+  window.addEventListener("pageshow", startAnimation);
 })();

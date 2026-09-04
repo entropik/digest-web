@@ -6,12 +6,12 @@ sur l’installation et l’exploitation.
 
 ## État documenté
 
-Dernière mise à jour : 2 septembre 2026.
+Dernière mise à jour : 3 septembre 2026.
 
 - 4 987 liens dans le catalogue, avec autant d’URL et d’identifiants uniques ;
 - 844 éditions archivées ;
 - 966 routes de tags cohérentes ;
-- journal couvrant treize journées actives, du 24 juillet au 2 septembre 2026 ;
+- journal couvrant quatorze journées actives, du 24 juillet au 3 septembre 2026 ;
 - site public Hugo, administration propriétaire et extension Chrome/Firefox de
   curation, taxonomie administrable, import patrimonial WordPress, images
   sociales et publication LinkedIn native.
@@ -31,6 +31,8 @@ Dernière mise à jour : 2 septembre 2026.
   validation, signature et installation de la variante Firefox.
 - [Exploitation de l’administration](operations.md) : récupération des états
   de publication ambigus, environnement Node du cron et opérations sensibles.
+- [Traductions FR / GB](translations.md) : crédit Developer, file progressive,
+  suivi de couverture, construction bilingue et reprise des erreurs.
 
 ## Règle de maintenance
 

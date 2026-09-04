@@ -1,4 +1,5 @@
 (() => {
+  if (document.documentElement.lang.toLowerCase().startsWith("en")) return;
   // Display only: never rewrite stored content, attributes, code or editor values.
   const excluded = 'script, style, noscript, pre, code, kbd, samp, textarea, input, select, svg, math, [contenteditable], [data-typography="off"]';
   const normalize = (node) => {

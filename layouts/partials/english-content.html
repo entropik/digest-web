@@ -1,0 +1,13 @@
+{{- $html := . -}}
+{{- /* Only links to actual public pages change language. Assets and original external addresses stay intact. */ -}}
+{{- $routes := partialCached "public-route-map.html" "" -}}
+{{- range findRE `href="(?:https://digest\.ooblik\.com)?/[^"<>]*"` $html -}}
+  {{- $attribute := . -}}
+  {{- $url := strings.TrimSuffix `"` (strings.TrimPrefix `href="` $attribute) -}}
+  {{- $local := strings.TrimPrefix "https://digest.ooblik.com" $url -}}
+  {{- $route := index (split (index (split $local "?") 0) "#") 0 -}}
+  {{- if index $routes $route -}}
+    {{- $html = replace $html $attribute (printf `href="/en%s"` $local) -}}
+  {{- end -}}
+{{- end -}}
+{{- return $html -}}

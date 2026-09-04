@@ -1,0 +1,26 @@
+{{- $pending := false -}}
+{{- if eq site.Language.Lang "en" -}}
+  {{- range (.categories | default slice) -}}
+    {{- $category := . -}}
+    {{- $name := partial "translation-status.html" (dict "id" (printf "category:%s" $category) "field" "name" "source" $category) -}}
+    {{- if $name.pending -}}{{- $pending = true -}}{{- end -}}
+    {{- range first 1 (where hugo.Data.categories "name" $category) -}}
+      {{- with .description -}}
+        {{- $description := partial "translation-status.html" (dict "id" (printf "category:%s" $category) "field" "description" "source" .) -}}
+        {{- if $description.pending -}}{{- $pending = true -}}{{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- range (.tags | default slice) -}}
+    {{- $tag := . -}}
+    {{- $name := partial "translation-status.html" (dict "id" (printf "tag:%s" $tag) "field" "name" "source" $tag) -}}
+    {{- if $name.pending -}}{{- $pending = true -}}{{- end -}}
+    {{- range first 1 (where hugo.Data.tags "name" $tag) -}}
+      {{- with .description -}}
+        {{- $description := partial "translation-status.html" (dict "id" (printf "tag:%s" $tag) "field" "description" "source" .) -}}
+        {{- if $description.pending -}}{{- $pending = true -}}{{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $pending -}}
