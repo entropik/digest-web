@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://digest.ooblik.com/en/flux/journal-du-digest/2026-09-03/</loc>
+    <lastmod>2026-09-03T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://digest.ooblik.com/flux/journal-du-digest/2026-09-03/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-GB"
+                href="https://digest.ooblik.com/en/flux/journal-du-digest/2026-09-03/"
+                />
+  </url><url>
     <loc>https://digest.ooblik.com/en/</loc>
     <lastmod>2026-09-03T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -41,20 +55,6 @@
                 rel="alternate"
                 hreflang="en-GB"
                 href="https://digest.ooblik.com/en/flux/"
-                />
-  </url><url>
-    <loc>https://digest.ooblik.com/en/flux/journal-du-digest/2026-09-03/</loc>
-    <lastmod>2026-09-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr-FR"
-                href="https://digest.ooblik.com/flux/journal-du-digest/2026-09-03/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-GB"
-                href="https://digest.ooblik.com/en/flux/journal-du-digest/2026-09-03/"
                 />
   </url><url>
     <loc>https://digest.ooblik.com/en/archives/</loc>
@@ -197,20 +197,6 @@
                 href="https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-27/"
                 />
   </url><url>
-    <loc>https://digest.ooblik.com/en/flux/journal-procrastinateur/</loc>
-    <lastmod>2026-08-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr-FR"
-                href="https://digest.ooblik.com/flux/journal-procrastinateur/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-GB"
-                href="https://digest.ooblik.com/en/flux/journal-procrastinateur/"
-                />
-  </url><url>
     <loc>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-26/</loc>
     <lastmod>2026-08-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -225,18 +211,18 @@
                 href="https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-26/"
                 />
   </url><url>
-    <loc>https://digest.ooblik.com/en/archives/2026-08-25/</loc>
-    <lastmod>2026-08-25T00:00:00+00:00</lastmod>
+    <loc>https://digest.ooblik.com/en/flux/journal-procrastinateur/</loc>
+    <lastmod>2026-08-26T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://digest.ooblik.com/archives/2026-08-25/"
+                href="https://digest.ooblik.com/flux/journal-procrastinateur/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-GB"
-                href="https://digest.ooblik.com/en/archives/2026-08-25/"
+                href="https://digest.ooblik.com/en/flux/journal-procrastinateur/"
                 />
   </url><url>
     <loc>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-25/</loc>
@@ -253,6 +239,20 @@
                 href="https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-25/"
                 />
   </url><url>
+    <loc>https://digest.ooblik.com/en/archives/2026-08-25/</loc>
+    <lastmod>2026-08-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://digest.ooblik.com/archives/2026-08-25/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-GB"
+                href="https://digest.ooblik.com/en/archives/2026-08-25/"
+                />
+  </url><url>
     <loc>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-25/</loc>
     <lastmod>2026-08-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -267,20 +267,6 @@
                 href="https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-25/"
                 />
   </url><url>
-    <loc>https://digest.ooblik.com/en/archives/2026-08-24/</loc>
-    <lastmod>2026-08-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr-FR"
-                href="https://digest.ooblik.com/archives/2026-08-24/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-GB"
-                href="https://digest.ooblik.com/en/archives/2026-08-24/"
-                />
-  </url><url>
     <loc>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-24/</loc>
     <lastmod>2026-08-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -293,6 +279,20 @@
                 rel="alternate"
                 hreflang="en-GB"
                 href="https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-24/"
+                />
+  </url><url>
+    <loc>https://digest.ooblik.com/en/archives/2026-08-24/</loc>
+    <lastmod>2026-08-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://digest.ooblik.com/archives/2026-08-24/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-GB"
+                href="https://digest.ooblik.com/en/archives/2026-08-24/"
                 />
   </url><url>
     <loc>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-23/</loc>
@@ -337,6 +337,20 @@
                 href="https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-21/"
                 />
   </url><url>
+    <loc>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-20/</loc>
+    <lastmod>2026-08-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://digest.ooblik.com/flux/journal-procrastinateur/2026-08-20/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-GB"
+                href="https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-20/"
+                />
+  </url><url>
     <loc>https://digest.ooblik.com/en/archives/2026-08-20/</loc>
     <lastmod>2026-08-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -365,18 +379,18 @@
                 href="https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-20/"
                 />
   </url><url>
-    <loc>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-20/</loc>
-    <lastmod>2026-08-20T00:00:00+00:00</lastmod>
+    <loc>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-18/</loc>
+    <lastmod>2026-08-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://digest.ooblik.com/flux/journal-procrastinateur/2026-08-20/"
+                href="https://digest.ooblik.com/flux/journal-procrastinateur/2026-08-18/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-GB"
-                href="https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-20/"
+                href="https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-18/"
                 />
   </url><url>
     <loc>https://digest.ooblik.com/en/archives/2026-08-18/</loc>
@@ -391,20 +405,6 @@
                 rel="alternate"
                 hreflang="en-GB"
                 href="https://digest.ooblik.com/en/archives/2026-08-18/"
-                />
-  </url><url>
-    <loc>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-18/</loc>
-    <lastmod>2026-08-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr-FR"
-                href="https://digest.ooblik.com/flux/journal-procrastinateur/2026-08-18/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-GB"
-                href="https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-18/"
                 />
   </url><url>
     <loc>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-18/</loc>
