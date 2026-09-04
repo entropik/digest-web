@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "340b43b32272106c3520301b4ac786f36cf121821db2c70f1744779765e411b8",
+  "revision": "3698ea9cb97300a37cdc12e93dd5cb9acc2ef84c37b619aeb2a2c967ac0b8b3d",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -304,6 +304,12 @@
         "text": "Tags"
       }
     },
+    "tag:&quot;zone": {
+      "name": {
+        "hash": "653da76404c4a2ae9dc97f77db4f50ec4894b2667c4bad9557ca3d497745da2c",
+        "text": "&quot;area&quot;"
+      }
+    },
     "tag:11": {
       "name": {
         "hash": "35410757f97592c33680638448f4642a4c17c62e5736c0cd7a188303f5bd0c09",
@@ -344,6 +350,12 @@
       "name": {
         "hash": "192fc616b230fd3b4f412571f78c0d05b90fa7946ed05346a3ed38ceb66883bb",
         "text": "ARTPRICE"
+      }
+    },
+    "tag:AWS": {
+      "name": {
+        "hash": "61e67d8fe4f3bdf331e91253c25b02b4ba2ffb2dd5b1fa1b7c94f067c6d48085",
+        "text": "Amazon Web Services"
       }
     },
     "tag:Aaron-Swartz": {
@@ -496,6 +508,12 @@
         "text": "Foam"
       }
     },
+    "tag:FabriVU": {
+      "name": {
+        "hash": "6862adf5de04bf300a9dc40c8946d86478514d2dd3c3b00ce7be56f5dfda6945",
+        "text": "Factory Visitor"
+      }
+    },
     "tag:Figaro": {
       "name": {
         "hash": "4cf79d80fd3d355afd783051bce6c5bfa33efc0f9d8d45ec67821d313c8305a1",
@@ -518,6 +536,12 @@
       "name": {
         "hash": "58c1f27c3c315c085771dc7d584108039b0ab7cb9a5bd6b0362a29f9ac6ce81e",
         "text": "GeminiApp"
+      }
+    },
+    "tag:Generator": {
+      "name": {
+        "hash": "64ce60b89140ace60752ded13ea91fd88c7eb46088cc846f6556dc4194764745",
+        "text": "Generator"
       }
     },
     "tag:Git": {
@@ -718,6 +742,12 @@
         "text": "Paper"
       }
     },
+    "tag:Paris": {
+      "name": {
+        "hash": "627e407593b1748ea7b25e33abd3b6fb74569168de7319447f4cfcf39c945007",
+        "text": "Paris"
+      }
+    },
     "tag:PawsOnAppleTV": {
       "name": {
         "hash": "3eb54c78d08e197dfc27350ee4d2add5bbef42dcf7bbb928bb345084869770c0",
@@ -736,6 +766,12 @@
         "text": "PhotoMattFibre200"
       }
     },
+    "tag:Photographer": {
+      "name": {
+        "hash": "64dd76251e02bf107a5c70382bbffa649453e8bada7bf0ea6059c3a800c93565",
+        "text": "Photographer"
+      }
+    },
     "tag:Photokina": {
       "name": {
         "hash": "36c126a0714314a8dea7881c182b03512431f15163e56ef1ba0b412ce0b39165",
@@ -746,6 +782,12 @@
       "name": {
         "hash": "1f58ff33a3b6ba9a25539b3af0b87f4a4d7fbf5cadd69bd3478627fba2951e45",
         "text": "Pixelle"
+      }
+    },
+    "tag:Platine": {
+      "name": {
+        "hash": "65cb8d8732e687349a91f1e88187fec7ca5b20a2635aefca42ffa3b67c091f7c",
+        "text": "Platinum"
       }
     },
     "tag:Poissondavril": {
@@ -842,6 +884,12 @@
       "name": {
         "hash": "41685d03cdd3648806fbee062f0c84e4137bdbd7c407b78fc1818150d1d426ec",
         "text": "Syriza"
+      }
+    },
+    "tag:Tokyo": {
+      "name": {
+        "hash": "68b96e52135eeb82341afedc6954d84e8593ee7eb3d632ae2ff6f4f5f68c8b6f",
+        "text": "Tokyo"
       }
     },
     "tag:Transsibérien": {
@@ -950,6 +998,12 @@
         "text": "animation"
       }
     },
+    "tag:annuaire": {
+      "name": {
+        "hash": "65ac56ef7201b345aa6a47896507ce68f9d72508fe8161632c489908b422d980",
+        "text": "directory"
+      }
+    },
     "tag:architecture": {
       "name": {
         "hash": "02b1c8797a666d98a6e9ba22647ef9f07306be4d137480d4f3ca8894691d63c7",
@@ -1046,6 +1100,12 @@
       "name": {
         "hash": "24e0e0d040ffb15a1e21f54ab723c8f2a51d8f4cfff57de842755ad44b97235c",
         "text": "bache"
+      }
+    },
+    "tag:baryta": {
+      "name": {
+        "hash": "65bc4301e5932e76ca7b1211098ba78a94f46d5498309a7220add6965ce859e5",
+        "text": "baryta"
       }
     },
     "tag:baryte": {
@@ -1150,6 +1210,12 @@
         "text": "standard"
       }
     },
+    "tag:carnet": {
+      "name": {
+        "hash": "6809013cd07d36fd99a6e31cc17277ffc3a66005577b3d4d4d753dda68bc51ca",
+        "text": "notebook"
+      }
+    },
     "tag:carrière": {
       "name": {
         "hash": "560919d20a084a93ccbda67a2c7d230b2d0cad254bb164e8cfea00340cb10d10",
@@ -1232,6 +1298,12 @@
         "text": "just like a Monday"
       }
     },
+    "tag:communication": {
+      "name": {
+        "hash": "617fc654b8a762cf0bd15b20fd1293e50430327e3e72cffbae05c7f1542d03ea",
+        "text": "communication"
+      }
+    },
     "tag:comparaison": {
       "name": {
         "hash": "563059b79deb8862173fdd86bc6e6797712795688e33b67a7698d78c593b9188",
@@ -1242,6 +1314,12 @@
       "name": {
         "hash": "3e9c9bdb61593bfc66994d2beb22ae245fd09851458f1098d7fed5c952cddb7d",
         "text": "compression"
+      }
+    },
+    "tag:concret": {
+      "name": {
+        "hash": "66c3974d701cede08a67dd54e2251df955959484ff5123d4c67f8fc085fdfe87",
+        "text": "concrete"
       }
     },
     "tag:concrete": {
@@ -1350,6 +1428,12 @@
         "text": "Visual, functional and editorial design."
       }
     },
+    "tag:design-graphique": {
+      "description": {
+        "hash": "66764ef11763e9388bb8a199ff2c742fd662fd686344787559850f49e514ff34",
+        "text": "Graphic design, visual identity and layout."
+      }
+    },
     "tag:design-system": {
       "description": {
         "hash": "1ef76f0dfaafdfe0eb8da7032725967b3a9cda2fdd91c9316112178fbfc63d29",
@@ -1358,6 +1442,12 @@
       "name": {
         "hash": "5b40811f12e9c6b183cc3208e51e3594b811a5b91c37d6e392a42ad5dc910097",
         "text": "design-system"
+      }
+    },
+    "tag:design-éditorial": {
+      "name": {
+        "hash": "6115e02393c7993f5d5a9abe95c44cce5590224977c77c5817cef387c5937727",
+        "text": "editorial design"
       }
     },
     "tag:diditalprint": {
@@ -1414,6 +1504,12 @@
         "text": "easydot"
       }
     },
+    "tag:editor": {
+      "name": {
+        "hash": "64372b6402e148066d087f01cf35f725fc14f34359b98cbf51d6598b95bed14c",
+        "text": "editor"
+      }
+    },
     "tag:enfants": {
       "name": {
         "hash": "53487d48eeb74bc09037079a0a7b5a3b7897bd3d5de106822f4e9f96ec73968e",
@@ -1454,6 +1550,12 @@
       "name": {
         "hash": "3b0df70cf59ab23dc7904432a091103cd5477f4f3484d6b33e592e11afa33d36",
         "text": "is"
+      }
+    },
+    "tag:exposition": {
+      "name": {
+        "hash": "66ac0e8a44add60b18bc67d6e1e666f537e186846aee3ec64bb0cf643af4d3d6",
+        "text": "exhibition"
       }
     },
     "tag:extraction": {
@@ -1522,6 +1624,12 @@
         "text": "sources"
       }
     },
+    "tag:fromEvernote": {
+      "name": {
+        "hash": "666f7fc06de93d0bd171cbcbbae70427f95310923451c4b2c0020adb84f253a6",
+        "text": "from Evernote"
+      }
+    },
     "tag:frontend": {
       "description": {
         "hash": "60e0aa7ed62c52823047252802152c1715ee7aecc6ad551b518733e22f840832",
@@ -1568,10 +1676,22 @@
         "text": "Grenoble"
       }
     },
+    "tag:grille": {
+      "name": {
+        "hash": "6402b5bb13c67b15c2d134fd36fd2372733f29db9c24f09e84febb4434b19dba",
+        "text": "grid"
+      }
+    },
     "tag:génératif": {
       "name": {
         "hash": "049a1a8dbc5b2e146065052ef4faca72d0c3a959d6fa484643c4fd275ab722a1",
         "text": "generative"
+      }
+    },
+    "tag:hahnem": {
+      "name": {
+        "hash": "64f864232df665fb5c3caac9ef197bf3fc8b69e640a0753a0031ea612affd2c1",
+        "text": "hahnem"
       }
     },
     "tag:hardware": {
@@ -1652,6 +1772,12 @@
         "text": "images"
       }
     },
+    "tag:imperialcourts": {
+      "name": {
+        "hash": "6953a957f4e7a74c2c5ca470cf901c0b38539cfad3469ca16a95e8fbc2e74956",
+        "text": "imperialcourts"
+      }
+    },
     "tag:imposition": {
       "name": {
         "hash": "5e3ff9c144c01f9a011b5ceca019218848cdf2a15a543940919cce9f254f3a3b",
@@ -1662,6 +1788,10 @@
       "description": {
         "hash": "39efd2b7a42ae83ad983538ff3739ae11aefaeceea64bd9efe7c3f0cec70bec6",
         "text": "Printing techniques, processes and cultures."
+      },
+      "name": {
+        "hash": "6842234af3f1a405600e04d92a06869431a919addabe2b413e3f7d007e47c5ae",
+        "text": "printing"
       }
     },
     "tag:imprimeur": {
@@ -1736,6 +1866,12 @@
         "text": "joelguerriau"
       }
     },
+    "tag:juju": {
+      "name": {
+        "hash": "644a52e98a47f9e96d1491022d7b2c8924fde104511b733ce4e679c3b8257d86",
+        "text": "The juju is a traditional medicine used in West Africa."
+      }
+    },
     "tag:kiev": {
       "name": {
         "hash": "1086fae042ccec2e12eae3aa235e8ae3d8c68ee027dd7fb9a8195c270b23123c",
@@ -1752,6 +1888,12 @@
       "name": {
         "hash": "209f45801b5ce1a03f01f61362a4b70d20a415713249a64597b072a9b6fcb185",
         "text": "slip of the tongue"
+      }
+    },
+    "tag:layout": {
+      "name": {
+        "hash": "6627c9fd8883586b5ebee32deb01d16059a4bbe92e5313da0bf10af9819ec6f6",
+        "text": "layout"
       }
     },
     "tag:lense": {
@@ -1808,6 +1950,12 @@
         "text": "Books conceived as works of art or spaces for creativity."
       }
     },
+    "tag:livre-photo": {
+      "description": {
+        "hash": "69165ad77dc15b1cd62ace79c61bd1ca9cfaf34c3a99b9dffc1f275048d5f9ef",
+        "text": "Photography books and the publication of photography."
+      }
+    },
     "tag:livres": {
       "name": {
         "hash": "562fe8a1f632940c04ad52d804264da196b107d75f67c1c03b6687b8f06b0914",
@@ -1818,6 +1966,12 @@
       "name": {
         "hash": "5afcfe74106baeaffc028bd6a4b1fed502102f7325d9bd61e748cbcf1396dbaf",
         "text": "software"
+      }
+    },
+    "tag:looseassociations": {
+      "name": {
+        "hash": "64fbba92a68a44ffb868a024224566a3c05e8fd33a8cd1765e4011b40edf1e44",
+        "text": "looseassociations"
       }
     },
     "tag:lost": {
@@ -1890,6 +2044,12 @@
       "name": {
         "hash": "4e7da26ec0ed6172af53c739e97f05b39a1bd77f9f0d94fef1d049ddb95f4bcd",
         "text": "reason"
+      }
+    },
+    "tag:multimédia": {
+      "name": {
+        "hash": "64c8d400536e4f8be65369d2b9d3f5f6d66748ec4fc7a8670aceed8844286a0f",
+        "text": "multimedia"
       }
     },
     "tag:mural": {
@@ -2028,6 +2188,12 @@
         "text": "Paedophilia"
       }
     },
+    "tag:page&quot;": {
+      "name": {
+        "hash": "688ecd9b1eb7cde1bf337bdcd1211d67350d8bfde0a38971996c474b5a7b189e",
+        "text": "page&quot;"
+      }
+    },
     "tag:pagination": {
       "name": {
         "hash": "0eea9e0a9e1cfe49733a6dff392f3dd182722f8e13ed0e4091377d6ef738be4a",
@@ -2068,6 +2234,12 @@
       "name": {
         "hash": "159d4332542e028898d19aa30370f91dc0b73eb06ed699a58423e2764a62e246",
         "text": "philosophy"
+      }
+    },
+    "tag:photoRag308": {
+      "name": {
+        "hash": "66bc332dd806daa06958ef4cfa9c70d8b7ba38a030fe0ef89ead139ee4e09a24",
+        "text": "photoRag308"
       }
     },
     "tag:photographe": {
@@ -2158,6 +2330,12 @@
         "text": "politics"
       }
     },
+    "tag:pomodoro": {
+      "name": {
+        "hash": "61be8da4b6838145029185384ab321f96fc3f7d7f0772943cbdf579a6b3f45a6",
+        "text": "tomato"
+      }
+    },
     "tag:positivons": {
       "name": {
         "hash": "42e9a54a558b6df74368b8efc1f2201ef5b8a7396b6aab7e10f2468457364c87",
@@ -2216,6 +2394,12 @@
       "name": {
         "hash": "099cbdfdc0e7ce854f685fa0d0932f209353f8afdf8f10b68bc175079250acf1",
         "text": "sexist advert"
+      }
+    },
+    "tag:pyongyang": {
+      "name": {
+        "hash": "65e2d97d73c60ecf525da597857be77725bb4bc3f5312f24814c722ff3bcfd03",
+        "text": "Pyongyang"
       }
     },
     "tag:pédagogie": {
@@ -2338,6 +2522,12 @@
         "text": "company"
       }
     },
+    "tag:soft": {
+      "name": {
+        "hash": "67977bff11515448e2de65137db9698971fc0e520e3bf77506273cda12f434c2",
+        "text": "soft"
+      }
+    },
     "tag:source-available": {
       "name": {
         "hash": "3421494e4195c4fbb17522c0d994eafdbf45cea57c69e2edf84f829f2322faa2",
@@ -2354,6 +2544,12 @@
       "name": {
         "hash": "1770c2cd6361fd0c4da85244f62a42acdb6d51a54f90f47f32a6ffbd6e2aac43",
         "text": "startup life"
+      }
+    },
+    "tag:stiegler": {
+      "name": {
+        "hash": "6200ffaeee8607b2047ae9b98d55cd5265273e11634dcb56b4f6595e78f3880c",
+        "text": "Stiegler"
       }
     },
     "tag:stimulant": {
@@ -2456,10 +2652,22 @@
         "text": "file-transfer"
       }
     },
+    "tag:travail": {
+      "name": {
+        "hash": "6901b80a401f591143cd7ef10a4f94b0e8a5e646f423279686c00b57e92baab1",
+        "text": "work"
+      }
+    },
     "tag:travailgratuit": {
       "name": {
         "hash": "3d29698b15cba6129d649aa35c4d92cb43187eccffaa9e2136ba9ef5e3caf549",
         "text": "unpaid work"
+      }
+    },
+    "tag:travel": {
+      "name": {
+        "hash": "6603cb7cb02703a89ecabbccdf37c95aa2c47d1628cc1c80978c70490439aa9f",
+        "text": "travel"
       }
     },
     "tag:tumblr": {
@@ -2484,6 +2692,12 @@
       "name": {
         "hash": "4236c99cc73aea3e99359c4e0e9a54166668ee1ded961ae9148ea794363f1146",
         "text": "typo"
+      }
+    },
+    "tag:typographie": {
+      "name": {
+        "hash": "6459ed857d3ee46e12de69de2854a62e74cbc215e24f768ddaacd7c0f36fce9c",
+        "text": "typography"
       }
     },
     "tag:unmondedeformats": {
@@ -2563,9 +2777,19 @@
       }
     },
     "tag:web": {
+      "description": {
+        "hash": "67966dab258597f2142d8c527a2cac2deb4e2e48ccafe1e2a3c39901126be3b9",
+        "text": "Culture, history and practices of the Web."
+      },
       "name": {
         "hash": "5f83a866888418c9bcc39860b77df3e972d31be6df9e79a74891013f5aa46bc4",
         "text": "web"
+      }
+    },
+    "tag:web-to-print": {
+      "description": {
+        "hash": "67e1d91c5cb760cf41d883732f8bce7afae078449245bbadeb45f852f63d1775",
+        "text": "Editorial workflows linking web interfaces and print production."
       }
     },
     "tag:web_development": {
@@ -2584,6 +2808,12 @@
       "name": {
         "hash": "108179c399a6b75dba87810d7b80cd502819be86b1dbca0e62a5d4cac4626f41",
         "text": "white"
+      }
+    },
+    "tag:workflows": {
+      "name": {
+        "hash": "65a9a38301e08201bab12c1d668eb7f0c6682cad004107a34f85232aacffeacb",
+        "text": "workflows"
       }
     },
     "tag:wow": {
@@ -2630,6 +2860,12 @@
       "name": {
         "hash": "2e75b2c75d0504dd33734868b5f2f53306782515fe4ee08cb47aed2818f3abfc",
         "text": "writing"
+      }
+    },
+    "tag:édition": {
+      "name": {
+        "hash": "648babdce8c136fbd7c4467a3bbd35a8bd0ecf00f9e7763180763c3c53117963",
+        "text": "edition"
       }
     },
     "tag:éphéméride": {
