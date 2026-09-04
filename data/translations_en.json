@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "e3c78c385cecc0a9928f8aa0a76fa3cfd4601d8a087814593d7eb835434a26c2",
+  "revision": "2ab1b5b3c4b631967beb1dbe73a62405095d470816c1c44a8e237012e89f2340",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -726,6 +726,18 @@
         "text": "Elysee"
       }
     },
+    "tag:Espagne": {
+      "name": {
+        "hash": "cd06ed7fb9ca43cd6f8fb0ef0f39faa09ece0e07f51029e442342bc5098057cd",
+        "text": "Spain"
+      }
+    },
+    "tag:Europe": {
+      "name": {
+        "hash": "c993f054cfb8f801b2a3b662504f5829f056006397a3497f188bb11ef8767384",
+        "text": "Europe"
+      }
+    },
     "tag:Eurovision": {
       "name": {
         "hash": "56cb4d150742f71d169906cd0632393b909209a7d7612e25962675ea4b00e62e",
@@ -940,6 +952,12 @@
         "text": "InDesign"
       }
     },
+    "tag:InternautDay": {
+      "name": {
+        "hash": "cd9241f18f6cdfeb3ed8eb336fb2f20709ff00834a4d05cd4831c12becd2b5eb",
+        "text": "Internet Users’ Day"
+      }
+    },
     "tag:Internet": {
       "name": {
         "hash": "bbef0c008fba84569f52ee9d4f17fe3099141bacdcd3f9e2e346d5a75a4ac88b",
@@ -1010,6 +1028,12 @@
         "text": "KIBLIND"
       }
     },
+    "tag:KOKEN": {
+      "name": {
+        "hash": "cc6adb274e61486ab55c06cd7463f7ed9bfdbfa439580a902a8849bbd49e49f5",
+        "text": "COOKING"
+      }
+    },
     "tag:Kazakhstan": {
       "name": {
         "hash": "00fdb88d49c7de8c4c7fb291101761df07332f6275ed7f4f54badf98bfe12e2c",
@@ -1032,6 +1056,10 @@
       "description": {
         "hash": "b7334b9053e864948bc7967f588d57c0b1d669380b3891eadec22899ef4db991",
         "text": "Major language models, uses and techniques."
+      },
+      "name": {
+        "hash": "d3a9d33bc52fd816e2b0a8a2617a496af3ce2729c06fc706d50e4acc60da441b",
+        "text": "Master of Laws"
       }
     },
     "tag:LPJ": {
@@ -1182,6 +1210,12 @@
       "name": {
         "hash": "a896e68155b8a3ec2738a5f361c7e94cae0ae4a8ff41caab539cd1416a7a9b50",
         "text": "Christmas 2016"
+      }
+    },
+    "tag:Noirmoutier": {
+      "name": {
+        "hash": "d46ae7fe7e59c284fc585a28da5e02a37fa0cf624a3aae2d15742a412208cf0e",
+        "text": "Noirmoutier"
       }
     },
     "tag:OAI13": {
@@ -1374,6 +1408,12 @@
       "name": {
         "hash": "1960541f7a1a68a6b0fa1f2e6195107cc0d467a7bff6d7baebf22e2d1177bea6",
         "text": "Ready, Aim, Fire"
+      }
+    },
+    "tag:RAW": {
+      "name": {
+        "hash": "cb7aaee0226bf16e7042fbf68aa8b73e51c70d5f46f15cb1dc9900e1c31c0464",
+        "text": "Raw"
       }
     },
     "tag:RENATER": {
@@ -1734,6 +1774,12 @@
         "text": "analysis"
       }
     },
+    "tag:anarchisme": {
+      "name": {
+        "hash": "d42a0675d27cb71ba421045d3b1cba7dce310f7f8a93589ace1af9025db4bd77",
+        "text": "anarchism"
+      }
+    },
     "tag:anglais": {
       "name": {
         "hash": "8ceb9cb7ad91dd7ab963a70c8e2859b15e36945e74d1475cb03c3e633886580b",
@@ -1786,6 +1832,12 @@
       "name": {
         "hash": "91893bd41ec796ce4425591f778615b02f557585afbcbc9f8c4b8b7cc4ea2a53",
         "text": "family archives"
+      }
+    },
+    "tag:argentique": {
+      "name": {
+        "hash": "cc1adf3bb17269f3494d1dca0d985317f64b992dec185677cbabba21fefd5f7f",
+        "text": "film"
       }
     },
     "tag:arles2016": {
@@ -1886,6 +1938,12 @@
         "text": "auboulot"
       }
     },
+    "tag:audit": {
+      "name": {
+        "hash": "d3af9fa17ac4ebe1f864628a719f33b2a1ced7326efea263519bed7795ac7a23",
+        "text": "hears"
+      }
+    },
     "tag:auto-hébergement": {
       "description": {
         "hash": "14e7eb4452f4169017370929eecfcd8cdec1fc6695bdd5f09e0fecca0735afbb",
@@ -1948,6 +2006,18 @@
         "text": "beautiful"
       }
     },
+    "tag:beaujolais": {
+      "name": {
+        "hash": "c97cfa0d904b72a41d881644bddfe9220889641383d409a28948b7a975d07ffe",
+        "text": "Beaujolais"
+      }
+    },
+    "tag:best2015": {
+      "name": {
+        "hash": "cb807860359c27260d61ef4030da16a404a177724493e34a7a711acb0098c5c2",
+        "text": "best of 2015"
+      }
+    },
     "tag:beton": {
       "name": {
         "hash": "83e1c320430517470a15b500f3ba4f3b5408eba9c752a91a86795dc9755f1152",
@@ -1972,6 +2042,12 @@
         "text": "bleedbox"
       }
     },
+    "tag:blog": {
+      "name": {
+        "hash": "d066e96dcd2d5c94494e07ae2cb3b49a428d0a6f42d230f798df0a1f7c0c3351",
+        "text": "blog"
+      }
+    },
     "tag:blog-ooblik": {
       "name": {
         "hash": "25e970b88065009fb6a69823c5c3a621ff4673b87e34b7393bd0fa90575939d0",
@@ -1988,6 +2064,12 @@
       "name": {
         "hash": "8b3da7d2233cd1870f11aea0e73d77b0243d4f35123863c5acdc664c208fe6e9",
         "text": "boldomatic"
+      }
+    },
+    "tag:bonheur": {
+      "name": {
+        "hash": "ca6c683b43d0565e0aebeda544f510d411c572655d49b3443320028a838af8c3",
+        "text": "happiness"
       }
     },
     "tag:book": {
@@ -2276,6 +2358,12 @@
         "text": "just like a Monday"
       }
     },
+    "tag:communauté": {
+      "name": {
+        "hash": "cbfb14431c7614ce72c71bcd5b93082b3cebe29693e3b3642c5b7255aaabe863",
+        "text": "community"
+      }
+    },
     "tag:communication": {
       "name": {
         "hash": "617fc654b8a762cf0bd15b20fd1293e50430327e3e72cffbae05c7f1542d03ea",
@@ -2346,6 +2434,12 @@
       "name": {
         "hash": "3589f4f9a26596a2406994b8c4e28b25b3ae98cc04fe47f4551d0f1de5975797",
         "text": "conversion"
+      }
+    },
+    "tag:cooking": {
+      "name": {
+        "hash": "cef72448fde14ea39c982b667fa777be970bf0f6051bb4938486203d3190d6a9",
+        "text": "cooking"
       }
     },
     "tag:cool": {
@@ -2508,6 +2602,12 @@
         "text": "design-system"
       }
     },
+    "tag:design-web": {
+      "name": {
+        "hash": "cde9858e56eb4f85facb1bd514bbdf06829380444d7d9c52ab0b2f397dcc5db9",
+        "text": "design-web"
+      }
+    },
     "tag:design-éditorial": {
       "name": {
         "hash": "6115e02393c7993f5d5a9abe95c44cce5590224977c77c5817cef387c5937727",
@@ -2518,6 +2618,12 @@
       "name": {
         "hash": "7d2622fe1bb09430a76800f93457c9ae28bdee2b9229c1b3360e6e6982e1fda8",
         "text": "desktop"
+      }
+    },
+    "tag:dev": {
+      "name": {
+        "hash": "ce314b2516e2145842888972fb499a89c02d98fb9ec6dfd16d89e2cdb29c4ccf",
+        "text": "mouth"
       }
     },
     "tag:dictée": {
@@ -2604,6 +2710,12 @@
         "text": "dummy"
       }
     },
+    "tag:découpage": {
+      "name": {
+        "hash": "d4251ed67c8bd02c14ef0e93bb5ebac8236e4f9580c66d8b542edcc63fd37100",
+        "text": "cutting"
+      }
+    },
     "tag:démonstration": {
       "name": {
         "hash": "046299d4e5c430ee83de146656f88f2f570abf0f3fc4ecf678b9c174b94d53c0",
@@ -2620,6 +2732,10 @@
       "description": {
         "hash": "43ff2f47697a22b9b74618ea7a4bba2c554e8fe42975623b7996a5ff9ca8e18f",
         "text": "Development and maintenance of digital products."
+      },
+      "name": {
+        "hash": "ca2d5f8acf9207b414390b0ab8637bc16f7cd4d16b98f2180b6b7aab1544c924",
+        "text": "development"
       }
     },
     "tag:développement-photo": {
@@ -2800,6 +2916,12 @@
       "name": {
         "hash": "1da8a4866350ada1755b6741214bdf91ea81660c5a5be9dbd06f7f40485ee652",
         "text": "shaping"
+      }
+    },
+    "tag:fermentation": {
+      "name": {
+        "hash": "cca8ae71165028f04caa7dd7e80fa681a1d5e86f346cbb95784756f99db94e92",
+        "text": "fermentation"
       }
     },
     "tag:fiche": {
@@ -3034,6 +3156,12 @@
         "text": "accommodation"
       }
     },
+    "tag:herbier": {
+      "name": {
+        "hash": "cde2d9b44f40f09b0341cb231d9595a5004e4eed9914ddefb4ac8688f56aa4f2",
+        "text": "herbarium"
+      }
+    },
     "tag:hexis": {
       "name": {
         "hash": "5479e5a32c60039656ba41ce72f8344abb04f5d6d433aa0a05180e60222eceb7",
@@ -3068,6 +3196,12 @@
       "name": {
         "hash": "7c51b5fe60550d4922d97c3a5d517522cc2bbadcea1e96c9c3d582503f4f384a",
         "text": "High-pressure"
+      }
+    },
+    "tag:hpWallArt": {
+      "name": {
+        "hash": "ce2349ddb109366ca61ead8ab45450507eacb7c2f851ff23401305b989bcf820",
+        "text": "hpWallArt"
       }
     },
     "tag:hplatex": {
@@ -3134,6 +3268,12 @@
       "description": {
         "hash": "2f27bcebb172ec4ff3ca1fa614074f8a32d4df41920f44f1d0a78a6deaaa5b76",
         "text": "Illustration, drawing and narrative imagery."
+      }
+    },
+    "tag:illustrations": {
+      "name": {
+        "hash": "d296b84542f9cab3622f59bcde65b63ddfcc60cd529e3549e72d9601337112f3",
+        "text": "illustrations"
       }
     },
     "tag:ilovemyjob": {
@@ -3362,6 +3502,12 @@
         "text": "lens"
       }
     },
+    "tag:leporello": {
+      "name": {
+        "hash": "cbdd9d85c8e3ae3be593da6aa24a22de87cc0eb2fae56a3d4dffa9d94b5e2d83",
+        "text": "leporello"
+      }
+    },
     "tag:lescons": {
       "name": {
         "hash": "0089fbd7fd61cd3c0dd4aaca0e35636fb01ed5ae8b808ebdac0122c04ced9dd0",
@@ -3450,6 +3596,10 @@
       "description": {
         "hash": "3b733f0683168081f310624dfa51bf0e45a01bc051b5acb6b8d9b334d4749bfb",
         "text": "Books conceived as works of art or spaces for creativity."
+      },
+      "name": {
+        "hash": "cf1b32012e5d0528508ec03510a7284065ae858e169f8ef940cd6b484066e590",
+        "text": "artist’s book"
       }
     },
     "tag:livre-photo": {
@@ -3572,6 +3722,12 @@
         "text": "manifesto"
       }
     },
+    "tag:manuel": {
+      "name": {
+        "hash": "d164ca1e154a1bfef6fdee00dc112823606863a6924af8b704b9f78e84c264bd",
+        "text": "manual"
+      }
+    },
     "tag:massicot": {
       "name": {
         "hash": "c38fa645d0b8469dc2ca2272a393b95b1a3989e4259b810dac935958d3287abd",
@@ -3588,6 +3744,12 @@
       "name": {
         "hash": "32814b7c9e059e207fe71ceb795209f2843e7ba2e5860f799edb4d0a003bc16b",
         "text": "with"
+      }
+    },
+    "tag:matériel": {
+      "description": {
+        "hash": "cf50d58c15703ab6ddd6fed91ab134dfd0ce768f14964d93f1ac3d233194a796",
+        "text": "Machinery, apparatus and technical equipment."
       }
     },
     "tag:medium": {
@@ -3802,6 +3964,12 @@
         "text": "number_1"
       }
     },
+    "tag:numérique": {
+      "name": {
+        "hash": "d2abd4f78ea8b685a55a414555aea41012851efd58bad76dca9f9f1309ca4f46",
+        "text": "digital"
+      }
+    },
     "tag:numérisation": {
       "name": {
         "hash": "c09df3390f96c376c2e7969c1990ed9548641c0858cff17c4f841440fa503074",
@@ -3848,6 +4016,12 @@
       "name": {
         "hash": "23c83e3a2c108194e864abf929e9d7669df17d7356dc269f526290c3cb33510f",
         "text": "open-data"
+      }
+    },
+    "tag:opendata": {
+      "name": {
+        "hash": "d0504bdfd40209eb980551d50f6d392ff0646d96802e26949d4220d05eeec213",
+        "text": "open data"
       }
     },
     "tag:opensource": {
@@ -3958,6 +4132,12 @@
       "name": {
         "hash": "77e88b44b39c174b926eb97e46aa655accfd2b67dfe6aa3aaa3d414e0a06ec92",
         "text": "papers"
+      }
+    },
+    "tag:papress": {
+      "name": {
+        "hash": "ced90d3f58253db0b5c9049b6d883d5bd5de2da68259902084f1bef91899fb4b",
+        "text": "press"
       }
     },
     "tag:parallélisation": {
@@ -4188,6 +4368,12 @@
         "text": "practical"
       }
     },
+    "tag:presse": {
+      "name": {
+        "hash": "d458953331dfd9254dbbbc55ef682e6cdb52ea89bf3bf310b4f72239a4081de5",
+        "text": "press"
+      }
+    },
     "tag:print": {
       "name": {
         "hash": "5ac33706380d3357afaa7a7f8f24e3339ecea4ce72ba880311f7e77520e87525",
@@ -4252,6 +4438,18 @@
       "name": {
         "hash": "b8dc1c5c5eb008abfa30d0587e5187da867f36dbc267b668e58aa7ebce9ee728",
         "text": "programmes’"
+      }
+    },
+    "tag:projets": {
+      "name": {
+        "hash": "cb8760b44915353ad8c821633dea50ba79eea222b0300c046e0292395acaec60",
+        "text": "projects"
+      }
+    },
+    "tag:propagande": {
+      "name": {
+        "hash": "ce20a67fa7bf55ce4c4d82e25edaf3a1647d995e73c48e7bbd06773a1cc460db",
+        "text": "propaganda"
       }
     },
     "tag:prépresse": {
@@ -4492,6 +4690,12 @@
         "text": "selfie"
       }
     },
+    "tag:selfpublishing": {
+      "name": {
+        "hash": "d23c316411d9da7b82c19bf3c9b260d29425145dbc9de202a9d9978236b06471",
+        "text": "selfpublishing"
+      }
+    },
     "tag:sequenceemotion": {
       "name": {
         "hash": "8d29bde8366b5d0dea54143ac1a9507611ebda408e9c4e2a2df94327f46c14c3",
@@ -4628,10 +4832,22 @@
         "text": "stories"
       }
     },
+    "tag:studioprint": {
+      "name": {
+        "hash": "d14d1454a3094019d2133322dfd6b185eaa8e406bd9e9fb737da34e3d9edc5fd",
+        "text": "Print studio"
+      }
+    },
     "tag:summerprint": {
       "name": {
         "hash": "9f63330267344b08bc0ad28ae1ef58b71861cac3907c7843fb82dd7958a7686e",
         "text": "summerprint"
+      }
+    },
+    "tag:supply-chain": {
+      "name": {
+        "hash": "cb8ff1d65b2fa70fd2dd709dd15e761f726c624f9a75c816e6897d657a4b1a53",
+        "text": "supply-chain"
       }
     },
     "tag:surreal": {
@@ -4656,6 +4872,12 @@
       "name": {
         "hash": "04421cdc38a8d7002ef37396136322baccaf9588bbe70e96514f380404eeacc4",
         "text": "SVG freebie"
+      }
+    },
+    "tag:swimming": {
+      "name": {
+        "hash": "d46efa28eda964477fc2e99c575b80a6227851813150757e60724fc5df86b476",
+        "text": "swimming"
       }
     },
     "tag:systèmes": {
@@ -4906,6 +5128,12 @@
         "text": "upload"
       }
     },
+    "tag:urban": {
+      "name": {
+        "hash": "cb52fd8816b3b091a5c67e588608fb5e24e26f9873afcaed43e8b8247772738b",
+        "text": "urban"
+      }
+    },
     "tag:urbanisme": {
       "name": {
         "hash": "59272549d4792c00f54e356ff0fd055c3a8de924ade736f4ab6840e409fbda86",
@@ -5028,6 +5256,12 @@
       "name": {
         "hash": "7fed124b3a9485f6c043c25b54eefc0e455dbcc7a70e13f050ec03e6ebf7998b",
         "text": "wallcover"
+      }
+    },
+    "tag:wallpaper": {
+      "name": {
+        "hash": "d133d7d3a8ea15bfebb150483acbcdace9b538900fb3353185e67655c8ef3f5c",
+        "text": "wallpaper"
       }
     },
     "tag:web": {
