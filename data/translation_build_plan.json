@@ -1,10 +1,480 @@
 {
   "version": 1,
-  "baseRevision": "49651238c2452e6ce02a9c9a5eae67285bfad8b373d9fddc190eed164de9808d",
-  "targetRevision": "f88944d38a77e2f906933a4fed7afeed11f3c8733b66182de9686797ae939f85",
-  "manifestRevision": "f2272c908b90ac69240b90702fdeaa5e9baa19629f567348c73ce89e3d01d2ee",
+  "baseRevision": "f88944d38a77e2f906933a4fed7afeed11f3c8733b66182de9686797ae939f85",
+  "targetRevision": "a2aa7de470dd7ae95fce71d0ef23e97df1196b1eda78128ba095b2f89fb0439f",
+  "manifestRevision": "a96b4e9040d9c631b483d696f3752e5876d6e4ee956cb51f71bd2b64d69ba6d5",
   "fullBuild": false,
   "items": [
+    {
+      "id": "link:02ec9698-3bae-5afe-bbfd-6b0671bf4d3c",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:069e17f4-795d-5135-90c6-fecb6efafcc7",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:07bc9a7e-de59-5b4d-a12a-f9cebbe787d9",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:0b49f209-df03-5d5a-a53d-0e584a10de4e",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:0c91e357-65d1-528d-91fa-f3e581629195",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:1fb5cf7f-b79e-5210-9b0d-9f1246449f6b",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:249e4a79-7944-5cb9-8324-ad23f4382bc8",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:25207362-67f3-54d4-8835-37a94b34fc3c",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:3025a40a-b102-53c7-b792-860edbdf604e",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:327626e9-0c50-5d90-825f-d5f430d565f8",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:33e4b75c-6ed0-5f51-a50a-5d7ff8dd3fd4",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:37fbfbb1-a8e7-5fc2-9b0b-03c320cc0206",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:3e4f828d-bb4d-56ef-af7d-8f00727e9860",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:40307519-2ddb-5ce6-bd8d-9c7a77b91412",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:410dc763-dfbb-56fd-a92f-9b03d77a7a2f",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:45736262-3087-5462-84b7-5fda61a736d4",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:4904720d-34ab-5224-b313-5d1542358f5c",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:4e0024a5-7e50-5d4c-9eb2-286324ca2b8a",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:504d0a00-03fe-59a3-8de7-ae5c3f3ae206",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:526d09ef-f181-5827-9dbe-4d54aea175fc",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:59e4c946-0d3d-52ed-b63f-047487bc96eb",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:5e58d6ea-0d30-51e4-8f02-4870650e5ae1",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:608fed03-083d-5503-abab-2b2c5e52ec8d",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:609e1637-4992-5dd3-9681-94326fb900b5",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:67c19ac5-0e90-521e-8898-41df3e7b7f4d",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:6d112f4f-072e-522d-8091-ffceb385add2",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:717f9b4a-b803-578c-b586-5dabd32711ad",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:7656dfa2-d464-5a90-b6db-0e83cbac0bd5",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:7877d443-a94b-5818-a772-48a034524054",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:82c7cf08-7878-5b4c-8905-d3f4a9901e62",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:87db8e2b-cbc3-5691-bb1f-55a09fe9a41e",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:8d649ef2-0fbc-5b7c-aedd-bc0504e326f4",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:8dd968b7-e0e7-538c-9a96-4ddba45a3965",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:8e7e6f00-f860-5b73-9da6-ffbf5410fa87",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:917cc88e-85f2-5cc5-ba80-103798eebe67",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:934d468c-12ae-5249-a2a4-e468d790463f",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:984bf087-1cb2-5628-a537-9f87c9ecf696",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:99a78755-07bc-5f5b-9974-a3e9596339ca",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:9f737c42-e03f-5575-86eb-846d8b8ff798",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:a20c8320-3c7c-51de-982f-fb6949602062",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:a638423d-09d6-528b-8ce8-0f29bec102a1",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:a76823fd-a870-58ea-96d0-47408a629acc",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:a7c321aa-c7fc-5107-8821-cbfdb6ee9022",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:aef196cc-b67e-51b4-aaea-7f983ca0d882",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:b48c2bcc-cf68-539f-80b6-76a1ff5d1650",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:b508eb2f-7018-51bd-bf7c-c9af973cee40",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:b93c9a52-b2db-557e-8ab4-b63cb1d5cfd0",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:bc99870a-0faa-5250-9570-7df7c0e5b5af",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:bcf4c5aa-217a-5ab8-a3ee-fcd7715a361e",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:c0ccaffd-6000-5d67-87f2-7d4ce990b38e",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:c37318b1-b1e6-5c74-ba94-87c86eb47af6",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:cf0cb9e5-e686-59cb-b953-0d55eba56fbe",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:d0871de1-f3ec-5c68-b0ee-b67ec2e1fb7a",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:d20e8093-a9f6-51e6-bd15-de4dfb32b687",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:d3b2d4fa-948c-5df3-b145-c84daf0325cd",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:d890b9e1-8e30-591e-ac08-4399982362d7",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:d9f057b6-5c10-5c58-8716-859f77f41c44",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:da12971b-f357-5185-9801-1b5792c35df3",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:da3455c8-fd3d-592f-9fa6-75fd58b65f93",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:db2868c2-83ff-5dee-a070-48fc94f7c3f4",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:e45669f2-4882-57e2-9c67-5e87bd810be3",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:e721283c-7c01-5d7b-b6d6-6c61c076268e",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:e8872f26-abdd-53de-aeee-a5710b8f983d",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:f087e29f-d63e-54c3-bb95-228f3b971dee",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:f1c7d0b1-2702-5c60-b2a8-63483c3dc92e",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:f84d3ef8-adf9-58ff-8c0d-e4b3c5a7ad55",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:f8cf60f7-0580-5533-beee-43092d929a98",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:fa3caa3d-e1df-5134-8eaf-059004f7cf18",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
     {
       "id": "page:/archives/2026-08-16",
       "fields": [
@@ -44,19 +514,19 @@
     {
       "id": "page:/archives/2026-08-28",
       "fields": [
-        "$artwork"
+        "body"
       ]
     },
     {
       "id": "page:/archives/2026-08-29",
       "fields": [
-        "$artwork"
+        "body"
       ]
     },
     {
       "id": "page:/archives/2026-09-01",
       "fields": [
-        "$artwork"
+        "body"
       ]
     },
     {
@@ -66,241 +536,464 @@
       ]
     },
     {
-      "id": "tag:abstention",
+      "id": "tag:AchievementUnlocked",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:arch",
+      "id": "tag:Arles2015",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:avast",
+      "id": "tag:automobile",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "tag:brutalisme",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:barbarie",
+      "id": "tag:C7100",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:Berlin",
+      "id": "tag:canon_official",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:bigcity",
+      "id": "tag:Canson",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:booklove",
+      "id": "tag:capitalisme",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:c7100x",
+      "id": "tag:cat",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:carnets",
+      "id": "tag:CharlieHebdo",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:Centre-Pompidou",
+      "id": "tag:claire",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:collaboration",
+      "id": "tag:CNC",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:design-graphique",
+      "id": "tag:colonialisme",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:doscoll",
+      "id": "tag:compositing",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:édition-numérique",
+      "id": "tag:composition",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:fichiers",
+      "id": "tag:content",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:fillon",
+      "id": "tag:cours",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:firmware",
+      "id": "tag:création",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:Gaza",
+      "id": "tag:datagramme",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:GPU",
+      "id": "tag:David-Lynch",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:habitudes",
+      "id": "tag:design-génératif",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "tag:données",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:indépendant",
+      "id": "tag:drapeau",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:interface",
+      "id": "tag:ebook",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:Laprimaire",
+      "id": "tag:éditeur",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:livre-photo",
+      "id": "tag:éducation",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:mémoire",
+      "id": "tag:entretien",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "tag:États-Unis",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:mk2",
+      "id": "tag:frise",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:NAS",
+      "id": "tag:GFX",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:offset",
+      "id": "tag:grandformat",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:printbyooblik",
+      "id": "tag:heureux",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:reliure",
+      "id": "tag:homophobie",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:RSE",
+      "id": "tag:illustration",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:Sarcelles",
+      "id": "tag:image",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:skills",
+      "id": "tag:inférence",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:SofPhD",
+      "id": "tag:Islamophobe",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:suprb",
+      "id": "tag:Jean-Widmer",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:translation",
+      "id": "tag:JeSuisCharlie",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:tuit",
+      "id": "tag:language",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:typos",
+      "id": "tag:LDF15",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:UI",
+      "id": "tag:les",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:vision",
+      "id": "tag:lieu",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:livre",
+      "fields": [
+        "description",
+        "name"
+      ]
+    },
+    {
+      "id": "tag:Lyon",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:matériel",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:MerciPatroncensur",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:mobile",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:multilingue",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:noir-et-blanc",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:nsasnieres",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:Olivier-Roller",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:onapasdemand",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:opinion",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:Orkut",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:papier",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:paramétrique",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:PDF",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:pentest",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:performance",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:photo",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:poster",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:prc",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:recherche",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:référence",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:Royaume-Uni",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:S3",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:salonphotoparis",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:sexisme",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:SwissLeaks",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:tech",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:théorie",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:tirage-pigmentaire",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:webinaire",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:wiki",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:winezine",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:WWDC",
       "fields": [
         "name"
       ]
@@ -309,63 +1002,386 @@
   "paths": [
     "/",
     "/archives/",
-    "/archives/2014-03-19/",
+    "/archives/2014-02-24/",
+    "/archives/2014-02-25/",
+    "/archives/2014-03-01/",
+    "/archives/2014-03-03/",
+    "/archives/2014-03-05/",
+    "/archives/2014-03-10/",
+    "/archives/2014-03-12/",
+    "/archives/2014-03-13/",
+    "/archives/2014-03-14/",
+    "/archives/2014-03-17/",
+    "/archives/2014-03-18/",
+    "/archives/2014-03-20/",
+    "/archives/2014-03-23/",
+    "/archives/2014-03-24/",
+    "/archives/2014-03-25/",
+    "/archives/2014-03-27/",
+    "/archives/2014-04-01/",
+    "/archives/2014-04-05/",
     "/archives/2014-04-07/",
+    "/archives/2014-04-08/",
+    "/archives/2014-04-09/",
+    "/archives/2014-04-23/",
+    "/archives/2014-04-29/",
+    "/archives/2014-04-30/",
+    "/archives/2014-05-03/",
+    "/archives/2014-05-10/",
+    "/archives/2014-05-11/",
+    "/archives/2014-05-14/",
+    "/archives/2014-05-15/",
+    "/archives/2014-05-19/",
+    "/archives/2014-05-21/",
+    "/archives/2014-05-22/",
+    "/archives/2014-05-25/",
+    "/archives/2014-05-26/",
+    "/archives/2014-05-30/",
+    "/archives/2014-05-31/",
+    "/archives/2014-06-01/",
+    "/archives/2014-06-03/",
+    "/archives/2014-06-04/",
+    "/archives/2014-06-10/",
+    "/archives/2014-06-12/",
+    "/archives/2014-06-14/",
+    "/archives/2014-06-23/",
+    "/archives/2014-06-30/",
+    "/archives/2014-07-01/",
+    "/archives/2014-07-03/",
+    "/archives/2014-07-06/",
+    "/archives/2014-07-09/",
+    "/archives/2014-07-10/",
     "/archives/2014-07-11/",
+    "/archives/2014-07-12/",
+    "/archives/2014-07-13/",
+    "/archives/2014-07-15/",
+    "/archives/2014-07-16/",
     "/archives/2014-07-18/",
     "/archives/2014-07-20/",
     "/archives/2014-07-21/",
+    "/archives/2014-07-22/",
+    "/archives/2014-07-23/",
+    "/archives/2014-07-25/",
+    "/archives/2014-07-26/",
+    "/archives/2014-07-28/",
+    "/archives/2014-07-31/",
     "/archives/2014-08-01/",
+    "/archives/2014-08-02/",
     "/archives/2014-08-04/",
     "/archives/2014-08-05/",
-    "/archives/2014-08-11/",
-    "/archives/2014-08-12/",
-    "/archives/2014-08-13/",
-    "/archives/2014-08-17/",
+    "/archives/2014-08-06/",
+    "/archives/2014-08-19/",
+    "/archives/2014-08-21/",
+    "/archives/2014-08-22/",
+    "/archives/2014-08-23/",
+    "/archives/2014-08-24/",
+    "/archives/2014-08-26/",
+    "/archives/2014-08-28/",
+    "/archives/2014-08-30/",
+    "/archives/2014-08-31/",
+    "/archives/2014-09-01/",
+    "/archives/2014-09-05/",
+    "/archives/2014-09-06/",
+    "/archives/2014-09-08/",
+    "/archives/2014-09-09/",
+    "/archives/2014-09-12/",
     "/archives/2014-09-13/",
+    "/archives/2014-09-15/",
+    "/archives/2014-09-16/",
+    "/archives/2014-09-18/",
+    "/archives/2014-09-23/",
+    "/archives/2014-09-24/",
+    "/archives/2014-09-25/",
+    "/archives/2014-09-26/",
+    "/archives/2014-09-27/",
+    "/archives/2014-09-28/",
+    "/archives/2014-09-29/",
+    "/archives/2014-10-01/",
+    "/archives/2014-10-02/",
+    "/archives/2014-10-03/",
+    "/archives/2014-10-06/",
+    "/archives/2014-10-07/",
+    "/archives/2014-10-08/",
+    "/archives/2014-10-09/",
+    "/archives/2014-10-10/",
+    "/archives/2014-10-11/",
+    "/archives/2014-10-14/",
+    "/archives/2014-10-15/",
+    "/archives/2014-10-17/",
+    "/archives/2014-10-20/",
+    "/archives/2014-10-22/",
+    "/archives/2014-10-27/",
+    "/archives/2014-10-28/",
+    "/archives/2014-10-29/",
+    "/archives/2014-10-30/",
+    "/archives/2014-11-03/",
+    "/archives/2014-11-04/",
+    "/archives/2014-11-06/",
+    "/archives/2014-11-10/",
     "/archives/2014-11-11/",
     "/archives/2014-11-12/",
+    "/archives/2014-11-13/",
+    "/archives/2014-11-14/",
+    "/archives/2014-11-17/",
+    "/archives/2014-11-18/",
+    "/archives/2014-11-19/",
+    "/archives/2014-11-21/",
+    "/archives/2014-11-24/",
+    "/archives/2014-11-25/",
+    "/archives/2014-11-26/",
+    "/archives/2014-11-27/",
+    "/archives/2014-12-01/",
+    "/archives/2014-12-02/",
+    "/archives/2014-12-03/",
+    "/archives/2014-12-04/",
+    "/archives/2014-12-06/",
+    "/archives/2014-12-08/",
+    "/archives/2014-12-10/",
+    "/archives/2014-12-11/",
+    "/archives/2014-12-16/",
+    "/archives/2014-12-18/",
+    "/archives/2014-12-19/",
+    "/archives/2014-12-22/",
+    "/archives/2014-12-28/",
+    "/archives/2014-12-29/",
+    "/archives/2014-12-31/",
+    "/archives/2015-01-02/",
+    "/archives/2015-01-05/",
+    "/archives/2015-01-06/",
+    "/archives/2015-01-07/",
+    "/archives/2015-01-08/",
+    "/archives/2015-01-09/",
+    "/archives/2015-01-12/",
+    "/archives/2015-01-14/",
+    "/archives/2015-01-15/",
+    "/archives/2015-01-16/",
+    "/archives/2015-01-18/",
+    "/archives/2015-01-19/",
+    "/archives/2015-01-21/",
+    "/archives/2015-01-23/",
+    "/archives/2015-01-24/",
+    "/archives/2015-01-25/",
+    "/archives/2015-01-27/",
+    "/archives/2015-01-28/",
     "/archives/2015-01-29/",
-    "/archives/2015-02-01/",
-    "/archives/2015-02-07/",
+    "/archives/2015-01-30/",
+    "/archives/2015-02-03/",
+    "/archives/2015-02-08/",
+    "/archives/2015-02-21/",
     "/archives/2015-02-24/",
-    "/archives/2015-03-04/",
+    "/archives/2015-02-25/",
+    "/archives/2015-02-27/",
+    "/archives/2015-03-02/",
     "/archives/2015-03-06/",
-    "/archives/2015-03-17/",
-    "/archives/2015-04-10/",
+    "/archives/2015-03-12/",
+    "/archives/2015-03-16/",
+    "/archives/2015-03-18/",
+    "/archives/2015-03-24/",
+    "/archives/2015-04-02/",
+    "/archives/2015-04-14/",
+    "/archives/2015-04-16/",
+    "/archives/2015-04-23/",
+    "/archives/2015-04-26/",
+    "/archives/2015-04-28/",
+    "/archives/2015-04-29/",
     "/archives/2015-04-30/",
+    "/archives/2015-05-01/",
+    "/archives/2015-05-04/",
     "/archives/2015-05-05/",
+    "/archives/2015-05-08/",
+    "/archives/2015-05-13/",
+    "/archives/2015-05-14/",
+    "/archives/2015-05-15/",
+    "/archives/2015-05-19/",
+    "/archives/2015-05-20/",
+    "/archives/2015-05-22/",
+    "/archives/2015-05-26/",
+    "/archives/2015-05-27/",
+    "/archives/2015-05-28/",
+    "/archives/2015-05-29/",
+    "/archives/2015-06-02/",
+    "/archives/2015-06-03/",
+    "/archives/2015-06-04/",
+    "/archives/2015-06-10/",
     "/archives/2015-06-11/",
+    "/archives/2015-06-13/",
+    "/archives/2015-06-15/",
+    "/archives/2015-06-16/",
+    "/archives/2015-06-17/",
+    "/archives/2015-06-18/",
+    "/archives/2015-06-23/",
+    "/archives/2015-06-25/",
     "/archives/2015-06-30/",
+    "/archives/2015-07-03/",
     "/archives/2015-07-07/",
-    "/archives/2015-09-02/",
-    "/archives/2015-09-03/",
+    "/archives/2015-07-08/",
+    "/archives/2015-07-13/",
+    "/archives/2015-07-14/",
+    "/archives/2015-07-15/",
+    "/archives/2015-07-16/",
+    "/archives/2015-07-20/",
+    "/archives/2015-07-21/",
+    "/archives/2015-08-10/",
+    "/archives/2015-08-24/",
+    "/archives/2015-08-25/",
+    "/archives/2015-08-27/",
+    "/archives/2015-08-28/",
+    "/archives/2015-09-08/",
+    "/archives/2015-09-09/",
+    "/archives/2015-09-11/",
+    "/archives/2015-09-15/",
+    "/archives/2015-09-17/",
+    "/archives/2015-09-21/",
+    "/archives/2015-09-23/",
+    "/archives/2015-09-29/",
+    "/archives/2015-09-30/",
+    "/archives/2015-10-03/",
+    "/archives/2015-10-09/",
+    "/archives/2015-10-14/",
     "/archives/2015-10-23/",
+    "/archives/2015-10-24/",
+    "/archives/2015-10-26/",
+    "/archives/2015-10-27/",
+    "/archives/2015-11-02/",
+    "/archives/2015-11-04/",
+    "/archives/2015-11-09/",
     "/archives/2015-11-10/",
+    "/archives/2015-11-16/",
+    "/archives/2015-11-19/",
+    "/archives/2015-11-20/",
+    "/archives/2015-11-22/",
+    "/archives/2015-11-27/",
+    "/archives/2015-12-04/",
+    "/archives/2015-12-08/",
+    "/archives/2015-12-10/",
+    "/archives/2015-12-16/",
+    "/archives/2015-12-17/",
+    "/archives/2015-12-18/",
+    "/archives/2015-12-19/",
     "/archives/2016-01-01/",
+    "/archives/2016-01-02/",
+    "/archives/2016-01-06/",
     "/archives/2016-01-07/",
+    "/archives/2016-01-08/",
     "/archives/2016-01-09/",
-    "/archives/2016-03-22/",
-    "/archives/2016-04-03/",
+    "/archives/2016-01-11/",
+    "/archives/2016-01-12/",
+    "/archives/2016-01-14/",
+    "/archives/2016-01-15/",
+    "/archives/2016-01-18/",
+    "/archives/2016-01-19/",
+    "/archives/2016-01-20/",
+    "/archives/2016-01-22/",
+    "/archives/2016-01-24/",
+    "/archives/2016-01-28/",
+    "/archives/2016-01-31/",
+    "/archives/2016-02-01/",
+    "/archives/2016-02-10/",
+    "/archives/2016-02-16/",
+    "/archives/2016-02-19/",
+    "/archives/2016-02-20/",
+    "/archives/2016-02-21/",
+    "/archives/2016-02-25/",
+    "/archives/2016-02-29/",
+    "/archives/2016-03-03/",
+    "/archives/2016-03-07/",
+    "/archives/2016-03-08/",
+    "/archives/2016-03-09/",
+    "/archives/2016-03-10/",
+    "/archives/2016-03-15/",
+    "/archives/2016-03-17/",
+    "/archives/2016-03-20/",
+    "/archives/2016-03-21/",
+    "/archives/2016-03-25/",
+    "/archives/2016-04-04/",
+    "/archives/2016-04-05/",
+    "/archives/2016-04-12/",
+    "/archives/2016-04-20/",
+    "/archives/2016-04-21/",
+    "/archives/2016-04-26/",
+    "/archives/2016-04-27/",
+    "/archives/2016-04-28/",
+    "/archives/2016-05-01/",
+    "/archives/2016-05-02/",
+    "/archives/2016-05-04/",
+    "/archives/2016-05-08/",
+    "/archives/2016-05-09/",
+    "/archives/2016-05-11/",
     "/archives/2016-05-12/",
+    "/archives/2016-05-16/",
+    "/archives/2016-05-23/",
+    "/archives/2016-06-06/",
+    "/archives/2016-06-10/",
+    "/archives/2016-06-13/",
+    "/archives/2016-06-14/",
     "/archives/2016-06-15/",
+    "/archives/2016-06-16/",
+    "/archives/2016-06-20/",
     "/archives/2016-06-21/",
+    "/archives/2016-06-25/",
+    "/archives/2016-06-26/",
+    "/archives/2016-06-30/",
     "/archives/2016-07-01/",
-    "/archives/2016-07-10/",
+    "/archives/2016-07-04/",
+    "/archives/2016-07-11/",
     "/archives/2016-07-15/",
-    "/archives/2016-09-04/",
+    "/archives/2016-07-17/",
+    "/archives/2016-07-18/",
+    "/archives/2016-07-19/",
+    "/archives/2016-07-28/",
+    "/archives/2016-07-29/",
+    "/archives/2016-08-20/",
+    "/archives/2016-08-23/",
+    "/archives/2016-08-24/",
+    "/archives/2016-08-27/",
+    "/archives/2016-08-30/",
+    "/archives/2016-08-31/",
+    "/archives/2016-09-01/",
+    "/archives/2016-09-02/",
+    "/archives/2016-09-03/",
     "/archives/2016-09-05/",
+    "/archives/2016-09-07/",
     "/archives/2016-09-08/",
+    "/archives/2016-09-09/",
+    "/archives/2016-09-11/",
+    "/archives/2016-09-12/",
+    "/archives/2016-09-13/",
+    "/archives/2016-09-14/",
+    "/archives/2016-09-16/",
+    "/archives/2016-09-19/",
+    "/archives/2016-09-21/",
+    "/archives/2016-09-22/",
+    "/archives/2016-09-23/",
+    "/archives/2016-09-28/",
+    "/archives/2016-09-30/",
+    "/archives/2016-10-02/",
+    "/archives/2016-10-03/",
     "/archives/2016-10-04/",
-    "/archives/2016-10-13/",
+    "/archives/2016-10-08/",
+    "/archives/2016-10-11/",
+    "/archives/2016-10-12/",
     "/archives/2016-10-14/",
     "/archives/2016-10-18/",
+    "/archives/2016-10-24/",
+    "/archives/2016-10-26/",
     "/archives/2016-11-02/",
-    "/archives/2016-11-10/",
-    "/archives/2016-11-20/",
+    "/archives/2016-11-05/",
+    "/archives/2016-11-06/",
+    "/archives/2016-11-14/",
+    "/archives/2016-11-17/",
+    "/archives/2016-11-21/",
     "/archives/2016-11-22/",
-    "/archives/2016-11-25/",
-    "/archives/2016-11-27/",
+    "/archives/2016-11-23/",
+    "/archives/2016-11-29/",
+    "/archives/2016-12-01/",
+    "/archives/2016-12-06/",
+    "/archives/2016-12-07/",
+    "/archives/2016-12-08/",
+    "/archives/2016-12-14/",
+    "/archives/2016-12-15/",
+    "/archives/2016-12-16/",
+    "/archives/2016-12-18/",
+    "/archives/2016-12-19/",
     "/archives/2017-02-24/",
     "/archives/2017-03-08/",
     "/archives/2017-03-21/",
@@ -375,8 +1391,15 @@
     "/archives/2017-04-19/",
     "/archives/2017-04-20/",
     "/archives/2017-11-05/",
+    "/archives/2017-11-06/",
+    "/archives/2017-12-08/",
+    "/archives/2018-09-10/",
+    "/archives/2019-06-25/",
     "/archives/2020-02-23/",
+    "/archives/2022-03-11/",
+    "/archives/2022-04-08/",
     "/archives/2022-04-11/",
+    "/archives/2022-04-14/",
     "/archives/2026-07-24/",
     "/archives/2026-08-16/",
     "/archives/2026-08-18/",
@@ -394,222 +1417,440 @@
     "/flux/tumblr-ooblik/",
     "/flux/twitter/",
     "/tags/",
-    "/tags/52/",
+    "/tags/100design/",
+    "/tags/25ansduoueb/",
     "/tags/abstention/",
+    "/tags/accessibilite/",
     "/tags/achievementunlocked/",
-    "/tags/adobe/",
+    "/tags/activisme/",
+    "/tags/ade/",
+    "/tags/aeachi/",
     "/tags/affiche/",
     "/tags/agence/",
     "/tags/agents/",
-    "/tags/annuaire/",
-    "/tags/arch/",
+    "/tags/allenginsberg/",
+    "/tags/amazon/",
+    "/tags/anglais/",
+    "/tags/apprentissage/",
     "/tags/architecture/",
+    "/tags/archive/",
     "/tags/arles/",
-    "/tags/arles2016/",
+    "/tags/arles2015/",
+    "/tags/art-numerique/",
     "/tags/art/",
     "/tags/article/",
     "/tags/artisanat/",
+    "/tags/artprice/",
+    "/tags/asia/",
     "/tags/atelier/",
-    "/tags/australie/",
-    "/tags/auto-hebergement/",
+    "/tags/audit/",
+    "/tags/autoeditions/",
     "/tags/automatisation/",
-    "/tags/avast/",
+    "/tags/automobile/",
+    "/tags/aws/",
     "/tags/barbarie/",
-    "/tags/benchmark/",
-    "/tags/berlin/",
+    "/tags/baryta/",
+    "/tags/beton/",
+    "/tags/bhl/",
+    "/tags/bhlove/",
     "/tags/bigcity/",
-    "/tags/binding/",
+    "/tags/bleedbox/",
     "/tags/blog-ooblik/",
     "/tags/blog/",
     "/tags/book/",
-    "/tags/booklet/",
-    "/tags/booklove/",
-    "/tags/byooblik/",
-    "/tags/c7100x/",
-    "/tags/carnets/",
-    "/tags/centre-d-art/",
+    "/tags/bookmakers/",
+    "/tags/books/",
+    "/tags/bookshop/",
+    "/tags/bordage/",
+    "/tags/branding/",
+    "/tags/bresil/",
+    "/tags/bretagne/",
+    "/tags/brutalisme/",
+    "/tags/c7100/",
+    "/tags/cadre/",
+    "/tags/canon-official/",
+    "/tags/canon/",
+    "/tags/canson/",
+    "/tags/cansoninfinity/",
+    "/tags/cansonpaper/",
+    "/tags/capitalisme/",
+    "/tags/cartographie/",
+    "/tags/cartouche/",
+    "/tags/cat/",
     "/tags/centre-pompidou/",
+    "/tags/charliehebdo/",
+    "/tags/chat/",
     "/tags/chromebook/",
+    "/tags/cinema/",
     "/tags/city/",
-    "/tags/claude/",
-    "/tags/clientcontent/",
+    "/tags/claire/",
+    "/tags/clouscard/",
     "/tags/cms/",
+    "/tags/cnc/",
     "/tags/code/",
+    "/tags/coeur/",
     "/tags/collaboration/",
-    "/tags/collection/",
+    "/tags/coloniale/",
+    "/tags/colonialisme/",
     "/tags/communication/",
+    "/tags/compositing/",
+    "/tags/composition/",
+    "/tags/compression/",
+    "/tags/concret/",
     "/tags/concrete/",
-    "/tags/conference/",
     "/tags/confidentialite/",
+    "/tags/conseil/",
+    "/tags/content/",
+    "/tags/contenu/",
     "/tags/contexte/",
+    "/tags/cooking/",
+    "/tags/copyrightmadness/",
+    "/tags/cours/",
+    "/tags/cprint/",
     "/tags/creation/",
     "/tags/creative-coding/",
+    "/tags/creativite/",
     "/tags/critique/",
+    "/tags/css/",
+    "/tags/cuisine/",
+    "/tags/culture/",
+    "/tags/cybersecurite/",
+    "/tags/datagramme/",
     "/tags/datavisualisation/",
+    "/tags/david-lynch/",
+    "/tags/de/",
+    "/tags/decoupage/",
+    "/tags/definition/",
+    "/tags/demonstration/",
+    "/tags/depression/",
     "/tags/design-editorial/",
+    "/tags/design-generatif/",
     "/tags/design-graphique/",
-    "/tags/design-system/",
-    "/tags/design-web/",
     "/tags/design/",
+    "/tags/desktop/",
+    "/tags/dev/",
     "/tags/developpement/",
+    "/tags/devops/",
+    "/tags/diditalprint/",
     "/tags/diffusion/",
+    "/tags/digest/",
     "/tags/distribution/",
+    "/tags/diy/",
     "/tags/documentation/",
+    "/tags/domains/",
+    "/tags/donnees/",
+    "/tags/dooo/",
     "/tags/doscoll/",
+    "/tags/dpda/",
+    "/tags/dpquattro/",
+    "/tags/drapeau/",
+    "/tags/drupa2016/",
     "/tags/ebook/",
-    "/tags/ecole/",
-    "/tags/ecriture/",
     "/tags/editeur/",
     "/tags/edition-numerique/",
     "/tags/edition/",
+    "/tags/editions/",
+    "/tags/education/",
+    "/tags/eindhoven/",
     "/tags/encadrement/",
-    "/tags/enseignement/",
+    "/tags/enfants/",
+    "/tags/entrainement/",
     "/tags/entretien/",
     "/tags/epub/",
-    "/tags/espagne/",
     "/tags/esperluette/",
     "/tags/etats-unis/",
-    "/tags/experimentation/",
+    "/tags/europe/",
+    "/tags/evaluation/",
     "/tags/exposition/",
-    "/tags/fabrication/",
+    "/tags/fabrication-numerique/",
+    "/tags/facebook/",
     "/tags/faconnage/",
-    "/tags/fichiers/",
-    "/tags/fillon/",
+    "/tags/financement-participatif/",
+    "/tags/finkielraut/",
     "/tags/firmware/",
-    "/tags/fonderie/",
+    "/tags/fondation/",
+    "/tags/font-pairing/",
     "/tags/font/",
+    "/tags/fonte-libre/",
     "/tags/fonts/",
-    "/tags/france/",
-    "/tags/gaza/",
+    "/tags/foveon/",
+    "/tags/free/",
+    "/tags/frise/",
+    "/tags/frontend/",
     "/tags/geek/",
+    "/tags/generatif/",
+    "/tags/generation/",
+    "/tags/gfx/",
     "/tags/git/",
     "/tags/github/",
+    "/tags/google-fonts/",
     "/tags/google/",
     "/tags/gpu/",
-    "/tags/habitudes/",
-    "/tags/happy/",
-    "/tags/hardware/",
-    "/tags/haziza/",
+    "/tags/grandformat/",
+    "/tags/graphic/",
+    "/tags/graphisme/",
+    "/tags/gratuit/",
+    "/tags/hahnem/",
+    "/tags/heureux/",
+    "/tags/high/",
     "/tags/histoire/",
-    "/tags/hp360/",
+    "/tags/homophobie/",
+    "/tags/hp/",
     "/tags/hplatex/",
-    "/tags/hplatex360/",
+    "/tags/hpwallart/",
     "/tags/huge/",
+    "/tags/humanism/",
+    "/tags/humour/",
     "/tags/ia-locale/",
     "/tags/ia/",
+    "/tags/icpbardmfa/",
     "/tags/identite/",
     "/tags/illustration/",
+    "/tags/image/",
+    "/tags/images/",
+    "/tags/impression-a-la-demande/",
+    "/tags/impression/",
     "/tags/imprimerie/",
+    "/tags/imprimeur/",
     "/tags/independant/",
-    "/tags/infini/",
+    "/tags/inference/",
+    "/tags/information/",
     "/tags/inspiration/",
     "/tags/instagram/",
-    "/tags/interface/",
-    "/tags/italie/",
+    "/tags/interface-nodale/",
+    "/tags/internet/",
+    "/tags/ipf8400/",
+    "/tags/islamophobe/",
+    "/tags/italian/",
+    "/tags/jasonrezaian/",
+    "/tags/javascript/",
     "/tags/jean-widmer/",
-    "/tags/jellyfin/",
-    "/tags/laidout/",
+    "/tags/jesaisplusijaidejatwitt/",
+    "/tags/jesuischarlie/",
+    "/tags/jquery/",
+    "/tags/kazakhstan/",
+    "/tags/kickstarter/",
+    "/tags/kirbycms/",
+    "/tags/knowledge-management/",
+    "/tags/laboratoire/",
     "/tags/language/",
-    "/tags/laprimaire/",
-    "/tags/latex/",
+    "/tags/lapsus/",
+    "/tags/layout/",
+    "/tags/ldf15/",
+    "/tags/lense/",
+    "/tags/les/",
     "/tags/letterpress/",
     "/tags/librairie/",
     "/tags/lien-mort/",
-    "/tags/liens/",
+    "/tags/lieu/",
+    "/tags/ligne-de-commande/",
     "/tags/litterature/",
     "/tags/livre-d-art/",
     "/tags/livre-photo/",
     "/tags/livre/",
     "/tags/llm/",
+    "/tags/local/",
     "/tags/logiciel-libre/",
+    "/tags/logiciels/",
     "/tags/logo/",
+    "/tags/lopognon/",
     "/tags/lost/",
+    "/tags/love/",
+    "/tags/lpj/",
+    "/tags/luju/",
+    "/tags/lure2014/",
     "/tags/lyon/",
-    "/tags/magazine/",
-    "/tags/mediation/",
+    "/tags/mafia/",
+    "/tags/manifesto/",
+    "/tags/master/",
+    "/tags/materiel/",
+    "/tags/mediapartlive/",
+    "/tags/medium/",
+    "/tags/meme/",
     "/tags/memoire-web/",
     "/tags/memoire/",
+    "/tags/memory/",
+    "/tags/mep/",
+    "/tags/mercipatroncensur/",
     "/tags/methode/",
-    "/tags/minimalisme/",
-    "/tags/mk2/",
-    "/tags/multimedia/",
-    "/tags/multiplateforme/",
+    "/tags/mobile/",
+    "/tags/modeles/",
+    "/tags/mondialisation/",
+    "/tags/multi-agents/",
+    "/tags/multilingue/",
     "/tags/musique/",
-    "/tags/nas/",
-    "/tags/nddl/",
+    "/tags/net/",
+    "/tags/nikon/",
     "/tags/nlp/",
     "/tags/noir-et-blanc/",
+    "/tags/norme/",
+    "/tags/normes/",
+    "/tags/northkorea/",
+    "/tags/nsasnieres/",
+    "/tags/number-1/",
+    "/tags/numerique/",
+    "/tags/objet/",
+    "/tags/observabilite/",
+    "/tags/occasion/",
     "/tags/offset/",
     "/tags/olivier-roller/",
+    "/tags/onapasdemand/",
     "/tags/ooblik/",
+    "/tags/openfx/",
     "/tags/opensource/",
-    "/tags/opentypo/",
-    "/tags/orchestration/",
+    "/tags/opentype/",
+    "/tags/opinion/",
+    "/tags/orkut/",
+    "/tags/osint/",
     "/tags/osp/",
+    "/tags/outil/",
+    "/tags/outils/",
+    "/tags/p5js/",
+    "/tags/page-quot/",
+    "/tags/pairing/",
+    "/tags/paper/",
     "/tags/papier/",
-    "/tags/pays-bas/",
+    "/tags/parametrique/",
+    "/tags/parfait/",
+    "/tags/paris/",
+    "/tags/pdf-x/",
+    "/tags/pdf/",
     "/tags/pedagogie/",
+    "/tags/pentest/",
+    "/tags/performance/",
+    "/tags/pesticide/",
+    "/tags/philo/",
     "/tags/photo/",
+    "/tags/photobook/",
+    "/tags/photobooks/",
     "/tags/photographe/",
+    "/tags/photographer/",
     "/tags/photographie/",
-    "/tags/police/",
+    "/tags/photography/",
+    "/tags/photojournalisme/",
+    "/tags/photokina/",
+    "/tags/photomattfibre200/",
+    "/tags/photomontage/",
+    "/tags/piano/",
+    "/tags/pink/",
+    "/tags/platine/",
+    "/tags/plieuse/",
     "/tags/polices/",
     "/tags/politique/",
-    "/tags/pologne/",
+    "/tags/pomodoro/",
     "/tags/portfolio/",
-    "/tags/premiere-guerre-mondiale/",
-    "/tags/primairedroite/",
+    "/tags/pose/",
+    "/tags/poster/",
+    "/tags/pratique/",
+    "/tags/prc/",
+    "/tags/prepresse/",
+    "/tags/print-quot/",
     "/tags/print/",
-    "/tags/printbyooblik/",
-    "/tags/procrastination/",
-    "/tags/productivite/",
+    "/tags/pro-bono/",
+    "/tags/projets/",
     "/tags/publication/",
+    "/tags/publisher/",
     "/tags/pur/",
-    "/tags/radio/",
-    "/tags/radiolondres/",
+    "/tags/pyongyang/",
+    "/tags/python/",
+    "/tags/quot-norma/",
+    "/tags/quot-zone/",
+    "/tags/racisme/",
     "/tags/raw/",
+    "/tags/recette/",
     "/tags/recherche/",
     "/tags/reference/",
     "/tags/reliure/",
-    "/tags/rencontres-de-lure/",
-    "/tags/reseau-local/",
+    "/tags/report/",
+    "/tags/reseau/",
+    "/tags/responsive/",
     "/tags/ressources/",
     "/tags/restauration/",
+    "/tags/revue/",
     "/tags/ricoh/",
+    "/tags/riso/",
+    "/tags/robotique/",
+    "/tags/root/",
     "/tags/royaume-uni/",
     "/tags/rse/",
-    "/tags/saint-etienne/",
-    "/tags/sarcelles/",
+    "/tags/s3/",
+    "/tags/salonphotoparis/",
+    "/tags/sans/",
+    "/tags/sanstitre/",
+    "/tags/sant/",
+    "/tags/scroll/",
+    "/tags/securite/",
     "/tags/selfie/",
-    "/tags/shoah/",
-    "/tags/skills/",
+    "/tags/selfpublishing/",
+    "/tags/seo/",
+    "/tags/serveur/",
+    "/tags/sexisme/",
     "/tags/skyscraper/",
+    "/tags/societe/",
     "/tags/sofphd/",
-    "/tags/soft/",
+    "/tags/source-available/",
+    "/tags/stiegler/",
     "/tags/suede/",
     "/tags/suisse/",
-    "/tags/suprb/",
+    "/tags/surreal/",
     "/tags/surveillance/",
+    "/tags/svgfreebie/",
+    "/tags/swissleaks/",
+    "/tags/tech/",
+    "/tags/technologie/",
     "/tags/template/",
+    "/tags/tendance/",
+    "/tags/terminal/",
     "/tags/texte/",
+    "/tags/textile/",
+    "/tags/themes/",
     "/tags/theorie/",
+    "/tags/tirage-pigmentaire/",
     "/tags/tokyo/",
-    "/tags/traces/",
+    "/tags/trame/",
     "/tags/translation/",
-    "/tags/tuit/",
+    "/tags/travail/",
+    "/tags/travailgratuit/",
+    "/tags/travel/",
+    "/tags/travelphotography/",
     "/tags/tumblr/",
     "/tags/tunisie/",
+    "/tags/tutoriel/",
+    "/tags/tutoriels/",
     "/tags/twitter/",
     "/tags/typo/",
     "/tags/typographie/",
     "/tags/typography/",
     "/tags/typos/",
     "/tags/ui/",
+    "/tags/upload/",
     "/tags/urban/",
-    "/tags/ux/",
+    "/tags/urbanisme/",
+    "/tags/utopia/",
+    "/tags/vecteur/",
     "/tags/veille/",
+    "/tags/via-dtatem/",
+    "/tags/video/",
+    "/tags/vie-privee/",
+    "/tags/ville/",
+    "/tags/vimeo/",
     "/tags/vision/",
-    "/tags/web/"
+    "/tags/voyage/",
+    "/tags/vscode/",
+    "/tags/wallcover/",
+    "/tags/web-to-print/",
+    "/tags/web/",
+    "/tags/webdesign/",
+    "/tags/webinaire/",
+    "/tags/webtoprint/",
+    "/tags/wiki/",
+    "/tags/williamburroughs/",
+    "/tags/winezine/",
+    "/tags/wordpress/",
+    "/tags/wp/",
+    "/tags/wwdc/",
+    "/tags/youtube/",
+    "/tags/zine/"
   ],
   "artwork": {
     "upsert": [
@@ -626,5 +1867,5 @@
     ],
     "remove": []
   },
-  "revision": "776caa1585cd85a92c84ec692f11bd683cdc35c7e013567d26d2c37a3ff5345f"
+  "revision": "6207ad4973be183811ced446d3f2906b9245379278a94b4bfc099e1bbec913c0"
 }
