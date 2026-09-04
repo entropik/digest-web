@@ -1,7 +1,49 @@
 {
   "version": 1,
-  "revision": "07473c1ae711fb7453bb5b82c0d540b68c4e019ecb8463c77dc3248e7d0e89ee",
+  "revision": "1ed09a206ebe8465e0ddb5b2e2135a4c952a977d62683d4e4e90b23be2d867bb",
   "entries": {
+    "link:003c0224-df95-58b5-9c18-9af5865ca878": {
+      "description": {
+        "hash": "77faed49451124ca735c3b6f09c80b770d073caa8ad8cfcb58e35db36edb8481",
+        "text": "beautiful"
+      }
+    },
+    "link:16a92d00-b6cb-5b82-9ddf-2e1d313b9791": {
+      "description": {
+        "hash": "34e11ee659dd9422146efee5205011c0cda6ee99111469ae6d6c0225e16d1e6a",
+        "text": "KIBLIND"
+      }
+    },
+    "link:2235a9eb-aa77-5e61-90c7-144424de24ca": {
+      "title": {
+        "hash": "34e11ee659dd9422146efee5205011c0cda6ee99111469ae6d6c0225e16d1e6a",
+        "text": "KIBLIND"
+      }
+    },
+    "link:7785e21a-d2f5-5211-b797-38373b223cef": {
+      "title": {
+        "hash": "a210ebc8e522303412d6d0058b08927cc02b8a9b24022479bfb19d73558b3e3b",
+        "text": "Dosage"
+      }
+    },
+    "link:c367b4d2-b051-5183-96c5-bbd2065c4b9f": {
+      "description": {
+        "hash": "34e11ee659dd9422146efee5205011c0cda6ee99111469ae6d6c0225e16d1e6a",
+        "text": "KIBLIND"
+      }
+    },
+    "link:e2f657ba-1d85-59e2-8d99-27068e1250c8": {
+      "title": {
+        "hash": "bb4eac16126c520f82dc73f9f15f9f9a38b5ea84cbd17d8dd621d27a40082734",
+        "text": "Layout"
+      }
+    },
+    "link:e9754fbd-5058-5745-abca-aec6635c548c": {
+      "title": {
+        "hash": "1d0d1671442177a5992ada75a93f4787d37d18fdb303bed8668b7dcefea63661",
+        "text": "Sparrowhawk"
+      }
+    },
     "page:/a-propos": {
       "body": {
         "hash": "3268d3b7436a2b7c547ccf19cce04eb719dd9e5288cf1de5c44fde65c6a4b914",
@@ -152,6 +194,30 @@
         "text": "Memory flow"
       }
     },
+    "page:/flux/journal-du-digest": {
+      "description": {
+        "hash": "f70eb55eb480671b9cd3f1ed2dcdad008d0062b366aaf65488af179d7adcb2e6",
+        "text": "The OOBLIK Digest development log, chronicled day by day through the stages of design, development and deployment."
+      },
+      "title": {
+        "hash": "b942f7985ca492a080c4eb1c9ead4d9582b311d4d916f3b39af422012c5c6aea",
+        "text": "Digest Journal"
+      }
+    },
+    "page:/flux/journal-procrastinateur": {
+      "body": {
+        "hash": "23762824bd497ae566a870fb76dc61a1cbd8a3c81d96ddc82fa685b53e15552e",
+        "text": "<p>This log is imported from KEREDIT’s development repository. The entries are simply build logs: they are not a substitute for technical documentation or the Git history.</p>\n"
+      },
+      "description": {
+        "hash": "950a66ddbd1f0181c59a0b79c0f01941b997c08f1c4629e20e0c28174d5f3441",
+        "text": "The story of KEREDIT’s construction, told from the workshop: technical decisions, necessary detours, genuine fatigue and the stubborn joy of making things."
+      },
+      "title": {
+        "hash": "946546d90a07b056aaf49f70b37dd2857b2ec866c0aea388c8914c2652bc086a",
+        "text": "Diary of a Procrastinator"
+      }
+    },
     "page:/tags": {
       "description": {
         "hash": "8a77a135fd2220c7b7318d6036662a94d9cfdf5e71253199941e25ad869afe7f",
@@ -160,6 +226,36 @@
       "title": {
         "hash": "c7395791f1fbaa96716934f7a452d624ba54078c84d1834903826fd72ec62f10",
         "text": "Tags"
+      }
+    },
+    "tag:Dosis": {
+      "name": {
+        "hash": "a210ebc8e522303412d6d0058b08927cc02b8a9b24022479bfb19d73558b3e3b",
+        "text": "Dosage"
+      }
+    },
+    "tag:KIBLIND": {
+      "name": {
+        "hash": "34e11ee659dd9422146efee5205011c0cda6ee99111469ae6d6c0225e16d1e6a",
+        "text": "KIBLIND"
+      }
+    },
+    "tag:Laidout": {
+      "name": {
+        "hash": "bb4eac16126c520f82dc73f9f15f9f9a38b5ea84cbd17d8dd621d27a40082734",
+        "text": "Layout"
+      }
+    },
+    "tag:Rondinax": {
+      "name": {
+        "hash": "1d0d1671442177a5992ada75a93f4787d37d18fdb303bed8668b7dcefea63661",
+        "text": "Sparrowhawk"
+      }
+    },
+    "tag:beau": {
+      "name": {
+        "hash": "77faed49451124ca735c3b6f09c80b770d073caa8ad8cfcb58e35db36edb8481",
+        "text": "beautiful"
       }
     }
   },
