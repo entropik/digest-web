@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "987c8773b6cb2699dd0c870adc0e12165ba9e822165bbfdee73b448ec69fdd24",
+  "revision": "a3171e70f11eee81bb17fac5d18e7b5a31672eba1f73b671f9fb39b975a1b713",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -3092,7 +3092,21 @@
         "text": "Diary of a Procrastinator"
       }
     },
+    "page:/flux/journal-procrastinateur/2026-06-22": {
+      "description": {
+        "hash": "10dde13d4807042c95afc0396f41491a7ba63bf767beca67a3ce89f89e14406e",
+        "text": "KEREDIT Consolidation Day: book cover, public reader, downloadable web PDF, September roadmap, dependency audit and WooCommerce sales of the web PDF deliverable."
+      },
+      "title": {
+        "hash": "87c265ae9bbd2649c05dbc2dce34a39c6ce94e049d5fd092e922ced678c185f8",
+        "text": "Day 92 – From public sharing to a web-based deliverable"
+      }
+    },
     "page:/flux/journal-procrastinateur/2026-06-23": {
+      "description": {
+        "hash": "fed35a6f1eb622f9c7f11661aa0d7d792e657534537f892ea487861425296509",
+        "text": "Preliminary review of a day’s KEREDIT security enhancements: authorisation, public sharing, security CI, display of shared products and the WooCommerce basket are still in progress."
+      },
       "title": {
         "hash": "243b08b37c576172185be4d3e10a8a33af574cd62586a348303f1a231359e750",
         "text": "Day 93 – Strengthen before expanding"
@@ -10049,6 +10063,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-14.webp": {
+      "date": {
+        "hash": "b2b26f5425df14f1d5891a8c8185bebfd09ff618c9eca735e93dbbcef9af05d4",
+        "text": "27 August 1985"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10285,6 +10303,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-12.webp": {
+      "date": {
+        "hash": "21d0205f44d05745ebd23d9b43782fba5d6d0f32c753705fae31ef171f2809b6",
+        "text": "17 June 1985"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10681,6 +10703,14 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-22.webp": {
+      "alt": {
+        "hash": "987772d0711c42b8641725d11275701144d6576b6c966b510abede51b1e7250a",
+        "text": "Document NASA : Telstar 3-D communications satellite deploying from Discovery's payload bay"
+      },
+      "date": {
+        "hash": "21d0205f44d05745ebd23d9b43782fba5d6d0f32c753705fae31ef171f2809b6",
+        "text": "17 June 1985"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10688,9 +10718,21 @@
       "themeLabel": {
         "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
         "text": "Telecommunications"
+      },
+      "title": {
+        "hash": "5a42680732ffe32518231daf545bf2622134ef7c36ed3864f555597cc7391484",
+        "text": "Telstar 3-D communications satellite deploying from Discovery's payload bay"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-23.webp": {
+      "alt": {
+        "hash": "b1b9faf9ffc91148288626faa85e1c92a4c41920e29923ada0b908f1ef506bb7",
+        "text": "Document NASA : Australia's AUSSAT satellite deployed from payload bay"
+      },
+      "date": {
+        "hash": "b2b26f5425df14f1d5891a8c8185bebfd09ff618c9eca735e93dbbcef9af05d4",
+        "text": "27 August 1985"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10698,6 +10740,10 @@
       "themeLabel": {
         "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
         "text": "Telecommunications"
+      },
+      "title": {
+        "hash": "b104c8df1a307c1f8442a512f8735c55e3d35cbe4f8489fdac3968112a575a74",
+        "text": "Australia's AUSSAT satellite deployed from payload bay"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-24.webp": {
