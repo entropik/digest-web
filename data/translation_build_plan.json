@@ -1,16 +1,10 @@
 {
   "version": 1,
-  "baseRevision": "eb107df378eb54253b38a38ca859cb3022edd17d01dad095f69202e16f8be005",
-  "targetRevision": "3a0993cf7efde896bd5aeeae9a316f838281bbb03ed4dbb93fa0da1ecd3f1c1a",
+  "baseRevision": "3a0993cf7efde896bd5aeeae9a316f838281bbb03ed4dbb93fa0da1ecd3f1c1a",
+  "targetRevision": "660bff9da3f539e8631ec3d2e9fae0af412a21a7335293b2d01bf79f16283e58",
   "manifestRevision": "f2272c908b90ac69240b90702fdeaa5e9baa19629f567348c73ce89e3d01d2ee",
   "fullBuild": false,
   "items": [
-    {
-      "id": "category:Archives du blog OOBLIK",
-      "fields": [
-        "description"
-      ]
-    },
     {
       "id": "page:/archives/2026-08-16",
       "fields": [
@@ -72,295 +66,241 @@
       ]
     },
     {
-      "id": "tag:ADE",
+      "id": "tag:Aaron-Swartz",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:algorithme",
+      "id": "tag:accessibilité",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:Antonin-Artaud",
+      "id": "tag:attention",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:article",
+      "id": "tag:bleedbox",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:autoeditions",
+      "id": "tag:BlocsRocks",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:books",
+      "id": "tag:carrière",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:bordage",
+      "id": "tag:chat",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:boulette",
+      "id": "tag:city",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:branding",
+      "id": "tag:comparaison",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:chaud",
+      "id": "tag:critique",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:code",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "tag:COLORAMA",
+      "id": "tag:curiosity",
       "fields": [
         "name"
-      ]
-    },
-    {
-      "id": "tag:CPrint",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:cuir",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:culture-libre",
-      "fields": [
-        "description"
       ]
     },
     {
       "id": "tag:cybersécurité",
       "fields": [
-        "name"
+        "description"
       ]
     },
     {
-      "id": "tag:détection",
+      "id": "tag:DIY",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:développement",
+      "id": "tag:documentation",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:enfants",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:england",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:éphéméride",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:ergosoft",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:Eurovision",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:finance",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:fonts",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:hexis",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:IG",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:ilovemyjob",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:images",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:infini",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:joelguerriau",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:kirby",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:liste",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:livres",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:New-York",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:opensource",
       "fields": [
         "description"
       ]
     },
     {
-      "id": "tag:entretien",
+      "id": "tag:penseatonchatquandtesspeed",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:fake-news",
+      "id": "tag:photography",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:Figaro",
+      "id": "tag:piano",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:Finkielraut",
+      "id": "tag:piedsgauchesaussi",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:Framasoft",
+      "id": "tag:robot",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:getkirby",
+      "id": "tag:tool",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:hardware",
+      "id": "tag:vitrophanie",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:hyperlapse",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:informatique",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:inspiration",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:interiorismo",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:italia",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:LeSystaime",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:Lopognon",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:Lune",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:monospace",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:motif",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:nature",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:newsletter",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:nivellement",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:pièces-détachées",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:positivons",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:Production-Type",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:recherche",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "tag:société",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:systèmes",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:traceur",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:Ukraine",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:vecteur",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:vie-privée",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:zine",
+      "id": "tag:YannMoix",
       "fields": [
         "name"
       ]
@@ -369,274 +309,39 @@
   "paths": [
     "/",
     "/archives/",
-    "/archives/2014-02-24/",
     "/archives/2014-02-25/",
-    "/archives/2014-02-28/",
-    "/archives/2014-03-03/",
-    "/archives/2014-03-06/",
-    "/archives/2014-03-10/",
-    "/archives/2014-03-12/",
-    "/archives/2014-03-15/",
-    "/archives/2014-03-16/",
-    "/archives/2014-03-18/",
-    "/archives/2014-03-21/",
-    "/archives/2014-03-22/",
-    "/archives/2014-03-24/",
-    "/archives/2014-04-02/",
-    "/archives/2014-04-05/",
-    "/archives/2014-04-06/",
-    "/archives/2014-04-07/",
-    "/archives/2014-04-08/",
-    "/archives/2014-04-09/",
-    "/archives/2014-04-10/",
-    "/archives/2014-04-15/",
-    "/archives/2014-04-17/",
-    "/archives/2014-04-24/",
-    "/archives/2014-04-25/",
-    "/archives/2014-04-27/",
-    "/archives/2014-04-28/",
-    "/archives/2014-05-06/",
     "/archives/2014-05-10/",
-    "/archives/2014-05-12/",
-    "/archives/2014-05-13/",
-    "/archives/2014-05-19/",
-    "/archives/2014-06-02/",
-    "/archives/2014-06-10/",
-    "/archives/2014-06-19/",
-    "/archives/2014-06-20/",
-    "/archives/2014-06-23/",
-    "/archives/2014-06-25/",
-    "/archives/2014-06-28/",
-    "/archives/2014-06-30/",
-    "/archives/2014-07-09/",
+    "/archives/2014-07-12/",
     "/archives/2014-07-13/",
-    "/archives/2014-07-15/",
-    "/archives/2014-07-16/",
-    "/archives/2014-07-17/",
-    "/archives/2014-07-18/",
     "/archives/2014-07-20/",
     "/archives/2014-07-21/",
-    "/archives/2014-07-22/",
     "/archives/2014-07-26/",
-    "/archives/2014-07-27/",
-    "/archives/2014-07-28/",
-    "/archives/2014-08-01/",
-    "/archives/2014-08-03/",
-    "/archives/2014-08-04/",
-    "/archives/2014-08-05/",
-    "/archives/2014-08-06/",
-    "/archives/2014-08-07/",
-    "/archives/2014-08-09/",
     "/archives/2014-08-12/",
-    "/archives/2014-08-20/",
-    "/archives/2014-08-22/",
-    "/archives/2014-08-23/",
-    "/archives/2014-08-26/",
-    "/archives/2014-08-27/",
-    "/archives/2014-08-29/",
-    "/archives/2014-08-31/",
-    "/archives/2014-09-03/",
-    "/archives/2014-09-08/",
-    "/archives/2014-09-10/",
-    "/archives/2014-09-12/",
+    "/archives/2014-08-24/",
     "/archives/2014-09-13/",
-    "/archives/2014-09-14/",
-    "/archives/2014-09-17/",
-    "/archives/2014-09-19/",
-    "/archives/2014-09-21/",
-    "/archives/2014-09-22/",
-    "/archives/2014-09-23/",
-    "/archives/2014-09-24/",
-    "/archives/2014-09-25/",
-    "/archives/2014-09-27/",
-    "/archives/2014-09-30/",
-    "/archives/2014-10-01/",
-    "/archives/2014-10-06/",
-    "/archives/2014-10-07/",
-    "/archives/2014-10-12/",
-    "/archives/2014-10-16/",
-    "/archives/2014-10-17/",
-    "/archives/2014-10-21/",
-    "/archives/2014-10-24/",
-    "/archives/2014-10-27/",
-    "/archives/2014-10-30/",
-    "/archives/2014-11-02/",
-    "/archives/2014-11-04/",
-    "/archives/2014-11-12/",
-    "/archives/2014-11-13/",
-    "/archives/2014-11-18/",
     "/archives/2014-11-19/",
-    "/archives/2014-11-20/",
-    "/archives/2014-11-21/",
-    "/archives/2014-11-24/",
-    "/archives/2014-12-03/",
-    "/archives/2014-12-10/",
-    "/archives/2014-12-16/",
-    "/archives/2014-12-31/",
-    "/archives/2015-01-09/",
     "/archives/2015-01-12/",
-    "/archives/2015-01-13/",
-    "/archives/2015-01-15/",
-    "/archives/2015-01-18/",
-    "/archives/2015-01-21/",
-    "/archives/2015-01-22/",
-    "/archives/2015-01-24/",
-    "/archives/2015-01-30/",
-    "/archives/2015-02-08/",
-    "/archives/2015-02-18/",
-    "/archives/2015-02-27/",
-    "/archives/2015-03-12/",
-    "/archives/2015-03-29/",
-    "/archives/2015-04-03/",
-    "/archives/2015-04-09/",
-    "/archives/2015-04-29/",
-    "/archives/2015-04-30/",
-    "/archives/2015-05-03/",
-    "/archives/2015-05-04/",
-    "/archives/2015-05-05/",
-    "/archives/2015-05-06/",
-    "/archives/2015-05-07/",
-    "/archives/2015-05-12/",
-    "/archives/2015-05-17/",
-    "/archives/2015-05-20/",
-    "/archives/2015-05-27/",
-    "/archives/2015-05-28/",
-    "/archives/2015-06-02/",
-    "/archives/2015-06-03/",
-    "/archives/2015-06-04/",
-    "/archives/2015-06-08/",
-    "/archives/2015-06-11/",
-    "/archives/2015-06-13/",
-    "/archives/2015-06-16/",
-    "/archives/2015-06-17/",
-    "/archives/2015-06-19/",
-    "/archives/2015-06-22/",
-    "/archives/2015-06-24/",
-    "/archives/2015-06-25/",
-    "/archives/2015-06-30/",
-    "/archives/2015-07-07/",
+    "/archives/2015-03-02/",
+    "/archives/2015-03-30/",
+    "/archives/2015-03-31/",
+    "/archives/2015-06-18/",
     "/archives/2015-07-15/",
     "/archives/2015-07-17/",
-    "/archives/2015-07-21/",
-    "/archives/2015-08-19/",
-    "/archives/2015-08-25/",
-    "/archives/2015-08-31/",
-    "/archives/2015-09-02/",
-    "/archives/2015-09-03/",
-    "/archives/2015-09-08/",
-    "/archives/2015-09-09/",
-    "/archives/2015-09-10/",
-    "/archives/2015-09-11/",
-    "/archives/2015-09-12/",
-    "/archives/2015-09-14/",
-    "/archives/2015-09-16/",
+    "/archives/2015-09-17/",
     "/archives/2015-09-24/",
+    "/archives/2015-09-28/",
     "/archives/2015-09-29/",
-    "/archives/2015-09-30/",
-    "/archives/2015-10-02/",
-    "/archives/2015-10-08/",
-    "/archives/2015-10-12/",
-    "/archives/2015-10-13/",
-    "/archives/2015-10-15/",
-    "/archives/2015-10-23/",
-    "/archives/2015-10-26/",
-    "/archives/2015-11-03/",
-    "/archives/2015-11-10/",
-    "/archives/2015-11-13/",
-    "/archives/2015-11-16/",
-    "/archives/2015-11-18/",
-    "/archives/2015-11-23/",
-    "/archives/2015-11-24/",
-    "/archives/2015-11-26/",
-    "/archives/2015-12-03/",
-    "/archives/2015-12-09/",
-    "/archives/2015-12-17/",
-    "/archives/2015-12-23/",
-    "/archives/2015-12-24/",
-    "/archives/2015-12-31/",
-    "/archives/2016-01-07/",
-    "/archives/2016-01-08/",
+    "/archives/2016-01-03/",
     "/archives/2016-01-09/",
-    "/archives/2016-01-12/",
-    "/archives/2016-01-18/",
-    "/archives/2016-01-22/",
-    "/archives/2016-01-28/",
     "/archives/2016-01-29/",
-    "/archives/2016-02-11/",
-    "/archives/2016-02-13/",
-    "/archives/2016-02-15/",
-    "/archives/2016-02-17/",
-    "/archives/2016-02-25/",
-    "/archives/2016-03-08/",
-    "/archives/2016-03-20/",
-    "/archives/2016-03-23/",
-    "/archives/2016-04-04/",
+    "/archives/2016-02-29/",
     "/archives/2016-05-09/",
-    "/archives/2016-05-12/",
-    "/archives/2016-05-16/",
-    "/archives/2016-05-23/",
-    "/archives/2016-05-29/",
-    "/archives/2016-06-05/",
-    "/archives/2016-06-15/",
-    "/archives/2016-06-20/",
-    "/archives/2016-06-21/",
-    "/archives/2016-06-25/",
-    "/archives/2016-06-26/",
-    "/archives/2016-06-29/",
-    "/archives/2016-06-30/",
-    "/archives/2016-07-04/",
-    "/archives/2016-07-11/",
-    "/archives/2016-07-15/",
-    "/archives/2016-07-17/",
-    "/archives/2016-07-20/",
-    "/archives/2016-07-29/",
+    "/archives/2016-06-10/",
+    "/archives/2016-08-14/",
     "/archives/2016-08-17/",
-    "/archives/2016-08-22/",
-    "/archives/2016-08-24/",
-    "/archives/2016-08-26/",
-    "/archives/2016-08-27/",
-    "/archives/2016-08-29/",
-    "/archives/2016-08-30/",
-    "/archives/2016-09-02/",
-    "/archives/2016-09-03/",
-    "/archives/2016-09-04/",
-    "/archives/2016-09-05/",
-    "/archives/2016-09-08/",
     "/archives/2016-09-09/",
-    "/archives/2016-09-13/",
-    "/archives/2016-09-14/",
-    "/archives/2016-09-15/",
-    "/archives/2016-09-16/",
-    "/archives/2016-09-20/",
-    "/archives/2016-09-21/",
-    "/archives/2016-09-24/",
-    "/archives/2016-09-28/",
-    "/archives/2016-09-30/",
-    "/archives/2016-10-01/",
     "/archives/2016-10-04/",
-    "/archives/2016-10-06/",
-    "/archives/2016-10-08/",
-    "/archives/2016-10-11/",
-    "/archives/2016-10-13/",
-    "/archives/2016-10-14/",
-    "/archives/2016-10-18/",
-    "/archives/2016-10-28/",
-    "/archives/2016-11-02/",
-    "/archives/2016-11-04/",
-    "/archives/2016-11-07/",
-    "/archives/2016-11-08/",
-    "/archives/2016-11-10/",
-    "/archives/2016-11-14/",
-    "/archives/2016-11-16/",
-    "/archives/2016-11-21/",
-    "/archives/2016-11-22/",
-    "/archives/2016-11-23/",
-    "/archives/2016-12-03/",
-    "/archives/2016-12-05/",
-    "/archives/2016-12-10/",
-    "/archives/2016-12-13/",
-    "/archives/2016-12-14/",
-    "/archives/2016-12-15/",
+    "/archives/2016-11-03/",
     "/archives/2016-12-20/",
     "/archives/2017-02-24/",
     "/archives/2017-03-08/",
@@ -645,13 +350,7 @@
     "/archives/2017-04-07/",
     "/archives/2017-04-18/",
     "/archives/2017-04-19/",
-    "/archives/2017-04-20/",
-    "/archives/2017-11-02/",
-    "/archives/2017-11-06/",
-    "/archives/2019-06-25/",
-    "/archives/2022-04-08/",
-    "/archives/2022-04-09/",
-    "/archives/2022-04-11/",
+    "/archives/2018-09-10/",
     "/archives/2022-04-14/",
     "/archives/2026-07-24/",
     "/archives/2026-08-16/",
@@ -665,336 +364,270 @@
     "/archives/2026-09-01/",
     "/archives/2026-09-02/",
     "/flux/",
-    "/flux/blog-ooblik/",
     "/flux/instagram/",
     "/flux/tumblr-ooblik/",
     "/flux/twitter/",
     "/tags/",
     "/tags/aaron-swartz/",
-    "/tags/activisme/",
+    "/tags/accessibilite/",
     "/tags/ade/",
-    "/tags/administration-systeme/",
-    "/tags/adobe/",
-    "/tags/aeachi/",
-    "/tags/affiches/",
-    "/tags/afp/",
+    "/tags/adeuxmainsgauches/",
     "/tags/agents/",
-    "/tags/algorithme/",
-    "/tags/algorithmes/",
-    "/tags/analyse/",
+    "/tags/anarchisme/",
     "/tags/annuaire/",
     "/tags/antonin-artaud/",
-    "/tags/api/",
     "/tags/apprentissage/",
-    "/tags/arch/",
     "/tags/architecture/",
     "/tags/archive/",
     "/tags/archives/",
-    "/tags/argentique/",
-    "/tags/art-numerique/",
+    "/tags/art-contemporain/",
     "/tags/art/",
-    "/tags/article/",
-    "/tags/artisanat/",
-    "/tags/artiste/",
+    "/tags/asia/",
     "/tags/assistant/",
     "/tags/attention/",
     "/tags/audit/",
     "/tags/auto-hebergement/",
-    "/tags/autoeditions/",
     "/tags/automatisation/",
-    "/tags/avast/",
-    "/tags/benchmark/",
     "/tags/bhl/",
+    "/tags/bleedbox/",
     "/tags/blocsrocks/",
-    "/tags/blog-ooblik/",
     "/tags/blog/",
-    "/tags/boldomatic/",
-    "/tags/book/",
-    "/tags/books/",
-    "/tags/bordage/",
-    "/tags/boulette/",
-    "/tags/boutique/",
-    "/tags/branding/",
-    "/tags/brutalisme/",
-    "/tags/canon/",
-    "/tags/canson/",
-    "/tags/capitalisme/",
+    "/tags/bresil/",
+    "/tags/build/",
+    "/tags/cadre/",
     "/tags/carriere/",
     "/tags/cartographie/",
-    "/tags/cashinvestigation/",
-    "/tags/catalogue/",
+    "/tags/cat/",
+    "/tags/chat/",
     "/tags/chaud/",
-    "/tags/chooseindependent/",
-    "/tags/cinema/",
+    "/tags/ci-cd/",
+    "/tags/city/",
     "/tags/cli/",
     "/tags/cms/",
+    "/tags/cnc/",
     "/tags/code/",
-    "/tags/collection/",
-    "/tags/coloniale/",
-    "/tags/colonialisme/",
-    "/tags/colorama/",
-    "/tags/communication/",
+    "/tags/codebase/",
+    "/tags/collaboration/",
     "/tags/comparaison/",
-    "/tags/content/",
+    "/tags/compositing/",
+    "/tags/composition/",
+    "/tags/concrete/",
+    "/tags/confidentialite/",
+    "/tags/configuration/",
+    "/tags/contenu/",
     "/tags/contexte/",
-    "/tags/conversion/",
-    "/tags/cop21/",
+    "/tags/cool/",
     "/tags/cours/",
-    "/tags/cprint/",
     "/tags/creation/",
+    "/tags/creativite/",
     "/tags/critique/",
     "/tags/css/",
-    "/tags/cuir/",
-    "/tags/cuisine/",
     "/tags/culture-libre/",
+    "/tags/curiosity/",
     "/tags/cybersecurite/",
-    "/tags/datagramme/",
-    "/tags/datavisualisation/",
-    "/tags/david-lynch/",
-    "/tags/decoracion/",
-    "/tags/definition/",
-    "/tags/design-editorial/",
+    "/tags/de/",
+    "/tags/decoupage/",
     "/tags/design-generatif/",
     "/tags/design-graphique/",
     "/tags/design/",
-    "/tags/detection/",
-    "/tags/dev/",
+    "/tags/developpement-web/",
     "/tags/developpement/",
     "/tags/devops/",
-    "/tags/dns/",
-    "/tags/documents/",
-    "/tags/donnees/",
-    "/tags/dpda/",
-    "/tags/dummy/",
+    "/tags/dictee/",
+    "/tags/diy/",
+    "/tags/documentation/",
     "/tags/editeur/",
     "/tags/edition/",
-    "/tags/editor/",
     "/tags/education/",
-    "/tags/eindhoven/",
+    "/tags/efi/",
     "/tags/enfants/",
-    "/tags/entretien/",
+    "/tags/england/",
     "/tags/entretiens/",
-    "/tags/essentielles/",
+    "/tags/ephemeride/",
+    "/tags/eps/",
+    "/tags/ergosoft/",
     "/tags/ethique/",
+    "/tags/europe/",
+    "/tags/eurovision/",
+    "/tags/evaluation/",
     "/tags/exposition/",
-    "/tags/extraction/",
-    "/tags/facebook/",
-    "/tags/faconnage/",
-    "/tags/fake-news/",
-    "/tags/falciani/",
-    "/tags/fermentation/",
+    "/tags/fabrication-numerique/",
     "/tags/fiche/",
-    "/tags/figaro/",
-    "/tags/film/",
-    "/tags/finkielraut/",
+    "/tags/fichiers/",
+    "/tags/filesender/",
+    "/tags/finance/",
     "/tags/flatsite/",
+    "/tags/fondation/",
     "/tags/fonderie/",
-    "/tags/fonte-libre/",
-    "/tags/food/",
+    "/tags/font/",
+    "/tags/fonts/",
+    "/tags/forum/",
     "/tags/framasoft/",
     "/tags/france/",
-    "/tags/fromevernote/",
-    "/tags/fusillade/",
-    "/tags/gaza/",
-    "/tags/geek/",
-    "/tags/geminiapp/",
-    "/tags/generator/",
-    "/tags/getkirby/",
+    "/tags/free/",
+    "/tags/frontend/",
+    "/tags/gestionnaire-de-fichiers/",
     "/tags/git/",
     "/tags/github/",
     "/tags/google-fonts/",
+    "/tags/google/",
     "/tags/gpu/",
-    "/tags/graphisme/",
-    "/tags/grenoble/",
-    "/tags/hardware/",
-    "/tags/hebergement/",
-    "/tags/high/",
+    "/tags/graphe/",
+    "/tags/grotesque/",
+    "/tags/hexis/",
+    "/tags/hinting/",
     "/tags/histoire/",
-    "/tags/hosting/",
-    "/tags/hsbc/",
-    "/tags/huiles/",
-    "/tags/hvd-fonts/",
-    "/tags/hyperlapse/",
+    "/tags/hplatex/",
+    "/tags/hplatex360/",
     "/tags/ia-locale/",
     "/tags/ia/",
-    "/tags/identite/",
-    "/tags/illustration/",
+    "/tags/iceland/",
+    "/tags/ig/",
+    "/tags/ilovemyjob/",
     "/tags/images/",
+    "/tags/imposition/",
     "/tags/impression/",
-    "/tags/indexhibit/",
-    "/tags/information/",
-    "/tags/informatique/",
+    "/tags/indesign/",
+    "/tags/infini/",
     "/tags/inspiration/",
     "/tags/instagram/",
-    "/tags/interface/",
-    "/tags/interiorismo/",
     "/tags/internet/",
-    "/tags/internetslowdown/",
-    "/tags/islamophobe/",
-    "/tags/italia/",
     "/tags/javascript/",
     "/tags/jellyfin/",
+    "/tags/joelguerriau/",
+    "/tags/jquery/",
+    "/tags/kazakhstan/",
+    "/tags/kiev/",
     "/tags/kirby/",
-    "/tags/kirbycms/",
-    "/tags/kodak/",
-    "/tags/koken/",
     "/tags/laboratoire/",
-    "/tags/lesystaime/",
-    "/tags/letterpress/",
+    "/tags/laidout/",
+    "/tags/language/",
+    "/tags/librairie/",
     "/tags/lien-mort/",
-    "/tags/liens/",
-    "/tags/ligne-de-commande/",
     "/tags/liste/",
     "/tags/litterature/",
-    "/tags/livre/",
+    "/tags/livre-dartiste/",
+    "/tags/livre-photo/",
     "/tags/livres/",
     "/tags/llm/",
     "/tags/logiciel-libre/",
-    "/tags/logiciel/",
-    "/tags/logiciels/",
-    "/tags/lopognon/",
-    "/tags/luju/",
-    "/tags/lune/",
-    "/tags/lure2015/",
-    "/tags/magazine/",
-    "/tags/markdown/",
-    "/tags/materiel/",
-    "/tags/medias/",
-    "/tags/medium/",
-    "/tags/meme/",
+    "/tags/lost/",
     "/tags/memoire-web/",
-    "/tags/memory/",
-    "/tags/methode/",
     "/tags/mexique/",
+    "/tags/mise-en-page/",
     "/tags/mobile/",
-    "/tags/modeles/",
-    "/tags/monospace/",
-    "/tags/motif/",
+    "/tags/moteur-de-recherche/",
     "/tags/multi-agents/",
+    "/tags/multilingue/",
     "/tags/multimedia/",
-    "/tags/mural/",
-    "/tags/nature/",
-    "/tags/net/",
+    "/tags/multiplateforme/",
+    "/tags/musique/",
+    "/tags/navigateur/",
+    "/tags/new-york/",
     "/tags/newsletter/",
-    "/tags/nivellement/",
-    "/tags/nlp/",
+    "/tags/norme/",
+    "/tags/northkorea/",
+    "/tags/numerique/",
     "/tags/objet/",
+    "/tags/observabilite/",
     "/tags/ooblik/",
-    "/tags/opendata/",
+    "/tags/openfx/",
     "/tags/opensource/",
-    "/tags/opentypo/",
-    "/tags/opinion/",
     "/tags/orchestration/",
-    "/tags/osint/",
     "/tags/osp/",
+    "/tags/outil/",
     "/tags/outils/",
-    "/tags/pablo/",
-    "/tags/paedophilia/",
-    "/tags/papelpintado/",
+    "/tags/page-quot/",
+    "/tags/pagination/",
+    "/tags/palette/",
+    "/tags/pao/",
     "/tags/papier/",
-    "/tags/papiers/",
-    "/tags/paris/",
-    "/tags/parisweb/",
-    "/tags/pass/",
-    "/tags/pattern/",
-    "/tags/pawsonappletv/",
-    "/tags/paysage/",
+    "/tags/parametrique/",
     "/tags/pdf/",
     "/tags/pedagogie/",
-    "/tags/pelliculage/",
+    "/tags/penseatonchatquandtesspeed/",
     "/tags/pentest/",
-    "/tags/periscope/",
+    "/tags/performance/",
+    "/tags/photo/",
     "/tags/photographie/",
-    "/tags/photomontage/",
-    "/tags/pieces-detachees/",
+    "/tags/photography/",
+    "/tags/php/",
+    "/tags/piano/",
+    "/tags/piedsgauchesaussi/",
+    "/tags/pink/",
     "/tags/piscine/",
+    "/tags/plex/",
     "/tags/poesie/",
     "/tags/police/",
     "/tags/polices/",
     "/tags/politique/",
     "/tags/portfolio/",
-    "/tags/positivons/",
+    "/tags/poster/",
     "/tags/prepresse/",
-    "/tags/presse/",
-    "/tags/pro-bono/",
-    "/tags/production-type/",
-    "/tags/programmers/",
-    "/tags/projets/",
+    "/tags/print-quot/",
     "/tags/publication/",
+    "/tags/pyongyang/",
     "/tags/python/",
+    "/tags/quot-norma/",
+    "/tags/quot-zone/",
+    "/tags/raw/",
     "/tags/recherche/",
-    "/tags/reference/",
-    "/tags/reflexion/",
-    "/tags/rencontres-de-lure/",
-    "/tags/reparation/",
+    "/tags/report/",
+    "/tags/reseau-local/",
     "/tags/ressources/",
-    "/tags/revue/",
-    "/tags/ricoh/",
-    "/tags/riso/",
     "/tags/robot/",
-    "/tags/root/",
+    "/tags/robotique/",
+    "/tags/rust/",
     "/tags/saas/",
-    "/tags/sanstitre/",
-    "/tags/seal/",
-    "/tags/securite/",
+    "/tags/sans-serif/",
+    "/tags/scroll/",
+    "/tags/selfie/",
     "/tags/seo/",
-    "/tags/services/",
-    "/tags/sexisme/",
-    "/tags/site/",
     "/tags/societe/",
     "/tags/soft/",
-    "/tags/source-available/",
-    "/tags/specifications/",
-    "/tags/standard/",
-    "/tags/statamic/",
     "/tags/static/",
-    "/tags/suisse/",
-    "/tags/super-8/",
-    "/tags/supply-chain/",
-    "/tags/suprb/",
-    "/tags/surveillance/",
-    "/tags/systemes/",
-    "/tags/tata/",
+    "/tags/stock-photo/",
+    "/tags/stories/",
+    "/tags/studioprint/",
+    "/tags/surreal/",
+    "/tags/tech/",
     "/tags/technologie/",
     "/tags/terminal/",
-    "/tags/textile/",
-    "/tags/thanksall/",
+    "/tags/texte/",
     "/tags/theme/",
-    "/tags/tinyletter/",
+    "/tags/themes/",
+    "/tags/theorie/",
+    "/tags/tipibookshop/",
     "/tags/tokens/",
+    "/tags/tokyo/",
     "/tags/tool/",
-    "/tags/traceur/",
-    "/tags/trame/",
-    "/tags/travail/",
+    "/tags/transfert-de-fichiers/",
+    "/tags/translation/",
+    "/tags/transparent/",
+    "/tags/travel/",
+    "/tags/travelphotography/",
+    "/tags/truetype/",
+    "/tags/tuit/",
     "/tags/tumblr/",
-    "/tags/tutoriels/",
+    "/tags/tutoriel/",
     "/tags/twitter/",
     "/tags/typo/",
     "/tags/typographie/",
+    "/tags/typography/",
     "/tags/typos/",
     "/tags/ui/",
-    "/tags/ukraine/",
-    "/tags/unifier/",
-    "/tags/unmondedeformats/",
-    "/tags/urbanisme/",
-    "/tags/vecteur/",
+    "/tags/upload/",
+    "/tags/urban/",
+    "/tags/utopia/",
     "/tags/veille/",
     "/tags/video/",
-    "/tags/vie-privee/",
-    "/tags/ville/",
-    "/tags/vision/",
-    "/tags/visualisation/",
-    "/tags/vocabulaire/",
-    "/tags/vscode/",
-    "/tags/web-development/",
-    "/tags/web-to-print/",
+    "/tags/vitraux/",
+    "/tags/vitrophanie/",
+    "/tags/voix/",
     "/tags/web/",
-    "/tags/webfont/",
-    "/tags/white/",
-    "/tags/wiki/",
-    "/tags/winezine/",
-    "/tags/wordpress/",
-    "/tags/zine/"
+    "/tags/windows/",
+    "/tags/yannmoix/",
+    "/tags/youtube/"
   ],
   "artwork": {
     "upsert": [
@@ -1011,5 +644,5 @@
     ],
     "remove": []
   },
-  "revision": "efc8d922fade0e40419d6aabcde554f035136b948409897f98a29b860627457b"
+  "revision": "16f6342e117c52fc5b5d9dd37823e76ebfa36075c7287f3da9783d0847913f1e"
 }

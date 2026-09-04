@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "3a0993cf7efde896bd5aeeae9a316f838281bbb03ed4dbb93fa0da1ecd3f1c1a",
+  "revision": "660bff9da3f539e8631ec3d2e9fae0af412a21a7335293b2d01bf79f16283e58",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -340,6 +340,12 @@
         "text": "ARTPRICE"
       }
     },
+    "tag:Aaron-Swartz": {
+      "name": {
+        "hash": "567c7343f7c64faa390dabc23c215ff3f6d2ed0db8ba04c971f9b5cf633b8758",
+        "text": "Aaron Swartz"
+      }
+    },
     "tag:Antonin-Artaud": {
       "name": {
         "hash": "4399b3a5a74c2034fd9dd255388c91ea79c1a0ab5987734fbaff36c97ef8c741",
@@ -368,6 +374,12 @@
       "name": {
         "hash": "39e6ed96785c859110b8ecf785cadac6e96c6d18f3f39c351a2525ef6419ace6",
         "text": "Before Christ"
+      }
+    },
+    "tag:BlocsRocks": {
+      "name": {
+        "hash": "5741eca3f9b908578de5105a3eb98b19d913894fbf6dfec6bae656c6d274ab69",
+        "text": "BlocsRocks"
       }
     },
     "tag:COLORAMA": {
@@ -406,6 +418,12 @@
         "text": "Claude"
       }
     },
+    "tag:DIY": {
+      "name": {
+        "hash": "53170745a8589a816c89ed51bfa588c08cf41355e9cfea36caa6c32c972e0a9e",
+        "text": "Do It Yourself"
+      }
+    },
     "tag:Definition": {
       "name": {
         "hash": "23d38c74006538cb66fa1ace5179711df32a898c33acaa4d787019d2e11cd90c",
@@ -440,6 +458,12 @@
       "name": {
         "hash": "1687e7b030f262ebf59991b8b843c805ec617a75a4b93210b24147071f091d39",
         "text": "Easy"
+      }
+    },
+    "tag:Eurovision": {
+      "name": {
+        "hash": "56cb4d150742f71d169906cd0632393b909209a7d7612e25962675ea4b00e62e",
+        "text": "Eurovision"
       }
     },
     "tag:Figaro": {
@@ -506,6 +530,12 @@
       "name": {
         "hash": "3b367c4098b4a01b9fd0a60eee717c6dc16541cb2ffeacdde2ab978ada38ce77",
         "text": "I am"
+      }
+    },
+    "tag:IG": {
+      "name": {
+        "hash": "505b58dbdaee138c7128fe5ad45334203dfb46e2d0c3d2f3f6d749d9c758d1bc",
+        "text": "IG"
       }
     },
     "tag:InDesign": {
@@ -614,6 +644,12 @@
       "name": {
         "hash": "37c8e35105bf12a318356878e7c3abbdc0c4ce2a1d3bfdf0995251a873bf37f8",
         "text": "NePas"
+      }
+    },
+    "tag:New-York": {
+      "name": {
+        "hash": "548b4ef05eb5d150a1b8771e9d0e25aecf72426dce001ae6d4685576438bc707",
+        "text": "New-York"
       }
     },
     "tag:NiNi": {
@@ -808,6 +844,18 @@
         "text": "WordPress"
       }
     },
+    "tag:YannMoix": {
+      "name": {
+        "hash": "544b194af42f99527d7e64f886e2efdd9039158dd889430ac7d054d58f89952f",
+        "text": "YannMoix"
+      }
+    },
+    "tag:accessibilité": {
+      "name": {
+        "hash": "512ae6e566ee30f587f6b7d3de4b8b9016c75ab9304163b1fab26ae9ec5f59a3",
+        "text": "accessibility"
+      }
+    },
     "tag:aeachi": {
       "name": {
         "hash": "14905d169138aa9a611bb513d5bccc696c0c075a9a0070bdc18412779a41c455",
@@ -896,6 +944,12 @@
         "text": "to follow"
       }
     },
+    "tag:attention": {
+      "name": {
+        "hash": "563c9b1a3bdc4159529beee111752d9811a184d7443bdd7a30dbbf2a8ce6f0d4",
+        "text": "attention"
+      }
+    },
     "tag:auboulot": {
       "name": {
         "hash": "26195f17e4602893656608a6d36cf07ca3dd766042a6c630ee759bdaa8b3b375",
@@ -940,6 +994,12 @@
       "name": {
         "hash": "77faed49451124ca735c3b6f09c80b770d073caa8ad8cfcb58e35db36edb8481",
         "text": "beautiful"
+      }
+    },
+    "tag:bleedbox": {
+      "name": {
+        "hash": "559b6738683888791ae62013340d35cb8ed7b5a63d3b7defa959999ab64e4a06",
+        "text": "bleedbox"
       }
     },
     "tag:blog-ooblik": {
@@ -1026,6 +1086,18 @@
         "text": "standard"
       }
     },
+    "tag:carrière": {
+      "name": {
+        "hash": "560919d20a084a93ccbda67a2c7d230b2d0cad254bb164e8cfea00340cb10d10",
+        "text": "career"
+      }
+    },
+    "tag:chat": {
+      "name": {
+        "hash": "54381f5ea86cff0fd18e5040cab2eeedf7623af7e6d0713bb5838608d824ffc6",
+        "text": "cat"
+      }
+    },
     "tag:chaud": {
       "name": {
         "hash": "48d23b54148b2cabbf1c476868a71d7badc3d6e059b1bac9866c678c436a4759",
@@ -1042,6 +1114,12 @@
       "name": {
         "hash": "3497b3a016021c822900318826710befe49a8e0886a84bb12f13726da1915bad",
         "text": "cinema"
+      }
+    },
+    "tag:city": {
+      "name": {
+        "hash": "53d29ed22e45dd4b3f300dafeb1ff7171cadc0d3f027fcff374486d2dd817b02",
+        "text": "city"
       }
     },
     "tag:cms": {
@@ -1084,6 +1162,12 @@
         "text": "just like a Monday"
       }
     },
+    "tag:comparaison": {
+      "name": {
+        "hash": "563059b79deb8862173fdd86bc6e6797712795688e33b67a7698d78c593b9188",
+        "text": "comparison"
+      }
+    },
     "tag:compression": {
       "name": {
         "hash": "3e9c9bdb61593bfc66994d2beb22ae245fd09851458f1098d7fed5c952cddb7d",
@@ -1120,6 +1204,12 @@
         "text": "copyrightmadness"
       }
     },
+    "tag:critique": {
+      "name": {
+        "hash": "567463ff1dd58e1b01508eb86868acea4b8e2360c58f1d832e935dd02ea17aa5",
+        "text": "criticism"
+      }
+    },
     "tag:css": {
       "name": {
         "hash": "1cbfa954c514598e762e113252cde1ec77f1fc692dcc43e7f95b6a3cd5be6899",
@@ -1144,7 +1234,17 @@
         "text": "Commons, knowledge sharing and open licences."
       }
     },
+    "tag:curiosity": {
+      "name": {
+        "hash": "55f5f083540f3bfac7338a0c15e30434338a5057fafe645a1f7a204e5c154ab6",
+        "text": "curiosity"
+      }
+    },
     "tag:cybersécurité": {
+      "description": {
+        "hash": "5538ec4095106d64bb54519b4d1b1846d4e712ecacb196cc582e8ba9dc6582be",
+        "text": "Security of systems, data and digital practices."
+      },
       "name": {
         "hash": "4eeacf58dc5f933848dab53534cbfe5d51ff3fd39681442537faa256c911eefd",
         "text": "cyber security"
@@ -1192,6 +1292,12 @@
         "text": "documentary"
       }
     },
+    "tag:documentation": {
+      "name": {
+        "hash": "5142d14ebd608b3f01e657d8083dfa3fae9471e94d7dcfa55912bdba4ac9fc8b",
+        "text": "documentation"
+      }
+    },
     "tag:démonstration": {
       "name": {
         "hash": "046299d4e5c430ee83de146656f88f2f570abf0f3fc4ecf678b9c174b94d53c0",
@@ -1216,10 +1322,28 @@
         "text": "easydot"
       }
     },
+    "tag:enfants": {
+      "name": {
+        "hash": "53487d48eeb74bc09037079a0a7b5a3b7897bd3d5de106822f4e9f96ec73968e",
+        "text": "children"
+      }
+    },
+    "tag:england": {
+      "name": {
+        "hash": "53482dd0cf2ad0b02fe3aa65a4c455c1bcc5487b22dad650cc993efe89ccaad0",
+        "text": "England"
+      }
+    },
     "tag:entretien": {
       "name": {
         "hash": "4a314b14ad0a769e1ce90a6323e4f2f4bd6cae2a860a5db3dbfa11f4ec2182d9",
         "text": "interview"
+      }
+    },
+    "tag:ergosoft": {
+      "name": {
+        "hash": "50b1714258bfd548b9e9734429ec1e13768a3a585599b4481a37b43265ad11e7",
+        "text": "ergosoft"
       }
     },
     "tag:espacement": {
@@ -1270,6 +1394,12 @@
         "text": "proud"
       }
     },
+    "tag:finance": {
+      "name": {
+        "hash": "52fdfd7e61a1e31f3d6144875062d53f4c25adf514496b136987bc3ee81bb3b1",
+        "text": "finance"
+      }
+    },
     "tag:findepose": {
       "name": {
         "hash": "11a2cfe61cac1c2967219221955c9479491a5beb598af208377ad2c888f87e8c",
@@ -1286,6 +1416,12 @@
       "name": {
         "hash": "36498397627458ede854fa762f14988c0298ccda6d8cc76792010f807857b163",
         "text": "Free source"
+      }
+    },
+    "tag:fonts": {
+      "name": {
+        "hash": "56e1cf3af3ef5457922c643853e6a1ef26068aa552b134ee779b7772d2836862",
+        "text": "sources"
       }
     },
     "tag:frontend": {
@@ -1328,6 +1464,12 @@
       "name": {
         "hash": "498018d89faf5ba843edc24c9033249ab6f3512f5611804b0e5ae49a6b027de8",
         "text": "hardware"
+      }
+    },
+    "tag:hexis": {
+      "name": {
+        "hash": "5479e5a32c60039656ba41ce72f8344abb04f5d6d433aa0a05180e60222eceb7",
+        "text": "hexagonal"
       }
     },
     "tag:hp": {
@@ -1378,10 +1520,22 @@
         "text": "Illustration, drawing and narrative imagery."
       }
     },
+    "tag:ilovemyjob": {
+      "name": {
+        "hash": "56e0a3e6e88e4686d223b67d5d24c0d15be9fe5fa2117b6a4f99668f1d0d45e5",
+        "text": "ilovemyjob"
+      }
+    },
     "tag:image-numérique": {
       "name": {
         "hash": "2cd08c5306427b789d816df4e05c9517ace164bb53bd84037428acc20d84de76",
         "text": "digital image"
+      }
+    },
+    "tag:images": {
+      "name": {
+        "hash": "55f084c649675bdbd4d813b61c7fb424d106dd3b2c456aec601d1a387c29b2db",
+        "text": "images"
       }
     },
     "tag:impression": {
@@ -1394,6 +1548,12 @@
       "name": {
         "hash": "42755f91c4c2e52146c6c088bde5a680eeae14de4e5f3973c93bb5a660a3b79a",
         "text": "printer"
+      }
+    },
+    "tag:infini": {
+      "name": {
+        "hash": "5101873f3deadc1aef19bf95f4e36e20a714a31ec74e96d6ed79d2c8a13a1b73",
+        "text": "infinite"
       }
     },
     "tag:information": {
@@ -1450,10 +1610,22 @@
         "text": "JavaScript Library"
       }
     },
+    "tag:joelguerriau": {
+      "name": {
+        "hash": "51a4af0992c3130de2c4e77a49d1d800ddb707d654e35914a28238d6706f87d1",
+        "text": "joelguerriau"
+      }
+    },
     "tag:kiev": {
       "name": {
         "hash": "1086fae042ccec2e12eae3aa235e8ae3d8c68ee027dd7fb9a8195c270b23123c",
         "text": "Kiev"
+      }
+    },
+    "tag:kirby": {
+      "name": {
+        "hash": "5743ce543c4e0cf6e62689df78d4203a972fdf7d0ea03c587e579f6699787fad",
+        "text": "Kirby"
       }
     },
     "tag:lapsus": {
@@ -1498,10 +1670,22 @@
         "text": "readability"
       }
     },
+    "tag:liste": {
+      "name": {
+        "hash": "56c3973e10b269de8e4c513fe344a75363c4e28b96cc98855546bfd7d9f866bc",
+        "text": "list"
+      }
+    },
     "tag:livre-d’artiste": {
       "description": {
         "hash": "3b733f0683168081f310624dfa51bf0e45a01bc051b5acb6b8d9b334d4749bfb",
         "text": "Books conceived as works of art or spaces for creativity."
+      }
+    },
+    "tag:livres": {
+      "name": {
+        "hash": "562fe8a1f632940c04ad52d804264da196b107d75f67c1c03b6687b8f06b0914",
+        "text": "books"
       }
     },
     "tag:lost": {
@@ -1685,6 +1869,10 @@
       }
     },
     "tag:opensource": {
+      "description": {
+        "hash": "564325a463390f831699d80a222eac9c7ea00069dec155b639d07e9cf3028362",
+        "text": "Software and projects with open-source code."
+      },
       "name": {
         "hash": "2f4dcde7b95d6b0a16f5a9390804f4d8975939d37b02d3469298586dcd3ba058",
         "text": "open source"
@@ -1726,6 +1914,12 @@
         "text": "lamination"
       }
     },
+    "tag:penseatonchatquandtesspeed": {
+      "name": {
+        "hash": "51faf6592fc3a293dc99a54072f53541628313b2fae69e8503e83e9a6eb8a2b2",
+        "text": "think about chat when you’re speeding"
+      }
+    },
     "tag:philosophie": {
       "name": {
         "hash": "159d4332542e028898d19aa30370f91dc0b73eb06ed699a58423e2764a62e246",
@@ -1744,10 +1938,28 @@
         "text": "Practices, works, techniques and the history of photography."
       }
     },
+    "tag:photography": {
+      "name": {
+        "hash": "50fc0eae79ad1dfabdec187f030cd49e7baacc58cf0ed093e8c13a599e6148c2",
+        "text": "photography"
+      }
+    },
     "tag:photojournalisme": {
       "name": {
         "hash": "30e06d97f9677f1df213847ba79988ffe660afda923b4432737d2be08212cd9f",
         "text": "photojournalism"
+      }
+    },
+    "tag:piano": {
+      "name": {
+        "hash": "51888a1209997239cd50cf4e2475f17dbc6818e4f47c3ba82188e92958b2c7eb",
+        "text": "floor"
+      }
+    },
+    "tag:piedsgauchesaussi": {
+      "name": {
+        "hash": "53b78a393feafe86b8200be6c3d294603b392d7d90cc7e3c5e335d53d9145110",
+        "text": "left-footed players too"
       }
     },
     "tag:pink": {
@@ -1888,6 +2100,12 @@
         "text": "catering"
       }
     },
+    "tag:robot": {
+      "name": {
+        "hash": "5048f6fd4cc4ea1e9f03da11a4d9877acdfeb0f0f62c8863769e30bbfe00390f",
+        "text": "robot"
+      }
+    },
     "tag:réflexion": {
       "name": {
         "hash": "31e95c972069791053391ba142d125b0258528f8328f86e5e071f6ca099f44d2",
@@ -2002,6 +2220,12 @@
         "text": "Don't walk"
       }
     },
+    "tag:tool": {
+      "name": {
+        "hash": "5234e7a00786b877a8ad6c211571250a205ab64e35463c8c31cfc2e45b258564",
+        "text": "tool"
+      }
+    },
     "tag:totem": {
       "name": {
         "hash": "0f863f2c636fbcdd8fe274702f3f0cf9a4a35a2d3274928bec321b1988eb4980",
@@ -2100,6 +2324,12 @@
         "text": "visualisation"
       }
     },
+    "tag:vitrophanie": {
+      "name": {
+        "hash": "532db7b96bb74c9bad6ce02c50b1905c341f44dd814e7e1f02a0947fa9184ca0",
+        "text": "window sticker"
+      }
+    },
     "tag:vivementleprintemps": {
       "name": {
         "hash": "2af5e21bec85a3351733b7ffc97250bf5f5fdd9b85fc8d468f3b6d18b1f3f1d8",
@@ -2168,6 +2398,12 @@
       "name": {
         "hash": "2e75b2c75d0504dd33734868b5f2f53306782515fe4ee08cb47aed2818f3abfc",
         "text": "writing"
+      }
+    },
+    "tag:éphéméride": {
+      "name": {
+        "hash": "52ab6ec317a98f07b8bd7c9441136cc1de7cdef031f864158234f7b1d348fb24",
+        "text": "ephemeris"
       }
     }
   },
