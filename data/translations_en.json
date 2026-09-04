@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "7c73089ced33b09276f27f5596ded74df797c536f478817c39c1f4ecf4aa8641",
+  "revision": "2b6acf82ec5788b2e72d9d9d29a46aaaa0e5371a8f39d5ef35f4851fef06412e",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -344,6 +344,12 @@
         "text": "twelve stone"
       }
     },
+    "tag:1x1blue": {
+      "name": {
+        "hash": "bab380b7ac0a0420d74f3e1ef170eb428ffd30f91b374ef515d853a9dc85318f",
+        "text": "one-by-one blue"
+      }
+    },
     "tag:2016": {
       "name": {
         "hash": "00ee0f32fa0b425152ba4c92541974777a980fe3e35b7db039d41a11f01b4b26",
@@ -408,6 +414,12 @@
       "name": {
         "hash": "567c7343f7c64faa390dabc23c215ff3f6d2ed0db8ba04c971f9b5cf633b8758",
         "text": "Aaron Swartz"
+      }
+    },
+    "tag:Adobe": {
+      "name": {
+        "hash": "b5efcb5b2ee8653f810fa60c9ded601f55edeb919e557d3b6ae07f32df3fbce0",
+        "text": "Adobe"
       }
     },
     "tag:Agfa": {
@@ -702,6 +714,12 @@
         "text": "Facebook"
       }
     },
+    "tag:Falciani": {
+      "name": {
+        "hash": "b8c2f200cf8286e878479748fd182103eec36fe16c318be676e2ec300c673ba7",
+        "text": "Falciani"
+      }
+    },
     "tag:Figaro": {
       "name": {
         "hash": "4cf79d80fd3d355afd783051bce6c5bfa33efc0f9d8d45ec67821d313c8305a1",
@@ -856,6 +874,12 @@
         "text": "InDesign"
       }
     },
+    "tag:Internet": {
+      "name": {
+        "hash": "bbef0c008fba84569f52ee9d4f17fe3099141bacdcd3f9e2e346d5a75a4ac88b",
+        "text": "Internet"
+      }
+    },
     "tag:InternetSlowdown": {
       "name": {
         "hash": "2bf4851d5811951c6ff770cc2c9b1d006a71044cac1c57636c903db7f1a6d4a6",
@@ -926,6 +950,12 @@
         "text": "Kodak"
       }
     },
+    "tag:LLM": {
+      "description": {
+        "hash": "b7334b9053e864948bc7967f588d57c0b1d669380b3891eadec22899ef4db991",
+        "text": "Major language models, uses and techniques."
+      }
+    },
     "tag:LPJ": {
       "name": {
         "hash": "7e47f4e124199a805c5d9bd0989475de2d2f4e64364213f04aaa48fc7976ddb1",
@@ -936,6 +966,12 @@
       "name": {
         "hash": "bb4eac16126c520f82dc73f9f15f9f9a38b5ea84cbd17d8dd621d27a40082734",
         "text": "Layout"
+      }
+    },
+    "tag:LastRT": {
+      "name": {
+        "hash": "b5c478cdf25c1aeb123fb9a53acda96055e8c07143641a6e60b29b80dc6f6e2d",
+        "text": "LastRT"
       }
     },
     "tag:LeSystaime": {
@@ -972,6 +1008,12 @@
       "name": {
         "hash": "1241f16d12334de2a78d759a01b7118fdd16f6ba4c84f18146bbb63031400c0b",
         "text": "Member of the European Parliament"
+      }
+    },
+    "tag:MacronPi": {
+      "name": {
+        "hash": "b7d0c9e2aac7ad94fde1ef523300e55e80e777aeb7ebe50527b39c80c59bcbfb",
+        "text": "Macron Pi"
       }
     },
     "tag:Markdown": {
@@ -1100,6 +1142,12 @@
         "text": "Oscars"
       }
     },
+    "tag:PAO": {
+      "name": {
+        "hash": "b7ce77f10ac47ab7ae19e45fcded34ba5c2d4503ac486511e2d87be8155571ed",
+        "text": "Powdered milk"
+      }
+    },
     "tag:PDF-X": {
       "name": {
         "hash": "265ae962daf671a73f42ccdadd4fae620bd89526e948d80b482943245fc3896d",
@@ -1112,6 +1160,18 @@
         "text": "Pretty Please"
       }
     },
+    "tag:PJLterrorisme": {
+      "name": {
+        "hash": "b5288b1ba10aa93aa148d29983439eda77e6bae1221f5319446741aadbf96133",
+        "text": "Terrorism Bill"
+      }
+    },
+    "tag:Pablo": {
+      "name": {
+        "hash": "b5da07937cf5f0400c5b15d0f08dcf166522e8830372b0524bbbf9713738b97c",
+        "text": "Paul"
+      }
+    },
     "tag:Paper": {
       "name": {
         "hash": "0729e0f419074c2a8ce6dc0abd6bcdc45b1d051a6e2a63aa740bf7d1d9f9df6d",
@@ -1122,6 +1182,12 @@
       "name": {
         "hash": "627e407593b1748ea7b25e33abd3b6fb74569168de7319447f4cfcf39c945007",
         "text": "Paris"
+      }
+    },
+    "tag:ParisWeb": {
+      "name": {
+        "hash": "bba3a690645d46b4f87f5398ccfa6e271d50c0296cf86828592df00d9e1df661",
+        "text": "ParisWeb"
       }
     },
     "tag:Pass": {
@@ -1178,6 +1244,12 @@
         "text": "Platinum"
       }
     },
+    "tag:Plex": {
+      "name": {
+        "hash": "b763df64397855daf77ad59b483d7a58ef1a0ca0145ac3fc89bc4882d5278bbc",
+        "text": "Plex"
+      }
+    },
     "tag:Poissondavril": {
       "name": {
         "hash": "20e2c02601db839658b4d194f73d2f796db271c09db77f128ad4238d860c8f1c",
@@ -1206,6 +1278,12 @@
       "name": {
         "hash": "47c71bd996ec3c7b7d04d38eabffbc0904e0d2b28fde5200fde9089bcae46224",
         "text": "Production-Type"
+      }
+    },
+    "tag:Progres": {
+      "name": {
+        "hash": "ba9f30675d17486b9f446b0ee529b5e463255a93ecd0bc12bd08603960fb70e5",
+        "text": "Progress"
       }
     },
     "tag:Python": {
@@ -1334,6 +1412,12 @@
         "text": "Switzerland"
       }
     },
+    "tag:Super-8": {
+      "name": {
+        "hash": "b6531f7f9cdeb0888b10269cabb38f4fd62a0073fa28b09c0bc126183d702b89",
+        "text": "Super 8"
+      }
+    },
     "tag:Suède": {
       "name": {
         "hash": "8f507247bfecde25263344f0213c61be7f1a965d5e37ed4bf9a6a88e2bbfcece",
@@ -1418,6 +1502,18 @@
         "text": "Very high"
       }
     },
+    "tag:ValentinesDay": {
+      "name": {
+        "hash": "b692691a2ce5e51509e7bf7c725a123942b140d1bde8e098be8227821c56dcc9",
+        "text": "ValentinesDay"
+      }
+    },
+    "tag:Vocabulaire": {
+      "name": {
+        "hash": "b92d4f2ad22da8e59f5a154abd8739b97426a429dbf4d9e5a32754812c0eaa16",
+        "text": "Vocabulary"
+      }
+    },
     "tag:WTF": {
       "name": {
         "hash": "3de6e33dded1762bac1443a64efbe15020633426dda1a03882c4b5dfe903def4",
@@ -1458,6 +1554,12 @@
       "name": {
         "hash": "512ae6e566ee30f587f6b7d3de4b8b9016c75ab9304163b1fab26ae9ec5f59a3",
         "text": "accessibility"
+      }
+    },
+    "tag:activisme": {
+      "name": {
+        "hash": "baec8e5973f32161399845e6c765aadcc197abd4846d95398bffba21085bf792",
+        "text": "activism"
       }
     },
     "tag:adeuxmainsgauches": {
@@ -1928,6 +2030,12 @@
         "text": "art centre"
       }
     },
+    "tag:charit": {
+      "name": {
+        "hash": "b67473abfe294b66781df23f52134f9f044e600c32a3c1685f6730f6d30c42a5",
+        "text": "charities"
+      }
+    },
     "tag:chat": {
       "name": {
         "hash": "54381f5ea86cff0fd18e5040cab2eeedf7623af7e6d0713bb5838608d824ffc6",
@@ -2016,6 +2124,18 @@
         "text": "collection"
       }
     },
+    "tag:coloniale": {
+      "name": {
+        "hash": "b61f0e7c96601e7662ebfb4abc1bf743afc880385430d800f7f63f716f493421",
+        "text": "colonial"
+      }
+    },
+    "tag:command": {
+      "name": {
+        "hash": "b70264342dbe539bd8915fd609bfdd2f6e0092022f35e00cf1837553c54199b5",
+        "text": "command"
+      }
+    },
     "tag:commeunlundi": {
       "name": {
         "hash": "3e95c604ce1d893a6a63e93bd1265660ef0d20eb48fb0b506648c3d8cfb8cd61",
@@ -2100,6 +2220,12 @@
         "text": "copyrightmadness"
       }
     },
+    "tag:couille": {
+      "name": {
+        "hash": "b8b0a35fe29f7f163cb07a150e9a3805dfd706ed5580fbdd311b87f8d07687e0",
+        "text": "ball"
+      }
+    },
     "tag:courage": {
       "name": {
         "hash": "8a62af95f8a20f48d090324d08788bf6845acd68f26515e676a04f43ab295d3a",
@@ -2152,6 +2278,10 @@
       "description": {
         "hash": "493c562b0c70fbbf0c8041ad6c6d944883f629297d777f54d42428a235d49c8b",
         "text": "Commons, knowledge sharing and open licences."
+      },
+      "name": {
+        "hash": "b5a08633d73bb5d773325993fd10f67d0670079590eb45225af05a847cae9be7",
+        "text": "open culture"
       }
     },
     "tag:curiosity": {
@@ -2364,6 +2494,12 @@
         "text": "email"
       }
     },
+    "tag:encadrement": {
+      "name": {
+        "hash": "ba2692757bcba0f9383dbde8950d6262919ef7e714b52e5987768396df3383e0",
+        "text": "supervision"
+      }
+    },
     "tag:encyclopédie": {
       "name": {
         "hash": "b0bfc734c0fee7ab10fa876d1747430c9cf837add21ca5795a81860993194762",
@@ -2428,6 +2564,12 @@
       "name": {
         "hash": "b2148187242aefd4d4407870e89230f063f5e53b445ca2b301e8f25844a767cb",
         "text": "esperluette"
+      }
+    },
+    "tag:essentielles": {
+      "name": {
+        "hash": "b9ba2142c50fd7ef62ab095402e3654babce541209dc10646c7c2c07ab3f6046",
+        "text": "essential"
       }
     },
     "tag:est": {
@@ -2554,6 +2696,12 @@
       "name": {
         "hash": "56e1cf3af3ef5457922c643853e6a1ef26068aa552b134ee779b7772d2836862",
         "text": "sources"
+      }
+    },
+    "tag:food": {
+      "name": {
+        "hash": "b51b814473988efdb1e2f6168e1b0138f440f87157a34ddbe12c2cf03ed96d03",
+        "text": "food"
       }
     },
     "tag:forum": {
@@ -2782,6 +2930,12 @@
         "text": "hyperlapse"
       }
     },
+    "tag:icc": {
+      "name": {
+        "hash": "b7c51f561e5e8b5203fa004af1e123d76b58262ff0b845d697bc4355eb8c0e88",
+        "text": "I am a Christian"
+      }
+    },
     "tag:iceland": {
       "name": {
         "hash": "2834bfc3b55e8cd87cae2ebf982d7e169299ed916c51d15370fa7002573b67ce",
@@ -2936,10 +3090,22 @@
         "text": "JavaScript Library"
       }
     },
+    "tag:jesaisplusijaidejatwitt": {
+      "name": {
+        "hash": "bbfb4df1ba4def756746dafb29a6201822e94af52b307e6130fcf3f4594c46af",
+        "text": "jesaisplusijaidejatwitt"
+      }
+    },
     "tag:joelguerriau": {
       "name": {
         "hash": "51a4af0992c3130de2c4e77a49d1d800ddb707d654e35914a28238d6706f87d1",
         "text": "joelguerriau"
+      }
+    },
+    "tag:journal": {
+      "name": {
+        "hash": "b73f472113f4b0f96833976e74438f42dfbef336eba0452f7f3ed85fd789ac5b",
+        "text": "newspaper"
       }
     },
     "tag:juju": {
@@ -3472,6 +3638,12 @@
         "text": "optimisation"
       }
     },
+    "tag:orchestration": {
+      "name": {
+        "hash": "ba17faf71efd2e81f3a6f2e35fc7af47004d64834c4e2e40b34043b9c1982105",
+        "text": "orchestration"
+      }
+    },
     "tag:outil": {
       "name": {
         "hash": "7083f23419317b769134f57caad21439fbbfc56dd794b2b8043bfc8e6173de26",
@@ -3728,10 +3900,22 @@
         "text": "politics"
       }
     },
+    "tag:pommiers": {
+      "name": {
+        "hash": "b8758fc7b7db444adf264c29239ed8706f501c68709006d938b6ce7c2945948d",
+        "text": "apple trees"
+      }
+    },
     "tag:pomodoro": {
       "name": {
         "hash": "61be8da4b6838145029185384ab321f96fc3f7d7f0772943cbdf579a6b3f45a6",
         "text": "tomato"
+      }
+    },
+    "tag:portfolio": {
+      "name": {
+        "hash": "b97b2be725552809c41a2ba13700add0d4df9c871bcab47b327dfca889e3cede",
+        "text": "portfolio"
       }
     },
     "tag:pose": {
@@ -3806,10 +3990,28 @@
         "text": "product"
       }
     },
+    "tag:programmers": {
+      "name": {
+        "hash": "b8dc1c5c5eb008abfa30d0587e5187da867f36dbc267b668e58aa7ebce9ee728",
+        "text": "programmes’"
+      }
+    },
     "tag:prépresse": {
       "name": {
         "hash": "035edeb89f38e95bd31d7666a88419b1eb167ab287329abb58186125b3e9cd58",
         "text": "pre-press"
+      }
+    },
+    "tag:ps": {
+      "name": {
+        "hash": "bbc3da7e499a6280857a9ff00e844127669d9fac09f8a142754e7b4a1daab0ff",
+        "text": "P.S."
+      }
+    },
+    "tag:publisher": {
+      "name": {
+        "hash": "b7d78321b99088d444484c4a180d20d36e1c6eb9eab35b5eead032c77581e859",
+        "text": "publisher"
       }
     },
     "tag:pubsexiste": {
@@ -4057,6 +4259,10 @@
       }
     },
     "tag:société": {
+      "description": {
+        "hash": "bac792d49befd22f9c7b2b2b1bce15dcae14da2dbb1f18235eedf0e38ebedf32",
+        "text": "Social issues, practices, structures and collective transformations."
+      },
       "name": {
         "hash": "455254744e85be4a3cd9cbce1db7ef977805c296ff29a60bad0f3547d8867a95",
         "text": "company"
@@ -4132,6 +4338,12 @@
       "name": {
         "hash": "237eeeace27ce94d8216c887be18be9ce2dd91785fce4486568da24412e28f0c",
         "text": "stock-photo"
+      }
+    },
+    "tag:stories": {
+      "name": {
+        "hash": "bafb11792f76f5079e4562b225fe7d6fd3cc6abbee0346ae72d9050d14cb710e",
+        "text": "stories"
       }
     },
     "tag:summerprint": {
@@ -4376,6 +4588,12 @@
         "text": "typography"
       }
     },
+    "tag:typography": {
+      "name": {
+        "hash": "bb275cfd92beba5b023a22c0decab82c5019127241f583c0f9113afc4d607d9c",
+        "text": "typography"
+      }
+    },
     "tag:unifier": {
       "name": {
         "hash": "9ec94192cfd17690e8e4b37d1f3f59b651b3a0a3239ddfff55213dd5d483aeca",
@@ -4450,6 +4668,12 @@
       "name": {
         "hash": "5dc0355ad42e8e6525420023a61ebe7266578befad963d5286286fda7505f287",
         "text": "would"
+      }
+    },
+    "tag:vimeo": {
+      "name": {
+        "hash": "b669644064274bca42f3b56ab22d930bdfd634f275db2e099ba9fa93e7626738",
+        "text": "Vimeo"
       }
     },
     "tag:vinyle": {
@@ -4532,6 +4756,12 @@
         "text": "web-to-print"
       }
     },
+    "tag:web25": {
+      "name": {
+        "hash": "bb42ce61c1e598f663a9527781c89558e25d98f1288710d1efcbcece6159af78",
+        "text": "Web 2.5"
+      }
+    },
     "tag:web_development": {
       "name": {
         "hash": "23c7d465b3ec1db2340994a673112c892f278bdec1aa59c824ae6214551d608f",
@@ -4560,6 +4790,12 @@
       "name": {
         "hash": "7a80a0a7d26552d95ac89c275c892516786576a735bfc7345098dc87dd333cfb",
         "text": "williamburroughs"
+      }
+    },
+    "tag:wood": {
+      "name": {
+        "hash": "b90a387f558612dfe9302312e0eaae9ed01e60515dbc1df30444013f7868523f",
+        "text": "wood"
       }
     },
     "tag:workflows": {
