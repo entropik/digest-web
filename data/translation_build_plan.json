@@ -1,171 +1,143 @@
 {
   "version": 1,
-  "baseRevision": "d14c79e59d8522879e6734111f943000d31afc2d073ce2e396069b223933b9ca",
-  "targetRevision": "66ce653b95e8f4dfaffb29de9cadd2a143b1d42ee7cc7cc3935611e37d29b142",
+  "baseRevision": "66ce653b95e8f4dfaffb29de9cadd2a143b1d42ee7cc7cc3935611e37d29b142",
+  "targetRevision": "0277ccf77f660cb208c6b936038894d8e163cf5a44fa9ca69c3170d11c7bd165",
   "manifestRevision": "261577e2e019b7cf9d967a9bb1dff52329a00c44f1188f132a4cdf0215a39dec",
   "fullBuild": false,
   "items": [
     {
-      "id": "link:0c6b78c3-a7a0-5e54-8838-2df4b39c4eff",
+      "id": "link:08469e82-bd71-5a9b-ae23-2332957f4863",
       "fields": [
         "description"
       ]
     },
     {
-      "id": "link:19622ce6-f6ad-5610-b651-0f43dc2fda99",
+      "id": "link:0d24dc81-3127-500e-9c08-50c4bd5604c7",
       "fields": [
         "description"
       ]
     },
     {
-      "id": "link:2937346e-cd74-5026-aea0-64645623dc06",
+      "id": "link:12205153-6d73-5f3b-a407-420acc4ff033",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:2ef3351d-f75e-5c10-a998-2c467e590b4f",
       "fields": [
         "description"
+      ]
+    },
+    {
+      "id": "link:3583bb99-c9f5-53fc-832c-9d92933c1ad4",
+      "fields": [
+        "description",
+        "title"
       ]
     },
     {
       "id": "link:37f6b68e-edbf-5bbc-ad2b-583f2d9f46da",
       "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:3819b7ee-7603-5d1e-bb39-03dcaef40e6b",
+      "fields": [
         "description"
       ]
     },
     {
-      "id": "link:3f868309-e665-5d68-afd3-9da08c78128c",
+      "id": "link:3a8897d8-96b6-5588-a252-3a66a117e579",
       "fields": [
-        "description",
-        "title"
+        "description"
       ]
     },
     {
-      "id": "link:4ab60e22-6d90-55a5-9b22-72015fb6b1aa",
+      "id": "link:470f8e51-fb3a-5146-b5fd-467f81ba076b",
       "fields": [
-        "title"
+        "description"
       ]
     },
     {
-      "id": "link:52887315-d62e-5ebf-9bca-5a2ed0aeee66",
+      "id": "link:4c804003-47b1-5c50-b630-25893314fa3c",
       "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:5627995c-cceb-5f13-9149-4c40765598f3",
-      "fields": [
-        "description",
-        "title"
+        "description"
       ]
     },
     {
       "id": "link:660289d0-16c7-5c2b-987b-38bba6b1cca1",
       "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:6643c96b-8585-5127-a0e7-d76bb2855921",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:7888561a-e8e8-5471-9522-9027d2513fad",
-      "fields": [
         "title"
       ]
     },
     {
-      "id": "link:8d636709-3f41-5c82-8827-6cdce8c3522f",
+      "id": "link:8d979e6d-6e85-522e-be08-a85b94bf1e28",
       "fields": [
+        "description",
         "title"
       ]
     },
     {
-      "id": "link:8fd51f98-c055-5878-8292-b4befd9ab3c9",
+      "id": "link:bf999a82-d639-5131-a4a7-af7ea065894b",
       "fields": [
         "description"
       ]
     },
     {
-      "id": "link:96941f7a-948d-5723-aa96-98a27deaf203",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:9f57b6c8-0d78-5320-90c1-9fc73bda68a8",
+      "id": "link:c36e35ec-a569-561d-9995-359f75e509fc",
       "fields": [
         "title"
-      ]
-    },
-    {
-      "id": "link:b2e06dd8-9b60-5841-89cc-a097a6492cf2",
-      "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:b4e9be0c-d402-5929-a781-1f9bf1841b06",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:b4fc0579-1bb0-5649-a81a-e215bdce75e9",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:b524b0d4-e683-5c9a-9d34-c2ef8ba52082",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:b9049c7f-4c62-5254-bb4a-103e83d4b509",
-      "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:c614de9b-03c0-562a-b877-a08487b273db",
-      "fields": [
-        "description"
       ]
     },
     {
       "id": "link:d19aa2b1-81dd-5fd7-a697-d2afddc66e5a",
       "fields": [
-        "description"
+        "title"
       ]
     },
     {
       "id": "link:d3c8148e-bb21-5fd5-acab-eac0d1e7010c",
       "fields": [
-        "description"
+        "title"
       ]
     },
     {
-      "id": "link:dfa74cdd-e638-5b8a-8056-8619885abe7a",
+      "id": "link:d42140f0-a527-5985-b6e6-bfbfd2444a41",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:e24ed8aa-5002-5a68-959e-53b4927b657c",
       "fields": [
         "description"
       ]
     },
     {
-      "id": "link:e3df1202-6fc8-580c-89d9-26dc026b11ea",
+      "id": "link:f930a74b-ad96-5e1d-9abe-090d5c940c31",
       "fields": [
-        "description"
+        "title"
       ]
     },
     {
-      "id": "link:f41ea5f3-56c3-5eee-bb2b-e52e0d4f7d8b",
+      "id": "link:fd3cc249-3a33-5681-9d31-b6fca8f46cb4",
       "fields": [
-        "description"
+        "title"
       ]
     },
     {
-      "id": "link:f5720f42-a2df-5994-84a2-b292b8137492",
+      "id": "page:/archives/2015-02-17",
       "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "page:/archives/2026-07-24",
+      "fields": [
+        "body",
         "title"
       ]
     },
@@ -230,15 +202,55 @@
       ]
     },
     {
-      "id": "page:/flux/journal-du-digest/2026-07-24",
+      "id": "page:/flux/journal-procrastinateur/2026-07-20",
       "fields": [
         "description"
+      ]
+    },
+    {
+      "id": "page:/flux/journal-procrastinateur/2026-07-22",
+      "fields": [
+        "body",
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "page:/flux/journal-procrastinateur/2026-07-23",
+      "fields": [
+        "body",
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-20.webp",
+      "fields": [
+        "alt",
+        "title"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-22.webp",
+      "fields": [
+        "alt",
+        "date",
+        "title"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-23.webp",
+      "fields": [
+        "alt",
+        "date",
+        "title"
       ]
     }
   ],
   "paths": [
     "/",
     "/archives/",
+    "/archives/2015-02-17/",
     "/archives/2026-07-24/",
     "/archives/2026-08-16/",
     "/archives/2026-08-18/",
@@ -251,77 +263,72 @@
     "/archives/2026-09-01/",
     "/archives/2026-09-02/",
     "/flux/",
-    "/flux/journal-du-digest/",
-    "/flux/journal-du-digest/2026-07-24/",
+    "/flux/journal-procrastinateur/",
+    "/flux/journal-procrastinateur/2026-07-20/",
+    "/flux/journal-procrastinateur/2026-07-22/",
+    "/flux/journal-procrastinateur/2026-07-23/",
     "/tags/",
     "/tags/accessibilite/",
     "/tags/agents/",
-    "/tags/automatisation/",
     "/tags/benchmark/",
-    "/tags/build/",
+    "/tags/ci-cd/",
     "/tags/cli/",
+    "/tags/code-review/",
+    "/tags/codebase/",
+    "/tags/collaboration/",
     "/tags/confidentialite/",
+    "/tags/configuration/",
     "/tags/cybersecurite/",
-    "/tags/design-system/",
     "/tags/design/",
+    "/tags/desktop/",
     "/tags/developpement/",
+    "/tags/devops/",
     "/tags/dictee/",
-    "/tags/documentation/",
-    "/tags/donnees/",
-    "/tags/edition/",
-    "/tags/experimentation/",
-    "/tags/fiche/",
-    "/tags/fichiers/",
+    "/tags/documents/",
+    "/tags/editeur/",
+    "/tags/entretien/",
     "/tags/git/",
+    "/tags/google-fonts/",
     "/tags/gpu/",
-    "/tags/graphisme/",
+    "/tags/graphe/",
     "/tags/hardware/",
     "/tags/ia-locale/",
     "/tags/ia/",
-    "/tags/illustration/",
-    "/tags/impression/",
-    "/tags/information/",
-    "/tags/javascript/",
     "/tags/jellyfin/",
-    "/tags/layout/",
+    "/tags/knowledge-management/",
+    "/tags/llm/",
+    "/tags/local/",
+    "/tags/methode/",
     "/tags/multimedia/",
-    "/tags/multiplateforme/",
-    "/tags/navigateur/",
+    "/tags/newsletter/",
+    "/tags/nlp/",
     "/tags/opensource/",
-    "/tags/outils/",
-    "/tags/papier/",
-    "/tags/parallelisation/",
-    "/tags/pdf/",
-    "/tags/pentest/",
-    "/tags/performance/",
+    "/tags/optimisation/",
     "/tags/photo/",
+    "/tags/plex/",
     "/tags/politique/",
-    "/tags/prepresse/",
-    "/tags/produit/",
+    "/tags/rag/",
     "/tags/raw/",
     "/tags/recherche/",
-    "/tags/reseau-local/",
-    "/tags/ressources/",
+    "/tags/reference/",
     "/tags/saas/",
-    "/tags/skills/",
     "/tags/societe/",
-    "/tags/specification/",
+    "/tags/specifications/",
     "/tags/technologie/",
-    "/tags/tmux/",
+    "/tags/terminal/",
+    "/tags/tokens/",
+    "/tags/travail/",
     "/tags/typographie/",
     "/tags/ui/",
-    "/tags/vecteur/",
+    "/tags/variable-font/",
     "/tags/veille/",
     "/tags/video/",
-    "/tags/voix/",
-    "/tags/vscode/",
-    "/tags/web-to-print/",
-    "/tags/webinaire/",
-    "/tags/windows/",
-    "/tags/zine/"
+    "/tags/vision/",
+    "/tags/voix/"
   ],
   "artwork": {
     "upsert": [
+      "2026-07-24",
       "2026-08-16",
       "2026-08-18",
       "2026-08-20",
@@ -335,5 +342,5 @@
     ],
     "remove": []
   },
-  "revision": "1223dadd00eaa390441081e796e2c0a089d587ccaabfea25ea2e79985d5404e9"
+  "revision": "b258f8cb04aef17eb4f38377e8bb8c9e86f1ff02c28d6dd92cbcf8aa82f79c55"
 }

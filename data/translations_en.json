@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "66ce653b95e8f4dfaffb29de9cadd2a143b1d42ee7cc7cc3935611e37d29b142",
+  "revision": "0277ccf77f660cb208c6b936038894d8e163cf5a44fa9ca69c3170d11c7bd165",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -121,6 +121,10 @@
       }
     },
     "link:08469e82-bd71-5a9b-ae23-2332957f4863": {
+      "description": {
+        "hash": "c9f3800be5fcde56e3109411682531945604be8b69bab16e9f2fc2ef07c8de88",
+        "text": "An overview of the photo editor built into the web and desktop versions of Ente."
+      },
       "title": {
         "hash": "77165202afb22475e1bbb1b03a64627738ebfad5c98531080efee9b39b2a0f1a",
         "text": "Ente Photo Editor"
@@ -157,6 +161,10 @@
       }
     },
     "link:0d24dc81-3127-500e-9c08-50c4bd5604c7": {
+      "description": {
+        "hash": "da4a9438888b7f3c7462a1adc57a970a4de9c559ece3a1b1cff0674cebfbd08c",
+        "text": "A presentation of research and semantic analysis technologies applied to text and images."
+      },
       "title": {
         "hash": "995816dff71d12eb486ed6fc70a2ddb743fd9fec6c961d433ae16c50ae55f26d",
         "text": "Semantic Analysis of Text and Images"
@@ -180,6 +188,16 @@
       "title": {
         "hash": "cca47b46ca5ded5cf5cf7cccdc014cf47976ff8ffd73e22a3a58f1cb6ed7448c",
         "text": "Web security audits for indie builders, RLS Supabase - VICE"
+      }
+    },
+    "link:12205153-6d73-5f3b-a407-420acc4ff033": {
+      "description": {
+        "hash": "eb8184af3689190db84bd2506abd3cfa0eb96116ed4c8323674698e6c91bab0c",
+        "text": "An open-source platform for interface design and collaboration between designers and developers."
+      },
+      "title": {
+        "hash": "e36e124e82a444248f23b38942a9018eac76e4521bed308ced7fc1fd553b95dd",
+        "text": "Pottery"
       }
     },
     "link:12d863ec-ab9d-5280-8aef-88cbaf6583d2": {
@@ -445,6 +463,10 @@
       }
     },
     "link:2ef3351d-f75e-5c10-a998-2c467e590b4f": {
+      "description": {
+        "hash": "e1223b49a9f49a321b71a5b431e10c15585b27d09536b236614d64c943265349",
+        "text": "A cross-platform application that transforms documents into an interconnected, persistent knowledge base."
+      },
       "title": {
         "hash": "88d74a72d7e04d02affbda315beb2e2f78dffc465f0694ae6d701867e6b69753",
         "text": "Nashsu LLM Wiki"
@@ -500,6 +522,16 @@
         "text": "Coding Interview University — A computer science course to help you prepare for interviews"
       }
     },
+    "link:3583bb99-c9f5-53fc-832c-9d92933c1ad4": {
+      "description": {
+        "hash": "fdb344dfc05b7837c1aaeddaa476e80bf8c692ca3fa1b691cabda0defc81e602",
+        "text": "A periodic table of principles and techniques for improving the quality of interface design."
+      },
+      "title": {
+        "hash": "c9b2c0e995d3ffdfbc3f37144647038dd5ffbe1ea60d9f744fe5bb5aae2b08f7",
+        "text": "Design Better Periodic Table"
+      }
+    },
     "link:36f20953-2b06-579e-9417-9cd33749d277": {
       "description": {
         "hash": "272e02a6ada47d4619a3f205c4a01d1ba4e028f413c75fcca8161978b735180a",
@@ -514,6 +546,10 @@
       "description": {
         "hash": "a72d6b0ce0f81558d5b8f7c90a013931aed2aa736dcc285eb9fcdc297fc963cc",
         "text": "A video focusing on the security analysis of a SaaS product and the lessons learnt from this experience."
+      },
+      "title": {
+        "hash": "f3c4639e0601c90c4498707b6b5ff3b2f13951d4097fb3b585c78f53af6aaf56",
+        "text": "Benjamin Code’s SaaS platform has been hacked"
       }
     },
     "link:37fbfbb1-a8e7-5fc2-9b0b-03c320cc0206": {
@@ -527,6 +563,10 @@
       }
     },
     "link:3819b7ee-7603-5d1e-bb39-03dcaef40e6b": {
+      "description": {
+        "hash": "df0328d626c6dcddfed7930a1fd6ef371492788ad7a88d29286b5e5d36deb4f0",
+        "text": "An essay by Frédéric Lordon on artificial intelligence, work and class relations."
+      },
       "title": {
         "hash": "34fc55f8db496b28744584d903c3c070fd11e6de88a8a631c063d5f5817d5785",
         "text": "Marx will be proven right — AI and the class struggle"
@@ -543,6 +583,10 @@
       }
     },
     "link:3a8897d8-96b6-5588-a252-3a66a117e579": {
+      "description": {
+        "hash": "d3a6c094daa01de6e9f5e07105fdc6ada3459794400d10ea68e17590510e8017",
+        "text": "A content discovery and request interface for Jellyfin, Plex and Emby."
+      },
       "title": {
         "hash": "16633e0b764e5f58fb0ec696bc5681b47a1b621b94980e37102391453f2d8560",
         "text": "Law"
@@ -659,6 +703,10 @@
       }
     },
     "link:470f8e51-fb3a-5146-b5fd-467f81ba076b": {
+      "description": {
+        "hash": "dfd99254ef687b78c2418312af3a1ef1754385665754d5b3b9cb8ee24498e49d",
+        "text": "A local knowledge graph that indexes the code and synchronises with changes to it in order to assist agents."
+      },
       "title": {
         "hash": "783d5df8e03c698a5efe019385e1b3287eb371f006424140101194209c877e7c",
         "text": "Coding"
@@ -695,6 +743,10 @@
       }
     },
     "link:4c804003-47b1-5c50-b630-25893314fa3c": {
+      "description": {
+        "hash": "fe32ee0b5b343372aa0c5c06338f934fca8230bf5573dfc3fda5c19b87b85961",
+        "text": "The desktop version of AnythingLLM, designed to run document-based and conversational tasks locally."
+      },
       "title": {
         "hash": "57299cc6f98da918871b2370eeacf2780c6859004f31354199af45c233d56582",
         "text": "AnythingLLM Desktop"
@@ -936,6 +988,10 @@
       "description": {
         "hash": "be5a33e081079fbbfa4b715f5bc7acc83214bd83e492a5b42335436e65afb040",
         "text": "A tool that helps determine which AI models can run on a given hardware configuration."
+      },
+      "title": {
+        "hash": "fe95ca64673cae04cc6d05982a5d2297587aedb64bb8b309e9e0a5901e355648",
+        "text": "CanIRun.ai"
       }
     },
     "link:6643c96b-8585-5127-a0e7-d76bb2855921": {
@@ -1292,6 +1348,16 @@
       "title": {
         "hash": "cbea9434b97d309836b30a7e26120c28ba83d0d28a4455dd3ff7f1c989e7eda3",
         "text": "Understand Anything — Graphs that teach the codebase"
+      }
+    },
+    "link:8d979e6d-6e85-522e-be08-a85b94bf1e28": {
+      "description": {
+        "hash": "d77d889f8a7507534362db3b44b5343fd2a821054fb0119432871ee303c70f25",
+        "text": "A configuration format designed to make CI/CD pipelines portable, consistent and auditable."
+      },
+      "title": {
+        "hash": "e0d3ab3269b18fa117960cdda7efea44f7b2ccfe944335f4674c527c5ae2852f",
+        "text": "Piece"
       }
     },
     "link:8dd968b7-e0e7-538c-9a96-4ddba45a3965": {
@@ -1871,6 +1937,10 @@
       }
     },
     "link:bf999a82-d639-5131-a4a7-af7ea065894b": {
+      "description": {
+        "hash": "ced126671f94379cf0d6bcce0689f8b217c358d8c4f5e4597bb42ffe8b3fa77e",
+        "text": "An expressive variable typeface family, suitable for headlines, publishing and visual identities."
+      },
       "title": {
         "hash": "284bfb2f9784f20a9b01cd511d21ca9a950602d534163c539f92afe579db5f1a",
         "text": "Fraunces"
@@ -1896,6 +1966,10 @@
       "description": {
         "hash": "8daa2238f076aa69e75e7d8e5436f45d32ed27cffcd8a3a301880f824e2a2b40",
         "text": "A lightweight, specification-based framework for organising agent-assisted development."
+      },
+      "title": {
+        "hash": "c88b84f5cf0ade0b92ff2c4c17c6dd680fd6f1a2062ce86ae8feea053973c172",
+        "text": "OpenSpec"
       }
     },
     "link:c37318b1-b1e6-5c74-ba94-87c86eb47af6": {
@@ -2002,6 +2076,10 @@
       "description": {
         "hash": "ab6b97220d9009607ec8e09957f26c42d1240566ada73abfa77d18cf9635af49",
         "text": "A non-destructive, GPU-accelerated RAW image editor."
+      },
+      "title": {
+        "hash": "d31ecafe62b26e3cab291052e1f228d999b440697ee0a318925e07581391bf34",
+        "text": "RapidRAW"
       }
     },
     "link:d1a171a4-4895-518a-91bd-c839973a42ea": {
@@ -2048,12 +2126,20 @@
       "description": {
         "hash": "bcf4106281370168d142db63d0f22c022d93a3452f1da4aed24e751dfdce5d98",
         "text": "A local dictation app combining speech recognition and AI-powered text enhancement."
+      },
+      "title": {
+        "hash": "e57f93797d4504cd5c960c9bc9f36253d81ae6c454b528446b819e34555e9a6a",
+        "text": "FluidVoice"
       }
     },
     "link:d42140f0-a527-5985-b6e6-bfbfd2444a41": {
       "description": {
         "hash": "05265b9dd2064528ca09b3324c756d1211ac3cfd882d4cd5f57459700be3df34",
         "text": "A weekly round-up of technology news, projects and resources."
+      },
+      "title": {
+        "hash": "e7c3d5d280ed12a71d2fabb08198d33cb72325cd94c049925bc0925aa0d64319",
+        "text": "News Round-up No. 48 — This week’s news"
       }
     },
     "link:d58f75c0-fa59-58cd-91cd-105252f10b94": {
@@ -2207,6 +2293,10 @@
       }
     },
     "link:e24ed8aa-5002-5a68-959e-53b4927b657c": {
+      "description": {
+        "hash": "fea126713e806c82efc69ad49f6d126b1bd94cb8b968ae0642ae2dae6e81104c",
+        "text": "A command-line proxy that compresses the output of development tools in order to reduce token usage."
+      },
       "title": {
         "hash": "5fc5a404680df3ab448ce9d323cb568af927abe73a13e807c67f2c9e3ec586ce",
         "text": "Real-Time Kinematic"
@@ -2478,6 +2568,10 @@
       "description": {
         "hash": "2dc8246887ee9e05d075e0e25cabf901358ae1325f3a5213dd1dcfe766541e16",
         "text": "A workflow that utilises a powerful model to audit a project and prepare plans that can be implemented using less expensive models."
+      },
+      "title": {
+        "hash": "cd0326baf7ba475b2cc48737ba4cf1a230d495b62c6d591559cd499bc9024fb6",
+        "text": "Improve"
       }
     },
     "link:fa3caa3d-e1df-5134-8eaf-059004f7cf18": {
@@ -2504,6 +2598,10 @@
       "description": {
         "hash": "0f61930c82f8738847b4948feffdcbbbcc9c50cc09906735908742622293952a",
         "text": "A terminal-based difference viewer that places code review at the heart of agent-based programming workflows."
+      },
+      "title": {
+        "hash": "d6048618387073b673519004656c71a202d5c1edfe57e0380b1e1219f9c9a3a3",
+        "text": "Hunk"
       }
     },
     "link:fe9b7aff-52f9-5f36-8974-51573dcf1ec9": {
@@ -2556,6 +2654,12 @@
         "text": "Archives"
       }
     },
+    "page:/archives/2015-02-17": {
+      "title": {
+        "hash": "7be63809338899db7ba44781648ffae7292ce68a1a00fba71eb926dfe7bfd4e4",
+        "text": "17 February 2015"
+      }
+    },
     "page:/archives/2016-11-09": {
       "title": {
         "hash": "eacef22eb7eee8bc4ef73faf4f736f268e285e881dad5f2b864d46bdcf2f56e6",
@@ -2563,9 +2667,17 @@
       }
     },
     "page:/archives/2026-07-24": {
+      "body": {
+        "hash": "e0613620076b357bd39612ca288640bfbc4c8cb078b7e136ba2346446cd12c78",
+        "text": "<p>First edition of the Web Digest. Email services, social media platforms, personal accounts, internal tools and private infrastructure have been excluded.</p>\n"
+      },
       "description": {
         "hash": "7020c7026d8c2f38bd7960e40f85e507d1a79140762c20a8982092d9effe3b13",
         "text": "Artificial intelligence, development, design, publishing and digital creation."
+      },
+      "title": {
+        "hash": "dc4e27874e8dee4ae031e58870a9c4429860ab774514edd2806c7fce699eded0",
+        "text": "Digest — 24 July 2026"
       }
     },
     "page:/archives/2026-08-16": {
@@ -2966,6 +3078,40 @@
       "title": {
         "hash": "946546d90a07b056aaf49f70b37dd2857b2ec866c0aea388c8914c2652bc086a",
         "text": "Diary of a Procrastinator"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-07-20": {
+      "description": {
+        "hash": "36f9c99bf4f68333e7b90b420473cd718f85079888b26e56df243ca9ac7944a9",
+        "text": "Day 118 of the diary: the paid web PDF is conditional upon an actual paid Woo order; the GOF configuration is now set to the admin role; Better Auth sessions are revoked correctly; and the day begins with the discovery of Kimi K3."
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-07-22": {
+      "body": {
+        "hash": "f21c2b38f94fef0c5977b538b951115388086764f5600b5fc22493e244070ac9",
+        "text": "<h2 id=\"horaires-de-session\">Session times</h2>\n<ul>\n<li>Tools used: <strong>Codex</strong> for pull requests, <strong>Kimi Code CLI (K3)</strong> for maintaining this log</li>\n<li>Main environment: <strong>Codex App on Mac, then Kimi Code CLI, KEREDIT repository <code translate=\"no\">dépôt local krampouz</code></strong></li>\n<li>Date covered: <strong>Wednesday 22 July 2026</strong> (no commits were made on Tuesday 21 July: assumed break)</li>\n<li>Observation window: <strong>22 July 17:12:43 → 23:53:45 CEST</strong> for KEREDIT commits, with GOF active from <strong>19:04:18 to 21:33:24</strong></li>\n<li>Minimum observed duration: <strong>approximately 7 hours 11 minutes+</strong> (6 hours 41 minutes of continuous KEREDIT/GOF activity, plus the initial log-keeping session)</li>\n<li>Merged branches: <strong>8 KEREDIT PRs to <code translate=\"no\">dev</code></strong>, versions <strong><code translate=\"no\">0.16.3</code> → <code translate=\"no\">0.16.9</code></strong>, and GOF PRs <strong>#83/#85</strong>, versions <strong><code translate=\"no\">0.7.3</code> → <code translate=\"no\">0.8.0</code></strong></li>\n<li>Main releases: <strong>Woo REST re-verification, web PDF sharing, Google Photos OAuth, 100-megapixel limit, template locks, GOF v2 regenerations and iterations</strong></li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 786h11+</strong> (<code translate=\"no\">779h00+</code> as at 20 July following historical correction, + <code translate=\"no\">7h11+</code> observed)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>Following Tuesday’s break, Wednesday evening saw eight KEREDIT pull requests\nand two GOF pull requests consolidated in just under seven hours. The\noverarching principle: what the user sees when sharing or placing an order\nmust be exactly what the production environment expects.</p>\n<p>Meanwhile, this log is changing hands. The catch-up entries for days\n117 to 119 are being written using Kimi Code CLI, installed on Monday morning: the first\nproper session using the tool on the repository, three days after the release of Kimi K3.</p>\n<h2 id=\"ne-jamais-croire-une-commande-sur-parole\">Never take an order at face value</h2>\n<p>PR #328 tightens up the WooCommerce pipeline. KEREDIT orders are\nre-verified via the Woo REST API before going into production, and an unreadable status is\nrejected rather than interpreted. The items in the re-validated order are also validated,\nand their role — main product or add-on — is compared with what\nthe webhook had announced. The original order is no longer set in stone:\nit is re-validated at the moment it is processed by the workshop.</p>\n<h2 id=\"le-partage-public-devient-un-vrai-aboutissement\">Public sharing becomes a real achievement</h2>\n<p>Three PRs follow one another on the public reader. #329 enables the\nGOF v2 web PDF to be downloaded from the share, with a trusted status reader\ninjected into the Woo feed test and vulnerable dependencies fixed in the\nprocess. #330 removes the blank tab that used to open with the public link.\n#332 prevents opening the link from triggering a new GOF rendering: viewing a\nshare should never resemble a command.</p>\n<h2 id=\"deux-gardes-fous-dinfrastructure\">Two infrastructure safeguards</h2>\n<p>PR #333 rewrites the Google Photos OAuth callback: no more code injection\ninto the redirect page, and a response compliant with the Content Security\nPolicy. Logging into the client’s photo account remains seamless, but the\nredirect page can no longer be used as a script vector.</p>\n<p>PR #335 blocks images larger than 100 megapixels from the asset pipeline:\nrejection occurs before decoding, goes through the standard business logic rejection,\nproperly rejects catalogues that are too large at the upload confirmation stage, and the `\n<code translate=\"no\">ASSET_PIPELINE_MAX_INPUT_PIXELS</code>` limit has been extended all the way to the VPS composer, without\nduplication in the worker.</p>\n<h2 id=\"la-soirée-nétait-pas-finie\">The evening wasn’t over yet</h2>\n<p>The first version of this post ended here, at 19:06. However, Git shows\nthat the second half of the session was even more substantial than the first.</p>\n<p>KEREDIT first learnt to regenerate an existing Production v2 without losing its\nproduct families. The bindings now follow an explicit rendering iteration; the\nweb PDF download uses the current artefact, and WooCommerce replays\nrecognise this new lineage. Polling remains read-only: checking\nthe GOF status must never overwrite the production environment it is monitoring.</p>\n<h2 id=\"les-templates-sont-verrouilles-aussi-sur-le-serveur\">Templates are also locked on the server</h2>\n<p>At the same time, a long series of fixes has hardened the exact variants of\ntemplates. The format change preserves the proven geometry; permissions\nand visual identity are compared against a canonical baseline; cross-page\nmovements are controlled; and late writes are locked out.</p>\n<p>The key point is simple: a client may modify what the template\npermits, but must not silently reconstruct the contract from a more\npermissive payload.</p>\n<h2 id=\"gof-080-rend-les-itérations-immuables\">GOF 0.8.0 makes iterations immutable</h2>\n<p>GOF begins the sequence at <code translate=\"no\">0.7.3</code> with the Accurio auto-submission, bounded by a\ntimestamped activation. Then PR #85 introduces <code translate=\"no\">0.8.0</code> and the\nProduction v2 rendering iterations.</p>\n<p>A regeneration now creates an immutable candidate. The current PDF remains\navailable until its atomic promotion; incidents and resubmissions remain\nlinked to their iteration; and a previous iteration can no longer initiate an\nAccurio action. Rendering and delivery become two separate decisions,\nwith a usable history rather than a current file being overwritten.</p>\n<h2 id=\"kimi-tient-le-journal\">Kimi keeps the log</h2>\n<p>Last piece of news for today, and by no means the least important for this log: the\ndocumentation catch-up itself is carried out using Kimi Code CLI. The tool reads the\nrepository, retrieves the evidence from Git, follows the blog skill procedure and\nproduces posts 117, 118 and 119 in the usual format. Claude Code\nkicked off the venture, Codex has carried it this far; Kimi K3 is cutting its\nteeth on the project’s history, and it is this log that will remember it.</p>\n<h2 id=\"correction-du-4-août\">Correction of 4 August</h2>\n<p>This post was revised with Codex on 4 August 2026 following a comparison of the\nKEREDIT and GOF Git histories. The time window, versions, minimum time and cumulative total were\nrecalculated to include the second half of the evening.</p>\n"
+      },
+      "description": {
+        "hash": "14d75f102836a451b2766903b807ebea1d1a6fb299016167061a50c6d3eb08f2",
+        "text": "Day 119 of the log: ordering and sharing have been tightened up, and KEREDIT and GOF have adopted the regenerations, immutable iterations and server locks that were missing from the Production v2 contract."
+      },
+      "title": {
+        "hash": "35cf9bfb1f596ab749829f5242eb868f191874241649aed725454ffd04a4e685",
+        "text": "Day 119 – The order is double-checked; sharing is made easier"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-07-23": {
+      "body": {
+        "hash": "0d5879b7fac52180bb12584b76d338c0b1e7e49908c195e564a44ba5048eeb11",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Primary environment: <strong>Codex App on Mac, KEREDIT repository<code translate=\"no\">dépôt local krampouz</code></strong></li>\n<li>Date covered: <strong>Thursday 23 July 2026</strong>, directly following on from the night of 22 July</li>\n<li>Main branch: <strong><code translate=\"no\">dev</code></strong>, with <strong>12 merged pull requests</strong> and one direct UI commit</li>\n<li>Observed time slots: <strong>00:07:48 → 01:37:30</strong>, then <strong>11:49:18 → 18:15:47 CEST</strong></li>\n<li>Minimum observed duration: <strong>approximately 7h56+</strong>, a conservative sum of the two activity blocks</li>\n<li>Release branch: <strong>KEREDIT <code translate=\"no\">0.16.10</code> → <code translate=\"no\">0.16.12</code></strong>, WordPress connector <strong><code translate=\"no\">0.1.85</code></strong></li>\n<li>Main issues: <strong>template locks, standard GOF sharing, CSRF and passwords, asset URLs, worker statuses, tenant/commerce, upload quotas</strong></li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 794h07+</strong> (<code translate=\"no\">786h11+</code> as of 22 July, + <code translate=\"no\">7h56+</code> today)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>The night of 22nd to 23rd does not change the subject: it changes the scale. After\nstabilising the GOF iterations and regenerations, KEREDIT is closing, one by\none, the remaining open doors around the product.</p>\n<p>This isn’t a day of spectacular new features. It’s a day\nwhen the beta learns to say no: to reject a bypassed permission, an unsigned CSRF\ntoken, an unaccepted artefact, an overly permissive URL, a tenant leak\nor an unlimited upload.</p>\n<h2 id=\"les-templates-redeviennent-lautorité\">Templates regain authority</h2>\n<p>The first commits finalise the previous day’s work on the template\nvariants. Fine-grained permissions are resolved before the merge between variant and\nproject, legacy flags are assigned explicit values, the exact variant\nis cleaned up before validation, and frozen shares progress atomically towards\nthe correct rendering.</p>\n<p>The server no longer relies solely on the client’s interpretation. The\ngeometry, visual identity and permissions locks become a\nbackend contract, which protects both the client editor and the builder.</p>\n<h2 id=\"le-partage-suit-la-bonne-itération-gof\">The shared content follows the correct GOF iteration</h2>\n<p>Several PRs ensure the share is consistent with support regenerations. The public PDF\nfollows the GOF job and the iteration actually rendered, accepts the latest\nweb artefact still readable from a failed production run, requires an accepted PDF and\nretains a viewable version whilst a new one is being generated.</p>\n<p>The expected result is simple: a sharing link must neither accidentally display an old\nfile, nor cause a valid PDF to disappear because the subsequent production\nrun encountered an incident.</p>\n<h2 id=\"lauthentification-et-les-urls-deviennent-contextuelles\">Authentication and URLs become context-sensitive</h2>\n<p>The ‘Better Auth’ hardening ties CSRF to the session context, partitions\ntokens, enforces a twelve-character length for the relevant forms, and rejects\nunsigned tokens as soon as a session exists. At the same time, asset URLs validate\ntheir original target, serve SVGs as attachments, use a dedicated\nsecret and calculate their TTL from the actual time of issue.</p>\n<p>These are two versions of the same principle: a proof is only valid within its\ncontext, for a limited duration and for a specific purpose.</p>\n<h2 id=\"les-workers-doivent-dire-la-vérité\">Workers must tell the truth</h2>\n<p>Catalogues and preview updates are aligned with the work\nactually being processed. An asset is no longer marked as ‘<code translate=\"no\">pending</code>’ if no job exists,\nand a future thumbnail key is no longer persisted until the actual completion of\nprocessing. The back office therefore stops displaying promises that the worker\ncannot yet fulfil.</p>\n<h2 id=\"fermer-la-journée-par-les-limites\">Closing the day by setting limits</h2>\n<p>The end of the session tightens public boundaries, staff access to tenant-scope,\nWooCommerce secrets, bearer authentication and the entropy of the\nGOF pairing code. Above all, it adds upload quotas, session rate limits\nand the purging of abandoned uploads.</p>\n<p>Following this merge, Git shows no further KEREDIT or GOF activity until 30\nJuly. Looking back on 4 August, this lull also reflects the passage of time,\nholidays and fatigue. The break is not a gap to be glossed over: it forms part\nof the project’s actual rhythm.</p>\n"
+      },
+      "description": {
+        "hash": "d2da2fcc0aff8463c237dd26c41e13718f5f0d7c3dfc6c81d5994038cf9257f6",
+        "text": "Day 120 of the log: KEREDIT locks down templates, GOF sharing, authentication, assets, tenant and commerce boundaries, then adds quotas and purges uploads."
+      },
+      "title": {
+        "hash": "61083442507a2fa299301b07830f536f02931a8e291e3166da1da5affede1c27",
+        "text": "Day 120 – Closing doors that have been left open"
       }
     },
     "page:/flux/journal-procrastinateur/2026-07-30": {
@@ -10425,6 +10571,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-20.webp": {
+      "alt": {
+        "hash": "0bf26c7fbb9b9f408cd0b95d5f2db9669817b10c4dea0709359b3ef7274bed93",
+        "text": "Document NASA : Curiosity Robotic Arm and Tools"
+      },
       "date": {
         "hash": "5df41ab57ae8220f23a0cb7547d2680d06f478eecb6830d69197f816e2cec2a9",
         "text": "16 February 2010"
@@ -10436,9 +10586,21 @@
       "themeLabel": {
         "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
         "text": "Robotics"
+      },
+      "title": {
+        "hash": "4903657aaec7198f63dd9d9e5924036ce1cc9b75a0ee1671065ef3d2574847de",
+        "text": "Curiosity Robotic Arm and Tools"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-22.webp": {
+      "alt": {
+        "hash": "f51c31b4318a6eba64daa00e6c4e2102946cb291f7f712cbbee3bb4579d9ffef",
+        "text": "Document NASA : Views of Mission Control during launch of STS-51L"
+      },
+      "date": {
+        "hash": "58ef4a0c69520e829fa26868c77fe1729eef112df5b54da9bf29d26cdc1fd09b",
+        "text": "28 January 1986"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10446,9 +10608,21 @@
       "themeLabel": {
         "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
         "text": "Monitoring & Data"
+      },
+      "title": {
+        "hash": "30f3853ce747021d44d78f5ab8d960b5c6c66e4c1d9973f627cd45772b09fd1f",
+        "text": "Views of Mission Control during launch of STS-51L"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-23.webp": {
+      "alt": {
+        "hash": "6ccf307200bc878e9ba568ca6d5e2a01b168cca17c4130b361f4b76a4a04119e",
+        "text": "Document NASA : Silicon Carbide Integrated Circuit Chip"
+      },
+      "date": {
+        "hash": "7be63809338899db7ba44781648ffae7292ce68a1a00fba71eb926dfe7bfd4e4",
+        "text": "17 February 2015"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10456,6 +10630,10 @@
       "themeLabel": {
         "hash": "f15c810cf1abeb8d8c790b885b1efcd158c87e19feea04fd49d181c108911986",
         "text": "Electronics & instruments"
+      },
+      "title": {
+        "hash": "058ea92f8233917350aecb44b501ce107f8f19b7e275cfe65ef81dfb6f1587c3",
+        "text": "Silicon Carbide Integrated Circuit Chip"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-30.webp": {
@@ -10834,6 +11012,12 @@
     }
   },
   "artwork": {
+    "2026-07-24": {
+      "title": "Digest — 24 July 2026",
+      "description": "Artificial intelligence, development, design, publishing and digital creation.",
+      "linkCount": 68,
+      "editorialType": "digest"
+    },
     "2026-08-16": {
       "title": "Digest — 16 August 2026",
       "description": "Artificial intelligence, development, design, publishing and digital creation.",
