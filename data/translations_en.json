@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "652ac5686fc38e4599c2d8c1dc9eb0df350dd6882655ea96af721c3de6fbade3",
+  "revision": "3eeda26400021a6d00c358af77710cc1388cc798b4682fe6e6bb647bdf20d882",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -3084,6 +3084,20 @@
       "title": {
         "hash": "946546d90a07b056aaf49f70b37dd2857b2ec866c0aea388c8914c2652bc086a",
         "text": "Diary of a Procrastinator"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-06-29": {
+      "body": {
+        "hash": "d96bbe1a84992312fd22b1aec1ec20823c1348a0d71cb21d51bf3835cdc61215",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Main environment: <strong>VS Code WSL, Codex plugin, KEREDIT repository and GOF repository</strong></li>\n<li>Date covered: <strong>Monday 29 June 2026</strong></li>\n<li>KEREDIT branch observed: <strong><code translate=\"no\">dev</code></strong></li>\n<li>KEREDIT SHA at the end of the observed sequence: <strong><code translate=\"no\">e1d5676</code></strong> (<code translate=\"no\">fix(woocommerce): compact resume project chooser</code>)</li>\n<li>KEREDIT version observed: 0<strong>.9.47</strong></li>\n<li>GOF branch observed: <strong><code translate=\"no\">dev</code></strong></li>\n<li>GOF SHA at the end of the sequence observed: <strong><code translate=\"no\">37b38da</code></strong> (<code translate=\"no\">fix(ui): enlarge GOF favicon text</code>)</li>\n<li>GOF version observed in today’s history: 0<strong>.1.85,</strong> then most recent local repository at 0<strong>.1.86</strong></li>\n<li>Minimum duration observed on 29 June: <strong>9h05+ of works duration</strong> (<code translate=\"no\">09:27</code> -&gt; <code translate=\"no\">18:32</code> KEREDIT; GOF <code translate=\"no\">12:08</code> -&gt; <code translate=\"no\">16:51</code>, included in the same window)</li>\n<li>Minimum cumulative time for block 29/30/01 as at the end of 29 June: <strong>9h05+</strong></li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 598h57+</strong> (<code translate=\"no\">589h52+</code> as at 28 June, + <code translate=\"no\">9h05+</code> today)</li>\n</ul>\n<h2 id=\"lecture-globale\">Overall summary</h2>\n<p>Today’s work moves away slightly from the visible core of the editor to strengthen the\ntools surrounding it.</p>\n<p>The photo log is still present with the ‘refill’ preview, but the main thread\nis now up and running: reducing noise, making feed testing easier,\ndocumenting upcoming editor projects, and hardening GOF in terms of\nsecurity and performance.</p>\n<p>It’s not the sort of day that yields a spectacular screenshot. It’s the\nsort of day that prevents the beta from becoming impossible to monitor.</p>\n<h2 id=\"keredit--refill-lint-et-commande-atelier\">KEREDIT: refill, lint and workshop command</h2>\n<p>Today’s KEREDIT commits:</p>\n<ul>\n<li><code translate=\"no\">0aa6b31</code> - aligning the notebook refill preview;</li>\n<li><code translate=\"no\">87d667d</code> - restore a clean lint state;</li>\n<li><code translate=\"no\">a513692</code> - track the editor refactoring backlog;</li>\n<li><code translate=\"no\">7051e75</code> - reduce beta observability noise;</li>\n<li><code translate=\"no\">a59e3a2</code> - added the `<code translate=\"no\">test-flux</code>` command for the workshop pipeline;</li>\n<li><code translate=\"no\">30ea669</code> - bump release <strong>0.9.47</strong>;</li>\n<li><code translate=\"no\">e1d5676</code> - streamline the WooCommerce project recovery options.</li>\n</ul>\n<p>The most important practical point is <code translate=\"no\">test-flux</code>. A workshop pipeline cannot\nrely solely on unit tests or manual clicks. We need a\ncommand capable of replaying the WooCommerce -&gt; KEREDIT -&gt; GOF -&gt; workshop flow\nin a reproducible manner.</p>\n<p>The other useful point is the reduction in observability noise. Too many logs\nmake the real signals invisible. In closed beta, we want to see the errors\nthat change a decision, not every single system heartbeat.</p>\n<h2 id=\"woocommerce--reprendre-sans-surcharger\">WooCommerce: resuming without overloading</h2>\n<p>The WooCommerce project resumption selector has been streamlined.</p>\n<p>This is not a cosmetic detail. In the e-commerce workflow, users often return\nafter an interruption: an order link, a project already created, photos already\npresent, and a decision to resume. If the resumption screen looks like a\ntechnical dashboard, trust declines.</p>\n<p>The fix follows the same principle as the order form:\nless mental load, a clearer path.</p>\n<h2 id=\"gof--sécurité-cache-et-rétention-staging\">GOF: security, cache and staging retention</h2>\n<p>GOF also saw significant changes that day:</p>\n<ul>\n<li><code translate=\"no\">f1341a8</code> - tightening access to artefacts and rendering;</li>\n<li><code translate=\"no\">61e98a6</code> - limiting the cache buffer for PDF assets;</li>\n<li><code translate=\"no\">43fdfff</code> /<code translate=\"no\">e7bc345</code> - adding and then tightening the staging retention workflow;</li>\n<li><code translate=\"no\">7adff60</code> - released GOF 0<strong>.1.85</strong>;</li>\n<li><code translate=\"no\">e38bf59</code> / <code translate=\"no\">37b38da</code> - added and then enlarged the GOF favicon.</li>\n</ul>\n<p>The GOF hardening counts towards KEREDIT because GOF is not an annex. It\nis the artefacts forge: web PDFs, print PDFs, workshop files, operator\nverification. If GOF retains data for too long, exposes too much, or consumes too much\ncache space, the entire chain becomes vulnerable.</p>\n<h2 id=\"ce-que-cette-journée-laisse\">What this day leaves us with</h2>\n<p>The theme of the day is simple:</p>\n<div class=\"highlight\"><pre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;\" translate=\"no\"><code class=\"language-text\" data-lang=\"text\"><span style=\"display:flex;\"><span>moins de bruit -&gt; plus de diagnostic\n</span></span><span style=\"display:flex;\"><span>plus de replay -&gt; moins de superstition\n</span></span></code></pre></div><p>KEREDIT is starting to have the tools needed to test an entire workshop workflow\nwithout having to mentally reconstruct everything every time an incident occurs. GOF is becoming\nstricter on security and more resource-efficient.</p>\n<p>It’s not spectacular, but it’s exactly the sort of work that makes\na beta version usable.</p>\n"
+      },
+      "description": {
+        "hash": "13859da10891e2bc692f2ac6e23725d5b510e0ddb66665ad85f848f5d9d8c1ea",
+        "text": "Operational hardening day: refill logbook, lint, publisher backlog, beta observability, test-flux command, WooCommerce and GOF hardening."
+      },
+      "title": {
+        "hash": "c0114720c390766b5b8725549c2785b47561ba60b8763ea38b959168d17e1037",
+        "text": "Day 98 – Reducing noise, optimising the workflow"
       }
     },
     "page:/flux/journal-procrastinateur/2026-06-30": {
@@ -10641,6 +10655,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-28.webp": {
+      "alt": {
+        "hash": "730a044375a3f58305dfb73908670d424b6d37132163f282d99d77f5e62c8612",
+        "text": "NASA Document: Spaceborne Computer 2"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10648,9 +10666,21 @@
       "themeLabel": {
         "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
         "text": "Computers & computing"
+      },
+      "title": {
+        "hash": "1f45d3878a096e050545da1a50402481ff9360aa9e220a7057e7347d9df5e5b9",
+        "text": "Spaceborne Computer 2"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-29.webp": {
+      "alt": {
+        "hash": "68870599a879afbb9f37400f1281b994cdebadbfccdb77f5c70ec7666443b115",
+        "text": "Document NASA : Behnken works on computer in the FWD MDDK during Joint Operations"
+      },
+      "date": {
+        "hash": "082351543ddd1bf8d9673c69e455e03d236c2697e3eadfba40d8ecfe748b19d5",
+        "text": "19 March 2008"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10658,12 +10688,20 @@
       "themeLabel": {
         "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
         "text": "Computers & computing"
+      },
+      "title": {
+        "hash": "b7172b851558dc874fb0b79ba4ab8522d49cd43dc7da382cd6b7b20dc1a32d29",
+        "text": "Behnken works on computer in the FWD MDDK during Joint Operations"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-30.webp": {
       "alt": {
         "hash": "1584d8603623861fc49f6f31ff6c327f3b9aebb16b172972291001e1dbadb0fc",
         "text": "Document NASA : High Bay 1 in JPL's Spacecraft Assembly Facility"
+      },
+      "date": {
+        "hash": "bbed302eb05b690e0b1599d8c0420c8a732c69ed003193eacb7ba6ed1748213f",
+        "text": "23 December 2019"
       },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
@@ -10672,6 +10710,10 @@
       "themeLabel": {
         "hash": "fd08df7942b649027ab6a5d842b5a8045a5e299fd97c0d9a172a332ce1c0d6ed",
         "text": "Space systems"
+      },
+      "title": {
+        "hash": "c9797e65b7362e46dd29ac1a12683eda4e1b8eb615702fe2e4572d92c3daddc9",
+        "text": "High Bay 1 in JPL's Spacecraft Assembly Facility"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-01.webp": {
