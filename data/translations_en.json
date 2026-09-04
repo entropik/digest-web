@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "8aa7c395514195ca6c5282a3d05e76d0cb9c6a584524345b67bad0765fc89c3c",
+  "revision": "652ac5686fc38e4599c2d8c1dc9eb0df350dd6882655ea96af721c3de6fbade3",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -3084,6 +3084,30 @@
       "title": {
         "hash": "946546d90a07b056aaf49f70b37dd2857b2ec866c0aea388c8914c2652bc086a",
         "text": "Diary of a Procrastinator"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-06-30": {
+      "description": {
+        "hash": "1857d2dd3104b5e78418e27523511a95cde274deba449dcf0fb1d3fa66104bf7",
+        "text": "pnpm migration day, Fabric guardrails, runtime templates, protection against local/VPS seeding, and simplification of the Templates panel."
+      },
+      "title": {
+        "hash": "113856ce06578ffb6ec48346d250f52e9cd5fe106bef9c90d12bcb19d4407f4c",
+        "text": "Day 99 – Protect the base, simplify the panels"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-07-01": {
+      "body": {
+        "hash": "5c7b6f402a90bb5e7ba941bec684b4261f05e718f66a8ac99cf92e5de62fecf9",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Main environment: <strong>VS Code WSL, Codex plugin, local browser</strong></li>\n<li>Date covered: <strong>Wednesday 1 July 2026</strong></li>\n<li>Main KEREDIT branch: <strong><code translate=\"no\">dev</code> to <code translate=\"no\">d132499</code></strong></li>\n<li>Today’s working branch: <strong><code translate=\"no\">ux/book-autofill-guided-preview</code></strong></li>\n<li>SHA of branch under review: <strong><code translate=\"no\">a66f621</code></strong> (<code translate=\"no\">fix(editor): ajouter historique court au remplissage carnet</code>)</li>\n<li>Local KEREDIT version: 0<strong>.9.50</strong></li>\n<li>Status: <strong>development is proceeding on a dedicated branch; not yet merged into <code translate=\"no\">dev</code></strong></li>\n<li>Minimum time observed on 1 July: <strong>6 hours 59 minutes of development time</strong> (<code translate=\"no\">10:06</code> → <code translate=\"no\">17:05</code>, excluding ongoing blog catch-up work)</li>\n<li>Minimum cumulative time from block 29/30/01 to 1 July: <strong>20h28+</strong></li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 610h20+</strong> (<code translate=\"no\">603h21+</code> as at 30 June, plus <code translate=\"no\">6h59+</code> today)</li>\n</ul>\n<h2 id=\"lecture-globale\">Overall summary</h2>\n<p>The hundredth day of the log.</p>\n<p>This figure marks a day that is very representative of the project: the code may\ngenerate quickly, but the product doesn’t become good simply because it has lots of\nfeatures. It becomes good when the user understands what’s happening, when\nunnecessary choices disappear, and when the interface stops creating\nentropy.</p>\n<p>Today’s task focuses on <strong>filling the notebook quickly</strong>.</p>\n<p>Initially, the workflow can do a lot of things: select pages, process\nthe cover, add pages, sort, filter, alternate, choose styles,\nselect templates, preview, apply. On paper, it’s powerful.\nIn user testing, it’s too much.</p>\n<p>So today’s task is to do the opposite of over-engineering:\nremove the visible options, retain the internal power, and transform the\nquick mode into a KISS experience.</p>\n<h2 id=\"kiss-ici-veut-dire-quoi-\">What does KISS mean here?</h2>\n<p>KISS doesn’t mean ‘poor’.</p>\n<p>KISS means:</p>\n<ul>\n<li>a clear primary purpose;</li>\n<li>settings that match the client’s vocabulary;</li>\n<li>a preview that truly shows the notebook;</li>\n<li>simple, reversible actions with no surprises;</li>\n<li>technical options hidden unless they are needed to make a decision.</li>\n</ul>\n<p>Quick form-filling must be guided by a simple principle:</p>\n<div class=\"highlight\"><pre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;\" translate=\"no\"><code class=\"language-text\" data-lang=\"text\"><span style=\"display:flex;\"><span>placer mes photos dans mon carnet et me laisser essayer autre chose sans stress\n</span></span></code></pre></div><p>Anything that forces the user to understand the engine’s internal terminology\nbecomes suspect.</p>\n<h2 id=\"le-flux-rapide-simplifie\">The quick workflow simplifies</h2>\n<p>The modal window is gradually reduced to just a few choices:</p>\n<ul>\n<li>sorting photos;</li>\n<li>number of pages;</li>\n<li>photos per page;</li>\n<li>margins;</li>\n<li>spacing;</li>\n<li>layout: regular, alternating, occasional full-page spreads;</li>\n<li>Global action: <strong>Reorganise all</strong>;</li>\n<li>local action: <strong>Reorganise</strong> on one page.</li>\n</ul>\n<p>The <strong>‘Quick’</strong> and <strong>‘Wizard’</strong> buttons disappear from the header of this\nmodal. Quick mode is now the default mode. The narrative wizard remains in\nthe codebase, but it does not need to be displayed in this workflow until it has a\nclear product specification.</p>\n<p>The main button remains result-oriented:</p>\n<div class=\"highlight\"><pre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;\" translate=\"no\"><code class=\"language-text\" data-lang=\"text\"><span style=\"display:flex;\"><span>Placer X photos dans le carnet\n</span></span></code></pre></div><p>This is clearer than “Start auto-fill”.</p>\n<h2 id=\"preview-globale--ce-qui-est-vu-doit-être-ce-qui-sera-applique\">Global preview: what is seen must be what is applied</h2>\n<p>The preview becomes the centrepiece of the workflow.</p>\n<p>It shows the notebook after simulated filling, without modifying the store until\nthe user applies the changes. It includes existing pages, pages\nthat have been added, the cover where included, and retains the current position\nwhen changing style or rhythm.</p>\n<p>Several UI details have been refined:</p>\n<ul>\n<li>the unnecessary preview counter has been removed;</li>\n<li>the ‘page modified’ borders have been removed;</li>\n<li>the arrows have been moved closer to the notebook;</li>\n<li>the controls are grouped on the left;</li>\n<li>the help section has been transformed into a reassuring, overlay panel;</li>\n<li>the close button is more visible, without any unnecessary tooltips;</li>\n<li>the page backgrounds before thumbnails load are replaced by a paper-like grey;</li>\n<li>the sliders use a terracotta colour consistent with the buttons.</li>\n</ul>\n<p>The preview is no longer just for decoration. It serves to reassure users.</p>\n<h2 id=\"tout-réorganiser-puis-une-page-seulement\">Reorganise everything, then just one page</h2>\n<p>The <strong>‘Reorganise All’</strong> button maintains the selected layout. If the user is\nset to ‘regular’, it remains in ‘regular’ mode. It changes the compatible templates, not\nthe client’s overall logic.</p>\n<p>A major bug has been fixed: with <strong>one photo per page</strong>, the engine was still\nforcing full-width display. This was consistent with a previous contract, but contrary\nto actual usage: if the local <strong>‘Reorganise’</strong> button can suggest other templates\nfor a photo, <strong>‘Reorganise All’</strong> must be able to do so as well.</p>\n<p>The cover is given the same trial feature: when it contains a photo, the\nlocal <strong>‘Reorganise’</strong> button appears on the front cover, centred on the\nright-hand half, not in the middle of the spread.</p>\n<h2 id=\"annuler-sans-inventer-un-deuxième-éditeur\">Undo without creating a second editor</h2>\n<p>The <strong>Undo</strong> button becomes a mini composition history.</p>\n<p>It retains up to 5<strong> states</strong>, but only for:</p>\n<ul>\n<li><strong>‘Reorganise All’</strong>;</li>\n<li><strong>Reorganise</strong> a page.</li>\n</ul>\n<p>Manual adjustments such as margins, spacing, rhythm or photos per page\nreset this history. This is intentional: the aim is to undo a\nvisual exploration, not to create a parallel history system within the\nmodal.</p>\n<p>Here again, KISS does not mean a lack of convenience. It is a refusal to add\na mechanism whose scope the user would no longer understand.</p>\n<h2 id=\"seed-local--le-rappel-de-confiance\">Local seed: the trust reminder</h2>\n<p>Today’s work is also marked by the fear of losing\nlocally stored data.</p>\n<p>The day before, anti-seed protection was put in place. Today, the issue remains\nrelevant: a local database intended to serve as a mirror must not be treated\nas a disposable database. The Zine product, visible on the VPS but absent locally,\nserved as a very concrete reminder.</p>\n<p>An AI tool can execute a command quickly. The project, however, requires a\nslow and non-negotiable rule:</p>\n<div class=\"highlight\"><pre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;\" translate=\"no\"><code class=\"language-text\" data-lang=\"text\"><span style=\"display:flex;\"><span>ne jamais ecraser silencieusement des donnees metier vivantes\n</span></span></code></pre></div><h2 id=\"ce-que-le-jour-100-raconte-du-projet\">What Day 100 reveals about the project</h2>\n<p>Code generates quickly. Sometimes too quickly.</p>\n<p>In an hour, you can get an auto-fill feature with dozens of\nparameters. But it then takes two days to organise the semantic\nand visual chaos: which words to keep, which controls to hide, which preview to trust,\nwhich action cancels what, which page is really the target, which option\nbuilds trust and which creates confusion.</p>\n<p>Day 100 therefore does not mark a major functional expansion. It marks\na discipline:</p>\n<div class=\"highlight\"><pre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;\" translate=\"no\"><code class=\"language-text\" data-lang=\"text\"><span style=\"display:flex;\"><span>puissance interne, simplicite externe\n</span></span></code></pre></div><p>And that is probably a good definition of KEREDIT at this stage: a\n‘workshop-first’ product that must hide a great deal of complexity without deceiving\nthe user.</p>\n"
+      },
+      "description": {
+        "hash": "ffd54f40669f163df8ca4d74c807f9acedcf200d25136a2dcbf5ad708e24edac",
+        "text": "Day 100 of the journal: KISS approach to simplifying the notebook entries, an overview, local actions, a brief history and the battle against UI entropy."
+      },
+      "title": {
+        "hash": "b1d964b0239e9ec1e32333094f29c4e1ed81a11434aa19d97db5ca6dad47af71",
+        "text": "Day 100 – Making simple what the code has made complicated"
       }
     },
     "page:/flux/journal-procrastinateur/2026-07-02": {
@@ -10637,6 +10661,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-30.webp": {
+      "alt": {
+        "hash": "1584d8603623861fc49f6f31ff6c327f3b9aebb16b172972291001e1dbadb0fc",
+        "text": "Document NASA : High Bay 1 in JPL's Spacecraft Assembly Facility"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10647,6 +10675,14 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-01.webp": {
+      "alt": {
+        "hash": "8166c9ed5a81dba0982aa986adeedc3ae01c708b71f8fd23e5a927bcffe6ab34",
+        "text": "Document NASA : Marcia Smith Operating the IBM #740 Computer"
+      },
+      "date": {
+        "hash": "8909496447ef52efeaeb8067a5ca78010083dec85af85055887e123cc6ec6c93",
+        "text": "29 September 1967"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10654,6 +10690,10 @@
       "themeLabel": {
         "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
         "text": "Computers & computing"
+      },
+      "title": {
+        "hash": "3b34811f0a4fe399278b7e6150999246d085b6b101cc5abb2519d0e048dc42a1",
+        "text": "Marcia Smith Operating the IBM #740 Computer"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-02.webp": {
@@ -10672,6 +10712,10 @@
       "themeLabel": {
         "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
         "text": "Telecommunications"
+      },
+      "title": {
+        "hash": "cccfad8b12c1242164ac4f78d8c6d7d3b3b5b3856a27f99ed2e24ab3defb9214",
+        "text": "Onufrienko holds the Amateur Radio (HAM) WA3 Antenna Assembly, Expedition Four"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-03.webp": {
