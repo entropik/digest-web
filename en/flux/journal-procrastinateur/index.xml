@@ -121,11 +121,11 @@
       <description>Day 122 of the log: GOF 0.8.1 reads the Production v2 ledger, displays the actual activity of each forge and consolidates the metrics without reverting to the historical snapshot.</description>
     </item>
     <item>
-      <title>Jour 121 - Revenir, consolider, publier</title>
+      <title>Day 121 – Review, consolidate, publish</title>
       <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-30/</link>
       <pubDate>Thu, 30 Jul 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-30/</guid>
-      <description>Translation pending · Jour 121 du journal : après six jours sans commit, KEREDIT consolide la charge, l&amp;#39;email, les dépendances, le panier, le connecteur et la recette GOF, puis remet le VPS sur une release vérifiée.</description>
+      <description>Day 121 of the log: after six days without a commit, KEREDIT consolidates the load, email, dependencies, shopping basket, connector and GOF acceptance test, then restores the VPS to a verified release.</description>
     </item>
     <item>
       <title>Jour 120 - Fermer les portes restées ouvertes</title>

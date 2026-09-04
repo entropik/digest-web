@@ -109,22 +109,22 @@ within the browser. This process opens up a second narrative: preserving
 and sharing URLs, even when the web returns a 404 error.</description>
     </item>
     <item>
-      <title>Administration et curation depuis Chrome</title>
+      <title>Administration and management via Chrome</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-07-27/</link>
       <pubDate>Mon, 27 Jul 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-07-27/</guid>
-      <description>Translation pending · Le Digest passe d’une archive statique à un système de curation propriétaire
-avec administration, extension Chrome et publication atomique. Quinze commits
-et trente exécutions GitHub Actions réussies installent ce nouveau parcours.</description>
+      <description>The Digest is transitioning from a static archive to a proprietary curation system
+featuring administration, a Chrome extension and atomic publishing. Fifteen commits
+and thirty successful GitHub Actions runs have implemented this new workflow.</description>
     </item>
     <item>
       <title>Favoris locaux et nouvelles éditions</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-07-26/</link>
       <pubDate>Sun, 26 Jul 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-07-26/</guid>
-      <description>Translation pending · Trois anciens Digests composés à la main — les semaines 11, 12 et 14 de 2017 —
-rejoignent l’archive. Le site gagne aussi des favoris conservés uniquement dans
-le navigateur.</description>
+      <description>Translation pending · Three old, hand-compiled Digests — weeks 11, 12 and 14 of 2017 —
+have been added to the archive. The site has also gained bookmarks stored solely in
+the browser.</description>
     </item>
     <item>
       <title>Exploration des tags et reprise de 2017</title>
