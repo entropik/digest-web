@@ -394,15 +394,18 @@ test("Hugo language metadata uses the current APIs", async () => {
 });
 
 test("local, CI and deployment verification share one cross-platform command", async () => {
-  const [verification, ci, deployment, readme] = await Promise.all([
+  const [verification, production, ci, deployment, readme] = await Promise.all([
     readFile(new URL("../../scripts/verify.mjs", import.meta.url), "utf8"),
+    readFile(new URL("../../scripts/translation-production.mjs", import.meta.url), "utf8"),
     readFile(new URL("../../.github/workflows/ci.yml", import.meta.url), "utf8"),
     readFile(new URL("../../.github/workflows/deploy.yml", import.meta.url), "utf8"),
     readFile(new URL("../../README.md", import.meta.url), "utf8"),
   ]);
-  for (const consumer of [ci, deployment, readme]) {
+  for (const consumer of [ci, readme]) {
     assert.match(consumer, /node scripts\/verify\.mjs/);
   }
+  assert.match(deployment, /node scripts\/translation-production\.mjs/);
+  assert.match(production, /scripts\/verify\.mjs/);
   assert.match(verification, /process\.platform === "win32" \? "npm\.cmd" : "npm"/);
   assert.match(verification, /"python3", "python"/);
   assert.match(verification, /PYTHONDONTWRITEBYTECODE: "1"/);

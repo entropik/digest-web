@@ -23,6 +23,18 @@ if [ "$1" = "ls-remote" ]; then
   printf '%s\trefs/heads/main\n' newsha
   exit 0
 fi
+case "$1" in
+  init)
+    mkdir -p "${3:-${2:-}}"
+    exit 0
+    ;;
+  --git-dir=*)
+    case "$2" in
+      fetch) exit 0 ;;
+      rev-parse) printf 'admin-tree-new\n'; exit 0 ;;
+    esac
+    ;;
+esac
 exit 1
 EOF
 
@@ -206,10 +218,34 @@ run_failure_case() {
   grep -q 'pm2 save --force' "$log"
 }
 
+run_unchanged_tree_case() {
+  case_root="$temporary/unchanged-tree"
+  base="$case_root/base"
+  fake_bin="$case_root/bin"
+  log="$case_root/commands.log"
+  mkdir -p "$base/releases/oldsha/admin-service/dist/src" "$base/shared"
+  printf 'production environment\n' >"$base/shared/.env"
+  printf 'admin-tree-new\n' >"$base/shared/observed-admin-tree"
+  current_target_file="$case_root/current-target"
+  pending_target="$case_root/pending-target"
+  printf 'releases/oldsha/admin-service\n' >"$current_target_file"
+  : >"$log"
+  create_fake_commands "$fake_bin"
+  PATH="$fake_bin:$PATH" TEST_SCENARIO="unchanged-tree" TEST_BASE="$base" TEST_LOG="$log" \
+    TEST_DATABASE="$base/shared/auth.sqlite" TEST_BACKUP="$base/shared/backup" \
+    TEST_CURRENT_TARGET_FILE="$current_target_file" TEST_PENDING_TARGET="$pending_target" \
+    DIGEST_ADMIN_BASE="$base" DIGEST_ADMIN_REPOSITORY="fake://digest-web" \
+    sh "$repository_root/scripts/deploy-admin-cloudpanel.sh"
+  test "$(cat "$base/shared/observed-main-sha")" = "newsha"
+  ! grep -q '^npm ' "$log"
+  ! grep -q '^pm2 ' "$log"
+}
+
 run_failure_case migration
 run_failure_case startup
 run_failure_case health
 run_failure_case switch
 run_failure_case rollback-switch
 run_failure_case stop
+run_unchanged_tree_case
 echo "Deployment rollback scenarios passed."

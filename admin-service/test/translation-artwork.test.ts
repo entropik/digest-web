@@ -29,3 +29,14 @@ test("artwork follows current link counts, editorial family and missing files wi
     }
   }
 });
+
+test("artwork files are removed when their current translated edition disappears", async () => {
+  const date = "2026-09-01";
+  const result = await prepareTranslationArtwork({}, {
+    previous: { version: 1, revision: "old", entries: {}, artwork: { [date]: { title: "Old", description: "Old", linkCount: 1, editorialType: "digest" } } },
+    links: [], readEdition: async () => null, exists: () => true,
+    render: async () => { throw new Error("unexpected render"); }, renderLinkedIn: async () => { throw new Error("unexpected render"); },
+  });
+  assert.deepEqual(result.artwork, {});
+  assert.deepEqual(result.removed.sort(), [`static/social/en/${date}-linkedin.png`, `static/social/en/${date}.png`]);
+});

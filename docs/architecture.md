@@ -53,7 +53,11 @@ taxonomie inconnue. Côté public, la modale reçoit directement les routes Hugo
 enregistrées ; le contrôle de cohérence bloque tout tag public sans destination.
 
 La branche `main` contient les sources. GitHub Actions valide les données et
-construit le site, puis force la branche `production` sur la sortie statique.
+construit le site. Les commits ordinaires remplacent la sortie statique après
+un build complet ; les commits de traduction strictement reconnus rendent les
+segments anglais indiqués par leur plan et les superposent au dernier arbre
+`production`. Le nouveau commit reste descendant de `production` et est poussé
+en fast-forward.
 CloudPanel relève cette branche, crée une release locale et bascule un lien
 symbolique `current`. Les cinq dernières releases sont conservées.
 
