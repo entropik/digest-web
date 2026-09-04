@@ -5,6 +5,8 @@ set -eu
 # Élimine tout passage par GitHub Actions pour la mise en ligne du site.
 
 BASE="/home/digest/htdocs/digest.ooblik.com"
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT"
 HUGO_BIN="${HUGO_BIN:-$(command -v hugo 2>/dev/null || echo "$HOME/bin/hugo")}"
 HUGO_VERSION="0.165.0"
 
