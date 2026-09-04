@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "77f4ad937ef5a1408107d3aff07baaf7e8d65d43d243732c89e1be0c6ab76485",
+  "revision": "ae152b79f439f4e09ac8ba038cf07587eda7319244fad7796aebd9b657a0fa8c",
   "entries": {
     "category:Krisis": {
       "name": {
@@ -328,6 +328,12 @@
         "text": "Google Fonts"
       }
     },
+    "tag:InDesign": {
+      "name": {
+        "hash": "1272ef7d1e4a1a4bdf4ab94736e7404fb8f0431195bc53d998044c456254ad34",
+        "text": "InDesign"
+      }
+    },
     "tag:JavaScript": {
       "name": {
         "hash": "108526945b5d85ca0df36080eb519c1b98b945e6261ef15b851e52308a56bdaa",
@@ -356,6 +362,12 @@
       "name": {
         "hash": "bb4eac16126c520f82dc73f9f15f9f9a38b5ea84cbd17d8dd621d27a40082734",
         "text": "Layout"
+      }
+    },
+    "tag:MEP": {
+      "name": {
+        "hash": "1241f16d12334de2a78d759a01b7118fdd16f6ba4c84f18146bbb63031400c0b",
+        "text": "Member of the European Parliament"
       }
     },
     "tag:OSP": {
@@ -412,6 +424,12 @@
         "text": "VSCode"
       }
     },
+    "tag:aeachi": {
+      "name": {
+        "hash": "14905d169138aa9a611bb513d5bccc696c0c075a9a0070bdc18412779a41c455",
+        "text": "aeachi"
+      }
+    },
     "tag:algorithmes": {
       "name": {
         "hash": "10580a3f405aa5caec59a436b4c6b983846b726ca76e4327feab92c71bd9312d",
@@ -458,6 +476,12 @@
       "name": {
         "hash": "03ae1a531ec22c7e6753d3e5828a122dcdfe8f1fb4f91838ca51e2bb3cd161cc",
         "text": "code"
+      }
+    },
+    "tag:coeur": {
+      "name": {
+        "hash": "14d4d70a54bea2839150bc3dc67f8cab10679ac53497fe2f9374904e2e71cdb7",
+        "text": "heart"
       }
     },
     "tag:cool": {
@@ -622,6 +646,12 @@
         "text": "no-code"
       }
     },
+    "tag:norme": {
+      "name": {
+        "hash": "1474088706008f7a33a8a3ace7c3791b35b07023a1717a0b50f77528f55a2c95",
+        "text": "regulations"
+      }
+    },
     "tag:nyc": {
       "name": {
         "hash": "0a808b238bc77ebdd4f07c5f52a82680bd29bba76bac9c02f0dfe379e1a8924b",
@@ -638,6 +668,12 @@
       "name": {
         "hash": "05b5f590420faa7b3a1333a1773852e8e2da2e5910587e15fedcb63ca7fdb3a1",
         "text": "observability"
+      }
+    },
+    "tag:p5js": {
+      "name": {
+        "hash": "1383b54dce4bcec9ea42e936e5f3417239835ef6bd2970a68a6954b8b8b914d8",
+        "text": "p5js"
       }
     },
     "tag:pagination": {
@@ -668,6 +704,12 @@
       "name": {
         "hash": "096819ac864fd5d3bf47789f352c0f9911590af0f7b31a8de2d27a9da41fe72b",
         "text": "poems"
+      }
+    },
+    "tag:police": {
+      "name": {
+        "hash": "11c3fe8da167493c888958d32377d4345078f4c03fd1f69a4f6f496371eb7644",
+        "text": "police"
       }
     },
     "tag:productivité": {
@@ -718,6 +760,12 @@
         "text": "SVG freebie"
       }
     },
+    "tag:tmux": {
+      "name": {
+        "hash": "147d67fc63724f4300477489ed51e4cdb9ce6dbdd64916c08897418b71407fd8",
+        "text": "Don't walk"
+      }
+    },
     "tag:totem": {
       "name": {
         "hash": "0f863f2c636fbcdd8fe274702f3f0cf9a4a35a2d3274928bec321b1988eb4980",
@@ -740,6 +788,18 @@
       "name": {
         "hash": "09c2d2872708da67b011ea95b6aaa9d3275a914af94f17cd14002f92c8df3b09",
         "text": "yadubeaugraphism"
+      }
+    },
+    "tag:zine": {
+      "description": {
+        "hash": "1246457a948c0df3624329a46a2d897aafb72964003dafb74ef79932bdacaae7",
+        "text": "Fanzines, small-scale publishing and independent publications."
+      }
+    },
+    "tag:école": {
+      "name": {
+        "hash": "1292403c3ba006b28a4793800256d20ff53e421f78f8f3bc93fdbc6ff5c5ae66",
+        "text": "school"
       }
     }
   },

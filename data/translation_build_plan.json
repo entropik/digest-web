@@ -1,16 +1,10 @@
 {
   "version": 1,
-  "baseRevision": "4aadb7ae648146930fcc0b6d4da7585897bec251c3ea7ad790b590afc2d52ad7",
-  "targetRevision": "77f4ad937ef5a1408107d3aff07baaf7e8d65d43d243732c89e1be0c6ab76485",
-  "manifestRevision": "02fc21a7a452ae6cd9b433273caad0a567032946951cba379117500b37775688",
+  "baseRevision": "77f4ad937ef5a1408107d3aff07baaf7e8d65d43d243732c89e1be0c6ab76485",
+  "targetRevision": "ae152b79f439f4e09ac8ba038cf07587eda7319244fad7796aebd9b657a0fa8c",
+  "manifestRevision": "f2272c908b90ac69240b90702fdeaa5e9baa19629f567348c73ce89e3d01d2ee",
   "fullBuild": false,
   "items": [
-    {
-      "id": "category:Krisis",
-      "fields": [
-        "name"
-      ]
-    },
     {
       "id": "page:/archives/2026-08-16",
       "fields": [
@@ -72,73 +66,105 @@
       ]
     },
     {
-      "id": "tag:algorithmes",
+      "id": "tag:aeachi",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:auto-hébergement",
+      "id": "tag:coeur",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:findepose",
+      "id": "tag:école",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:JavaScript",
+      "id": "tag:InDesign",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:kiev",
+      "id": "tag:MEP",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:objet",
+      "id": "tag:norme",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:sant",
+      "id": "tag:p5js",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:VSCode",
+      "id": "tag:police",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:white",
+      "id": "tag:tmux",
       "fields": [
         "name"
+      ]
+    },
+    {
+      "id": "tag:zine",
+      "fields": [
+        "description"
       ]
     }
   ],
   "paths": [
     "/",
     "/archives/",
-    "/archives/2014-02-25/",
-    "/archives/2014-09-13/",
-    "/archives/2015-04-14/",
-    "/archives/2015-10-07/",
-    "/archives/2015-12-17/",
-    "/archives/2016-01-09/",
+    "/archives/2015-12-16/",
+    "/archives/2016-03-03/",
+    "/archives/2016-03-07/",
+    "/archives/2016-03-08/",
+    "/archives/2016-03-20/",
+    "/archives/2016-04-04/",
+    "/archives/2016-05-16/",
+    "/archives/2016-05-23/",
+    "/archives/2016-06-20/",
+    "/archives/2016-06-21/",
+    "/archives/2016-06-25/",
+    "/archives/2016-06-26/",
+    "/archives/2016-06-29/",
     "/archives/2016-06-30/",
+    "/archives/2016-07-04/",
+    "/archives/2016-08-29/",
+    "/archives/2016-08-30/",
+    "/archives/2016-09-02/",
+    "/archives/2016-09-13/",
+    "/archives/2016-09-14/",
+    "/archives/2016-09-20/",
+    "/archives/2016-09-28/",
+    "/archives/2016-10-01/",
     "/archives/2016-10-04/",
-    "/archives/2017-03-08/",
+    "/archives/2016-10-06/",
+    "/archives/2016-10-11/",
+    "/archives/2016-10-14/",
+    "/archives/2016-11-07/",
+    "/archives/2016-11-16/",
+    "/archives/2016-12-05/",
+    "/archives/2017-02-24/",
     "/archives/2017-03-21/",
+    "/archives/2017-03-30/",
+    "/archives/2017-04-07/",
+    "/archives/2017-04-20/",
+    "/archives/2018-09-10/",
     "/archives/2026-07-24/",
     "/archives/2026-08-16/",
     "/archives/2026-08-18/",
@@ -154,68 +180,80 @@
     "/flux/blog-ooblik/",
     "/flux/instagram/",
     "/flux/tumblr-ooblik/",
-    "/flux/twitter/",
     "/tags/",
+    "/tags/aeachi/",
     "/tags/agents/",
-    "/tags/algorithmes/",
-    "/tags/apprentissage/",
-    "/tags/archive/",
-    "/tags/artisanat/",
-    "/tags/auto-hebergement/",
+    "/tags/art/",
+    "/tags/autoeditions/",
     "/tags/automatisation/",
-    "/tags/bhl/",
+    "/tags/berlin/",
+    "/tags/bleedbox/",
     "/tags/blog-ooblik/",
-    "/tags/boutique/",
-    "/tags/contenu/",
+    "/tags/book/",
+    "/tags/canson/",
+    "/tags/catalogue/",
+    "/tags/coeur/",
+    "/tags/conference/",
+    "/tags/content/",
     "/tags/creation/",
-    "/tags/cuir/",
-    "/tags/curiosity/",
-    "/tags/decoupage/",
-    "/tags/demonstration/",
+    "/tags/creative-coding/",
+    "/tags/de/",
+    "/tags/design-graphique/",
+    "/tags/design/",
     "/tags/developpement/",
-    "/tags/diy/",
-    "/tags/editeur/",
-    "/tags/editor/",
-    "/tags/findepose/",
-    "/tags/frontend/",
-    "/tags/geek/",
+    "/tags/dummy/",
+    "/tags/ecole/",
+    "/tags/edition/",
+    "/tags/enseignement/",
+    "/tags/fonderie/",
+    "/tags/france/",
+    "/tags/generatif/",
+    "/tags/git/",
+    "/tags/google-fonts/",
+    "/tags/grotesque/",
+    "/tags/hvd-fonts/",
     "/tags/ia/",
+    "/tags/illustration/",
     "/tags/images/",
+    "/tags/impression/",
+    "/tags/indesign/",
     "/tags/instagram/",
-    "/tags/interface/",
-    "/tags/javascript/",
-    "/tags/jquery/",
-    "/tags/kiev/",
-    "/tags/layout/",
     "/tags/lien-mort/",
-    "/tags/livres/",
-    "/tags/llm/",
+    "/tags/livre/",
+    "/tags/luju/",
     "/tags/memoire-web/",
-    "/tags/mobile/",
-    "/tags/newsletter/",
-    "/tags/objet/",
+    "/tags/mep/",
+    "/tags/mise-en-page/",
+    "/tags/monospace/",
+    "/tags/norme/",
+    "/tags/ooblik/",
     "/tags/opensource/",
-    "/tags/papier/",
+    "/tags/outils/",
+    "/tags/p5js/",
+    "/tags/page-quot/",
+    "/tags/parallelisation/",
+    "/tags/pays-bas/",
     "/tags/pdf/",
-    "/tags/performance/",
-    "/tags/pesticide/",
-    "/tags/php/",
-    "/tags/prepresse/",
-    "/tags/programmers/",
+    "/tags/photographie/",
+    "/tags/police/",
+    "/tags/portfolio/",
+    "/tags/print-quot/",
+    "/tags/production/",
+    "/tags/quot-norma/",
+    "/tags/quot-zone/",
+    "/tags/revue/",
     "/tags/ricoh/",
-    "/tags/sant/",
-    "/tags/scroll/",
-    "/tags/transfert-de-fichiers/",
+    "/tags/saint-etienne/",
+    "/tags/sans-serif/",
+    "/tags/serif/",
+    "/tags/suisse/",
+    "/tags/terminal/",
+    "/tags/tmux/",
     "/tags/tumblr/",
-    "/tags/twitter/",
     "/tags/typographie/",
-    "/tags/upload/",
-    "/tags/vscode/",
-    "/tags/web-development/",
-    "/tags/web/",
+    "/tags/web-to-print/",
     "/tags/white/",
-    "/tags/workflows/",
-    "/tags/youtube/",
+    "/tags/winezine/",
     "/tags/zine/"
   ],
   "artwork": {
@@ -233,5 +271,5 @@
     ],
     "remove": []
   },
-  "revision": "86ee704776762f866e2af345f92ed4998892f25e396b9a2da52706797fa10ad5"
+  "revision": "402170e57a5c39d239bfd0296e6253b43d393d4c78b5616bb0b60778e6701d8d"
 }
