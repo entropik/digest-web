@@ -39,6 +39,11 @@
     ]
   },
   {
+    "name": "cartographie",
+    "description": "",
+    "aliases": []
+  },
+  {
     "name": "code",
     "description": "Programmation, pratiques de développement et culture du code.",
     "aliases": [
