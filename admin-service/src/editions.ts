@@ -80,14 +80,14 @@ export const setEditionDraft = (source: string, draft: boolean): string => {
   const frontMatter = match[1]!;
   const body = match[2]!;
   const eol = source.includes("\r\n") ? "\r\n" : "\n";
-  const draftPattern = /^[ \t]*draft:[^\r\n]*\r?\n?/m;
+  const draftPattern = /^draft:[^\r\n]*\r?\n?/m;
 
   let nextFrontMatter: string;
   if (draft) {
     if (draftPattern.test(frontMatter)) {
       nextFrontMatter = frontMatter.replace(draftPattern, `draft: true${eol}`);
     } else {
-      const digestDatePattern = /^([ \t]*digest_date:[^\r\n]*\r?\n)/m;
+      const digestDatePattern = /^(digest_date:[^\r\n]*\r?\n)/m;
       if (digestDatePattern.test(frontMatter)) {
         nextFrontMatter = frontMatter.replace(
           digestDatePattern,

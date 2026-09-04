@@ -117,3 +117,25 @@ test("toggling draft preserves unrelated front matter and visual artwork", () =>
   assert.equal(parseEdition(edited).visual, "/social/2026-08-29-linkedin.png");
   assert.match(edited, /\nvisual: "\/social\/2026-08-29-linkedin\.png"/);
 });
+
+test("setEditionDraft targets only the column-zero draft property and preserves nested draft keys", () => {
+  const source = [
+    "---",
+    'title: "Édition avec sous-clé draft"',
+    'digest_date: "2026-08-29"',
+    "metadata:",
+    '  draft: "valeur imbriquée"',
+    "draft: true",
+    "---",
+    "",
+    "Contenu.",
+  ].join("\n");
+
+  const published = setEditionDraft(source, false);
+  assert.match(published, /metadata:\n  draft: "valeur imbriquée"/);
+  assert.doesNotMatch(published, /^draft:/m);
+
+  const draftAgain = setEditionDraft(published, true);
+  assert.match(draftAgain, /metadata:\n  draft: "valeur imbriquée"/);
+  assert.match(draftAgain, /^draft: true/m);
+});
