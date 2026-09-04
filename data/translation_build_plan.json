@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "baseRevision": "7ad4bcd2c4957035cfc18cf91bafbac0d1a0b63a6d43e85452c5a8b2d980b4b8",
-  "targetRevision": "83d74996aba7b353a50971c6140068e121261db1ef02001e9a34649e15c635ee",
+  "baseRevision": "83d74996aba7b353a50971c6140068e121261db1ef02001e9a34649e15c635ee",
+  "targetRevision": "dc87b7e62501b7a50e15b9b599757a2dbdf8668e9eb7126cd5415000ddde22e7",
   "manifestRevision": "261577e2e019b7cf9d967a9bb1dff52329a00c44f1188f132a4cdf0215a39dec",
   "fullBuild": false,
   "items": [
@@ -66,7 +66,7 @@
       ]
     },
     {
-      "id": "page:/flux/journal-du-digest/2026-08-16",
+      "id": "page:/flux/journal-du-digest/2026-08-12",
       "fields": [
         "body",
         "description",
@@ -74,25 +74,31 @@
       ]
     },
     {
-      "id": "page:/flux/journal-du-digest/2026-08-17",
-      "fields": [
-        "body",
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-du-digest/2026-08-18",
-      "fields": [
-        "body",
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-du-digest/2026-08-20",
+      "id": "page:/flux/journal-procrastinateur/2026-08-07",
       "fields": [
         "body"
+      ]
+    },
+    {
+      "id": "page:/flux/journal-procrastinateur/2026-08-08",
+      "fields": [
+        "body",
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-04.webp",
+      "fields": [
+        "date"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-08.webp",
+      "fields": [
+        "alt",
+        "date",
+        "title"
       ]
     }
   ],
@@ -110,10 +116,11 @@
     "/archives/2026-09-02/",
     "/flux/",
     "/flux/journal-du-digest/",
-    "/flux/journal-du-digest/2026-08-16/",
-    "/flux/journal-du-digest/2026-08-17/",
-    "/flux/journal-du-digest/2026-08-18/",
-    "/flux/journal-du-digest/2026-08-20/"
+    "/flux/journal-du-digest/2026-08-12/",
+    "/flux/journal-procrastinateur/",
+    "/flux/journal-procrastinateur/2026-07-04/",
+    "/flux/journal-procrastinateur/2026-08-07/",
+    "/flux/journal-procrastinateur/2026-08-08/"
   ],
   "artwork": {
     "upsert": [
@@ -130,5 +137,5 @@
     ],
     "remove": []
   },
-  "revision": "0260f14876ec78a29c37a8437e21c7a9a9ee96a1999a20267f5fd8aa4cc1ef24"
+  "revision": "9e7d041d547a06d6b5bfbf53da542ab6dfd174cc4989a70b06b0cee52ec6aff9"
 }
