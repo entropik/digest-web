@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "61dc7e35d5b0170053f0a6d13e99cfd73cea1518926b9bc5cc3656934ad2772a",
+  "revision": "4c049ebcd262a69dcf7858c5d88b49c9f87d592934d14d24f3db896ddefe2839",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -3099,6 +3099,10 @@
       }
     },
     "page:/flux/journal-procrastinateur/2026-06-01": {
+      "description": {
+        "hash": "af831d6be87741947f069c2df52266963177852bd61af740097c01ec4bd878c0",
+        "text": "A deliberately quiet day in the workshop: no Krampouz/KEREDIT sessions, no commits, no technical approvals, but a useful entry in the log."
+      },
       "title": {
         "hash": "1e84fdac35169cff10daaf3f349a7bcfc1e22d864a0921acab368e84a12e18c7",
         "text": "Day 71 – A day away from the studio"
@@ -10745,6 +10749,14 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-01.webp": {
+      "alt": {
+        "hash": "dbc079591f14b2b78f6c0945375f4d95f190a40e0bd04bfe78559add373b1861",
+        "text": "Document NASA : VACUUM TEST - ASTRONAUT JOE H. ENGLE - MSC"
+      },
+      "date": {
+        "hash": "cc81602c9a14c5dd44be9dd6420ff07ec048a67c16b0f995c2445684a61d4d6c",
+        "text": "17 June 1968"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10752,6 +10764,10 @@
       "themeLabel": {
         "hash": "a1b7fca866496e50edd0c8813c0df76fa5ee63a6b1410ab95bb4c5d5f70e6608",
         "text": "Laboratories & simulation"
+      },
+      "title": {
+        "hash": "ade8aa1af4c64ad4f316e46a20c033b19dfa8d5c30a78f4f6f366ce165a3402e",
+        "text": "VACUUM TEST - ASTRONAUT JOE H. ENGLE - MSC"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-02.webp": {
