@@ -1,144 +1,14 @@
 {
   "version": 1,
-  "baseRevision": "66ce653b95e8f4dfaffb29de9cadd2a143b1d42ee7cc7cc3935611e37d29b142",
-  "targetRevision": "0277ccf77f660cb208c6b936038894d8e163cf5a44fa9ca69c3170d11c7bd165",
+  "baseRevision": "0277ccf77f660cb208c6b936038894d8e163cf5a44fa9ca69c3170d11c7bd165",
+  "targetRevision": "406ed31f903135c33fa5ddb3f1333d7dcdb5537cffbbc8214ec2af497c4cde82",
   "manifestRevision": "261577e2e019b7cf9d967a9bb1dff52329a00c44f1188f132a4cdf0215a39dec",
   "fullBuild": false,
   "items": [
     {
-      "id": "link:08469e82-bd71-5a9b-ae23-2332957f4863",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:0d24dc81-3127-500e-9c08-50c4bd5604c7",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:12205153-6d73-5f3b-a407-420acc4ff033",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:2ef3351d-f75e-5c10-a998-2c467e590b4f",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:3583bb99-c9f5-53fc-832c-9d92933c1ad4",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:37f6b68e-edbf-5bbc-ad2b-583f2d9f46da",
-      "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:3819b7ee-7603-5d1e-bb39-03dcaef40e6b",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:3a8897d8-96b6-5588-a252-3a66a117e579",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:470f8e51-fb3a-5146-b5fd-467f81ba076b",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:4c804003-47b1-5c50-b630-25893314fa3c",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:660289d0-16c7-5c2b-987b-38bba6b1cca1",
-      "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:8d979e6d-6e85-522e-be08-a85b94bf1e28",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:bf999a82-d639-5131-a4a7-af7ea065894b",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:c36e35ec-a569-561d-9995-359f75e509fc",
-      "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:d19aa2b1-81dd-5fd7-a697-d2afddc66e5a",
-      "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:d3c8148e-bb21-5fd5-acab-eac0d1e7010c",
-      "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:d42140f0-a527-5985-b6e6-bfbfd2444a41",
-      "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:e24ed8aa-5002-5a68-959e-53b4927b657c",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:f930a74b-ad96-5e1d-9abe-090d5c940c31",
-      "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:fd3cc249-3a33-5681-9d31-b6fca8f46cb4",
-      "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "page:/archives/2015-02-17",
-      "fields": [
-        "title"
-      ]
-    },
-    {
       "id": "page:/archives/2026-07-24",
       "fields": [
-        "body",
-        "title"
+        "$artwork"
       ]
     },
     {
@@ -202,13 +72,13 @@
       ]
     },
     {
-      "id": "page:/flux/journal-procrastinateur/2026-07-20",
+      "id": "page:/flux/journal-procrastinateur/2026-07-12",
       "fields": [
         "description"
       ]
     },
     {
-      "id": "page:/flux/journal-procrastinateur/2026-07-22",
+      "id": "page:/flux/journal-procrastinateur/2026-07-13",
       "fields": [
         "body",
         "description",
@@ -216,7 +86,7 @@
       ]
     },
     {
-      "id": "page:/flux/journal-procrastinateur/2026-07-23",
+      "id": "page:/flux/journal-procrastinateur/2026-07-14",
       "fields": [
         "body",
         "description",
@@ -224,14 +94,53 @@
       ]
     },
     {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-20.webp",
+      "id": "page:/flux/journal-procrastinateur/2026-07-15",
+      "fields": [
+        "body",
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "page:/flux/journal-procrastinateur/2026-07-16",
+      "fields": [
+        "body",
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "page:/flux/journal-procrastinateur/2026-07-18",
+      "fields": [
+        "body",
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "page:/flux/journal-procrastinateur/2026-07-19",
+      "fields": [
+        "body",
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "page:/flux/journal-procrastinateur/2026-07-20",
+      "fields": [
+        "body",
+        "title"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-12.webp",
       "fields": [
         "alt",
-        "title"
+        "date"
       ]
     },
     {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-22.webp",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-13.webp",
       "fields": [
         "alt",
         "date",
@@ -239,7 +148,38 @@
       ]
     },
     {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-23.webp",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-14.webp",
+      "fields": [
+        "alt",
+        "date",
+        "title"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-15.webp",
+      "fields": [
+        "alt",
+        "title"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-16.webp",
+      "fields": [
+        "alt",
+        "date",
+        "title"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-18.webp",
+      "fields": [
+        "alt",
+        "date",
+        "title"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-19.webp",
       "fields": [
         "alt",
         "date",
@@ -248,9 +188,7 @@
     }
   ],
   "paths": [
-    "/",
     "/archives/",
-    "/archives/2015-02-17/",
     "/archives/2026-07-24/",
     "/archives/2026-08-16/",
     "/archives/2026-08-18/",
@@ -264,67 +202,14 @@
     "/archives/2026-09-02/",
     "/flux/",
     "/flux/journal-procrastinateur/",
-    "/flux/journal-procrastinateur/2026-07-20/",
-    "/flux/journal-procrastinateur/2026-07-22/",
-    "/flux/journal-procrastinateur/2026-07-23/",
-    "/tags/",
-    "/tags/accessibilite/",
-    "/tags/agents/",
-    "/tags/benchmark/",
-    "/tags/ci-cd/",
-    "/tags/cli/",
-    "/tags/code-review/",
-    "/tags/codebase/",
-    "/tags/collaboration/",
-    "/tags/confidentialite/",
-    "/tags/configuration/",
-    "/tags/cybersecurite/",
-    "/tags/design/",
-    "/tags/desktop/",
-    "/tags/developpement/",
-    "/tags/devops/",
-    "/tags/dictee/",
-    "/tags/documents/",
-    "/tags/editeur/",
-    "/tags/entretien/",
-    "/tags/git/",
-    "/tags/google-fonts/",
-    "/tags/gpu/",
-    "/tags/graphe/",
-    "/tags/hardware/",
-    "/tags/ia-locale/",
-    "/tags/ia/",
-    "/tags/jellyfin/",
-    "/tags/knowledge-management/",
-    "/tags/llm/",
-    "/tags/local/",
-    "/tags/methode/",
-    "/tags/multimedia/",
-    "/tags/newsletter/",
-    "/tags/nlp/",
-    "/tags/opensource/",
-    "/tags/optimisation/",
-    "/tags/photo/",
-    "/tags/plex/",
-    "/tags/politique/",
-    "/tags/rag/",
-    "/tags/raw/",
-    "/tags/recherche/",
-    "/tags/reference/",
-    "/tags/saas/",
-    "/tags/societe/",
-    "/tags/specifications/",
-    "/tags/technologie/",
-    "/tags/terminal/",
-    "/tags/tokens/",
-    "/tags/travail/",
-    "/tags/typographie/",
-    "/tags/ui/",
-    "/tags/variable-font/",
-    "/tags/veille/",
-    "/tags/video/",
-    "/tags/vision/",
-    "/tags/voix/"
+    "/flux/journal-procrastinateur/2026-07-12/",
+    "/flux/journal-procrastinateur/2026-07-13/",
+    "/flux/journal-procrastinateur/2026-07-14/",
+    "/flux/journal-procrastinateur/2026-07-15/",
+    "/flux/journal-procrastinateur/2026-07-16/",
+    "/flux/journal-procrastinateur/2026-07-18/",
+    "/flux/journal-procrastinateur/2026-07-19/",
+    "/flux/journal-procrastinateur/2026-07-20/"
   ],
   "artwork": {
     "upsert": [
@@ -342,5 +227,5 @@
     ],
     "remove": []
   },
-  "revision": "b258f8cb04aef17eb4f38377e8bb8c9e86f1ff02c28d6dd92cbcf8aa82f79c55"
+  "revision": "5d585202c1d9401cc7b53c03001452b1cb27ba53ce3f65589d397594d13a4570"
 }
