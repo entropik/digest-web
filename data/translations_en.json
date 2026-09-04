@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "3eeda26400021a6d00c358af77710cc1388cc798b4682fe6e6bb647bdf20d882",
+  "revision": "d54d645f9b6b1f58742e94a7f9b51b06a33c9456ccfeed85d66a53daf558c081",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -2672,6 +2672,12 @@
         "text": "9 November 2016"
       }
     },
+    "page:/archives/2017-12-08": {
+      "title": {
+        "hash": "0389a1e4f96a41947bea223fa4e8bc57bb0f58415d5a829cc956e94648538c61",
+        "text": "8 December 2017"
+      }
+    },
     "page:/archives/2026-07-24": {
       "body": {
         "hash": "e0613620076b357bd39612ca288640bfbc4c8cb078b7e136ba2346446cd12c78",
@@ -3084,6 +3090,34 @@
       "title": {
         "hash": "946546d90a07b056aaf49f70b37dd2857b2ec866c0aea388c8914c2652bc086a",
         "text": "Diary of a Procrastinator"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-06-27": {
+      "body": {
+        "hash": "be740be21a9719a74101529bd0af43213a521f93b4adeb4de256ce9686b9c4fd",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Main environment: <strong>VS Code WSL, Codex plugin, local repository</strong></li>\n<li>Date covered: <strong>Saturday 27 June 2026</strong></li>\n<li>KEREDIT branch observed: <strong><code translate=\"no\">dev</code> / UI editor projects</strong></li>\n<li>SHA at the end of the observed sequence: <strong><code translate=\"no\">488eb52</code></strong> (<code translate=\"no\">feat(editor): persist photo layout templates</code>)</li>\n<li>KEREDIT version: 0<strong>.9.44/0.9.45 depending on the subsequent merge sequence; not recalculated to the nearest commit</strong></li>\n<li>Observed windows: <strong>00:16:40 → 00:48:42</strong>, then <strong>16:30:09 → 23:11:52 CEST</strong></li>\n<li>Minimum observed time: <strong>approximately 7h13+</strong>, a conservative sum of the two blocks excluding the long outage</li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 587h27+</strong> (<code translate=\"no\">580h14+</code> as at 26 June, + <code translate=\"no\">7h13+</code> today)</li>\n</ul>\n<h2 id=\"lecture-globale\">Overall summary</h2>\n<p>The previous day had separated two topics that tended to get mixed up too easily:\nthe web PDF on the one hand, the workshop print on the other. Today we return to\nthe editor, but with the same underlying idea: a visual interface is not enough;\na contract is needed.</p>\n<p>For photo albums, the contract is beginning to take the form of <strong>templates</strong>.\nA template is not just a pretty layout. It is a reusable rule\nthat specifies how many photos a page can hold, or where they fall,\nhow a page responds to the chosen number of photos, and how automatic filling\ncan offer something other than a bare grid.</p>\n<p>Autofill is therefore evolving into a layout language, not\njust a magic button.</p>\n<h2 id=\"ce-qui-a-été-construit\">What has been built</h2>\n<p>Today’s commits show a fairly clear progression:</p>\n<ul>\n<li><code translate=\"no\">a1beea2</code> - simplifying a group of shape layers;</li>\n<li><code translate=\"no\">7110d73</code> - adding canvas/page navigation arrows;</li>\n<li><code translate=\"no\">ac7c69e</code> - widening the controls at the bottom of the editor;</li>\n<li><code translate=\"no\">9e1f4bd</code> - clarifying the page navigation controls;</li>\n<li><code translate=\"no\">49331f7</code> - clarifying the spine and cover guides in books;</li>\n<li><code translate=\"no\">3dfdd38</code> - add photo layout templates for books;</li>\n<li><code translate=\"no\">d91b738</code> - add sorting and spacing to auto-fill;</li>\n<li><code translate=\"no\">e057667</code> - add ‘full photo’ templates;</li>\n<li><code translate=\"no\">42cbaee</code> - make photo layout settings live;</li>\n<li><code translate=\"no\">488eb52</code> - save photo layout templates.</li>\n</ul>\n<p>The key point is the shift from static to interactive:\nlayouts are no longer simply coded as arbitrary positions;\nthey can now be selected, varied and saved.</p>\n<h2 id=\"couvertures-doubles-pages-et-limites\">Covers, double-page spreads and limits</h2>\n<p>The book project also continues to highlight that a book is not a\nhomogeneous sequence of ordinary pages.</p>\n<p>The front cover, inside front cover, inside back cover, spine and the pages of the\ninner section do not all serve the same purpose. Navigation must therefore remain clear: you can view\na double-page spread, but certain areas are not editable and certain\nzones belong to the cover as a whole rather than to the inner section.</p>\n<p>The guidelines for the spine and cover have been clarified to avoid a\nsimple but dangerous misunderstanding: believing that what is visible on screen necessarily corresponds to a\ncustomer-editable page.</p>\n<h2 id=\"remplissage-automatique--première-vraie-logique\">Autofill: the first true logic</h2>\n<p>Autofill now has two functions:</p>\n<ul>\n<li>photo <strong>sorting</strong>;</li>\n<li>page <strong>layout</strong>.</li>\n</ul>\n<p>This is still a work in progress, not a final UX. But the principle is\nestablished: the client should not have to compose each page by hand to achieve\na coherent album, nor should the tool impose a monotonous\ngrid.</p>\n<p>The “full-photo” templates add a much-needed sense of breathing space. A photo\nbook needs dense pages, but also pages that allow a single image\nto stand on its own.</p>\n<h2 id=\"ce-que-cette-journée-laisse\">What this day reveals</h2>\n<p>The day highlights a clear product direction:</p>\n<div class=\"highlight\"><pre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;\" translate=\"no\"><code class=\"language-text\" data-lang=\"text\"><span style=\"display:flex;\"><span>photos chargees -&gt; tri -&gt; rythme -&gt; gabarits -&gt; proposition de carnet\n</span></span></code></pre></div><p>There is still a lot of UX work to be done. But the technical foundation is starting to\nspeak the right language. Auto-fill must not be a black box;\nit must be a suggestion that the user can understand,\nmodify, and dismiss without losing their flow.</p>\n"
+      },
+      "description": {
+        "hash": "bc37ed41161391c44d088499bcb52d17763b3bcedb8cb2c11094fff7f311dcc3",
+        "text": "A day spent organising the photo layout templates for the notebooks: page navigation, covers, templates, sorting and the sequence for automatic filling."
+      },
+      "title": {
+        "hash": "19445ec6a56d97fd7d1d119c51cf95000b3a66ab2b1b52e152c0e40ec8f5bf0c",
+        "text": "Day 96 – Templates become a language"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-06-28": {
+      "body": {
+        "hash": "a778c24d1380d43372273e26cd17f7c6ba399ff4c4a63ce7ee649d66b3fb5fbb",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Main environment: <strong>VS Code WSL, Codex plugin, local repository</strong></li>\n<li>Date covered: <strong>Sunday 28 June 2026</strong></li>\n<li>KEREDIT branch observed: <strong><code translate=\"no\">dev</code> following the merge of the templates project</strong></li>\n<li>SHA at the end of the observed sequence: <strong><code translate=\"no\">af85675</code></strong> (<code translate=\"no\">fix(editor): align autofill preview and empty slots</code>)</li>\n<li>KEREDIT version observed: 0<strong>.9.45</strong></li>\n<li>Time windows observed: <strong>00:40:11 → 01:00:43</strong>, <strong>09:41:39 → 10:00:14</strong>, then <strong>17:23:56 → 19:09:30 CEST</strong></li>\n<li>Minimum observed duration: <strong>approximately 2h25+</strong>, conservative sum of the three blocks</li>\n<li>Minimum cumulative duration since the start of the log: <strong>approximately 589h52+</strong> (<code translate=\"no\">587h27+</code> as at 27 June, + <code translate=\"no\">2h25+</code> today)</li>\n</ul>\n<h2 id=\"lecture-globale\">Overall reading</h2>\n<p>Sunday begins as a logical extension of 27 June: whilst the logbook can\nbe filled in using templates, it can also be accompanied by a narrative\nintent.</p>\n<p>But the day soon reveals a tension that will become central in the days\nthat follow: adding functions is easy; organising their meaning is much\nmore difficult.</p>\n<p>The narrative assistant arrives. The templates are enhanced. Then the work\nimmediately returns to something more down-to-earth: stabilising the\nhooks, making the preview reliable, aligning empty slots, and ensuring that the\npop-up form doesn’t become an incomprehensible control panel.</p>\n<h2 id=\"assistant-narratif-et-templates-enrichis\">Narrative assistant and enhanced templates</h2>\n<p>The first commits of the night set out an ambition:</p>\n<ul>\n<li><code translate=\"no\">f16e21c</code> - to enhance the photo layout templates;</li>\n<li><code translate=\"no\">911cebe</code> - to add a narrative assistant for photo books;</li>\n<li><code translate=\"no\">64449ca</code> - clean up the content of the narrative assistant.</li>\n</ul>\n<p>It’s a powerful idea: a photo book isn’t just a pile of images. It\ncan have a rhythm, pauses, captions and a logical sequence.</p>\n<p>But the risk is just as clear. If the wizard, the templates, the styles\nand the auto-fill each speak their own language, the user\ndoesn’t save any time. They end up with added complexity.</p>\n<h2 id=\"stabiliser-avant-délargir\">Stabilise before expanding</h2>\n<p>The rest of the day’s discussion brings the topic back to the product level:</p>\n<ul>\n<li><code translate=\"no\">ac3e6f2</code> - keeping the hooks in the auto-fill modal stable;</li>\n<li><code translate=\"no\">b5b8581</code> - implement Impeccable and refine the autocomplete modal;</li>\n<li><code translate=\"no\">af85675</code> - align the autocomplete preview with the empty fields;</li>\n<li><code translate=\"no\">0089b32</code> - release version <strong>0.9.45</strong>.</li>\n</ul>\n<p>The crucial point is the preview. A fill preview cannot be\nmerely decorative. If it does not show the actual project, with the correct pages, the\ncorrect placements and the correct boundaries, it is misleading.</p>\n<p>Automatic layout is therefore beginning to move beyond a simple form. It must\nbecome a visual experience: seeing the notebook, understanding what is going to be\nadded, and being able to try a different layout.</p>\n<h2 id=\"ce-que-cette-journée-corrige-dans-la-méthode\">What this day corrects in the method</h2>\n<p>The risk of over-engineering is already apparent.</p>\n<p>There are enough building blocks to construct a powerful workflow:</p>\n<ul>\n<li>narrative assistant;</li>\n<li>templates;</li>\n<li>sorting;</li>\n<li>pacing;</li>\n<li>number of photos per page;</li>\n<li>preview;</li>\n<li>filling;</li>\n<li>reuse at a later stage.</li>\n</ul>\n<p>But too many building blocks on display in one place create confusion. Today’s\nwork already points in a direction that will be confirmed later: quick mode\nmust remain quick. Technical concepts may exist in the code,\nbut they must not all become visible options.</p>\n<h2 id=\"ce-que-cette-journée-laisse\">What this day leaves us with</h2>\n<p>The photo log is starting to take shape around two main themes:</p>\n<div class=\"highlight\"><pre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;\" translate=\"no\"><code class=\"language-text\" data-lang=\"text\"><span style=\"display:flex;\"><span>composition automatique -&gt; poser les photos\n</span></span><span style=\"display:flex;\"><span>assistant narratif      -&gt; proposer une lecture\n</span></span></code></pre></div><p>These two strands are useful, but they must not be mixed too soon. The\nproduct needs internal power and external simplicity. Moving forward, the focus should be\nless on adding options and more on choosing which ones to hide.</p>\n"
+      },
+      "description": {
+        "hash": "9cb5ddf511014a1d4931a7c9486cb628e84636b6aae627227f6f8493219f44f8",
+        "text": "A day spent working on the photo diary: narrative assistant, enhancing templates, stabilising hooks and fine-tuning the auto-fill modal."
+      },
+      "title": {
+        "hash": "b3509ccf3cd3dbf2a7f4bddcb33f429ce87b9b9fab01e545b9ebcc60568bdda3",
+        "text": "Day 97 – The assistant arrives, then the UX takes over"
       }
     },
     "page:/flux/journal-procrastinateur/2026-06-29": {
@@ -10125,6 +10159,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-03.webp": {
+      "date": {
+        "hash": "0389a1e4f96a41947bea223fa4e8bc57bb0f58415d5a829cc956e94648538c61",
+        "text": "8 December 2017"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10155,6 +10193,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-08.webp": {
+      "date": {
+        "hash": "0389a1e4f96a41947bea223fa4e8bc57bb0f58415d5a829cc956e94648538c61",
+        "text": "8 December 2017"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10209,6 +10251,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-13.webp": {
+      "date": {
+        "hash": "0389a1e4f96a41947bea223fa4e8bc57bb0f58415d5a829cc956e94648538c61",
+        "text": "8 December 2017"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10645,6 +10691,14 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-27.webp": {
+      "alt": {
+        "hash": "dc33068b78783280ab0611abff92ac32893351a1191475282e4a75bdd320af6f",
+        "text": "Document NASA : NASA Tests New Robotic Refueling Technologies"
+      },
+      "date": {
+        "hash": "0389a1e4f96a41947bea223fa4e8bc57bb0f58415d5a829cc956e94648538c61",
+        "text": "8 December 2017"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10652,12 +10706,20 @@
       "themeLabel": {
         "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
         "text": "Robotics"
+      },
+      "title": {
+        "hash": "a9d51a000b6c32470c8d8003df509679ce8a79a59677b8e1830af89cdce032d9",
+        "text": "NASA Tests New Robotic Refueling Technologies"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-28.webp": {
       "alt": {
         "hash": "730a044375a3f58305dfb73908670d424b6d37132163f282d99d77f5e62c8612",
         "text": "NASA Document: Spaceborne Computer 2"
+      },
+      "date": {
+        "hash": "ca59d1750aaa112a2dbd58207ed318a3b38ab499c2114e411c0a99c37a021714",
+        "text": "24 July 2021"
       },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
