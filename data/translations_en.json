@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "e6888dcac4b759cf3733469e99dab6aabde39fb5ee821392308ac497d1f9853d",
+  "revision": "45afe3d8949b222c6f626c04e967d67c3af07bdcfb6e35b969b3f0f8808e3fba",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -3090,6 +3090,16 @@
       "title": {
         "hash": "946546d90a07b056aaf49f70b37dd2857b2ec866c0aea388c8914c2652bc086a",
         "text": "Diary of a Procrastinator"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-06-15": {
+      "description": {
+        "hash": "89fd48ca079c992bf3004d4f1f72719e3671ab4373143e22285291efb276d893",
+        "text": "Draft post dated 15 June: live restoration of template/client permissions, deployment of version 0.7.17 and updating of the documentation to ensure consistency."
+      },
+      "title": {
+        "hash": "2786cf9780222b3acc90c4af1c6a09310b761f17ddbf9d6539465ed4d5385cf1",
+        "text": "Day 85 – Client permissions, templates and living documentation"
       }
     },
     "page:/flux/journal-procrastinateur/2026-06-16": {
@@ -10685,6 +10695,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-15.webp": {
+      "alt": {
+        "hash": "932c48e930feb7649700ff18aae37b92292c9aeb3904de27507c6b14a0a6f76d",
+        "text": "Document NASA : Terry White seated at the public affairs console STS-8"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10692,6 +10706,10 @@
       "themeLabel": {
         "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
         "text": "Monitoring & Data"
+      },
+      "title": {
+        "hash": "30d0755d237fd0750132bc62dc83e9c07a6c0fb069273e687f16fbdc3e2228ba",
+        "text": "Terry White seated at the public affairs console STS-8"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-16.webp": {
