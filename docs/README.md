@@ -30,7 +30,7 @@ Dernière mise à jour : 3 septembre 2026.
 - [Procédure Firefox Add-ons](../browser-extension/FIREFOX_ADDONS.md) :
   validation, signature et installation de la variante Firefox.
 - [Exploitation de l’administration](operations.md) : récupération des états
-  de publication ambigus et opérations sensibles.
+  de publication ambigus, environnement Node du cron et opérations sensibles.
 - [Traductions FR / GB](translations.md) : crédit Developer, file progressive,
   suivi de couverture, construction bilingue et reprise des erreurs.
 
