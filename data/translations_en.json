@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "4faefa6d7825e1b793881305e0f7832cdc8fe0c9b8849fd1548cb908f0313d9a",
+  "revision": "ed84a94dc05f152264101be36773e28ee666712760fd4f0cd99d5d20e8a688e3",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -150,6 +150,16 @@
         "text": "Web security audits for indie builders, RLS Supabase - VICE"
       }
     },
+    "link:12d863ec-ab9d-5280-8aef-88cbaf6583d2": {
+      "description": {
+        "hash": "725c9e003bb1188240088c87b6903b84f66ce568730698abce884d9e970fd7b3",
+        "text": "An Ode to Water's Myriad States."
+      },
+      "title": {
+        "hash": "0f5439e927757d280f11bb9fe9c47cca1050e3d47c9eb3440c097a069c9bb6b0",
+        "text": "The Source | gm. studio"
+      }
+    },
     "link:12e14ee7-7a53-5792-9934-db8001a71683": {
       "description": {
         "hash": "48f5b5c546ad66fdc1a801183c46c20f27fc68dc30ea882c4f71f5f61376dd91",
@@ -204,6 +214,16 @@
       "title": {
         "hash": "3445bc5da704611c98bf0d4581db99ca180e00748606fc8ebc2613cef82143ae",
         "text": "EverMind-AI/EverOS: One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, tools, and workflows."
+      }
+    },
+    "link:1e7ba8b7-d930-5576-bae0-bc792b23b43d": {
+      "description": {
+        "hash": "abff8a3dccdd2041c0f328e5398f84438ff324bd99bcbbe3d77388b8d2346948",
+        "text": "A library that enables AI agents to view web pages, interact with a browser and automate online tasks."
+      },
+      "title": {
+        "hash": "f3284ac69e2c75b38d2e7ce489f40624fdbbbc777c707c8dc09e2663c384b05a",
+        "text": "Browser Use — Navigating the web with AI agents"
       }
     },
     "link:1fb5cf7f-b79e-5210-9b0d-9f1246449f6b": {
@@ -312,6 +332,16 @@
         "text": "DeepSeek — Official repositories for models and tools"
       }
     },
+    "link:2b78d858-2eff-5afa-9bf1-1bf7886192ba": {
+      "description": {
+        "hash": "0f19a0f1c65e6b7ffd9e65fde97dac46b15f5257ae187a550a12ce8445864947",
+        "text": "dmux is a tmux pane manager that creates AI-powered development sessions with Claude Code, opencode, or Codex. Parallel development with automatic branch management."
+      },
+      "title": {
+        "hash": "9b386b874a53816b6a509fcc913d00a0b12d76b6fc625d4eae9d300d08a882df",
+        "text": "dmux - Parallel agents with tmux and worktrees"
+      }
+    },
     "link:2cd9810d-bee7-5fc1-a821-a7f587aa4cdd": {
       "description": {
         "hash": "2e61ef90267ac447937f2ea5adffac7f75554d858842100e92e9a897049bac1b",
@@ -402,6 +432,16 @@
         "text": "OpenAI Agents SDK — agents, handoffs and safeguards"
       }
     },
+    "link:38bb1626-001b-516c-86aa-78bde0337870": {
+      "description": {
+        "hash": "e13d9a119911ef3772d572bf9c06719da2541e63a8a1083179b6d1e1d9abfb83",
+        "text": "The Vibe Coding Bible – The Ultimate Guide: tools, templates, workflows, everything you’ve always wanted to know about coding but were afraid to ask."
+      },
+      "title": {
+        "hash": "b8e47245f8bf692862726c595d5d531ccb7951f90f120cbc4c227d78f2e346f7",
+        "text": "La Bible du Vibe Coding"
+      }
+    },
     "link:3b143975-9f81-593e-8a83-cfd5ea4d836c": {
       "description": {
         "hash": "56d2f286420f1c92ceb3a39644869a9abc5ffe494d6a5f4759dd6798f27ae998",
@@ -432,6 +472,16 @@
         "text": "Real-world experience · GitHub’s version control, Obsidian’s simplicity"
       }
     },
+    "link:3f769ef6-8430-55fb-8d1c-90845cbda39d": {
+      "description": {
+        "hash": "99fbe1cabaeef4a88d52fa6c8628f44d3081c8657362c2e4d513787f9a69b827",
+        "text": "An open-source cross-platform alternative to AirDrop - localsend/localsend"
+      },
+      "title": {
+        "hash": "60ea109b506c1fd4f3e3adb69318a5c46e146e024f0e60f0aef4f4ed6dc52c33",
+        "text": "localsend/localsend: An open-source cross-platform alternative to AirDrop"
+      }
+    },
     "link:3ffd3bbb-f726-5c6c-8ec6-65387d1f54ee": {
       "description": {
         "hash": "f81bdad07cb83d143a0466543f8a3fb38dc317a08ff98096f96c23a6a5daed91",
@@ -440,6 +490,16 @@
       "title": {
         "hash": "8c8db04390015663cdc81f5840ec9d3d95f579a830489e04b9756aa145ffa2b0",
         "text": "Introducing Delta - Zed Blog"
+      }
+    },
+    "link:401d4688-4ae6-5804-a089-5f3f3e7dde79": {
+      "description": {
+        "hash": "c21804d1dd7ca74bea41a0c4d181ff124915f07d4035ef5640c0279e73c6b727",
+        "text": "Open-source AI workforce platform. Agents with tasks, tools, browsers, and email. - provision-org/provision-core"
+      },
+      "title": {
+        "hash": "e6583ab5f45924059ad4a93bbcc16fea910449cd0f0437574e87988339337701",
+        "text": "provision-org/provision-core: Open-source AI workforce platform. Agents with tasks, tools, browsers, and email."
       }
     },
     "link:40307519-2ddb-5ce6-bd8d-9c7a77b91412": {
@@ -480,6 +540,16 @@
       "title": {
         "hash": "ecba5f60d32f9485930e1b4dc152c7b9dd594367e9f4ed00a0df87f34090ad81",
         "text": "Build Your Own X — Learn by rebuilding"
+      }
+    },
+    "link:49542d4a-17e8-5d8b-a172-5145c6d3955c": {
+      "description": {
+        "hash": "3c9b97c8fe32cd51d0f3e62c0a21e300e5196b8bbad1b95d56e4856ebf9179d7",
+        "text": "A skill for your coding agent to stop it from burying the answer. ADHD-friendly output. - i-have-adhd/skills/i-have-adhd/SKILL.md at main · ayghri/i-have-adhd"
+      },
+      "title": {
+        "hash": "6f042ac59d0e7cd544d44d544f73f4625fe50ad856769edfd4054244f8cc6450",
+        "text": "i-have-adhd/skills/i-have-adhd/SKILL.md at main · ayghri/i-have-adhd"
       }
     },
     "link:4e0024a5-7e50-5d4c-9eb2-286324ca2b8a": {
@@ -655,6 +725,10 @@
       }
     },
     "link:69551e95-ab3d-5622-823a-67ef708de15f": {
+      "description": {
+        "hash": "f3caeaad1e581f884f383a07d2bb74da1c6ab5ccced4b521caaefe85bb4e9d50",
+        "text": "We’re telling you: your print files and PDFs aren’t compliant! Find out now about the 7 most common mistakes and learn how to avoid them."
+      },
       "title": {
         "hash": "069c9686c84bfe56e70ec82fcab3e732f66f58b99c58bfc24e9bddb15f717a4f",
         "text": "The 7 mistakes that ruin your print-ready PDFs! - Cloître Imprimeurs"
@@ -678,6 +752,16 @@
       "title": {
         "hash": "ab24099ae626a7f7430f97d946b1d38cded97abc5c554be40d6d46528eb96502",
         "text": "semantica-agi/semantica: Graph-Native Infrastructure for Context and Accountable AI Systems"
+      }
+    },
+    "link:6cfb89a0-8f87-59ec-8552-fe424f077341": {
+      "description": {
+        "hash": "36cf7aa827556846185f1bd83ab6d021d6488bbfb34f15911c6d11d09dbb8970",
+        "text": "Reverse-engineer any HTTP API and generate MCP tools for AI agents. Browse normally, Spectral does the rest."
+      },
+      "title": {
+        "hash": "dd984d43a6f168590061fb2e066b10f62d01b71a5db04ecc5849039615416fa3",
+        "text": "Spectral — AI agents shouldn't need a browser"
       }
     },
     "link:6d112f4f-072e-522d-8091-ffceb385add2": {
@@ -748,6 +832,16 @@
       "title": {
         "hash": "d0f247e0bdf9e3c5d28e794a579323ead9e84f11cbb23e71f4b47407e75817fd",
         "text": "System Design Primer — Designing Large-Scale Systems"
+      }
+    },
+    "link:74ec38eb-954c-53eb-bd09-6d328e503baa": {
+      "description": {
+        "hash": "8730a7923e8bf93a5cff357b32a10ed447398c133f161b4d781c6bd15b5acf9c",
+        "text": "Graphify builds queryable knowledge graphs from code, docs, papers, and diagrams so AI coding assistants can understand repositories with less context."
+      },
+      "title": {
+        "hash": "4a26379240ed5812192cdead756ca478e1d93f864ab6520d3c9940ebc766c26f",
+        "text": "Graphify — Knowledge Graph Skill for AI Coding Assistants"
       }
     },
     "link:754c85f2-7e8c-5133-9fdc-b9524cdeb421": {
@@ -880,6 +974,10 @@
       "description": {
         "hash": "710cf9553b5e59667acf112653741a2093e701f158c9542103dd2744603d83e5",
         "text": "Portfolio of Louis Eveillard, a freelance graphic and interaction designer based in Paris."
+      },
+      "title": {
+        "hash": "ba0b9baa83c400542697a3f158a47eb03b9aafeb90d5fddb9036f8ed4a50710c",
+        "text": "Louis Eveillard’s Portfolio | Generative Covers"
       }
     },
     "link:87db8e2b-cbc3-5691-bb1f-55a09fe9a41e": {
@@ -1152,6 +1250,16 @@
         "text": "Gitignore — GitHub’s official templates"
       }
     },
+    "link:a69043e5-7551-5876-b2b7-1c26e962ccdf": {
+      "description": {
+        "hash": "49ff9bcf402169bb89983f44928025d8264b2143188ba695684475a09b6690c9",
+        "text": "Detect your hardware and find out which AI models you can run locally. GPU, CPU, and RAM analysis in your browser."
+      },
+      "title": {
+        "hash": "e5068115d772088e349ffbc93ea2085ba189172d4002b36d3157cc0aa3885313",
+        "text": "CanIRun.ai — Can your machine run AI models?"
+      }
+    },
     "link:a76823fd-a870-58ea-96d0-47408a629acc": {
       "description": {
         "hash": "78d47167b570517a034a3d5ddb315f9fb038e82e1b04c0840869c16e56716029",
@@ -1238,6 +1346,16 @@
         "text": "The 2026 Photography Festival through Nina’s eyes – LaCritique.Org"
       }
     },
+    "link:b3efc7bb-7665-5145-999d-ea85e4af6028": {
+      "description": {
+        "hash": "c7520339564801d2ba1b03037e07f4e61d2b259e267b626d282241d3c4213170",
+        "text": "A collaborative list of open-source network services and web applications that can be installed and managed on one’s own infrastructure."
+      },
+      "title": {
+        "hash": "2107dca5b8a1a028d17defad7f7a87fdc61dca62f471b2ca35b7073d663ec360",
+        "text": "Awesome Self-Hosted — Free software to host yourself"
+      }
+    },
     "link:b48c2bcc-cf68-539f-80b6-76a1ff5d1650": {
       "description": {
         "hash": "5a679336d97e837b17042a874d2091b84c73a524575dd00c5dd49886631f82b7",
@@ -1272,6 +1390,10 @@
       "description": {
         "hash": "43015fe2b563c87127c457a888d0af43ffdba6336eb0674bc79e715bf8ca3249",
         "text": "Hivemind — Multi-agent AI team platform. Contribute to hivementality-ai/hivemind development by creating an account on GitHub."
+      },
+      "title": {
+        "hash": "cedb2592b50085e1fed8c31f19feaae39640b9319948ae13f07c455cd01f0ff7",
+        "text": "hivementality-ai/hivemind: Hivemind — Multi-agent AI team platform"
       }
     },
     "link:b63b6ff0-4b0c-54d8-8c4b-bad4a02c27ee": {
@@ -1292,6 +1414,16 @@
       "title": {
         "hash": "3ae0dc9974a6792eea7cddf72f9a3fd910f03e782868c14ead1c29c562b054bc",
         "text": "Free Programming Books — Free programming books and courses"
+      }
+    },
+    "link:b90cbd16-ebad-508e-8aeb-7c4213093001": {
+      "description": {
+        "hash": "2ef86f5540480c6d171ad2d7a2a04813cf51865a0e243cd3e999801df430f153",
+        "text": "ICC profile creation, fine art printing, calibration equipment"
+      },
+      "title": {
+        "hash": "59d0ffd47a9229d57c600cde40069c6a245f768ba142d7bda24b31bdd20b858c",
+        "text": "www.cmp-color.fr"
       }
     },
     "link:b93c9a52-b2db-557e-8ab4-b63cb1d5cfd0": {
@@ -1371,6 +1503,10 @@
       }
     },
     "link:c960df00-e289-592d-8f11-10bd24c1806b": {
+      "description": {
+        "hash": "cfed65d0b15512c6d594fc0243cecf42178dbbe26611d29eb8b8386279e3810a",
+        "text": "Your AI agent in 30 seconds. Not 30 hours. Self-hosted, open-source personal AI with desktop installer, multi-agent Command Center(Deep Work), and 7-layer security. Anthropic, OpenAI, or Ollama. - pocketpaw/pocketpaw"
+      },
       "title": {
         "hash": "503c7f0f62ada310e8e5065bf5bcd846edae562548994e3db01fbfdf7b54d5b7",
         "text": "pocketpaw/pocketpaw: Your AI agent in 30 seconds. Not 30 hours. Self-hosted, open-source personal AI with desktop installer, multi-agent Command Center(Deep Work), and 7-layer security. Anthropic, OpenAI, or Ollama."
@@ -1380,6 +1516,30 @@
       "description": {
         "hash": "3137eef8184aaaf5b7efd234b1ead57baf49d87161346798892ea7fe77ab335f",
         "text": "The perfect virtual assistant — on your computer. She drafts your replies, writes your content, chases your invoices, and runs the procedures you already know by heart. Free, private, no subscription."
+      },
+      "title": {
+        "hash": "f25ab8fdc371d35f6b12f1403eb5158c4a560f358baf78c7de8fd40f4d9b0718",
+        "text": "Sulla Desktop — The AI Assistant That Handles Your Busywork"
+      }
+    },
+    "link:ccaff40c-5b12-596f-a0af-22be53af815d": {
+      "description": {
+        "hash": "9b684337133862737726d5fc881e3e4a5d29e9d7e71b9621bb1e66b9d7ced673",
+        "text": "Counter-Print is an online book and stationery store, selling new and vintage art, design, illustration, kids, lifestyle books and office supplies."
+      },
+      "title": {
+        "hash": "e926217ee8f05b4316bb60e7cd87a720938d86d13c1854fe9d645844f6b0f09a",
+        "text": "COUNTER-PRINT"
+      }
+    },
+    "link:ce5e56c6-63bd-57e8-b2f3-b7a309589e58": {
+      "description": {
+        "hash": "4883878827dca407c68db4eb4ada2e68396bb719964c3a7dc380949a85a29679",
+        "text": "Fast, accurate & comprehensive text measurement & layout - chenglou/pretext"
+      },
+      "title": {
+        "hash": "8b03eae48608b66c4c937c8bad5faf8274ec58a9ac0cb2c21590a3f61822b0b8",
+        "text": "chenglou/pretext: Fast, accurate & comprehensive text measurement & layout"
       }
     },
     "link:cf0cb9e5-e686-59cb-b953-0d55eba56fbe": {
@@ -1483,6 +1643,10 @@
       }
     },
     "link:d890b9e1-8e30-591e-ac08-4399982362d7": {
+      "description": {
+        "hash": "bf62c2366a03a1d1ee21bb3822b5cf11c682fe0459e1d4ad43665f92fc80e719",
+        "text": "Microdystopias\nFrançois Houste\n\nphotographs by Nicolas Taffin\n\nMicrodystopias and teaching\nHow can the principle of Microdystopias be used in classrooms (French, English, art) or in design thinking workshops?"
+      },
       "title": {
         "hash": "aaf44db5ad29d6cdffe8f946cfb46eb4bc01d12054d314cb86eae99545aaf563",
         "text": "C & F Publications"
@@ -1584,6 +1748,16 @@
         "text": "Tessl — Inside Kikimora: We Built a Dark Software Factory"
       }
     },
+    "link:e46b528a-a864-5347-b9fe-21d0c6729e90": {
+      "description": {
+        "hash": "74abcfe6865736279cdbca81e0a361e8c443a7d9cb4f85354bf7adf63f7c10ea",
+        "text": "I'm Danqi Qian.\nA Motion/Visual Designer based in NYC."
+      },
+      "title": {
+        "hash": "83b8194ac77f56f96019238a492c0a809258a5deb54862c7b847c49e0b58f19e",
+        "text": "Thank you Qian"
+      }
+    },
     "link:e721283c-7c01-5d7b-b6d6-6c61c076268e": {
       "description": {
         "hash": "f6a1242a9b878c19d22b0a2a64df2a5a687f5ec051584d14ead9011bb55c0641",
@@ -1651,6 +1825,10 @@
       }
     },
     "link:ea96ab84-ed93-5c4d-b346-80a7604fb9f4": {
+      "description": {
+        "hash": "d1932abbc9a8167ae669c88e1f077119583211a047735fc9540a65b7c141639c",
+        "text": "Hierarchical agent loops with recursive self-organization. - plasma-ai/fractal"
+      },
       "title": {
         "hash": "74c73f6b5dd4315824f58fc467d8fec8b9463249dadcc2d02998c59ff372d003",
         "text": "plasma-ai/fractal: Hierarchical agent loops with recursive self-organization."
@@ -1809,6 +1987,10 @@
       }
     },
     "page:/archives/2026-08-16": {
+      "body": {
+        "hash": "951868c82b0a08201fcaff5a58ce58df8115a8d5cb47d259bddb9edd8cbf2045",
+        "text": "<p>The day before the hottest and quietest day of the year, like a breather before the September race, making the most of the last moments by the pool, the river or a lake whilst there’s still water, the earth is scorching and the prince is out on his jet ski; a revolution is bound to happen, and after the eclipse comes chaos. In the meantime, enjoy this short Digest – 13 is a lucky number, isn’t it?</p>\n"
+      },
       "description": {
         "hash": "7020c7026d8c2f38bd7960e40f85e507d1a79140762c20a8982092d9effe3b13",
         "text": "Artificial intelligence, development, design, publishing and digital creation."
@@ -2009,6 +2191,10 @@
       }
     },
     "page:/flux/journal-procrastinateur/2026-08-18": {
+      "body": {
+        "hash": "cd1df2eae5b6d99a8c4fe0229d1cf0f185dc3f0480a88c4a541bad39d950149e",
+        "text": "<h2 id=\"horaires-de-session\">Session timetables</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong>, with the Impeccable review and hardening workflow for the publisher</li>\n<li>Primary environment: <strong>Mac, multiple KEREDIT worktrees, GitHub Actions and supplier search</strong></li>\n<li>Date covered: <strong>Tuesday 18 August 2026</strong></li>\n<li>Main branches: <strong><code translate=\"no\">codex/impeccable-editor-hardening</code> merged into <code translate=\"no\">dev</code> via PR #443; storage audit retained uncommitted in <code translate=\"no\">codex/vrifier-ltat-de-la-branche</code></strong></li>\n<li>Time window used for the minimum: <strong>17:44 → 19:00 CEST</strong>, from the creation of the storage analysis to the worktree snapshot</li>\n<li>Minimum time observed: <strong>approximately 1h16+</strong></li>\n<li>Released version: <strong>0.22.4</strong>, merge PR #443 <code translate=\"no\">f2b46361</code></li>\n<li>Key milestones: <strong>storage analysis created at 17:44, seven hardening commits, green CI and journey, final Codex review with no major issues, snapshot <code translate=\"no\">a276f248</code></strong></li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 842h53+</strong> (<code translate=\"no\">841h37+</code> as at 15 August, plus <code translate=\"no\">1h16+</code> today)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>Two forms of validation are being worked on in the same window. In\nthe editor, KEREDIT must be certain that a project has been saved before\nallowing the user to exit or submit. In the infrastructure, a desire to\nleave Cloudflare R2 must not result in a migration to the first\nEuropean provider that comes along.</p>\n<p>The first set of features is delivered in 0.22.4. The second remains a local analysis, not yet\ncommitted. Yet both apply the same rule: do not confuse a\nreassuring interface with a proven guarantee.</p>\n<h2 id=\"la-sauvegarde-devient-une-frontière\">The backup becomes a barrier</h2>\n<p>The publisher now blocks both exit and command operations until a strict\nbackup has been confirmed. Version conflicts remain distinct from\ntransient errors: the former require a decision, whilst the latter must\nbe able to be queued and retried.</p>\n<p>The checkout explains more clearly why it is unavailable. The\nsave statuses, keyboard controls and ARIA states are aligned. At medium width,\nthe editor, the Template Builder and its client-side test no longer leave two\nside panels competing for space; the wide layout retains its\nbehaviour.</p>\n<p>PR #443 was short in duration but yielded a wealth of feedback. Several\nreviews were requested on successive HEADs to correct the CI security\nchecks, responsive coverage, panel consistency and the\nrequeueing of autosave. The CI and the ‘<code translate=\"no\">journey</code>’ workflow are approved, and the\nfinal review finds no further major issues. The merge takes place at 6.47 pm.</p>\n<h2 id=\"sortir-de-r2-sans-sauter-dans-une-autre-panne\">Exiting R2 without triggering another outage</h2>\n<p>The storage audit begins with an encouraging finding: KEREDIT is already largely\nS3-compatible. Objects are referenced by key, URLs are signed on the\nfly and the backend hides the provider. The migration can therefore be a simple\nswitchover of configuration and data.</p>\n<p>However, the research rules out Hetzner as a viable option. The Object Storage service is experiencing\na prolonged capacity degradation, with no SLA suited to a synchronous upload\nflow. OVH 1-AZ and Scaleway have also experienced recent incidents.\nThe analysis identifies OVH Standard 3-AZ Paris as the leading candidate and\nIONOS Frankfurt as an alternative to test, but no migration decision\nhas yet been implemented.</p>\n<p>The real takeaway of the day is not a provider’s logo. It is the need\nfor retries with backoff, proper tracking of 5xx errors and a copy with\na second provider. Changing buckets without these safeguards would merely shift\nthe vulnerability.</p>\n<h2 id=\"le-rythme-se-fissure\">The pace is faltering</h2>\n<p>The log has already been interrupted for ten days. Yet the code continues to\nprogress in dense batches, with repeated reviews and a new\ninfrastructure decision to be made. The contrast is becoming difficult to bear: the technical\nevidence is piling up, but the sense of progress is no longer keeping pace. This day does not\nyet bear the most candid words on exhaustion; it reveals the\nconditions leading to it.</p>\n"
+      },
       "description": {
         "hash": "8077c95c60f908b90da4186763fc7955e2e69b522a482be97d700c17bdca92f1",
         "text": "Day 130 of the diary: the publisher is tightening up backup, checkout and responsiveness procedures, whilst an audit is calling into question the instinctive migration from R2 to Hetzner."
@@ -9338,6 +9524,10 @@
       "themeLabel": {
         "hash": "fd08df7942b649027ab6a5d842b5a8045a5e299fd97c0d9a172a332ce1c0d6ed",
         "text": "Space systems"
+      },
+      "title": {
+        "hash": "d1ea76f1c487a165383ef19f3e74c5cf2ba725dd95ae1b5ea18bfa8a9a922fc3",
+        "text": "Mars Science Laboratory Spacecraft Assembled for Testing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-20.webp": {
