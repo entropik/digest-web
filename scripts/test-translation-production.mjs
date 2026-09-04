@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 import { isTranslationOnly, segmentConfig, validatePlan, validatePlanAgainst } from "./translation-production.mjs";
 
 const body = {
@@ -8,6 +9,11 @@ const body = {
   items: [{ id: "link:1", fields: ["title"] }], paths: ["/", "/archives/2026-09-04/"], artwork: { upsert: ["2026-09-04"], remove: [] },
 };
 const plan = { ...body, revision: createHash("sha256").update(JSON.stringify(body)).digest("hex") };
+
+test("the deployment checkout includes the translation commit parent", () => {
+  const workflow = readFileSync(new URL("../.github/workflows/deploy.yml", import.meta.url), "utf8");
+  assert.match(workflow, /actions\/checkout@v4[\s\S]*?fetch-depth:\s*2/);
+});
 
 test("only the closed translation file set can use a targeted build", () => {
   assert.equal(isTranslationOnly(["data/translations_en.json", "data/translation_build_plan.json", "static/social/en/2026-09-04.png"], validatePlan(plan)), true);
