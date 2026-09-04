@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "baseRevision": "ebe65c294c3d78e8caedb125f8c25c7a902a07c96927c10a7b290c1b38a738a4",
-  "targetRevision": "41410660aacb61ac0c08aee7546d6258994e940dc0a270a16bf832c96ca11e63",
+  "baseRevision": "41410660aacb61ac0c08aee7546d6258994e940dc0a270a16bf832c96ca11e63",
+  "targetRevision": "6a8556ca262e963310832b11e12cf4512bd864e257f1f3748311c6e3207d6502",
   "manifestRevision": "261577e2e019b7cf9d967a9bb1dff52329a00c44f1188f132a4cdf0215a39dec",
   "fullBuild": false,
   "items": [
@@ -72,7 +72,7 @@
       ]
     },
     {
-      "id": "page:/flux/journal-procrastinateur/2026-06-09",
+      "id": "page:/flux/journal-procrastinateur/2026-06-07",
       "fields": [
         "body",
         "description",
@@ -80,20 +80,15 @@
       ]
     },
     {
-      "id": "page:/flux/journal-procrastinateur/2026-06-10",
+      "id": "page:/flux/journal-procrastinateur/2026-06-08",
       "fields": [
+        "body",
+        "description",
         "title"
       ]
     },
     {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-08.webp",
-      "fields": [
-        "alt",
-        "date"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-09.webp",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-07.webp",
       "fields": [
         "alt",
         "date",
@@ -101,7 +96,7 @@
       ]
     },
     {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-10.webp",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-08.webp",
       "fields": [
         "title"
       ]
@@ -122,9 +117,8 @@
     "/archives/2026-09-02/",
     "/flux/",
     "/flux/journal-procrastinateur/",
-    "/flux/journal-procrastinateur/2026-06-08/",
-    "/flux/journal-procrastinateur/2026-06-09/",
-    "/flux/journal-procrastinateur/2026-06-10/"
+    "/flux/journal-procrastinateur/2026-06-07/",
+    "/flux/journal-procrastinateur/2026-06-08/"
   ],
   "artwork": {
     "upsert": [
@@ -142,5 +136,5 @@
     ],
     "remove": []
   },
-  "revision": "5849787a5ba00e1f067f885ddfdaa6a59efa5b670c67445538f4dc5b0757a419"
+  "revision": "8e11d17d7e030f9550650104092e6c5d4a2edb35ad6b39d9413f0072ddc59c51"
 }
