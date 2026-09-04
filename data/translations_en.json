@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "e05f3c7a1feae2dd31959938ca6eefdd62371b6c5b3a8b6215f794b2532fb320",
+  "revision": "992b18500287a637693f5fbb27636b6297bcb675b85e20ecc6e357369ccad7e0",
   "entries": {
     "category:Krisis": {
       "name": {
@@ -304,10 +304,22 @@
         "text": "AREA-17"
       }
     },
+    "tag:ARTPRICE": {
+      "name": {
+        "hash": "192fc616b230fd3b4f412571f78c0d05b90fa7946ed05346a3ed38ceb66883bb",
+        "text": "ARTPRICE"
+      }
+    },
     "tag:Arles": {
       "name": {
         "hash": "0101fc722176456f42e514ddc34eaf32a961266e1466bfbd3d2c075718973bab",
         "text": "Arles"
+      }
+    },
+    "tag:COP21": {
+      "name": {
+        "hash": "1989d3624155c7ee48fbaaeeddf84eea03cbf46b7977059a7e89196db9d587bd",
+        "text": "Conference of the Parties to the United Nations Framework Convention on Climate Change"
       }
     },
     "tag:Civitas": {
@@ -394,10 +406,22 @@
         "text": "PhotoMattFibre200"
       }
     },
+    "tag:RAG": {
+      "name": {
+        "hash": "1960541f7a1a68a6b0fa1f2e6195107cc0d467a7bff6d7baebf22e2d1177bea6",
+        "text": "Ready, Aim, Fire"
+      }
+    },
     "tag:RENATER": {
       "name": {
         "hash": "0ec9e93a7f2ec01864603221773f91ccbf56c17d137c3ebc453ba64ac4aa102e",
         "text": "RENATER"
+      }
+    },
+    "tag:RadioLondres": {
+      "name": {
+        "hash": "17f4dee3ee4b4934a1e9dbe66980eb40c1ce25ad3ec3b270379b6bc2ad4bc4bc",
+        "text": "Radio London"
       }
     },
     "tag:RelookingExtreme": {
@@ -410,6 +434,12 @@
       "name": {
         "hash": "1d0d1671442177a5992ada75a93f4787d37d18fdb303bed8668b7dcefea63661",
         "text": "Sparrowhawk"
+      }
+    },
+    "tag:Sarkozy": {
+      "name": {
+        "hash": "17e08e8f22ae933eb09cabc5281cebee2a2719df58637465dedcbf2fadd6c580",
+        "text": "Sarkozy"
       }
     },
     "tag:Seal": {
@@ -488,6 +518,12 @@
         "text": "café"
       }
     },
+    "tag:caldera": {
+      "name": {
+        "hash": "197d1c7e9532305d188b5732c9041469eb1feee5a179e22e683f8a069161560c",
+        "text": "boiler"
+      }
+    },
     "tag:code": {
       "name": {
         "hash": "03ae1a531ec22c7e6753d3e5828a122dcdfe8f1fb4f91838ca51e2bb3cd161cc",
@@ -510,6 +546,12 @@
       "name": {
         "hash": "15042dc87fe9c9aa8f01f56775fd8956864f816a13641cbb058c5a3f19546032",
         "text": "copyrightmadness"
+      }
+    },
+    "tag:cuisine": {
+      "name": {
+        "hash": "180943fcac3212a4f9e6e51fed9e40f39375074e1f2becface721788ebfb1a10",
+        "text": "kitchen"
       }
     },
     "tag:de": {
@@ -540,6 +582,12 @@
       "name": {
         "hash": "046299d4e5c430ee83de146656f88f2f570abf0f3fc4ecf678b9c174b94d53c0",
         "text": "demonstration"
+      }
+    },
+    "tag:easydot": {
+      "name": {
+        "hash": "17bb0f8354acef5fc3745f88a2a426bce112c9a0218b7f7508db6c1a77766c3b",
+        "text": "easydot"
       }
     },
     "tag:fall": {
@@ -744,6 +792,18 @@
       "name": {
         "hash": "11c3fe8da167493c888958d32377d4345078f4c03fd1f69a4f6f496371eb7644",
         "text": "police"
+      }
+    },
+    "tag:polices": {
+      "name": {
+        "hash": "17e8412907c1b3dfa9025bf3d38a60c7ccc19d0872f1cb35c7905dc49090c95a",
+        "text": "fonts"
+      }
+    },
+    "tag:poésie": {
+      "name": {
+        "hash": "185f3cded3afbe52508d4caa6a2aa0b5e04d49c669f14e4a359e445517d28d7f",
+        "text": "poetry"
       }
     },
     "tag:productivité": {

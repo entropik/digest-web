@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "baseRevision": "ae152b79f439f4e09ac8ba038cf07587eda7319244fad7796aebd9b657a0fa8c",
-  "targetRevision": "e05f3c7a1feae2dd31959938ca6eefdd62371b6c5b3a8b6215f794b2532fb320",
+  "baseRevision": "e05f3c7a1feae2dd31959938ca6eefdd62371b6c5b3a8b6215f794b2532fb320",
+  "targetRevision": "992b18500287a637693f5fbb27636b6297bcb675b85e20ecc6e357369ccad7e0",
   "manifestRevision": "f2272c908b90ac69240b90702fdeaa5e9baa19629f567348c73ce89e3d01d2ee",
   "fullBuild": false,
   "items": [
@@ -66,61 +66,61 @@
       ]
     },
     {
-      "id": "tag:auto-hébergement",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "tag:braundesign",
+      "id": "tag:ARTPRICE",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:copyrightmadness",
+      "id": "tag:caldera",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:Easy",
+      "id": "tag:COP21",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:id",
+      "id": "tag:cuisine",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:philosophie",
+      "id": "tag:easydot",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:responsive",
+      "id": "tag:poésie",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:scénographie",
+      "id": "tag:polices",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:startuplife",
+      "id": "tag:RadioLondres",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:technologie",
+      "id": "tag:RAG",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:Sarkozy",
       "fields": [
         "name"
       ]
@@ -129,19 +129,26 @@
   "paths": [
     "/",
     "/archives/",
-    "/archives/2014-07-20/",
-    "/archives/2014-09-09/",
-    "/archives/2015-01-30/",
-    "/archives/2015-10-07/",
-    "/archives/2016-03-02/",
-    "/archives/2016-08-24/",
-    "/archives/2016-09-06/",
-    "/archives/2016-09-14/",
-    "/archives/2016-09-15/",
-    "/archives/2016-10-04/",
+    "/archives/2014-03-21/",
+    "/archives/2014-03-23/",
+    "/archives/2014-07-12/",
+    "/archives/2014-08-06/",
+    "/archives/2014-11-27/",
+    "/archives/2015-02-06/",
+    "/archives/2015-10-02/",
+    "/archives/2015-11-05/",
+    "/archives/2015-12-30/",
+    "/archives/2016-01-26/",
+    "/archives/2016-02-08/",
+    "/archives/2016-02-16/",
+    "/archives/2016-06-15/",
+    "/archives/2016-11-27/",
+    "/archives/2017-02-24/",
     "/archives/2017-03-08/",
+    "/archives/2017-03-21/",
     "/archives/2017-03-30/",
     "/archives/2017-04-18/",
+    "/archives/2017-04-19/",
     "/archives/2026-07-24/",
     "/archives/2026-08-16/",
     "/archives/2026-08-18/",
@@ -159,59 +166,70 @@
     "/flux/tumblr-ooblik/",
     "/flux/twitter/",
     "/tags/",
-    "/tags/analyse/",
+    "/tags/agents/",
     "/tags/anarchisme/",
-    "/tags/applewatch/",
-    "/tags/architecture/",
-    "/tags/art/",
-    "/tags/attention/",
-    "/tags/auto-hebergement/",
-    "/tags/automatisation/",
+    "/tags/antonin-artaud/",
+    "/tags/artprice/",
+    "/tags/azibert/",
     "/tags/blog-ooblik/",
-    "/tags/braundesign/",
-    "/tags/copyrightmadness/",
+    "/tags/caldera/",
+    "/tags/calibration/",
+    "/tags/cooking/",
+    "/tags/cop21/",
     "/tags/creation/",
-    "/tags/css/",
-    "/tags/detection/",
-    "/tags/dev/",
+    "/tags/critique/",
+    "/tags/cuisine/",
+    "/tags/denisrobert/",
+    "/tags/design-graphique/",
+    "/tags/desktop/",
     "/tags/developpement/",
-    "/tags/easy/",
-    "/tags/edition/",
-    "/tags/ethique/",
-    "/tags/geek/",
-    "/tags/graphisme/",
+    "/tags/documents/",
+    "/tags/easydot/",
+    "/tags/editeur/",
+    "/tags/entretien/",
+    "/tags/espacement/",
+    "/tags/fermentation/",
+    "/tags/fillon/",
+    "/tags/fonderie/",
+    "/tags/food/",
+    "/tags/hplatex360/",
+    "/tags/ia-locale/",
     "/tags/ia/",
-    "/tags/id/",
-    "/tags/impression/",
     "/tags/instagram/",
-    "/tags/interface/",
     "/tags/jean-marie-guyau/",
+    "/tags/laprimaire/",
     "/tags/lien-mort/",
     "/tags/litterature/",
     "/tags/llm/",
-    "/tags/massicot/",
+    "/tags/logiciel/",
     "/tags/memoire-web/",
-    "/tags/newsletter/",
+    "/tags/mexique/",
+    "/tags/nini/",
+    "/tags/ooblik/",
     "/tags/opensource/",
+    "/tags/outil/",
     "/tags/philosophie/",
-    "/tags/php/",
     "/tags/poesie/",
-    "/tags/produit/",
-    "/tags/responsive/",
-    "/tags/revue/",
-    "/tags/scenographie/",
-    "/tags/societe/",
-    "/tags/startuplife/",
-    "/tags/technologie/",
+    "/tags/polices/",
+    "/tags/prc/",
+    "/tags/primairedroite/",
+    "/tags/prixhsbc/",
+    "/tags/productivite/",
+    "/tags/radiolondres/",
+    "/tags/rag/",
+    "/tags/recette/",
+    "/tags/relookingextreme/",
+    "/tags/sarkozy/",
     "/tags/textes/",
-    "/tags/transfert-de-fichiers/",
     "/tags/tumblr/",
+    "/tags/tutoriel/",
     "/tags/twitter/",
+    "/tags/typographie/",
     "/tags/veille/",
-    "/tags/web-to-print/",
     "/tags/web/",
-    "/tags/webinaire/",
-    "/tags/workflows/"
+    "/tags/wood/",
+    "/tags/workflows/",
+    "/tags/wtf/"
   ],
   "artwork": {
     "upsert": [
@@ -228,5 +246,5 @@
     ],
     "remove": []
   },
-  "revision": "de434eab370f4eaab0521dd4cc6b0bd51f1fcc4dd477b54277fa59ec4df1716e"
+  "revision": "4c1d143e1c99c41d54b7bbf7818642ece33135253963424b27eb63ead1d8b2f3"
 }
