@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "0261939058185e68f0c386bdf4de7501233828ac2313a00a9a56858051781134",
+  "revision": "424111e6a03dbe4e292f5c5abcc76e8e49153ee57742360c7481baf1950f7660",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -3084,6 +3084,26 @@
       "title": {
         "hash": "946546d90a07b056aaf49f70b37dd2857b2ec866c0aea388c8914c2652bc086a",
         "text": "Diary of a Procrastinator"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-07-05": {
+      "description": {
+        "hash": "1a42086d7b7de14a56aca48f6c7de730ef43a84c975b5048ca105b14e9533e46",
+        "text": "Day 104 of the diary: lighter upload confirmation, gradual Google Photos import, separate asset files and book folding guides."
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-07-06": {
+      "body": {
+        "hash": "0f544985dc584c31334336ad794e6e2132808bb6c08f51cdd5e6bbfc8e4de1a4",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Main environment: <strong>VS Code WSL, Codex plugin, local repository, VPS [private name] for runtime verification</strong></li>\n<li>Date covered: <strong>Monday 6 July 2026</strong>, with extended session after midnight for discussion / catch-up</li>\n<li>KEREDIT branch observed: <strong><code translate=\"no\">dev</code></strong></li>\n<li>Local SHA<code translate=\"no\">dev</code> / <code translate=\"no\">origin/dev</code> observed: <strong><code translate=\"no\">3bbc1038</code></strong> (<code translate=\"no\">Merge pull request #180 from [compte GitHub]/codex/editor-alignment-v2</code>)</li>\n<li>VPS SHA observed during verification: <strong><code translate=\"no\">850ce648</code></strong> (<code translate=\"no\">chore(release): v0.10.8</code>)</li>\n<li>KEREDIT version observed: 0<strong>.10.8</strong></li>\n<li>Minimum time observed on 6 July: <strong>12h00+ commit amplitude</strong> (<code translate=\"no\">11:37</code> -&gt; <code translate=\"no\">23:37</code>, excluding conversation, alerting, deployment and catch-up after midnight)</li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 640 hours 50 minutes+</strong> (<code translate=\"no\">628h50+</code> as at 5 July, + <code translate=\"no\">12h00+</code>)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>A big day of consolidation. It’s hard to summarise it in a single project: there’s\nCI, debt reduction, admin performance, fine-tuning, a\nGoogle Photos load test, WooCommerce observability and, late in the evening, a major\nblock on snapping and multi-block alignment in the editor.</p>\n<p>The morning was spent finalising the checks:</p>\n<ul>\n<li><code translate=\"no\">4f319c6f</code> aligned the documented versions;</li>\n<li><code translate=\"no\">0cb6cbd8</code> linking orphaned front-end tests to CI;</li>\n<li><code translate=\"no\">18bd2cc1</code> runs CI checks on ‘<code translate=\"no\">dev</code>’ pushes.</li>\n</ul>\n<p>The early afternoon is spent cleaning up and isolating issues:</p>\n<ul>\n<li><code translate=\"no\">4f219464</code> aligns upload size validation;</li>\n<li><code translate=\"no\">f7c2bb5c</code> removes the orphaned local PDF service;</li>\n<li><code translate=\"no\">40bc65c2</code> stabilises <code translate=\"no\">knip</code> and the QR dependencies;</li>\n<li><code translate=\"no\">eeb33022</code> extracts shared commands from image elements.</li>\n</ul>\n<p>Next come the structural changes:</p>\n<ul>\n<li><code translate=\"no\">464997d8</code> pagination of admin lists in the database;</li>\n<li><code translate=\"no\">3f6f9e01</code> isolates the hooks from the<code translate=\"no\">EditorCanvas</code>;</li>\n<li><code translate=\"no\">23d4a626</code> allows image overflow beneath the inside covers;</li>\n<li><code translate=\"no\">44bbec47</code> extracts the ‘fine art’ mutation model;</li>\n<li><code translate=\"no\">3e766d15</code> adds a k6 script for the Google Photos library;</li>\n<li><code translate=\"no\">a6c290dd</code> preserves the current fine art pages.</li>\n</ul>\n<p>The ops team also corrects the frontend build’s SHA: <code translate=\"no\">122c0d99</code> injects it\ninto the build, then <code translate=\"no\">6b6c1fa6</code> prevents an empty SHA. The day sees several\nreleases (<code translate=\"no\">0.10.4</code>, <code translate=\"no\">0.10.5</code>, <code translate=\"no\">0.10.6</code>, then <code translate=\"no\">0.10.8</code>).</p>\n<h2 id=\"incident-observabilité-woocommerce\">WooCommerce observability incident</h2>\n<p>The Grafana alert “5xx errors &gt; 2%” did not indicate a widespread outage. The\nVPS probes showed a healthy backend, and the metrics indicated that the 500 errors\nwere concentrated on <code translate=\"no\">POST /api/woocommerce/webhook</code>.</p>\n<p>The diagnosis traced the issue back to the WooCommerce webhook <code translate=\"no\">13</code>, active on <code translate=\"no\">ooblik.com</code>,\ntopic <code translate=\"no\">order.updated</code>, KEREDIT URL <code translate=\"no\">woo_ooblik_live</code>. This webhook is legitimate:\nit links WooCommerce orders to KEREDIT. The noise stems from the native\n<code translate=\"no\">deliver_ping()</code>, which sends a non-JSON body of the type\n<code translate=\"no\">webhook_id=13</code>. KEREDIT expects a signed JSON order and therefore responded with a\n500 status code to this ping. Genuine order webhooks continued to go through.</p>\n<p>Operational conclusion: no global backend incident, but a fix is required.\nKEREDIT remains useful for handling this ping via <code translate=\"no\">200</code> or by rejecting it, without\ncluttering up the 5xx alerts.</p>\n<h2 id=\"fin-de-soirée--aligner-les-blocs\">End of the evening: aligning the blocks</h2>\n<p>The end of the day brings us back to the heart of the editor:</p>\n<ul>\n<li><code translate=\"no\">31c6a791</code> stabilising front-end snapping;</li>\n<li><code translate=\"no\">6f53c521</code> add multi-block alignment;</li>\n<li><code translate=\"no\">0e1a4d48</code> adds advanced alignment tools;</li>\n<li><code translate=\"no\">57fbe183</code> aligns resize guides with block edges;</li>\n<li><code translate=\"no\">72af06db</code> keeps tools visible during multi-selection;</li>\n<li><code translate=\"no\">b1897f24</code> closes the lint issue;</li>\n<li><code translate=\"no\">3bbc1038</code> merges the alignment PR into <code translate=\"no\">dev</code>.</li>\n</ul>\n<p>The VPS observed at the end of the review that <code translate=\"no\">0.10.8</code> was being used on <code translate=\"no\">850ce648</code>. The local\nand <code translate=\"no\">origin/dev</code> repositories were already one step further along with the merge PR <code translate=\"no\">3bbc1038</code>.</p>\n<h2 id=\"pour-la-suite\">Moving forward</h2>\n<p>There are two points to bear in mind:</p>\n<ul>\n<li>properly fix the WooCommerce ping to eliminate this 5xx error message noise;</li>\n<li>check in the editor that snapping, guides and multi-block alignment\nremain user-friendly, not just covered by tests.</li>\n</ul>\n"
+      },
+      "description": {
+        "hash": "815b3e110f52bd5a69af94d5c6735b6398a76e3748ac8bb96b848d971a344752",
+        "text": "Day 105 of the diary: CI, front-end/back-end refactoring, fine art, WooCommerce observability and multi-block alignment, leading up to release 0.10.8."
+      },
+      "title": {
+        "hash": "a11a8ba57037882ac2eb62eb83505312038f251b506505569b07a50f2e40e0fd",
+        "text": "Day 105 – Clean, measure, align"
       }
     },
     "page:/flux/journal-procrastinateur/2026-07-07": {
@@ -10609,6 +10629,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-05.webp": {
+      "alt": {
+        "hash": "4947e582127cfe2468bf06269b5d938f5b12af57768c3471dc53f0ea1dc42c82",
+        "text": "Document NASA : Engineers Assemble Electronics Layer on Roman Coronagraph Instrument"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10619,6 +10643,14 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-06.webp": {
+      "alt": {
+        "hash": "6ba223d2070fe06d70605a7fec8682e7f4332870826524ba5cee187fa71dde9a",
+        "text": "Document NASA : Overall view of Mission Control on first day of Apollo 7 space mission"
+      },
+      "date": {
+        "hash": "947476e9c5717b7a99214448d774d4008bb1311ec34bfefc1f249cc2b432965e",
+        "text": "11 October 1968"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10626,12 +10658,20 @@
       "themeLabel": {
         "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
         "text": "Monitoring & Data"
+      },
+      "title": {
+        "hash": "2f21b363f4ca4d24d2b7d1258690d85ecb2e1d3ff62bd7f02c72e492c52f03fd",
+        "text": "Overall view of Mission Control on first day of Apollo 7 space mission"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-07.webp": {
       "alt": {
         "hash": "bcc78bf464336f8ea637d08cb7e487ebf81f82a6cb7f8b1743e983af621cec68",
         "text": "Document NASA : Malenchenko uses a computer in the SM during Joint Operations"
+      },
+      "date": {
+        "hash": "faa4ab544a400a29a866daaafdad282bfd0d8a592d323c616d3a74fa6b944a6f",
+        "text": "21 March 2008"
       },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
@@ -10640,6 +10680,10 @@
       "themeLabel": {
         "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
         "text": "Computers & computing"
+      },
+      "title": {
+        "hash": "ec21ec26b07a1a0a43f353a6bc15f376e2dcd3cc29233c6a390d7367b34e740f",
+        "text": "Malenchenko uses a computer in the SM during Joint Operations"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-08.webp": {
