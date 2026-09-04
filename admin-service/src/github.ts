@@ -28,6 +28,14 @@ import {
   NetworkDeadlineError,
   withDeadline,
 } from "./network.js";
+import {
+  localReadRepositoryHead,
+  localReadRepositoryFile,
+  localTryReadRepositoryFile,
+  localListRepositoryDirectory,
+  localCommitRepositoryFiles,
+  localWorkflowRunsForCommit,
+} from "./local-repository.js";
 
 type GitHubRef = { object: { sha: string } };
 type GitHubCommit = { sha: string; tree: { sha: string } };
@@ -94,13 +102,18 @@ export class GitHubMutationOutcomeUnknownError extends Error {
   }
 }
 
-const appAuth = createAppAuth({
-  appId: config.githubAppId,
-  privateKey: config.githubPrivateKey,
-  installationId: config.githubInstallationId,
-});
+const appAuth = config.githubPrivateKey
+  ? createAppAuth({
+      appId: config.githubAppId,
+      privateKey: config.githubPrivateKey,
+      installationId: config.githubInstallationId,
+    })
+  : null;
 
 const installationToken = async (): Promise<string> => {
+  if (!appAuth) {
+    throw new GitHubResponseError("GitHub authentication not configured", 500);
+  }
   let authentication;
   try {
     authentication = await measureTiming("github.auth", () =>
@@ -300,8 +313,12 @@ const repositoryHeadReader = createRepositoryHeadReader({
   },
 });
 
-export const readRepositoryHead = (): Promise<RepositoryHead> =>
-  repositoryHeadReader.read();
+export const readRepositoryHead = (): Promise<RepositoryHead> => {
+  if (config.digestLocalRepo) {
+    return localReadRepositoryHead(config.digestLocalRepo);
+  }
+  return repositoryHeadReader.read();
+};
 
 export const readCachedRepositoryHead = async (): Promise<RepositoryHead> => {
   const startedAt = startTimer();
@@ -355,13 +372,20 @@ const invalidateRepositoryHeadCache = (): void => {
   repositoryHeadReader.invalidate();
 };
 
-export const readRepositoryFile = (path: string, ref: string): Promise<string> =>
-  requestText(contentPath(path, ref));
+export const readRepositoryFile = (path: string, ref: string): Promise<string> => {
+  if (config.digestLocalRepo) {
+    return localReadRepositoryFile(config.digestLocalRepo, path);
+  }
+  return requestText(contentPath(path, ref));
+};
 
 export const tryReadRepositoryFile = async (
   path: string,
   ref: string,
 ): Promise<string | null> => {
+  if (config.digestLocalRepo) {
+    return localTryReadRepositoryFile(config.digestLocalRepo, path);
+  }
   try {
     return await readRepositoryFile(path, ref);
   } catch (error) {
@@ -373,8 +397,12 @@ export const tryReadRepositoryFile = async (
 export const listRepositoryDirectory = (
   path: string,
   ref: string,
-): Promise<GitHubContentItem[]> =>
-  request<GitHubContentItem[]>(contentPath(path, ref));
+): Promise<GitHubContentItem[]> => {
+  if (config.digestLocalRepo) {
+    return localListRepositoryDirectory(config.digestLocalRepo, path);
+  }
+  return request<GitHubContentItem[]>(contentPath(path, ref));
+};
 
 export const commitRepositoryFiles = async (
   parentSha: string,
@@ -382,6 +410,15 @@ export const commitRepositoryFiles = async (
   files: Record<string, string | Buffer | null>,
   message: string,
 ): Promise<string> => {
+  if (config.digestLocalRepo) {
+    const sha = await localCommitRepositoryFiles(
+      config.digestLocalRepo,
+      files,
+      message,
+    );
+    invalidateRepositoryHeadCache();
+    return sha;
+  }
   const entries = [];
   for (const [path, content] of Object.entries(files)) {
     if (content === null) {
@@ -538,6 +575,9 @@ export const addTagsToPublishedLink = (id: string, tags: string[]) =>
 export const workflowRunsForCommit = async (
   commitSha: string,
 ): Promise<WorkflowRun[]> => {
+  if (config.digestLocalRepo) {
+    return localWorkflowRunsForCommit(commitSha);
+  }
   const payload = await request<{ workflow_runs: WorkflowRun[] }>(
     `${repositoryPath}/actions/runs?head_sha=${encodeURIComponent(commitSha)}&per_page=100`,
   );

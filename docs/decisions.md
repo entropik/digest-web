@@ -314,3 +314,14 @@ ligne est instantanée.
 L’évaluation répétée des libellés de tags et catégories sans cache provoquait
 des dizaines de milliers d’appels redondants. Les partiels de rendu de libellés
 sont systématiquement mémoïsés avec `partialCached`.
+
+### Moteur de dépôt local pour l’administration et sortie de GitHub
+
+L’administration `admin-service` peut désormais interagir directement avec une
+copie locale du dépôt Git sur le serveur (`DIGEST_LOCAL_REPO`). La lecture du
+catalogue, des taxonomies et des fichiers s’effectue en temps réel depuis le disque,
+les modifications sont commitées atomiquement dans le dépôt Git local, et la
+compilation Hugo s’exécute immédiatement sur le VPS via `scripts/deploy-vps.sh`.
+Les requêtes bloquantes vers l’API GitHub et l’attente de GitHub Actions sont
+totalement éliminées du cycle d’administration.
+

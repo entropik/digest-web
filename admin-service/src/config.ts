@@ -53,6 +53,21 @@ if (!!linkedinClientId !== !!linkedinClientSecret) {
   );
 }
 
+const localRepoEnv = process.env.DIGEST_LOCAL_REPO?.trim();
+const digestLocalRepo = localRepoEnv ? resolve(localRepoEnv) : null;
+const githubAppId = digestLocalRepo
+  ? positiveInteger("GITHUB_APP_ID", 1)
+  : positiveInteger("GITHUB_APP_ID");
+const githubInstallationId = digestLocalRepo
+  ? positiveInteger("GITHUB_APP_INSTALLATION_ID", 1)
+  : positiveInteger("GITHUB_APP_INSTALLATION_ID");
+const githubPrivateKeyRaw = digestLocalRepo
+  ? process.env.GITHUB_APP_PRIVATE_KEY_BASE64?.trim()
+  : required("GITHUB_APP_PRIVATE_KEY_BASE64");
+const githubPrivateKey = githubPrivateKeyRaw
+  ? Buffer.from(githubPrivateKeyRaw, "base64").toString("utf8")
+  : "";
+
 export const config = {
   deeplApiKey: process.env.DEEPL_API_KEY?.trim() || null,
   deeplApiUrl: process.env.DEEPL_API_URL?.trim() || undefined,
@@ -62,14 +77,12 @@ export const config = {
   origin: base.origin,
   databasePath: resolve(required("BETTER_AUTH_DATABASE")),
   betterAuthSecret: required("BETTER_AUTH_SECRET"),
+  digestLocalRepo,
   githubClientId: required("GITHUB_CLIENT_ID"),
   githubClientSecret: required("GITHUB_CLIENT_SECRET"),
-  githubAppId: positiveInteger("GITHUB_APP_ID"),
-  githubInstallationId: positiveInteger("GITHUB_APP_INSTALLATION_ID"),
-  githubPrivateKey: Buffer.from(
-    required("GITHUB_APP_PRIVATE_KEY_BASE64"),
-    "base64",
-  ).toString("utf8"),
+  githubAppId,
+  githubInstallationId,
+  githubPrivateKey,
   repositoryOwner: process.env.GITHUB_REPOSITORY_OWNER?.trim() || "entropik",
   repositoryName: process.env.GITHUB_REPOSITORY_NAME?.trim() || "digest-web",
   repositoryBranch: process.env.GITHUB_REPOSITORY_BRANCH?.trim() || "main",
