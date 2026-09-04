@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "587b9070c6c319f6fecbd3c90cf5a86970a6146239a369145143a3aeee7bd8ed",
+  "revision": "6e298626893f6460c91b91483978be8d7e1bb3c3490b8762de6f851dbd0fe67c",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -2328,6 +2328,30 @@
       "title": {
         "hash": "946546d90a07b056aaf49f70b37dd2857b2ec866c0aea388c8914c2652bc086a",
         "text": "Diary of a Procrastinator"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-08-04": {
+      "body": {
+        "hash": "516c966844d5c6021019311e576854fbd853aa1d154f9f0693ef61ce617d3f52",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Primary environment: <strong>Codex App on Mac, KEREDIT repository<code translate=\"no\">dépôt local krampouz</code></strong></li>\n<li>Date covered: <strong>Tuesday 4 August 2026</strong></li>\n<li>Main branch prior to the log: <strong><code translate=\"no\">dev</code></strong>, PRs <strong>#369 to #371</strong> merged</li>\n<li>Time periods observed: <strong>15:54:19 → 16:48:16 CEST</strong> for coding and clean-up, then <strong>17:07:27 → 17:21:26 CEST</strong> for catching up on the log before final validation</li>\n<li>Minimum time observed: <strong>approximately 1h08+</strong> (<code translate=\"no\">0h54+</code> before the log, plus <code translate=\"no\">0h14+</code> for document reconstruction)</li>\n<li>Main batches: <strong>50 VUs publisher campaign, security dependencies, CI audit planning, Mac runner, local clean-up and log catch-up</strong></li>\n<li>Minimum cumulative time since the log began: <strong>approximately 804h37+</strong> (<code translate=\"no\">803h29+</code> as at 3 August, + <code translate=\"no\">1h08+</code> today)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>The day begins with measurement and ends with tidying up. KEREDIT now has a\nmore realistic load campaign, the transitive vulnerabilities in the CI gate have been\nresolved, and the security audit has become a scheduled task on the\nrepository runner.</p>\n<p>Then the work turns to its own history. The log had not progressed\nsince 22 July. Time, the holidays and fatigue had led one to believe there was\na massive backlog; the records reveal a gentler reality: nine\ncalendar days without a commit, a few very busy days, and above all, posts\nthat could still be reconstructed without having to make things up.</p>\n<h2 id=\"une-charge-qui-ressemble-davantage-à-la-bêta\">A release that feels more like a beta</h2>\n<p>PR #369 reworks the editor session scenario around the current login,\nexplicit thresholds and a selective payload manifest. The campaign reaches\n50 virtual users with a reproducible report, without loading all\nimage sets in every scenario.</p>\n<p>This work does not guarantee that the beta will handle every peak. It provides\na replayable baseline, observable thresholds and a common vocabulary for\ncomparing the next campaign with this one.</p>\n<h2 id=\"la-sécurité-doit-revenir-chaque-semaine\">Security must be addressed every week</h2>\n<p>PR #370 aligns <code translate=\"no\">fast-uri</code> and <code translate=\"no\">brace-expansion</code> with the versions addressing the\nsecurity advisories tracked by the repository. PR #371 adds a weekly audit and\nstandardises the use of the Mac runner <code translate=\"no\">keredit-ci</code> as a known service on the workstation.</p>\n<p>The key change is the frequency. A one-off audit indicates that the repository\nwas clean on a given day; a scheduled audit allows us to see when it ceases to\nbe so.</p>\n<h2 id=\"nettoyer-sans-effacer-la-mémoire\">Cleaning up without erasing history</h2>\n<p>Local tidying removes old GOF checkouts, archives a NAS context file\nand sends unwanted artefacts to the Bin. Version history\nretains the list, the justifications and the items deliberately kept.</p>\n<p>The same principle applies to the log: we can remove noise without deleting\nthe history. The entry from 24 June is restored, the one from 22 July is complete, and\nthose from 23 July, 30 July and 3 August are returned to their correct places.</p>\n<h2 id=\"le-temps-recalcule\">Time is recalculated</h2>\n<p>The previous cumulative total of <code translate=\"no\">740h19+</code> was too low. It omitted 24 minutes on 1\nMay, six hours on 24 June, and four days from 25 to 28 June, which were left out\nof the calculation. The update adds <code translate=\"no\">41h05+</code> even before the end of July, then reinstates\nthe long evening of 22 July, the sessions on 23 and 30 July and the one on 3 August.</p>\n<p>This total remains a minimum. It does not convert breaks into working time\nand does not claim to measure CI expectations, conversations,\nmanual tests or fatigue exactly. It simply brings the tally back into line with what\nthe records still allow us to prove.</p>\n"
+      },
+      "description": {
+        "hash": "185b092adc7774ff0a4e091c4b0ebc26bc1166f293a87c3e27a65cc1037e737c",
+        "text": "Day 123 of the log: the publisher campaign expands to 50 virtual users; security and CI audits are brought up to scratch; then the log catches up on the backlog caused by a busy period and holidays."
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-08-05": {
+      "body": {
+        "hash": "a1027d302356e51de68452d0bccf528b63f52ba6028a25aa2b97a8fe0d8ce511",
+        "text": "<h2 id=\"horaires-de-session\">Session timetables</h2>\n<ul>\n<li>Agent used: <strong>Kimi CLI code</strong> for Woo synchronisation, <strong>Codex</strong> running in parallel on the Products &amp; Prices workspace</li>\n<li>Main environment: <strong>Mac, KEREDIT repository <code translate=\"no\">dépôt local krampouz</code>, VPS <code translate=\"no\">[nom privé]</code>, server <code translate=\"no\">[nom privé]</code> (ooblik.com)</strong></li>\n<li>Date covered: <strong>Wednesday 5 August 2026</strong></li>\n<li>Main branch prior to the log: <strong><code translate=\"no\">dev</code></strong>, PRs <strong>#387 to #393</strong> merged</li>\n<li>Observed windows: <strong>approximately 16:30 → 19:45 CEST</strong> for end-to-end Woo synchronisation</li>\n<li>Minimum observed duration: <strong>approximately 3 hours+</strong></li>\n<li>Main releases: <strong>Products &amp; Prices workspace 0.17.0, automatic product synchronisation KEREDIT → WooCommerce, plugin 0.1.89, deployment 0.17.1</strong></li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 807h37+</strong> (<code translate=\"no\">804h37+</code> as at 4 August, + <code translate=\"no\">3h00+</code> today)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>The day began with a minor scare: a product listing edited in KEREDIT\nwasn’t displaying correctly on the WooCommerce side. Immediate frustration. Then it\nall came back to me: the WooCommerce listing had never been resynchronised — I needed to\nopen the product in WooCommerce and click ‘Synchronise’. The bug\nwasn’t in the code, it was in the action.</p>\n<p>Rather than getting used to the process, the day puts an end to it. In the evening, a\nbackup in the KEREDIT admin panel updates the WooCommerce listing all by itself, in\njust a few seconds, as demonstrated on ooblik.com.</p>\n<h2 id=\"le-diagnostic-avant-le-code\">Diagnosis before the code</h2>\n<p>The investigation first confirms what’s already in place: the synchronisation is a ‘pull’ operation; the\nWordPress plugin retrieves the product configuration via the KEREDIT API. Two\nautomatic triggers already exist — the save of the Woo listing\nand a lazy refresh on display, limited to one hour. The gap is\nclear: editing the listing in the KEREDIT admin panel doesn’t notify anyone.</p>\n<p>Three options are on the table: a real-time webhook push, a\nsimply hardened pull, or a WordPress price list cron job. The choice falls on the push, because the\nscenario we’re dealing with is exactly ‘I’ve just made a change, I’ll test it straight away’.</p>\n<h2 id=\"les-décisions-qui-comptent\">The decisions that matter</h2>\n<p>First decision: no Prisma migration for the secret. The backend only\nstores the hash of the integration secret, so it can never send it back\nto the plugin. The environment variables <code translate=\"no\">WOO_SITE_URL</code>,\n<code translate=\"no\">WOO_INTEGRATION_KEY</code> and <code translate=\"no\">WOO_INTEGRATION_SECRET</code> follow the precedent\n<code translate=\"no\">AUTH_EMAIL_WEBHOOK_*</code> — duplication assumed, single-tenant architecture required.</p>\n<p>Second decision: the notification is ‘fire-and-forget’. Five-second\ntimeout, error logged as a ‘warn’, failures are never escalated to the\nadmin dashboard. An unreachable WooCommerce site must not cause a product page to fail.</p>\n<p>Third decision: on the plugin side, the HTTP response is sent immediately and the\nactual synchronisation is scheduled via <code translate=\"no\">wp_schedule_single_event</code>. The backend\ndoes not wait for WordPress.</p>\n<h2 id=\"le-stress-habituel-du--faire-les-choses-bien-\">The usual stress of ‘doing things properly’</h2>\n<p>The configuration requires production credentials. These are stored in the\nplugin settings on the ooblik.com server. WP-CLI with PHP 8.3 explicitly —\nthe default binary points to a PHP version that’s too old and misrepresents the versions —\nallows you to read them properly, to enter the local <code translate=\"no\">.env</code> and that of the\nVPS, and to validate the Compose output before any restart. The backend\nis not restarted straight away: the old code is still running, so the\nvariables will have to wait until deployment.</p>\n<p>Deployment follows its own procedure: version 0.17.0 is already live, so we need\na 0.17.1, which means a release branch, a PR, a successful CI run, and a merge. Then\nthe nominal script runs, the served SHA is verified, and only after that does the test run.</p>\n<h2 id=\"la-preuve-deux-fois\">Proof, twice</h2>\n<p>The first end-to-end test fails — the meta <code translate=\"no\">_keredit_connector_synced_at</code> doesn’t\nchange. A few seconds of doubt, then the obvious realisation: the test backup\nran during redeployment, on the old code. The channel is manually verified\nfrom within the container (200, <code translate=\"no\">scheduled: true</code>), the user\nre-registers, and the meta updates automatically. Second time lucky.</p>\n<p>The ‘Synchronise’ button remains visible in WooCommerce. It’s no longer needed,\nbut you don’t remove an emergency ramp on the day you install\nthe lift.</p>\n"
+      },
+      "description": {
+        "hash": "6395faa61110113843bfb53ef86a5ebbf579113aef38ff54b94c19b916bc594f",
+        "text": "Day 124 of the blog: a product listing tested too hastily, an unfair setback, then the KEREDIT synchronisation with WooCommerce became automatic and was successfully tested in production."
+      },
+      "title": {
+        "hash": "b9b1a71dd38e7788d64fd55fd4b8638a8f4b72d4d74de16f4d2eccc12a52d727",
+        "text": "Day 124 – The ‘Synchronise’ button is being retired"
       }
     },
     "page:/flux/journal-procrastinateur/2026-08-06": {
@@ -8763,6 +8787,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-03.webp": {
+      "date": {
+        "hash": "24c0deae31608b847a676234bde8ca628034ce949497caaf93214bc23ce0469b",
+        "text": "6 October 1984"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -9475,6 +9503,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-25.webp": {
+      "date": {
+        "hash": "24c0deae31608b847a676234bde8ca628034ce949497caaf93214bc23ce0469b",
+        "text": "6 October 1984"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -9773,6 +9805,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-04.webp": {
+      "date": {
+        "hash": "24c0deae31608b847a676234bde8ca628034ce949497caaf93214bc23ce0469b",
+        "text": "6 October 1984"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -9783,6 +9819,14 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-05.webp": {
+      "alt": {
+        "hash": "fd61b835f79384b8959506ac97271fcf1a0242753ab9dd5540f61e1148986e66",
+        "text": "Document NASA : Flight Engineer Budarin uses a laptop computer in the SM during Expedition Six"
+      },
+      "date": {
+        "hash": "667ad05d0e8e97b2f06662b9f34d1cde25204e8644f337f0e2b776c1e11c4179",
+        "text": "21 March 2003"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -9790,9 +9834,17 @@
       "themeLabel": {
         "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
         "text": "Computers & computing"
+      },
+      "title": {
+        "hash": "e4602124a97d2842855dcdc0308d0349f3df825ddea76930e235c2e631758baf",
+        "text": "Flight Engineer Budarin uses a laptop computer in the SM during Expedition Six"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-06.webp": {
+      "alt": {
+        "hash": "d3b7c015b6b8ffe7fccb8afb3b74e5a118743aecc08e771a3708318b95b838cd",
+        "text": "Document NASA : Deployment of the RCA Satcom K-2 communications satellite"
+      },
       "date": {
         "hash": "7d34d9ae29adee7563fbc9cd0fd4454653624ed919195206ea50c9a3a6ba35e9",
         "text": "28 November 1985"
