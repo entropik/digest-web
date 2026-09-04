@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "1997cfc7f87b4416ef3c632b02d06bc78aa763e1d3e839e21430195288f24e8a",
+  "revision": "0261939058185e68f0c386bdf4de7501233828ac2313a00a9a56858051781134",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -3086,7 +3086,35 @@
         "text": "Diary of a Procrastinator"
       }
     },
+    "page:/flux/journal-procrastinateur/2026-07-07": {
+      "description": {
+        "hash": "2a7efca7c86b754c73d7f6df255389fdcc5b249ff1840a90626fc76db4048988",
+        "text": "Day 106 of the diary: nearly 600 hours, fear of judgement, followed by technical details on KEREDIT, GOF and the Plakar backup."
+      },
+      "title": {
+        "hash": "d63e6392b01495f9f9a226a5d5db985b4761aede1daddab8fdbbd727db4e4bcf",
+        "text": "Day 106 – Nearly 600 hours, and the fear of judgement"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-07-08": {
+      "body": {
+        "hash": "1ed284d28514cb454b61281c61e9836c2a8e38082dfeb73ff72a5ecc9953fa2b",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Main environment: <strong>VS Code WSL, Codex plugin on the left, code in the centre, Codex terminal on the right</strong></li>\n<li>Date covered: <strong>Wednesday 8 July 2026</strong></li>\n<li>KEREDIT branch observed: <strong><code translate=\"no\">dev</code></strong></li>\n<li>SHA of observed end of sequence: <strong><code translate=\"no\">a57a994</code></strong> (<code translate=\"no\">feat(editor): refine pagination controls</code>)</li>\n<li>KEREDIT version observed: 0<strong>.10.14</strong></li>\n<li>Direct commits observed: <strong>11</strong></li>\n<li>GOF commits observed: <strong>none on 8 July</strong></li>\n<li>Minimum time observed on 8 July: <strong>19h07+ of commit duration</strong> (<code translate=\"no\">00:18</code> -&gt; <code translate=\"no\">19:25</code>, excluding conversations, tests and deployments)</li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 681h20+</strong> (<code translate=\"no\">662h13+</code> as at 7 July, + <code translate=\"no\">19h07+</code>)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>Today’s work links two topics that seemed separate: photos contain\ninformation, and the document’s text must be able to use this information without disrupting\nsharing, editing or the resulting PDF.</p>\n<p>It also begins by finalising the mobile public reader. Three fixes\nstabilise the responsive layout, the footer and the Better Auth update before\nreturning to the core of the editor.</p>\n<h2 id=\"les-métadonnées-quittent-le-fichier-brut\">Metadata leaves the raw file</h2>\n<p>The commit <code translate=\"no\">5867d67</code> adds asynchronous extraction of IPTC metadata and its\npassing through the asset pipeline. The heavy lifting remains in the workers rather than\nblocking the upload or the interface.</p>\n<p>The same batch introduces dynamic text fields into sharing contracts,\nrich text, the editor, previews and the PDF payload. A piece of photo\ninformation can thus become a compositional element, rather than a hidden detail within the file.</p>\n<p>This development affects many layers, but the contract remains clear: the\nmetadata is captured once, persisted, then resolved by the interfaces that\nrequire it.</p>\n<h2 id=\"le-partage-retrouve-une-échelle-juste\">Sharing is restored to the right scale</h2>\n<p><code translate=\"no\">a74daae</code> expands flipbook layouts and realigns shared previews. The\nfollowing TypeScript fixes do not alter the user experience; they tie up the\nbatch without leaving any fragile narrowing.</p>\n<p>The mobile reader and the editor preview must present the same document. This\nconsistency is important now that content may depend on the\npage or the linked image.</p>\n<h2 id=\"la-pagination-devient-un-outil-dédition\">Pagination becomes an editing tool</h2>\n<p>The end-of-day process simplifies the insertion of page numbers, then refines the\ncontrols. Dynamic fields are no longer just a feature of the engine:\nthey can now be edited via the text panel.</p>\n<p><code translate=\"no\">5ab5b90</code> It also corrects the resolution of text fields linked to a photo. The\ntext must identify the true owner of the asset, including in shared\nviews and more complex layouts.</p>\n<p>Two version stages conclude the sequence: <code translate=\"no\">0.10.13</code>, followed by <code translate=\"no\">0.10.14</code>.</p>\n<h2 id=\"pour-la-suite\">Looking ahead</h2>\n<p>Pagination and photo fields must now pass through the KEREDIT JSON, public sharing and GOF\nwithout any discrepancies. The next challenge is no longer the\ninsert button, but ensuring the contract remains accurate right through to the printed PDF.</p>\n"
+      },
+      "description": {
+        "hash": "c4040486eadb0c1992c029996a3ed46b8c7fee51e79d1f478081a66672f9cbd0",
+        "text": "Day 107 of the diary: mobile reader, dynamic text fields, IPTC metadata and pagination up to version 0.10.14."
+      },
+      "title": {
+        "hash": "1a9c5b7075dce9590578de35104e62a1cbca213800ee31728a66ebe3bc085338",
+        "text": "Day 107 – Dynamic text is added to the photos"
+      }
+    },
     "page:/flux/journal-procrastinateur/2026-07-09": {
+      "body": {
+        "hash": "ecbaa9566535f37e1da5f5fca96c28336bf3c87776229f031a085f21ca31aefc",
+        "text": "<h2 id=\"horaires-de-session\">Session timetables</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Main environment: <strong>VS Code WSL, Codex plugin, KEREDIT and GOF repositories</strong></li>\n<li>Date covered: <strong>Thursday 9 July 2026</strong></li>\n<li>Branches observed: <strong><code translate=\"no\">dev</code> in KEREDIT and GOF</strong></li>\n<li>KEREDIT SHA at the end of the sequence: <strong><code translate=\"no\">9a99378</code></strong> (<code translate=\"no\">ui: compact admin projects list</code>)</li>\n<li>End-of-sequence GOF SHA: <strong><code translate=\"no\">7b40578</code></strong> (<code translate=\"no\">chore: run preflight before forge deploy</code>)</li>\n<li>Versions observed: <strong>KEREDIT 0.10.17</strong>, <strong>GOF 0.2.9</strong></li>\n<li>Direct commits observed: <strong>6 KEREDIT + 5 GOF</strong></li>\n<li>Minimum time observed on 9 July: <strong>4h29+ of multi-deposit duration</strong> (<code translate=\"no\">17:40</code> -&gt; <code translate=\"no\">22:09</code>, excluding tests and manual verification)</li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 685h49+</strong> (<code translate=\"no\">681h20+</code> as at 8 July, + <code translate=\"no\">4h29+</code>)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>Yesterday, the pagination was fed into the editor. Today, it must stop\nbehaving like a simple graphic block and become stable data right up to the\nproduction PDF.</p>\n<p>The day’s work was less extensive, but very consistent between the two\nsubmissions: KEREDIT is tightening the specifications, whilst GOF is learning to render it using the correct\nfonts.</p>\n<h2 id=\"keredit-protege-le-sens-de-la-pagination\">KEREDIT safeguards the pagination logic</h2>\n<p><code translate=\"no\">99e6898</code> across the editor’s surfaces to stabilise pagination\ncontrols. The field must remain identifiable in the canvas, panels,\ntext and shared state.</p>\n<p><code translate=\"no\">f3ba7b5</code> Then adds the JSON contract coverage for payload and renderer.\nThe JSON project documentation is aligned with the tests, which transforms\nthe behaviour into a verifiable contract.</p>\n<p><code translate=\"no\">d8acb97</code> Finally, it excludes pagination from snapping. A dynamic page number must not\nbe treated as an ordinary block that magnetic guides\nmight accidentally move or reclassify.</p>\n<p>The sequence runs via <code translate=\"no\">0.10.16</code>, then the package files are uploaded to\n<code translate=\"no\">0.10.17</code>. The project admin is also compressed at the end of the day.</p>\n<h2 id=\"gof-rend-avec-les-polices-du-manifeste\">GOF renders using the fonts specified in the manifest</h2>\n<p><code translate=\"no\">d24c655</code> links the pagination rendering to the glyph-level engine and the fonts in the\nGOF manifest. The page number must remain native PDF text, using the same\nfont family as that chosen in KEREDIT.</p>\n<p><code translate=\"no\">8643c38</code> It then aligns the runtime font directory across the environment,\ncomposition and documentation. A font that happens to be available on a machine must\nnever become a production dependency.</p>\n<h2 id=\"accurio-et-le-deploy-gagnent-des-garde-fous\">Accurio and deployment gain safeguards</h2>\n<p><code translate=\"no\">26e8b15</code> allows only a single Accurio job to be retried, which is useful when the cover\nand the section have different destinations. The retry no longer needs to reproduce the entire\norder.</p>\n<p>Two minor fixes round off the release: a forced-run message slips through in the\ndashboard, followed by a mandatory preflight before deploying the build.</p>\n<h2 id=\"pour-la-suite\">Looking ahead</h2>\n<p>The next hurdle is ensuring style and geometric consistency between KEREDIT and\nGOF. Correct pagination is not enough if a font variant or a\nclipart still changes between the screen and the PDF.</p>\n"
+      },
       "description": {
         "hash": "abd7495bac820d0238c4bbed4891bfe0fc527f109b121fe5a2fd1c438e13d4e6",
         "text": "Day 108 of the log: enhanced pagination in KEREDIT, rendered using GOF fonts and protected until deployment on the Accurio."
@@ -9957,6 +9985,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-30.webp": {
+      "date": {
+        "hash": "9647f01db1e61707b1c7caeb7c79e7e9dd98fd3ab7332bc53fda4043ca28cd92",
+        "text": "23 October 1989"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10597,6 +10629,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-07.webp": {
+      "alt": {
+        "hash": "bcc78bf464336f8ea637d08cb7e487ebf81f82a6cb7f8b1743e983af621cec68",
+        "text": "Document NASA : Malenchenko uses a computer in the SM during Joint Operations"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10607,6 +10643,14 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-08.webp": {
+      "alt": {
+        "hash": "a71b68a2fe726659d0003c641a9e24d7d94510bc199f22b327c7a031f15936ea",
+        "text": "Document NASA : Flight directors Castle & Dittemore monitor displays in MCC during STS-34"
+      },
+      "date": {
+        "hash": "9647f01db1e61707b1c7caeb7c79e7e9dd98fd3ab7332bc53fda4043ca28cd92",
+        "text": "23 October 1989"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10614,6 +10658,10 @@
       "themeLabel": {
         "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
         "text": "Monitoring & Data"
+      },
+      "title": {
+        "hash": "d42f665caba9dfce3abfdf299e3095614fa9f7466ad76fa8fb3dab04f292678e",
+        "text": "Flight directors Castle & Dittemore monitor displays in MCC during STS-34"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-09.webp": {
