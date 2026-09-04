@@ -73,8 +73,10 @@ function updateJournalReadmeIfNeeded(journalFile, title) {
 
 function publish(customMessage = null) {
   const status = gitOutput(["status", "--porcelain"]);
-  if (!status) {
-    console.log("✨ Aucun changement détecté dans le dépôt. Rien à publier.");
+  const unpushed = gitOutput(["log", "live/main..HEAD", "--oneline"]);
+
+  if (!status && !unpushed) {
+    console.log("✨ Tout est déjà à jour et synchronisé avec le VPS. Rien à publier.");
     return false;
   }
 
@@ -105,19 +107,20 @@ function publish(customMessage = null) {
     return false;
   }
 
-  // Récupérer les éventuelles modifications distantes (ex: traductions automatiques du service admin)
+  // 1. Si des modifications locales existent, on les commite d'abord
+  if (status) {
+    run("git", ["add", "-A"]);
+    const staged = gitOutput(["diff", "--cached", "--name-only"]);
+    if (staged) {
+      run("git", ["commit", "-m", commitMessage]);
+    }
+  }
+
+  // 2. Synchronisation avec le VPS (rebase des commits locaux sur les éventuelles traductions du serveur)
   console.log(`📥 Synchronisation avec le dépôt du VPS...`);
   run("git", ["pull", "--rebase", "live", "main"], { ignoreStatus: true });
 
-  // Indexation et commit
-  run("git", ["add", "-A"]);
-  // Vérifier s'il reste des modifications après rebase
-  const staged = gitOutput(["diff", "--cached", "--name-only"]);
-  if (staged) {
-    run("git", ["commit", "-m", commitMessage]);
-  }
-
-  // Déploiement direct vers le VPS (live)
+  // 3. Déploiement direct vers le VPS (live)
   console.log(`\n📡 Envoi direct vers le VPS (mise en ligne en ~20s)...`);
   const started = Date.now();
   run("git", ["push", "live", "main"]);
