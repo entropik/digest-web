@@ -2,6 +2,7 @@ import type Database from "better-sqlite3";
 import { randomUUID } from "node:crypto";
 import { BACKFILL_CEILING, DEVELOPER_CREDIT, translationBudget } from "./translation-budget.js";
 import { codePoints, snapshotRevision, type TranslationManifest, type TranslationSnapshot } from "./translation-types.js";
+import { createPublicationPlan, validatePublicationPlan, type TranslationPublicationPlan } from "./translation-publication.js";
 
 type Memory = {
   hash: string; source: string; format: "html" | "text"; chars: number;
@@ -18,6 +19,8 @@ export function ensureTranslationSchema(db: Database.Database): void {
     "CREATE INDEX IF NOT EXISTS translation_fields_hash ON translation_fields(hash);" +
     "CREATE TABLE IF NOT EXISTS translation_history (id INTEGER PRIMARY KEY,at TEXT NOT NULL,event TEXT NOT NULL,chars INTEGER NOT NULL DEFAULT 0,total INTEGER NOT NULL,translated INTEGER NOT NULL,used INTEGER,batch_id TEXT);" +
     "CREATE TABLE IF NOT EXISTS translation_batches (id TEXT PRIMARY KEY,started_at TEXT NOT NULL,finished_at TEXT,state TEXT NOT NULL,estimated INTEGER NOT NULL,translated INTEGER NOT NULL DEFAULT 0);" +
+    "CREATE TABLE IF NOT EXISTS translation_publications (revision TEXT PRIMARY KEY,target_revision TEXT NOT NULL,base_revision TEXT NOT NULL,plan_json TEXT NOT NULL,snapshot_json TEXT NOT NULL,state TEXT NOT NULL,commit_sha TEXT,created_at TEXT NOT NULL,live_at TEXT);" +
+    "CREATE INDEX IF NOT EXISTS translation_publications_target ON translation_publications(target_revision);" +
     "CREATE INDEX IF NOT EXISTS translation_history_at ON translation_history(at);" +
     // Resolve corrections per item/field without putting them in hash-shared memory.
     "CREATE VIEW IF NOT EXISTS translation_current_fields AS " +
@@ -75,6 +78,8 @@ export class TranslationStore {
       if (previousIds.some(id => !currentIds.has(id))) changed = true;
       this.set("initialized", true);
       this.set("artworkSources", Object.fromEntries(manifest.items.filter(item => item.artwork).map(item => [item.id, item.artwork])));
+      const storedManifest = this.get<TranslationManifest | null>("manifest", null);
+      if (!storedManifest || storedManifest.version !== manifest.version || manifest.version === 2 && (storedManifest.version !== 2 || storedManifest.revision !== manifest.revision)) this.set("manifest", manifest);
       if (!initialized) this.chooseInitial();
     })();
     if (changed || !initialized) this.record("inventory");
@@ -144,8 +149,11 @@ export class TranslationStore {
     this.record(reason);
   }
   retry(uncertainHashes: string[] = []) {
-    const publication = this.get<{state?: string}>("publication", {});
-    if (publication.state === "deploy_failed") this.set("publication", { ...publication, state: "retrying" });
+    const publication = this.get<{state?: string;planRevision?:string}>("publication", {});
+    if (publication.state === "deploy_failed") {
+      this.set("publication", { ...publication, state: "retrying" });
+      if (publication.planRevision) this.publicationState(this.publicationDraft(publication.planRevision).plan, "retrying");
+    }
     const confirmed = [...new Set(uncertainHashes)];
     const placeholders = confirmed.map(() => "?").join(",");
     const retryable = confirmed.length ? "(state='error' OR (state='uncertain' AND hash IN (" + placeholders + ")))" : "state='error'";
@@ -235,6 +243,26 @@ export class TranslationStore {
       if (fields?.title && fields.description) artwork[source.date] = {title:fields.title.text,description:fields.description.text,linkCount:source.linkCount,editorialType:source.editorialType};
     }
     return { version: 1, revision: snapshotRevision(entries, artwork), entries, artwork };
+  }
+  preparePublication(base: TranslationSnapshot, target: TranslationSnapshot) {
+    const current = this.get<TranslationManifest | null>("manifest", null);
+    if (!current) throw new Error("MANIFEST_UNAVAILABLE");
+    const existing = this.db.prepare("SELECT plan_json,snapshot_json FROM translation_publications WHERE target_revision=? AND base_revision=? ORDER BY created_at DESC LIMIT 1")
+      .get(target.revision, base.revision) as { plan_json: string; snapshot_json: string } | undefined;
+    if (existing) return { plan: validatePublicationPlan(JSON.parse(existing.plan_json)), snapshot: JSON.parse(existing.snapshot_json) as TranslationSnapshot };
+    const plan = createPublicationPlan(current, base, target);
+    this.db.prepare("INSERT INTO translation_publications(revision,target_revision,base_revision,plan_json,snapshot_json,state,created_at) VALUES(?,?,?,?,?,'prepared',?)")
+      .run(plan.revision, target.revision, base.revision, JSON.stringify(plan), JSON.stringify(target), this.now());
+    return { plan, snapshot: target };
+  }
+  publicationDraft(revision: string) {
+    const row = this.db.prepare("SELECT plan_json,snapshot_json FROM translation_publications WHERE revision=?").get(revision) as { plan_json: string; snapshot_json: string } | undefined;
+    if (!row) throw new Error("PUBLICATION_PLAN_MISSING");
+    return { plan: validatePublicationPlan(JSON.parse(row.plan_json)), snapshot: JSON.parse(row.snapshot_json) as TranslationSnapshot };
+  }
+  publicationState(plan: TranslationPublicationPlan, state: string, commit?: string) {
+    this.db.prepare("UPDATE translation_publications SET state=?,commit_sha=COALESCE(?,commit_sha),live_at=CASE WHEN ?='live' THEN ? ELSE live_at END WHERE revision=?")
+      .run(state, commit || null, state, this.now(), plan.revision);
   }
   stats() {
     const counts = this.db.prepare("SELECT COALESCE(SUM(m.chars),0) AS total,COALESCE(SUM(CASE WHEN m.translated IS NOT NULL THEN m.chars ELSE 0 END),0) AS translated FROM translation_fields f JOIN translation_items i ON i.id=f.item_id JOIN translation_current_fields m ON m.item_id=f.item_id AND m.field=f.field WHERE i.active=1")

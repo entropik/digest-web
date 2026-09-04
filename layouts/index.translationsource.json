@@ -1,4 +1,5 @@
 {{- $items := slice -}}
+{{- $impactMap := dict -}}
 {{- $links := where hugo.Data.links "visibility" "ne" "hidden" -}}
 {{- range $links -}}
   {{- $fields := dict -}}
@@ -15,8 +16,18 @@
     {{- with .Description -}}{{- $fields = merge $fields (dict "description" (partial "translation-field.html" (dict "source" .))) -}}{{- end -}}
     {{- with .Content -}}{{- $fields = merge $fields (dict "body" (partial "translation-field.html" (dict "source" (printf "%s" .) "format" "html"))) -}}{{- end -}}
     {{- $dependencies := slice -}}
+    {{- $pageLinks := slice -}}
     {{- with .Params.digest_date -}}
-      {{- range where $links "added" . -}}{{- $dependencies = $dependencies | append (printf "link:%s" .id) -}}{{- end -}}
+      {{- $pageLinks = where $links "added" . -}}
+    {{- else with .Params.stream -}}
+      {{- $pageLinks = where $links "stream" . -}}
+    {{- else with .Params.tag -}}
+      {{- $tag := . -}}
+      {{- range $links -}}{{- if in (.tags | default slice) $tag -}}{{- $pageLinks = $pageLinks | append . -}}{{- end -}}{{- end -}}
+    {{- end -}}
+    {{- range $pageLinks -}}
+      {{- $dependencies = $dependencies | append (printf "link:%s" .id) (printf "category:%s" .category) -}}
+      {{- range .tags -}}{{- $dependencies = $dependencies | append (printf "tag:%s" .) -}}{{- end -}}
     {{- end -}}
     {{- with index (index hugo.Data "journal-documents") (.Date.Format "2006-01-02") -}}
       {{- if in $page.RelPermalink "/journal-procrastinateur/" -}}{{- $dependencies = $dependencies | append (printf "visual:%s" .image) -}}{{- end -}}
@@ -29,9 +40,14 @@
     {{- if in .RelPermalink "/flux/journal-procrastinateur/" -}}{{- $group = "journal-procrastinateur" -}}{{- end -}}
     {{- if in .RelPermalink "/flux/journal-du-digest/" -}}{{- $group = "journal-du-digest" -}}{{- end -}}
     {{- if or (eq .Kind "section") .Params.stream -}}{{- $group = "foundation" -}}{{- end -}}
-    {{- $item := dict "id" (printf "page:%s" .Path) "kind" "page" "title" .Title "date" (.Date.Format "2006-01-02") "route" .RelPermalink "group" $group "dependencies" $dependencies "fields" $fields "page" (dict "path" .Path "kind" .Kind "type" .Type "layout" .Layout "aliases" .Aliases "params" $params) -}}
-    {{- with .Params.digest_date -}}{{- $item = merge $item (dict "artwork" (dict "date" . "linkCount" (len $dependencies) "editorialType" ($page.Params.editorial_type | default "digest"))) -}}{{- end -}}
+    {{- $item := dict "id" (printf "page:%s" .Path) "kind" "page" "title" .Title "date" (.Date.Format "2006-01-02") "route" .RelPermalink "group" $group "dependencies" (uniq $dependencies) "fields" $fields "page" (dict "path" .Path "kind" .Kind "type" .Type "layout" .Layout "aliases" .Aliases "params" $params) -}}
+    {{- with .Params.digest_date -}}{{- $item = merge $item (dict "artwork" (dict "date" . "linkCount" (len $pageLinks) "editorialType" ($page.Params.editorial_type | default "digest"))) -}}{{- end -}}
     {{- $items = $items | append $item -}}
+    {{- $pageImpacts := partial "translation-impact-paths.html" (dict "route" .RelPermalink "aliases" .Aliases) -}}
+    {{- range $dependency := $dependencies -}}
+      {{- $existingImpacts := index $impactMap $dependency | default slice -}}
+      {{- $impactMap = merge $impactMap (dict $dependency (uniq ($existingImpacts | append $pageImpacts))) -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
 {{- range $kind := slice "category" "tag" -}}
@@ -64,4 +80,12 @@
   {{- end -}}
   {{- $items = $items | append (dict "id" (printf "visual:%s" .image) "kind" "visual" "title" .title "date" $date "route" (printf "/flux/journal-procrastinateur/%s/" $date) "group" "visual" "dependencies" slice "fields" $fields) -}}
 {{- end -}}
-{{- dict "version" 1 "items" $items | jsonify -}}
+{{- $enriched := slice -}}
+{{- range $item := $items -}}
+  {{- $aliases := slice -}}
+  {{- with $item.page -}}{{- $aliases = .aliases | default slice -}}{{- end -}}
+  {{- $impacts := partial "translation-impact-paths.html" (dict "route" $item.route "aliases" $aliases) -}}
+  {{- with index $impactMap $item.id -}}{{- $impacts = $impacts | append . -}}{{- end -}}
+  {{- $enriched = $enriched | append (merge $item (dict "impacts" (uniq $impacts))) -}}
+{{- end -}}
+{{- dict "version" 2 "revision" (sha256 ($enriched | jsonify)) "items" $enriched | jsonify -}}

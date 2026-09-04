@@ -38,23 +38,7 @@ jobs:
           hugo-version: "0.164.0"
           extended: true
 
-      - name: Verify repository
-        run: node scripts/verify.mjs
-
-      - name: Publish production branch
-        shell: bash
-        run: |
-          set -euo pipefail
-          touch public/.nojekyll
-          cd public
-          git init
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout -b production
-          git add --all
-          git commit -m "Deploy ${GITHUB_SHA}"
-          git push --force \
-            "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" \
-            production
+      - name: Build and publish production
+        run: node scripts/translation-production.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

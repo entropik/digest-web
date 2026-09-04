@@ -1,0 +1,12 @@
+{{- $route := .route | default "/" -}}
+{{- $paths := slice $route -}}
+{{- if hasPrefix $route "/archives/" -}}
+  {{- $paths = $paths | append "/archives/" -}}
+{{- else if hasPrefix $route "/tags/" -}}
+  {{- $paths = $paths | append "/tags/" -}}
+{{- else if hasPrefix $route "/flux/" -}}
+  {{- $paths = $paths | append "/flux/" -}}
+  {{- $parts := split (strings.Trim $route "/") "/" -}}
+  {{- if gt (len $parts) 2 -}}{{- $paths = $paths | append (printf "/flux/%s/" (index $parts 1)) -}}{{- end -}}
+{{- end -}}
+{{- return (uniq $paths) -}}

@@ -63,8 +63,11 @@ production est <https://digest.ooblik.com/>.
 ## Déploiement
 
 Les pull requests sont validées par GitHub Actions. Sur `main`, le workflow
-`Deploy production` valide le commit, construit les deux langues avec
-`scripts/build-site.mjs` et publie ce résultat validé sur la branche `production`. Un cron exécuté par l’utilisateur
+`Deploy production` exécute le contrôle complet pour les changements ordinaires.
+Un commit de traduction muni d’un plan valide rend seulement les routes anglaises
+affectées et le snapshot public français, puis superpose ces sorties à l’arbre
+`production` existant. Tout écart de révision ou de fichier déclenche le build
+complet. La branche `production` avance toujours en fast-forward. Un cron exécuté par l’utilisateur
 CloudPanel du site transforme chaque révision de cette branche en release
 locale.
 

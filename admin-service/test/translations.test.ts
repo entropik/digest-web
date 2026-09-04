@@ -331,17 +331,18 @@ test("suspending an in-flight lot preserves it and deployment retries reuse prep
   const {db,store} = fixture();
   const source = manifest(item("a"),item("b","Au revoir"));
   store.sync(source); store.start();
-  let calls=0,exports=0;
+  let calls=0;
+  const exports:{snapshot:string;plan:string}[]=[];
   const service = new TranslationService(store,new DeepLClient("fake",undefined,(async url=>{
     if(String(url).endsWith("/usage"))return Response.json({character_count:0,character_limit:1_000_000});
     calls++;store.pause();return Response.json({translations:[{text:"Hello",billed_characters:7}]});
-  }) as typeof fetch),{manifest:async()=>source,published:async()=>emptySnapshot(),deploymentFailed:async()=>true,export:async()=>{exports++;return {commit:"failed-deploy"}}});
+  }) as typeof fetch),{manifest:async()=>source,published:async()=>emptySnapshot(),deploymentFailed:async()=>true,export:async(snapshot,plan)=>{exports.push({snapshot:snapshot.revision,plan:plan.revision});return {commit:"failed-deploy"}}});
   await service.tick();
   assert.equal(calls,1);assert.equal(store.overview().backfill,true);assert.equal(store.overview().paused,true);
   await service.sync();
   assert.equal(store.get("publication",{state:""}).state,"deploy_failed");
   store.retry();await service.publish();
-  assert.equal(exports,2);assert.equal(calls,1);
+  assert.equal(exports.length,2);assert.deepEqual(exports[1],exports[0]);assert.equal(calls,1);
   db.close();
 });
 

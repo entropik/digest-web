@@ -1,6 +1,6 @@
 # Traductions FR / GB
 
-La version 1.27.0 conserve le français à la racine et construit l’anglais
+La version 1.27.1 conserve le français à la racine et construit l’anglais
 britannique sous `/en/`. Le sélecteur FR / GB conserve la page, ses paramètres
 d’URL et l’ancre. Les identifiants, destinations originales, favoris et noms
 canoniques des catégories et tags restent communs. Les libellés affichés,
@@ -58,6 +58,12 @@ source. Une publication de traduction ne change donc pas les empreintes
 
 Les résultats sont sauvegardés immédiatement dans SQLite, puis exportés par
 lots dans `data/translations_en.json` avec le mécanisme GitHub App existant.
+Chaque lot fige aussi dans la table `translation_publications` son snapshot et
+un plan `data/translation_build_plan.json` : révision publique de départ,
+révision préparée, empreinte du manifeste, champs modifiés, routes Hugo et
+affiches à ajouter ou retirer. Un redémarrage ou une reprise réutilise ce plan
+sans appeler DeepL. Les traductions terminées pendant un déploiement sont
+conservées dans SQLite et forment le lot suivant.
 Les affiches typographiques anglaises sont produites dans `static/social/en/`.
 Le snapshot conserve leurs textes, le nombre de liens visibles et le type
 Digest/Focus. Une modification de ces données ou un fichier manquant déclenche
@@ -70,8 +76,22 @@ reprendre une publication filtrée sans la déclarer intégralement en ligne.
 Un déploiement échoué se réessaie avec « Réessayer les erreurs », sans nouvel
 appel de traduction. Réessayer des champs en erreur conserve le mode de
 rattrapage choisi : cette commande ne lance jamais tout l’historique en attente.
-Aucun export supplémentaire n’est lancé pendant un
-déploiement déjà en cours.
+Aucun export supplémentaire n’est lancé pendant un déploiement déjà en cours.
+
+Le manifeste public v2 associe chaque élément aux pages anglaises qui le
+réutilisent. Un commit limité au snapshot, au plan et aux affiches anglaises
+autorisées repart de l’arbre `production`, rend ces routes avec les segments
+Hugo, actualise le snapshot racine, les listes, RSS et index de recherche
+concernés, puis pousse un commit descendant de `production` sans force-push.
+Le script refuse l’overlay et exécute le build complet si le commit sort de la
+liste fermée, si le manifeste est encore en v1, si une révision diverge ou si
+une sortie attendue manque. CloudPanel reçoit toujours une release statique
+complète et conserve sa bascule atomique du lien `current`.
+
+Le déploiement de l’administration compare l’objet tree Git de
+`admin-service` au dernier tree observé. Un commit de traduction qui ne change
+pas ce répertoire actualise seulement le SHA observé et contrôle la santé du
+processus existant.
 
 Une traduction absente ou devenue obsolète laisse apparaître la source avec
 « Translation pending ». Le français continue à être construit et publié si

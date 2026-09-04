@@ -16,6 +16,7 @@ const matches = (a: TranslationArtwork | undefined, b: TranslationArtwork) => a 
 export async function prepareTranslationArtwork(entries: TranslationSnapshot["entries"], dependencies: Dependencies) {
   const artwork: Record<string, TranslationArtwork> = {};
   const files: Record<string, Buffer> = {};
+  const removed: string[] = [];
   for (const [id, fields] of Object.entries(entries)) {
     const date = id.match(/^page:\/archives\/(\d{4}-\d{2}-\d{2})$/)?.[1];
     if (!date || !fields.title || !fields.description) continue;
@@ -33,5 +34,12 @@ export async function prepareTranslationArtwork(entries: TranslationSnapshot["en
     files[og] = await dependencies.render(input);
     files[linkedin] = await dependencies.renderLinkedIn(input);
   }
-  return { artwork, files };
+  for (const date of Object.keys(dependencies.previous?.artwork || {})) {
+    if (artwork[date]) continue;
+    for (const suffix of [".png", "-linkedin.png"]) {
+      const path = "static/social/en/" + date + suffix;
+      if (dependencies.exists(path)) removed.push(path);
+    }
+  }
+  return { artwork, files, removed };
 }

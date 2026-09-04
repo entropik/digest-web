@@ -1,12 +1,13 @@
 import { DeepLClient, TranslationError } from "./deepl.js";
 import { TranslationStore } from "./translation-store.js";
-import { validateManifest, validateSnapshot, type TranslationSnapshot } from "./translation-types.js";
+import { snapshotRevision, validateManifest, validateSnapshot, type TranslationSnapshot } from "./translation-types.js";
+import type { TranslationPublicationPlan } from "./translation-publication.js";
 
 type Dependencies = {
   manifest: () => Promise<unknown>;
   published: () => Promise<unknown>;
   deploymentFailed?: (commit: string) => Promise<boolean>;
-  export: (snapshot: TranslationSnapshot, retryDeployment?: boolean) => Promise<{ commit: string; revision?: string }>;
+  export: (snapshot: TranslationSnapshot, plan: TranslationPublicationPlan, retryDeployment?: boolean) => Promise<{ commit: string; revision?: string }>;
 };
 export class TranslationService {
   private running = false;
@@ -30,34 +31,53 @@ export class TranslationService {
     this.store.restore(published);
     this.store.set("liveRevision", published.revision);
     this.store.set("liveEntries", published.entries);
-    const publication = this.store.get<{ revision?: string; state?: string; commit?: string }>("publication", {});
+    this.store.set("liveSnapshot", published);
+    let publication = this.store.get<{ revision?: string; state?: string; commit?: string; planRevision?: string }>("publication", {});
+    if (publication.state === "error" && publication.planRevision && manifest.version === 2) {
+      const obsolete = this.store.publicationDraft(publication.planRevision).plan;
+      if (obsolete.manifestRevision && obsolete.manifestRevision !== manifest.revision) {
+        this.store.publicationState(obsolete, "superseded", publication.commit);
+        publication = { state: "idle" };
+        this.store.set("publication", publication);
+      }
+    }
     if (publication.revision === published.revision && publication.state !== "live") {
       this.store.set("publication", { ...publication, state: "live" });
+      if (publication.planRevision) this.store.publicationState(this.store.publicationDraft(publication.planRevision).plan, "live", publication.commit);
       this.store.record("live");
     } else if (publication.state === "deploying" && published.sourceRevision === publication.revision) {
       // Hugo served this export but filtered fields/artwork made stale by newer French edits.
       this.store.set("publication", { ...publication, state: "idle" });
+      if (publication.planRevision) this.store.publicationState(this.store.publicationDraft(publication.planRevision).plan, "filtered", publication.commit);
       this.store.record("publication_filtered");
     }
-    const pending = this.store.get<{ state?: string; commit?: string; revision?: string }>("publication", {});
+    const pending = this.store.get<{ state?: string; commit?: string; revision?: string; planRevision?: string }>("publication", {});
     if (pending.state === "deploying" && pending.commit && await this.dependencies.deploymentFailed?.(pending.commit)) {
       this.store.set("publication", { ...pending, state: "deploy_failed" });
+      if (pending.planRevision) this.store.publicationState(this.store.publicationDraft(pending.planRevision).plan, "deploy_failed", pending.commit);
     }
     this.store.set("lastError", null);
   }
   async publish() {
-    const snapshot = this.store.snapshot();
-    const publication = this.store.get<{ revision?: string; state?: string; commit?: string }>("publication", {});
-    if (!Object.keys(snapshot.entries).length && !publication.revision) return;
-    if (snapshot.revision === this.store.get("liveRevision", "")) return;
+    const prepared = this.store.snapshot();
+    const publication = this.store.get<{ revision?: string; state?: string; commit?: string; planRevision?: string }>("publication", {});
+    if (!Object.keys(prepared.entries).length && !publication.revision) return;
+    if (prepared.revision === this.store.get("liveRevision", "") && !["error", "retrying"].includes(publication.state || "")) return;
     if (["deploying", "deploy_failed"].includes(publication.state || "")) return;
-    this.store.set("publication", { state: "exporting", revision: snapshot.revision });
+    const base = this.store.get<TranslationSnapshot>("liveSnapshot", { version: 1, revision: snapshotRevision({}), entries: {} });
+    const draft = publication.planRevision && ["error", "retrying"].includes(publication.state || "")
+      ? this.store.publicationDraft(publication.planRevision)
+      : this.store.preparePublication(base, prepared);
+    this.store.set("publication", { state: "exporting", revision: draft.snapshot.revision, planRevision: draft.plan.revision });
+    this.store.publicationState(draft.plan, "exporting");
     try {
-      const result = await this.dependencies.export(snapshot, publication.state === "retrying");
-      this.store.set("publication", { state: "deploying", revision: result.revision || snapshot.revision, commit: result.commit });
+      const result = await this.dependencies.export(draft.snapshot, draft.plan, publication.state === "retrying");
+      this.store.set("publication", { state: "deploying", revision: result.revision || draft.snapshot.revision, commit: result.commit, planRevision: draft.plan.revision });
+      this.store.publicationState(draft.plan, "deploying", result.commit);
       this.store.record("exported");
     } catch {
-      this.store.set("publication", { state: "error", revision: snapshot.revision });
+      this.store.set("publication", { state: "error", revision: draft.snapshot.revision, planRevision: draft.plan.revision });
+      this.store.publicationState(draft.plan, "error");
       this.store.record("export_error");
     }
   }
