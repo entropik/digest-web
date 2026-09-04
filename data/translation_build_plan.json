@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "baseRevision": "83d74996aba7b353a50971c6140068e121261db1ef02001e9a34649e15c635ee",
-  "targetRevision": "dc87b7e62501b7a50e15b9b599757a2dbdf8668e9eb7126cd5415000ddde22e7",
+  "baseRevision": "dc87b7e62501b7a50e15b9b599757a2dbdf8668e9eb7126cd5415000ddde22e7",
+  "targetRevision": "587b9070c6c319f6fecbd3c90cf5a86970a6146239a369145143a3aeee7bd8ed",
   "manifestRevision": "261577e2e019b7cf9d967a9bb1dff52329a00c44f1188f132a4cdf0215a39dec",
   "fullBuild": false,
   "items": [
@@ -66,7 +66,7 @@
       ]
     },
     {
-      "id": "page:/flux/journal-du-digest/2026-08-12",
+      "id": "page:/flux/journal-procrastinateur/2026-08-06",
       "fields": [
         "body",
         "description",
@@ -76,25 +76,25 @@
     {
       "id": "page:/flux/journal-procrastinateur/2026-08-07",
       "fields": [
-        "body"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-procrastinateur/2026-08-08",
-      "fields": [
-        "body",
         "description",
         "title"
       ]
     },
     {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-04.webp",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-02-08.webp",
       "fields": [
         "date"
       ]
     },
     {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-08.webp",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-06.webp",
+      "fields": [
+        "date",
+        "title"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-07.webp",
       "fields": [
         "alt",
         "date",
@@ -115,12 +115,10 @@
     "/archives/2026-09-01/",
     "/archives/2026-09-02/",
     "/flux/",
-    "/flux/journal-du-digest/",
-    "/flux/journal-du-digest/2026-08-12/",
     "/flux/journal-procrastinateur/",
-    "/flux/journal-procrastinateur/2026-07-04/",
-    "/flux/journal-procrastinateur/2026-08-07/",
-    "/flux/journal-procrastinateur/2026-08-08/"
+    "/flux/journal-procrastinateur/2026-02-08/",
+    "/flux/journal-procrastinateur/2026-08-06/",
+    "/flux/journal-procrastinateur/2026-08-07/"
   ],
   "artwork": {
     "upsert": [
@@ -137,5 +135,5 @@
     ],
     "remove": []
   },
-  "revision": "9e7d041d547a06d6b5bfbf53da542ab6dfd174cc4989a70b06b0cee52ec6aff9"
+  "revision": "9afeecdcb2d82d6e5a8859a3f6ac26ef155c4b5336eedce62641dae878165af8"
 }
