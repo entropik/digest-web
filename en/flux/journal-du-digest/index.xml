@@ -9,11 +9,11 @@
     <lastBuildDate>Thu, 03 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://digest.ooblik.com/en/flux/journal-du-digest/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Un Digest bilingue et mouvements retrouvés</title>
+      <title>Un Digest bilingue, mouvements retrouvés et cron admin</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-09-03/</link>
       <pubDate>Thu, 03 Sep 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-09-03/</guid>
-      <description>Translation pending · Le Digest prépare une version anglaise accessible depuis un sélecteur FR / GB discret tout en avançant sa traduction par lots. Le survol d’À propos s’adapte aux fenêtres étroites comme aux changements d’accessibilité, et les tags reprennent leur mouvement après restauration de page. Les deux chantiers préservent la priorité accordée à la réduction des animations.</description>
+      <description>Translation pending · Le Digest prépare une version anglaise accessible depuis un sélecteur FR / GB discret tout en avançant sa traduction par lots. Le survol d’À propos s’adapte aux fenêtres étroites comme aux changements d’accessibilité, et les tags reprennent leur mouvement après restauration de page. L’environnement Node du cron admin est documenté et aligné sur Node 22.</description>
     </item>
     <item>
       <title>La curation traverse Firefox</title>
