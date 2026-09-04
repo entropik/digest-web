@@ -1,10 +1,16 @@
 {
   "version": 1,
-  "baseRevision": "3698ea9cb97300a37cdc12e93dd5cb9acc2ef84c37b619aeb2a2c967ac0b8b3d",
-  "targetRevision": "e9c651f3278ff8681b6ae6dc963478e2515dec09c13d1db658d5d89ea49c1c18",
+  "baseRevision": "e9c651f3278ff8681b6ae6dc963478e2515dec09c13d1db658d5d89ea49c1c18",
+  "targetRevision": "860e4e6603f467c2d1a2e427b1ad3310d7f29dd4cc3d7dd26460f1865f2785f1",
   "manifestRevision": "f2272c908b90ac69240b90702fdeaa5e9baa19629f567348c73ce89e3d01d2ee",
   "fullBuild": false,
   "items": [
+    {
+      "id": "category:Krisis",
+      "fields": [
+        "description"
+      ]
+    },
     {
       "id": "page:/archives/2026-08-16",
       "fields": [
@@ -66,301 +72,235 @@
       ]
     },
     {
-      "id": "tag:A5",
+      "id": "tag:100design",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:adh",
+      "id": "tag:art-contemporain",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:analyse",
+      "id": "tag:attali",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:appleEvent",
+      "id": "tag:Australie",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:artiste",
+      "id": "tag:Campagne2012",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:bolbreton",
+      "id": "tag:Chamb",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:canicule",
+      "id": "tag:conseil",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:chatcach",
+      "id": "tag:ConseildEtat",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:danieldarc",
+      "id": "tag:culture",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:decoracion",
+      "id": "tag:desktop",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:DenisRobert",
+      "id": "tag:DevOps",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:Depression",
+      "id": "tag:EPS",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:design",
+      "id": "tag:google",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:domains",
+      "id": "tag:hosting",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:édition",
+      "id": "tag:hp360",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:hplatex360",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:HSBC",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:JavaScript",
       "fields": [
         "description"
       ]
     },
     {
-      "id": "tag:enseignement",
+      "id": "tag:letterpress",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:entretiens",
+      "id": "tag:local",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:éthique",
+      "id": "tag:logiciel",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:EurovisionFR",
+      "id": "tag:LPJ",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:fiche",
+      "id": "tag:Nantes",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:financement-participatif",
+      "id": "tag:Nikon",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:graphisme",
+      "id": "tag:OAI13",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:guide",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:happy",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:histoire",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:livre-d-art",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:livret",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:logo",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:love",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:memory",
+      "id": "tag:philosophie",
       "fields": [
         "description"
       ]
     },
     {
-      "id": "tag:minimalisme",
+      "id": "tag:pose",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:mise-à-jour",
+      "id": "tag:procrastination",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:opentypo",
+      "id": "tag:réparation",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:optimisation",
+      "id": "tag:root",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:outil",
+      "id": "tag:serveur",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:outils",
+      "id": "tag:spécification",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:palette",
+      "id": "tag:spécimen",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:papiers",
+      "id": "tag:tinyletter",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:PHP",
+      "id": "tag:tutoriels",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:Saint-Fons",
+      "id": "tag:via:dtatem",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:sanstitre",
+      "id": "tag:vitrail",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:stalker",
+      "id": "tag:web-to-print",
       "fields": [
         "name"
       ]
     },
     {
-      "id": "tag:terminal",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:textile",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:transparent",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:Tunisie",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:UI",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "tag:variable-font",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:voyage",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:webfont",
+      "id": "tag:williamburroughs",
       "fields": [
         "name"
       ]
@@ -369,51 +309,115 @@
   "paths": [
     "/",
     "/archives/",
-    "/archives/2014-02-25/",
-    "/archives/2014-03-21/",
-    "/archives/2014-05-10/",
-    "/archives/2014-05-19/",
-    "/archives/2014-06-23/",
-    "/archives/2014-07-13/",
-    "/archives/2014-07-18/",
+    "/archives/2014-02-22/",
+    "/archives/2014-02-26/",
+    "/archives/2014-04-05/",
+    "/archives/2014-07-08/",
+    "/archives/2014-07-10/",
+    "/archives/2014-07-11/",
+    "/archives/2014-07-15/",
     "/archives/2014-07-20/",
     "/archives/2014-07-21/",
-    "/archives/2014-08-02/",
+    "/archives/2014-08-04/",
+    "/archives/2014-09-09/",
     "/archives/2014-09-13/",
-    "/archives/2014-09-25/",
-    "/archives/2014-10-07/",
-    "/archives/2015-07-17/",
+    "/archives/2014-09-16/",
+    "/archives/2014-09-17/",
+    "/archives/2014-10-11/",
+    "/archives/2014-11-11/",
+    "/archives/2014-11-18/",
+    "/archives/2014-11-25/",
+    "/archives/2014-11-26/",
+    "/archives/2014-11-27/",
+    "/archives/2014-12-04/",
+    "/archives/2015-01-28/",
+    "/archives/2015-01-29/",
+    "/archives/2015-02-03/",
+    "/archives/2015-02-08/",
+    "/archives/2015-02-24/",
+    "/archives/2015-02-25/",
+    "/archives/2015-03-03/",
+    "/archives/2015-03-04/",
+    "/archives/2015-03-06/",
+    "/archives/2015-03-07/",
+    "/archives/2015-03-17/",
+    "/archives/2015-04-15/",
+    "/archives/2015-04-16/",
+    "/archives/2015-05-04/",
+    "/archives/2015-05-05/",
+    "/archives/2015-05-20/",
+    "/archives/2015-05-25/",
+    "/archives/2015-05-28/",
+    "/archives/2015-06-01/",
+    "/archives/2015-06-03/",
+    "/archives/2015-06-08/",
+    "/archives/2015-06-09/",
+    "/archives/2015-06-11/",
+    "/archives/2015-06-13/",
+    "/archives/2015-06-14/",
+    "/archives/2015-06-23/",
+    "/archives/2015-06-26/",
+    "/archives/2015-08-21/",
+    "/archives/2015-08-27/",
+    "/archives/2015-08-31/",
+    "/archives/2015-09-02/",
+    "/archives/2015-09-03/",
+    "/archives/2015-09-06/",
+    "/archives/2015-09-08/",
+    "/archives/2015-09-21/",
+    "/archives/2015-09-23/",
+    "/archives/2015-09-24/",
+    "/archives/2015-09-28/",
     "/archives/2015-09-29/",
-    "/archives/2015-10-13/",
-    "/archives/2015-11-16/",
-    "/archives/2015-12-03/",
-    "/archives/2016-02-03/",
-    "/archives/2016-02-29/",
-    "/archives/2016-03-18/",
-    "/archives/2016-03-24/",
-    "/archives/2016-04-21/",
+    "/archives/2015-10-01/",
+    "/archives/2015-11-02/",
+    "/archives/2015-11-05/",
+    "/archives/2015-11-10/",
+    "/archives/2015-12-17/",
+    "/archives/2016-01-09/",
+    "/archives/2016-01-26/",
+    "/archives/2016-01-29/",
+    "/archives/2016-02-12/",
+    "/archives/2016-02-19/",
+    "/archives/2016-03-16/",
+    "/archives/2016-03-17/",
+    "/archives/2016-03-29/",
+    "/archives/2016-03-30/",
+    "/archives/2016-04-19/",
+    "/archives/2016-04-20/",
+    "/archives/2016-04-25/",
+    "/archives/2016-05-02/",
+    "/archives/2016-05-03/",
+    "/archives/2016-05-04/",
+    "/archives/2016-05-09/",
     "/archives/2016-05-12/",
+    "/archives/2016-05-17/",
     "/archives/2016-05-19/",
-    "/archives/2016-05-25/",
-    "/archives/2016-08-30/",
-    "/archives/2016-09-01/",
-    "/archives/2016-09-07/",
+    "/archives/2016-05-23/",
+    "/archives/2016-06-21/",
+    "/archives/2016-06-24/",
+    "/archives/2016-06-25/",
+    "/archives/2016-07-29/",
+    "/archives/2016-08-26/",
+    "/archives/2016-08-29/",
+    "/archives/2016-09-20/",
+    "/archives/2016-09-22/",
     "/archives/2016-09-27/",
+    "/archives/2016-09-30/",
     "/archives/2016-10-04/",
-    "/archives/2016-10-27/",
-    "/archives/2016-11-03/",
-    "/archives/2016-11-30/",
+    "/archives/2016-10-18/",
+    "/archives/2016-10-28/",
+    "/archives/2016-11-09/",
     "/archives/2017-02-24/",
     "/archives/2017-03-08/",
     "/archives/2017-03-21/",
     "/archives/2017-03-30/",
     "/archives/2017-04-07/",
     "/archives/2017-04-18/",
-    "/archives/2017-11-05/",
-    "/archives/2017-12-08/",
+    "/archives/2017-11-06/",
     "/archives/2018-09-10/",
-    "/archives/2019-06-25/",
     "/archives/2022-03-11/",
+    "/archives/2022-04-14/",
     "/archives/2026-07-24/",
     "/archives/2026-08-16/",
     "/archives/2026-08-18/",
@@ -431,303 +435,203 @@
     "/flux/tumblr-ooblik/",
     "/flux/twitter/",
     "/tags/",
-    "/tags/a5/",
-    "/tags/aaron-swartz/",
-    "/tags/abstention/",
-    "/tags/ade/",
-    "/tags/adh/",
+    "/tags/100design/",
+    "/tags/adobe/",
     "/tags/affiche/",
-    "/tags/agence/",
+    "/tags/affiches/",
     "/tags/agents/",
-    "/tags/allemagne/",
-    "/tags/analyse/",
+    "/tags/algorithmes/",
+    "/tags/allenginsberg/",
     "/tags/anarchisme/",
-    "/tags/anglais/",
-    "/tags/annuaire/",
-    "/tags/appleevent/",
+    "/tags/animation/",
     "/tags/apprentissage/",
-    "/tags/architecture/",
     "/tags/archive/",
-    "/tags/archives/",
-    "/tags/area-17/",
-    "/tags/argentique/",
-    "/tags/arles/",
     "/tags/art-contemporain/",
     "/tags/art/",
     "/tags/artisanat/",
     "/tags/artiste/",
-    "/tags/arts-visuels/",
-    "/tags/assistant/",
-    "/tags/atelier/",
-    "/tags/attention/",
+    "/tags/association/",
+    "/tags/attali/",
     "/tags/australie/",
-    "/tags/auto-hebergement/",
     "/tags/automatisation/",
-    "/tags/berlin/",
+    "/tags/bache/",
     "/tags/blog-ooblik/",
     "/tags/blog/",
-    "/tags/bolbreton/",
-    "/tags/book/",
-    "/tags/books/",
-    "/tags/bordage/",
-    "/tags/brutalisme/",
-    "/tags/byooblik/",
-    "/tags/cafe/",
-    "/tags/canicule/",
-    "/tags/carnets/",
-    "/tags/carriere/",
-    "/tags/cartes/",
-    "/tags/catalogue/",
+    "/tags/campagne2012/",
     "/tags/centre-d-art/",
-    "/tags/centre-pompidou/",
-    "/tags/chatcach/",
+    "/tags/chamb/",
+    "/tags/ci-cd/",
     "/tags/cinema/",
+    "/tags/clientcontent/",
     "/tags/cms/",
-    "/tags/code-review/",
-    "/tags/code/",
     "/tags/codebase/",
-    "/tags/collaboration/",
-    "/tags/collectif/",
-    "/tags/coloniale/",
-    "/tags/colonialisme/",
-    "/tags/command/",
-    "/tags/compression/",
-    "/tags/conference/",
-    "/tags/contexte/",
-    "/tags/conversion/",
+    "/tags/communaute/",
+    "/tags/confidentialite/",
+    "/tags/configuration/",
+    "/tags/conseil/",
+    "/tags/conseildetat/",
+    "/tags/contenu/",
     "/tags/creation/",
-    "/tags/creative-coding/",
-    "/tags/critique/",
-    "/tags/css/",
-    "/tags/culture-libre/",
     "/tags/culture/",
     "/tags/cybersecurite/",
-    "/tags/danieldarc/",
-    "/tags/datavisualisation/",
-    "/tags/decoracion/",
-    "/tags/denisrobert/",
-    "/tags/depression/",
-    "/tags/design-editorial/",
-    "/tags/design-generatif/",
-    "/tags/design-graphique/",
+    "/tags/datagramme/",
+    "/tags/deco/",
+    "/tags/demonstration/",
     "/tags/design-system/",
-    "/tags/design-web/",
     "/tags/design/",
-    "/tags/detection/",
-    "/tags/developpement-web/",
+    "/tags/desktop/",
     "/tags/developpement/",
-    "/tags/diffusion/",
-    "/tags/distribution/",
-    "/tags/diy/",
+    "/tags/devops/",
+    "/tags/documents/",
     "/tags/domains/",
     "/tags/dooo/",
-    "/tags/dosis/",
-    "/tags/drapeau/",
-    "/tags/ecole/",
+    "/tags/easydot/",
     "/tags/ecriture/",
     "/tags/editeur/",
     "/tags/edition/",
-    "/tags/editions/",
+    "/tags/editor/",
     "/tags/education/",
     "/tags/encyclopedie/",
-    "/tags/enfants/",
-    "/tags/enseignement/",
-    "/tags/entreprise/",
-    "/tags/entretien/",
-    "/tags/entretiens/",
-    "/tags/ephemeride/",
-    "/tags/espagne/",
-    "/tags/etats-unis/",
-    "/tags/ethique/",
-    "/tags/eurovisionfr/",
+    "/tags/eps/",
+    "/tags/espacement/",
+    "/tags/est/",
     "/tags/experimentation/",
     "/tags/exposition/",
-    "/tags/fabrication/",
-    "/tags/faconnage/",
-    "/tags/fake-news/",
-    "/tags/fiche/",
-    "/tags/financement-participatif/",
-    "/tags/fonderie/",
-    "/tags/font-pairing/",
+    "/tags/falciani/",
+    "/tags/fondation/",
     "/tags/font/",
     "/tags/fonts/",
-    "/tags/forum/",
-    "/tags/framasoft/",
-    "/tags/france/",
+    "/tags/francia/",
     "/tags/frontend/",
-    "/tags/geek/",
-    "/tags/gestionnaire-de-fichiers/",
-    "/tags/git/",
-    "/tags/google-fonts/",
     "/tags/google/",
-    "/tags/graphic/",
+    "/tags/grandformat/",
+    "/tags/graphe/",
     "/tags/graphisme/",
-    "/tags/grille/",
-    "/tags/guide/",
     "/tags/habitudes/",
-    "/tags/happy/",
+    "/tags/hebergement/",
+    "/tags/herbier/",
     "/tags/hexis/",
-    "/tags/histoire/",
+    "/tags/hosting/",
+    "/tags/hp/",
+    "/tags/hp360/",
+    "/tags/hplatex/",
     "/tags/hplatex360/",
-    "/tags/humour/",
-    "/tags/hvd-fonts/",
+    "/tags/hsbc/",
     "/tags/ia-locale/",
     "/tags/ia/",
-    "/tags/identite/",
-    "/tags/illustration/",
-    "/tags/illustrations/",
-    "/tags/image-numerique/",
+    "/tags/image/",
     "/tags/images/",
-    "/tags/imposition/",
-    "/tags/impression-a-la-demande/",
     "/tags/impression/",
-    "/tags/imprimerie/",
-    "/tags/independant/",
-    "/tags/informatique/",
-    "/tags/inspiration/",
+    "/tags/indesign/",
+    "/tags/inference/",
     "/tags/instagram/",
     "/tags/interface/",
-    "/tags/interiorismo/",
-    "/tags/internet/",
-    "/tags/italie/",
-    "/tags/jean-widmer/",
-    "/tags/journal/",
-    "/tags/laboratoire/",
+    "/tags/javascript/",
+    "/tags/jean-marie-guyau/",
+    "/tags/jquery/",
+    "/tags/knowledge-management/",
+    "/tags/latex/",
+    "/tags/layout/",
+    "/tags/ldf15/",
+    "/tags/les/",
     "/tags/letterpress/",
-    "/tags/librairie/",
     "/tags/lien-mort/",
-    "/tags/ligne-de-commande/",
-    "/tags/line/",
     "/tags/litterature/",
     "/tags/livre-d-art/",
-    "/tags/livre-dartiste/",
     "/tags/livre-photo/",
-    "/tags/livre/",
-    "/tags/livret/",
+    "/tags/livres/",
     "/tags/llm/",
-    "/tags/logiciel-libre/",
-    "/tags/logo/",
-    "/tags/love/",
+    "/tags/local/",
+    "/tags/logiciel/",
+    "/tags/lpj/",
+    "/tags/luju/",
     "/tags/lyon/",
     "/tags/magazine/",
-    "/tags/manifeste/",
-    "/tags/materiel/",
-    "/tags/medias/",
-    "/tags/mediation/",
     "/tags/memoire-web/",
-    "/tags/memoire/",
-    "/tags/memory/",
-    "/tags/methode/",
     "/tags/minimalisme/",
-    "/tags/mise-a-jour/",
-    "/tags/mise-en-page/",
-    "/tags/mobilier/",
-    "/tags/modeles/",
-    "/tags/monospace/",
-    "/tags/mural/",
-    "/tags/musique/",
-    "/tags/narration/",
-    "/tags/nature/",
+    "/tags/mobile/",
+    "/tags/mus/",
+    "/tags/nantes/",
+    "/tags/nddl/",
+    "/tags/net/",
     "/tags/new-york/",
-    "/tags/numerique/",
-    "/tags/olivier-roller/",
+    "/tags/newsletter/",
+    "/tags/nikon/",
+    "/tags/oai13/",
     "/tags/ooblik/",
     "/tags/opensource/",
-    "/tags/opentype/",
-    "/tags/opentypo/",
-    "/tags/optimisation/",
-    "/tags/orchestration/",
-    "/tags/outil/",
-    "/tags/outils/",
-    "/tags/pagination/",
-    "/tags/pairing/",
-    "/tags/palette/",
-    "/tags/pao/",
-    "/tags/papelpintado/",
-    "/tags/paper/",
-    "/tags/papier/",
-    "/tags/papiers/",
-    "/tags/parametrique/",
-    "/tags/pays-bas/",
-    "/tags/paysage/",
+    "/tags/papierpeint/",
     "/tags/performance/",
     "/tags/philosophie/",
     "/tags/photo/",
-    "/tags/photobook/",
-    "/tags/photographer/",
     "/tags/photographie/",
-    "/tags/php/",
-    "/tags/police/",
+    "/tags/photojournalisme/",
+    "/tags/pieces-detachees/",
+    "/tags/poesie/",
     "/tags/polices/",
-    "/tags/politique/",
-    "/tags/pologne/",
-    "/tags/portfolio/",
-    "/tags/premiere-guerre-mondiale/",
+    "/tags/pose/",
+    "/tags/prepresse/",
+    "/tags/printbyooblik/",
+    "/tags/prixhsbc/",
     "/tags/procrastination/",
-    "/tags/production-type/",
+    "/tags/production/",
     "/tags/productivite/",
-    "/tags/produit/",
-    "/tags/publication/",
-    "/tags/radio/",
-    "/tags/reference/",
+    "/tags/programmers/",
+    "/tags/projets/",
+    "/tags/rag/",
+    "/tags/reflexion/",
     "/tags/reliure/",
-    "/tags/ressources/",
-    "/tags/retrospective/",
+    "/tags/reparation/",
+    "/tags/repositionnable/",
+    "/tags/reseau/",
+    "/tags/restauration/",
+    "/tags/revue-web/",
     "/tags/revue/",
-    "/tags/ricoh/",
-    "/tags/royaume-uni/",
-    "/tags/russie/",
+    "/tags/root/",
     "/tags/saas/",
-    "/tags/saint-etienne/",
     "/tags/saint-fons/",
-    "/tags/sans-serif/",
-    "/tags/sanstitre/",
-    "/tags/santitrelyon/",
-    "/tags/sarkozy/",
-    "/tags/scenographie/",
     "/tags/scroll/",
-    "/tags/selection/",
-    "/tags/services/",
-    "/tags/shoah/",
-    "/tags/site/",
-    "/tags/skills/",
-    "/tags/societe/",
+    "/tags/serveur/",
+    "/tags/specification/",
+    "/tags/specimen/",
     "/tags/stalker/",
+    "/tags/studioprint/",
     "/tags/suisse/",
-    "/tags/systemes/",
+    "/tags/super-8/",
     "/tags/technologie/",
-    "/tags/terminal/",
-    "/tags/textile/",
+    "/tags/textes/",
     "/tags/themes/",
-    "/tags/tmux/",
-    "/tags/tokyo/",
-    "/tags/traceur/",
-    "/tags/transfert-de-fichiers/",
+    "/tags/tinyletter/",
+    "/tags/totem/",
     "/tags/transparent/",
-    "/tags/transsiberien/",
     "/tags/tumblr/",
-    "/tags/tunisie/",
+    "/tags/tutoriels/",
     "/tags/twitter/",
+    "/tags/typo/",
     "/tags/typographie/",
     "/tags/typography/",
     "/tags/typos/",
     "/tags/ui/",
-    "/tags/unifier/",
+    "/tags/upload/",
     "/tags/ux/",
-    "/tags/variable-font/",
-    "/tags/vecteur/",
     "/tags/veille/",
     "/tags/via-dtatem/",
-    "/tags/vinyle/",
+    "/tags/vitrail/",
+    "/tags/vitraux/",
     "/tags/vitrophanie/",
     "/tags/voyage/",
+    "/tags/wall/",
+    "/tags/wallcover/",
+    "/tags/wallpaper/",
     "/tags/web-development/",
     "/tags/web-to-print/",
     "/tags/web/",
     "/tags/webdesign/",
-    "/tags/webfont/",
+    "/tags/webinaire/",
+    "/tags/williamburroughs/",
     "/tags/wordpress/",
     "/tags/wp/",
+    "/tags/zad/",
     "/tags/zine/"
   ],
   "artwork": {
@@ -745,5 +649,5 @@
     ],
     "remove": []
   },
-  "revision": "91e4da00c90c03042e704619b1e589898a2778ce380d318a4b5391e9fe15464b"
+  "revision": "e5f2681ea2a9b93914c06f45a06e70db9ea0bca6283f3668ccea1fa8831df8aa"
 }

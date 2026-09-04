@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "e9c651f3278ff8681b6ae6dc963478e2515dec09c13d1db658d5d89ea49c1c18",
+  "revision": "860e4e6603f467c2d1a2e427b1ad3310d7f29dd4cc3d7dd26460f1865f2785f1",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -15,6 +15,10 @@
       }
     },
     "category:Krisis": {
+      "description": {
+        "hash": "7db739b4db840561588cc8a9067c7ce8e26e964db63255cf46c34d3efbbbb6ad",
+        "text": "From the Greek krisis: separation, discernment, judgement and decision. The critical moment when a situation compels one to distinguish, take a stand and choose a course of action. Philosophy, society, ideologies, politics and ways of engaging with the world."
+      },
       "name": {
         "hash": "11993c1f60885dd1c45c7a3c28888b77806911fd3d2d7d898f541b502895c269",
         "text": "Crisis"
@@ -310,6 +314,12 @@
         "text": "&quot;area&quot;"
       }
     },
+    "tag:100design": {
+      "name": {
+        "hash": "7b454fefccb50e49ad504c403514e0e9009cfdde00314c156ad53d87f15155c8",
+        "text": "100design"
+      }
+    },
     "tag:11": {
       "name": {
         "hash": "35410757f97592c33680638448f4642a4c17c62e5736c0cd7a188303f5bd0c09",
@@ -394,6 +404,12 @@
         "text": "Subject"
       }
     },
+    "tag:Australie": {
+      "name": {
+        "hash": "78efee3f18687137845bd87bf3e04758708a946c65bfed486a52502d92028149",
+        "text": "Australia"
+      }
+    },
     "tag:BHL": {
       "name": {
         "hash": "39e6ed96785c859110b8ecf785cadac6e96c6d18f3f39c351a2525ef6419ace6",
@@ -442,6 +458,18 @@
         "text": "CPrint"
       }
     },
+    "tag:Campagne2012": {
+      "name": {
+        "hash": "7e07c77e06af8501542bbe0f0dd24ea769e2449c0f4b14bbd1d4212fe1384102",
+        "text": "2012 Campaign"
+      }
+    },
+    "tag:Chamb": {
+      "name": {
+        "hash": "7bab16990a3e13d3147d2486f6fee664e48e500bc9f1dc3febd2b5ce20f8de9a",
+        "text": "Chamber"
+      }
+    },
     "tag:ChooseIndependent": {
       "name": {
         "hash": "2a9b9339606c696754187702aa755215004bdebb841f71c5e86f8481c9b7fb8f",
@@ -458,6 +486,12 @@
       "name": {
         "hash": "31fd680e7de7ea234cb85b60aa500646133a8b988ec0cabf0be3393c94c59ddf",
         "text": "Claude"
+      }
+    },
+    "tag:ConseildEtat": {
+      "name": {
+        "hash": "7bdc5ee12b178f12ad4fe5df7c5d26cf9526125cfe2d68e1dfb3e7282a03c4b3",
+        "text": "Council of State"
       }
     },
     "tag:DIY": {
@@ -484,6 +518,12 @@
         "text": "Depression"
       }
     },
+    "tag:DevOps": {
+      "name": {
+        "hash": "7de3e9b345bbb264361e552a349c52a8397714b79ecfc5a4de02e2f113ae6e54",
+        "text": "DevOps"
+      }
+    },
     "tag:Digest": {
       "name": {
         "hash": "3e7fb4744a67e34eb9add6c70bd8e6c53e91276ea321dab62eb48187541a6455",
@@ -500,6 +540,12 @@
       "name": {
         "hash": "3c5c7c59d19ac93f123ebe1b490191b23b23a3b2318437c9a1d65f7cc0ef7775",
         "text": "Electronic Fuel Injection"
+      }
+    },
+    "tag:EPS": {
+      "name": {
+        "hash": "7cec867eb22465068796c1f833311df8e22fed5c96d53d2e8c311c0558ff4fb6",
+        "text": "Earnings Per Share"
       }
     },
     "tag:EPUB": {
@@ -592,6 +638,12 @@
         "text": "Graphic"
       }
     },
+    "tag:HSBC": {
+      "name": {
+        "hash": "7e9f25c07ac123bb329c08052f7995b9cd911f55a1b14681b39d150ae61a6ee3",
+        "text": "Hong Kong and Shanghai Banking Corporation"
+      }
+    },
     "tag:HSBCBlackMoneyList": {
       "name": {
         "hash": "20c0ea2aab22a4299317359ae733536134dfb9435c549de24c3aaa49244525f6",
@@ -647,6 +699,10 @@
       }
     },
     "tag:JavaScript": {
+      "description": {
+        "hash": "7cc95356714d87e34ee21a636e453c9e6539aacf224a7d63b4d211849c1c8ea0",
+        "text": "The JavaScript language and its ecosystem."
+      },
       "name": {
         "hash": "108526945b5d85ca0df36080eb519c1b98b945e6261ef15b851e52308a56bdaa",
         "text": "JavaScript"
@@ -674,6 +730,12 @@
       "name": {
         "hash": "5faf56b777beefae78172240df36747a150ee725f55f9922031f5eb3292c4edc",
         "text": "Kirby CMS"
+      }
+    },
+    "tag:LPJ": {
+      "name": {
+        "hash": "7e47f4e124199a805c5d9bd0989475de2d2f4e64364213f04aaa48fc7976ddb1",
+        "text": "LPJ"
       }
     },
     "tag:Laidout": {
@@ -730,6 +792,12 @@
         "text": "Local Elections 2014"
       }
     },
+    "tag:Nantes": {
+      "name": {
+        "hash": "78b9685f1242a4bc6a11abfce2d496ef2ce51809d8100df74c3e0d10392eec30",
+        "text": "Nantes"
+      }
+    },
     "tag:NePas": {
       "name": {
         "hash": "37c8e35105bf12a318356878e7c3abbdc0c4ce2a1d3bfdf0995251a873bf37f8",
@@ -746,6 +814,18 @@
       "name": {
         "hash": "1f5cba403d69b5f82a114f257de1b52fa2c01114cf7acd974697514fd1e20ef1",
         "text": "No, no"
+      }
+    },
+    "tag:Nikon": {
+      "name": {
+        "hash": "7f8a8c9280dfb5539a21e19a76352d58b7e9bd62ead26807d2245b5bdbe8200f",
+        "text": "Nikon"
+      }
+    },
+    "tag:OAI13": {
+      "name": {
+        "hash": "7d72f45ea14a985b6b5801067023a006fba095f4fbc7d26276b3351cab0abb84",
+        "text": "One of the thirteen"
       }
     },
     "tag:OSP": {
@@ -1088,6 +1168,12 @@
         "text": "art"
       }
     },
+    "tag:art-contemporain": {
+      "name": {
+        "hash": "7e6d8504b635cdad052125516bc9246e13af32e12779829d9c73c63cfd4eef38",
+        "text": "contemporary art"
+      }
+    },
     "tag:art-numérique": {
       "description": {
         "hash": "3f46ff6698e48e786a4f14fe7f63b126f543a9792f3266cf3f2d80ed7e9ed238",
@@ -1132,6 +1218,12 @@
       "name": {
         "hash": "0bf4240d908b896fc92f00cbd798ad80bc3aecc40308211345c7631fa78c31ee",
         "text": "to follow"
+      }
+    },
+    "tag:attali": {
+      "name": {
+        "hash": "7fc6443c3af1d229997bed99fc36b1ecb208459e10a4d76dff21c0dc5505176c",
+        "text": "such"
       }
     },
     "tag:attention": {
@@ -1418,6 +1510,12 @@
         "text": "concrete"
       }
     },
+    "tag:conseil": {
+      "name": {
+        "hash": "7e39cf30d9af4b1c023c0564b88e72af13064a942800eccdfb75872d0322d97f",
+        "text": "advice"
+      }
+    },
     "tag:contenu": {
       "name": {
         "hash": "2f7d12fff09923e057bfd7eb88ed8e9fade9a6d8101fa6e78df1ac9cbb306855",
@@ -1470,6 +1568,12 @@
       "name": {
         "hash": "180943fcac3212a4f9e6e51fed9e40f39375074e1f2becface721788ebfb1a10",
         "text": "kitchen"
+      }
+    },
+    "tag:culture": {
+      "name": {
+        "hash": "7b362638ad700d8b50996dac005e31743e6ad74d26cf6391091d89a8c2fbc966",
+        "text": "culture"
       }
     },
     "tag:culture-libre": {
@@ -1554,6 +1658,12 @@
       "name": {
         "hash": "6115e02393c7993f5d5a9abe95c44cce5590224977c77c5817cef387c5937727",
         "text": "editorial design"
+      }
+    },
+    "tag:desktop": {
+      "name": {
+        "hash": "7d2622fe1bb09430a76800f93457c9ae28bdee2b9229c1b3360e6e6982e1fda8",
+        "text": "desktop"
       }
     },
     "tag:diditalprint": {
@@ -1794,6 +1904,12 @@
         "text": "Get Kirby"
       }
     },
+    "tag:google": {
+      "name": {
+        "hash": "7d60fa58cad8d337db2b4155d888fa956526b14e8b6b1adc3968ee103931621d",
+        "text": "Google"
+      }
+    },
     "tag:graphe": {
       "name": {
         "hash": "5df745979fe2aecea52cc2e1797a7cfa9e5e5b989e48690496b7d6e025b4f03b",
@@ -1866,16 +1982,34 @@
         "text": "history"
       }
     },
+    "tag:hosting": {
+      "name": {
+        "hash": "7fa421a71b5d832aa086ded6483bf39dba82f7a92c737293d3bfc69ef97e809d",
+        "text": "hosting"
+      }
+    },
     "tag:hp": {
       "name": {
         "hash": "2eafba636c891dbb54281162b779baa035bf73b9032f5b865171a1fa70a8e5e6",
         "text": "High-powered"
       }
     },
+    "tag:hp360": {
+      "name": {
+        "hash": "7c51b5fe60550d4922d97c3a5d517522cc2bbadcea1e96c9c3d582503f4f384a",
+        "text": "High-pressure"
+      }
+    },
     "tag:hplatex": {
       "name": {
         "hash": "0aec720a1fdffbc55aa1bfb4a87717379489a13c6c9b5ee88c8be0f6ec07a026",
         "text": "This is a LaTeX package for handling Hebrew."
+      }
+    },
+    "tag:hplatex360": {
+      "name": {
+        "hash": "7f62d994d15382c9436afa78ea7b2ae544cddb227335b0956ceabe1b45e47f93",
+        "text": "hplatex360"
       }
     },
     "tag:huge": {
@@ -2068,6 +2202,12 @@
         "text": "The Cons"
       }
     },
+    "tag:letterpress": {
+      "name": {
+        "hash": "78700fa900fa453e4aaaa142fe4794c7fe87ee9d55664e0801820d0752a2cfc7",
+        "text": "letterpress"
+      }
+    },
     "tag:libraire": {
       "name": {
         "hash": "40f36939c62ccb592bb1336aee51fb158392834444f0ce8c29e90709674459e7",
@@ -2132,6 +2272,18 @@
       "name": {
         "hash": "776a5a7149ddf033d25cab9f7c3de9f3299af0e2a98bfcc779c7d7744846d810",
         "text": "booklet"
+      }
+    },
+    "tag:local": {
+      "name": {
+        "hash": "79e91c6fd8ca863e42429e33517b1cda9c1191ce757d35a7cfc787d4cf4aaf19",
+        "text": "local"
+      }
+    },
+    "tag:logiciel": {
+      "name": {
+        "hash": "7c0848e365f0392614ac6828e6651cc90b77561f3a8d38bc1201a7881f95901d",
+        "text": "software"
       }
     },
     "tag:logiciels": {
@@ -2467,6 +2619,10 @@
       }
     },
     "tag:philosophie": {
+      "description": {
+        "hash": "7e4056d6907ed7173d999cd76b4cebe9cbef8d393969eb1d056ff8fc84b04bc8",
+        "text": "Thought, concepts and the history of philosophy."
+      },
       "name": {
         "hash": "159d4332542e028898d19aa30370f91dc0b73eb06ed699a58423e2764a62e246",
         "text": "philosophy"
@@ -2572,6 +2728,12 @@
         "text": "tomato"
       }
     },
+    "tag:pose": {
+      "name": {
+        "hash": "7d84d3f34a4e568d83f10e58dbf55d69741dd5dfa6209ad3e3be583a1ff5b356",
+        "text": "installation"
+      }
+    },
     "tag:positivons": {
       "name": {
         "hash": "42e9a54a558b6df74368b8efc1f2201ef5b8a7396b6aab7e10f2468457364c87",
@@ -2600,6 +2762,12 @@
       "name": {
         "hash": "5a60d23f09ee141edd5cb7f22ca2bddf8dad23335817a421cdc466f8b129cf01",
         "text": "bmw prices"
+      }
+    },
+    "tag:procrastination": {
+      "name": {
+        "hash": "78824b6d02908192ba15ed12e3b9648be2498994fb7fae753a4f4d973b7f8bed",
+        "text": "procrastination"
       }
     },
     "tag:production": {
@@ -2704,10 +2872,22 @@
         "text": "robotics"
       }
     },
+    "tag:root": {
+      "name": {
+        "hash": "7ca37870957a3d2dc2a7150390c7952e651367a8ef3c34508fc412ba48e47184",
+        "text": "root"
+      }
+    },
     "tag:réflexion": {
       "name": {
         "hash": "31e95c972069791053391ba142d125b0258528f8328f86e5e071f6ca099f44d2",
         "text": "reflection"
+      }
+    },
+    "tag:réparation": {
+      "name": {
+        "hash": "7a48e353db5e57938af76c81a45fd20ccb4a2bb1910fd39d884ee9da475ebed8",
+        "text": "repair"
       }
     },
     "tag:rétrospective": {
@@ -2752,6 +2932,12 @@
         "text": "serif"
       }
     },
+    "tag:serveur": {
+      "name": {
+        "hash": "7a5aa8a8f0bfe0e84ba4cbd82fd015edf9fe0c2ce1493ab94bb25393b1428057",
+        "text": "server"
+      }
+    },
     "tag:service-public": {
       "name": {
         "hash": "5ffc794cbe5cf529c48dc1dc421a5165c0e3ea48c50ca002499116c18a0dcab8",
@@ -2776,10 +2962,22 @@
         "text": "source-available"
       }
     },
+    "tag:spécification": {
+      "name": {
+        "hash": "7f77db9f06ea0996796d6edbf2efc86600dbb4cf3e6c11c9271cda5b27d99e22",
+        "text": "specification"
+      }
+    },
     "tag:spécifications": {
       "name": {
         "hash": "60fdfa545532050e6c5298f17dfc79b835fed256248c2499e02c272ec49b9e59",
         "text": "specifications"
+      }
+    },
+    "tag:spécimen": {
+      "name": {
+        "hash": "79fdc8bb3479ee94b281d2207d91751c3a169a3b2b5378266979d6ace42a9609",
+        "text": "specimen"
       }
     },
     "tag:stalker": {
@@ -2872,6 +3070,12 @@
         "text": "topics"
       }
     },
+    "tag:tinyletter": {
+      "name": {
+        "hash": "7ad4d2111380de8a23bc889e6ec32b73d2b0c23a664ff2fc7dcce6df5afb76b0",
+        "text": "tinyletter"
+      }
+    },
     "tag:tipibookshop": {
       "name": {
         "hash": "20309f4be26ac82a51f8177201c1705ad125b52840eb34e29151fdebe5531d71",
@@ -2948,6 +3152,12 @@
         "text": "tutorial"
       }
     },
+    "tag:tutoriels": {
+      "name": {
+        "hash": "7c23d4406816a2545f66235c3a21e40d89cc950bfcd6c4bde9c7efe8eff0de3f",
+        "text": "tutorials"
+      }
+    },
     "tag:twitter": {
       "name": {
         "hash": "2b4ea9e6c9b3e46922a0ffce159ecb44dcc0ee60b4a7f0c4b07694768ea958d7",
@@ -3002,6 +3212,12 @@
         "text": "the day before"
       }
     },
+    "tag:via:dtatem": {
+      "name": {
+        "hash": "7fe0915f100e96609c77a1ea71a131d0b5b3dfede512e5d328da6a5e94bff8aa",
+        "text": "Via:dtatem"
+      }
+    },
     "tag:vidéo": {
       "description": {
         "hash": "39f48e316edce38e415c946913753eeb39c8226deaf66b4b394f688306b09803",
@@ -3036,6 +3252,12 @@
         "text": "visualisation"
       }
     },
+    "tag:vitrail": {
+      "name": {
+        "hash": "7d2b3132f5f880e664faf367e8da9ab145616cddb380d488d794eda0aead0a6c",
+        "text": "stained-glass window"
+      }
+    },
     "tag:vitrophanie": {
       "name": {
         "hash": "532db7b96bb74c9bad6ce02c50b1905c341f44dd814e7e1f02a0947fa9184ca0",
@@ -3068,6 +3290,10 @@
       "description": {
         "hash": "67e1d91c5cb760cf41d883732f8bce7afae078449245bbadeb45f852f63d1775",
         "text": "Editorial workflows linking web interfaces and print production."
+      },
+      "name": {
+        "hash": "7d0221b60650cc7c80219308716bb5f0d0d5bee061bcfa198ae9557e02141fbc",
+        "text": "web-to-print"
       }
     },
     "tag:web_development": {
@@ -3092,6 +3318,12 @@
       "name": {
         "hash": "108179c399a6b75dba87810d7b80cd502819be86b1dbca0e62a5d4cac4626f41",
         "text": "white"
+      }
+    },
+    "tag:williamburroughs": {
+      "name": {
+        "hash": "7a80a0a7d26552d95ac89c275c892516786576a735bfc7345098dc87dd333cfb",
+        "text": "williamburroughs"
       }
     },
     "tag:workflows": {
