@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "b2d080a1f6cd22620dee2bc66a8ef731a8d5eb35145bfa1e44edd25c96ac6af5",
+  "revision": "4ac7eff5058e9916ac9b334f7f1a03954d6eabe9952ad75d6993ecea63d7996b",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -344,6 +344,12 @@
         "text": "2016"
       }
     },
+    "tag:25ansduoueb": {
+      "name": {
+        "hash": "9f055b05eefcc38fabbc483aba1a664b19c41f044f59894726a50f9331fa3586",
+        "text": "Twenty-five years of the web"
+      }
+    },
     "tag:A5": {
       "name": {
         "hash": "6ccf1f604d75a7090da8163416d0f5af109cd64c0ab4c230f0d68b8cfe10f07b",
@@ -444,6 +450,12 @@
       "name": {
         "hash": "39e6ed96785c859110b8ecf785cadac6e96c6d18f3f39c351a2525ef6419ace6",
         "text": "Before Christ"
+      }
+    },
+    "tag:Baudrillard": {
+      "name": {
+        "hash": "a530e733676c5631ab88624929e69544c833e4d34c2a59b20e76fd45ced08693",
+        "text": "Baudrillard"
       }
     },
     "tag:BlocsRocks": {
@@ -612,6 +624,12 @@
         "text": "EurovisionFR"
       }
     },
+    "tag:FB": {
+      "name": {
+        "hash": "a39ae31e73cf766cb81969bfdc258da9bd2939f0ec838b3552ba5e179b421b08",
+        "text": "Facebook"
+      }
+    },
     "tag:FOAM": {
       "name": {
         "hash": "6015f9292dda13248e49b558bde82b750fffeeda36f6e17266259c35d789ce86",
@@ -636,6 +654,12 @@
         "text": "Figaro"
       }
     },
+    "tag:FileSender": {
+      "name": {
+        "hash": "a14c141bebb01cf0a5a3f8ab66021d89af8747a8fd6fb6c38b5302c0b668075b",
+        "text": "FileSender"
+      }
+    },
     "tag:Finkielraut": {
       "name": {
         "hash": "4f8729fddc830f353a6025f0dc7867dc8a9e01bc39f8fdbcbea6dc7eb48c81ea",
@@ -652,6 +676,12 @@
       "name": {
         "hash": "48a80f25f43cfa4948e855b324c801954326ba4c84e44cb08c19de1c06c91a7f",
         "text": "Framasoft"
+      }
+    },
+    "tag:France": {
+      "name": {
+        "hash": "a46682655fa343488b67555185f7a6fcc56d34da2bada875b00c53ed34e322ad",
+        "text": "France"
       }
     },
     "tag:GeminiApp": {
@@ -714,6 +744,12 @@
         "text": "Halloween"
       }
     },
+    "tag:HarryCallahan": {
+      "name": {
+        "hash": "a6912d30e8031c93a5a5feb2858c77fb754a2644806484512bdf5f8e7f620adb",
+        "text": "HarryCallahan"
+      }
+    },
     "tag:HautsDeFrance": {
       "name": {
         "hash": "2bf53404452c097763e5337bd9e7bff8b4dbf1eaac42067c896ee234a504a63f",
@@ -733,6 +769,10 @@
       }
     },
     "tag:IA": {
+      "description": {
+        "hash": "a4bfa7f634d8710e5eeceb71ddcc29b562bc45a8f4c954dfdf0240bb7ef67ed0",
+        "text": "Artificial intelligence, models and applications."
+      },
       "name": {
         "hash": "3b367c4098b4a01b9fd0a60eee717c6dc16541cb2ffeacdde2ab978ada38ce77",
         "text": "I am"
@@ -766,6 +806,12 @@
       "name": {
         "hash": "2c16fc5505b80809b93a5bfe0221483de076ba4a5de6026b6e9704270a9ebf51",
         "text": "Italian"
+      }
+    },
+    "tag:Japon": {
+      "name": {
+        "hash": "a39b170139710f135826c5cb66b4cadf1a01848759b3689bab914523ef0d7811",
+        "text": "Japanese"
       }
     },
     "tag:JasonRezaian": {
@@ -812,6 +858,12 @@
       "name": {
         "hash": "5faf56b777beefae78172240df36747a150ee725f55f9922031f5eb3292c4edc",
         "text": "Kirby CMS"
+      }
+    },
+    "tag:Kodak": {
+      "name": {
+        "hash": "9ebeb6ac00614185bb601fcafabb3c41de33ec2bd919f1ab17a96df08fa055e6",
+        "text": "Kodak"
       }
     },
     "tag:LPJ": {
@@ -958,10 +1010,22 @@
         "text": "OSP"
       }
     },
+    "tag:OpenFX": {
+      "name": {
+        "hash": "a294a833387984e93dcd788e684c3b3438f96e6de974e1d9867fe1853b32c3c4",
+        "text": "OpenFX"
+      }
+    },
     "tag:OpenType": {
       "name": {
         "hash": "85a1cfa0fd61216976ca8371590912435a15b2c5a58065ec98800cd37cdbc137",
         "text": "OpenType"
+      }
+    },
+    "tag:Oscars": {
+      "name": {
+        "hash": "a48ba47632f9c3204bddb584d0880aa4339db7a3fe1129c57dd67b71d66424bd",
+        "text": "Oscars"
       }
     },
     "tag:PDF-X": {
@@ -998,6 +1062,12 @@
       "name": {
         "hash": "3eb54c78d08e197dfc27350ee4d2add5bbef42dcf7bbb928bb345084869770c0",
         "text": "PawsOnAppleTV"
+      }
+    },
+    "tag:Pays-Bas": {
+      "name": {
+        "hash": "a72ce2749b1fa55cd73492c3f4fec9b7b2b9440d57151395cfc7ae3594a1a233",
+        "text": "Netherlands"
       }
     },
     "tag:Periscope": {
@@ -1046,6 +1116,12 @@
       "name": {
         "hash": "9e21bcd9e7286ee52da9447aedef061be97c42a094a2eacb8025982d5b7d1cea",
         "text": "Poland"
+      }
+    },
+    "tag:Première-Guerre-mondiale": {
+      "name": {
+        "hash": "a7c579306d8fbcbb3d1a44e1c5b65eb581d8d38d000ac9341b87e30cd16cb9ea",
+        "text": "First World War"
       }
     },
     "tag:PrimaireDroite": {
@@ -1222,6 +1298,12 @@
         "text": "Design and operation of user interfaces."
       }
     },
+    "tag:UMP": {
+      "name": {
+        "hash": "a3f54cac1e0b27f36d7aa5a641cae9bed2fdb42c0ddd0494a50550a7a99a5af2",
+        "text": "Minimum Wage"
+      }
+    },
     "tag:UMPopcorn": {
       "name": {
         "hash": "951e03ae28d0256fdffa795b91a78a7bcd494941f78194ab457743c9ce8b8e3f",
@@ -1318,6 +1400,12 @@
         "text": "aeachi"
       }
     },
+    "tag:affiche": {
+      "name": {
+        "hash": "a2fb12759ec837a7895835bf2a84da31eec32c62355595fba6b7270b9aa4c0bf",
+        "text": "poster"
+      }
+    },
     "tag:affiches": {
       "name": {
         "hash": "2413fd621ac41f399a8e53a7fe3b181aba6e21c5c5bae0a081640f4ba6a3f70a",
@@ -1332,6 +1420,12 @@
       "name": {
         "hash": "296316c2670c17c770049276fefb201e8bd99777dcd561b9e7c57f376ffcd690",
         "text": "agents"
+      }
+    },
+    "tag:agreable": {
+      "name": {
+        "hash": "a6012410f65eb5af8135b2c8aeaac538d250ee10e591a9009c603f0cbb97d4d9",
+        "text": "agreeable"
       }
     },
     "tag:algorithme": {
@@ -1398,6 +1492,12 @@
       "name": {
         "hash": "91893bd41ec796ce4425591f778615b02f557585afbcbc9f8c4b8b7cc4ea2a53",
         "text": "family archives"
+      }
+    },
+    "tag:arles2016": {
+      "name": {
+        "hash": "a22b77d81967cbf2604afb84cdb08e2e511750120b93b28b525e7fb5c9ebfa55",
+        "text": "Arles 2016"
       }
     },
     "tag:art": {
@@ -1502,6 +1602,12 @@
       "description": {
         "hash": "3f48e774534c9397fda2df173cf6f50170d0edf9860298dcda55d8d338a6c058",
         "text": "Automation of tasks, workflows and systems."
+      }
+    },
+    "tag:automobile": {
+      "name": {
+        "hash": "9fe6f55ee4faeb17fce20fe79be2238b344e2b5e12a4e6a1e616402bdf83f671",
+        "text": "automotive"
       }
     },
     "tag:bache": {
@@ -1628,6 +1734,12 @@
       "name": {
         "hash": "21b5a54fa8d9c4c2ae92e16e8121db609250251cb69c90f9ace47f5876996ef8",
         "text": "build"
+      }
+    },
+    "tag:cadeaux": {
+      "name": {
+        "hash": "9eb49e0192fdf2a5bd544cca820391463c4ff95071dc5367676c25097b90a6eb",
+        "text": "gifts"
       }
     },
     "tag:cadre": {
@@ -1874,6 +1986,12 @@
         "text": "courage"
       }
     },
+    "tag:creative-coding": {
+      "name": {
+        "hash": "9f53f605c69acbe5ddd231d808b424a053136bb42b355f17030fdb08b71e2e6f",
+        "text": "creative-coding"
+      }
+    },
     "tag:critique": {
       "name": {
         "hash": "567463ff1dd58e1b01508eb86868acea4b8e2360c58f1d832e935dd02ea17aa5",
@@ -1948,6 +2066,12 @@
       "name": {
         "hash": "01d14934016d632279b7d3f7784a78957b6cd9c9bdac099d95d1040d73cadba2",
         "text": "from"
+      }
+    },
+    "tag:deco": {
+      "name": {
+        "hash": "a28e68e6f2b778f2b19f737fc9057579fbf67a03a82c4c9ec88c5040df8d12fe",
+        "text": "decorate"
       }
     },
     "tag:decoracion": {
@@ -2090,6 +2214,12 @@
         "text": "Development and maintenance of digital products."
       }
     },
+    "tag:développement-photo": {
+      "name": {
+        "hash": "a47fbe5b87172e676f8b473fee7370d7e940c8dc6f425407b653461162179d58",
+        "text": "photo development"
+      }
+    },
     "tag:développement-web": {
       "name": {
         "hash": "88f91d06b39ffe8f9ddba13410cfaaf26c2209ff5f607594d185da6ea79be0a8",
@@ -2222,6 +2352,12 @@
         "text": "proud"
       }
     },
+    "tag:film": {
+      "name": {
+        "hash": "9f1fa5aca60ffc35be7e52341068d4ad2cab5724ebea3b601d4932d182b696de",
+        "text": "film"
+      }
+    },
     "tag:finance": {
       "name": {
         "hash": "52fdfd7e61a1e31f3d6144875062d53f4c25adf514496b136987bc3ee81bb3b1",
@@ -2264,10 +2400,22 @@
         "text": "sources"
       }
     },
+    "tag:forum": {
+      "name": {
+        "hash": "a1e2f5553bf367b20af8f1cdfc189c7891fff217b98e87d83c84a8f92f4010c3",
+        "text": "forum"
+      }
+    },
     "tag:framework": {
       "name": {
         "hash": "8ee46d595996f017542762041d37e32faeeb0b30687b1988da2f6973a1abe197",
         "text": "framework"
+      }
+    },
+    "tag:free": {
+      "name": {
+        "hash": "a3072685c34b0794548bccc4ac4f9a9c04518f245bec9309d3dee8aa563c7234",
+        "text": "free"
       }
     },
     "tag:fromEvernote": {
@@ -2352,6 +2500,12 @@
         "text": "grid"
       }
     },
+    "tag:grotesque": {
+      "name": {
+        "hash": "9f4c4a434ceb43619ccfddb16d41027bba493117bcfb21bdc264839dfcd30986",
+        "text": "grotesque"
+      }
+    },
     "tag:guide": {
       "name": {
         "hash": "6a00234915704f272f4c17c1238bb8f1ed9389c9095bd88f12a4dbc0ceab13c3",
@@ -2362,6 +2516,12 @@
       "name": {
         "hash": "049a1a8dbc5b2e146065052ef4faca72d0c3a959d6fa484643c4fd275ab722a1",
         "text": "generative"
+      }
+    },
+    "tag:génération": {
+      "name": {
+        "hash": "a04bd30e20de455c0da26f0c8c2eda109f3dfee044c9d169a4a9c021860fd177",
+        "text": "generation"
       }
     },
     "tag:hahnem": {
@@ -2650,6 +2810,12 @@
         "text": "Kirby"
       }
     },
+    "tag:kolorama": {
+      "name": {
+        "hash": "a360b0c4a88efb74bfcbf89b1704139670769623ea5ebac27f3c2e28dd101cba",
+        "text": "colourama"
+      }
+    },
     "tag:lapsus": {
       "name": {
         "hash": "209f45801b5ce1a03f01f61362a4b70d20a415713249a64597b072a9b6fcb185",
@@ -2710,6 +2876,12 @@
         "text": "free"
       }
     },
+    "tag:licences": {
+      "name": {
+        "hash": "a153e73ad2506cd06653afc8771c9e33d5872ebb9e48afdc1a55acb94d2c8282",
+        "text": "licences"
+      }
+    },
     "tag:lien-mort": {
       "name": {
         "hash": "380639ba8c017dffceed5e2af397e9bbb276d17b945803332d2bb19965131ccd",
@@ -2744,6 +2916,12 @@
       "name": {
         "hash": "56c3973e10b269de8e4c513fe344a75363c4e28b96cc98855546bfd7d9f866bc",
         "text": "list"
+      }
+    },
+    "tag:littérature": {
+      "name": {
+        "hash": "a2ed9d92b472e74af262bb81fb8196aa9f8583546b41e30469e84126c60d7887",
+        "text": "literature"
       }
     },
     "tag:livre-d-art": {
@@ -3062,6 +3240,12 @@
         "text": "in one"
       }
     },
+    "tag:number_1": {
+      "name": {
+        "hash": "a39102d6c3115e2bc33b23e7a866d6dfc625a675e258e4d2880da80981af60b8",
+        "text": "number_1"
+      }
+    },
     "tag:nyc": {
       "name": {
         "hash": "0a808b238bc77ebdd4f07c5f52a82680bd29bba76bac9c02f0dfe379e1a8924b",
@@ -3226,6 +3410,12 @@
         "text": "think about chat when you’re speeding"
       }
     },
+    "tag:phaser7800": {
+      "name": {
+        "hash": "a4b9ea3bafb64cfe6a56efc549aa56f7b0a79cbce12b098b67c66d916a0bb4e8",
+        "text": "phaser7800"
+      }
+    },
     "tag:philo": {
       "name": {
         "hash": "827f8751053609c5f872aed5b37d3244e1966c9898d8e726adeb4998a9763108",
@@ -3286,6 +3476,12 @@
       "name": {
         "hash": "9a41acfea30c2eb6dccdfc91419bfacf339af0f3f32660ed83afbd0c9c4bfa1b",
         "text": "photomontage"
+      }
+    },
+    "tag:photorag308gsm": {
+      "name": {
+        "hash": "a4592c4ca3958cf4d60a17611603e43aa87350f648dc75b2277e0ed5c36bf82e",
+        "text": "photorag308gsm"
       }
     },
     "tag:piano": {
@@ -3400,6 +3596,12 @@
         "text": "bmw prices"
       }
     },
+    "tag:prixhsbc": {
+      "name": {
+        "hash": "a58bdda87da7dde0673c791ede129143afed29692444d421cc46798fba12fea5",
+        "text": "price of HSBC"
+      }
+    },
     "tag:procrastination": {
       "name": {
         "hash": "78824b6d02908192ba15ed12e3b9648be2498994fb7fae753a4f4d973b7f8bed",
@@ -3500,6 +3702,18 @@
       "name": {
         "hash": "0b3938823ada7c5e1234833569d2bd90e5dd0e84de5859a8ca5f720b83fa7e34",
         "text": "catering"
+      }
+    },
+    "tag:revue": {
+      "name": {
+        "hash": "a42cf3691f1daf0f70ed9a91766dc0cf49ab41ca05b34bddbdaea8cbf33cc640",
+        "text": "journal"
+      }
+    },
+    "tag:revue-web": {
+      "name": {
+        "hash": "a8293deacad59bbcaf4a7c15eca0a42112a4a5af12343b2f731de1a7a189d98b",
+        "text": "online magazine"
       }
     },
     "tag:riso": {
@@ -3710,6 +3924,12 @@
         "text": "stock-photo"
       }
     },
+    "tag:summerprint": {
+      "name": {
+        "hash": "9f63330267344b08bc0ad28ae1ef58b71861cac3907c7843fb82dd7958a7686e",
+        "text": "summerprint"
+      }
+    },
     "tag:surveillance": {
       "name": {
         "hash": "9b1c6675f016695923e42a2c363ddb95921dd32f89404485233858611fb0fe81",
@@ -3824,6 +4044,12 @@
         "text": "tipibookshop"
       }
     },
+    "tag:tirage": {
+      "name": {
+        "hash": "9f9ae75c383582850139d2615fde255db7836b078051947bfec14ed39d13572d",
+        "text": "print run"
+      }
+    },
     "tag:tmux": {
       "name": {
         "hash": "147d67fc63724f4300477489ed51e4cdb9ce6dbdd64916c08897418b71407fd8",
@@ -3928,6 +4154,12 @@
         "text": "typography"
       }
     },
+    "tag:unifier": {
+      "name": {
+        "hash": "9ec94192cfd17690e8e4b37d1f3f59b651b3a0a3239ddfff55213dd5d483aeca",
+        "text": "unify"
+      }
+    },
     "tag:unmondedeformats": {
       "name": {
         "hash": "2464a3e4dece9cdf2314a7d28fca0d11aad3de1567852641f5b56dba092670f2",
@@ -4026,6 +4258,12 @@
       "name": {
         "hash": "2af5e21bec85a3351733b7ffc97250bf5f5fdd9b85fc8d468f3b6d18b1f3f1d8",
         "text": "can't wait for spring"
+      }
+    },
+    "tag:voix": {
+      "name": {
+        "hash": "a0c08f8240c7e55193ab74dda07ff1c32933346298f63f6e3d35485e5c2b38bc",
+        "text": "voice"
       }
     },
     "tag:voyage": {
