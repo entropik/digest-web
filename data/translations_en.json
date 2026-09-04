@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "45afe3d8949b222c6f626c04e967d67c3af07bdcfb6e35b969b3f0f8808e3fba",
+  "revision": "6e4b8d9008a8faecfa8d78ae7f1f88470434caea25a52b242cae29b0765a71aa",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -10698,6 +10698,10 @@
       "alt": {
         "hash": "932c48e930feb7649700ff18aae37b92292c9aeb3904de27507c6b14a0a6f76d",
         "text": "Document NASA : Terry White seated at the public affairs console STS-8"
+      },
+      "date": {
+        "hash": "b0ab68ca7ef8f338f3a4026a131bfccdc445a6f013df89c24dd2edbef049ec4c",
+        "text": "2 September 1983"
       },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
