@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "ebe65c294c3d78e8caedb125f8c25c7a902a07c96927c10a7b290c1b38a738a4",
+  "revision": "41410660aacb61ac0c08aee7546d6258994e940dc0a270a16bf832c96ca11e63",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -3092,6 +3092,20 @@
         "text": "Diary of a Procrastinator"
       }
     },
+    "page:/flux/journal-procrastinateur/2026-06-09": {
+      "body": {
+        "hash": "955f356d783f99a2c8c4496d750e7be734ac4b649fe850b543137f81c1902523",
+        "text": "<blockquote>\n<p>Post finalised following GOF correction <code translate=\"no\">0.1.49</code> regarding the image mismatch between the KEREDIT JSON and the GOF PDF output.</p>\n</blockquote>\n<h2 id=\"horaires-de-session\">Session times</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Environments observed: <strong>Krampouz/KEREDIT</strong> at <code translate=\"no\">dépôt local krampouz</code>, <strong>GOF</strong> at <code translate=\"no\">dépôt local gof</code></li>\n<li>Date: <strong>Tuesday 9 June 2026</strong></li>\n<li>KEREDIT branch: <strong><code translate=\"no\">dev</code></strong></li>\n<li>KEREDIT SHA observed at the time of writing: <code translate=\"no\">fbfbd09</code></li>\n<li>KEREDIT version observed: 0<strong>.6.92</strong></li>\n<li>GOF branch: <strong><code translate=\"no\">dev</code></strong></li>\n<li>GOF version observed after correction: 0<strong>.1.49</strong></li>\n<li>GOF SHA observed after correction: <code translate=\"no\">347a563</code></li>\n<li>Time span observed across KEREDIT commits: <strong>08:23 -&gt; 19:14</strong></li>\n<li>Duration observed via GOF commits: <strong>19:16 -&gt; 19:33</strong></li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 438h24+</strong></li>\n</ul>\n<h2 id=\"conclusion-courte\">Brief conclusion</h2>\n<p>The day began with efforts to make the editor more visually credible: improved preview resolution, a configurable splash image, better-loaded original photos, a sharper adaptive grid, followed by smoother panning and scrolling within the canvas.</p>\n<p>The focus then shifted to a more product-related issue: WooCommerce client projects need to be handled with greater care. A project that has already been commissioned must not be re-edited as an open draft; duplication is now the standard procedure for resuming work without compromising the order history.</p>\n<p>The end of the day wrapped up the trickiest issue: image alignment between KEREDIT and GOF. KEREDIT had strengthened its rendering freshness contract; GOF <code translate=\"no\">0.1.49</code> can now render KEREDIT’s image adjustments with the correct rotation origin and the same direction of rotation as the editor.</p>\n<h2 id=\"le-matin--rendre-léditeur-plus-net\">This morning: making the editor look sharper</h2>\n<p>The main focus of the day was very clear: the editor had to stop looking blurry or flimsy as soon as you looked at a real photo.</p>\n<p>The reference commits on the KEREDIT side show the progress:</p>\n<ul>\n<li><code translate=\"no\">a569076</code> adds a configurable splash screen;</li>\n<li><code translate=\"no\">89c395e</code> adds configurable effects to this screen;</li>\n<li><code translate=\"no\">411039c</code> increases the resolution of the editor previews;</li>\n<li><code translate=\"no\">b6962fe</code> then <code translate=\"no\">67e32f2</code> makes the launch preview image more reliable;</li>\n<li><code translate=\"no\">8402bf3</code> improves the comfort zoom in the Postcard editor.</li>\n</ul>\n<p>This isn’t just a cosmetic update. In the beta, the user needs to understand that they are working on a printable object, not a rough thumbnail. The zoom function, sharpness, loading time and stability of the canvas are all key to building trust in the product.</p>\n<h2 id=\"photos--garder-loriginal-comme-vérité-accélérer-lécran\">Photos: keep the original as the definitive version, speed up the display</h2>\n<p>The major technical overhaul of the image handling then resumed the previously documented approach: the original remains the production standard, whilst the adaptive raster remains a temporary on-screen cache.</p>\n<p>KEREDIT now loads original photos more efficiently into the canvas (<code translate=\"no\">44905a2</code>), keeps photos attached whilst dragging (<code translate=\"no\">272fd34</code> / <code translate=\"no\">35d99e6</code>), makes adaptive rasters sharper (<code translate=\"no\">be46fcf</code>), maintains their correct fit (<code translate=\"no\">7881b03</code>), and then defers computationally intensive tasks so as not to block user interactions (<code translate=\"no\">5eb7146</code>).</p>\n<p>The key point is the trade-off: the editor must respond immediately when a photo is moved or resized, but it must not sacrifice the quality of the exported output. The day therefore further clarified the division of responsibilities:</p>\n<ul>\n<li>rapid on-screen feedback during interaction;</li>\n<li>a browser cache to avoid re-reading the original with every action;</li>\n<li>a persistent contract that continues to refer to the source image, not the cache.</li>\n</ul>\n<h2 id=\"overlay-et-gestes-éditeur\">Overlays and editor gestures</h2>\n<p>The commit <code translate=\"no\">b865919</code> refines overlay interactions. This is consistent with the rest of the day’s work: now that images are larger and sharper, we must ensure that guides, selections and toolbars do not give the impression of being pasted on or lagging behind.</p>\n<p>This work remains within the beta track: we won’t reopen the stable typography branch, but we’ll remove visible friction around image manipulation.</p>\n<h2 id=\"woocommerce--reprendre-sans-casser-la-commande\">WooCommerce: resuming the order without breaking it</h2>\n<p>The other half of the day focused on the customer journey and the WooCommerce plugin.</p>\n<p>The commit <code translate=\"no\">854f288</code> imposes a precautionary rule: a project that has already been ordered must be duplicated before it can be resumed. This is an important business requirement. An order placed constitutes a commercial and production record; reopening it as an editable draft would be dangerous.</p>\n<p>The next set of changes improves the user experience:</p>\n<ul>\n<li><code translate=\"no\">281d7ac</code> loads client projects progressively;</li>\n<li><code translate=\"no\">c379067</code> simplifies validation checks;</li>\n<li><code translate=\"no\">456b5c4</code> clarifies bulk selection;</li>\n<li><code translate=\"no\">fbfbd09</code> refines batch actions.</li>\n</ul>\n<p>The expected outcome for clients is simpler: finding their projects, understanding which ones have been commissioned, duplicating them when they need to start again, and avoiding ambiguous actions.</p>\n<h2 id=\"bug-corrigé--keredit-et-gof-relisent-le-même-contrat-image\">Bug fixed: KEREDIT and GOF are reading the same image contract</h2>\n<p>The end of the day was the point of tension.</p>\n<p>KEREDIT has an explicit commit, ‘<code translate=\"no\">0beb905</code>’ (<code translate=\"no\">Fix image render contract freshness</code>), which affects page validation, the GOF payload, PDF/print job routes, PDF administration and project persistence. The message is clear: the image rendering contract needed to be updated and made more explicit before renderings were sent or reused.</p>\n<p>On the GOF side, the fix was carried out in three stages:</p>\n<ul>\n<li><code translate=\"no\">9f33865</code> (<code translate=\"no\">Render Keredit image adjustments in GOF</code>) adds the rendering of KEREDIT image adjustments in <code translate=\"no\">app/src/pdf-renderer.js</code> with an associated test;</li>\n<li><code translate=\"no\">7756fb5</code> (<code translate=\"no\">Fix GOF image block rotation origin</code>) corrects the rotation origin of the image blocks;</li>\n<li><code translate=\"no\">347a563</code> (<code translate=\"no\">Mirror editor image rotation in GOF PDFs</code>) aligns the GOF rotation direction with that of the editor.</li>\n</ul>\n<p>The bug was therefore not simply a visual difference in the PDF. It was a contract bug between:</p>\n<ul>\n<li>the editor’s persistent JSON;</li>\n<li>the payload exported by KEREDIT;</li>\n<li>the GOF interpretation;</li>\n<li>the final PDF rendering.</li>\n</ul>\n<p>GOF<code translate=\"no\">0.1.49</code> documents the resolution of this issue: KEREDIT image adjustments, the rotation origin and the direction of rotation are now rendered on the same side of the string.</p>\n<h2 id=\"décision-de-clôture\">Closure decision</h2>\n<p>The day ends on a better note than it began: the image editor is now more user-friendly, the WooCommerce project workflow is less fraught, and the KEREDIT → GOF bridge resolves a specific discrepancy between JSON and PDF.</p>\n<p>Point to bear in mind for the future: whenever a PDF rendering does not match the editor, the correct approach remains to follow the full contract rather than patching the final rendering based on intuition. The pipeline must be checked in this order: persistent JSON, exported payload, GOF interpretation, generated PDF.</p>\n"
+      },
+      "description": {
+        "hash": "cc7c78425ea04726374277aa21304deca3d44117b9dd23b9b2d77c7197431173",
+        "text": "Improvements to image rendering in the editor, improved zoom functionality, more conservative WooCommerce projects, followed by the GOF 0.1.49 fix for the KEREDIT JSON contract/image rendering."
+      },
+      "title": {
+        "hash": "141bf8ffe4740a1831c6ca2ffac848e137d11acf6c1903a90c19caaedfe6374d",
+        "text": "Day 79 – Sharper images, more cautious plans, JSON contract fixed"
+      }
+    },
     "page:/flux/journal-procrastinateur/2026-06-10": {
       "body": {
         "hash": "1f2c2d06301a1a8f5829af04af8ffe5bb03a89b455b61c1965b86a7ec2e06f1d",
@@ -3100,6 +3114,10 @@
       "description": {
         "hash": "6a5046e78df6aeaaf391125c99e251a48a2538b38253306d889b9c718aa943bd",
         "text": "Audit of the KEREDIT-GOF JSON contract, TLS hardening, photo placeholder, live stabilisation of multi-format templates and seamless photo replacement in image blocks."
+      },
+      "title": {
+        "hash": "b0a125095be4cff779cede9c9a811ede00f83ac0837553d6c9dbaab041bf7e5f",
+        "text": "Day 80 – Templates become format families"
       }
     },
     "page:/flux/journal-procrastinateur/2026-06-11": {
@@ -10691,6 +10709,14 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-08.webp": {
+      "alt": {
+        "hash": "297d10c8a158e41480f4e6bf0b25a12b8de1e837200203e64016f258485071e4",
+        "text": "Document NASA : Apollo 13 - Mission Control Console"
+      },
+      "date": {
+        "hash": "3980a6ecbf8f9a9481b7c7926ab1144632a71ff7f428224bd9b0a948ea0ce800",
+        "text": "15 April 1970"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10701,6 +10727,14 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-09.webp": {
+      "alt": {
+        "hash": "e56ed75dc9ce4844c65c8749f62bfdbfc5d2857546d9b2531e84308c5fb6b46f",
+        "text": "Document NASA : Forrester types on laptop computer in the orbiter middeck"
+      },
+      "date": {
+        "hash": "1a859931da2ee593692131a45f89a33ff73c9e9d93f3c77065d24db4a196cc7a",
+        "text": "13 August 2001"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10708,6 +10742,10 @@
       "themeLabel": {
         "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
         "text": "Computers & computing"
+      },
+      "title": {
+        "hash": "99878ff77ae0c13e4d1fad519572f576a7f189c1c6cb5d5a85e60fdb92bc7431",
+        "text": "Forrester types on laptop computer in the orbiter middeck"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-10.webp": {
@@ -10726,6 +10764,10 @@
       "themeLabel": {
         "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
         "text": "Monitoring & Data"
+      },
+      "title": {
+        "hash": "ac743b72c4b54811f5fd99b7f1b4417d0a01a169221ff6812f7ed26ec3c9ec33",
+        "text": "Mission Control Center White Flight Control Room views during launch of STS-111"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-11.webp": {

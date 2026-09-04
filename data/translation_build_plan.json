@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "baseRevision": "edf9b5bc93a430d10f0e57c369f9cca8477a020edd61945c5108b74af738da77",
-  "targetRevision": "ebe65c294c3d78e8caedb125f8c25c7a902a07c96927c10a7b290c1b38a738a4",
+  "baseRevision": "ebe65c294c3d78e8caedb125f8c25c7a902a07c96927c10a7b290c1b38a738a4",
+  "targetRevision": "41410660aacb61ac0c08aee7546d6258994e940dc0a270a16bf832c96ca11e63",
   "manifestRevision": "261577e2e019b7cf9d967a9bb1dff52329a00c44f1188f132a4cdf0215a39dec",
   "fullBuild": false,
   "items": [
@@ -72,14 +72,7 @@
       ]
     },
     {
-      "id": "page:/flux/journal-procrastinateur/2026-06-10",
-      "fields": [
-        "body",
-        "description"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-procrastinateur/2026-06-11",
+      "id": "page:/flux/journal-procrastinateur/2026-06-09",
       "fields": [
         "body",
         "description",
@@ -87,17 +80,29 @@
       ]
     },
     {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-10.webp",
+      "id": "page:/flux/journal-procrastinateur/2026-06-10",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-08.webp",
       "fields": [
         "alt",
         "date"
       ]
     },
     {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-11.webp",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-09.webp",
       "fields": [
         "alt",
         "date",
+        "title"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-10.webp",
+      "fields": [
         "title"
       ]
     }
@@ -117,8 +122,9 @@
     "/archives/2026-09-02/",
     "/flux/",
     "/flux/journal-procrastinateur/",
-    "/flux/journal-procrastinateur/2026-06-10/",
-    "/flux/journal-procrastinateur/2026-06-11/"
+    "/flux/journal-procrastinateur/2026-06-08/",
+    "/flux/journal-procrastinateur/2026-06-09/",
+    "/flux/journal-procrastinateur/2026-06-10/"
   ],
   "artwork": {
     "upsert": [
@@ -136,5 +142,5 @@
     ],
     "remove": []
   },
-  "revision": "0d8197bcc23aed6a3c2f9157f45482ff231ba6a347ddfaf98859723740be6ddf"
+  "revision": "5849787a5ba00e1f067f885ddfdaa6a59efa5b670c67445538f4dc5b0757a419"
 }
