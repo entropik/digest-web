@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "424111e6a03dbe4e292f5c5abcc76e8e49153ee57742360c7481baf1950f7660",
+  "revision": "0aa471f790ce746eb076b1483c362443ac87318b516985344394c692f040ba1e",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -3086,10 +3086,38 @@
         "text": "Diary of a Procrastinator"
       }
     },
+    "page:/flux/journal-procrastinateur/2026-07-03": {
+      "body": {
+        "hash": "0eec91e795b5023a781beaa392da26a49e4111c4e3882e862da1b2a0e0058fd4",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Main environment: <strong>VS Code WSL, Codex plugin, local repository</strong></li>\n<li>Date covered: <strong>Friday 3 July 2026</strong></li>\n<li>KEREDIT branch observed: <strong><code translate=\"no\">dev</code></strong></li>\n<li>GOF branch observed: <strong><code translate=\"no\">dev</code></strong></li>\n<li>Observed KEREDIT SHA at the end of the sequence: <strong><code translate=\"no\">cff0bd72</code></strong> (<code translate=\"no\">fix: stabilize zine order production flow</code>)</li>\n<li>End-of-sequence GOF SHA observed: <strong><code translate=\"no\">311d0eb</code></strong> (<code translate=\"no\">fix(renderer): restrict cahier overflow to facing pages</code>)</li>\n<li>KEREDIT version observed: 0<strong>.10.1</strong> following the pricing/zine project</li>\n<li>Minimum time observed on 3 July: <strong>7h37+ of multi-repo commit activity</strong> (<code translate=\"no\">09:15</code> -&gt; <code translate=\"no\">16:52</code>, excluding conversations and manual approvals)</li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 618h10+</strong> (<code translate=\"no\">610h33+</code> as at 2 July, plus <code translate=\"no\">7h37+</code>)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>Today brings together three strands that had been tending to go their separate\nways: pricing, the zine product, and the GOF forge.</p>\n<p>On the KEREDIT front, <code translate=\"no\">ee60947a</code> adds rules for additional pages. The pricing\nis no longer just a basic matrix: it can now apply a surcharge per\npage, displays the fields in the product admin panel, keeps the sharing types aligned\nand covers the calculation with backend tests.</p>\n<p>The commit <code translate=\"no\">ed6677e1</code> then sets out two action plans in <code translate=\"no\">plans/</code>:\nremoving the remnants of the local PDF renderer and stabilising the\n<code translate=\"no\">knip</code> / QR dependencies. This isn’t visible in the product, but it’s important to ensure\nthe repository doesn’t mix the historical local build with the GOF pipeline.</p>\n<p>Today’s major KEREDIT update is <code translate=\"no\">cff0bd72</code>: the zine order flow has been\nstabilised. The backend better distinguishes between production contracts, adds a\ndedicated GOF worker, connects the queues, adjusts WooCommerce, and covers the path\nwith integration and worker tests.</p>\n<p>Meanwhile, GOF is making progress on the notebook rendering:</p>\n<ul>\n<li><code translate=\"no\">0e46658</code> displays spine and cover measurements in reports;</li>\n<li><code translate=\"no\">58608c7</code> renders partial overflow of book pages;</li>\n<li><code translate=\"no\">6717ae6</code> allows already-completed book jobs to be restarted;</li>\n<li><code translate=\"no\">311d0eb</code> restricts booklet overflow to facing pages.</li>\n</ul>\n<p>The division of responsibilities is clear: KEREDIT maintains the accuracy of the project, price and order details,\nwhilst GOF takes responsibility for the rendering and production artefacts.</p>\n<h2 id=\"pour-la-suite\">Moving forward</h2>\n<p>The next point to monitor remains the contract between KEREDIT and GOF. The zines\nare starting to move in the right direction, but every addition of a pricing rule or\nbook geometry rule must remain visible in the payload transmitted to the forge.</p>\n"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-07-04": {
+      "body": {
+        "hash": "224c7304694a68a59963bd92b814429cbc37c24aaa813aa33d60d8ccfab26518",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Main environment: <strong>VS Code WSL, Codex plugin, local repository</strong></li>\n<li>Date covered: <strong>Saturday 4 July 2026</strong></li>\n<li>KEREDIT branch observed: <strong><code translate=\"no\">dev</code></strong></li>\n<li>SHA of end of observed sequence: <strong><code translate=\"no\">33d9cb35</code></strong> (<code translate=\"no\">docs: fix prisma guide relative link</code>)</li>\n<li>KEREDIT version observed: 0<strong>.10.1</strong></li>\n<li>Minimum time observed on 4 July: <strong>2 mins+ of commit activity</strong> (<code translate=\"no\">19:00</code> -&gt; <code translate=\"no\">19:02</code>, excluding reading and documentation preparation)</li>\n<li>Minimum cumulative time since the log began: <strong>approximately 618h12+</strong> (<code translate=\"no\">618h10+</code> as at 3 July, + <code translate=\"no\">2 min+</code>)</li>\n</ul>\n<h2 id=\"lecture-courte\">A brief update</h2>\n<p>A quiet day in terms of commits, but useful for getting back up to speed.</p>\n<p>The commit <code translate=\"no\">6abdbb03</code> adds the KEREDIT wiki at <code translate=\"no\">docs/KEREDIT/</code>: entry\npoint for Codex, schema, concepts, entities, navigation queries and\nObsidian settings. The aim is not to replace the source documentation. It is a\nconcise guide to help a developer know where to start before touching the code.</p>\n<p>The same commit aligns <code translate=\"no\">AGENTS.md</code>, <code translate=\"no\">docs/HOME.md</code>, <code translate=\"no\">docs/index.md</code>,\n<code translate=\"no\">docs/log.md</code> and <code translate=\"no\">docs/okf.md</code> to make this layer visible without giving it\ngreater authority than the code or the normative documentation.</p>\n<p>The commit <code translate=\"no\">33d9cb35</code> then corrects a relative link in the Prisma guide. This is\nthe sort of detail that matters in OKF documentation: if the paths\nbreak, the map quickly ceases to be reliable.</p>\n<h2 id=\"pour-la-suite\">Moving forward</h2>\n<p>The rule to remember is simple: for a non-trivial project, read\n<code translate=\"no\">docs/KEREDIT/START_HERE_CODEX.md</code>, then only the 1 to 3 pages of concepts\nthat are necessary, and return to the current code before making any changes.</p>\n"
+      },
+      "description": {
+        "hash": "b34f530d7fe691fda94b9c5495b47d1ad72acc4fd3f09f3edaabc95bc9487056",
+        "text": "Day 103 of the log: KEREDIT wiki for staff, Obsidian diagram and a minor correction to a Prisma link."
+      },
+      "title": {
+        "hash": "1610436634635ec0848240de199b38e10901ed31e477f13d5aeb42e150fa16b4",
+        "text": "Day 103 – Give the officers a map"
+      }
+    },
     "page:/flux/journal-procrastinateur/2026-07-05": {
+      "body": {
+        "hash": "a56ff508a6a05248b493bbca5388c6acf2ab491dd067aceaffa56eb66425470a",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Main environment: <strong>VS Code WSL, Codex plugin, local repo</strong></li>\n<li>Date covered: <strong>Sunday 5 July 2026</strong></li>\n<li>KEREDIT branch observed: <strong><code translate=\"no\">dev</code></strong></li>\n<li>SHA of observed sequence end: <strong><code translate=\"no\">6bb70ec6</code></strong> (<code translate=\"no\">chore: bump beta deploy version to 0.10.3</code>)</li>\n<li>KEREDIT version observed: 0<strong>.10.3</strong></li>\n<li>Minimum time observed on 5 July: <strong>10h38+ of commit duration</strong> (<code translate=\"no\">00:09</code> → <code translate=\"no\">10:47</code>, excluding conversations, tests and deployments)</li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 628h50+</strong> (<code translate=\"no\">618h12+</code> as at 4 July, + <code translate=\"no\">10h38+</code>)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>Today’s work focuses on improving the photo import experience: less blocking wait time,\nfewer mixed-up queues, and a more progressive workflow.</p>\n<p>The first commits of the day streamline the upload confirmation and Google\nPhotos import:</p>\n<ul>\n<li><code translate=\"no\">fcfbc21e</code> / <code translate=\"no\">995c3b3a</code> prevent the upload confirmation from becoming\na resource-intensive operation;</li>\n<li><code translate=\"no\">5a35313b</code> / <code translate=\"no\">f8df47bb</code> make the Google Photos import progressive;</li>\n<li><code translate=\"no\">0b03497d</code> make the import retry-safe;</li>\n<li><code translate=\"no\">c10e7889</code> adjusts the hash expectations in the tests.</li>\n</ul>\n<p>The commit <code translate=\"no\">5d5c7c81</code> then separates the ‘preview’ and ‘print-ready’ workers. This is\nan important separation for the beta: an image must become visible quickly\nin the library without waiting for the full print pipeline to complete.</p>\n<p>The end of the sequence involves two version bumps (<code translate=\"no\">0.10.2</code>, then <code translate=\"no\">0.10.3</code>) and\na fix for book fold guides (<code translate=\"no\">78db1787</code>). The book product remains\nsecondary to the postcard, but its features must not\ndeteriorate whilst we are hardening the imports.</p>\n<h2 id=\"pour-la-suite\">Looking ahead</h2>\n<p>The contract to be retained: <code translate=\"no\">uploaded</code> followed by <code translate=\"no\">preview_ready</code> is the visible\npath for the user; <code translate=\"no\">print_ready</code> remains a production issue, not a reason\nto block publication.</p>\n"
+      },
       "description": {
         "hash": "1a42086d7b7de14a56aca48f6c7de730ef43a84c975b5048ca105b14e9533e46",
         "text": "Day 104 of the diary: lighter upload confirmation, gradual Google Photos import, separate asset files and book folding guides."
+      },
+      "title": {
+        "hash": "dd4000b42a7b9ee03000bdcf55fb2d382630b11c53b92e5b6e22a5204b48f18d",
+        "text": "Day 104 – Streamlining photo imports"
       }
     },
     "page:/flux/journal-procrastinateur/2026-07-06": {
@@ -10615,6 +10643,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-04.webp": {
+      "alt": {
+        "hash": "2e913fadac0ceeb018f270895d9f70e359809ed5152ab9802db2fda6e2f50fe0",
+        "text": "Document NASA : Altitude Wind Tunnel Control Room at the Aircraft Engine Research Laboratory"
+      },
       "date": {
         "hash": "0e20f6f5cb12369077274f5c8a0aa7eb04f5d965570aee637bb5b38d2f5db281",
         "text": "23 July 1944"
@@ -10626,12 +10658,20 @@
       "themeLabel": {
         "hash": "a1b7fca866496e50edd0c8813c0df76fa5ee63a6b1410ab95bb4c5d5f70e6608",
         "text": "Laboratories & simulation"
+      },
+      "title": {
+        "hash": "8c54037b4ce6fb6b521cbc2e37688181d934e35d1b43d007fd080a23b4805998",
+        "text": "Altitude Wind Tunnel Control Room at the Aircraft Engine Research Laboratory"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-05.webp": {
       "alt": {
         "hash": "4947e582127cfe2468bf06269b5d938f5b12af57768c3471dc53f0ea1dc42c82",
         "text": "Document NASA : Engineers Assemble Electronics Layer on Roman Coronagraph Instrument"
+      },
+      "date": {
+        "hash": "eced36048e27a5573936b43eedd75cd5c356f0c5232bd9c51e6049f9cf10c680",
+        "text": "21 December 2022"
       },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
@@ -10640,6 +10680,10 @@
       "themeLabel": {
         "hash": "f15c810cf1abeb8d8c790b885b1efcd158c87e19feea04fd49d181c108911986",
         "text": "Electronics & instruments"
+      },
+      "title": {
+        "hash": "d0f254dc5856c942695b81d6b017df7ccee2b6c389dbf27fd0ac5e5ff591ecc4",
+        "text": "Engineers Assemble Electronics Layer on Roman Coronagraph Instrument"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-06.webp": {
