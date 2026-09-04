@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "a2aa7de470dd7ae95fce71d0ef23e97df1196b1eda78128ba095b2f89fb0439f",
+  "revision": "2967592e3b15a9f97bc866bbe56eafc48ad3539f42230004b6412637e6f81900",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -80,6 +80,12 @@
         "text": "Letta — providing staff with a lasting memory"
       }
     },
+    "link:0305ef68-8aa7-5b14-9669-be9151593e0e": {
+      "description": {
+        "hash": "4bbbafea7f289d26b1b4ac9b566f3e06aee1e283a13b5bf09c99a2aac8d6a3d7",
+        "text": "create fonts online"
+      }
+    },
     "link:069e17f4-795d-5135-90c6-fecb6efafcc7": {
       "description": {
         "hash": "ad10cc20b21bf59021da3ccd03f6b35d892bb441bbb98dc6c7dc3baa81c72220",
@@ -120,10 +126,80 @@
         "text": "Orca — the control centre for agent fleets"
       }
     },
+    "link:0f428bd7-82ae-50a5-b175-03eeab43e89f": {
+      "description": {
+        "hash": "a746f1eb779072bfc183faebd2ba904a63a5012a3602acb1e64de792aa07c52d",
+        "text": "A command-line tool and a Python library for testing an AI agent, identifying deviations in its behaviour and generating a reproducible diagnosis."
+      },
+      "title": {
+        "hash": "cad8021fb0f25d9309eacd1382ec37384444631c35ce5701012b4f672f2ad76b",
+        "text": "iFixAi — Auditing deviations in the behaviour of AI agents"
+      }
+    },
+    "link:100e2385-7ca2-5b65-ac3f-69f31b442d42": {
+      "description": {
+        "hash": "368f0ddc7a0be0512e4ddfa0531f60065b2dbfc16c6234f423cc7a73db1f5c8e",
+        "text": "Security audits in around one minute, designed for independent developers. Supabase RLS deep scan, AI fixes and public security score. Free lightweight scan, no registration required."
+      },
+      "title": {
+        "hash": "cca47b46ca5ded5cf5cf7cccdc014cf47976ff8ffd73e22a3a58f1cb6ed7448c",
+        "text": "Web security audits for indie builders, RLS Supabase - VICE"
+      }
+    },
+    "link:12e14ee7-7a53-5792-9934-db8001a71683": {
+      "description": {
+        "hash": "48f5b5c546ad66fdc1a801183c46c20f27fc68dc30ea882c4f71f5f61376dd91",
+        "text": "Create a collaborative online photo album with Beesly. Share a link, let your friends and family add their photos, and we’ll print and deliver it."
+      },
+      "title": {
+        "hash": "8e4bc4f30ec999e762aba2bda5113ad3159edf717f132b63c06c9cd320bfdfcc",
+        "text": "Collaborative Online Photo Albums | Beesly"
+      }
+    },
+    "link:1602d8cb-e898-517e-8eef-64b0f34ff45c": {
+      "description": {
+        "hash": "a3f2e84e0afedd853b75ebe6df0c5560bac49f7605501202fcbcf1bbcea8080e",
+        "text": "A concise guide to the commands, tools and best practices that make working in a terminal more efficient."
+      },
+      "title": {
+        "hash": "4d996faa9b9cdc4d915af1f76fa52b5f8b4ef6a494a2ebeb115f0770c5133671",
+        "text": "The Art of the Command Line — Mastering the terminal in one page"
+      }
+    },
     "link:16a92d00-b6cb-5b82-9ddf-2e1d313b9791": {
       "description": {
         "hash": "34e11ee659dd9422146efee5205011c0cda6ee99111469ae6d6c0225e16d1e6a",
         "text": "KIBLIND"
+      }
+    },
+    "link:182ef8b3-7736-58ff-a712-9f830dd72423": {
+      "description": {
+        "hash": "a2073600e1e4cbc8826fc31d040929896eb6bfac6f3cd45d2fe071b5e4dfe66f",
+        "text": "A Python tool from Microsoft that converts PDFs, office documents, images, audio files and other formats into usable Markdown."
+      },
+      "title": {
+        "hash": "76a0bbd9406955f90ccaeb559668c4681bfa27bc91bf30bea39160a94360d756",
+        "text": "MarkItDown — Convert documents to Markdown"
+      }
+    },
+    "link:18c008d4-096f-5b63-abbb-fdb71ce0529d": {
+      "description": {
+        "hash": "61e660f2c2d0919d60dd5e4bb7fb652cbf5ccef96e7a0e25776b8f3a69074bcd",
+        "text": "An open-source platform that combines document ingestion, generation-enhanced search and agent-based functions to provide context to large language models (LLMs)."
+      },
+      "title": {
+        "hash": "3a3d7fc17c85b96d67d5d781a3813f2bf2c354b1a14b9c77297080c4ecc37c48",
+        "text": "RAGFlow — A document- and agent-oriented RAG engine"
+      }
+    },
+    "link:1b0a8d58-4133-5ddd-8064-55fab2fbed14": {
+      "description": {
+        "hash": "85f668e1810c736db2568c607b41bb690a35185b78fc216b2212d872fbc4fd0a",
+        "text": "One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, tools, and workflows. - EverMind-AI/EverOS"
+      },
+      "title": {
+        "hash": "3445bc5da704611c98bf0d4581db99ca180e00748606fc8ebc2613cef82143ae",
+        "text": "EverMind-AI/EverOS: One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, tools, and workflows."
       }
     },
     "link:1fb5cf7f-b79e-5210-9b0d-9f1246449f6b": {
@@ -136,10 +212,50 @@
         "text": "T3 Code"
       }
     },
+    "link:204a198b-fd04-5ccf-b7ee-dcbaa6f04cb2": {
+      "description": {
+        "hash": "3b1a906b7191d6780ec1ade9310de0190f49cbf4cd5c8799336b18b8e1f79c45",
+        "text": "Holoself is an open, local-first whole-person context protocol. Link reusable Markdown context to independent AI projects and approve every durable update."
+      },
+      "title": {
+        "hash": "ee1cfd65f0a92da841f940ef9bd61ef4d17cf75d7b434d7e577454e349b877e7",
+        "text": "Holoself — Stop re-explaining yourself to every AI tool"
+      }
+    },
+    "link:21041d7a-e3af-58ce-9b84-feeba384bd7b": {
+      "description": {
+        "hash": "3df6061b8a549d9f5efeba0c212a5a0196fd1a2db0dfa9f910784d1c9881243b",
+        "text": "A visual environment for building, testing and deploying agents and workflows powered by language models."
+      },
+      "title": {
+        "hash": "e0f0daa68b0cd4db8ff59f5c15b1bc110ca0514cbd50515c008147a770e77677",
+        "text": "Langflow — Visually design AI agents and workflows"
+      }
+    },
     "link:2235a9eb-aa77-5e61-90c7-144424de24ca": {
       "title": {
         "hash": "34e11ee659dd9422146efee5205011c0cda6ee99111469ae6d6c0225e16d1e6a",
         "text": "KIBLIND"
+      }
+    },
+    "link:23368822-fc0f-55f8-b6d8-86a722135f2d": {
+      "description": {
+        "hash": "d55ace1c6c810e75892baa23fb7696fb61882b116198ad9cc6fb7cc0ab08ea1a",
+        "text": "The developers at the cutting edge of generative artificial intelligence describe a new kind of fatigue: ‘vibecoding fatigue’ or ‘AI brain fry’."
+      },
+      "title": {
+        "hash": "d81c40c825008c2ccb9ec1c60cf7eee1ce9ff7a534b89efc7e04bef16417ab30",
+        "text": "‘Vibecoding fatigue’: exhausted by AI, software developers are coming up with their own solutions"
+      }
+    },
+    "link:23ae49b6-e2a5-50ec-84fd-6d631e6aafbf": {
+      "description": {
+        "hash": "65e39435b80148ac1824ae8109b15a160330e06d301add6d5a1b66184810ca47",
+        "text": "A collaborative catalogue of free, publicly available APIs, categorised by domain and accompanied by information on authentication and HTTPS."
+      },
+      "title": {
+        "hash": "9b2aeab279fab554ac52ce91232ced2a2bd451fd9b174c7fcab4914eb1aa12a2",
+        "text": "Public APIs — A directory of free APIs"
       }
     },
     "link:249e4a79-7944-5cb9-8324-ad23f4382bc8": {
@@ -162,6 +278,46 @@
         "text": "Pydantic AI — end-to-end typed Python agents"
       }
     },
+    "link:271642cf-33b2-5f94-97d6-44468f5a6703": {
+      "description": {
+        "hash": "b54cad5d4ae847d06e7491c4f77c025eedc0c62e434aea62305df7974ae4f222",
+        "text": "Tiny, open, native coding agent. A minimal CLI written in Zig, optimized for research and embeddability as part of larger systems."
+      },
+      "title": {
+        "hash": "ba008be1e9129dd26a460b034321dfcb2cd18d15f552fd042003b31ceaa1d766",
+        "text": "fx - Tiny, open, native coding agent"
+      }
+    },
+    "link:279cca99-4eb7-5f7a-a1af-fb98daf6ee65": {
+      "description": {
+        "hash": "6bbe4f4b46bd00664bf0bad316e5d8f0b1c3e1edc54424b627494f40e70f0d9a",
+        "text": "DeepSeek’s official GitHub organisation, which brings together the implementations, reports and tools published across the various versions of its models."
+      },
+      "title": {
+        "hash": "8efd0d97dbd6c732f310839dc64a6f53ce9d35d4446692a05956bab28cd0f77e",
+        "text": "DeepSeek — Official repositories for models and tools"
+      }
+    },
+    "link:2cd9810d-bee7-5fc1-a821-a7f587aa4cdd": {
+      "description": {
+        "hash": "2e61ef90267ac447937f2ea5adffac7f75554d858842100e92e9a897049bac1b",
+        "text": "An API and a self-hosted platform for searching, browsing and extracting content from the web in a format that can be used by applications and agents."
+      },
+      "title": {
+        "hash": "6a74d4c40dbedb045c42a36e483f448d8df6a21298d3a87ac92a166578907b1d",
+        "text": "Firecrawl — Turning the web into data for AI applications"
+      }
+    },
+    "link:2de52ef3-28bd-5400-9133-ee5d04e73770": {
+      "description": {
+        "hash": "5f67491a98b3bda81ebfaaa109cb4181d1c34255dab918e73b6439b0f60032a9",
+        "text": "A high-throughput inference and service engine, designed to reduce memory consumption and improve the performance of language models."
+      },
+      "title": {
+        "hash": "ff7ae0fae64d8af97f35e037fb0cf5bcc76c34331bdf28143f9af49b8c45466c",
+        "text": "vLLM — Efficiently serving language models"
+      }
+    },
     "link:3025a40a-b102-53c7-b792-860edbdf604e": {
       "description": {
         "hash": "c5fc05354acedfaa6fdc792ee1450c2613049924561c1edae31a701ed42f1d54",
@@ -182,6 +338,16 @@
         "text": "RooCodeInc/Roomote: Your own cloud coding agent. Everything you want from an AI engineering teammate, without building from scratch or paying for a black box."
       }
     },
+    "link:32c815fa-2873-58b3-beb9-fd3a68b9311f": {
+      "description": {
+        "hash": "3c6f749b18fd6c25f65cc79aad39fe03bd3350a1d83eb8e99352613f7aada65c",
+        "text": "‘Together we are stronger!’"
+      },
+      "title": {
+        "hash": "afcdc6a47c57809f981e09028092fa8c8b88b373160e18b50e7daabd0964df55",
+        "text": "The Forge for Digital Educational Commons"
+      }
+    },
     "link:33e4b75c-6ed0-5f51-a50a-5d7ff8dd3fd4": {
       "description": {
         "hash": "dfcd1cbd9c4a4cabd9fa55a660c8721e9de7b5d6ccbe4476b20feb3146f9fa47",
@@ -190,6 +356,26 @@
       "title": {
         "hash": "0e08a6942d9b9a01de50620e8b917309b132a0c186fc4f2f59aecf4d59787722",
         "text": "Zoo Code — Open source AI coding assistant"
+      }
+    },
+    "link:3452aad1-6482-580d-ad4b-07149f698150": {
+      "description": {
+        "hash": "f211bb59c738705f0c84e8e56f7a1143c7a57719ada9c16dacd8602f1d34106f",
+        "text": "A self-study programme covering data structures, algorithms, systems and fundamental concepts to help you prepare for software engineering interviews."
+      },
+      "title": {
+        "hash": "e75d85655625635ec1c5c47fac3f96314fec0bf5b3f98b56d5a50ee3ecf47576",
+        "text": "Coding Interview University — A computer science course to help you prepare for interviews"
+      }
+    },
+    "link:36f20953-2b06-579e-9417-9cd33749d277": {
+      "description": {
+        "hash": "272e02a6ada47d4619a3f205c4a01d1ba4e028f413c75fcca8161978b735180a",
+        "text": "Beautiful, modern publishing with email newsletters and paid subscriptions built-in. Used by Platformer, 404Media, Lever News, Tangle, The Browser, and thousands more."
+      },
+      "title": {
+        "hash": "dd55abd7470507380bc458d2ced3092e59335a805a4b8e4d921f48d8eb6b4d46",
+        "text": "Ghost: The best open source blog & newsletter platform"
       }
     },
     "link:37fbfbb1-a8e7-5fc2-9b0b-03c320cc0206": {
@@ -202,6 +388,26 @@
         "text": "OpenAI Agents SDK — agents, handoffs and safeguards"
       }
     },
+    "link:3b143975-9f81-593e-8a83-cfd5ea4d836c": {
+      "description": {
+        "hash": "56d2f286420f1c92ceb3a39644869a9abc5ffe494d6a5f4759dd6798f27ae998",
+        "text": "Open Analytics is a privacy-first Google Analytics alternative: realtime visitors, funnels and revenue attribution from one lightweight, cookieless script. GDPR-friendly with no consent banner. Open source and self-hostable."
+      },
+      "title": {
+        "hash": "520e44e1a3af03ea8cb4e84dfa303965b0ade64ccb4961bbc6a37dbf96806e22",
+        "text": "Open Analytics: The AI-native Google Analytics alternative, without the complexity"
+      }
+    },
+    "link:3c759685-a321-54ca-99f0-7c86c0b7dd3a": {
+      "description": {
+        "hash": "a0a07d770e70974737fbaa75cb59cfce6c6a9bd1663a7810a16875610c56c361",
+        "text": "Henry Ford is known for his scientific organisation of labour and for paying generous wages. This rosy legend masks a far darker reality..."
+      },
+      "title": {
+        "hash": "df9e0d7cc24f9fa6ae5c8e8cef8e0f708e7a241d90b2def2e285d77597345322",
+        "text": "Henry Ford, the anti-trade unionist with Nazi sympathies"
+      }
+    },
     "link:3e4f828d-bb4d-56ef-af7d-8f00727e9860": {
       "description": {
         "hash": "efaf9b10e0f235c0a81870e1d12aefa228e93c9ed718eccdf880452609523ae1",
@@ -210,6 +416,16 @@
       "title": {
         "hash": "f2f24b8e9563b77c4b69b389ed90041dde62b325c02f6b40a6758f2d318701a6",
         "text": "Real-world experience · GitHub’s version control, Obsidian’s simplicity"
+      }
+    },
+    "link:3ffd3bbb-f726-5c6c-8ec6-65387d1f54ee": {
+      "description": {
+        "hash": "f81bdad07cb83d143a0466543f8a3fb38dc317a08ff98096f96c23a6a5daed91",
+        "text": "From the Zed Blog: A multiplayer environment for coding with agents, from the creators of Zed."
+      },
+      "title": {
+        "hash": "8c8db04390015663cdc81f5840ec9d3d95f579a830489e04b9756aa145ffa2b0",
+        "text": "Introducing Delta - Zed Blog"
       }
     },
     "link:40307519-2ddb-5ce6-bd8d-9c7a77b91412": {
@@ -246,6 +462,10 @@
       "description": {
         "hash": "0fab4a69eb7d98125df748ac8f46d8e4de9fa1bdabb7610955f509b0b9d91e1e",
         "text": "A collection of tutorials to help you understand technologies by building your own database, 3D engine, operating system or networking tool."
+      },
+      "title": {
+        "hash": "ecba5f60d32f9485930e1b4dc152c7b9dd594367e9f4ed00a0df87f34090ad81",
+        "text": "Build Your Own X — Learn by rebuilding"
       }
     },
     "link:4e0024a5-7e50-5d4c-9eb2-286324ca2b8a": {
@@ -268,6 +488,16 @@
         "text": "Hermes Agent — learn, remember and delegate"
       }
     },
+    "link:512af406-225b-5ece-8d37-7ade39291255": {
+      "description": {
+        "hash": "dbd8f2823aa423d30ef013c1f37d25033450163a1c8afa34136ff565514c6a51",
+        "text": "Solution for long term memory for agent coding CLIs and to facilitate handoff between different agent vendors - akitaonrails/ai-memory"
+      },
+      "title": {
+        "hash": "b8af15040f4e2559f760abdc1cf68f3e66cbacf12a6f0777f3dc474bf4edf617",
+        "text": "akitaonrails/ai-memory: Solution for long term memory for agent coding CLIs and to facilitate handoff between different agent vendors"
+      }
+    },
     "link:526d09ef-f181-5827-9dbe-4d54aea175fc": {
       "description": {
         "hash": "4033703fbbfae6688bc5e1121e180aa62d129aa25f2c1b7969ba302efa4a9f8e",
@@ -276,6 +506,48 @@
       "title": {
         "hash": "65048223d8868a7bc3bf5ef4ce2ed4118c22b65d1b13dec56fbd80d5b09b721e",
         "text": "IndyDevDan — My Super Simple Software Factory"
+      }
+    },
+    "link:534ab75a-e110-52fe-b6d3-571376592bd8": {
+      "title": {
+        "hash": "52d4287d9e4a41726e77b518395d1e7294daedfc61aa95961a965ed83c8730c3",
+        "text": "Changing tools: an overview of web-to-print • BIENNALE EXEMPLAIRES 2026"
+      }
+    },
+    "link:540f2ca8-8695-5f24-97a4-60095e65d45f": {
+      "description": {
+        "hash": "0c25462e101b4767db0d19fd1faeb632fd8a2d37e182da69917caf10ea67cddd",
+        "text": "Contribute to andrewyng/openworker development by creating an account on GitHub."
+      },
+      "title": {
+        "hash": "45e352db61a5c12823646153ccca3907ce592274e7c60bb37bf6c71db71ac625",
+        "text": "andrewyng/openworker"
+      }
+    },
+    "link:54d2f114-a47e-503a-b0eb-36fa1472bd03": {
+      "title": {
+        "hash": "7881879be65b5b272bcd66e8cfd8beb63d86b8f575115edba76bf77f183e43a2",
+        "text": "Radical web design"
+      }
+    },
+    "link:5655daf9-7749-549b-b262-5cf1591235c2": {
+      "description": {
+        "hash": "f2388f575349110d4ea560cbc00b377c4dd352c0bbbce3f9c9e982ff31ca36d8",
+        "text": "Marketplace Framework AI-Driven Dev : Context Engineering, Plugins, Agents, Skills, Hooks, Templates, SDLC - ai-driven-dev/framework"
+      },
+      "title": {
+        "hash": "b7860d9b2f4c6ae267e1a36fc7b1d7e71787023776270c5d46d93c8d1ab0c349",
+        "text": "ai-driven-dev/framework: Marketplace Framework AI-Driven Dev : Context Engineering, Plugins, Agents, Skills, Hooks, Templates, SDLC"
+      }
+    },
+    "link:58ed9520-8cea-54c1-b376-5d62265e4837": {
+      "description": {
+        "hash": "343a90c53a4c7d26663681cdadd9abfded1785c9a58aeca3211748ff98041883",
+        "text": "Contribute to FlashML-org/FreeToken development by creating an account on GitHub."
+      },
+      "title": {
+        "hash": "114bb36cef58b867acddbfc8d8e72aaa22e572645073f8a435a4d7582ecf0615",
+        "text": "FlashML-org/FreeToken"
       }
     },
     "link:59e4c946-0d3d-52ed-b63f-047487bc96eb": {
@@ -324,6 +596,26 @@
         "text": "Next Computer"
       }
     },
+    "link:639e0121-66ca-5d1a-922c-d7c22e4f69d0": {
+      "description": {
+        "hash": "94be7654df56b85b0aa16a3a716ce2648ee930746e74f23b38084c38445a15e9",
+        "text": "The Hugging Face library for defining, training and running state-of-the-art models in text processing, computer vision, audio and multimodal processing."
+      },
+      "title": {
+        "hash": "8537861c898a29fd9ef2db07b360e25e65fea96cdce73ab773b981dc900957ca",
+        "text": "Transformers — State-of-the-art models for text, images and audio"
+      }
+    },
+    "link:64228a1f-6b2f-5b76-a066-ae3ce95833b4": {
+      "description": {
+        "hash": "e52372bec6152760d24138e9bac539a1ebc376d51310bf90be3729e71c1e714f",
+        "text": "A framework for organising multiple agents with complementary roles, objectives and tasks within a single process."
+      },
+      "title": {
+        "hash": "f818b4b2e4460d03ee09ac9263606d3372b42c3d264309179193fc3c82c702a9",
+        "text": "CrewAI — Coordinating teams of specialist agents"
+      }
+    },
     "link:67c19ac5-0e90-521e-8898-41df3e7b7f4d": {
       "description": {
         "hash": "31981046538defe27b0f32fff1fb09fd36e05acbbe4bdb466ae206cbc4595525",
@@ -332,6 +624,36 @@
       "title": {
         "hash": "476d5c19a3340d6b9065db4385266db4aae0d937c58e704cb08df27736333089",
         "text": "firetower-cloud/firetower: Run any coding agent, on your own servers, from anywhere"
+      }
+    },
+    "link:69049268-33d9-50dc-8b76-6a5c14303ef7": {
+      "description": {
+        "hash": "fd788a76dbce91c3d48a64db92f1d4b7b10071f8b4bf0a2eb9a892490ec55e97",
+        "text": "JavaScript implementations of algorithms and data structures, accompanied by explanations and further references."
+      },
+      "title": {
+        "hash": "967f71519f49aebe42b812f0718af97900ad8a51623bb71a1bb902d6f400aaf1",
+        "text": "JavaScript Algorithms — Algorithms and data structures explained"
+      }
+    },
+    "link:6b29fa58-0da6-51ef-b3bc-64598f36e8ae": {
+      "description": {
+        "hash": "a38c96a8cc084253aa4cb67525914d34a2ad415f1a0d0fd7aa387a79f1685cec",
+        "text": "Synthetic resources to help prepare for interviews on programming, system design and professional conduct."
+      },
+      "title": {
+        "hash": "63d844cd97bcfc083cad9736c82dae2ac0b1d919c3af25137493ff2f5df49641",
+        "text": "Tech Interview Handbook — Preparing for a technical interview"
+      }
+    },
+    "link:6cd52f52-ae84-5624-90aa-497952ab81e0": {
+      "description": {
+        "hash": "40faf51c3f2f89ef86728039c9edd88de76df9669237fb73f8a0471c6891e364",
+        "text": "Graph-Native Infrastructure for Context and Accountable AI Systems - semantica-agi/semantica"
+      },
+      "title": {
+        "hash": "ab24099ae626a7f7430f97d946b1d38cded97abc5c554be40d6d46528eb96502",
+        "text": "semantica-agi/semantica: Graph-Native Infrastructure for Context and Accountable AI Systems"
       }
     },
     "link:6d112f4f-072e-522d-8091-ffceb385add2": {
@@ -344,6 +666,46 @@
         "text": "Matt Pocock — I Open-Sourced My Own AFK Software Factory"
       }
     },
+    "link:6d1203f4-6121-5dbe-bd05-8d48c4cc7f44": {
+      "description": {
+        "hash": "6efb727abcfc82d12343e3fe096b0bd34d626f7b242074dc82bc2758907ab4c0",
+        "text": "Local-first AI agents with governed, approval-gated memory. Any model provider; MCP tools and web search built in. Nothing remembered without your say-so, nothing leaves your machine."
+      },
+      "title": {
+        "hash": "0505ae3e70a8f3cbc5e221036b44751cf77a1389fa7f80737a1e82afb2df96da",
+        "text": "EXXETA/exxperts: Local-first AI agents with governed, approval-gated memory. Any model provider; MCP tools and web search built in. Nothing remembered without your say-so, nothing leaves your machine."
+      }
+    },
+    "link:6ec554e4-7e2d-5d2e-9299-42daa197048d": {
+      "description": {
+        "hash": "2596cf968d171962da4dffdf02dc1f9e2e1889131e65dba00f5262cd0c59c5b0",
+        "text": "Explore medically detailed 3D organs — heart, brain, lungs, liver, kidneys, eye, intestine, pancreas, and skin — through an elegant, interactive anatomy atelier."
+      },
+      "title": {
+        "hash": "e4b44fceae34a00a0233170cb249bb03bd9e2761af8408e02c939f544434f416",
+        "text": "Anatomy Atelier — Learn anatomy like an artist"
+      }
+    },
+    "link:6f30af7b-543a-5393-a50c-6439861a91bd": {
+      "description": {
+        "hash": "6a767adfefeca02fc11e5426de17507bfd55efac34cf89d2fde2ea3c0fee1d39",
+        "text": "An experimental framework that simulates a team of specialised agents to study market decisions; it is not a financial advisory service."
+      },
+      "title": {
+        "hash": "d1ac5f9ae07f2a29293f134c278a962de64b6a031d1ce1223679d45c7e4d1b53",
+        "text": "TradingAgents — Multi-agent research applied to markets"
+      }
+    },
+    "link:70f53c80-db6a-5ac1-be52-1f5864bb5529": {
+      "description": {
+        "hash": "2d17854ba4bb97c707aae1ff4b9329d2b9c178622b99db234c62f59b007b97c7",
+        "text": "A modular, node-based interface, complete with an API and an engine, for building image-generation workflows using diffusion models."
+      },
+      "title": {
+        "hash": "f3a467294e35b1076399538b7122bc861c6ade0da69e3e731076f11152d06694",
+        "text": "ComfyUI — Creating generative images using node graphs"
+      }
+    },
     "link:717f9b4a-b803-578c-b586-5dabd32711ad": {
       "description": {
         "hash": "94a98a5267dc29577f1c17eb61949cbc5de03eeb918485c0a75a1472c059a466",
@@ -352,6 +714,26 @@
       "title": {
         "hash": "a892f36c52ee63c0187efc23e9d14456f50bdca69e7bba209bb6fa61b0841d63",
         "text": "growgraph/ontocast: Agentic Ontology Assisted Framework for Semantic Triple Extraction"
+      }
+    },
+    "link:7412c069-0d3b-5d23-a46b-6977bfc3695b": {
+      "description": {
+        "hash": "1b16453acf0ba673840a144e5faaadda6ad52849cdd551ccdb37bd2a4a28ad47",
+        "text": "A structured introduction to the design of distributed systems, complete with exercises, examples and resources for technical interviews."
+      },
+      "title": {
+        "hash": "d0f247e0bdf9e3c5d28e794a579323ead9e84f11cbb23e71f4b47407e75817fd",
+        "text": "System Design Primer — Designing Large-Scale Systems"
+      }
+    },
+    "link:754c85f2-7e8c-5133-9fdc-b9524cdeb421": {
+      "description": {
+        "hash": "600389306e030b18abc227691d8eaba8435f41056d963cfcc7c76a819403c6d2",
+        "text": "A local, read-only scanner that analyses the metadata of packages, extensions and development tools to detect known exposure to software supply chain compromises."
+      },
+      "title": {
+        "hash": "90990b34ebf0194e800a63d62c2129addab3641404f4ef78d227b1ce8e9d8039",
+        "text": "Bumblebee — Scanning for exposure to software vulnerabilities"
       }
     },
     "link:7656dfa2-d464-5a90-b6db-0e83cbac0bd5": {
@@ -380,6 +762,62 @@
         "text": "Agent Deck — the control centre in the terminal"
       }
     },
+    "link:7c64d3ae-b8f6-5e87-bb11-cb1b5c1ec954": {
+      "description": {
+        "hash": "b06cd8f0b853135ffe941047d570709a9adaad5969e5b2948ae816ea1b8639b5",
+        "text": "An SDK that combines browser automation with natural language commands to build more robust web agents."
+      },
+      "title": {
+        "hash": "153b240e5ea2c2510dbd3c72ebffd3fe7d2f4f9c7f82700a3ad9074220cee9a9",
+        "text": "Stagehand — An SDK for web navigation agents"
+      }
+    },
+    "link:7ed43568-3c73-5315-83ce-7cbb18deffef": {
+      "description": {
+        "hash": "491ffb22233ccc056ad111a992654db3ed78998d7f67437269b9907a4be251ae",
+        "text": "Memory for coding agents — Claude Code, Codex, Cursor and 17 others. Indexes the sessions they already wrote to disk, including months from before you installed it, and recalls them in any of them. No LLM, no embeddings, one local Go binary. - vshulcz/deja-vu"
+      },
+      "title": {
+        "hash": "21b0943a29207f24c08752d03702116b695cddc6efa763077e8cbb177db61100",
+        "text": "vshulcz/deja-vu: Memory for coding agents — Claude Code, Codex, Cursor and 17 others. Indexes the sessions they already wrote to disk, including months from before you installed it, and recalls them in any of them. No LLM, no embeddings, on"
+      }
+    },
+    "link:7ed5f0d2-a063-5eb7-8313-3c3da755626d": {
+      "description": {
+        "hash": "2994b771cf893eb88c4f67abd9197475362286e9b6f7f09fe6d782b3e410173e",
+        "text": "Open-source observability tool that uses AI agents to self-heal your software - superloglabs/superlog"
+      },
+      "title": {
+        "hash": "71dc7e4c698bede86554a0a90c8051fbc042b619af25559a73e4cb0f52bb5cf1",
+        "text": "superloglabs/superlog: Open-source observability tool that uses AI agents to self-heal your software"
+      }
+    },
+    "link:7fa41cc6-ab8a-5500-8c38-c4217fe84c81": {
+      "description": {
+        "hash": "36d4dc210f11ec6aec4a635259fd64fb1a14da81ffeabfffd9ca531536a2360b",
+        "text": "On 24 August 2026, France and Saudi Arabia signed a memorandum of understanding. Three theme parks are to be built in Courdimanche, in the Val-d’Oise, on the site of the former Mirapolis, which has been closed since 1991. Around six billion euros will be provided by Qiddiya, a subsidiary of the Saudi sovereign wealth fund. Twenty-two"
+      },
+      "title": {
+        "hash": "a423990f2a69da8435eac046fc9eb5a362527d9e5c41ce1a20fdc82551b65790",
+        "text": "The great political diversion."
+      }
+    },
+    "link:802a3709-c69a-5049-83b8-a9545e26086e": {
+      "title": {
+        "hash": "7100a20a5cca473f9be6daa21bdf0380232188740457452ba88bddbf04729201",
+        "text": "The Late Brake Show"
+      }
+    },
+    "link:824e13d7-2c71-54c4-b1e1-b80a4f9fa48e": {
+      "description": {
+        "hash": "123c0c3aff07035009d53170ba6022422106b48d6cf3dd72a355f21985405e24",
+        "text": "Interactive roadmaps, guides and resources to help you progress in the key roles and areas of software development."
+      },
+      "title": {
+        "hash": "ed477c95d6a6168c2a22176106702d5647698534060c1be7288cad5a98138521",
+        "text": "Developer Roadmaps — Learning paths for developers"
+      }
+    },
     "link:82c7cf08-7878-5b4c-8905-d3f4a9901e62": {
       "description": {
         "hash": "110ef57c1182e62ceec14e86cc994541e05146a663870af9a17b629acc250754",
@@ -390,10 +828,40 @@
         "text": "The Lure International Festival | Home"
       }
     },
+    "link:836c8b71-c8d3-575c-a9cd-aeb1be410265": {
+      "title": {
+        "hash": "214785edb7587a59203d7721e4c71d06401a74db13e1de46ba7600bb51873db1",
+        "text": "Vahan Soghomonian"
+      }
+    },
+    "link:840e6a9c-0848-5ccf-861b-c6002f7e29d9": {
+      "description": {
+        "hash": "6a9d4214d246cc88ee558b8f29dd9c69267e207305c35b81b734d794ead0c48e",
+        "text": "Microsoft’s framework for designing applications in which multiple agents, tools and people can collaborate."
+      },
+      "title": {
+        "hash": "b3ceb0969b9885ae0f8b3a5e60fb65a48167711de29f25749dd4c45e2798c730",
+        "text": "AutoGen — Programming agent-based systems"
+      }
+    },
     "link:87db8e2b-cbc3-5691-bb1f-55a09fe9a41e": {
       "description": {
         "hash": "06c5dd371e0bc6f5b62f796f6135baf6ac59ee5932ec1d64482c1ca9881da914",
         "text": "A persistent memory infrastructure designed to personalise interactions and maintain the context of AI agents."
+      },
+      "title": {
+        "hash": "2b498837d92bc8f838181de8f4744ae0a2d75089afae093fea4cdbf926e01952",
+        "text": "Mem0 — A memory layer for AI agents"
+      }
+    },
+    "link:8a43ba6c-753c-5029-898c-d9075c4a3abe": {
+      "description": {
+        "hash": "25f09135f4af6bc93dd4ff0bf7b3c453b18e54e49fa6649c09a4d82ef210219c",
+        "text": "A platform focused on the organisation, planning and monitoring of AI agents, stemming from the project formerly known as Lobe Chat."
+      },
+      "title": {
+        "hash": "b9184cce1263d8d82b3b51497eaeac3f907ea09bfc9f122d2f3402929676258c",
+        "text": "LobeHub — Organising and managing a team of AI agents"
       }
     },
     "link:8d649ef2-0fbc-5b7c-aedd-bc0504e326f4": {
@@ -426,10 +894,24 @@
         "text": "Swarms — composing swarms of agents"
       }
     },
+    "link:8fe7b524-e6d3-5183-bab8-a69b6125130e": {
+      "description": {
+        "hash": "97d6081bc9cf1ed6ac6cd5f694fdd08bef3b48a2c437c43b76b3406a25db682a",
+        "text": "A set of components for building applications and agents based on language models, tools and context sources."
+      },
+      "title": {
+        "hash": "1a56d4e6ea630f951a94be8155b7e949d4de77f7deed662e826cd1d49119ef85",
+        "text": "LangChain — AI agent engineering platform"
+      }
+    },
     "link:917cc88e-85f2-5cc5-ba80-103798eebe67": {
       "description": {
         "hash": "050b7e8bf5e0fe821bc53416cddfab1096d7ec989ca54cc634b47a9a9a5b436e",
         "text": "A collection of short articles and practical examples to help you gain a deeper understanding of JavaScript, CSS, React, Git and common web development practices."
+      },
+      "title": {
+        "hash": "6d8481c9ec20ee34a3d61da1610fd4453d27a80ab8acc91f108f6675d4e8f89d",
+        "text": "30 Seconds of Code — Practical articles for developers"
       }
     },
     "link:934d468c-12ae-5249-a2a4-e468d790463f": {
@@ -442,6 +924,46 @@
         "text": "Frame — maintaining the project’s original intent"
       }
     },
+    "link:95618c6d-8d6a-523c-9381-2b47434f4bce": {
+      "description": {
+        "hash": "3e00f7d5eaaa88741786bb53f4b725583746bfe7c477886176945435e7c0d2e0",
+        "text": "A deliberately compact and educational implementation for training or fine-tuning medium-sized GPT models."
+      },
+      "title": {
+        "hash": "7a44c696916b9ccf5cff4a326e78671ca94549616c24cbce995fa3cebdd5740d",
+        "text": "nanoGPT — Understanding how a small GPT is trained"
+      }
+    },
+    "link:956d5e12-a6e0-566b-9a0f-eba468a6d944": {
+      "description": {
+        "hash": "9d18a812bcf0ad57701fb5c7983ea1ffbdf4c38bbf5660b9b421b58767d2c5f3",
+        "text": "Connect agents to the files they need, run parallel agent swarms on instant branches, and track every change through one API with sub-50ms reads and writes."
+      },
+      "title": {
+        "hash": "70b24a603154396bf294cdf5096a5d628a31f8856476fcfb0b23ae91e8e720be",
+        "text": "The versioned filesystem for AI agents | Mesa"
+      }
+    },
+    "link:95c2f38b-7164-5c05-87cf-b43fb613e396": {
+      "description": {
+        "hash": "c7077960f5960711ba3fb51a295b7e4917be6966108a0e42bb6e98aafe76f325",
+        "text": "The source code and the freeCodeCamp learning programme for learning programming, maths and computer science for free."
+      },
+      "title": {
+        "hash": "8677cfaa88f0214e5bf4edc995d53cefdddf0e2aa9b1e1bb81490c15bf331322",
+        "text": "freeCodeCamp — Free programming and IT courses"
+      }
+    },
+    "link:975a32c1-f413-5c6f-bf52-08c4778cfa43": {
+      "description": {
+        "hash": "cb2881f0bd90f950ee9a92a6afec6b7962b1883789b69610d4cffabe776614a8",
+        "text": "A modern static portfolio generator built with SvelteKit 2 and Tailwind CSS 4. Perfect for designers, artists, architects, and creatives who want to showcase their projects elegantly and professionally."
+      },
+      "title": {
+        "hash": "34a03d30fce1398ec85525b37af71296b5b637bf3f62839cc13d6dd1f43a6321",
+        "text": "microfolio - Static Portfolio Generator"
+      }
+    },
     "link:984bf087-1cb2-5628-a537-9f87c9ecf696": {
       "description": {
         "hash": "13b4e29821779f883f581d630ff10f4a1f982475757b019e49c35e3687c723de",
@@ -452,6 +974,16 @@
         "text": "Mastra — TypeScript agent-based frameworks"
       }
     },
+    "link:99893655-f7ff-5d8e-b2c2-c0e78cefc2c2": {
+      "description": {
+        "hash": "c7fba554526737248e39bc9443d5228c1e56c329d1074d28fe465544a42a0aad",
+        "text": "A fair-code automation platform that combines a visual editor, custom code, integrations and AI components, available either in the cloud or as a self-hosted solution."
+      },
+      "title": {
+        "hash": "4acf5fada619724aa21f564bc56fd815b462f41276ec5c2749f540040c01c083",
+        "text": "n8n — Visual automation and AI workflows"
+      }
+    },
     "link:99a78755-07bc-5f5b-9974-a3e9596339ca": {
       "description": {
         "hash": "de996c64663131724283cebefb42f0e43a7cda6c0889eabf16fdf0659980e220",
@@ -460,6 +992,56 @@
       "title": {
         "hash": "9042a32e5774b96a72f44541563c677e56c8fc11b3a3c3acb85eb3c49cec2bfb",
         "text": "Superset — the large-scale agent-based IDE"
+      }
+    },
+    "link:99f1b0d0-954f-52ca-9828-0a8ef0a1b7bc": {
+      "description": {
+        "hash": "b51b39fa55933ec1b385eea9bfd9569d488e479137036396c95213f917c725cb",
+        "text": "An open-source personal AI assistant designed to run on multiple systems and integrate with the user’s tools."
+      },
+      "title": {
+        "hash": "791a7e9a3d4ddec0c5aa4b36ca892fc02046feff88fa1d76cb73875928ed311c",
+        "text": "OpenClaw — A personal, cross-platform AI assistant"
+      }
+    },
+    "link:9c74694f-2a55-5120-94ad-f08d890c54ed": {
+      "description": {
+        "hash": "ba64f585841b8f8122b005fe2e609335fc12c75584cb31fa8cfc82c9d89a4d76",
+        "text": "Performance results of AI coding agents on Nuxt code generation tasks, measuring success rate and execution time."
+      },
+      "title": {
+        "hash": "fbc40eb3ba3502c9774b5b2df68a9d0979bf1097e189fdc1610f7cdc93276e67",
+        "text": "Nuxt AI Agent Reviews"
+      }
+    },
+    "link:9d7dfa22-e16e-5fef-88ba-2622d822fcd6": {
+      "description": {
+        "hash": "a056bb8b1268ab840ed79d5afc9b31d3d520dd1e494fcf72b27ad13622872ba0",
+        "text": "Four values and twelve principles for developers who build software with AI as a deliberate partner."
+      },
+      "title": {
+        "hash": "2949d07c52d6162e8f30fe7fd150c8980365c8c71345dd17aac4f9a14c34f9f7",
+        "text": "The Manifesto for AI-Driven Development"
+      }
+    },
+    "link:9dbe97c8-2551-5e96-a4c4-1c5dbd27fb23": {
+      "description": {
+        "hash": "7dd30afcdc0a44ecdc4279654b535046d9176ef4d40867e28528fd78e4720ab1",
+        "text": "Persistent project knowledge graph for coding agents. MCP server with semantic search, in-process embeddings, and web explorer. - 0xK3vin/MegaMemory"
+      },
+      "title": {
+        "hash": "7323fc835d1bfb854da5f1af8a1c8f15d99d6d0097e1f7f7455ef71b2e450d18",
+        "text": "0xK3vin/MegaMemory: Persistent project knowledge graph for coding agents. MCP server with semantic search, in-process embeddings, and web explorer."
+      }
+    },
+    "link:9e31fa64-8115-56f3-9065-2e090e33b6f2": {
+      "description": {
+        "hash": "2d6dc4b2103c2512c2afca93f723892f081f9afb1d4d44b34f0b27918c657a75",
+        "text": "Turbocharge Claude Code, Cursor, Codex, Gemini & every coding agent: faster, cheaper, with contextual understanding specific to your codebase. - NanoNets/Graft"
+      },
+      "title": {
+        "hash": "7792b2cb68bc1e7809e33dede93a96fae9c89eadd430fe14d6a1541c5eee0529",
+        "text": "NanoNets/Graft: Turbocharge Claude Code, Cursor, Codex, Gemini & every coding agent: faster, cheaper, with contextual understanding specific to your codebase."
       }
     },
     "link:9f737c42-e03f-5575-86eb-846d8b8ff798": {
@@ -482,6 +1064,16 @@
         "text": "OpenADE — plan, review, then execute"
       }
     },
+    "link:a554f655-6c3e-5ecc-9065-6bfb8679f612": {
+      "description": {
+        "hash": "2e5c13c06620034ed80a56d374ad4e78a8af3b49c983e239b720216b31a61001",
+        "text": "Self-evolving Context Database for AI Agents. Unify Agent Memory, Knowledge RAG and Skills. - volcengine/OpenViking"
+      },
+      "title": {
+        "hash": "6d34b531420b60be36d212ae2ba251d7b9db78a377f8a61f6513551acb52e228",
+        "text": "volcengine/OpenViking: Self-evolving Context Database for AI Agents. Unify Agent Memory, Knowledge RAG and Skills."
+      }
+    },
     "link:a638423d-09d6-528b-8ce8-0f29bec102a1": {
       "description": {
         "hash": "053bab0b611bbe5bcd1056fcfbbc1f1c34c4d8360b511264411b81da1197e9df",
@@ -502,6 +1094,16 @@
         "text": "Google ADK — building and deploying agent systems"
       }
     },
+    "link:a7bfbfd4-a4c8-55bf-9dca-4712b186886b": {
+      "description": {
+        "hash": "2c15201349ae3ee8b5becf82b06f795a64c8b66a53eff7fdb0dc2fc51280b0ef",
+        "text": "A command-line programming assistant capable of modifying a Git repository using conversational commands."
+      },
+      "title": {
+        "hash": "8649bd1f28ad1ffb50b70cebbf6378a8273098d9988fad97f3d35f36aa32be10",
+        "text": "Help — Programming with AI from the terminal"
+      }
+    },
     "link:a7c321aa-c7fc-5107-8821-cbfdb6ee9022": {
       "description": {
         "hash": "1ba5a64ed2513a8274be12ad2aaba2d0e2edef9881405ced3a28175426f6951c",
@@ -510,6 +1112,36 @@
       "title": {
         "hash": "85e91103f1e2cf720dcb6bde542ce9505ce470ab1fa2b7d4b97cfaffbd48e3ca",
         "text": "Emdash — the open-source, platform-agnostic ADE"
+      }
+    },
+    "link:aa0761a7-aad6-5d3d-9d7c-67da86606d94": {
+      "description": {
+        "hash": "53528b9b452f27c43c32badb5fe856ca47a3c2e42e243f695e5380d8686dd682",
+        "text": "IMG.LY CoDesign is an AI design agent that runs as a free local design MCP server and turns prompts into editable design files, not flat images."
+      },
+      "title": {
+        "hash": "20421da442d3d7febe4d3c1b174da2d4480da1022dd4c3f6a4e698985ebbd0d9",
+        "text": "IMG.LY CoDesign: AI Design Agent for Editable Design Files"
+      }
+    },
+    "link:aa912976-fe3a-5a44-bb98-a4747206afe1": {
+      "description": {
+        "hash": "18368d66fff2a712d20a221470747424b8c1a2dadcb5699ea0a9443dfa57fa0d",
+        "text": "A self-hosted web interface for interacting with models hosted by Ollama, OpenAI-compatible APIs and other engines."
+      },
+      "title": {
+        "hash": "dbedec384bc62a8f4d335242590b7bc6855606a23a25e88ddd09732d345d4225",
+        "text": "Open WebUI — A web interface for AI models"
+      }
+    },
+    "link:aeb2dc55-96d9-5f08-b3c2-84f9c40112c9": {
+      "description": {
+        "hash": "38a38edb1640452427c0d70841c5bb77f6b90b91e02d3d3b8d72dfe31d3a4a2f",
+        "text": "An inference engine written in C and C++, optimised to run language models on a wide variety of hardware, including locally."
+      },
+      "title": {
+        "hash": "9c66f9547fd30db516440ae2b6c86be99bab771a353cd4f681de0a992a2a3ec9",
+        "text": "llama.cpp — Running LLMs in C and C++"
       }
     },
     "link:aef196cc-b67e-51b4-aaea-7f983ca0d882": {
@@ -528,6 +1160,16 @@
         "text": "photographer"
       }
     },
+    "link:b26c13c8-8d3a-5562-b917-62eb2805c5f6": {
+      "description": {
+        "hash": "b40e76e0a254e49d6752ba0959379d3fa1ec7340bf77564d0e0e73d19f55b9ce",
+        "text": "This year, visiting the exhibitions at the Rencontres d’Arles is a unique experience.  Nina’s spirit is with me as I look around, though I cannot put myself in the place of a small animal who died suddenly of a heart attack, brought on by the heatwave at the end of June."
+      },
+      "title": {
+        "hash": "e332bf3f22782edcfe00c35957b386126c9e6b154c1ac3efb3aa4a10a8a47d63",
+        "text": "The 2026 Photography Festival through Nina’s eyes – LaCritique.Org"
+      }
+    },
     "link:b48c2bcc-cf68-539f-80b6-76a1ff5d1650": {
       "description": {
         "hash": "5a679336d97e837b17042a874d2091b84c73a524575dd00c5dd49886631f82b7",
@@ -536,6 +1178,16 @@
       "title": {
         "hash": "df95b6d165b9186b56728065482692bbaa7167838e1ade3b0adcf239efdfdd97",
         "text": "AgentScope — agents you can observe"
+      }
+    },
+    "link:b4c31a26-dd8f-5060-b96e-d3a3510db4d4": {
+      "description": {
+        "hash": "4f4a1f846105df51bcfc9114b4e07aab078ccd9f0dc7bb26e629e6067fd3825d",
+        "text": "A series of books that explores the inner workings of the JavaScript language beyond its superficial applications."
+      },
+      "title": {
+        "hash": "5d708de63c705ea3da7251529e7d96e435e7594fb6448aa7d1aefbcb69cffd40",
+        "text": "You Don’t Know JS Yet — Understanding JavaScript in Depth"
       }
     },
     "link:b508eb2f-7018-51bd-bf7c-c9af973cee40": {
@@ -548,6 +1200,26 @@
         "text": "do•doc | Home"
       }
     },
+    "link:b63b6ff0-4b0c-54d8-8c4b-bad4a02c27ee": {
+      "description": {
+        "hash": "790db12213cff34f498e25d294ab0aa0a0d6d53df5d85a42d5cf730feafe67a5",
+        "text": "An OSINT tool that searches for a username across thousands of websites in order to compile a dossier of public links, for use within a legal and ethical framework."
+      },
+      "title": {
+        "hash": "2657d83a27a9d0e6202286b6ae72674316c93d75cd0bdfc6e1566429bc7a88b7",
+        "text": "Maigret — OSINT search using a username"
+      }
+    },
+    "link:b7b0bf90-18a1-5202-b56b-3e21b2e7c805": {
+      "description": {
+        "hash": "e17f575da461df157a18c9e39d2a2a3796a6df5d6c9070a9f9991b948f9c3384",
+        "text": "An extensive multilingual index of books, courses, tutorials, podcasts and programming resources available free of charge."
+      },
+      "title": {
+        "hash": "3ae0dc9974a6792eea7cddf72f9a3fd910f03e782868c14ead1c29c562b054bc",
+        "text": "Free Programming Books — Free programming books and courses"
+      }
+    },
     "link:b93c9a52-b2db-557e-8ab4-b63cb1d5cfd0": {
       "description": {
         "hash": "d5c2271b15819ca53e084d410ff5505abe0331bdae19e1f7caa01047c78247bb",
@@ -556,6 +1228,16 @@
       "title": {
         "hash": "ad20da081df4017bb0c96addba52905553f2747f36c1f54ba7915d760c4219c1",
         "text": "Owain Lewis — I Built A Self-Improving AI Software Factory"
+      }
+    },
+    "link:b9e8bdf3-ac98-5e20-892d-daade59f2a69": {
+      "description": {
+        "hash": "936cbd96d95fcf8e7aa0a5b42f4b096ecc69438ff655cf6c16a24c778348e012",
+        "text": "A multi-agent framework that translates instructions into roles and processes modelled on a software development team."
+      },
+      "title": {
+        "hash": "58567fcfe9582dbf81fca0d517863768ba7112cb40af5d9557a3be7246c37a77",
+        "text": "MetaGPT — Simulating a multi-agent software organisation"
       }
     },
     "link:bc99870a-0faa-5250-9570-7df7c0e5b5af": {
@@ -604,6 +1286,16 @@
         "text": "omp — a coding agent with the IDE wired in"
       }
     },
+    "link:c70f2393-73a8-5d6e-9e17-01ca11306288": {
+      "description": {
+        "hash": "40613caa6399be6042c3c2173192178f4d949766735b8942abd9f36523d9eb58",
+        "text": "A small macOS menu bar app that tracks usage, credits, costs and resets for AI coding providers across 69 providers: Codex, OpenAI, Claude, Cursor, Gemini, Copilot, LiteLLM, and more."
+      },
+      "title": {
+        "hash": "cadba55e64504e2d3cd2d1c31edf2843e4076138ddb397bf0327e4c0b16ea4b1",
+        "text": "CodexBar"
+      }
+    },
     "link:cf0cb9e5-e686-59cb-b953-0d55eba56fbe": {
       "description": {
         "hash": "db389ed1f087fcaf7d2aaf60568eb302f7c8bb4cea8be1a3da518af139fb071a",
@@ -624,16 +1316,60 @@
         "text": "Luminar – Easy-to-use photo editor | Software for Mac and PC"
       }
     },
+    "link:d1a171a4-4895-518a-91bd-c839973a42ea": {
+      "description": {
+        "hash": "5b52f250eaf80f5db3d2ab1944d08cea497023ff673ceae9668d55e8ceb6138c",
+        "text": "Freelance graphic and web designer based in Amiens, Hauts-de-France. Website development, graphic design, visual communication and more."
+      }
+    },
     "link:d20e8093-a9f6-51e6-bd15-de4dfb32b687": {
       "description": {
         "hash": "04d9f76743a48ba2106f5ad147105cc0fcc284869e9ce7284660e778337e4925",
         "text": "A selection of tutorials organised by programming language, designed to help you learn to programme by building practical applications."
+      },
+      "title": {
+        "hash": "56b9a34df187ce9c1fae5ac76ce13e978b5711027f3539d2ad25d82b2fab3e6f",
+        "text": "Project-Based Learning — Learning through projects"
+      }
+    },
+    "link:d38ba790-78ce-5033-9c6a-eb9789e8e667": {
+      "description": {
+        "hash": "44746090fb5cc299ed33bf1be68a7aeab1b3164e57ef70e04cf015e0ce6314c3",
+        "text": "A comprehensive collection of commands, cheatsheets, tools and references for system administration, networking and security, to be checked before execution."
+      },
+      "title": {
+        "hash": "89323f36f15f266107989921ac3cddee5ab6ae05f0dec2d2b790b5304d96b292",
+        "text": "The Book of Secret Knowledge — A Guide for Administrators and Developers"
       }
     },
     "link:d3b2d4fa-948c-5df3-b145-c84daf0325cd": {
+      "description": {
+        "hash": "fbdb1f39fd46ed3be6b5d812ccaa8b2c4706af8ff4052ff71ab379ccbbc739a9",
+        "text": "A fast memory and context engine, which can be used via an API or locally to enhance AI applications and agents."
+      },
       "title": {
         "hash": "059070f3c1e79d6815a3610496db32219e9ef85ddaae00c2a74f0e74fa7cadb1",
         "text": "Supermemory — Memory and context for AI applications"
+      }
+    },
+    "link:d58f75c0-fa59-58cd-91cd-105252f10b94": {
+      "description": {
+        "hash": "747a1ad39b5f6586e1e17d0e4a993947a0ebe18922d117680977218025b76f89",
+        "text": "A collaborative space for designing agent-based workflows and RAG pipelines, connecting models and deploying AI applications."
+      },
+      "title": {
+        "hash": "91669c37835020befda28ac8a854268050668e485fd1d46aeb14971f393f5aba",
+        "text": "Dify — Building agent-based workflows and applications"
+      }
+    },
+    "link:d5a2ba25-0afb-5d16-bcb6-832a3a55cb01": {
+      "description": {
+        "hash": "c45ddeed638dd82d9c4ac597b74bdfd80ada11531db7d403f6f6f6e39c02d252",
+        "text": "The agentic development environment with institutional memory. Xirp connects to your services, ownership, docs, and architectural decisions so every session starts with real context. Powered by Spotify Portal."
+      },
+      "title": {
+        "hash": "d79112b2a84f91479253ca0c9c19fa21aa01cd27ff872757326de03b3546a215",
+        "text": "Xirp — Know your systems, so your agents can too"
       }
     },
     "link:d890b9e1-8e30-591e-ac08-4399982362d7": {
@@ -682,6 +1418,46 @@
         "text": "Paperclip — managing a recruitment agency"
       }
     },
+    "link:dbceb84b-6351-5ef6-96e6-db04ea5c2fff": {
+      "description": {
+        "hash": "bef43850756c3771cf1a30ee60f76cfb2b861af1af3b45d6c3d82ea97f164732",
+        "text": "An environment for downloading, running and serving a wide range of language models locally via a command-line interface and an API."
+      },
+      "title": {
+        "hash": "625522dee72761938241f5fd3adb2603795664e077cc767050aa384531823767",
+        "text": "Ollama — Run language models locally"
+      }
+    },
+    "link:e109deb3-ad53-5bf3-8a8b-db0a18b06497": {
+      "description": {
+        "hash": "970f7911f3d7472e583fabfaef321e21c6c81e44f6ee42fe594f83ad4ce653b2",
+        "text": "As early as the 1930s, leading business figures chose to put their financial clout and influence at the service of the far right."
+      },
+      "title": {
+        "hash": "769eb6efaf748bae2e2f5b669d48580171a7bac641807f1fe06a26744816b505",
+        "text": "Inside the minds of far-right leaders"
+      }
+    },
+    "link:e2b20cba-a6ca-56ed-b171-2a71ad5bbee1": {
+      "description": {
+        "hash": "e54b4bb63f80a19c59e0bc05e2f822fd446730446dacad6a2b86079a2bd8fb5f",
+        "text": "Spend too long on screen, and a cat pops up to signal break time. In your browser or on your desktop, it gives you a cute nudge to take a break."
+      },
+      "title": {
+        "hash": "871783c933ecc674dc742a5af29fc28e3520929f775cb6481bad844fcb2f8227",
+        "text": "Cat Gatekeeper"
+      }
+    },
+    "link:e2cc8146-4193-5d68-8f1f-daadb5ac0e99": {
+      "description": {
+        "hash": "6784a47fc96de0d7bbfc780a6d7c0c311caf659a1ea2b6a4b7c39ce9a0c27277",
+        "text": "For the past 25 years, alongside its artistic and cultural activities, the association has been offering a range of workshops, courses and private lessons for beginners and those wishing to improve their skills, led by experienced instructors or in collaboration with artists."
+      },
+      "title": {
+        "hash": "89a54386440b25d584e2602fe7388dbc4d9d56d6252a7fc2cb2f97e649a293a5",
+        "text": "open day – lelabophoto"
+      }
+    },
     "link:e2f657ba-1d85-59e2-8d99-27068e1250c8": {
       "title": {
         "hash": "bb4eac16126c520f82dc73f9f15f9f9a38b5ea84cbd17d8dd621d27a40082734",
@@ -718,10 +1494,60 @@
         "text": "Daytona — isolating the code generated by agents"
       }
     },
+    "link:e8badb76-6f94-58b2-9d63-bfdd4af1bcde": {
+      "description": {
+        "hash": "bf19fffda21136a47b4a35f7b3b7563b1cb8a46bcd4723d2eec500fec5c8c11c",
+        "text": "Open source AI is changing at a rapid pace. We update this report as new developments come to light, and log every change here, newest first. Each entry records what was added, what changed, and what was retired, so you can tell which edition a given number came from. Past editions stay downloadable in the archive at the foot of this page."
+      },
+      "title": {
+        "hash": "7a76c242fb968270f71fb60001e90df067ff8de0e4f322dbca5ef7474f76947b",
+        "text": "The State of Open Source AI — v1.0.1 · July 2026"
+      }
+    },
     "link:e9754fbd-5058-5745-abca-aec6635c548c": {
       "title": {
         "hash": "1d0d1671442177a5992ada75a93f4787d37d18fdb303bed8668b7dcefea63661",
         "text": "Sparrowhawk"
+      }
+    },
+    "link:ea2aeedc-6035-55a2-839b-2e6791f2b92f": {
+      "description": {
+        "hash": "ef7d22c0cc91cfd5c4d7eb1df116c084f52bd8dbada9c475cbc58fc769c22e63",
+        "text": "A free extension that shows the actual owner of each French media outlet whilst you’re reading, on its website and in your search results."
+      },
+      "title": {
+        "hash": "d89a334ec0ff4e968012b2c6fde05158643e1081e25f292cd90ebd3cbb58ee8a",
+        "text": "Who owns the media? An extension that displays the owner of each media item"
+      }
+    },
+    "link:ea3980cb-9e4c-5e8d-8876-f0b2ed67bd4f": {
+      "description": {
+        "hash": "4794950ec8d07e8ad3aa9805f57172b6ec69bbd2b2b0a3b52a2432b1c9515f82",
+        "text": "Checkmate is an open-source, self-hosted tool designed to track and monitor server hardware, uptime, response times, and incidents in real-time with beautiful visualizations. Don't be shy, join here: https://discord.com/invite/NAb6H3UTjK :) - bluewave-labs/Checkmate"
+      },
+      "title": {
+        "hash": "e554a1f1ee1d5b103df925fc8e12f589bbc240e8fc8078e6d0e2322cd3459042",
+        "text": "bluewave-labs/Checkmate: Checkmate is an open-source, self-hosted tool designed to track and monitor server hardware, uptime, response times, and incidents in real-time with beautiful visualizations. Don't be shy, join here: https://discord"
+      }
+    },
+    "link:ef99ceaa-ea01-5c38-8f1e-204ef004c8dd": {
+      "description": {
+        "hash": "389a1a48f0e3a0480ee033c924f25d45f917e4a8ad35a209d442fdae989cbbac",
+        "text": "A platform for ingesting and structuring documents, building context systems and creating agents capable of working with this data."
+      },
+      "title": {
+        "hash": "b5d2f1305c6837bd65737bd75d33e3bbb9a3d7a0f2e4431cc693a76103cb79b1",
+        "text": "LlamaIndex — Information specialists, context and OCR"
+      }
+    },
+    "link:f054e0a5-f39f-5020-a6ab-a9eea2f1d2c5": {
+      "description": {
+        "hash": "610c6c9f6140ef6361a46053bdf4b085b1df6232efb4e6a0b8d31bffed136234",
+        "text": "Layout Department is software for laying out books, zines, and booklets. You drag and drop PDFs to make the imposed print files. It’s a tool for artist publishers, small printshops, and people who like making print publications."
+      },
+      "title": {
+        "hash": "5214d978c42c68d1d497c9a8cf541a83b1ca3d0bcbea31bdfd878f0ecb4e875c",
+        "text": "Layout Department"
       }
     },
     "link:f087e29f-d63e-54c3-bb95-228f3b971dee": {
@@ -742,6 +1568,36 @@
       "title": {
         "hash": "fc4fd096e037298d49b5fa481c235181e0deebcb7b1d0756ac6b83e90090c4cb",
         "text": "Owain Lewis — I Built an Agentic Software Factory with Codex and Claude Code"
+      }
+    },
+    "link:f1f6bc4f-4db7-5ec8-b0ca-93706fded32e": {
+      "description": {
+        "hash": "3cc0e41a48cd903d24ef2e5dc34db6f6436a9581b67ce449926da448f0349170",
+        "text": "Forgejo is a self-hosted lightweight software forge. Easy to install and low maintenance, it just does the job."
+      },
+      "title": {
+        "hash": "cc8c2a89946b4e58d1844cd65494256fafc99d31635167b52b1fca5ee217f132",
+        "text": "Forgejo – Beyond coding. We forge."
+      }
+    },
+    "link:f43fde9f-9447-5a7b-a66c-fc9dc3cc9341": {
+      "description": {
+        "hash": "4fcf02cb21a4c0604086e59a2ba31a35a8618ab6ba8587db264de5b7964289d4",
+        "text": "Pierre Bourdieu, a professor at the Collège de France, presents his body of work, from his studies on the Kabyle home to *La Misère du monde* (1993), a book of interviews and"
+      },
+      "title": {
+        "hash": "445bafaa152330e2861d3b85fa91e1357b855351148bdc0b8337d07d22f6502e",
+        "text": "Pierre Bourdieu and *The Misery of the World* (1993) | Lumni Education"
+      }
+    },
+    "link:f61a34fc-338f-58ff-97b2-b2ae9439a035": {
+      "description": {
+        "hash": "a49d1436ac0ecbfdc6f63f7f8cd788beede51458e8be32b3b15a88baa898e289",
+        "text": "A community-curated selection of skills, resources and tools designed to extend and customise Claude’s workflows."
+      },
+      "title": {
+        "hash": "4e33240e3866359919b09f87803302ff3fbcdc63ea967f2c504cd83d3ab0a950",
+        "text": "Awesome Claude Skills — Resources for customising Claude"
       }
     },
     "link:f84d3ef8-adf9-58ff-8c0d-e4b3c5a7ad55": {
@@ -772,6 +1628,16 @@
       "title": {
         "hash": "a06231d7663feb957b1bc33c63c9f7197554305eb0e7b666ad33bb63ecfb37f5",
         "text": "Data breaches in France 2026 | FrenchBreaches"
+      }
+    },
+    "link:ffef6cc6-afa6-5113-8e37-e2049c44da23": {
+      "description": {
+        "hash": "154db9f4f0ef66795cb4cc1d125cab569306d6ef246c7d2bd7f5ab0e91ecd56d",
+        "text": "38 editorial diagram types for Claude Code, Codex, and Pi. Self-contained HTML + SVG. No shadows. No Mermaid slop. - cathrynlavery/diagram-design"
+      },
+      "title": {
+        "hash": "83c7d0aa87f2b85c034d15ee4221e5da9eda4e8c08da5ba11716ad4e017ece3c",
+        "text": "cathrynlavery/diagram-design: 38 editorial diagram types for Claude Code, Codex, and Pi. Self-contained HTML + SVG. No shadows. No Mermaid slop."
       }
     },
     "page:/a-propos": {
@@ -831,6 +1697,10 @@
       }
     },
     "page:/archives/2026-08-24": {
+      "body": {
+        "hash": "1486a2d2b80e60dcc79c69c8019bafea1024a9f7e1a914ea0c2ca952a794b2c0",
+        "text": "<p>Monday’s Digest, after four coffees and 30 tabs to close… a bit of this, a bit of that; the holidays are over for OOBLIK, so the pace of the Digests should slow down – or maybe not.</p>\n"
+      },
       "description": {
         "hash": "7020c7026d8c2f38bd7960e40f85e507d1a79140762c20a8982092d9effe3b13",
         "text": "Artificial intelligence, development, design, publishing and digital creation."
@@ -841,6 +1711,10 @@
       }
     },
     "page:/archives/2026-08-25": {
+      "body": {
+        "hash": "9e58d76957c10e3595e9384665cbb48997c5732135b788d3213715950218b990",
+        "text": "<p>Memory, ‘second brain’ (I hate that phrase… as if the first one wasn’t enough), context like an hourglass when you push the agents a bit too hard and they’re forgetful and overwhelmed, somewhere between a straitjacket and a sustainable solution for documenting your code in the long term, LLM-agnostic, a goal, a quest, a star to follow.</p>\n"
+      },
       "description": {
         "hash": "7020c7026d8c2f38bd7960e40f85e507d1a79140762c20a8982092d9effe3b13",
         "text": "Artificial intelligence, development, design, publishing and digital creation."
@@ -851,6 +1725,10 @@
       }
     },
     "page:/archives/2026-08-27": {
+      "body": {
+        "hash": "2ac929dfef70bff27ced2b28e451d33176e5e2cf0afc58be1d66b93e2d960b7e",
+        "text": "<p>Four paths within the GitHub ecosystem: learning to develop by rebuilding and practising; creating agents, their workflows and their memory; understanding the infrastructure that trains and runs the models; and, finally, keeping a few specialised tools for documentation, OSINT, security and image creation. A deliberately structured selection designed to replace the ‘best-of’ effect with practical applications.</p>\n"
+      },
       "description": {
         "hash": "4b8b6668f5eb7bbbdcafd3d0fbe35c58e2cc75ef88d22f83552fff83cfc27941",
         "text": "Learn how to develop and build agents, run models and choose specialist tools."
@@ -978,6 +1856,86 @@
       "title": {
         "hash": "946546d90a07b056aaf49f70b37dd2857b2ec866c0aea388c8914c2652bc086a",
         "text": "Diary of a Procrastinator"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-08-21": {
+      "body": {
+        "hash": "b3dd0b8e5b5c6896391fc1daf5acadbc3c9dcf6f01c00975e5a93d13039d21e9",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Main environment: <strong>Mac, multiple KEREDIT worktrees, GitHub Actions and Hetzner VPS in Germany</strong></li>\n<li>Date covered: <strong>Friday 21 August 2026</strong></li>\n<li>Main branches: <strong><code translate=\"no\">feat/presigned-upload-retry</code>, <code translate=\"no\">codex/vrifier-ltat-de-la-branche</code> and workflow branches, all merged into <code translate=\"no\">dev</code></strong></li>\n<li>Time window selected for the minimum: <strong>11:05 – 12:46 CEST</strong></li>\n<li>Minimum duration observed: <strong>approximately 1h41+</strong></li>\n<li>Version released: <strong>0.22.6</strong>, release <code translate=\"no\">20f0f8c3</code></li>\n<li>Main traces: <strong>22 non-merge commits, PRs #445 to #447, upload retry and hardening of development workflows</strong></li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 847h38+</strong> (<code translate=\"no\">845h57+</code> as at 20 August, plus <code translate=\"no\">1h41+</code> today)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>The decision to use OVH has been made, but a preference for sovereignty is not enough to\nsecure customers’ photos. Before switching providers, KEREDIT\nis hardening the most exposed operation: direct uploads from the browser to object storage.\nPre-signed uploads now include a retry mechanism with exponential backoff, and the\nmobile flow has been integrated into the same sharing module as the rest of the frontend.</p>\n<p>This step is less spectacular than copying a bucket. Yet it is\nessential to ensure that the switch from a US provider to a French storage\nservice does not turn a laudable ambition into a step backwards for customers.</p>\n<h2 id=\"une-architecture-européenne-doit-aussi-tenir-les-pannes-courtes\">A European architecture must also keep outages brief</h2>\n<p>The future path is becoming clear: the application runs on the Hetzner VPS in\nGermany and client objects must reside with OVH in France. This\nEuropean setup reduces the main storage’s exposure to the Cloud Act,\nbut it does not eliminate network errors, 429 errors or 5xx errors from a\nprovider.</p>\n<p>The helper <code translate=\"no\">presignedUpload.ts</code> therefore handles transient errors\nwith an increasing wait time. The Codex review adjusts the backoff exponent, then\nverifies that the mobile path correctly uses this shared contract. The change is\ncovered by unit tests and documented in <code translate=\"no\">BIBLIOTHEQUE.md</code>.</p>\n<h2 id=\"rendre-la-méthode-aussi-fiable-que-le-produit\">Making the method as reliable as the product</h2>\n<p>The second part of the session focuses on Codex workflows and\ncontextual documentation. Audits are now better at detecting skill snapshots,\nold directories that have been removed and renamed paths. Detached worktrees\nare verified against their actual base, and managed copies can no longer be\noverwritten silently.</p>\n<p>This work may seem tangential to storage. Yet it serves the same purpose: a\nproduction switchover between KEREDIT and GOF requires knowing exactly which\nbranch, which version and which procedure is currently in effect.</p>\n<h2 id=\"état-en-fin-de-journée\">End-of-day status</h2>\n<p>KEREDIT 0.22.6 is delivered with the upload retry feature. No production objects have\nyet changed provider. The target remains OVH Standard 3-AZ Paris, R2 remains\nthe active source, and the next step must be a reversible, measured\nand shared copy for both KEREDIT and GOF.</p>\n"
+      },
+      "description": {
+        "hash": "76a6805b4432857d5bb58dab4f3621bea3ca0f4179e5e5454ba4def2cb694225",
+        "text": "Day 132 of the diary: KEREDIT tightens up pre-signed uploads ahead of the switch to OVH and releases version 0.22.6."
+      },
+      "title": {
+        "hash": "d4aaabc77804502415319bc625458f771c1046c068ef12eba296e5b03b108197",
+        "text": "Day 132 – Preparing for sovereignty without compromising uploads"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-08-22": {
+      "description": {
+        "hash": "239f6aff2165c1fc6113e403f52ee15a71585997341a9844b621bd811014d546",
+        "text": "Day 133 of the log: 78 GB have been copied from R2 to OVH 3-AZ Paris, and KEREDIT has initiated a reversible European switchover."
+      },
+      "title": {
+        "hash": "9bd3b1751cfe55fc6ab4b43b88e2f7c4978d86e515f6be36c5aa7aeca14f814e",
+        "text": "Day 133 – Customer data is on its way to Paris"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-08-23": {
+      "body": {
+        "hash": "288de7c93b587c7934efdcb7cbf5435f27e27c72812f88fcc94bf34edc404edf",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Agent used: <strong>Codex</strong></li>\n<li>Primary environment: <strong>Mac, KEREDIT production on a Hetzner VPS in Germany, OVH 3-AZ Paris, P340/i5 build servers and GOF repository <code translate=\"no\">dépôt local gof</code></strong></li>\n<li>Date covered: <strong>Sunday 23 August 2026</strong></li>\n<li>Main branches: <strong><code translate=\"no\">feat/gof-admission-test-flux-flag</code>, <code translate=\"no\">fix/e2e-journey-test-flux-echo</code>, <code translate=\"no\">fix/test-flux-live-recovery-guard</code> (KEREDIT branch); GOF PRs #90 and #91</strong></li>\n<li>Time window selected for the minimum: <strong>09:59 – 16:33 CEST</strong>, KEREDIT and GOF tracks crossed</li>\n<li>Minimum duration observed: <strong>approximately 6h34+</strong></li>\n<li>Version delivered: <strong>0.22.8</strong>, release <code translate=\"no\">9855526e</code>; GOF aligned with <code translate=\"no\">9c324f9</code></li>\n<li>Main traces: <strong>PR KEREDIT #451 to #454, PR GOF #90/#91, green production acceptance and post-switchover campaign k6</strong></li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 866h13+</strong> (<code translate=\"no\">859h39+</code> as at 22 August, + <code translate=\"no\">6h34+</code> today)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick summary</h2>\n<p>The switchover is now effective and verifiable. KEREDIT now writes to\n<code translate=\"no\">krampouz-assets-prod</code> at OVH 3-AZ Paris, GOF reads the assets and writes its\nartifacts to them, and the forges continue to receive only pre-signed\nephemeral URLs. Customer data is stored in France; the core application\nremains on the European VPS in Germany.</p>\n<p>This sovereignty-focused choice goes live with two pieces of evidence: no\nAccurio handover is triggered by the acceptance test, and performance is not compromised.</p>\n<h2 id=\"fermer-le-risque-révélé-la-veille\">Resolving the risk identified the previous day</h2>\n<p>The ‘<code translate=\"no\">test_flux</code>’ marker now passes through KEREDIT and GOF all the way to the\npersistent production environment. Readmissions where the marker diverges are refused. The KEREDIT\nacceptance test fails early if it encounters an unmarked live production environment and requires\nthe marker to be echoed upon admission.</p>\n<p>The final proof is deliberately robust: Auto Accurio remains active, the\nacceptance Production is marked <code translate=\"no\">test_flux</code>, <code translate=\"no\">delivery</code> equals <code translate=\"no\">none</code>,\n<code translate=\"no\">transmitted</code> remains false and no Accurio delivery lines are created. The complete\nPDF workflow is therefore executed on OVH without any risk of delivering a test job to\nthe print shop.</p>\n<h2 id=\"mesurer-depuis-leurope-pas-seulement-croire-le-fournisseur\">Measure from Europe, don’t just take the provider’s word for it</h2>\n<p>The raw benchmark is run again from the VPS and from the production workstation. From\nthe VPS, OVH is approximately 3.2 times faster than R2 on the pre-signed PUT of\n4 Mio, 4 times faster on the signed GET and 3.4 times faster on the SDK PUT. From the workshop,\nthe performance gains observed remain between 2.3 and 2.5 times.</p>\n<p>The k6 campaign confirms the application’s behaviour: 1,693 complete iterations\nand 127,440 checks completed without failure on the editor-beta scenario at 50 VUs. The\nvariants served by the proxy are 2 to 2.6 times faster, whilst the\nbatch upload remains on a par because it is primarily dominated by the worker.</p>\n<p>The log provides a slight caveat: the SQL aggregate <code translate=\"no\">failed_count</code> did not match\nthe campaign’s fixed accounts. The zero-failure rate is therefore proven by the\nk6 and <code translate=\"no\">/admin/storage</code> checks, not by this unavailable aggregate. The 429 errors observed\nunder load stem from the IP-based limiter and necessitate ensuring compliance with\n<code translate=\"no\">Retry-After</code>.</p>\n<h2 id=\"ce-que-signifie-la-bascule-pour-ooblik\">What the switch means for OOBLIK</h2>\n<p>Photos, previews, PDFs and production artefacts now have their\nprimary residence in France with a European provider, whilst the application and\ndatabase are operated in Germany. This France-Germany split gives\nOOBLIK a clear EU framework for its customers’ data.</p>\n<p>R2 remains accessible for read-only access during the grace period: sovereignty is not used as\na pretext for removing the safety net too soon. A complete exit from\nCloudflare, a second cross-provider copy and the final purge remain\nseparate decisions to be taken at a later date.</p>\n"
+      },
+      "description": {
+        "hash": "b46578998955c60f3cb288c9ce5c79de9cbf47cd8263d6afa26bcb982e62b471",
+        "text": "Day 134 of the log: KEREDIT and GOF have approved OVH 3-AZ Paris for production, without an Accurio acceptance handover and without load regression testing."
+      },
+      "title": {
+        "hash": "98653fecb807c5e64b9717a50e9e94aa6b44d65fa82acde6325d98489826ee94",
+        "text": "Day 134 – The OVH switchover becomes proof of production"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-08-24": {
+      "body": {
+        "hash": "78c2546f795c8ad38d3d2c0f859338ac5c7d0bfa56fdb251020dce605ebe6ef6",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Software used: <strong>Codex</strong></li>\n<li>Primary environment: <strong>Mac, KEREDIT <code translate=\"no\">dépôt local krampouz</code>, GOF <code translate=\"no\">dépôt local gof</code>, Hetzner Germany VPS and OVH 3-AZ Paris</strong></li>\n<li>Date covered: <strong>Monday 24 August 2026</strong></li>\n<li>Main branches: <strong><code translate=\"no\">chore/k6-storage-provider-metrics</code>, <code translate=\"no\">codex/portable-workflows</code> and GOF branches of PRs #92/#93</strong></li>\n<li>Time window selected for the minimum: <strong>10:56 – 19:30 CEST</strong>, cross-checked KEREDIT and GOF tracks</li>\n<li>Minimum duration observed: <strong>approximately 8h34+</strong></li>\n<li>Release status: <strong>KEREDIT PRs #455/#456/#475 and GOF PRs #92/#93 merged into <code translate=\"no\">dev</code>; <code translate=\"no\">0.22.9</code> release deployed to production on the same day</strong></li>\n<li>Main changes: <strong>metric provider, k6 fixes, OVH key rotation, orphaned objects incident resolved and logged, <code translate=\"no\">203/EXEC</code> timer fix, portable workflows and purge of test data</strong></li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 874h47+</strong> (<code translate=\"no\">866h13+</code> as at 23 August, +<code translate=\"no\">8h34+</code> today)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>The switchover is complete; the day is spent ensuring the evidence is preserved for the long term. The load reports\nfinally distinguish the PUT time at the provider’s end, the Google Photos\nretries are consistent, and the log clearly documents what has been\nmeasured and what has not. At the same time, the rotation of OVH keys reveals the ACL model of the\nbuckets, leading to the removal of the former POC user — and this deletion\ntriggers a real incident: the objects become orphaned and unreadable\nfor a few hours, before a step-by-step repair is carried out.</p>\n<p>Client data sovereignty therefore does not depend solely on two countries\non a map. It depends on the ability to explain where the data resides, who\ncan access it, how the service is measured and how to roll back changes.</p>\n<h2 id=\"ne-pas-transformer-un-benchmark-vert-en-legende\">Don’t let a green benchmark become a legend</h2>\n<p>The k6 scripts isolate <code translate=\"no\">storage_put_duration</code>, adhere to <code translate=\"no\">Retry-After</code> and\nreport <code translate=\"no\">n/a</code> when a provider metric does not exist. The\nGoogle Photos scenario makes four consistent attempts and returns the last\nuseful response. The report also specifies that the <code translate=\"no\">failed_count</code> metric was\nnot available during the 23 August campaign.</p>\n<p>This honesty counts: OVH is significantly faster than R2 in the measurements\ncarried out, but only the observations actually collected are attributed\nto the switch. The benefit of being based in France does not need a\nembellished figure to be significant.</p>\n<h2 id=\"les-clés-rappellent-que-la-localisation-ne-suffit-pas\">The key points remind us that location alone is not enough</h2>\n<p>During the rotation, a new OVH S3 user receives ‘<code translate=\"no\">403 AccessDenied</code>’ errors\neven though their keys are valid. The bucket belongs to the user who created it, and this\nservice does not provide the expected bucket policies: the new\nuser must be added to the ACL without revoking the owner’s grant.</p>\n<p>The procedure is applied to <code translate=\"no\">krampouz-assets-prod</code>, then the former\nPOC user is revoked once the new keys have been propagated to KEREDIT and GOF.\nThe runbook retains this specific provision for subsequent rotations. The\nstorage is located in France; access to it must remain explicitly governed.</p>\n<h2 id=\"la-suppression-dun-utilisateur-rend-ses-objets-orphelins\">Deleting a user leaves their objects orphaned</h2>\n<p>The rest of the rotation proves that caution was justified, albeit painfully. The former\nPOC user is deleted from the console by late morning, once the\nnew keys have been verified. A few hours later, not a single thumbnail or\nimage is displayed in the editor: each S3 object belongs to the user who\ncreated it, and deleting that user renders <strong>its 22,000 objects unreadable</strong> (403\n<code translate=\"no\">AccessDenied</code> on GET/HEAD, although the listing still works). The ACL for the\nsuccessor’s bucket <code translate=\"no\">FULL_CONTROL</code> does not change this, and <code translate=\"no\">PutObjectAcl</code> is denied to\nnon-owners.</p>\n<p>The fix involves the R2 source, which has been kept as a fallback: a complete recursive\ncopy of <code translate=\"no\">mc cp --recursive</code> (rather than <code translate=\"no\">mc mirror --overwrite</code>, which skips\nidentical objects) to rewrite the 78 GB and transfer ownership to the\nnew user. Variant generation jobs that fail during the maintenance window\nmust be restarted via an explicit <code translate=\"no\">retry</code> call, as BullMQ deduplication on\n<code translate=\"no\">jobId</code> ignores simple re-adds. The publisher returned to normal operation that\nsame evening, and the corrupted test data (12,295 assets, 3,016 projects, 13,112\norphaned objects) was purged correctly.</p>\n<p>Two rules were added to the runbook to ensure no customer experiences this: never\ndelete an S3 user before reassigning ownership of their objects, and never\npurge the source of truth before verifying readability by the\nsuccessor. The R2 fallback, intended merely as a safety net, was used the\nvery next day after the switchover.</p>\n<h2 id=\"keredit-et-gof-gardent-une-méthode-commune\">KEREDIT and GOF maintain a common approach</h2>\n<p>The workflows for development, review, implementation and deployment are\nmade portable between repositories. GOF now checks the\norigin of a release more strictly, and its CI no longer builds a runtime image for a\npurely documentary merge whilst monitoring the Docker context rules.</p>\n<p>A patch also restores the executable bit on acceptance test scripts following a\nsystemd failure (<code translate=\"no\">203/EXEC</code>). This operational detail ties in with the main thread: a\nEuropean infrastructure is only of value if the checks that validate it\ncan actually be executed.</p>\n<h2 id=\"état-en-fin-de-billet\">Status at the end of this post</h2>\n<p>KEREDIT and GOF use OVH 3-AZ Paris for production storage, with the\napplication VPS in Germany and R2 still available for rollback during the\ngrace period. The ‘<code translate=\"no\">0.22.9</code>’ release is live, the campaigns are running smoothly, the\nmeasurement thresholds are documented, the orphaned objects incident has been resolved and its\nrules have been recorded in the runbook. What remains is long-term monitoring,\na second copy with another European provider and, only at a later stage, the\nirrevocable decision to decommission R2.</p>\n"
+      },
+      "description": {
+        "hash": "ba0c1f10ed4f8cb4c33e5cec8075b4915587b7e21b1d363541cf865152521a88",
+        "text": "Day 135 of the log: OVH measures have been brought into line, the keys have been secured, an incident relating to object ownership has been resolved, and the KEREDIT-GOF workflows have become portable."
+      },
+      "title": {
+        "hash": "62f6f2c6e14ac01bb27cd457ba8de0179a765d8bae302c4169c38bd152258062",
+        "text": "Day 135 – Measuring sovereignty, closing blind spots"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-08-25": {
+      "body": {
+        "hash": "da6bfb30a728de002d9632b8acf261365fa81a6da5ee674aff38b2830dbb4261",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Main environment: <strong>VS Code WSL, Codex plugin on the left, code in the centre, Codex terminal on the right, GitHub Actions for PR validations</strong></li>\n<li>Date covered: <strong>Tuesday 25 August 2026</strong></li>\n<li>Main branches: <strong><code translate=\"no\">codex/issue-458-save-concurrency</code>, <code translate=\"no\">codex/issue-458-test-discovery</code>, <code translate=\"no\">codex/release-0.23.1</code> and <code translate=\"no\">codex/issue-458-discovered-test-fixtures</code>, all merged into <code translate=\"no\">dev</code></strong></li>\n<li>Window selected for the minimum: <strong>00:10 – 09:59 CEST</strong>, from the first production lock to the merge of the final test isolation</li>\n<li>Minimum observed duration: <strong>approximately 9 hours 48 minutes+</strong></li>\n<li>Version prepared: <strong>KEREDIT <code translate=\"no\">0.23.1</code> and WordPress plugin <code translate=\"no\">0.1.100</code>; no evidence of runtime deployment observed today</strong></li>\n<li>Main traces: <strong>PR #485, #477, #490 and #491; stale backups, checkout/assets concurrency, web PDF permissions, exhaustive test discovery and isolation of the Google Photos queue</strong></li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 884h35+</strong> (<code translate=\"no\">874h47+</code> as at 24 August, + <code translate=\"no\">9h48+</code> today)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>The day begins ten minutes past midnight and feels less like a release\nthan a long process of closing things down. The discovery of previously overlooked tests\nreveals a real-world issue: a client backup can still overwrite a field\nmodified by an internal writer when that writer has not incremented the\nproject version. Fixing this issue triggers a much broader review of concurrent writes\nrelating to projects, assets, the WooCommerce checkout and\nweb PDF permissions.</p>\n<p>By the morning, four PRs have been merged. KEREDIT <code translate=\"no\">0.23.1</code> is ready, but the\nlog does not show it as deployed: the latest VPS version explicitly\nlisted in the documentation remains <code translate=\"no\">0.22.9</code>. Today’s result is, firstly,\na persistence contract that is harder to bypass, and secondly, a suite of tests\nthat finally recognises all the files it needs to run.</p>\n<h2 id=\"une-version-ne-suffit-pas-quand-plusieurs-writers-partagent-le-projet\">A single version is not enough when several writers share the project</h2>\n<p>The first safeguard prohibits modifying a project whilst it is in active production\n. The core fix goes further: a versioned backup\nlocks the project line, re-reads the fields it is about to\nwrite whilst under this lock, and returns ‘<code translate=\"no\">409 project_version_conflict</code>’ if any of them have changed since\nthe client snapshot. An internal update without a version bump can therefore\nno longer be silently overwritten by a save that has become stale.</p>\n<p>The same requirement then extends to the other write paths. Asset\nmutations and the final checkout are fenced; the order of the\ndeduplication locks is standardised; and storage deletions gain\npersistent intentions. Variants whose processing was interrupted can be\nresumed without losing their clean-up, and quotas are no longer adjusted\nbased on a state that has become obsolete during the transaction.</p>\n<p>This is a substantial undertaking because a process never operates in isolation. An\nadministrative task, an import, a deletion or a job queue may all affect the same\nproject with legitimate intent. The useful approach is not to assume a\nsingle writer; it is to make their order visible and to refuse the write\nwhen the freshness proof is no longer valid.</p>\n<h2 id=\"le-checkout-et-le-pdf-web-apprennent-a-échouer-ferme\">The checkout and web PDF are designed to fail safely</h2>\n<p>The WooCommerce workflow is hardened around the attempt ID, the\nordered version and the expected payload. A divergent payload is rejected; a\nsubmitted order can be retrieved by its attempt ID; and an\nactive reservation remains exclusive. Reconciliations are time-limited so that\nan old scan cannot arbitrarily link to a\nrecent order.</p>\n<p>Access to the web PDF follows the same logic. Authorisation for sharing becomes\natomic; a disabled option is rejected and the deferred policy is\nlocked before execution. When a repair fails and is then resumed, its\ndispatch line and commercial rights remain linked to the correct version\nof the project. The PDF is no longer merely an artefact to be produced: it remains the\nconsequence of an explicit right, verified at the moment the system acts.</p>\n<h2 id=\"les-tests-retrouvent-les-fichiers-quils-ne-regardaient-pas\">Tests now find files they previously overlooked</h2>\n<p>PR #477 replaces fragile globs with a recursive and\nportable detection method. The evidence attached to the PR counts <strong>126 out of 126 backend files</strong> and\n<strong>84 out of 84 frontend files</strong>, including two suites—<code translate=\"no\">photo_print</code>—which\nwere not being executed. The command `<code translate=\"no\">test:list</code>` makes this inventory visible\nand any new file `<code translate=\"no\">*.test.ts</code>` is automatically included in the contract.</p>\n<p>This comprehensive check then reveals a residual dependency on the Redis queue\nshared in a Google Photos scenario. PR #491 replaces the actual BullMQ\nwrite with a local stub that checks the name, payload and <code translate=\"no\">jobId</code>, then\nrestores the original descriptor. The CI runs for all four PRs complete successfully;\nthe comprehensive suite does not pass by masking the test that\nhas just caused a problem.</p>\n<h2 id=\"préparer-0231-sans-inventer-sa-mise-en-production\">Preparing 0.23.1 without reinventing the production process</h2>\n<p>The four application manifests pass at <code translate=\"no\">0.23.1</code>, the\npreparation documentation is aligned and the plugin remains ready at <code translate=\"no\">0.1.100</code>. Typecheck,\nlint, build, OKF validations and CI are reported as green in the relevant PRs.</p>\n<p>However, no evidence has been found to confirm a VPS deployment of <code translate=\"no\">0.23.1</code> today.\nThis post maintains this distinction: the code has been merged and the release\nis prepared; the ‘live’ status should only be confirmed after checking the SHA and\nthe version served by production.</p>\n<h2 id=\"état-en-fin-de-billet\">Status at the end of the ticket</h2>\n<p>KEREDIT emerges from the night with a more explicit concurrency model, a\ncheckout that rejects ambiguities, PDF permissions more firmly tied to their\nversions, and comprehensive test coverage. The number of fixes\nalso highlights the cost of a review carried out right up to the transactional boundaries.\nThe next useful step is not to add a new product promise: it\nis to keep this evidence accessible and to verify separately the release of\nthe prepared version.</p>\n"
+      },
+      "description": {
+        "hash": "854c7ede14a9f56a84ba93537edf1b20694b49da49367cd3ec6aad8c74c17c98",
+        "text": "Day 136 of the log: KEREDIT is locking backups, the checkout, assets and PDF permissions ahead of preparing version 0.23.1."
+      },
+      "title": {
+        "hash": "2dc17ca7ad1d9ad40ad2e5499a35c4e2b9b182179f3dd140a5c9efb5ff8fcb4d",
+        "text": "Day 136 – Finalising orders before delivery"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-08-26": {
+      "body": {
+        "hash": "4f4c76bf90a63bc31be8eddd7858193bbb41b7dec2f26494e28e309c0698a9e6",
+        "text": "<h2 id=\"horaires-de-session\">Session timetables</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Main environment: <strong>VS Code WSL, Codex plugin on the left, code in the centre, Codex terminal on the right</strong></li>\n<li>Date covered: <strong>Wednesday 26 August 2026</strong></li>\n<li>Branch observed: <strong><code translate=\"no\">dev</code>, three documentation and clean-up commits</strong></li>\n<li>Time window selected for the minimum: <strong>18:27 – 19:12 CEST</strong></li>\n<li>Minimum time observed: <strong>approximately 0h45+</strong></li>\n<li>Release status: <strong>no new releases or runtime deployments observed</strong></li>\n<li>Main traces: <strong><code translate=\"no\">4c31d50a</code>, <code translate=\"no\">9c8e4eba</code> and <code translate=\"no\">830fa929</code>; removal of <code translate=\"no\">.claude</code>, copies of <code translate=\"no\">.github/skills</code>, references to slash commands and <code translate=\"no\">CLAUDE.md</code></strong></li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 885h20+</strong> (<code translate=\"no\">884h35+</code> as at 25 August, + <code translate=\"no\">0h45+</code> today)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>The session lasts less than an hour and removes over a hundred thousand lines. This\ncontrast does not indicate a rewrite of the product: it indicates the removal\nof duplicate tools and instructions that have become obsolete. The slash commands from\nClaude Code are no longer in use; several snapshots of the\n<code translate=\"no\">impeccable</code> skill duplicate source code managed elsewhere; and <code translate=\"no\">CLAUDE.md</code> describes a\nCI as well as structural files that no longer correspond to the repository.</p>\n<p>The clean-up brings an era to a close without denying its achievements. Before removing\nthe last file, two rules that still hold true are saved in\n<code translate=\"no\">frontend/AGENTS.md</code>: first, fill in the empty photo blocks and keep all the\nsnapping logic within its canonical module.</p>\n<h2 id=\"supprimer-les-doubles-qui-fabriquent-du-faux-contexte\">Remove duplicates that create false context</h2>\n<p>The directories <code translate=\"no\">.claude/commands</code>, <code translate=\"no\">.claude/skills</code> and the copies\nat <code translate=\"no\">.github/skills</code> are removed. They contained slash commands and\nbulky snapshots of skills that were no longer the current sources. Personal\nworkflows now reside in locations managed by\nagents, whilst repository-specific instructions remain at\n<code translate=\"no\">.agents/skills</code> and in the <code translate=\"no\">AGENTS.md</code> files.</p>\n<p>This removal reduces a real risk: an agent might have read an\noutdated copy, followed a command that no longer exists, or believed that a duplicate\nscript was still being maintained. The number of lines removed is staggering, but the\ndecision remains straightforward: a single, up-to-date source is better than several\nexecutable archives that are all similar.</p>\n<h2 id=\"claudemd-ne-doit-plus-concurrencer-agentsmd\">CLAUDE.md should no longer compete with AGENTS.md</h2>\n<p>The latest commit removes <code translate=\"no\">CLAUDE.md</code>. The file repeated part of the\nroot instructions, including a CI statement that is now incorrect and an out-of-date list of\nimportant files. <code translate=\"no\">README.md</code>, <code translate=\"no\">docs/HOME.md</code> and the onboarding guide\nwill therefore no longer refer to it as a starting point.</p>\n<p>The workstation recovery procedure has been rewritten to start from <code translate=\"no\">AGENTS.md</code>, <code translate=\"no\">docs/HOME.md</code>,\n<code translate=\"no\">docs/KEREDIT/START_HERE_CODEX.md</code> and the command guide. The change does\nnot merely involve replacing one agent’s name with another: it restores the\ncurrent documentation hierarchy as the focus of the next session.</p>\n<h2 id=\"deux-règles-survivent-parce-quelles-protègent-encore-le-produit\">Two rules remain because they still protect the product</h2>\n<p>The first rule retained stipulates that an image insertion must first\nfill an empty block, or create a new block, without silently replacing a photo\nthat is already in place. The second rule sets <code translate=\"no\">frontend/src/lib/snapping.ts</code> as the sole\nsource of magnetic alignment and reminds the user to call <code translate=\"no\">setCoords()</code> after a\nchange of position during <code translate=\"no\">object:moving</code>.</p>\n<p>These two sentences would have been lost with <code translate=\"no\">CLAUDE.md</code> if the clean-up had\nbeen purely mechanical. Their migration illustrates the correct approach: remove the\nobsolete container, re-read its contents, then transfer each invariant that is still\nvalid to the instruction file of the domain that applies it.</p>\n<h2 id=\"état-en-fin-de-billet\">Status at the end of this post</h2>\n<p>The product remains unchanged and no runtime publications are claimed.\nKEREDIT ends the day with less concurrent context, a role\nrealignment in line with WSL and Codex, and two frontend invariants placed in the correct\nlocation. The Claude Code era remains visible in the log history; it no\nlonger features as a second technical authority in the current repository.</p>\n"
+      },
+      "description": {
+        "hash": "c9201f185a0ef4fa3723889056e4493f74e606ceed657b67fc76b0859ccdb669",
+        "text": "Day 137 of the diary: Claude’s old commands and skill copies have been removed, whilst his last two useful rules have been added to AGENTS.md."
+      },
+      "title": {
+        "hash": "c2c9f84a5b5bc08971ff5953d870dcca717abf869b9912bb9e6d1392a15dd105",
+        "text": "Day 137 – Tidying up the Claude era without losing our memories"
       }
     },
     "page:/flux/tumblr-ooblik": {
@@ -6998,6 +7956,1292 @@
       "name": {
         "hash": "ad09a5068ede16a03d2cf89b2df913da3383dda53f3e954da56ee11b240450f5",
         "text": "assessment"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-02-08.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
+        "text": "Telecommunications"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-02-09.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "a1b7fca866496e50edd0c8813c0df76fa5ee63a6b1410ab95bb4c5d5f70e6608",
+        "text": "Laboratories & simulation"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-02-22.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
+        "text": "Telecommunications"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-09.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
+        "text": "Telecommunications"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-10.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "a1b7fca866496e50edd0c8813c0df76fa5ee63a6b1410ab95bb4c5d5f70e6608",
+        "text": "Laboratories & simulation"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-11.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
+        "text": "Robotics"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-12.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-13.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-16.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-17.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-19.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-20.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "f15c810cf1abeb8d8c790b885b1efcd158c87e19feea04fd49d181c108911986",
+        "text": "Electronics & instruments"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-21.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-23.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "a1b7fca866496e50edd0c8813c0df76fa5ee63a6b1410ab95bb4c5d5f70e6608",
+        "text": "Laboratories & simulation"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-24.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "a1b7fca866496e50edd0c8813c0df76fa5ee63a6b1410ab95bb4c5d5f70e6608",
+        "text": "Laboratories & simulation"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-25.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "f15c810cf1abeb8d8c790b885b1efcd158c87e19feea04fd49d181c108911986",
+        "text": "Electronics & instruments"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-26.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "a1b7fca866496e50edd0c8813c0df76fa5ee63a6b1410ab95bb4c5d5f70e6608",
+        "text": "Laboratories & simulation"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-27.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
+        "text": "Robotics"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-28.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-30.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-31.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-01.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "f15c810cf1abeb8d8c790b885b1efcd158c87e19feea04fd49d181c108911986",
+        "text": "Electronics & instruments"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-02.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-03.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-06.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-07.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-08.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-09.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-10.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-13.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
+        "text": "Telecommunications"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-14.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
+        "text": "Telecommunications"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-15.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "f15c810cf1abeb8d8c790b885b1efcd158c87e19feea04fd49d181c108911986",
+        "text": "Electronics & instruments"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-16.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-17.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-18.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "f15c810cf1abeb8d8c790b885b1efcd158c87e19feea04fd49d181c108911986",
+        "text": "Electronics & instruments"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-19.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "f15c810cf1abeb8d8c790b885b1efcd158c87e19feea04fd49d181c108911986",
+        "text": "Electronics & instruments"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-20.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "a1b7fca866496e50edd0c8813c0df76fa5ee63a6b1410ab95bb4c5d5f70e6608",
+        "text": "Laboratories & simulation"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-21.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-22.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-23.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-27.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-28.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "a1b7fca866496e50edd0c8813c0df76fa5ee63a6b1410ab95bb4c5d5f70e6608",
+        "text": "Laboratories & simulation"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-29.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-30.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-02.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-03.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "f15c810cf1abeb8d8c790b885b1efcd158c87e19feea04fd49d181c108911986",
+        "text": "Electronics & instruments"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-04.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
+        "text": "Telecommunications"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-05.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "f15c810cf1abeb8d8c790b885b1efcd158c87e19feea04fd49d181c108911986",
+        "text": "Electronics & instruments"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-08.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-09.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
+        "text": "Telecommunications"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-10.webp": {
+      "date": {
+        "hash": "cf43b15245b8fe45468da1f0d5dd70947ee3fae2b80fcb3e2b7936a77caba09d",
+        "text": "30 August 1984"
+      },
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
+        "text": "Telecommunications"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-11.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "f15c810cf1abeb8d8c790b885b1efcd158c87e19feea04fd49d181c108911986",
+        "text": "Electronics & instruments"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-12.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
+        "text": "Telecommunications"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-13.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "f15c810cf1abeb8d8c790b885b1efcd158c87e19feea04fd49d181c108911986",
+        "text": "Electronics & instruments"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-14.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "f15c810cf1abeb8d8c790b885b1efcd158c87e19feea04fd49d181c108911986",
+        "text": "Electronics & instruments"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-15.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-16.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "f15c810cf1abeb8d8c790b885b1efcd158c87e19feea04fd49d181c108911986",
+        "text": "Electronics & instruments"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-17.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "f15c810cf1abeb8d8c790b885b1efcd158c87e19feea04fd49d181c108911986",
+        "text": "Electronics & instruments"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-18.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-19.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-20.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "a1b7fca866496e50edd0c8813c0df76fa5ee63a6b1410ab95bb4c5d5f70e6608",
+        "text": "Laboratories & simulation"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-21.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-22.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-23.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-24.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-25.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "f15c810cf1abeb8d8c790b885b1efcd158c87e19feea04fd49d181c108911986",
+        "text": "Electronics & instruments"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-26.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-27.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-28.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-29.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
+        "text": "Robotics"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-01.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "a1b7fca866496e50edd0c8813c0df76fa5ee63a6b1410ab95bb4c5d5f70e6608",
+        "text": "Laboratories & simulation"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-02.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "a1b7fca866496e50edd0c8813c0df76fa5ee63a6b1410ab95bb4c5d5f70e6608",
+        "text": "Laboratories & simulation"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-03.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "f15c810cf1abeb8d8c790b885b1efcd158c87e19feea04fd49d181c108911986",
+        "text": "Electronics & instruments"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-04.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-05.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
+        "text": "Robotics"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-06.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
+        "text": "Telecommunications"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-07.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
+        "text": "Robotics"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-08.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-09.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-10.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-11.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-12.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-13.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
+        "text": "Telecommunications"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-14.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "a1b7fca866496e50edd0c8813c0df76fa5ee63a6b1410ab95bb4c5d5f70e6608",
+        "text": "Laboratories & simulation"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-15.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-16.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-17.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
+        "text": "Robotics"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-18.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-20.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
+        "text": "Telecommunications"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-21.webp": {
+      "date": {
+        "hash": "cf43b15245b8fe45468da1f0d5dd70947ee3fae2b80fcb3e2b7936a77caba09d",
+        "text": "30 August 1984"
+      },
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
+        "text": "Telecommunications"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-22.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
+        "text": "Telecommunications"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-23.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
+        "text": "Telecommunications"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-24.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-25.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-26.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
+        "text": "Robotics"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-27.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
+        "text": "Robotics"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-28.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-29.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-30.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-01.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-02.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
+        "text": "Telecommunications"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-03.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
+        "text": "Robotics"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-04.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "a1b7fca866496e50edd0c8813c0df76fa5ee63a6b1410ab95bb4c5d5f70e6608",
+        "text": "Laboratories & simulation"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-05.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "f15c810cf1abeb8d8c790b885b1efcd158c87e19feea04fd49d181c108911986",
+        "text": "Electronics & instruments"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-06.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-07.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-08.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-09.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-10.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-11.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
+        "text": "Robotics"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-12.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-13.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
+        "text": "Telecommunications"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-14.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
+        "text": "Robotics"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-15.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
+        "text": "Robotics"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-16.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-18.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
+        "text": "Robotics"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-19.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "a1b7fca866496e50edd0c8813c0df76fa5ee63a6b1410ab95bb4c5d5f70e6608",
+        "text": "Laboratories & simulation"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-20.webp": {
+      "date": {
+        "hash": "5df41ab57ae8220f23a0cb7547d2680d06f478eecb6830d69197f816e2cec2a9",
+        "text": "16 February 2010"
+      },
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
+        "text": "Robotics"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-22.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-23.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "f15c810cf1abeb8d8c790b885b1efcd158c87e19feea04fd49d181c108911986",
+        "text": "Electronics & instruments"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-30.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "a1b7fca866496e50edd0c8813c0df76fa5ee63a6b1410ab95bb4c5d5f70e6608",
+        "text": "Laboratories & simulation"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-03.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
+        "text": "Robotics"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-04.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-05.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-06.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
+        "text": "Telecommunications"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-07.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-08.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "a1b7fca866496e50edd0c8813c0df76fa5ee63a6b1410ab95bb4c5d5f70e6608",
+        "text": "Laboratories & simulation"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-09.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-15.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-18.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-20.webp": {
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "title": {
+        "hash": "29fe63a8c4a8a80be458894b0bf441c8c13a85dd48febbb3eef29de5e932604c",
+        "text": "CXBN-2 CubeSat Integration Team in the Morehead State University Spacecraft Integration and Assembly Facility"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-21.webp": {
+      "alt": {
+        "hash": "68c4f4c922e3078e78982799dd5c32dbbf9f59b379d87932dbab641569cf7fd4",
+        "text": "Document NASA : Deployment of the Telstar communications satellite"
+      },
+      "date": {
+        "hash": "cf43b15245b8fe45468da1f0d5dd70947ee3fae2b80fcb3e2b7936a77caba09d",
+        "text": "30 August 1984"
+      },
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
+        "text": "Telecommunications"
+      },
+      "title": {
+        "hash": "1fb6b393e000e6d0804b4091b478afa07ce2870645f6e49e32c8d7a015f71b82",
+        "text": "Deployment of the Telstar communications satellite"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-22.webp": {
+      "alt": {
+        "hash": "2542881c14313ac303f388937368c54b7555232e3cf5e340d5710020df01c321",
+        "text": "Document NASA : View of the Syncom-IV (LEASAT) satellite from the flight deck window"
+      },
+      "date": {
+        "hash": "e1fc6160969dcc30dbd20f5fcc3506a9958d036b6d1b10938ef2a7bb8c31d1ed",
+        "text": "17 April 1985"
+      },
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
+        "text": "Telecommunications"
+      },
+      "title": {
+        "hash": "db32b6c6bf583b6f7fdd5b82860c190635bd51dbf29710e7067766a187e69ec9",
+        "text": "View of the Syncom-IV (LEASAT) satellite from the flight deck window"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-23.webp": {
+      "alt": {
+        "hash": "2a1b2f7cfa9254204e0297419a53f7a554c81722b95fefccf347c34a2c377d82",
+        "text": "Document NASA : High Vacuum Creep Facility in the Materials Processing Laboratory"
+      },
+      "date": {
+        "hash": "8164675bd1d3a8a30e8185f689201a45cf0dad31a452ffb3f16723b02bf968fa",
+        "text": "23 January 1973"
+      },
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "a1b7fca866496e50edd0c8813c0df76fa5ee63a6b1410ab95bb4c5d5f70e6608",
+        "text": "Laboratories & simulation"
+      },
+      "title": {
+        "hash": "ab2dcfececd87236388affc98f208205a34224e26596e637b63586a03ff686e4",
+        "text": "High Vacuum Creep Facility in the Materials Processing Laboratory"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-24.webp": {
+      "alt": {
+        "hash": "6e4818cd9d38ad5680466220b2cb02709d152bb13b44b0203b345f447fb15e63",
+        "text": "Document NASA : View of the Mission Control Center Activity during STS 51-A"
+      },
+      "date": {
+        "hash": "ad751776465aabc1f0e8898d552889760eb456d6cba71aad050612ee461a6f63",
+        "text": "8 November 1984"
+      },
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
+        "text": "Monitoring & Data"
+      },
+      "title": {
+        "hash": "201f0c579d34d4b3ae9043c4e5bc86d95d27ce5297075b1b7ac49f1d95fb6bf2",
+        "text": "View of the Mission Control Center Activity during STS 51-A"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-25.webp": {
+      "alt": {
+        "hash": "df4b27d8a3d5427c871cb56e8db2dc05808be367b8ee7f46730609c1cd76de4f",
+        "text": "Document NASA : STS-53 Discovery, OV-103, DOD Hercules digital electronic imagery equipment"
+      },
+      "date": {
+        "hash": "87876d55d2ee2284d95f6f93975b8e81110a004bc5d6385443c5bcad3aa80702",
+        "text": "22 April 1992"
+      },
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "f15c810cf1abeb8d8c790b885b1efcd158c87e19feea04fd49d181c108911986",
+        "text": "Electronics & instruments"
+      },
+      "title": {
+        "hash": "44a3d1cfb7fd3aaeb3bc242ec7734457c1ce8a759ae3c9edd92d0755ca899b14",
+        "text": "STS-53 Discovery, OV-103, DOD Hercules digital electronic imagery equipment"
+      }
+    },
+    "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-26.webp": {
+      "alt": {
+        "hash": "4de834bbac00b60cb0ae0d45e27295b29a9c5658b986dc975506a6cdaeb165a3",
+        "text": "Document NASA : Engineers Flex Curiosity Robotic Arm and Tools"
+      },
+      "date": {
+        "hash": "5df41ab57ae8220f23a0cb7547d2680d06f478eecb6830d69197f816e2cec2a9",
+        "text": "16 February 2010"
+      },
+      "rights": {
+        "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
+        "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
+        "text": "Robotics"
+      },
+      "title": {
+        "hash": "2c90f055c97eed49eddcfb1a7fcb50b8000d3f0edf706ecda966acd13028d44e",
+        "text": "Engineers Flex Curiosity Robotic Arm and Tools"
       }
     }
   },

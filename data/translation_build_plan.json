@@ -1,117 +1,158 @@
 {
   "version": 1,
-  "baseRevision": "f88944d38a77e2f906933a4fed7afeed11f3c8733b66182de9686797ae939f85",
-  "targetRevision": "a2aa7de470dd7ae95fce71d0ef23e97df1196b1eda78128ba095b2f89fb0439f",
-  "manifestRevision": "a96b4e9040d9c631b483d696f3752e5876d6e4ee956cb51f71bd2b64d69ba6d5",
+  "baseRevision": "a2aa7de470dd7ae95fce71d0ef23e97df1196b1eda78128ba095b2f89fb0439f",
+  "targetRevision": "2967592e3b15a9f97bc866bbe56eafc48ad3539f42230004b6412637e6f81900",
+  "manifestRevision": "261577e2e019b7cf9d967a9bb1dff52329a00c44f1188f132a4cdf0215a39dec",
   "fullBuild": false,
   "items": [
     {
-      "id": "link:02ec9698-3bae-5afe-bbfd-6b0671bf4d3c",
+      "id": "link:0305ef68-8aa7-5b14-9669-be9151593e0e",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:0f428bd7-82ae-50a5-b175-03eeab43e89f",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:069e17f4-795d-5135-90c6-fecb6efafcc7",
+      "id": "link:100e2385-7ca2-5b65-ac3f-69f31b442d42",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:07bc9a7e-de59-5b4d-a12a-f9cebbe787d9",
+      "id": "link:12e14ee7-7a53-5792-9934-db8001a71683",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:0b49f209-df03-5d5a-a53d-0e584a10de4e",
+      "id": "link:1602d8cb-e898-517e-8eef-64b0f34ff45c",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:0c91e357-65d1-528d-91fa-f3e581629195",
+      "id": "link:182ef8b3-7736-58ff-a712-9f830dd72423",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:1fb5cf7f-b79e-5210-9b0d-9f1246449f6b",
+      "id": "link:18c008d4-096f-5b63-abbb-fdb71ce0529d",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:249e4a79-7944-5cb9-8324-ad23f4382bc8",
+      "id": "link:1b0a8d58-4133-5ddd-8064-55fab2fbed14",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:25207362-67f3-54d4-8835-37a94b34fc3c",
+      "id": "link:204a198b-fd04-5ccf-b7ee-dcbaa6f04cb2",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:3025a40a-b102-53c7-b792-860edbdf604e",
+      "id": "link:21041d7a-e3af-58ce-9b84-feeba384bd7b",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:327626e9-0c50-5d90-825f-d5f430d565f8",
+      "id": "link:23368822-fc0f-55f8-b6d8-86a722135f2d",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:33e4b75c-6ed0-5f51-a50a-5d7ff8dd3fd4",
+      "id": "link:23ae49b6-e2a5-50ec-84fd-6d631e6aafbf",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:37fbfbb1-a8e7-5fc2-9b0b-03c320cc0206",
+      "id": "link:271642cf-33b2-5f94-97d6-44468f5a6703",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:3e4f828d-bb4d-56ef-af7d-8f00727e9860",
+      "id": "link:279cca99-4eb7-5f7a-a1af-fb98daf6ee65",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:40307519-2ddb-5ce6-bd8d-9c7a77b91412",
+      "id": "link:2cd9810d-bee7-5fc1-a821-a7f587aa4cdd",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:410dc763-dfbb-56fd-a92f-9b03d77a7a2f",
+      "id": "link:2de52ef3-28bd-5400-9133-ee5d04e73770",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:45736262-3087-5462-84b7-5fda61a736d4",
+      "id": "link:32c815fa-2873-58b3-beb9-fd3a68b9311f",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:3452aad1-6482-580d-ad4b-07149f698150",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:36f20953-2b06-579e-9417-9cd33749d277",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:3b143975-9f81-593e-8a83-cfd5ea4d836c",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:3c759685-a321-54ca-99f0-7c86c0b7dd3a",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:3ffd3bbb-f726-5c6c-8ec6-65387d1f54ee",
       "fields": [
         "description",
         "title"
@@ -120,95 +161,175 @@
     {
       "id": "link:4904720d-34ab-5224-b313-5d1542358f5c",
       "fields": [
-        "description"
+        "title"
       ]
     },
     {
-      "id": "link:4e0024a5-7e50-5d4c-9eb2-286324ca2b8a",
+      "id": "link:512af406-225b-5ece-8d37-7ade39291255",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:504d0a00-03fe-59a3-8de7-ae5c3f3ae206",
+      "id": "link:534ab75a-e110-52fe-b6d3-571376592bd8",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:540f2ca8-8695-5f24-97a4-60095e65d45f",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:526d09ef-f181-5827-9dbe-4d54aea175fc",
+      "id": "link:54d2f114-a47e-503a-b0eb-36fa1472bd03",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:5655daf9-7749-549b-b262-5cf1591235c2",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:59e4c946-0d3d-52ed-b63f-047487bc96eb",
+      "id": "link:58ed9520-8cea-54c1-b376-5d62265e4837",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:5e58d6ea-0d30-51e4-8f02-4870650e5ae1",
+      "id": "link:639e0121-66ca-5d1a-922c-d7c22e4f69d0",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:608fed03-083d-5503-abab-2b2c5e52ec8d",
+      "id": "link:64228a1f-6b2f-5b76-a066-ae3ce95833b4",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:609e1637-4992-5dd3-9681-94326fb900b5",
+      "id": "link:69049268-33d9-50dc-8b76-6a5c14303ef7",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:67c19ac5-0e90-521e-8898-41df3e7b7f4d",
+      "id": "link:6b29fa58-0da6-51ef-b3bc-64598f36e8ae",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:6d112f4f-072e-522d-8091-ffceb385add2",
+      "id": "link:6cd52f52-ae84-5624-90aa-497952ab81e0",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:717f9b4a-b803-578c-b586-5dabd32711ad",
+      "id": "link:6d1203f4-6121-5dbe-bd05-8d48c4cc7f44",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:7656dfa2-d464-5a90-b6db-0e83cbac0bd5",
+      "id": "link:6ec554e4-7e2d-5d2e-9299-42daa197048d",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:7877d443-a94b-5818-a772-48a034524054",
+      "id": "link:6f30af7b-543a-5393-a50c-6439861a91bd",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:82c7cf08-7878-5b4c-8905-d3f4a9901e62",
+      "id": "link:70f53c80-db6a-5ac1-be52-1f5864bb5529",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:7412c069-0d3b-5d23-a46b-6977bfc3695b",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:754c85f2-7e8c-5133-9fdc-b9524cdeb421",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:7c64d3ae-b8f6-5e87-bb11-cb1b5c1ec954",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:7ed43568-3c73-5315-83ce-7cbb18deffef",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:7ed5f0d2-a063-5eb7-8313-3c3da755626d",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:7fa41cc6-ab8a-5500-8c38-c4217fe84c81",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:802a3709-c69a-5049-83b8-a9545e26086e",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:824e13d7-2c71-54c4-b1e1-b80a4f9fa48e",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:836c8b71-c8d3-575c-a9cd-aeb1be410265",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:840e6a9c-0848-5ccf-861b-c6002f7e29d9",
       "fields": [
         "description",
         "title"
@@ -217,25 +338,18 @@
     {
       "id": "link:87db8e2b-cbc3-5691-bb1f-55a09fe9a41e",
       "fields": [
-        "description"
+        "title"
       ]
     },
     {
-      "id": "link:8d649ef2-0fbc-5b7c-aedd-bc0504e326f4",
+      "id": "link:8a43ba6c-753c-5029-898c-d9075c4a3abe",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:8dd968b7-e0e7-538c-9a96-4ddba45a3965",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:8e7e6f00-f860-5b73-9da6-ffbf5410fa87",
+      "id": "link:8fe7b524-e6d3-5183-bab8-a69b6125130e",
       "fields": [
         "description",
         "title"
@@ -244,232 +358,281 @@
     {
       "id": "link:917cc88e-85f2-5cc5-ba80-103798eebe67",
       "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:95618c6d-8d6a-523c-9381-2b47434f4bce",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:956d5e12-a6e0-566b-9a0f-eba468a6d944",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:95c2f38b-7164-5c05-87cf-b43fb613e396",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:975a32c1-f413-5c6f-bf52-08c4778cfa43",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:99893655-f7ff-5d8e-b2c2-c0e78cefc2c2",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:99f1b0d0-954f-52ca-9828-0a8ef0a1b7bc",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:9c74694f-2a55-5120-94ad-f08d890c54ed",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:9d7dfa22-e16e-5fef-88ba-2622d822fcd6",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:9dbe97c8-2551-5e96-a4c4-1c5dbd27fb23",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:9e31fa64-8115-56f3-9065-2e090e33b6f2",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:a554f655-6c3e-5ecc-9065-6bfb8679f612",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:a7bfbfd4-a4c8-55bf-9dca-4712b186886b",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:aa0761a7-aad6-5d3d-9d7c-67da86606d94",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:aa912976-fe3a-5a44-bb98-a4747206afe1",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:aeb2dc55-96d9-5f08-b3c2-84f9c40112c9",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:b26c13c8-8d3a-5562-b917-62eb2805c5f6",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:b4c31a26-dd8f-5060-b96e-d3a3510db4d4",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:b63b6ff0-4b0c-54d8-8c4b-bad4a02c27ee",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:b7b0bf90-18a1-5202-b56b-3e21b2e7c805",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:b9e8bdf3-ac98-5e20-892d-daade59f2a69",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:c70f2393-73a8-5d6e-9e17-01ca11306288",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:d1a171a4-4895-518a-91bd-c839973a42ea",
+      "fields": [
         "description"
-      ]
-    },
-    {
-      "id": "link:934d468c-12ae-5249-a2a4-e468d790463f",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:984bf087-1cb2-5628-a537-9f87c9ecf696",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:99a78755-07bc-5f5b-9974-a3e9596339ca",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:9f737c42-e03f-5575-86eb-846d8b8ff798",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:a20c8320-3c7c-51de-982f-fb6949602062",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:a638423d-09d6-528b-8ce8-0f29bec102a1",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:a76823fd-a870-58ea-96d0-47408a629acc",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:a7c321aa-c7fc-5107-8821-cbfdb6ee9022",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:aef196cc-b67e-51b4-aaea-7f983ca0d882",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:b48c2bcc-cf68-539f-80b6-76a1ff5d1650",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:b508eb2f-7018-51bd-bf7c-c9af973cee40",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:b93c9a52-b2db-557e-8ab4-b63cb1d5cfd0",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:bc99870a-0faa-5250-9570-7df7c0e5b5af",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:bcf4c5aa-217a-5ab8-a3ee-fcd7715a361e",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:c0ccaffd-6000-5d67-87f2-7d4ce990b38e",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:c37318b1-b1e6-5c74-ba94-87c86eb47af6",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:cf0cb9e5-e686-59cb-b953-0d55eba56fbe",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:d0871de1-f3ec-5c68-b0ee-b67ec2e1fb7a",
-      "fields": [
-        "description",
-        "title"
       ]
     },
     {
       "id": "link:d20e8093-a9f6-51e6-bd15-de4dfb32b687",
       "fields": [
-        "description"
+        "title"
+      ]
+    },
+    {
+      "id": "link:d38ba790-78ce-5033-9c6a-eb9789e8e667",
+      "fields": [
+        "description",
+        "title"
       ]
     },
     {
       "id": "link:d3b2d4fa-948c-5df3-b145-c84daf0325cd",
       "fields": [
-        "title"
+        "description"
       ]
     },
     {
-      "id": "link:d890b9e1-8e30-591e-ac08-4399982362d7",
-      "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:d9f057b6-5c10-5c58-8716-859f77f41c44",
+      "id": "link:d58f75c0-fa59-58cd-91cd-105252f10b94",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:da12971b-f357-5185-9801-1b5792c35df3",
+      "id": "link:d5a2ba25-0afb-5d16-bcb6-832a3a55cb01",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:da3455c8-fd3d-592f-9fa6-75fd58b65f93",
+      "id": "link:dbceb84b-6351-5ef6-96e6-db04ea5c2fff",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:db2868c2-83ff-5dee-a070-48fc94f7c3f4",
+      "id": "link:e109deb3-ad53-5bf3-8a8b-db0a18b06497",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:e45669f2-4882-57e2-9c67-5e87bd810be3",
+      "id": "link:e2b20cba-a6ca-56ed-b171-2a71ad5bbee1",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:e721283c-7c01-5d7b-b6d6-6c61c076268e",
+      "id": "link:e2cc8146-4193-5d68-8f1f-daadb5ac0e99",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:e8872f26-abdd-53de-aeee-a5710b8f983d",
+      "id": "link:e8badb76-6f94-58b2-9d63-bfdd4af1bcde",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:f087e29f-d63e-54c3-bb95-228f3b971dee",
+      "id": "link:ea2aeedc-6035-55a2-839b-2e6791f2b92f",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:f1c7d0b1-2702-5c60-b2a8-63483c3dc92e",
+      "id": "link:ea3980cb-9e4c-5e8d-8876-f0b2ed67bd4f",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:f84d3ef8-adf9-58ff-8c0d-e4b3c5a7ad55",
+      "id": "link:ef99ceaa-ea01-5c38-8f1e-204ef004c8dd",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:f8cf60f7-0580-5533-beee-43092d929a98",
+      "id": "link:f054e0a5-f39f-5020-a6ab-a9eea2f1d2c5",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:fa3caa3d-e1df-5134-8eaf-059004f7cf18",
+      "id": "link:f1f6bc4f-4db7-5ec8-b0ca-93706fded32e",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:f43fde9f-9447-5a7b-a66c-fc9dc3cc9341",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:f61a34fc-338f-58ff-97b2-b2ae9439a035",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:ffef6cc6-afa6-5113-8e37-e2049c44da23",
       "fields": [
         "description",
         "title"
@@ -496,37 +659,37 @@
     {
       "id": "page:/archives/2026-08-24",
       "fields": [
-        "$artwork"
+        "body"
       ]
     },
     {
       "id": "page:/archives/2026-08-25",
       "fields": [
-        "$artwork"
+        "body"
       ]
     },
     {
       "id": "page:/archives/2026-08-27",
       "fields": [
-        "$artwork"
+        "body"
       ]
     },
     {
       "id": "page:/archives/2026-08-28",
       "fields": [
-        "body"
+        "$artwork"
       ]
     },
     {
       "id": "page:/archives/2026-08-29",
       "fields": [
-        "body"
+        "$artwork"
       ]
     },
     {
       "id": "page:/archives/2026-09-01",
       "fields": [
-        "body"
+        "$artwork"
       ]
     },
     {
@@ -536,871 +699,994 @@
       ]
     },
     {
-      "id": "tag:AchievementUnlocked",
+      "id": "page:/flux/journal-procrastinateur/2026-08-21",
       "fields": [
-        "name"
+        "body",
+        "description",
+        "title"
       ]
     },
     {
-      "id": "tag:Arles2015",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:automobile",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "tag:brutalisme",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:C7100",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:canon_official",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:Canson",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:capitalisme",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:cat",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:CharlieHebdo",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:claire",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:CNC",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:colonialisme",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:compositing",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:composition",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:content",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:cours",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:création",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:datagramme",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:David-Lynch",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:design-génératif",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "tag:données",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:drapeau",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:ebook",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:éditeur",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:éducation",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:entretien",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "tag:États-Unis",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:frise",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:GFX",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:grandformat",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:heureux",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:homophobie",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:illustration",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:image",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:inférence",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:Islamophobe",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:Jean-Widmer",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:JeSuisCharlie",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:language",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:LDF15",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:les",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:lieu",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:livre",
+      "id": "page:/flux/journal-procrastinateur/2026-08-22",
       "fields": [
         "description",
-        "name"
+        "title"
       ]
     },
     {
-      "id": "tag:Lyon",
+      "id": "page:/flux/journal-procrastinateur/2026-08-23",
       "fields": [
-        "name"
+        "body",
+        "description",
+        "title"
       ]
     },
     {
-      "id": "tag:matériel",
+      "id": "page:/flux/journal-procrastinateur/2026-08-24",
       "fields": [
-        "name"
+        "body",
+        "description",
+        "title"
       ]
     },
     {
-      "id": "tag:MerciPatroncensur",
+      "id": "page:/flux/journal-procrastinateur/2026-08-25",
       "fields": [
-        "name"
+        "body",
+        "description",
+        "title"
       ]
     },
     {
-      "id": "tag:mobile",
+      "id": "page:/flux/journal-procrastinateur/2026-08-26",
       "fields": [
-        "name"
+        "body",
+        "description",
+        "title"
       ]
     },
     {
-      "id": "tag:multilingue",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-02-08.webp",
       "fields": [
-        "name"
+        "rights",
+        "themeLabel"
       ]
     },
     {
-      "id": "tag:noir-et-blanc",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-02-09.webp",
       "fields": [
-        "name"
+        "rights",
+        "themeLabel"
       ]
     },
     {
-      "id": "tag:nsasnieres",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-02-22.webp",
       "fields": [
-        "name"
+        "rights",
+        "themeLabel"
       ]
     },
     {
-      "id": "tag:Olivier-Roller",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-09.webp",
       "fields": [
-        "name"
+        "rights",
+        "themeLabel"
       ]
     },
     {
-      "id": "tag:onapasdemand",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-10.webp",
       "fields": [
-        "name"
+        "rights",
+        "themeLabel"
       ]
     },
     {
-      "id": "tag:opinion",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-11.webp",
       "fields": [
-        "name"
+        "rights",
+        "themeLabel"
       ]
     },
     {
-      "id": "tag:Orkut",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-12.webp",
       "fields": [
-        "name"
+        "rights"
       ]
     },
     {
-      "id": "tag:papier",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-13.webp",
       "fields": [
-        "name"
+        "rights"
       ]
     },
     {
-      "id": "tag:paramétrique",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-16.webp",
       "fields": [
-        "name"
+        "rights"
       ]
     },
     {
-      "id": "tag:PDF",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-17.webp",
       "fields": [
-        "name"
+        "rights"
       ]
     },
     {
-      "id": "tag:pentest",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-19.webp",
       "fields": [
-        "name"
+        "rights",
+        "themeLabel"
       ]
     },
     {
-      "id": "tag:performance",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-20.webp",
       "fields": [
-        "name"
+        "rights",
+        "themeLabel"
       ]
     },
     {
-      "id": "tag:photo",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-21.webp",
       "fields": [
-        "name"
+        "rights",
+        "themeLabel"
       ]
     },
     {
-      "id": "tag:poster",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-23.webp",
       "fields": [
-        "name"
+        "rights",
+        "themeLabel"
       ]
     },
     {
-      "id": "tag:prc",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-24.webp",
       "fields": [
-        "name"
+        "rights",
+        "themeLabel"
       ]
     },
     {
-      "id": "tag:recherche",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-25.webp",
       "fields": [
-        "name"
+        "rights",
+        "themeLabel"
       ]
     },
     {
-      "id": "tag:référence",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-26.webp",
       "fields": [
-        "name"
+        "rights",
+        "themeLabel"
       ]
     },
     {
-      "id": "tag:Royaume-Uni",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-27.webp",
       "fields": [
-        "name"
+        "rights",
+        "themeLabel"
       ]
     },
     {
-      "id": "tag:S3",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-28.webp",
       "fields": [
-        "name"
+        "rights"
       ]
     },
     {
-      "id": "tag:salonphotoparis",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-30.webp",
       "fields": [
-        "name"
+        "rights",
+        "themeLabel"
       ]
     },
     {
-      "id": "tag:sexisme",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-31.webp",
       "fields": [
-        "name"
+        "rights"
       ]
     },
     {
-      "id": "tag:SwissLeaks",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-01.webp",
       "fields": [
-        "name"
+        "rights",
+        "themeLabel"
       ]
     },
     {
-      "id": "tag:tech",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-02.webp",
       "fields": [
-        "name"
+        "rights"
       ]
     },
     {
-      "id": "tag:théorie",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-03.webp",
       "fields": [
-        "name"
+        "rights",
+        "themeLabel"
       ]
     },
     {
-      "id": "tag:tirage-pigmentaire",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-06.webp",
       "fields": [
-        "name"
+        "rights",
+        "themeLabel"
       ]
     },
     {
-      "id": "tag:webinaire",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-07.webp",
       "fields": [
-        "name"
+        "rights"
       ]
     },
     {
-      "id": "tag:wiki",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-08.webp",
       "fields": [
-        "name"
+        "rights",
+        "themeLabel"
       ]
     },
     {
-      "id": "tag:winezine",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-09.webp",
       "fields": [
-        "name"
+        "rights"
       ]
     },
     {
-      "id": "tag:WWDC",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-10.webp",
       "fields": [
-        "name"
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-13.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-14.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-15.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-16.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-17.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-18.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-19.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-20.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-21.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-22.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-23.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-27.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-28.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-29.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-30.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-02.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-03.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-04.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-05.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-08.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-09.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-10.webp",
+      "fields": [
+        "date",
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-11.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-12.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-13.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-14.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-15.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-16.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-17.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-18.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-19.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-20.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-21.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-22.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-23.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-24.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-25.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-26.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-27.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-28.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-29.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-01.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-02.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-03.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-04.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-05.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-06.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-07.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-08.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-09.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-10.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-11.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-12.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-13.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-14.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-15.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-16.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-17.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-18.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-20.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-21.webp",
+      "fields": [
+        "date",
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-22.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-23.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-24.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-25.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-26.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-27.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-28.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-29.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-30.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-01.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-02.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-03.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-04.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-05.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-06.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-07.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-08.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-09.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-10.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-11.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-12.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-13.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-14.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-15.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-16.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-18.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-19.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-20.webp",
+      "fields": [
+        "date",
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-22.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-23.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-30.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-03.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-04.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-05.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-06.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-07.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-08.webp",
+      "fields": [
+        "rights",
+        "themeLabel"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-09.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-15.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-18.webp",
+      "fields": [
+        "rights"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-20.webp",
+      "fields": [
+        "rights",
+        "title"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-21.webp",
+      "fields": [
+        "alt",
+        "date",
+        "rights",
+        "themeLabel",
+        "title"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-22.webp",
+      "fields": [
+        "alt",
+        "date",
+        "rights",
+        "themeLabel",
+        "title"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-23.webp",
+      "fields": [
+        "alt",
+        "date",
+        "rights",
+        "themeLabel",
+        "title"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-24.webp",
+      "fields": [
+        "alt",
+        "date",
+        "rights",
+        "themeLabel",
+        "title"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-25.webp",
+      "fields": [
+        "alt",
+        "date",
+        "rights",
+        "themeLabel",
+        "title"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-26.webp",
+      "fields": [
+        "alt",
+        "date",
+        "rights",
+        "themeLabel",
+        "title"
       ]
     }
   ],
   "paths": [
     "/",
     "/archives/",
-    "/archives/2014-02-24/",
-    "/archives/2014-02-25/",
-    "/archives/2014-03-01/",
-    "/archives/2014-03-03/",
-    "/archives/2014-03-05/",
-    "/archives/2014-03-10/",
-    "/archives/2014-03-12/",
-    "/archives/2014-03-13/",
-    "/archives/2014-03-14/",
-    "/archives/2014-03-17/",
-    "/archives/2014-03-18/",
-    "/archives/2014-03-20/",
-    "/archives/2014-03-23/",
-    "/archives/2014-03-24/",
-    "/archives/2014-03-25/",
-    "/archives/2014-03-27/",
-    "/archives/2014-04-01/",
-    "/archives/2014-04-05/",
-    "/archives/2014-04-07/",
-    "/archives/2014-04-08/",
-    "/archives/2014-04-09/",
-    "/archives/2014-04-23/",
-    "/archives/2014-04-29/",
-    "/archives/2014-04-30/",
-    "/archives/2014-05-03/",
-    "/archives/2014-05-10/",
-    "/archives/2014-05-11/",
-    "/archives/2014-05-14/",
-    "/archives/2014-05-15/",
-    "/archives/2014-05-19/",
-    "/archives/2014-05-21/",
-    "/archives/2014-05-22/",
-    "/archives/2014-05-25/",
-    "/archives/2014-05-26/",
-    "/archives/2014-05-30/",
-    "/archives/2014-05-31/",
-    "/archives/2014-06-01/",
-    "/archives/2014-06-03/",
-    "/archives/2014-06-04/",
-    "/archives/2014-06-10/",
-    "/archives/2014-06-12/",
-    "/archives/2014-06-14/",
-    "/archives/2014-06-23/",
-    "/archives/2014-06-30/",
-    "/archives/2014-07-01/",
-    "/archives/2014-07-03/",
-    "/archives/2014-07-06/",
-    "/archives/2014-07-09/",
-    "/archives/2014-07-10/",
-    "/archives/2014-07-11/",
-    "/archives/2014-07-12/",
-    "/archives/2014-07-13/",
-    "/archives/2014-07-15/",
-    "/archives/2014-07-16/",
-    "/archives/2014-07-18/",
-    "/archives/2014-07-20/",
-    "/archives/2014-07-21/",
-    "/archives/2014-07-22/",
-    "/archives/2014-07-23/",
-    "/archives/2014-07-25/",
-    "/archives/2014-07-26/",
-    "/archives/2014-07-28/",
-    "/archives/2014-07-31/",
-    "/archives/2014-08-01/",
-    "/archives/2014-08-02/",
-    "/archives/2014-08-04/",
-    "/archives/2014-08-05/",
-    "/archives/2014-08-06/",
-    "/archives/2014-08-19/",
-    "/archives/2014-08-21/",
-    "/archives/2014-08-22/",
-    "/archives/2014-08-23/",
-    "/archives/2014-08-24/",
-    "/archives/2014-08-26/",
-    "/archives/2014-08-28/",
-    "/archives/2014-08-30/",
-    "/archives/2014-08-31/",
-    "/archives/2014-09-01/",
-    "/archives/2014-09-05/",
-    "/archives/2014-09-06/",
-    "/archives/2014-09-08/",
-    "/archives/2014-09-09/",
-    "/archives/2014-09-12/",
-    "/archives/2014-09-13/",
-    "/archives/2014-09-15/",
-    "/archives/2014-09-16/",
-    "/archives/2014-09-18/",
-    "/archives/2014-09-23/",
-    "/archives/2014-09-24/",
-    "/archives/2014-09-25/",
-    "/archives/2014-09-26/",
-    "/archives/2014-09-27/",
-    "/archives/2014-09-28/",
-    "/archives/2014-09-29/",
-    "/archives/2014-10-01/",
-    "/archives/2014-10-02/",
-    "/archives/2014-10-03/",
-    "/archives/2014-10-06/",
-    "/archives/2014-10-07/",
-    "/archives/2014-10-08/",
-    "/archives/2014-10-09/",
-    "/archives/2014-10-10/",
-    "/archives/2014-10-11/",
-    "/archives/2014-10-14/",
-    "/archives/2014-10-15/",
-    "/archives/2014-10-17/",
-    "/archives/2014-10-20/",
-    "/archives/2014-10-22/",
-    "/archives/2014-10-27/",
-    "/archives/2014-10-28/",
-    "/archives/2014-10-29/",
-    "/archives/2014-10-30/",
-    "/archives/2014-11-03/",
-    "/archives/2014-11-04/",
-    "/archives/2014-11-06/",
-    "/archives/2014-11-10/",
-    "/archives/2014-11-11/",
-    "/archives/2014-11-12/",
-    "/archives/2014-11-13/",
-    "/archives/2014-11-14/",
-    "/archives/2014-11-17/",
-    "/archives/2014-11-18/",
-    "/archives/2014-11-19/",
-    "/archives/2014-11-21/",
-    "/archives/2014-11-24/",
-    "/archives/2014-11-25/",
-    "/archives/2014-11-26/",
-    "/archives/2014-11-27/",
-    "/archives/2014-12-01/",
-    "/archives/2014-12-02/",
-    "/archives/2014-12-03/",
-    "/archives/2014-12-04/",
-    "/archives/2014-12-06/",
-    "/archives/2014-12-08/",
-    "/archives/2014-12-10/",
-    "/archives/2014-12-11/",
-    "/archives/2014-12-16/",
-    "/archives/2014-12-18/",
-    "/archives/2014-12-19/",
-    "/archives/2014-12-22/",
-    "/archives/2014-12-28/",
-    "/archives/2014-12-29/",
-    "/archives/2014-12-31/",
-    "/archives/2015-01-02/",
-    "/archives/2015-01-05/",
-    "/archives/2015-01-06/",
-    "/archives/2015-01-07/",
-    "/archives/2015-01-08/",
-    "/archives/2015-01-09/",
-    "/archives/2015-01-12/",
-    "/archives/2015-01-14/",
-    "/archives/2015-01-15/",
-    "/archives/2015-01-16/",
-    "/archives/2015-01-18/",
-    "/archives/2015-01-19/",
-    "/archives/2015-01-21/",
-    "/archives/2015-01-23/",
-    "/archives/2015-01-24/",
-    "/archives/2015-01-25/",
-    "/archives/2015-01-27/",
-    "/archives/2015-01-28/",
-    "/archives/2015-01-29/",
-    "/archives/2015-01-30/",
-    "/archives/2015-02-03/",
-    "/archives/2015-02-08/",
-    "/archives/2015-02-21/",
-    "/archives/2015-02-24/",
-    "/archives/2015-02-25/",
-    "/archives/2015-02-27/",
-    "/archives/2015-03-02/",
-    "/archives/2015-03-06/",
-    "/archives/2015-03-12/",
-    "/archives/2015-03-16/",
-    "/archives/2015-03-18/",
-    "/archives/2015-03-24/",
-    "/archives/2015-04-02/",
-    "/archives/2015-04-14/",
-    "/archives/2015-04-16/",
-    "/archives/2015-04-23/",
-    "/archives/2015-04-26/",
-    "/archives/2015-04-28/",
-    "/archives/2015-04-29/",
-    "/archives/2015-04-30/",
-    "/archives/2015-05-01/",
-    "/archives/2015-05-04/",
-    "/archives/2015-05-05/",
-    "/archives/2015-05-08/",
-    "/archives/2015-05-13/",
-    "/archives/2015-05-14/",
-    "/archives/2015-05-15/",
-    "/archives/2015-05-19/",
-    "/archives/2015-05-20/",
-    "/archives/2015-05-22/",
-    "/archives/2015-05-26/",
-    "/archives/2015-05-27/",
-    "/archives/2015-05-28/",
-    "/archives/2015-05-29/",
-    "/archives/2015-06-02/",
-    "/archives/2015-06-03/",
-    "/archives/2015-06-04/",
-    "/archives/2015-06-10/",
-    "/archives/2015-06-11/",
-    "/archives/2015-06-13/",
-    "/archives/2015-06-15/",
-    "/archives/2015-06-16/",
-    "/archives/2015-06-17/",
-    "/archives/2015-06-18/",
-    "/archives/2015-06-23/",
-    "/archives/2015-06-25/",
-    "/archives/2015-06-30/",
-    "/archives/2015-07-03/",
-    "/archives/2015-07-07/",
-    "/archives/2015-07-08/",
-    "/archives/2015-07-13/",
-    "/archives/2015-07-14/",
-    "/archives/2015-07-15/",
-    "/archives/2015-07-16/",
-    "/archives/2015-07-20/",
-    "/archives/2015-07-21/",
-    "/archives/2015-08-10/",
-    "/archives/2015-08-24/",
-    "/archives/2015-08-25/",
-    "/archives/2015-08-27/",
-    "/archives/2015-08-28/",
-    "/archives/2015-09-08/",
-    "/archives/2015-09-09/",
-    "/archives/2015-09-11/",
-    "/archives/2015-09-15/",
-    "/archives/2015-09-17/",
-    "/archives/2015-09-21/",
-    "/archives/2015-09-23/",
-    "/archives/2015-09-29/",
-    "/archives/2015-09-30/",
-    "/archives/2015-10-03/",
-    "/archives/2015-10-09/",
-    "/archives/2015-10-14/",
-    "/archives/2015-10-23/",
-    "/archives/2015-10-24/",
-    "/archives/2015-10-26/",
-    "/archives/2015-10-27/",
-    "/archives/2015-11-02/",
-    "/archives/2015-11-04/",
-    "/archives/2015-11-09/",
-    "/archives/2015-11-10/",
-    "/archives/2015-11-16/",
-    "/archives/2015-11-19/",
-    "/archives/2015-11-20/",
-    "/archives/2015-11-22/",
-    "/archives/2015-11-27/",
-    "/archives/2015-12-04/",
-    "/archives/2015-12-08/",
-    "/archives/2015-12-10/",
-    "/archives/2015-12-16/",
-    "/archives/2015-12-17/",
-    "/archives/2015-12-18/",
-    "/archives/2015-12-19/",
-    "/archives/2016-01-01/",
-    "/archives/2016-01-02/",
-    "/archives/2016-01-06/",
-    "/archives/2016-01-07/",
-    "/archives/2016-01-08/",
-    "/archives/2016-01-09/",
-    "/archives/2016-01-11/",
-    "/archives/2016-01-12/",
-    "/archives/2016-01-14/",
-    "/archives/2016-01-15/",
-    "/archives/2016-01-18/",
-    "/archives/2016-01-19/",
-    "/archives/2016-01-20/",
-    "/archives/2016-01-22/",
-    "/archives/2016-01-24/",
-    "/archives/2016-01-28/",
-    "/archives/2016-01-31/",
-    "/archives/2016-02-01/",
-    "/archives/2016-02-10/",
-    "/archives/2016-02-16/",
-    "/archives/2016-02-19/",
-    "/archives/2016-02-20/",
-    "/archives/2016-02-21/",
-    "/archives/2016-02-25/",
-    "/archives/2016-02-29/",
-    "/archives/2016-03-03/",
-    "/archives/2016-03-07/",
-    "/archives/2016-03-08/",
-    "/archives/2016-03-09/",
-    "/archives/2016-03-10/",
-    "/archives/2016-03-15/",
-    "/archives/2016-03-17/",
-    "/archives/2016-03-20/",
-    "/archives/2016-03-21/",
-    "/archives/2016-03-25/",
-    "/archives/2016-04-04/",
-    "/archives/2016-04-05/",
-    "/archives/2016-04-12/",
-    "/archives/2016-04-20/",
-    "/archives/2016-04-21/",
-    "/archives/2016-04-26/",
-    "/archives/2016-04-27/",
-    "/archives/2016-04-28/",
-    "/archives/2016-05-01/",
-    "/archives/2016-05-02/",
-    "/archives/2016-05-04/",
-    "/archives/2016-05-08/",
-    "/archives/2016-05-09/",
-    "/archives/2016-05-11/",
-    "/archives/2016-05-12/",
-    "/archives/2016-05-16/",
-    "/archives/2016-05-23/",
-    "/archives/2016-06-06/",
-    "/archives/2016-06-10/",
-    "/archives/2016-06-13/",
-    "/archives/2016-06-14/",
-    "/archives/2016-06-15/",
-    "/archives/2016-06-16/",
-    "/archives/2016-06-20/",
-    "/archives/2016-06-21/",
-    "/archives/2016-06-25/",
-    "/archives/2016-06-26/",
-    "/archives/2016-06-30/",
-    "/archives/2016-07-01/",
-    "/archives/2016-07-04/",
-    "/archives/2016-07-11/",
-    "/archives/2016-07-15/",
-    "/archives/2016-07-17/",
-    "/archives/2016-07-18/",
-    "/archives/2016-07-19/",
-    "/archives/2016-07-28/",
-    "/archives/2016-07-29/",
-    "/archives/2016-08-20/",
-    "/archives/2016-08-23/",
-    "/archives/2016-08-24/",
-    "/archives/2016-08-27/",
-    "/archives/2016-08-30/",
-    "/archives/2016-08-31/",
-    "/archives/2016-09-01/",
-    "/archives/2016-09-02/",
-    "/archives/2016-09-03/",
-    "/archives/2016-09-05/",
-    "/archives/2016-09-07/",
-    "/archives/2016-09-08/",
-    "/archives/2016-09-09/",
-    "/archives/2016-09-11/",
-    "/archives/2016-09-12/",
-    "/archives/2016-09-13/",
-    "/archives/2016-09-14/",
-    "/archives/2016-09-16/",
-    "/archives/2016-09-19/",
-    "/archives/2016-09-21/",
-    "/archives/2016-09-22/",
-    "/archives/2016-09-23/",
-    "/archives/2016-09-28/",
-    "/archives/2016-09-30/",
-    "/archives/2016-10-02/",
-    "/archives/2016-10-03/",
-    "/archives/2016-10-04/",
-    "/archives/2016-10-08/",
-    "/archives/2016-10-11/",
-    "/archives/2016-10-12/",
-    "/archives/2016-10-14/",
-    "/archives/2016-10-18/",
-    "/archives/2016-10-24/",
-    "/archives/2016-10-26/",
-    "/archives/2016-11-02/",
-    "/archives/2016-11-05/",
-    "/archives/2016-11-06/",
-    "/archives/2016-11-14/",
-    "/archives/2016-11-17/",
-    "/archives/2016-11-21/",
-    "/archives/2016-11-22/",
-    "/archives/2016-11-23/",
-    "/archives/2016-11-29/",
-    "/archives/2016-12-01/",
-    "/archives/2016-12-06/",
-    "/archives/2016-12-07/",
-    "/archives/2016-12-08/",
-    "/archives/2016-12-14/",
-    "/archives/2016-12-15/",
-    "/archives/2016-12-16/",
-    "/archives/2016-12-18/",
-    "/archives/2016-12-19/",
-    "/archives/2017-02-24/",
-    "/archives/2017-03-08/",
-    "/archives/2017-03-21/",
-    "/archives/2017-03-30/",
-    "/archives/2017-04-07/",
-    "/archives/2017-04-18/",
-    "/archives/2017-04-19/",
-    "/archives/2017-04-20/",
-    "/archives/2017-11-05/",
-    "/archives/2017-11-06/",
-    "/archives/2017-12-08/",
-    "/archives/2018-09-10/",
-    "/archives/2019-06-25/",
-    "/archives/2020-02-23/",
-    "/archives/2022-03-11/",
-    "/archives/2022-04-08/",
-    "/archives/2022-04-11/",
-    "/archives/2022-04-14/",
-    "/archives/2026-07-24/",
     "/archives/2026-08-16/",
     "/archives/2026-08-18/",
     "/archives/2026-08-20/",
@@ -1412,445 +1698,223 @@
     "/archives/2026-09-01/",
     "/archives/2026-09-02/",
     "/flux/",
-    "/flux/blog-ooblik/",
-    "/flux/instagram/",
-    "/flux/tumblr-ooblik/",
-    "/flux/twitter/",
+    "/flux/journal-procrastinateur/",
+    "/flux/journal-procrastinateur/2026-02-08/",
+    "/flux/journal-procrastinateur/2026-02-09/",
+    "/flux/journal-procrastinateur/2026-02-22/",
+    "/flux/journal-procrastinateur/2026-03-09/",
+    "/flux/journal-procrastinateur/2026-03-10/",
+    "/flux/journal-procrastinateur/2026-03-11/",
+    "/flux/journal-procrastinateur/2026-03-12/",
+    "/flux/journal-procrastinateur/2026-03-13/",
+    "/flux/journal-procrastinateur/2026-03-16/",
+    "/flux/journal-procrastinateur/2026-03-17/",
+    "/flux/journal-procrastinateur/2026-03-19/",
+    "/flux/journal-procrastinateur/2026-03-20/",
+    "/flux/journal-procrastinateur/2026-03-21/",
+    "/flux/journal-procrastinateur/2026-03-23/",
+    "/flux/journal-procrastinateur/2026-03-24/",
+    "/flux/journal-procrastinateur/2026-03-25/",
+    "/flux/journal-procrastinateur/2026-03-26/",
+    "/flux/journal-procrastinateur/2026-03-27/",
+    "/flux/journal-procrastinateur/2026-03-28/",
+    "/flux/journal-procrastinateur/2026-03-30/",
+    "/flux/journal-procrastinateur/2026-03-31/",
+    "/flux/journal-procrastinateur/2026-04-01/",
+    "/flux/journal-procrastinateur/2026-04-02/",
+    "/flux/journal-procrastinateur/2026-04-03/",
+    "/flux/journal-procrastinateur/2026-04-06/",
+    "/flux/journal-procrastinateur/2026-04-07/",
+    "/flux/journal-procrastinateur/2026-04-08/",
+    "/flux/journal-procrastinateur/2026-04-09/",
+    "/flux/journal-procrastinateur/2026-04-10/",
+    "/flux/journal-procrastinateur/2026-04-13/",
+    "/flux/journal-procrastinateur/2026-04-14/",
+    "/flux/journal-procrastinateur/2026-04-15/",
+    "/flux/journal-procrastinateur/2026-04-16/",
+    "/flux/journal-procrastinateur/2026-04-17/",
+    "/flux/journal-procrastinateur/2026-04-18/",
+    "/flux/journal-procrastinateur/2026-04-19/",
+    "/flux/journal-procrastinateur/2026-04-20/",
+    "/flux/journal-procrastinateur/2026-04-21/",
+    "/flux/journal-procrastinateur/2026-04-22/",
+    "/flux/journal-procrastinateur/2026-04-23/",
+    "/flux/journal-procrastinateur/2026-04-27/",
+    "/flux/journal-procrastinateur/2026-04-28/",
+    "/flux/journal-procrastinateur/2026-04-29/",
+    "/flux/journal-procrastinateur/2026-04-30/",
+    "/flux/journal-procrastinateur/2026-05-02/",
+    "/flux/journal-procrastinateur/2026-05-03/",
+    "/flux/journal-procrastinateur/2026-05-04/",
+    "/flux/journal-procrastinateur/2026-05-05/",
+    "/flux/journal-procrastinateur/2026-05-08/",
+    "/flux/journal-procrastinateur/2026-05-09/",
+    "/flux/journal-procrastinateur/2026-05-10/",
+    "/flux/journal-procrastinateur/2026-05-11/",
+    "/flux/journal-procrastinateur/2026-05-12/",
+    "/flux/journal-procrastinateur/2026-05-13/",
+    "/flux/journal-procrastinateur/2026-05-14/",
+    "/flux/journal-procrastinateur/2026-05-15/",
+    "/flux/journal-procrastinateur/2026-05-16/",
+    "/flux/journal-procrastinateur/2026-05-17/",
+    "/flux/journal-procrastinateur/2026-05-18/",
+    "/flux/journal-procrastinateur/2026-05-19/",
+    "/flux/journal-procrastinateur/2026-05-20/",
+    "/flux/journal-procrastinateur/2026-05-21/",
+    "/flux/journal-procrastinateur/2026-05-22/",
+    "/flux/journal-procrastinateur/2026-05-23/",
+    "/flux/journal-procrastinateur/2026-05-24/",
+    "/flux/journal-procrastinateur/2026-05-25/",
+    "/flux/journal-procrastinateur/2026-05-26/",
+    "/flux/journal-procrastinateur/2026-05-27/",
+    "/flux/journal-procrastinateur/2026-05-28/",
+    "/flux/journal-procrastinateur/2026-05-29/",
+    "/flux/journal-procrastinateur/2026-06-01/",
+    "/flux/journal-procrastinateur/2026-06-02/",
+    "/flux/journal-procrastinateur/2026-06-03/",
+    "/flux/journal-procrastinateur/2026-06-04/",
+    "/flux/journal-procrastinateur/2026-06-05/",
+    "/flux/journal-procrastinateur/2026-06-06/",
+    "/flux/journal-procrastinateur/2026-06-07/",
+    "/flux/journal-procrastinateur/2026-06-08/",
+    "/flux/journal-procrastinateur/2026-06-09/",
+    "/flux/journal-procrastinateur/2026-06-10/",
+    "/flux/journal-procrastinateur/2026-06-11/",
+    "/flux/journal-procrastinateur/2026-06-12/",
+    "/flux/journal-procrastinateur/2026-06-13/",
+    "/flux/journal-procrastinateur/2026-06-14/",
+    "/flux/journal-procrastinateur/2026-06-15/",
+    "/flux/journal-procrastinateur/2026-06-16/",
+    "/flux/journal-procrastinateur/2026-06-17/",
+    "/flux/journal-procrastinateur/2026-06-18/",
+    "/flux/journal-procrastinateur/2026-06-20/",
+    "/flux/journal-procrastinateur/2026-06-21/",
+    "/flux/journal-procrastinateur/2026-06-22/",
+    "/flux/journal-procrastinateur/2026-06-23/",
+    "/flux/journal-procrastinateur/2026-06-24/",
+    "/flux/journal-procrastinateur/2026-06-25/",
+    "/flux/journal-procrastinateur/2026-06-26/",
+    "/flux/journal-procrastinateur/2026-06-27/",
+    "/flux/journal-procrastinateur/2026-06-28/",
+    "/flux/journal-procrastinateur/2026-06-29/",
+    "/flux/journal-procrastinateur/2026-06-30/",
+    "/flux/journal-procrastinateur/2026-07-01/",
+    "/flux/journal-procrastinateur/2026-07-02/",
+    "/flux/journal-procrastinateur/2026-07-03/",
+    "/flux/journal-procrastinateur/2026-07-04/",
+    "/flux/journal-procrastinateur/2026-07-05/",
+    "/flux/journal-procrastinateur/2026-07-06/",
+    "/flux/journal-procrastinateur/2026-07-07/",
+    "/flux/journal-procrastinateur/2026-07-08/",
+    "/flux/journal-procrastinateur/2026-07-09/",
+    "/flux/journal-procrastinateur/2026-07-10/",
+    "/flux/journal-procrastinateur/2026-07-11/",
+    "/flux/journal-procrastinateur/2026-07-12/",
+    "/flux/journal-procrastinateur/2026-07-13/",
+    "/flux/journal-procrastinateur/2026-07-14/",
+    "/flux/journal-procrastinateur/2026-07-15/",
+    "/flux/journal-procrastinateur/2026-07-16/",
+    "/flux/journal-procrastinateur/2026-07-18/",
+    "/flux/journal-procrastinateur/2026-07-19/",
+    "/flux/journal-procrastinateur/2026-07-20/",
+    "/flux/journal-procrastinateur/2026-07-22/",
+    "/flux/journal-procrastinateur/2026-07-23/",
+    "/flux/journal-procrastinateur/2026-07-30/",
+    "/flux/journal-procrastinateur/2026-08-03/",
+    "/flux/journal-procrastinateur/2026-08-04/",
+    "/flux/journal-procrastinateur/2026-08-05/",
+    "/flux/journal-procrastinateur/2026-08-06/",
+    "/flux/journal-procrastinateur/2026-08-07/",
+    "/flux/journal-procrastinateur/2026-08-08/",
+    "/flux/journal-procrastinateur/2026-08-09/",
+    "/flux/journal-procrastinateur/2026-08-15/",
+    "/flux/journal-procrastinateur/2026-08-18/",
+    "/flux/journal-procrastinateur/2026-08-20/",
+    "/flux/journal-procrastinateur/2026-08-21/",
+    "/flux/journal-procrastinateur/2026-08-22/",
+    "/flux/journal-procrastinateur/2026-08-23/",
+    "/flux/journal-procrastinateur/2026-08-24/",
+    "/flux/journal-procrastinateur/2026-08-25/",
+    "/flux/journal-procrastinateur/2026-08-26/",
     "/tags/",
-    "/tags/100design/",
-    "/tags/25ansduoueb/",
-    "/tags/abstention/",
-    "/tags/accessibilite/",
-    "/tags/achievementunlocked/",
-    "/tags/activisme/",
-    "/tags/ade/",
-    "/tags/aeachi/",
-    "/tags/affiche/",
-    "/tags/agence/",
+    "/tags/administration-systeme/",
     "/tags/agents/",
-    "/tags/allenginsberg/",
-    "/tags/amazon/",
-    "/tags/anglais/",
+    "/tags/algorithmes/",
+    "/tags/api/",
     "/tags/apprentissage/",
     "/tags/architecture/",
-    "/tags/archive/",
-    "/tags/arles/",
-    "/tags/arles2015/",
-    "/tags/art-numerique/",
     "/tags/art/",
-    "/tags/article/",
-    "/tags/artisanat/",
-    "/tags/artprice/",
-    "/tags/asia/",
-    "/tags/atelier/",
+    "/tags/artiste/",
+    "/tags/assistant/",
     "/tags/audit/",
-    "/tags/autoeditions/",
+    "/tags/auto-hebergement/",
     "/tags/automatisation/",
     "/tags/automobile/",
-    "/tags/aws/",
-    "/tags/barbarie/",
-    "/tags/baryta/",
-    "/tags/beton/",
-    "/tags/bhl/",
-    "/tags/bhlove/",
-    "/tags/bigcity/",
-    "/tags/bleedbox/",
-    "/tags/blog-ooblik/",
-    "/tags/blog/",
-    "/tags/book/",
-    "/tags/bookmakers/",
-    "/tags/books/",
-    "/tags/bookshop/",
-    "/tags/bordage/",
-    "/tags/branding/",
-    "/tags/bresil/",
-    "/tags/bretagne/",
-    "/tags/brutalisme/",
-    "/tags/c7100/",
-    "/tags/cadre/",
-    "/tags/canon-official/",
-    "/tags/canon/",
-    "/tags/canson/",
-    "/tags/cansoninfinity/",
-    "/tags/cansonpaper/",
-    "/tags/capitalisme/",
-    "/tags/cartographie/",
-    "/tags/cartouche/",
-    "/tags/cat/",
-    "/tags/centre-pompidou/",
-    "/tags/charliehebdo/",
-    "/tags/chat/",
-    "/tags/chromebook/",
-    "/tags/cinema/",
-    "/tags/city/",
-    "/tags/claire/",
-    "/tags/clouscard/",
-    "/tags/cms/",
-    "/tags/cnc/",
+    "/tags/carriere/",
+    "/tags/claude/",
     "/tags/code/",
-    "/tags/coeur/",
-    "/tags/collaboration/",
-    "/tags/coloniale/",
-    "/tags/colonialisme/",
-    "/tags/communication/",
-    "/tags/compositing/",
-    "/tags/composition/",
-    "/tags/compression/",
-    "/tags/concret/",
-    "/tags/concrete/",
-    "/tags/confidentialite/",
-    "/tags/conseil/",
-    "/tags/content/",
-    "/tags/contenu/",
     "/tags/contexte/",
-    "/tags/cooking/",
-    "/tags/copyrightmadness/",
+    "/tags/conversion/",
     "/tags/cours/",
-    "/tags/cprint/",
-    "/tags/creation/",
-    "/tags/creative-coding/",
-    "/tags/creativite/",
-    "/tags/critique/",
-    "/tags/css/",
-    "/tags/cuisine/",
-    "/tags/culture/",
     "/tags/cybersecurite/",
-    "/tags/datagramme/",
-    "/tags/datavisualisation/",
-    "/tags/david-lynch/",
-    "/tags/de/",
-    "/tags/decoupage/",
-    "/tags/definition/",
-    "/tags/demonstration/",
-    "/tags/depression/",
-    "/tags/design-editorial/",
-    "/tags/design-generatif/",
-    "/tags/design-graphique/",
     "/tags/design/",
-    "/tags/desktop/",
-    "/tags/dev/",
     "/tags/developpement/",
-    "/tags/devops/",
-    "/tags/diditalprint/",
-    "/tags/diffusion/",
-    "/tags/digest/",
-    "/tags/distribution/",
-    "/tags/diy/",
-    "/tags/documentation/",
-    "/tags/domains/",
-    "/tags/donnees/",
-    "/tags/dooo/",
-    "/tags/doscoll/",
-    "/tags/dpda/",
-    "/tags/dpquattro/",
-    "/tags/drapeau/",
-    "/tags/drupa2016/",
-    "/tags/ebook/",
-    "/tags/editeur/",
-    "/tags/edition-numerique/",
+    "/tags/documents/",
     "/tags/edition/",
-    "/tags/editions/",
-    "/tags/education/",
-    "/tags/eindhoven/",
-    "/tags/encadrement/",
-    "/tags/enfants/",
     "/tags/entrainement/",
     "/tags/entretien/",
-    "/tags/epub/",
-    "/tags/esperluette/",
-    "/tags/etats-unis/",
-    "/tags/europe/",
+    "/tags/entretiens/",
     "/tags/evaluation/",
-    "/tags/exposition/",
-    "/tags/fabrication-numerique/",
-    "/tags/facebook/",
-    "/tags/faconnage/",
-    "/tags/financement-participatif/",
-    "/tags/finkielraut/",
-    "/tags/firmware/",
-    "/tags/fondation/",
-    "/tags/font-pairing/",
-    "/tags/font/",
-    "/tags/fonte-libre/",
-    "/tags/fonts/",
-    "/tags/foveon/",
-    "/tags/free/",
-    "/tags/frise/",
-    "/tags/frontend/",
-    "/tags/geek/",
-    "/tags/generatif/",
+    "/tags/extraction/",
+    "/tags/finance/",
+    "/tags/framework/",
     "/tags/generation/",
-    "/tags/gfx/",
-    "/tags/git/",
-    "/tags/github/",
-    "/tags/google-fonts/",
-    "/tags/google/",
-    "/tags/gpu/",
-    "/tags/grandformat/",
-    "/tags/graphic/",
-    "/tags/graphisme/",
-    "/tags/gratuit/",
-    "/tags/hahnem/",
-    "/tags/heureux/",
-    "/tags/high/",
-    "/tags/histoire/",
-    "/tags/homophobie/",
-    "/tags/hp/",
-    "/tags/hplatex/",
-    "/tags/hpwallart/",
-    "/tags/huge/",
-    "/tags/humanism/",
-    "/tags/humour/",
-    "/tags/ia-locale/",
     "/tags/ia/",
-    "/tags/icpbardmfa/",
-    "/tags/identite/",
-    "/tags/illustration/",
     "/tags/image/",
-    "/tags/images/",
-    "/tags/impression-a-la-demande/",
     "/tags/impression/",
-    "/tags/imprimerie/",
-    "/tags/imprimeur/",
-    "/tags/independant/",
     "/tags/inference/",
-    "/tags/information/",
-    "/tags/inspiration/",
-    "/tags/instagram/",
+    "/tags/informatique/",
     "/tags/interface-nodale/",
-    "/tags/internet/",
-    "/tags/ipf8400/",
-    "/tags/islamophobe/",
-    "/tags/italian/",
-    "/tags/jasonrezaian/",
+    "/tags/interface/",
     "/tags/javascript/",
-    "/tags/jean-widmer/",
-    "/tags/jesaisplusijaidejatwitt/",
-    "/tags/jesuischarlie/",
-    "/tags/jquery/",
-    "/tags/kazakhstan/",
-    "/tags/kickstarter/",
-    "/tags/kirbycms/",
-    "/tags/knowledge-management/",
-    "/tags/laboratoire/",
-    "/tags/language/",
-    "/tags/lapsus/",
-    "/tags/layout/",
-    "/tags/ldf15/",
-    "/tags/lense/",
-    "/tags/les/",
-    "/tags/letterpress/",
-    "/tags/librairie/",
-    "/tags/lien-mort/",
-    "/tags/lieu/",
     "/tags/ligne-de-commande/",
-    "/tags/litterature/",
-    "/tags/livre-d-art/",
-    "/tags/livre-photo/",
     "/tags/livre/",
+    "/tags/livres/",
     "/tags/llm/",
     "/tags/local/",
-    "/tags/logiciel-libre/",
-    "/tags/logiciels/",
-    "/tags/logo/",
-    "/tags/lopognon/",
-    "/tags/lost/",
-    "/tags/love/",
-    "/tags/lpj/",
-    "/tags/luju/",
-    "/tags/lure2014/",
-    "/tags/lyon/",
-    "/tags/mafia/",
-    "/tags/manifesto/",
-    "/tags/master/",
-    "/tags/materiel/",
-    "/tags/mediapartlive/",
-    "/tags/medium/",
-    "/tags/meme/",
-    "/tags/memoire-web/",
+    "/tags/markdown/",
     "/tags/memoire/",
     "/tags/memory/",
-    "/tags/mep/",
-    "/tags/mercipatroncensur/",
-    "/tags/methode/",
-    "/tags/mobile/",
     "/tags/modeles/",
-    "/tags/mondialisation/",
     "/tags/multi-agents/",
-    "/tags/multilingue/",
-    "/tags/musique/",
-    "/tags/net/",
-    "/tags/nikon/",
-    "/tags/nlp/",
-    "/tags/noir-et-blanc/",
-    "/tags/norme/",
-    "/tags/normes/",
-    "/tags/northkorea/",
-    "/tags/nsasnieres/",
-    "/tags/number-1/",
-    "/tags/numerique/",
-    "/tags/objet/",
-    "/tags/observabilite/",
-    "/tags/occasion/",
-    "/tags/offset/",
-    "/tags/olivier-roller/",
-    "/tags/onapasdemand/",
-    "/tags/ooblik/",
-    "/tags/openfx/",
+    "/tags/navigateur/",
+    "/tags/no-code/",
     "/tags/opensource/",
-    "/tags/opentype/",
-    "/tags/opinion/",
-    "/tags/orkut/",
+    "/tags/orchestration/",
     "/tags/osint/",
-    "/tags/osp/",
-    "/tags/outil/",
-    "/tags/outils/",
-    "/tags/p5js/",
-    "/tags/page-quot/",
-    "/tags/pairing/",
-    "/tags/paper/",
-    "/tags/papier/",
-    "/tags/parametrique/",
-    "/tags/parfait/",
-    "/tags/paris/",
-    "/tags/pdf-x/",
-    "/tags/pdf/",
-    "/tags/pedagogie/",
-    "/tags/pentest/",
-    "/tags/performance/",
-    "/tags/pesticide/",
-    "/tags/philo/",
-    "/tags/photo/",
-    "/tags/photobook/",
-    "/tags/photobooks/",
-    "/tags/photographe/",
-    "/tags/photographer/",
     "/tags/photographie/",
-    "/tags/photography/",
-    "/tags/photojournalisme/",
-    "/tags/photokina/",
-    "/tags/photomattfibre200/",
-    "/tags/photomontage/",
-    "/tags/piano/",
-    "/tags/pink/",
-    "/tags/platine/",
-    "/tags/plieuse/",
-    "/tags/polices/",
     "/tags/politique/",
-    "/tags/pomodoro/",
-    "/tags/portfolio/",
-    "/tags/pose/",
-    "/tags/poster/",
-    "/tags/pratique/",
-    "/tags/prc/",
-    "/tags/prepresse/",
-    "/tags/print-quot/",
-    "/tags/print/",
-    "/tags/pro-bono/",
     "/tags/projets/",
-    "/tags/publication/",
-    "/tags/publisher/",
-    "/tags/pur/",
-    "/tags/pyongyang/",
-    "/tags/python/",
-    "/tags/quot-norma/",
-    "/tags/quot-zone/",
-    "/tags/racisme/",
-    "/tags/raw/",
-    "/tags/recette/",
+    "/tags/rag/",
     "/tags/recherche/",
-    "/tags/reference/",
-    "/tags/reliure/",
-    "/tags/report/",
-    "/tags/reseau/",
-    "/tags/responsive/",
     "/tags/ressources/",
-    "/tags/restauration/",
-    "/tags/revue/",
-    "/tags/ricoh/",
-    "/tags/riso/",
-    "/tags/robotique/",
-    "/tags/root/",
     "/tags/royaume-uni/",
-    "/tags/rse/",
-    "/tags/s3/",
-    "/tags/salonphotoparis/",
-    "/tags/sans/",
-    "/tags/sanstitre/",
-    "/tags/sant/",
-    "/tags/scroll/",
     "/tags/securite/",
-    "/tags/selfie/",
-    "/tags/selfpublishing/",
-    "/tags/seo/",
     "/tags/serveur/",
-    "/tags/sexisme/",
-    "/tags/skyscraper/",
+    "/tags/skills/",
     "/tags/societe/",
-    "/tags/sofphd/",
-    "/tags/source-available/",
-    "/tags/stiegler/",
-    "/tags/suede/",
-    "/tags/suisse/",
-    "/tags/surreal/",
-    "/tags/surveillance/",
-    "/tags/svgfreebie/",
-    "/tags/swissleaks/",
-    "/tags/tech/",
-    "/tags/technologie/",
-    "/tags/template/",
-    "/tags/tendance/",
+    "/tags/supply-chain/",
+    "/tags/systemes/",
     "/tags/terminal/",
-    "/tags/texte/",
-    "/tags/textile/",
-    "/tags/themes/",
-    "/tags/theorie/",
-    "/tags/tirage-pigmentaire/",
-    "/tags/tokyo/",
-    "/tags/trame/",
-    "/tags/translation/",
-    "/tags/travail/",
-    "/tags/travailgratuit/",
-    "/tags/travel/",
-    "/tags/travelphotography/",
-    "/tags/tumblr/",
-    "/tags/tunisie/",
-    "/tags/tutoriel/",
     "/tags/tutoriels/",
-    "/tags/twitter/",
     "/tags/typo/",
     "/tags/typographie/",
-    "/tags/typography/",
-    "/tags/typos/",
     "/tags/ui/",
-    "/tags/upload/",
-    "/tags/urban/",
-    "/tags/urbanisme/",
-    "/tags/utopia/",
-    "/tags/vecteur/",
-    "/tags/veille/",
-    "/tags/via-dtatem/",
-    "/tags/video/",
-    "/tags/vie-privee/",
-    "/tags/ville/",
-    "/tags/vimeo/",
-    "/tags/vision/",
-    "/tags/voyage/",
-    "/tags/vscode/",
-    "/tags/wallcover/",
-    "/tags/web-to-print/",
+    "/tags/web-development/",
     "/tags/web/",
     "/tags/webdesign/",
-    "/tags/webinaire/",
     "/tags/webtoprint/",
-    "/tags/wiki/",
-    "/tags/williamburroughs/",
-    "/tags/winezine/",
-    "/tags/wordpress/",
-    "/tags/wp/",
-    "/tags/wwdc/",
-    "/tags/youtube/",
-    "/tags/zine/"
+    "/tags/workflows/"
   ],
   "artwork": {
     "upsert": [
@@ -1867,5 +1931,5 @@
     ],
     "remove": []
   },
-  "revision": "6207ad4973be183811ced446d3f2906b9245379278a94b4bfc099e1bbec913c0"
+  "revision": "7a776fa7d8c2be7c2a030e112eff1c59c909e4d3c30db98c5a5c6cae5eb45d6f"
 }
