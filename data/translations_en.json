@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "61a5487c056333a816ce0d68a4a364e9958c3f3833e8af3a23a040ba6fccdbec",
+  "revision": "8a8e5e382de55cb398de355739e818aa56a39a2859a6779e21281f1fab4d4b48",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -3092,10 +3092,6 @@
       "description": {
         "hash": "02830b0b3b9f2cb0cbbeb79144b047397e00ece74e913cf73131d6bf49aa35d6",
         "text": "Publishing a simple blog post had become a nightmare, with me stuck in endless GitHub Actions queues for over twenty minutes. Analysis reveals a major architectural drift that had built up under Codex, involving un-cached Hugo template loops, superfluous monolithic tests and endless commits from a translation bot. The pipeline has been fully repaired: Hugo’s build time has dropped from seven minutes to twenty seconds, publishing is no longer reliant on GitHub and now occurs directly on the VPS, and administration has regained its local autonomy in version 1.28.0."
-      },
-      "title": {
-        "hash": "1cdaea0f97499f852374c75eb3616a11a622360ada1bd7dc7e2aab0b42acbe93",
-        "text": "From monster to repairs: dismantling the Codex drift"
       }
     },
     "page:/flux/journal-procrastinateur": {
