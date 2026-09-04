@@ -320,6 +320,15 @@
     draw();
   };
 
+  const startAnimation = () => {
+    if (!frame) frame = requestAnimationFrame(animate);
+  };
+
+  const stopAnimation = () => {
+    cancelAnimationFrame(frame);
+    frame = 0;
+  };
+
   const setLocked = (record, locked) => {
     record.locked = locked;
     record.element.classList.toggle("is-locked", locked);
@@ -375,8 +384,9 @@
   explorer.classList.add("is-enhanced");
   document.fonts.ready.then(() => {
     update();
-    frame = requestAnimationFrame(animate);
+    startAnimation();
   });
 
-  window.addEventListener("pagehide", () => cancelAnimationFrame(frame), { once: true });
+  window.addEventListener("pagehide", stopAnimation);
+  window.addEventListener("pageshow", startAnimation);
 })();

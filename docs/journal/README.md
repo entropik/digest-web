@@ -18,6 +18,7 @@ chaque journée ayant produit une évolution du projet.
 | 27 août 2026 | [Quarante-cinq dépôts et quelques filets](2026-08-27.md) | 8 | Curation GitHub, archives et ajustements d’interface |
 | 28 août 2026 | [Le brouillon devient un état éditorial](2026-08-28.md) | — | Cycle de vie réversible des éditions |
 | 2 septembre 2026 | [La curation traverse Firefox](2026-09-02.md) | — | Extension Firefox, signature AMO et installation officielle |
+| 3 septembre 2026 | [Retrouver les mouvements du Digest](2026-09-03.md) | — | Survol du texte, reprise des tags et préférences d’accessibilité |
 
 ## Provenance
 
