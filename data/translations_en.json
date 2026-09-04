@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "e8a9703d0fb0043baac2ae0f2a7f9c66e1349a21786da107e4bfdf1d62da825a",
+  "revision": "59d36d271f8743dc8b6e5d83c7fabe52b911aafce4a9ab0ea0f665b8b1f7d4cc",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -3090,6 +3090,22 @@
       "title": {
         "hash": "946546d90a07b056aaf49f70b37dd2857b2ec866c0aea388c8914c2652bc086a",
         "text": "Diary of a Procrastinator"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-06-17": {
+      "description": {
+        "hash": "142ffd383ec413045a46071dc0a0fc33277fb4e2a777fdfbfa07129ab10f3cf0",
+        "text": "PDF Clarification Day: the GOF forge reduces a PDF from over 400 MB to 19 MB; KEREDIT removes its duplicate engine and once again becomes the authority on the project and JSON."
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-06-18": {
+      "description": {
+        "hash": "7ebd68430badc6749075af0814c49b643f7b416071a9949889d1e651b082b394",
+        "text": "Workshop alignment day: general guidelines, beta audit, Zine/GOF contract, measurement of metal-spine bindings, more reliable GOF monitoring and the start of public sharing of KEREDIT projects."
+      },
+      "title": {
+        "hash": "c3a10c3ca14825222f00ea6a9d2a2ab73a06dbda460a02dde4fde9b38b298f60",
+        "text": "Day 88 – Assessing the reality, amending the contract, sharing the project"
       }
     },
     "page:/flux/journal-procrastinateur/2026-06-20": {
@@ -10686,12 +10702,20 @@
       "themeLabel": {
         "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
         "text": "Robotics"
+      },
+      "title": {
+        "hash": "4472b4bfbb3cdc15eef771cc1ca41e8c3963717d6fc994b76e1a16572fd91e9d",
+        "text": "Rasp Tool on Phoenix Robotic Arm Model"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-18.webp": {
       "alt": {
         "hash": "239c8102520533a54341fdf0a3eba15e3dcb3ca669c3b07a1906af5815857ecb",
         "text": "Document NASA : Data Recording Room in the 10-by 10-Foot Supersonic Wind Tunnel"
+      },
+      "date": {
+        "hash": "5bb19eac97dc707bc153446975ef790669401ac6cdda8ff8a72d7b770f9031a5",
+        "text": "23 April 1973"
       },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
@@ -10700,6 +10724,10 @@
       "themeLabel": {
         "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
         "text": "Monitoring & Data"
+      },
+      "title": {
+        "hash": "5c46aa93a34b3d8fb632437c788da340fefd27170b9de70528a5577c473b1253",
+        "text": "Data Recording Room in the 10-by 10-Foot Supersonic Wind Tunnel"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-20.webp": {
