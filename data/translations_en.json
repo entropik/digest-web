@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "4ac7eff5058e9916ac9b334f7f1a03954d6eabe9952ad75d6993ecea63d7996b",
+  "revision": "7c73089ced33b09276f27f5596ded74df797c536f478817c39c1f4ecf4aa8641",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -18,6 +18,12 @@
       "name": {
         "hash": "2651e56a4bf01b789ffdf74bbf14be1e649fafffc76aaa69becf49a70fed95ac",
         "text": "Development"
+      }
+    },
+    "category:IA & Agents": {
+      "name": {
+        "hash": "b4aec6fbf9a72ff08e3379b7a54fece46734740f0d68debfd4af2198d4c30c00",
+        "text": "AI & Agents"
       }
     },
     "category:Krisis": {
@@ -350,6 +356,12 @@
         "text": "Twenty-five years of the web"
       }
     },
+    "tag:52": {
+      "name": {
+        "hash": "ab6f3bc42813e41ebb80e70c5a004d8c263e06eaf7fe215258a91a76d47392c0",
+        "text": "52"
+      }
+    },
     "tag:A5": {
       "name": {
         "hash": "6ccf1f604d75a7090da8163416d0f5af109cd64c0ab4c230f0d68b8cfe10f07b",
@@ -366,6 +378,12 @@
       "name": {
         "hash": "05b7f6453dfc3648f6e60a7f6f65b41a015c5418437cba948ce3b0b7f9512a3a",
         "text": "AFP"
+      }
+    },
+    "tag:API": {
+      "name": {
+        "hash": "afaf0d02a4525f3aa1a8829597e2b7b0ea83167b28348786e205eb05cfd9f3c7",
+        "text": "Application Programming Interface"
       }
     },
     "tag:AREA-17": {
@@ -432,6 +450,12 @@
       "name": {
         "hash": "226c59a7281ac45333438f881f069af6000e645b40620170c1237249b11f6a46",
         "text": "Subject"
+      }
+    },
+    "tag:AskBC": {
+      "name": {
+        "hash": "af8406b18930197ded20eb3d4d36e18d9974fbd8429e24ea262e53a5c29653d8",
+        "text": "AskBC"
       }
     },
     "tag:Australie": {
@@ -512,6 +536,18 @@
         "text": "2012 Campaign"
       }
     },
+    "tag:CampusUMP": {
+      "name": {
+        "hash": "b1dde539c85e20e9aeb3410d390fc9f2484f2b4466fe860fc7790430d8972fbf",
+        "text": "UMP Campus"
+      }
+    },
+    "tag:Cansoninfinity": {
+      "name": {
+        "hash": "a89bfe03e487b581edf17d155c355a07fc14488010256fffaa761e084ee80956",
+        "text": "Song infinity"
+      }
+    },
     "tag:Chamb": {
       "name": {
         "hash": "7bab16990a3e13d3147d2486f6fee664e48e500bc9f1dc3febd2b5ce20f8de9a",
@@ -540,6 +576,12 @@
       "name": {
         "hash": "7bdc5ee12b178f12ad4fe5df7c5d26cf9526125cfe2d68e1dfb3e7282a03c4b3",
         "text": "Council of State"
+      }
+    },
+    "tag:Cop": {
+      "name": {
+        "hash": "b26d1d31e4e6ea828a559dfcaa4a93b20042e6cc28a6b957f50c3079429e1456",
+        "text": "Copy"
       }
     },
     "tag:DIY": {
@@ -582,6 +624,12 @@
         "text": "Digest"
       }
     },
+    "tag:DoWhatYouLove": {
+      "name": {
+        "hash": "a8f417adbf5251a912b65f8ec2dd4320f14247f4951d660ac8a46bfcf61ccc9b",
+        "text": "Do what you love"
+      }
+    },
     "tag:Dosis": {
       "name": {
         "hash": "a210ebc8e522303412d6d0058b08927cc02b8a9b24022479bfb19d73558b3e3b",
@@ -610,6 +658,12 @@
       "name": {
         "hash": "1687e7b030f262ebf59991b8b843c805ec617a75a4b93210b24147071f091d39",
         "text": "Easy"
+      }
+    },
+    "tag:Elysee": {
+      "name": {
+        "hash": "b3cfbeed3cfdd5731a4b6e844175114503de9fcd944870904b922b26ce6caba7",
+        "text": "Elysee"
       }
     },
     "tag:Eurovision": {
@@ -754,6 +808,12 @@
       "name": {
         "hash": "2bf53404452c097763e5337bd9e7bff8b4dbf1eaac42067c896ee234a504a63f",
         "text": "Hauts-de-France"
+      }
+    },
+    "tag:Haziza": {
+      "name": {
+        "hash": "b410508c4289ffdb92d5e88685cf802bec7da4de71e4248bd87867a6dce1ecb4",
+        "text": "Blessings"
       }
     },
     "tag:High": {
@@ -950,6 +1010,12 @@
         "text": "Local Elections 2014"
       }
     },
+    "tag:NDDL": {
+      "name": {
+        "hash": "b47f687ae58bde94a4f034b0123b59411c31cc96e7f819532f1918844fee23ca",
+        "text": "New Delhi Declaration"
+      }
+    },
     "tag:NLP": {
       "name": {
         "hash": "96f9d9e1f7a76b1cd1877ada902f2e352d6ca141c56fb6c63b0d09916efb08be",
@@ -990,6 +1056,12 @@
       "name": {
         "hash": "7f8a8c9280dfb5539a21e19a76352d58b7e9bd62ead26807d2245b5bdbe8200f",
         "text": "Nikon"
+      }
+    },
+    "tag:Noel2016": {
+      "name": {
+        "hash": "a896e68155b8a3ec2738a5f361c7e94cae0ae4a8ff41caab539cd1416a7a9b50",
+        "text": "Christmas 2016"
       }
     },
     "tag:OAI13": {
@@ -1208,6 +1280,12 @@
         "text": "Search Engine Optimisation"
       }
     },
+    "tag:SFR": {
+      "name": {
+        "hash": "ad9023465915f75a0b8ab3e884a4b4e715ea0868570658a3080fa9090966c4a5",
+        "text": "Short-term rental"
+      }
+    },
     "tag:SaaS": {
       "name": {
         "hash": "8e3b58aec98013adc76cf9c5cbc0789783a09244108ffefb5dd996085a037a69",
@@ -1236,6 +1314,12 @@
       "name": {
         "hash": "0e860abdb47556b5b4c8a7ef05c2790a1bc58eaab4e9794d6ba8df8d281e4df3",
         "text": "There"
+      }
+    },
+    "tag:Shoah": {
+      "name": {
+        "hash": "b25e535f9053f48a9403b6cecbca9d9baff330a7dcd2fc1b37a4cc682add0a7e",
+        "text": "The Holocaust"
       }
     },
     "tag:SpotlightMovie": {
@@ -1412,6 +1496,12 @@
         "text": "posters"
       }
     },
+    "tag:agence": {
+      "name": {
+        "hash": "ad489b8ba0f97cbd6ddbaa8116b1b7986f0c96c1e2d0836217feaf777e9d0cf4",
+        "text": "agency"
+      }
+    },
     "tag:agents": {
       "description": {
         "hash": "5d1419165df15a516e26a6069f33d36261dbe6728f411fb78512e0f8e3c473a5",
@@ -1488,6 +1578,12 @@
         "text": "archive"
       }
     },
+    "tag:archives": {
+      "name": {
+        "hash": "b11b812304bcbb236ef9f732307a6171532fc64cbef1c3868bbe193e660adf63",
+        "text": "Archives"
+      }
+    },
     "tag:archives-familiales": {
       "name": {
         "hash": "91893bd41ec796ce4425591f778615b02f557585afbcbc9f8c4b8b7cc4ea2a53",
@@ -1562,6 +1658,12 @@
       "name": {
         "hash": "0bf4240d908b896fc92f00cbd798ad80bc3aecc40308211345c7631fa78c31ee",
         "text": "to follow"
+      }
+    },
+    "tag:atelier": {
+      "name": {
+        "hash": "ae5d021ffb815e78e82d63c7709bb09ea2c93b91d7e3919591b65ab014534c6f",
+        "text": "workshop"
       }
     },
     "tag:attali": {
@@ -1814,6 +1916,18 @@
         "text": "mapping"
       }
     },
+    "tag:cartouche": {
+      "name": {
+        "hash": "b2ac7cc96f89eabeeaf90bf78a342698d612059cef8f82741d4f2ab05e426308",
+        "text": "cartridge"
+      }
+    },
+    "tag:centre-d-art": {
+      "name": {
+        "hash": "ad17f98e771e3d665e9cfa86822b409e8a636fd7299c44293c1cc7ceb1adcc0b",
+        "text": "art centre"
+      }
+    },
     "tag:chat": {
       "name": {
         "hash": "54381f5ea86cff0fd18e5040cab2eeedf7623af7e6d0713bb5838608d824ffc6",
@@ -1870,6 +1984,12 @@
       "name": {
         "hash": "03ae1a531ec22c7e6753d3e5828a122dcdfe8f1fb4f91838ca51e2bb3cd161cc",
         "text": "code"
+      }
+    },
+    "tag:code-review": {
+      "name": {
+        "hash": "b37a8fe362a9a8eb95606f7c6e5aacfccdc522b51a37b07388e9199a64ff6bfe",
+        "text": "code-review"
       }
     },
     "tag:codebase": {
@@ -2244,6 +2364,12 @@
         "text": "email"
       }
     },
+    "tag:encyclopédie": {
+      "name": {
+        "hash": "b0bfc734c0fee7ab10fa876d1747430c9cf837add21ca5795a81860993194762",
+        "text": "encyclopaedia"
+      }
+    },
     "tag:enfants": {
       "name": {
         "hash": "53487d48eeb74bc09037079a0a7b5a3b7897bd3d5de106822f4e9f96ec73968e",
@@ -2266,6 +2392,12 @@
       "name": {
         "hash": "5ce7f2612529822c1d752a0f9f52f7fad8722665c2131856b380f0342bc946c2",
         "text": "training"
+      }
+    },
+    "tag:entreprise": {
+      "name": {
+        "hash": "ac3ab28441af46b3d152ad87016029535ec1151fe3597b7c8ceb8be4ca25d81e",
+        "text": "company"
       }
     },
     "tag:entretien": {
@@ -2292,6 +2424,12 @@
         "text": "spacing"
       }
     },
+    "tag:esperluette": {
+      "name": {
+        "hash": "b2148187242aefd4d4407870e89230f063f5e53b445ca2b301e8f25844a767cb",
+        "text": "esperluette"
+      }
+    },
     "tag:est": {
       "name": {
         "hash": "3b0df70cf59ab23dc7904432a091103cd5477f4f3484d6b33e592e11afa33d36",
@@ -2304,6 +2442,12 @@
         "text": "exhibition"
       }
     },
+    "tag:expérimentation": {
+      "name": {
+        "hash": "a880f81831e562ebd7ca02b5c8ca92475d122dcc80986a84aaa320040ebd668f",
+        "text": "experimentation"
+      }
+    },
     "tag:extraction": {
       "name": {
         "hash": "3bdf8b245b62f3d1d54df24643fd5688954e9b04d42d58d700c1acd0393bce13",
@@ -2314,6 +2458,12 @@
       "name": {
         "hash": "8e92eb6570ee40b4c38401150aa8be606a82eeb80462dc3fde7f30147cff9644",
         "text": "manufacture"
+      }
+    },
+    "tag:fabrication-numérique": {
+      "name": {
+        "hash": "b0a9d405502f64d85ca8f303011d79bb59f1f6443b3c248c139d7d6aebbb99c4",
+        "text": "digital manufacturing"
       }
     },
     "tag:fake-news": {
@@ -2386,6 +2536,12 @@
       "name": {
         "hash": "2b6f0fb5445ea9be6e5dd310358de8339f0805f5fe498f248463c851d07e6390",
         "text": "font"
+      }
+    },
+    "tag:font-pairing": {
+      "name": {
+        "hash": "b1a45a7d2accbcfb693f986755b9922bb6da02bb92bf466ff600c912debf8fb2",
+        "text": "font-pairing"
       }
     },
     "tag:fonte-libre": {
@@ -2808,6 +2964,12 @@
       "name": {
         "hash": "5743ce543c4e0cf6e62689df78d4203a972fdf7d0ea03c587e579f6699787fad",
         "text": "Kirby"
+      }
+    },
+    "tag:knowledge-management": {
+      "name": {
+        "hash": "b4f8f5d75b78a197340774268c0cdd293aefe5b62d13c7258051b8a5134a3c31",
+        "text": "knowledge-management"
       }
     },
     "tag:kolorama": {
@@ -3392,6 +3554,12 @@
         "text": "parallelisation"
       }
     },
+    "tag:pattern": {
+      "name": {
+        "hash": "aa5d875ef527f6079de4a87286448bf85e1df5cfdeb9acc5f3287c194a718d4b",
+        "text": "pattern"
+      }
+    },
     "tag:paysage": {
       "name": {
         "hash": "8541c5ddbcb757247547a19a36e4dc1740b6d8cbac669ecdf6c8a945aa5609cd",
@@ -3472,6 +3640,12 @@
         "text": "photojournalism"
       }
     },
+    "tag:photokina2016": {
+      "name": {
+        "hash": "ae8a34bb94224b4734034f6a63c475354f18b31cd0e8b7c64964ac5eb2ea7e56",
+        "text": "Photokina 2016"
+      }
+    },
     "tag:photomontage": {
       "name": {
         "hash": "9a41acfea30c2eb6dccdfc91419bfacf339af0f3f32660ed83afbd0c9c4bfa1b",
@@ -3512,6 +3686,12 @@
       "name": {
         "hash": "459b374d12d44fefc54bb53443c75aa7118b0bf553bd8e05a3bd204d3de79cec",
         "text": "spare parts"
+      }
+    },
+    "tag:plieuse": {
+      "name": {
+        "hash": "afd53667ceb1d940f1cfa224f9cb26216cd53a82b95ad20e44535912d1e84896",
+        "text": "folding machine"
       }
     },
     "tag:plouf": {
@@ -3648,6 +3828,12 @@
       "name": {
         "hash": "30fff1ac72607a61dd844d9ddda51d986efc1953d3879a30aee47d007d227b87",
         "text": "pedagogy"
+      }
+    },
+    "tag:rangement": {
+      "name": {
+        "hash": "aaffaabdfff916a78400d3399b48bdefa8ef296ea4b2274d4bdb4088b304aac4",
+        "text": "storage"
       }
     },
     "tag:recette": {
@@ -3846,10 +4032,28 @@
         "text": "service-public"
       }
     },
+    "tag:services": {
+      "name": {
+        "hash": "ad1ec16dbeba8eaa666c33eb5cca57b3f2b111e575e1a8bca69ec58a332c0a7e",
+        "text": "services"
+      }
+    },
     "tag:shine": {
       "name": {
         "hash": "9a3295e2b73149f0708ffac77428e1a099e089777dad85bc7f78cf97fcdbc49c",
         "text": "is"
+      }
+    },
+    "tag:site-statique": {
+      "name": {
+        "hash": "afa9594e1b8836302066113e417dda494b4fc53a72049fb2275ae7f0538ff85c",
+        "text": "static website"
+      }
+    },
+    "tag:skyscraper": {
+      "name": {
+        "hash": "b2a8023fabb867053cffefd263d9261a29281ad276dcc54e2089a425d39dad5f",
+        "text": "skyscraper"
       }
     },
     "tag:société": {
@@ -3906,6 +4110,12 @@
         "text": "statamic"
       }
     },
+    "tag:static": {
+      "name": {
+        "hash": "ab93c5ea905aee0331d0c2b70e567b28be28bed138a7b863d5e79d35b279885e",
+        "text": "static"
+      }
+    },
     "tag:stiegler": {
       "name": {
         "hash": "6200ffaeee8607b2047ae9b98d55cd5265273e11634dcb56b4f6595e78f3880c",
@@ -3934,6 +4144,12 @@
       "name": {
         "hash": "9b1c6675f016695923e42a2c363ddb95921dd32f89404485233858611fb0fe81",
         "text": "monitoring"
+      }
+    },
+    "tag:suspens": {
+      "name": {
+        "hash": "ad674b52691be3b1e8483ba443e6a4f0db1bf8726e155c49adccd8efc18f45bd",
+        "text": "suspense"
       }
     },
     "tag:svgfreebie": {
@@ -4006,6 +4222,12 @@
       "name": {
         "hash": "5e45aad36f8b1589c86d240fbcc8ad08fddda3591e8eb98df6e4647fda06b0a0",
         "text": "text"
+      }
+    },
+    "tag:textes": {
+      "name": {
+        "hash": "b4f9bdad5616e933c2cf385597f1984b36caa4614b13632de4564a801c2cc295",
+        "text": "texts"
       }
     },
     "tag:textile": {
@@ -4164,6 +4386,12 @@
       "name": {
         "hash": "2464a3e4dece9cdf2314a7d28fca0d11aad3de1567852641f5b56dba092670f2",
         "text": "a world of deformations"
+      }
+    },
+    "tag:upload": {
+      "name": {
+        "hash": "b1ca93197b0adabbaccd09201c877b8e59ba11d7231556d3167041fa8f587825",
+        "text": "upload"
       }
     },
     "tag:urbanisme": {
@@ -4364,6 +4592,12 @@
         "text": "yadubeaugraphism"
       }
     },
+    "tag:youtube": {
+      "name": {
+        "hash": "ad67014d4fe6e47b827d1ea639a2d2f482bffdce90956cbed6cac255552ab3fb",
+        "text": "youtube"
+      }
+    },
     "tag:zine": {
       "description": {
         "hash": "1246457a948c0df3624329a46a2d897aafb72964003dafb74ef79932bdacaae7",
@@ -4406,6 +4640,12 @@
       "name": {
         "hash": "72c495f2a4f28aef3332c1e5a6692ebb06192828093b1ce2a20e0c4ac300b964",
         "text": "ethics"
+      }
+    },
+    "tag:évaluation": {
+      "name": {
+        "hash": "ad09a5068ede16a03d2cf89b2df913da3383dda53f3e954da56ee11b240450f5",
+        "text": "assessment"
       }
     }
   },
