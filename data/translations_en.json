@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "59d36d271f8743dc8b6e5d83c7fabe52b911aafce4a9ab0ea0f665b8b1f7d4cc",
+  "revision": "e6888dcac4b759cf3733469e99dab6aabde39fb5ee821392308ac497d1f9853d",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -3092,10 +3092,24 @@
         "text": "Diary of a Procrastinator"
       }
     },
+    "page:/flux/journal-procrastinateur/2026-06-16": {
+      "description": {
+        "hash": "40192a909c0464c3a1aa332d2c72580483c87b1c727ec0d4abc380ef5703393a",
+        "text": "Zine Day, pricing, GOF and Accurio: zines can now be sold in any quantity; the book contract is split into cover and inner pages; GOF is shifting towards a folder dashboard; and the VPS deployment has been moved to its own GitHub repository."
+      },
+      "title": {
+        "hash": "c31a9cfeab06f1bf2bedc1ebeb95edfdb9dd047680ba4b6d137141118a0cd7aa",
+        "text": "Day 86 – Zine, GOF, Accurio: the product joins the workshop production line"
+      }
+    },
     "page:/flux/journal-procrastinateur/2026-06-17": {
       "description": {
         "hash": "142ffd383ec413045a46071dc0a0fc33277fb4e2a777fdfbfa07129ab10f3cf0",
         "text": "PDF Clarification Day: the GOF forge reduces a PDF from over 400 MB to 19 MB; KEREDIT removes its duplicate engine and once again becomes the authority on the project and JSON."
+      },
+      "title": {
+        "hash": "ee4ab5997a895ed068b0c26e6dd08b4bdbaccdecbad062388480b6398dc8a6fc",
+        "text": "Day 87 – Remove the duplicate PDF, select GOF"
       }
     },
     "page:/flux/journal-procrastinateur/2026-06-18": {
@@ -10681,6 +10695,14 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-16.webp": {
+      "alt": {
+        "hash": "42dd1d1823e01f276b73a95e7df3c1ff57dc7513d99601b11da378b5fec1fdff",
+        "text": "Document NASA : Cassini Spacecraft in a JPL Assembly Room"
+      },
+      "date": {
+        "hash": "5f098cd9a413c79ed2ddc9cb9f8cf6657c39adff54385bf76bf32187184cf499",
+        "text": "2 July 2003"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10688,9 +10710,17 @@
       "themeLabel": {
         "hash": "fd08df7942b649027ab6a5d842b5a8045a5e299fd97c0d9a172a332ce1c0d6ed",
         "text": "Space systems"
+      },
+      "title": {
+        "hash": "5c3a9297f1f2d6839b09d8b7c8f98edf29e17b8a75b5769df7c7fa24ca8d4fc6",
+        "text": "Cassini Spacecraft in a JPL Assembly Room"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-17.webp": {
+      "alt": {
+        "hash": "b54d6318d17681ed16b448af1ad02d20f400b937d77691ed4a9c9e9e2067db84",
+        "text": "Document NASA : Rasp Tool on Phoenix Robotic Arm Model"
+      },
       "date": {
         "hash": "a120a986a907eb8b37f5cf6b3412546581ba423798892218d45a45736958a02b",
         "text": "15 July 2008"
