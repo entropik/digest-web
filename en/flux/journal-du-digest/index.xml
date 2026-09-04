@@ -62,40 +62,40 @@ being incorporated into the OOBLIK Blog archives.</description>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-20/</link>
       <pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-20/</guid>
-      <description>Translation pending · The configurable categories provide the Digest with its system of headings and
+      <description>The configurable categories provide the Digest with its system of headings and
 shared subheadings. This framework then organises the archive of 831 WordPress posts
 without confusing archived text, source and current destination.
 Any cases of uncertainty remain subject to human judgement.</description>
     </item>
     <item>
-      <title>Le carré LinkedIn, du faux succès au post visible</title>
+      <title>The LinkedIn feed: from false success to a visible post</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-18/</link>
       <pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-18/</guid>
-      <description>Translation pending · Les visuels LinkedIn adoptent un carré de 1200 × 1200 pixels. Les essais réels
-révèlent les faux succès de l’API et conduisent à synchroniser l’upload, à
-autoriser la republication et à simplifier la récupération. Dix-sept commits
-portent ensemble le site et l’administration à `v1.8.6`.</description>
+      <description>LinkedIn visuals use a 1200 × 1200-pixel square. Real-world testing
+reveals the API’s false successes and leads to synchronising uploads,
+enabling reposting and simplifying retrieval. Seventeen commits
+bring both the site and the administration to `v1.8.6`.</description>
     </item>
     <item>
-      <title>Actions éditoriales et captures LinkedIn durcies</title>
+      <title>Stricter editorial measures and LinkedIn screenshots</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-17/</link>
       <pubDate>Mon, 17 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-17/</guid>
-      <description>Translation pending · Les actions éditoriales courantes deviennent accessibles depuis chaque lien au
-propriétaire. Les captures LinkedIn gagnent un repli graphique et une
-navigation Chromium protégée contre les réseaux privés. Onze commits
-consolident l’ensemble et remettent l’environnement Windows en état.</description>
+      <description>Common editorial actions are now accessible via each link to the
+owner. LinkedIn screenshots now feature a graphical collapse option and
+Chromium-based navigation protected against private networks. Eleven commits
+consolidate the whole system and restore the Windows environment to working order.</description>
     </item>
     <item>
-      <title>Publication, identité visuelle et partage LinkedIn</title>
+      <title>Publication, visual identity and sharing on LinkedIn</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-16/</link>
       <pubDate>Sun, 16 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-16/</guid>
-      <description>Translation pending · L’administration gagne une publication en une action avec suivi reprenable.
-Le site reçoit son identité complète et un partage LinkedIn natif réservé au
-propriétaire. Trente-trois commits portent le catalogue à 3 992 liens et 836
-éditions.</description>
+      <description>The administration gains a post in a single action, with trackable progress.
+The site is given its full identity and a native LinkedIn share feature reserved for the
+owner. Thirty-three commits bring the catalogue to 3,992 links and 836
+edits.</description>
     </item>
     <item>
       <title>Éclipse du soleil sur une grille suisse</title>
