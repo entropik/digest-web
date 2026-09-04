@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "d54d645f9b6b1f58742e94a7f9b51b06a33c9456ccfeed85d66a53daf558c081",
+  "revision": "9fc45e9560306f897c7e1513421bfb4fb13fa924ef44442d3c4bae86ff544e92",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -3090,6 +3090,12 @@
       "title": {
         "hash": "946546d90a07b056aaf49f70b37dd2857b2ec866c0aea388c8914c2652bc086a",
         "text": "Diary of a Procrastinator"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-06-26": {
+      "description": {
+        "hash": "8b76b3df0d13c941ae1725745848da2db7638afc54f4ad78a567968a4b8707b0",
+        "text": "KEREDIT/GOF consolidation day: editor regressions, auto-fill, 60-page Zine order, web PDF, HD artefacts and GOF versioning contract."
       }
     },
     "page:/flux/journal-procrastinateur/2026-06-27": {
@@ -10681,6 +10687,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-26.webp": {
+      "alt": {
+        "hash": "226280ee2eae17b3141bdc8378081dd99d851406a06f7533b3be23e10e72f187",
+        "text": "Document NASA : Robotic Arm of Rover 1"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
