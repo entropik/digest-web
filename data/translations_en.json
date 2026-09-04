@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "99f4cc390cf59f767fb682f5ad5a6875eb7cf8c541082bdb26550b9f66dbe91a",
+  "revision": "b2d080a1f6cd22620dee2bc66a8ef731a8d5eb35145bfa1e44edd25c96ac6af5",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -555,6 +555,10 @@
       }
     },
     "tag:DevOps": {
+      "description": {
+        "hash": "9cbdb974d50992a63869b6d02a5dd4ccfc7cc5d5fff1c03f19b33823a3c3aa77",
+        "text": "Software integration, delivery and operation."
+      },
       "name": {
         "hash": "7de3e9b345bbb264361e552a349c52a8397714b79ecfc5a4de02e2f113ae6e54",
         "text": "DevOps"
@@ -638,6 +642,12 @@
         "text": "Finkielraut"
       }
     },
+    "tag:Fogra39": {
+      "name": {
+        "hash": "97836f8045fca0dea827785efbda41c1df5daf912ea94ed2939ea157e3fe6f9b",
+        "text": "Notice 39"
+      }
+    },
     "tag:Framasoft": {
       "name": {
         "hash": "48a80f25f43cfa4948e855b324c801954326ba4c84e44cb08c19de1c06c91a7f",
@@ -714,6 +724,12 @@
       "name": {
         "hash": "3e7d0392b1ac929c2021b44ba8bc34b2cd8eed3211a7197ea1c2e16679a7036f",
         "text": "High"
+      }
+    },
+    "tag:Hollande": {
+      "name": {
+        "hash": "9b8e5131a4bff4ccd5219ec7c5096a50ea7f860319a39cab6a7ac8317728ef63",
+        "text": "Hollande"
       }
     },
     "tag:IA": {
@@ -822,6 +838,12 @@
         "text": "Lopognon"
       }
     },
+    "tag:Lot": {
+      "name": {
+        "hash": "9d479019f7cf44691eef47b64428c634569411ffd1dba991d76685c59adafb25",
+        "text": "Lot"
+      }
+    },
     "tag:Lune": {
       "name": {
         "hash": "4fbf163fa7f950f89349b77f797a9b6433d3a64fa8fd9be35602f21d78caf10b",
@@ -864,10 +886,22 @@
         "text": "Migrants"
       }
     },
+    "tag:Mucem": {
+      "name": {
+        "hash": "968298ff5bb993247f18057ea60df4c4d8bd06fc8574b6b7c4ca0328cdce45dc",
+        "text": "Mucem"
+      }
+    },
     "tag:Municipales2014": {
       "name": {
         "hash": "422c0c1b9ada82d9cc22a49124fd66dd5534198bb0a9432a080cb45f9dab5bfa",
         "text": "Local Elections 2014"
+      }
+    },
+    "tag:NLP": {
+      "name": {
+        "hash": "96f9d9e1f7a76b1cd1877ada902f2e352d6ca141c56fb6c63b0d09916efb08be",
+        "text": "Natural Language Processing"
       }
     },
     "tag:Nantes": {
@@ -886,6 +920,12 @@
       "name": {
         "hash": "548b4ef05eb5d150a1b8771e9d0e25aecf72426dce001ae6d4685576438bc707",
         "text": "New-York"
+      }
+    },
+    "tag:Ni": {
+      "name": {
+        "hash": "98be780f50a6e94a255cc791d0941b84976a1093b20308e70ab70df6ff6f483c",
+        "text": "I am"
       }
     },
     "tag:NiNi": {
@@ -1002,6 +1042,12 @@
         "text": "April Fools’ Day"
       }
     },
+    "tag:Pologne": {
+      "name": {
+        "hash": "9e21bcd9e7286ee52da9447aedef061be97c42a094a2eacb8025982d5b7d1cea",
+        "text": "Poland"
+      }
+    },
     "tag:PrimaireDroite": {
       "name": {
         "hash": "3fae342617503504269a70d20de8a6e4be33bd96adc0eb235ae9a48d33618f0b",
@@ -1030,6 +1076,12 @@
       "name": {
         "hash": "0ec9e93a7f2ec01864603221773f91ccbf56c17d137c3ebc453ba64ac4aa102e",
         "text": "RENATER"
+      }
+    },
+    "tag:RMarkdown": {
+      "name": {
+        "hash": "98c81906114587f1bbdc395f7785b9e42f7023c35a03f1418e315c1a6d45631a",
+        "text": "RMarkdown"
       }
     },
     "tag:RadioLondres": {
@@ -1066,6 +1118,12 @@
       "name": {
         "hash": "8ea2e2088fa444f0537367c3d27b953024de395d65ba544c2c486f50f97d07bc",
         "text": "Russia"
+      }
+    },
+    "tag:Rust": {
+      "name": {
+        "hash": "96b1bbb81e09472e76d76092e793da219bf6c92ad605f2be367a709c9944f0d9",
+        "text": "Peace"
       }
     },
     "tag:SEO": {
@@ -1128,6 +1186,12 @@
         "text": "Syriza"
       }
     },
+    "tag:Takieddine": {
+      "name": {
+        "hash": "97207628dac65e4cd812c670690e9ee33b26ee9846f52170069700342fb3a261",
+        "text": "Takieddine"
+      }
+    },
     "tag:Tokyo": {
       "name": {
         "hash": "68b96e52135eeb82341afedc6954d84e8593ee7eb3d632ae2ff6f4f5f68c8b6f",
@@ -1156,6 +1220,12 @@
       "description": {
         "hash": "728564024f4ead41e98439fe30aa51f1082489d1d7ab141e2958b7904806fde0",
         "text": "Design and operation of user interfaces."
+      }
+    },
+    "tag:UMPopcorn": {
+      "name": {
+        "hash": "951e03ae28d0256fdffa795b91a78a7bcd494941f78194ab457743c9ce8b8e3f",
+        "text": "Popcorn"
       }
     },
     "tag:UX": {
@@ -1440,6 +1510,12 @@
         "text": "bache"
       }
     },
+    "tag:baryt": {
+      "name": {
+        "hash": "983b5968e01549b9bc0d3b08e6caa7295f26f89360225a9efb3ee3aeabe5a79e",
+        "text": "barley"
+      }
+    },
     "tag:baryta": {
       "name": {
         "hash": "65bc4301e5932e76ca7b1211098ba78a94f46d5498309a7220add6965ce859e5",
@@ -1492,6 +1568,12 @@
       "name": {
         "hash": "8b3da7d2233cd1870f11aea0e73d77b0243d4f35123863c5acdc664c208fe6e9",
         "text": "boldomatic"
+      }
+    },
+    "tag:book": {
+      "name": {
+        "hash": "94e42a45a6ddfdaf518946e2ea9fe34833a311125ecb9cebff34b1eb97fa7cbd",
+        "text": "book"
       }
     },
     "tag:booklet": {
@@ -1548,6 +1630,12 @@
         "text": "build"
       }
     },
+    "tag:cadre": {
+      "name": {
+        "hash": "93d21c3cb6f27210bc76b2984958a7c0c856905e045fbc82a649e461d455a432",
+        "text": "frame"
+      }
+    },
     "tag:cafe": {
       "name": {
         "hash": "00c982eb107a73b1cdc87374b25ab472c5e68f93239e2277c0f4ae7dd6048ea1",
@@ -1594,6 +1682,12 @@
       "name": {
         "hash": "560919d20a084a93ccbda67a2c7d230b2d0cad254bb164e8cfea00340cb10d10",
         "text": "career"
+      }
+    },
+    "tag:cartepostale": {
+      "name": {
+        "hash": "9a00ab3faec13c151119ba3bf2e0bd6aea00a69be3af4aaec52ef2b64b5be26d",
+        "text": "postcards"
       }
     },
     "tag:cartes": {
@@ -1732,6 +1826,12 @@
         "text": "privacy"
       }
     },
+    "tag:conférence": {
+      "name": {
+        "hash": "98261c3f08d1f5de414ad1c4ee9d9de84e4f22deae6bf2f059e67dd019bc8a6d",
+        "text": "conference"
+      }
+    },
     "tag:conseil": {
       "name": {
         "hash": "7e39cf30d9af4b1c023c0564b88e72af13064a942800eccdfb75872d0322d97f",
@@ -1778,6 +1878,12 @@
       "name": {
         "hash": "567463ff1dd58e1b01508eb86868acea4b8e2360c58f1d832e935dd02ea17aa5",
         "text": "criticism"
+      }
+    },
+    "tag:créativité": {
+      "name": {
+        "hash": "9c1c4c74092f632237988d7f7dd1fc713bbe6376a7c340130d50ecba92d6f05e",
+        "text": "creativity"
       }
     },
     "tag:css": {
@@ -1936,6 +2042,12 @@
         "text": "documentation"
       }
     },
+    "tag:documents": {
+      "name": {
+        "hash": "95c8b304d0c70cf7f8060775a24b4ae1d0c6ccccfc726c7e56b5d2afa699216e",
+        "text": "documents"
+      }
+    },
     "tag:domains": {
       "name": {
         "hash": "6fdebaa65df7f2326be554af0126a2fba2b10a97275f2113f91ca7896fca38f2",
@@ -1994,6 +2106,12 @@
       "name": {
         "hash": "64372b6402e148066d087f01cf35f725fc14f34359b98cbf51d6598b95bed14c",
         "text": "editor"
+      }
+    },
+    "tag:email": {
+      "name": {
+        "hash": "96340b9e52309dd33e4780717ba9f5e820276ee8585d2a621e27e84d7d2bde94",
+        "text": "email"
       }
     },
     "tag:enfants": {
@@ -2120,6 +2238,12 @@
       "name": {
         "hash": "11a2cfe61cac1c2967219221955c9479491a5beb598af208377ad2c888f87e8c",
         "text": "search bag"
+      }
+    },
+    "tag:fondation": {
+      "name": {
+        "hash": "9daef5381c76d76118ebdae1ee3c000309493c27146913597dc47b26966ec47a",
+        "text": "foundation"
       }
     },
     "tag:font": {
@@ -2406,6 +2530,12 @@
         "text": "printing"
       }
     },
+    "tag:impression-à-la-demande": {
+      "name": {
+        "hash": "94a8ba2c8be2e1a1b98d5a6a70b748405046f20f7c04ce32d1427a8224a9994c",
+        "text": "print-on-demand"
+      }
+    },
     "tag:imprimerie": {
       "name": {
         "hash": "8d3e7811c14437d1c5c8ee1104db2719e5c979d46d7cf10b15794e359932c169",
@@ -2416,6 +2546,12 @@
       "name": {
         "hash": "42755f91c4c2e52146c6c088bde5a680eeae14de4e5f3973c93bb5a660a3b79a",
         "text": "printer"
+      }
+    },
+    "tag:indexhibit": {
+      "name": {
+        "hash": "9e7f5ac61f3b9f82ef13c36e7ef05bda254f042a57f54dba335c97973405559e",
+        "text": "indexhibit"
       }
     },
     "tag:infini": {
@@ -2566,6 +2702,12 @@
       "name": {
         "hash": "1e16b9aad35cb6fa53291047b9da2911d203951653fcace888b93673c793a0b8",
         "text": "bookshop"
+      }
+    },
+    "tag:libre": {
+      "name": {
+        "hash": "985759a4eb817ae83929fcf9bc42fd85765b4aa27940a476afdae59c80c2ec12",
+        "text": "free"
       }
     },
     "tag:lien-mort": {
@@ -2730,6 +2872,12 @@
         "text": "with"
       }
     },
+    "tag:medium": {
+      "name": {
+        "hash": "986a3621d864bc7e269c10cd6c8c9ce8ec82e27ebf8c8e8d5388b4786915da99",
+        "text": "medium"
+      }
+    },
     "tag:meilleurmoment": {
       "name": {
         "hash": "85fa62f26cc507ec5f1962c65af3ffabd30812526e59464e624ed76b72d20e2c",
@@ -2764,6 +2912,12 @@
         "text": "update"
       }
     },
+    "tag:mobilier": {
+      "name": {
+        "hash": "95ee7b2b44c17f2d0aaa7e252a1b8601de98e4d4eb70438182bbe412a8c9b7ea",
+        "text": "furniture"
+      }
+    },
     "tag:mondialisation": {
       "name": {
         "hash": "915816c2d7908ea994442ad59ffe960ba30ff5a444852d11a7b6a9a188490e80",
@@ -2792,6 +2946,12 @@
       "name": {
         "hash": "01013c8b5186b509d1008201f16149ace0bd0589bb9ecda91eb4a788457e3b54",
         "text": "mural"
+      }
+    },
+    "tag:musique": {
+      "name": {
+        "hash": "93c6dd46ebe4af734a28f21699400cc25beca1ebf9d6614db968ff7168671860",
+        "text": "music"
       }
     },
     "tag:musées": {
@@ -2884,6 +3044,12 @@
         "text": "regulations"
       }
     },
+    "tag:normes": {
+      "name": {
+        "hash": "940f8f2e486a8de66a6842c8931b4f2eb63997f60d05f8957fa5e163644e1840",
+        "text": "standards"
+      }
+    },
     "tag:northkorea": {
       "name": {
         "hash": "8297a690c301013803b6155820e969ab7272558ae3eec711b6ba6eb8446b6569",
@@ -2918,6 +3084,12 @@
       "name": {
         "hash": "37722b5f4123678b79d471b2eb0fe48e1eace20437dfbc07262c7b00d2e7a3bc",
         "text": "opportunity"
+      }
+    },
+    "tag:ooblik": {
+      "name": {
+        "hash": "9ca37656c26ac1d4be3d873d9c4ec6d2cb940fd4dc6856cdeea981b581c0def3",
+        "text": "ooblik"
       }
     },
     "tag:ooblikcar": {
@@ -2961,6 +3133,10 @@
       }
     },
     "tag:outils": {
+      "description": {
+        "hash": "9662cf1d44540bcf62dba1641188018d9684dcd4467636645eb49dff2d783526",
+        "text": "Handy tools for creating, searching or producing."
+      },
       "name": {
         "hash": "71effeb35148b64741007badc5f0a22f4bc5b105f2a0ffdca0c4fc8c23676a2a",
         "text": "tools"
@@ -3006,6 +3182,12 @@
       "name": {
         "hash": "6c906a2357035bed5e310a961232fddd3ebef0ffb49f3dab6006bc9d09471ee0",
         "text": "range"
+      }
+    },
+    "tag:papaheureux": {
+      "name": {
+        "hash": "93e5ccc9cf95676fff507ee21c97fc3ccbea2a970f78cf71e16b313e371106a1",
+        "text": "happy dad"
       }
     },
     "tag:papelpintado": {
@@ -3100,6 +3282,12 @@
         "text": "photojournalism"
       }
     },
+    "tag:photomontage": {
+      "name": {
+        "hash": "9a41acfea30c2eb6dccdfc91419bfacf339af0f3f32660ed83afbd0c9c4bfa1b",
+        "text": "photomontage"
+      }
+    },
     "tag:piano": {
       "name": {
         "hash": "51888a1209997239cd50cf4e2475f17dbc6818e4f47c3ba82188e92958b2c7eb",
@@ -3155,6 +3343,10 @@
       }
     },
     "tag:politique": {
+      "description": {
+        "hash": "9e6f26d160fd4186f0a4ba062a1ef52967d6eaaa1ee8a38987106d89eb7900c7",
+        "text": "Power, institutions, conflicts and community life."
+      },
       "name": {
         "hash": "5db83fc6d9088caf924bc3d8ac51d207dd476d48338823457baa9fd976d7f817",
         "text": "politics"
@@ -3182,6 +3374,12 @@
       "name": {
         "hash": "185f3cded3afbe52508d4caa6a2aa0b5e04d49c669f14e4a359e445517d28d7f",
         "text": "poetry"
+      }
+    },
+    "tag:pratique": {
+      "name": {
+        "hash": "991af028d2a69d75ace273baab2e0942852e21865690c749759a372f5ae0c7a8",
+        "text": "practical"
       }
     },
     "tag:print": {
@@ -3304,6 +3502,16 @@
         "text": "catering"
       }
     },
+    "tag:riso": {
+      "description": {
+        "hash": "958abb7bae427cdfdaf51d4387d807ebbc4d447637ff9b7783874de04b1117b6",
+        "text": "Risography, associated techniques and practices."
+      },
+      "name": {
+        "hash": "9afabbc8934a7218796a3baaabd8d685b026a3286e2203ebb1a5703d18dd2dcf",
+        "text": "rice"
+      }
+    },
     "tag:robot": {
       "name": {
         "hash": "5048f6fd4cc4ea1e9f03da11a4d9877acdfeb0f0f62c8863769e30bbfe00390f",
@@ -3340,10 +3548,22 @@
         "text": "network"
       }
     },
+    "tag:réseau-local": {
+      "name": {
+        "hash": "93e841c601d5b27413e0e31d71b93125ca43e48f7eeb3cb87a8ff217936c06f8",
+        "text": "local area network"
+      }
+    },
     "tag:rétrospective": {
       "name": {
         "hash": "05e81882f4d9bdc6a10484ca81786807a6d5a040b9e5dd39f73bcfab79fa935d",
         "text": "retrospective"
+      }
+    },
+    "tag:sans-serif": {
+      "name": {
+        "hash": "95a188e21b8634f64a723623223784c2ba32a5c21b85cbbc2096a845e9b488b9",
+        "text": "sans-serif"
       }
     },
     "tag:sanstitre": {
@@ -3410,6 +3630,12 @@
       "name": {
         "hash": "5ffc794cbe5cf529c48dc1dc421a5165c0e3ea48c50ca002499116c18a0dcab8",
         "text": "service-public"
+      }
+    },
+    "tag:shine": {
+      "name": {
+        "hash": "9a3295e2b73149f0708ffac77428e1a099e089777dad85bc7f78cf97fcdbc49c",
+        "text": "is"
       }
     },
     "tag:société": {
@@ -3482,6 +3708,12 @@
       "name": {
         "hash": "237eeeace27ce94d8216c887be18be9ce2dd91785fce4486568da24412e28f0c",
         "text": "stock-photo"
+      }
+    },
+    "tag:surveillance": {
+      "name": {
+        "hash": "9b1c6675f016695923e42a2c363ddb95921dd32f89404485233858611fb0fe81",
+        "text": "monitoring"
       }
     },
     "tag:svgfreebie": {
