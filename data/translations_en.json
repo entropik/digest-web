@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "0aa471f790ce746eb076b1483c362443ac87318b516985344394c692f040ba1e",
+  "revision": "8aa7c395514195ca6c5282a3d05e76d0cb9c6a584524345b67bad0765fc89c3c",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -3086,10 +3086,32 @@
         "text": "Diary of a Procrastinator"
       }
     },
+    "page:/flux/journal-procrastinateur/2026-07-02": {
+      "body": {
+        "hash": "97ee33280372297d1dcb87753ab4903d0b1d6b6568cdba53eb13becc57621144",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Main environment: <strong>VS Code WSL, Codex plugin, local repository</strong></li>\n<li>Date covered: <strong>Thursday 2 July 2026</strong></li>\n<li>KEREDIT branch observed: <strong><code translate=\"no\">dev</code></strong></li>\n<li>SHA of observed sequence end: <strong><code translate=\"no\">c948df5</code></strong> (<code translate=\"no\">chore: bump release to 0.9.52</code>)</li>\n<li>KEREDIT version observed: 0<strong>.9.52</strong></li>\n<li>Minimum time observed on 2 July: <strong>13 minutes+ between commits</strong> (<code translate=\"no\">20:37</code> -&gt; <code translate=\"no\">20:50</code>, excluding conversation and manual verification)</li>\n<li>Minimum cumulative time since the log began: <strong>approximately 610h33+</strong> (<code translate=\"no\">610h20+</code> as at 1 July, plus <code translate=\"no\">13 min+</code> today)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>A short but productive day.</p>\n<p>The main focus this evening is the VPS deployment: no longer settling for a version that\nseems fine if the SHA tells a different story. The manual script now\nmore clearly rejects dangerous cases: a local version older than the VPS, or even\na version with two different commits.</p>\n<p>Today’s commits are limited:</p>\n<ul>\n<li><code translate=\"no\">77c3e79</code> - release bump to <strong>0.9.51</strong> following the log-filling project;</li>\n<li><code translate=\"no\">43131f3</code> - tightening the version safeguard for VPS deployment;</li>\n<li><code translate=\"no\">c948df5</code> - bump release to <strong>0.9.52</strong> to make this safeguard deployable.</li>\n</ul>\n<p>This isn’t a major product update. It’s about delivery hygiene:\nKEREDIT must know exactly which <strong>version + SHA</strong> combination is expected before\nit touches the VPS.</p>\n<h2 id=\"pour-la-suite\">Moving forward</h2>\n<p>The next routine deployment should follow the straightforward path:</p>\n<div class=\"highlight\"><pre tabindex=\"0\" style=\"color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;\" translate=\"no\"><code class=\"language-text\" data-lang=\"text\"><span style=\"display:flex;\"><span>validation locale -&gt; push dev -&gt; ./deploy/manual-vps-local.sh -&gt; verification SHA servi\n</span></span></code></pre></div><p>\nThe key point to watch remains the same: do not allow the local environment, <code translate=\"no\">origin/dev</code>\nand the VPS to report three different states of the product.</p>\n"
+      },
+      "description": {
+        "hash": "02f2526503f2a4d3597a30200303faa1e3aecc666d270853be18151f35e7b1a7",
+        "text": "Day 101 of the log: a minor tweak to the VPS deployment regarding the version + SHA pair, followed by an update to KEREDIT 0.9.52."
+      },
+      "title": {
+        "hash": "84b432d235c0970957b6d0738f2927f9b7ae6d4b6d5284724c9ba5142432b910",
+        "text": "Day 101 – No more deploying blindly"
+      }
+    },
     "page:/flux/journal-procrastinateur/2026-07-03": {
       "body": {
         "hash": "0eec91e795b5023a781beaa392da26a49e4111c4e3882e862da1b2a0e0058fd4",
         "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Main environment: <strong>VS Code WSL, Codex plugin, local repository</strong></li>\n<li>Date covered: <strong>Friday 3 July 2026</strong></li>\n<li>KEREDIT branch observed: <strong><code translate=\"no\">dev</code></strong></li>\n<li>GOF branch observed: <strong><code translate=\"no\">dev</code></strong></li>\n<li>Observed KEREDIT SHA at the end of the sequence: <strong><code translate=\"no\">cff0bd72</code></strong> (<code translate=\"no\">fix: stabilize zine order production flow</code>)</li>\n<li>End-of-sequence GOF SHA observed: <strong><code translate=\"no\">311d0eb</code></strong> (<code translate=\"no\">fix(renderer): restrict cahier overflow to facing pages</code>)</li>\n<li>KEREDIT version observed: 0<strong>.10.1</strong> following the pricing/zine project</li>\n<li>Minimum time observed on 3 July: <strong>7h37+ of multi-repo commit activity</strong> (<code translate=\"no\">09:15</code> -&gt; <code translate=\"no\">16:52</code>, excluding conversations and manual approvals)</li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 618h10+</strong> (<code translate=\"no\">610h33+</code> as at 2 July, plus <code translate=\"no\">7h37+</code>)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>Today brings together three strands that had been tending to go their separate\nways: pricing, the zine product, and the GOF forge.</p>\n<p>On the KEREDIT front, <code translate=\"no\">ee60947a</code> adds rules for additional pages. The pricing\nis no longer just a basic matrix: it can now apply a surcharge per\npage, displays the fields in the product admin panel, keeps the sharing types aligned\nand covers the calculation with backend tests.</p>\n<p>The commit <code translate=\"no\">ed6677e1</code> then sets out two action plans in <code translate=\"no\">plans/</code>:\nremoving the remnants of the local PDF renderer and stabilising the\n<code translate=\"no\">knip</code> / QR dependencies. This isn’t visible in the product, but it’s important to ensure\nthe repository doesn’t mix the historical local build with the GOF pipeline.</p>\n<p>Today’s major KEREDIT update is <code translate=\"no\">cff0bd72</code>: the zine order flow has been\nstabilised. The backend better distinguishes between production contracts, adds a\ndedicated GOF worker, connects the queues, adjusts WooCommerce, and covers the path\nwith integration and worker tests.</p>\n<p>Meanwhile, GOF is making progress on the notebook rendering:</p>\n<ul>\n<li><code translate=\"no\">0e46658</code> displays spine and cover measurements in reports;</li>\n<li><code translate=\"no\">58608c7</code> renders partial overflow of book pages;</li>\n<li><code translate=\"no\">6717ae6</code> allows already-completed book jobs to be restarted;</li>\n<li><code translate=\"no\">311d0eb</code> restricts booklet overflow to facing pages.</li>\n</ul>\n<p>The division of responsibilities is clear: KEREDIT maintains the accuracy of the project, price and order details,\nwhilst GOF takes responsibility for the rendering and production artefacts.</p>\n<h2 id=\"pour-la-suite\">Moving forward</h2>\n<p>The next point to monitor remains the contract between KEREDIT and GOF. The zines\nare starting to move in the right direction, but every addition of a pricing rule or\nbook geometry rule must remain visible in the payload transmitted to the forge.</p>\n"
+      },
+      "description": {
+        "hash": "c66f7e4a50307095f4b593d498a59032d9057c96eae8297500547cd08d2ab635",
+        "text": "Day 102 of the diary: rules for additional pages, production plans, stabilising the zine workflow and GOF corrections to the issues."
+      },
+      "title": {
+        "hash": "4df19a5a76b18d357e16abaac5986e496cc8d06798492afcf82e8ebcabed677d",
+        "text": "Day 102 – Linking the prize, the zine and the forge"
       }
     },
     "page:/flux/journal-procrastinateur/2026-07-04": {
@@ -9619,6 +9641,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-02-22.webp": {
+      "date": {
+        "hash": "4273a352ca7f7fa6a186dd9a859829abf3c38558b307fbddd1a06b103402aa80",
+        "text": "12 January 2002"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -9769,6 +9795,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-27.webp": {
+      "date": {
+        "hash": "a120a986a907eb8b37f5cf6b3412546581ba423798892218d45a45736958a02b",
+        "text": "15 July 2008"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10475,6 +10505,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-17.webp": {
+      "date": {
+        "hash": "a120a986a907eb8b37f5cf6b3412546581ba423798892218d45a45736958a02b",
+        "text": "15 July 2008"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10623,6 +10657,14 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-02.webp": {
+      "alt": {
+        "hash": "337c5a84c22fd08f0b4d8e74b2c74488be83c138d182ccbe3b445dca737c448e",
+        "text": "Document NASA : Onufrienko holds the Amateur Radio (HAM) WA3 Antenna Assembly, Expedition Four"
+      },
+      "date": {
+        "hash": "4273a352ca7f7fa6a186dd9a859829abf3c38558b307fbddd1a06b103402aa80",
+        "text": "12 January 2002"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10633,6 +10675,14 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-03.webp": {
+      "alt": {
+        "hash": "3d10b3015162661483586fb4057513b533f2375e9205251b126327af537a3aff",
+        "text": "Document NASA : Phoenix Robotic Arm Rasp"
+      },
+      "date": {
+        "hash": "a120a986a907eb8b37f5cf6b3412546581ba423798892218d45a45736958a02b",
+        "text": "15 July 2008"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10640,6 +10690,10 @@
       "themeLabel": {
         "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
         "text": "Robotics"
+      },
+      "title": {
+        "hash": "5e40e2e3585d71d2b0191c98025dc2efc41d413bc21103e6aaad43333beee6b2",
+        "text": "Phoenix Robotic Arm Rasp"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-04.webp": {
