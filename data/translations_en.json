@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "6e298626893f6460c91b91483978be8d7e1bb3c3490b8762de6f851dbd0fe67c",
+  "revision": "d232d7ca6c0aa4ffeadbacd4bac7777c568611608cc7b871cdc22016edbf17af",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -2330,6 +2330,20 @@
         "text": "Diary of a Procrastinator"
       }
     },
+    "page:/flux/journal-procrastinateur/2026-08-03": {
+      "body": {
+        "hash": "7f8d3a5bd6c1fba8091c0cfcf29b7cb7a34509faef75f7486894b8e553fa8e46",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Primary environment: <strong>Codex App on Mac, GOF repository <code translate=\"no\">dépôt local gof</code> linked to the KEREDIT journal</strong></li>\n<li>Date covered: <strong>Monday 3 August 2026</strong></li>\n<li>GOF branch: <strong><code translate=\"no\">dev</code></strong>, PRs <strong>#87</strong> and <strong>#89</strong> merged</li>\n<li>Observation window: <strong>15:08:52 → 16:33:16 CEST</strong></li>\n<li>Minimum observed duration: <strong>approximately 1h24+ of amplitude</strong></li>\n<li>Release: <strong>GOF <code translate=\"no\">0.8.1</code></strong>, final merge<strong><code translate=\"no\">9774ffa</code></strong></li>\n<li>KEREDIT activity: <strong>no commits today</strong></li>\n<li>Main batches: <strong>Production v2 registry, activity by forge, historical metrics, CI cache</strong></li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 803h29+</strong> (<code translate=\"no\">802h05+</code> as at 30 July, plus <code translate=\"no\">1h24+</code> today)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>3 August is entirely dedicated to GOF, but there is still one day for KEREDIT: it\nis improving the forge that executes the publisher’s production contract.</p>\n<p>The work is brief and structural. The dashboard must no longer deduce the status of the\nP340 and i5 machines from the old global snapshot. Production v2 already has\nits own tables, retries, leases and heartbeats; the interface\nmust read this data directly.</p>\n<h2 id=\"le-registre-v2-devient-nominal\">The v2 registry becomes nominal</h2>\n<p>PR #87 switches the reading of physical forges to Production v2.\nEach forge displays its own activity, capacity and working windows.\nHistorical data does not disappear: it is merged to\nmaintain the depth of the metrics, but it no longer governs the\ncurrent state.</p>\n<p>This distinction matters in production. A forge must not appear inactive\nsimply because an old snapshot has not been refreshed, nor must it appear available when\na v2 lease indicates otherwise.</p>\n<h2 id=\"mesurer-une-activité-pas-additionner-du-bruit\">Measuring activity, not adding noise</h2>\n<p>Historical durations are grouped by activity windows. The dashboard can\nthus compare machines without repeatedly adding up fragments that\nbelong to the same job. It is a minor model adjustment, but it\ndetermines future decisions regarding capacity and switching between forges.</p>\n<p>GOF is moving to ‘<code translate=\"no\">0.8.1</code>’ with this clarified source of truth.</p>\n<h2 id=\"une-ci-qui-ne-bloque-pas-sur-son-cache\">A CI that doesn’t get blocked by its cache</h2>\n<p>PR #89 rounds off the session by making the inline publication cache\nnon-blocking. A cache should speed up a build; it should never become a new reason\nnot to publish the forge.</p>\n<p>After three days without a commit, this brief resumption does not seek to make up for\nlost time. It simply puts observability back where it belongs: on the\npersistent facts of Production v2.</p>\n"
+      },
+      "description": {
+        "hash": "d7487006fb1f5226d151b2e4c6ac9c60a307d9a914f4ed662a49d6f3d4f14b83",
+        "text": "Day 122 of the log: GOF 0.8.1 reads the Production v2 ledger, displays the actual activity of each forge and consolidates the metrics without reverting to the historical snapshot."
+      },
+      "title": {
+        "hash": "eeab2e74a691b1fbeaade9c6a2785620ac547eac2189956e390c20edcfd43aef",
+        "text": "Day 122 – The forges rediscover their own truth"
+      }
+    },
     "page:/flux/journal-procrastinateur/2026-08-04": {
       "body": {
         "hash": "516c966844d5c6021019311e576854fbd853aa1d154f9f0693ef61ce617d3f52",
@@ -2338,6 +2352,10 @@
       "description": {
         "hash": "185b092adc7774ff0a4e091c4b0ebc26bc1166f293a87c3e27a65cc1037e737c",
         "text": "Day 123 of the log: the publisher campaign expands to 50 virtual users; security and CI audits are brought up to scratch; then the log catches up on the backlog caused by a busy period and holidays."
+      },
+      "title": {
+        "hash": "acf8f4adb40080a89c926242f215a08a4f02a306d8f06128bcedf20e5969fec0",
+        "text": "Day 123 – Measuring the load, keeping the house"
       }
     },
     "page:/flux/journal-procrastinateur/2026-08-05": {
@@ -9711,6 +9729,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-15.webp": {
+      "date": {
+        "hash": "0d0c8dfffa3f18ddbedfbc7f9473c3fe3ae35597612ff6afa70f787c0f672efc",
+        "text": "11 October 2018"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -9792,9 +9814,21 @@
       "themeLabel": {
         "hash": "a1b7fca866496e50edd0c8813c0df76fa5ee63a6b1410ab95bb4c5d5f70e6608",
         "text": "Laboratories & simulation"
+      },
+      "title": {
+        "hash": "2b8365cc7cafc5c9768f98044ab6ba562effe4b645d2f8a0f45272a2cafdc65c",
+        "text": "Wind Tunnel Complex at the Aircraft Engine Research Laboratory"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-03.webp": {
+      "alt": {
+        "hash": "1335aca4c23eef3db4e50f8ec5d4dce9641642d368348b4087fe629ce23b8f2d",
+        "text": "Document NASA : InSight Robotic Arm Test Lift of Wind and Thermal Shield"
+      },
+      "date": {
+        "hash": "0d0c8dfffa3f18ddbedfbc7f9473c3fe3ae35597612ff6afa70f787c0f672efc",
+        "text": "11 October 2018"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -9802,9 +9836,17 @@
       "themeLabel": {
         "hash": "e49b86dd957c87d828c8c5e1f47dc27ec2aa3d785a0be4145ec6aede9669bd72",
         "text": "Robotics"
+      },
+      "title": {
+        "hash": "739dbccf67843008c86b9e1b2ba803291a740d27ace2b17f9e51796b89ec7289",
+        "text": "InSight Robotic Arm Test Lift of Wind and Thermal Shield"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-04.webp": {
+      "alt": {
+        "hash": "e780ba6230a302ab2270e5a624fa214fa62fd11004f336c2fe1fcb80dc4d428b",
+        "text": "Document NASA : Fisheye view from the back of the Flight control room of the MCC"
+      },
       "date": {
         "hash": "24c0deae31608b847a676234bde8ca628034ce949497caaf93214bc23ce0469b",
         "text": "6 October 1984"
@@ -9816,6 +9858,10 @@
       "themeLabel": {
         "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
         "text": "Monitoring & Data"
+      },
+      "title": {
+        "hash": "967d199f14e4755e28e8e8469146dcc4cb10b75a6c88d3c6955bf6c2f823905a",
+        "text": "Fisheye view from the back of the Flight control room of the MCC"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-05.webp": {
