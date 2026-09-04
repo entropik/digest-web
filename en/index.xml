@@ -9,24 +9,24 @@
     <lastBuildDate>Thu, 03 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://digest.ooblik.com/en/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Un Digest bilingue, mouvements retrouvés et cron admin</title>
+      <title>A bilingual Digest, restored movements and cron admin</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-09-03/</link>
       <pubDate>Thu, 03 Sep 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-09-03/</guid>
-      <description>Translation pending · Le Digest prépare une version anglaise accessible depuis un sélecteur FR / GB discret tout en avançant sa traduction par lots. Le survol d’À propos s’adapte aux fenêtres étroites comme aux changements d’accessibilité, et les tags reprennent leur mouvement après restauration de page. L’environnement Node du cron admin est documenté et aligné sur Node 22.</description>
+      <description>The Digest is preparing an English version, accessible via a discreet FR/GB selector, whilst continuing to work on its translation in batches. The ‘About’ tooltip adapts to narrow windows and accessibility changes, and the tags resume their behaviour after the page is refreshed. The Node environment for the admin cron is documented and aligned with Node 22.</description>
     </item>
     <item>
-      <title>La curation traverse Firefox</title>
+      <title>Curation is making its way into Firefox</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-09-02/</link>
       <pubDate>Wed, 02 Sep 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-09-02/</guid>
-      <description>Translation pending · L’extension de curation devient une extension Chrome et Firefox issue du même
-code. La variante Firefox 1.5.0 est validée, signée puis installée officiellement
-depuis AMO sans élargir la confiance du service à toutes les extensions du
-navigateur. Le dossier sur la « software factory » devient le premier billet
-publié sous le format `FOCUS`, avec les deux dossiers précédents sur les fermes
-d’agents et les ADE, dans une identité visuelle mêlant archives techniques NASA,
-grille et grande typographie.</description>
+      <description>The curation extension becomes a Chrome and Firefox extension based on the same
+code. The Firefox 1.5.0 version is validated, signed and then officially installed
+via AMO without extending the service’s trust to all the browser’s
+extensions. The feature on the ‘software factory’ becomes the first post
+published in the `FOCUS` format, alongside the two previous features on agent
+farms and ADEs, with a visual identity combining NASA technical archives,
+a grid layout and large typography.</description>
     </item>
     <item>
       <title>Privacy Policy</title>
@@ -64,13 +64,13 @@ grille et grande typographie.</description>
       <description>Twenty open-source projects for orchestrating agent farms: multi-agent frameworks, memory management, sandboxes, monitoring and artificial enterprises.</description>
     </item>
     <item>
-      <title>Le brouillon devient un état éditorial</title>
+      <title>The draft becomes an editorial version</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-28/</link>
       <pubDate>Fri, 28 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-28/</guid>
-      <description>Translation pending · Les éditions existantes peuvent désormais être corrigées, publiées ou remises
-en brouillon depuis l’administration. Le catalogue distingue les liens préparés
-pour une édition des retraits éditoriaux qui doivent rester hors ligne.</description>
+      <description>Existing editions can now be corrected, published or returned
+to draft status via the admin panel. The catalogue distinguishes between links prepared
+for an edition and editorial withdrawals, which must remain offline.</description>
     </item>
     <item>
       <title>Digest — 27 August 2026</title>
@@ -80,14 +80,14 @@ pour une édition des retraits éditoriaux qui doivent rester hors ligne.</descr
       <description>Learn how to develop and build agents, run models and choose specialist tools.</description>
     </item>
     <item>
-      <title>Quarante-cinq dépôts et quelques filets</title>
+      <title>Forty-five boxes and a few nets</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-27/</link>
       <pubDate>Thu, 27 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-27/</guid>
-      <description>Translation pending · Une liste brute de cinquante références GitHub devient un Digest de quarante-cinq
-ressources vérifiées, dédupliquées et regroupées par usages. Les archives gagnent
-leur visuel, des titres centrés sur la date et une grille sans rupture blanche.
-La page d’accueil et l’administration affinent enfin leurs marges et leurs filets.</description>
+      <description>A raw list of fifty GitHub references is transformed into a digest of forty-five
+resources that have been verified, deduplicated and grouped by use case. The archives are given
+a visual identity, with titles centred on the date and a grid without white gaps.
+The homepage and admin panel finally refine their margins and borders.</description>
     </item>
     <item>
       <title>Day 137 – Tidying up the Claude era without losing our memories</title>
@@ -111,14 +111,14 @@ La page d’accueil et l’administration affinent enfin leurs marges et leurs f
       <description>Artificial intelligence, development, design, publishing and digital creation.</description>
     </item>
     <item>
-      <title>Répéter sans effacer sur LinkedIn</title>
+      <title>Repeat without deleting on LinkedIn</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-25/</link>
       <pubDate>Tue, 25 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-25/</guid>
-      <description>Translation pending · Une ressource LinkedIn peut être republiée sans effacer ses diffusions
-précédentes. Le compositeur reste modifiable et SQLite conserve chaque
-occurrence. Le journal technique devient un mini-blog public autonome, sans
-rejoindre les archives du Blog OOBLIK.</description>
+      <description>A LinkedIn resource can be republished without deleting its previous
+posts. The author field remains editable and SQLite retains every
+instance. The technical log becomes a standalone public mini-blog, without
+being incorporated into the OOBLIK Blog archives.</description>
     </item>
     <item>
       <title>Day 135 – Measuring sovereignty, closing blind spots</title>
@@ -170,14 +170,14 @@ rejoindre les archives du Blog OOBLIK.</description>
       <description>Artificial intelligence, development, design, publishing and digital creation.</description>
     </item>
     <item>
-      <title>Du cartouche suisse à la mémoire du Blog OOBLIK</title>
+      <title>From the Swiss cartridge to the OOBLIK blog archive</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-20/</link>
       <pubDate>Thu, 20 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-20/</guid>
-      <description>Translation pending · Les catégories administrables donnent au Digest son langage de cartouches et
-de filets partagés. Cette grille accueille ensuite la mémoire de 831 billets
-WordPress sans confondre texte archivé, provenance et destination actuelle.
-Les cas incertains restent soumis à une décision humaine.</description>
+      <description>The configurable categories provide the Digest with its system of headings and
+shared subheadings. This framework then organises the archive of 831 WordPress posts
+without confusing archived text, source and current destination.
+Any cases of uncertainty remain subject to human judgement.</description>
     </item>
     <item>
       <title>Day 130 – Save before you exit, choose before you migrate</title>
@@ -194,24 +194,24 @@ Les cas incertains restent soumis à une décision humaine.</description>
       <description>Artificial intelligence, development, design, publishing and digital creation.</description>
     </item>
     <item>
-      <title>Le carré LinkedIn, du faux succès au post visible</title>
+      <title>The LinkedIn feed: from false success to a visible post</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-18/</link>
       <pubDate>Tue, 18 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-18/</guid>
-      <description>Translation pending · Les visuels LinkedIn adoptent un carré de 1200 × 1200 pixels. Les essais réels
-révèlent les faux succès de l’API et conduisent à synchroniser l’upload, à
-autoriser la republication et à simplifier la récupération. Dix-sept commits
-portent ensemble le site et l’administration à `v1.8.6`.</description>
+      <description>LinkedIn visuals use a 1200 × 1200-pixel square. Real-world testing
+reveals the API’s false successes and leads to synchronising uploads,
+enabling reposting and simplifying retrieval. Seventeen commits
+bring both the site and the administration to `v1.8.6`.</description>
     </item>
     <item>
-      <title>Actions éditoriales et captures LinkedIn durcies</title>
+      <title>Stricter editorial measures and LinkedIn screenshots</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-17/</link>
       <pubDate>Mon, 17 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-17/</guid>
-      <description>Translation pending · Les actions éditoriales courantes deviennent accessibles depuis chaque lien au
-propriétaire. Les captures LinkedIn gagnent un repli graphique et une
-navigation Chromium protégée contre les réseaux privés. Onze commits
-consolident l’ensemble et remettent l’environnement Windows en état.</description>
+      <description>Common editorial actions are now accessible via each link to the
+owner. LinkedIn screenshots now feature a graphical collapse option and
+Chromium-based navigation protected against private networks. Eleven commits
+consolidate the whole system and restore the Windows environment to working order.</description>
     </item>
     <item>
       <title>Digest — 16 August 2026</title>
@@ -221,115 +221,115 @@ consolident l’ensemble et remettent l’environnement Windows en état.</descr
       <description>Artificial intelligence, development, design, publishing and digital creation.</description>
     </item>
     <item>
-      <title>Publication, identité visuelle et partage LinkedIn</title>
+      <title>Publication, visual identity and sharing on LinkedIn</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-16/</link>
       <pubDate>Sun, 16 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-16/</guid>
-      <description>Translation pending · L’administration gagne une publication en une action avec suivi reprenable.
-Le site reçoit son identité complète et un partage LinkedIn natif réservé au
-propriétaire. Trente-trois commits portent le catalogue à 3 992 liens et 836
-éditions.</description>
+      <description>The administration gains a post in a single action, with trackable progress.
+The site is given its full identity and a native LinkedIn share feature reserved for the
+owner. Thirty-three commits bring the catalogue to 3,992 links and 836
+edits.</description>
     </item>
     <item>
-      <title>Jour 129 - Fermer le chantier des chantiers</title>
+      <title>Day 129 – Wrapping up the building sites</title>
       <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-15/</link>
       <pubDate>Sat, 15 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-15/</guid>
-      <description>Translation pending · Jour 129 du journal : le workflow d&amp;#39;isolation Codex commence le 9 août et trouve enfin son commit, sans PR ni publication sur dev.</description>
+      <description>Day 129 of the diary: the Codex isolation workflow began on 9 August and was finally committed, without a pull request or a release on dev.</description>
     </item>
     <item>
-      <title>Éclipse du soleil sur une grille suisse</title>
+      <title>Solar eclipse seen through a Swiss grid</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-12/</link>
       <pubDate>Wed, 12 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-08-12/</guid>
-      <description>Translation pending · Une éclipse devient le point de départ d’une identité faite de Bricolage
-Grotesque, de JetBrains Mono, de noir, de papier et de corail. Le Journal du
-Digest prend forme avec Codex par une suite de prompts, d’essais et de contrôles
-dans le navigateur. Cette construction ouvre une seconde histoire : conserver
-et partager les URL, y compris lorsque le Web répond 404.</description>
+      <description>An eclipse becomes the starting point for an identity made up of Bricolage
+Grotesque, JetBrains Mono, black, paper and coral. The Journal du
+Digest takes shape with Codex through a series of prompts, trials and checks
+within the browser. This process opens up a second narrative: preserving
+and sharing URLs, even when the web returns a 404 error.</description>
     </item>
     <item>
-      <title>Jour 128 - Une option visible, un chantier isolé</title>
+      <title>Day 128 – A visible option, an isolated building site</title>
       <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-09/</link>
       <pubDate>Sun, 09 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-09/</guid>
-      <description>Translation pending · Jour 128 du journal : le test client expose enfin les options produit et le workflow de chantiers Codex commence à prendre forme dans un worktree sépare.</description>
+      <description>Day 128 of the diary: the user test finally reveals the product options, and the Codex project workflow is beginning to take shape in a separate worktree.</description>
     </item>
     <item>
-      <title>Jour 127 - Le Builder traverse toute la chaîne</title>
+      <title>Day 127 – The Builder crosses the entire range</title>
       <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-08/</link>
       <pubDate>Sat, 08 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-08/</guid>
-      <description>Translation pending · Jour 127 du journal : KEREDIT relie simulation, composition, libertés client, recette PDF et quantités de tirage, tandis que GOF ouvre prudemment la question SaaS.</description>
+      <description>Day 127 of the diary: KEREDIT brings together simulation, layout, client flexibility, PDF output and print run quantities, whilst GOF is cautiously exploring the possibility of SaaS.</description>
     </item>
     <item>
-      <title>Jour 126 - Le produit se montre, le panier se souvient</title>
+      <title>Day 126 – The product makes an appearance, the basket remembers</title>
       <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-07/</link>
       <pubDate>Fri, 07 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-07/</guid>
-      <description>Translation pending · Jour 126 du journal : l&amp;#39;aperçu produit dynamique arrive, les projets du panier deviennent indestructibles, la grille tarifaire gagne sa matrice et le Builder commence à centraliser l&amp;#39;authoring.</description>
+      <description>Day 126 of the log: the dynamic product overview is here, projects in the basket become indestructible, the pricing grid gets its own matrix, and the Builder begins to centralise authoring.</description>
     </item>
     <item>
-      <title>Jour 125 - La nuit des deux sessions</title>
+      <title>Day 125 – The night of the two sessions</title>
       <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-06/</link>
       <pubDate>Thu, 06 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-06/</guid>
-      <description>Translation pending · Jour 125 du journal : après la nuit de la synchro Woo et des remises panier, la journée fiabilise les suppressions, le checkout et prépare l&amp;#39;aperçu produit dynamique.</description>
+      <description>Day 125 of the diary: following the night of the Woo synchronisation and basket discounts, today’s work focuses on streamlining deletions and the checkout process, and preparing the dynamic product preview.</description>
     </item>
     <item>
-      <title>Jour 124 - Le bouton Synchroniser prend sa retraite</title>
+      <title>Day 124 – The ‘Synchronise’ button is being retired</title>
       <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-05/</link>
       <pubDate>Wed, 05 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-05/</guid>
-      <description>Translation pending · Jour 124 du journal : une fiche produit testée trop vite, un coup de ralage injuste, puis la synchronisation KEREDIT vers WooCommerce devient automatique et prouvée en production.</description>
+      <description>Day 124 of the blog: a product listing tested too hastily, an unfair setback, then the KEREDIT synchronisation with WooCommerce became automatic and was successfully tested in production.</description>
     </item>
     <item>
-      <title>Jour 123 - Mesurer la charge, garder la maison</title>
+      <title>Day 123 – Measuring the load, keeping the house</title>
       <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-04/</link>
       <pubDate>Tue, 04 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-04/</guid>
-      <description>Translation pending · Jour 123 du journal : la campagne éditeur passe a 50 utilisateurs virtuels, la sécurité et l&amp;#39;audit CI sont remis a niveau, puis le journal rattrape ses semaines de fatigue et de vacances.</description>
+      <description>Day 123 of the log: the publisher campaign expands to 50 virtual users; security and CI audits are brought up to scratch; then the log catches up on the backlog caused by a busy period and holidays.</description>
     </item>
     <item>
-      <title>Jour 122 - Les forges retrouvent leur propre vérité</title>
+      <title>Day 122 – The forges rediscover their own truth</title>
       <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-03/</link>
       <pubDate>Mon, 03 Aug 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-08-03/</guid>
-      <description>Translation pending · Jour 122 du journal : GOF 0.8.1 lit le registre Production v2, expose l&amp;#39;activité réelle de chaque forge et consolide les métriques sans revenir au snapshot historique.</description>
+      <description>Day 122 of the log: GOF 0.8.1 reads the Production v2 ledger, displays the actual activity of each forge and consolidates the metrics without reverting to the historical snapshot.</description>
     </item>
     <item>
-      <title>Jour 121 - Revenir, consolider, publier</title>
+      <title>Day 121 – Review, consolidate, publish</title>
       <link>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-30/</link>
       <pubDate>Thu, 30 Jul 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-procrastinateur/2026-07-30/</guid>
-      <description>Translation pending · Jour 121 du journal : après six jours sans commit, KEREDIT consolide la charge, l&amp;#39;email, les dépendances, le panier, le connecteur et la recette GOF, puis remet le VPS sur une release vérifiée.</description>
+      <description>Day 121 of the log: after six days without a commit, KEREDIT consolidates the load, email, dependencies, shopping basket, connector and GOF acceptance test, then restores the VPS to a verified release.</description>
     </item>
     <item>
-      <title>Administration et curation depuis Chrome</title>
+      <title>Administration and management via Chrome</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-07-27/</link>
       <pubDate>Mon, 27 Jul 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-07-27/</guid>
-      <description>Translation pending · Le Digest passe d’une archive statique à un système de curation propriétaire
-avec administration, extension Chrome et publication atomique. Quinze commits
-et trente exécutions GitHub Actions réussies installent ce nouveau parcours.</description>
+      <description>The Digest is transitioning from a static archive to a proprietary curation system
+featuring administration, a Chrome extension and atomic publishing. Fifteen commits
+and thirty successful GitHub Actions runs have implemented this new workflow.</description>
     </item>
     <item>
-      <title>Favoris locaux et nouvelles éditions</title>
+      <title>Local favourites and new releases</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-07-26/</link>
       <pubDate>Sun, 26 Jul 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-07-26/</guid>
-      <description>Translation pending · Trois anciens Digests composés à la main — les semaines 11, 12 et 14 de 2017 —
-rejoignent l’archive. Le site gagne aussi des favoris conservés uniquement dans
-le navigateur.</description>
+      <description>Three old, hand-compiled Digests — weeks 11, 12 and 14 of 2017 —
+have been added to the archive. The site has also gained bookmarks stored solely in
+the browser.</description>
     </item>
     <item>
-      <title>Exploration des tags et reprise de 2017</title>
+      <title>An exploration of tags and a look back at 2017</title>
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-07-25/</link>
       <pubDate>Sat, 25 Jul 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-07-25/</guid>
-      <description>Translation pending · Deux anciens Digests composés à la main, les semaines 8 et 9 de 2017,
-rejoignent l’archive. L’explorateur de tags gagne un index alphabétique et les
-liens leurs favicons, tandis que les problèmes de cache sont résolus.</description>
+      <description>Two old hand-compiled Digests, from weeks 8 and 9 of 2017,
+have been added to the archive. The tag browser now features an alphabetical index and the
+links now have favicons, whilst cache issues have been resolved.</description>
     </item>
     <item>
       <title>About</title>
