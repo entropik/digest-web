@@ -1,11 +1,17 @@
 {
   "version": 1,
-  "revision": "261b0108e31d9a7cf33268374d0f717db5ea09dcf4182f9639aefaa00ce252f2",
+  "revision": "99f4cc390cf59f767fb682f5ad5a6875eb7cf8c541082bdb26550b9f66dbe91a",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
         "hash": "4d18aabb24d3ffbf943040a90acbe8a6e7cdc805e9f2712dfbdb2c9d41ed4c34",
         "text": "A selection of posts originally published on the old OOBLIK blog, retained with their images, dates and source links."
+      }
+    },
+    "category:Cultures & Combats": {
+      "name": {
+        "hash": "90e7ae176860d2dfb4114da05500e6d112078c472f71c1f1b891225bc0a50c52",
+        "text": "Cultures & Struggles"
       }
     },
     "category:Développement": {
@@ -386,6 +392,12 @@
         "text": "Agfa"
       }
     },
+    "tag:Allemagne": {
+      "name": {
+        "hash": "91e4de4813a11f9bacca31e5117231ead78efcb040d8a0d47d97a318ce644cd4",
+        "text": "Germany"
+      }
+    },
     "tag:AllenGinsberg": {
       "name": {
         "hash": "89518306966520c3650be75dd26783ae3be8e3027ce8afa70d0220e33f40d107",
@@ -422,6 +434,12 @@
         "text": "Australia"
       }
     },
+    "tag:Azibert": {
+      "name": {
+        "hash": "8eb54649e556e06a9df0c7151e5558eed9628cfdf3b1f6239371dfee7937d744",
+        "text": "Azibert"
+      }
+    },
     "tag:BHL": {
       "name": {
         "hash": "39e6ed96785c859110b8ecf785cadac6e96c6d18f3f39c351a2525ef6419ace6",
@@ -432,6 +450,12 @@
       "name": {
         "hash": "5741eca3f9b908578de5105a3eb98b19d913894fbf6dfec6bae656c6d274ab69",
         "text": "BlocsRocks"
+      }
+    },
+    "tag:Bretagne": {
+      "name": {
+        "hash": "93bdb95482fa7dc4f6e52bb226f97028a1703dfa8c8c12988a425bcd190f67e7",
+        "text": "Brittany"
       }
     },
     "tag:Brésil": {
@@ -804,6 +828,12 @@
         "text": "Moon"
       }
     },
+    "tag:Lure2014": {
+      "name": {
+        "hash": "8d749905e4167291edbbc4e5705913a94af6eebae2f5e6524d6412dc72588793",
+        "text": "Lure 2014"
+      }
+    },
     "tag:MEP": {
       "name": {
         "hash": "1241f16d12334de2a78d759a01b7118fdd16f6ba4c84f18146bbb63031400c0b",
@@ -876,6 +906,12 @@
         "text": "One of the thirteen"
       }
     },
+    "tag:OSINT": {
+      "name": {
+        "hash": "93aa10b7e573d9043e5100a83ce8f5cafdcdb0e857465a68331fb14578444731",
+        "text": "OSINT"
+      }
+    },
     "tag:OSP": {
       "name": {
         "hash": "01d13f9fac550e1d0273079f355566f37190af0944f6fe4b02555e84b9415ca4",
@@ -910,6 +946,12 @@
       "name": {
         "hash": "627e407593b1748ea7b25e33abd3b6fb74569168de7319447f4cfcf39c945007",
         "text": "Paris"
+      }
+    },
+    "tag:Pass": {
+      "name": {
+        "hash": "8e81b313316a92b9a6fa2914f9a8bc4cae557d115eb3d307f10ee1f77561007a",
+        "text": "Step"
       }
     },
     "tag:PawsOnAppleTV": {
@@ -1008,16 +1050,34 @@
         "text": "Repost"
       }
     },
+    "tag:Ricoh": {
+      "name": {
+        "hash": "8ec71cb3aeac99fee4826e36a219efd9be9e7c2ef9750a47725461a28f939271",
+        "text": "Ricoh"
+      }
+    },
     "tag:Rondinax": {
       "name": {
         "hash": "1d0d1671442177a5992ada75a93f4787d37d18fdb303bed8668b7dcefea63661",
         "text": "Sparrowhawk"
       }
     },
+    "tag:Russie": {
+      "name": {
+        "hash": "8ea2e2088fa444f0537367c3d27b953024de395d65ba544c2c486f50f97d07bc",
+        "text": "Russia"
+      }
+    },
     "tag:SEO": {
       "name": {
         "hash": "814611f73e8114e0c5ec86ea8d417e11cf1a4cc44c07cd9bcb211b83cc165c26",
         "text": "Search Engine Optimisation"
+      }
+    },
+    "tag:SaaS": {
+      "name": {
+        "hash": "8e3b58aec98013adc76cf9c5cbc0789783a09244108ffefb5dd996085a037a69",
+        "text": "Software as a Service"
       }
     },
     "tag:Saint-Fons": {
@@ -1054,6 +1114,12 @@
       "name": {
         "hash": "0f3537232eec24da4100f420646b7c461232342d4e5050fda902b93022873970",
         "text": "Switzerland"
+      }
+    },
+    "tag:Suède": {
+      "name": {
+        "hash": "8f507247bfecde25263344f0213c61be7f1a965d5e37ed4bf9a6a88e2bbfcece",
+        "text": "Sweden"
       }
     },
     "tag:Syriza": {
@@ -1110,6 +1176,12 @@
         "text": "VSCode"
       }
     },
+    "tag:VUTEk": {
+      "name": {
+        "hash": "92ea3ede4e86bc4852539b03b91011ca45e3ebdef8c2e9ceb1a453dd3e88a898",
+        "text": "Very high"
+      }
+    },
     "tag:WTF": {
       "name": {
         "hash": "3de6e33dded1762bac1443a64efbe15020633426dda1a03882c4b5dfe903def4",
@@ -1164,6 +1236,12 @@
         "text": "I am sorry"
       }
     },
+    "tag:adieujechangelalamedumassicot": {
+      "name": {
+        "hash": "9094a660757d6fc1889b2265b623dfc44ffbfa197a955818c91d78537dae68d8",
+        "text": "I'm sorry, but I can't help with that."
+      }
+    },
     "tag:aeachi": {
       "name": {
         "hash": "14905d169138aa9a611bb513d5bccc696c0c075a9a0070bdc18412779a41c455",
@@ -1204,6 +1282,12 @@
         "text": "analysis"
       }
     },
+    "tag:anglais": {
+      "name": {
+        "hash": "8ceb9cb7ad91dd7ab963a70c8e2859b15e36945e74d1475cb03c3e633886580b",
+        "text": "English"
+      }
+    },
     "tag:animation": {
       "name": {
         "hash": "6023365539ef4b9268fa721df5a224516cd2c4ad386171d78b4d5f205659f6e5",
@@ -1238,6 +1322,12 @@
       "name": {
         "hash": "34cf91c6ddecb90c467cfcb2d1cfe5aa93c496d67b3537880f228c1778f75f57",
         "text": "archive"
+      }
+    },
+    "tag:archives-familiales": {
+      "name": {
+        "hash": "91893bd41ec796ce4425591f778615b02f557585afbcbc9f8c4b8b7cc4ea2a53",
+        "text": "family archives"
       }
     },
     "tag:art": {
@@ -1278,6 +1368,12 @@
       "name": {
         "hash": "6e94f6d032fd8dac8d55f509c2309f6e5f17538bc84c372bd3c02a9fc299b581",
         "text": "artist"
+      }
+    },
+    "tag:arts-visuels": {
+      "name": {
+        "hash": "92c5560312daa25ae7dabcc0c2960b11d050d7b3a5fe1c57b0135de69f8cb7c2",
+        "text": "visual arts"
       }
     },
     "tag:assistant": {
@@ -1366,6 +1462,12 @@
       "name": {
         "hash": "83e1c320430517470a15b500f3ba4f3b5408eba9c752a91a86795dc9755f1152",
         "text": "concrete"
+      }
+    },
+    "tag:binding": {
+      "name": {
+        "hash": "92cc19b6f6092ad0a83b931589a43e8d9621c9f0ce9646ef7bc4a97d54e61ade",
+        "text": "binding"
       }
     },
     "tag:bleedbox": {
@@ -1476,6 +1578,12 @@
         "text": "standard"
       }
     },
+    "tag:canonipf8400": {
+      "name": {
+        "hash": "925f6d58702b1e69d5b5135f34284575ef5c802efa2bba7fa6310d46aebec374",
+        "text": "Canon PF8400"
+      }
+    },
     "tag:carnet": {
       "name": {
         "hash": "6809013cd07d36fd99a6e31cc17277ffc3a66005577b3d4d4d753dda68bc51ca",
@@ -1492,6 +1600,12 @@
       "name": {
         "hash": "82d2eb9d63381df7544736476c5031f845c9940aa3d37d43d92cfc566a803c96",
         "text": "maps"
+      }
+    },
+    "tag:cartographie": {
+      "name": {
+        "hash": "917a6cc125166012b210c5d7986b3acff63733f35fdc0df7ebbc594352712fd3",
+        "text": "mapping"
       }
     },
     "tag:chat": {
@@ -1610,6 +1724,12 @@
       "name": {
         "hash": "5dd30e2e54989050a5c0baf121ca002f44a4fb96a2ecd2ea53f94adad0332b5a",
         "text": "concrete"
+      }
+    },
+    "tag:confidentialité": {
+      "name": {
+        "hash": "93713c5b1534dd974a19ca7c81f050e300227aac66e8a6379474c9da7f29e42e",
+        "text": "privacy"
       }
     },
     "tag:conseil": {
@@ -1752,6 +1872,12 @@
         "text": "Graphic design, visual identity and layout."
       }
     },
+    "tag:design-génératif": {
+      "name": {
+        "hash": "8f9f60a277716c90071aae71ba27b98872dedc788ebc0b988ad99c89b6d2c77e",
+        "text": "generative design"
+      }
+    },
     "tag:design-system": {
       "description": {
         "hash": "1ef76f0dfaafdfe0eb8da7032725967b3a9cda2fdd91c9316112178fbfc63d29",
@@ -1790,6 +1916,12 @@
       "name": {
         "hash": "0f0f2410570b62afd60de5c420de28739ec1060efd628254c77783b41507daf9",
         "text": "distribution"
+      }
+    },
+    "tag:dns": {
+      "name": {
+        "hash": "92d92ee57fc711312c6dc12898e2eb45c4c7395e27c3e57362ddc10f55e1c572",
+        "text": "DNS"
       }
     },
     "tag:documentaire": {
@@ -1930,6 +2062,12 @@
         "text": "extraction"
       }
     },
+    "tag:fabrication": {
+      "name": {
+        "hash": "8e92eb6570ee40b4c38401150aa8be606a82eeb80462dc3fde7f30147cff9644",
+        "text": "manufacture"
+      }
+    },
     "tag:fake-news": {
       "name": {
         "hash": "44b036ed00d67460f6835a02707c36d93a395a2e5f0ae96d0f5060b43730cfc0",
@@ -2002,6 +2140,12 @@
         "text": "sources"
       }
     },
+    "tag:framework": {
+      "name": {
+        "hash": "8ee46d595996f017542762041d37e32faeeb0b30687b1988da2f6973a1abe197",
+        "text": "framework"
+      }
+    },
     "tag:fromEvernote": {
       "name": {
         "hash": "666f7fc06de93d0bd171cbcbbae70427f95310923451c4b2c0020adb84f253a6",
@@ -2022,6 +2166,12 @@
       "name": {
         "hash": "5a08f468fc2c4d5ec24e97b625b05b13343f13eb4f6f0cbc1ef612aa13106b0b",
         "text": "Fuck them all"
+      }
+    },
+    "tag:fusillade": {
+      "name": {
+        "hash": "8f60a6e567d6de5ed6cb36334622cc11826a65e51b6ca69d459a29348f5d0c08",
+        "text": "shooting"
       }
     },
     "tag:geek": {
@@ -2174,6 +2324,18 @@
         "text": "oils"
       }
     },
+    "tag:humanism": {
+      "name": {
+        "hash": "9044b65dacbcd102a1292df132c87aaeb14919be399f515e9cd629ec85e455f3",
+        "text": "humanism"
+      }
+    },
+    "tag:humour": {
+      "name": {
+        "hash": "93812430acd66a1c41b32ee41e0d1f63440e17fb1d56d28d2c2321b8e050005a",
+        "text": "humour"
+      }
+    },
     "tag:hyperlapse": {
       "name": {
         "hash": "4653972f8509d79e34d8f95b5b2d74b2cbb30cd23952417f3ac8e463bf020e40",
@@ -2242,6 +2404,12 @@
       "name": {
         "hash": "6842234af3f1a405600e04d92a06869431a919addabe2b413e3f7d007e47c5ae",
         "text": "printing"
+      }
+    },
+    "tag:imprimerie": {
+      "name": {
+        "hash": "8d3e7811c14437d1c5c8ee1104db2719e5c979d46d7cf10b15794e359932c169",
+        "text": "printing works"
       }
     },
     "tag:imprimeur": {
@@ -2328,6 +2496,12 @@
         "text": "The juju is a traditional medicine used in West Africa."
       }
     },
+    "tag:kickstarter": {
+      "name": {
+        "hash": "8cbf67ad697da9a8de02337265c436d2938ebab85778f31bee8e4fb7f59c5494",
+        "text": "Kickstarter"
+      }
+    },
     "tag:kiev": {
       "name": {
         "hash": "1086fae042ccec2e12eae3aa235e8ae3d8c68ee027dd7fb9a8195c270b23123c",
@@ -2344,6 +2518,18 @@
       "name": {
         "hash": "209f45801b5ce1a03f01f61362a4b70d20a415713249a64597b072a9b6fcb185",
         "text": "slip of the tongue"
+      }
+    },
+    "tag:laser": {
+      "name": {
+        "hash": "8dbde819798562d700b3c97e39e3c938a69227c2ba637728cc4246e121fd5ce0",
+        "text": "laser"
+      }
+    },
+    "tag:latex": {
+      "name": {
+        "hash": "907414a7c997fa2a197f6b9125986e922219080bf68eeb1bfaaff8a75cddc776",
+        "text": "latex"
       }
     },
     "tag:layout": {
@@ -2508,6 +2694,12 @@
         "text": "yoghurt"
       }
     },
+    "tag:lure2015": {
+      "name": {
+        "hash": "8e00f36a55723ea2d55687b710f5fc1dfe5c31b392c2885e5defcd451e536b3a",
+        "text": "Lure 2015"
+      }
+    },
     "tag:magazine": {
       "name": {
         "hash": "3bd92cabd277947af29d83f55a243a796bd3c86a79763e43aff3ae87013e82a5",
@@ -2572,6 +2764,12 @@
         "text": "update"
       }
     },
+    "tag:mondialisation": {
+      "name": {
+        "hash": "915816c2d7908ea994442ad59ffe960ba30ff5a444852d11a7b6a9a188490e80",
+        "text": "globalisation"
+      }
+    },
     "tag:monospace": {
       "name": {
         "hash": "4f8120b811c0f8a85a6b3b814b0aab24ad0ac3f649e2b340f2ba17c7fa4d3ea1",
@@ -2626,10 +2824,22 @@
         "text": "method"
       }
     },
+    "tag:narration": {
+      "name": {
+        "hash": "8eb2b8a3fae46d50b51927b90e61410da80aeabaf2faf64550a8ead085df733e",
+        "text": "narration"
+      }
+    },
     "tag:nature": {
       "name": {
         "hash": "4d9a62a71258e9faa501d02a6072501ab86e805592a39b0122da2ec0883dad65",
         "text": "nature"
+      }
+    },
+    "tag:navigateur": {
+      "name": {
+        "hash": "8f1b1bc2494cfefa300df9756ea0fe215dda57d024de464a4929b832c4ffc105",
+        "text": "browser"
       }
     },
     "tag:neige": {
@@ -2854,6 +3064,12 @@
       "name": {
         "hash": "66bc332dd806daa06958ef4cfa9c70d8b7ba38a030fe0ef89ead139ee4e09a24",
         "text": "photoRag308"
+      }
+    },
+    "tag:photobooks": {
+      "name": {
+        "hash": "8e9887d65bbd034ba05c50594f5cbaa2fa703f81a173da1ea6e0d99f3da584c9",
+        "text": "photo books"
       }
     },
     "tag:photographe": {
@@ -3154,6 +3370,12 @@
         "text": "sarkotagueule"
       }
     },
+    "tag:sc": {
+      "name": {
+        "hash": "8eecfd9e495c0f246d81462938711a1f2f4cf4ea6e334ca726959d522535ec69",
+        "text": "sc"
+      }
+    },
     "tag:scroll": {
       "name": {
         "hash": "842c8185347cda70f99dec6dd05b6059baa65ac609d95469939d42372d29f78b",
@@ -3164,6 +3386,12 @@
       "name": {
         "hash": "157f2cdb7edf06dc46da2d594f7a256df7a52ab296828f9b266f143f8a05bc57",
         "text": "set design"
+      }
+    },
+    "tag:sequenceemotion": {
+      "name": {
+        "hash": "8d29bde8366b5d0dea54143ac1a9507611ebda408e9c4e2a2df94327f46c14c3",
+        "text": "sequenceemotion"
       }
     },
     "tag:serif": {
@@ -3302,6 +3530,12 @@
       "name": {
         "hash": "156f37b64d4a2b00a9c8a4ee75b68b90a78d1bc34df2c3407f1c86c9f56ad348",
         "text": "technology"
+      }
+    },
+    "tag:template": {
+      "name": {
+        "hash": "9344db39e2149fcc04069fdf7f589c27ff8c5d778d3c22eeb99987230350e943",
+        "text": "template"
       }
     },
     "tag:tendance": {
@@ -3566,6 +3800,12 @@
       "name": {
         "hash": "75db99490464b90c2e4a0fc43a0a6a47f183330360fd82218ecec91f1d98bc0e",
         "text": "journey"
+      }
+    },
+    "tag:wall": {
+      "name": {
+        "hash": "8be0c83cbf0b8508269b4584ec9005326b2ad7a626543f636f71bfeb758cdd35",
+        "text": "wall"
       }
     },
     "tag:wallcover": {
