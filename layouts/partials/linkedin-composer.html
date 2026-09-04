@@ -2,10 +2,10 @@
   <form method="dialog" class="linkedin-composer-form" data-linkedin-form>
     <div class="linkedin-composer-heading">
       <div>
-        <p class="digest-kicker">Publication native</p>
-        <h2 id="linkedin-composer-title">Préparer le post LinkedIn</h2>
+        <p class="digest-kicker">{{ i18n "ui_86a6f7360145" }}</p>
+        <h2 id="linkedin-composer-title">{{ i18n "ui_b6c1ac0f3a70" }}</h2>
       </div>
-      <button type="button" class="linkedin-composer-close" data-linkedin-cancel aria-label="Fermer">×</button>
+      <button type="button" class="linkedin-composer-close" data-linkedin-cancel aria-label="{{ i18n "ui_5ab4ec640d65" }}">×</button>
     </div>
     <div class="linkedin-composer-visual" data-linkedin-visual>
       <img
@@ -16,11 +16,11 @@
         height="{{ if eq .format "square" }}1200{{ else }}627{{ end }}"
         alt="Grande image qui accompagnera la publication LinkedIn">
       <p class="linkedin-composer-image-status" data-linkedin-image-status role="status" aria-live="polite"></p>
-      <button class="linkedin-composer-regenerate" type="button" data-linkedin-regenerate hidden>Régénérer l’image</button>
+      <button class="linkedin-composer-regenerate" type="button" data-linkedin-regenerate hidden>{{ i18n "ui_d5507cff509b" }}</button>
     </div>
     <label class="linkedin-composer-field">
       <span class="linkedin-composer-field-heading">
-        <span>Texte du post</span>
+        <span>{{ i18n "ui_8992e83e9b6c" }}</span>
         <span class="linkedin-composer-character-count" data-linkedin-character-count aria-live="polite"></span>
       </span>
       <textarea data-linkedin-text rows="6" aria-describedby="linkedin-composer-character-count" required></textarea>
@@ -29,14 +29,14 @@
       <span>Hashtags</span>
       <input data-linkedin-hashtags type="text" aria-describedby="linkedin-composer-character-count">
     </label>
-    <span id="linkedin-composer-character-count" class="sr-only">Le compteur inclut le texte, les hashtags et l’adresse partagée.</span>
+    <span id="linkedin-composer-character-count" class="sr-only">{{ i18n "ui_6525ba538c05" }}</span>
     <p class="linkedin-composer-tags-note" data-linkedin-tags-note></p>
     <p class="linkedin-composer-url" data-linkedin-url></p>
     <p class="linkedin-composer-account" data-linkedin-account></p>
     <p class="linkedin-composer-account" data-linkedin-composer-feedback role="status" aria-live="polite"></p>
     <div class="linkedin-composer-actions">
-      <button type="button" data-linkedin-cancel>Annuler</button>
-      <button type="submit" class="archive-linkedin-image" data-linkedin-confirm>Confirmer la publication</button>
+      <button type="button" data-linkedin-cancel>{{ i18n "ui_49ba3292420c" }}</button>
+      <button type="submit" class="archive-linkedin-image" data-linkedin-confirm>{{ i18n "ui_dbfb17902f08" }}</button>
     </div>
   </form>
 </dialog>

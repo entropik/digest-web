@@ -1,0 +1,4 @@
+{{- $manifest := os.ReadFile ".build-i18n/manifest.json" | transform.Unmarshal -}}
+{{- $routes := dict "/" true -}}
+{{- range $manifest.items -}}{{- if eq .kind "page" -}}{{- $routes = merge $routes (dict .route true) -}}{{- end -}}{{- end -}}
+{{- return $routes -}}

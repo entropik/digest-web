@@ -22,6 +22,13 @@ branche main ── GitHub Actions ── branche production
 
 ## Site public
 
+La construction bilingue passe par `scripts/build-site.mjs` : manifeste public
+français, puis adaptation des champs traduits vers `/en/`. La file DeepL et son
+historique résident dans SQLite, dans le service Node existant. Les snapshots
+de traduction et affiches anglaises suivent le circuit GitHub de publication.
+Les contrats de quota, empreintes et reprise sont détaillés dans
+[Traductions FR / GB](translations.md).
+
 Le site est construit avec Hugo et PaperMod. Le catalogue éditorial réside
 dans `data/links.json`; la taxonomie et ses descriptions résident dans
 `data/categories.json`; les éditions sont décrites dans
@@ -46,7 +53,11 @@ taxonomie inconnue. Côté public, la modale reçoit directement les routes Hugo
 enregistrées ; le contrôle de cohérence bloque tout tag public sans destination.
 
 La branche `main` contient les sources. GitHub Actions valide les données et
-construit le site, puis force la branche `production` sur la sortie statique.
+construit le site. Les commits ordinaires remplacent la sortie statique après
+un build complet ; les commits de traduction strictement reconnus rendent les
+segments anglais indiqués par leur plan et les superposent au dernier arbre
+`production`. Le nouveau commit reste descendant de `production` et est poussé
+en fast-forward.
 CloudPanel relève cette branche, crée une release locale et bascule un lien
 symbolique `current`. Les cinq dernières releases sont conservées.
 

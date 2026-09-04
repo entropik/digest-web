@@ -1,4 +1,6 @@
 (() => {
+  const t = window.digestI18n?.t || ((text) => text);
+  const locale = window.digestI18n?.locale || "fr-FR";
   const FAVORITES_STORAGE_KEY = "digest-favorites-v1";
   const buttons = [...document.querySelectorAll(".archive-favorite")];
   if (!buttons.length) return;
@@ -29,9 +31,9 @@
       button.setAttribute("aria-pressed", String(active));
       button.setAttribute(
         "aria-label",
-        active ? "Retirer ce lien des favoris" : "Ajouter ce lien aux favoris",
+        active ? t("Retirer ce lien des favoris") : t("Ajouter ce lien aux favoris"),
       );
-      button.title = active ? "Retirer des favoris" : "Ajouter aux favoris";
+      button.title = active ? t("Retirer des favoris") : t("Ajouter aux favoris");
     });
   };
 

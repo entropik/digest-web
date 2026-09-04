@@ -50,7 +50,7 @@ params:
   ShowCodeCopyButtons: true
   disableSpecial1stPost: true
   footer:
-      text: "v1.26.4 · [Admin](/admin) · [Confidentialité](/confidentialite/)"
+      text: "v1.27.4 · [Admin](/admin) · [Confidentialité](/confidentialite/)"
   label:
     text: "OOBLIK DIGEST"
   homeInfoParams:
@@ -84,7 +84,46 @@ outputs:
   home:
     - HTML
     - RSS
+    - TranslationSource
+    - TranslationSnapshot
 
 minify:
   disableXML: true
   minifyOutput: true
+
+# Keep the French URLs stable; English pages are generated from the public manifest.
+defaultContentLanguageInSubdir: false
+languages:
+  fr:
+    label: Français
+    locale: fr-FR
+    weight: 1
+  en:
+    label: English
+    locale: en-GB
+    weight: 2
+    params:
+      description: A curated collection on AI, development, design and images.
+      footer:
+        text: "v1.27.4 · [Admin](/admin) · [Privacy](/en/confidentialite/)"
+    menu:
+      main:
+        - {identifier: digest, name: Links, url: /, weight: 10}
+        - {identifier: archives, name: Archives, url: /archives/, weight: 20}
+        - {identifier: tags, name: Tags, url: /tags/, weight: 30}
+        - {identifier: flux, name: Streams, url: /flux/, weight: 35}
+        - {identifier: about, name: About, url: /a-propos/, weight: 40}
+outputFormats:
+  TranslationSource:
+    mediaType: application/json
+    baseName: translation-source
+    isPlainText: true
+    notAlternative: true
+  TranslationSnapshot:
+    mediaType: application/json
+    baseName: translation-snapshot
+    isPlainText: true
+    notAlternative: true
+
+security:
+  allowContent: ["text/markdown", "text/html"]

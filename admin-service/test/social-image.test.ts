@@ -142,7 +142,7 @@ test("archive pages expose a native LinkedIn publication with image, text and pe
   assert.doesNotMatch(layout, /data-share-text=/);
   assert.match(layout, /data-share-tags="\{\{ \$tags \| jsonify \}\}"/);
   assert.match(layout, /data-share-url="\{\{ \$\.Permalink \}\}"/);
-  assert.match(layout, /Publier sur LinkedIn/);
+  assert.match(layout, /i18n "ui_9826b821e01e"/);
   assert.doesNotMatch(layout, /linkedin\.com\/feed\/\?shareActive=true/);
   assert.match(layout, /data-linkedin-feedback/);
   assert.match(layout, /partial "linkedin-composer\.html"/);
@@ -161,8 +161,8 @@ test("archive pages expose a native LinkedIn publication with image, text and pe
   );
   assert.match(layout, /class="archive-item-actions"/);
   assert.match(layout, /\.previous_urls/);
-  assert.match(layout, /Anciennes adresses/);
-  assert.match(composer, /Confirmer la publication/);
+  assert.match(layout, /i18n "ui_75cdadd0a471"/);
+  assert.match(composer, /i18n "ui_dbfb17902f08"/);
   assert.match(layout, /archive-social-visual/);
   assert.match(layout, /\.Params\.images/);
   assert.match(layout, /\.Params\.visual/);
@@ -175,7 +175,7 @@ test("archive pages expose a native LinkedIn publication with image, text and pe
   assert.match(composer, /1200\{\{ else \}\}627/);
   assert.match(layout, /data-archive-delete-link/);
   assert.match(layout, /class="archive-delete-link"/);
-  assert.match(layout, /Retirer/);
+  assert.match(layout, /i18n "ui_54ec24a19c21"/);
 });
 
 test("Focus archive cards use their technical thumbnail and explicit title prefix", async () => {
@@ -187,7 +187,7 @@ test("Focus archive cards use their technical thumbnail and explicit title prefi
   assert.match(layout, /\.Params\.archive_image/);
   assert.match(layout, /archive-focus-prefix">FOCUS -/);
   assert.match(layout, /\{\{ else \}\}\{\{ partial "archive-title\.html" \.Title \}\}\{\{ end \}\}<\/h2>/);
-  assert.match(layout, /Dossier thématique/);
+  assert.match(layout, /i18n "ui_48d55d78f37b"/);
   assert.match(stylesheet, /\.archive-edition--focus \.archive-edition-poster/);
   assert.match(stylesheet, /\.archive-focus-prefix/);
 });
@@ -303,9 +303,9 @@ test("the home loads its compact search index only when interaction needs it", a
     readFile(new URL("../../layouts/index.html", import.meta.url), "utf8"),
     readFile(new URL("../../assets/js/digest.js", import.meta.url), "utf8"),
   ]);
-  assert.match(layout, /resources\.FromString "data\/digest-index-base\.json"/);
-  assert.match(layout, /resources\.FromString "data\/digest-index-supplemental\.json"/);
-  assert.match(layout, /resources\.FromString "data\/digest-index-details\.json"/);
+  assert.match(layout, /resources\.FromString \(printf "%sdata\/digest-index-base\.json" \$indexPrefix\)/);
+  assert.match(layout, /resources\.FromString \(printf "%sdata\/digest-index-supplemental\.json" \$indexPrefix\)/);
+  assert.match(layout, /resources\.FromString \(printf "%sdata\/digest-index-details\.json" \$indexPrefix\)/);
   assert.match(layout, /\$allLinks := sort \$publicLinks "added" "desc"/);
   assert.match(layout, /\$supplementalLinks = \$supplementalLinks \| append \./);
   assert.match(layout, /dict "p" \.image "l" \(\.image_alt/);
@@ -394,15 +394,18 @@ test("Hugo language metadata uses the current APIs", async () => {
 });
 
 test("local, CI and deployment verification share one cross-platform command", async () => {
-  const [verification, ci, deployment, readme] = await Promise.all([
+  const [verification, production, ci, deployment, readme] = await Promise.all([
     readFile(new URL("../../scripts/verify.mjs", import.meta.url), "utf8"),
+    readFile(new URL("../../scripts/translation-production.mjs", import.meta.url), "utf8"),
     readFile(new URL("../../.github/workflows/ci.yml", import.meta.url), "utf8"),
     readFile(new URL("../../.github/workflows/deploy.yml", import.meta.url), "utf8"),
     readFile(new URL("../../README.md", import.meta.url), "utf8"),
   ]);
-  for (const consumer of [ci, deployment, readme]) {
+  for (const consumer of [ci, readme]) {
     assert.match(consumer, /node scripts\/verify\.mjs/);
   }
+  assert.match(deployment, /node scripts\/translation-production\.mjs/);
+  assert.match(production, /scripts\/verify\.mjs/);
   assert.match(verification, /process\.platform === "win32" \? "npm\.cmd" : "npm"/);
   assert.match(verification, /"python3", "python"/);
   assert.match(verification, /PYTHONDONTWRITEBYTECODE: "1"/);
@@ -534,7 +537,7 @@ test("the archive index uses social images as lazily loaded edition posters", as
   assert.match(layout, /\.Paginate \.Pages\.ByDate\.Reverse 24/);
   assert.match(layout, /archive-pagination/);
   assert.match(layout, /Folio {{ printf "%02d" \$paginator\.PageNumber }}\/{{ printf "%02d" \$paginator\.TotalPages }}/);
-  assert.match(layout, /\$paginator\.TotalNumberOfElements }} éditions/);
+  assert.match(layout, /\$paginator\.TotalNumberOfElements }} {{ i18n "ui_1a1630fcc1d7" }}/);
   assert.match(layout, /data-src="{{ \. \| relURL }}"/);
   assert.match(layout, /archive-posters\.js/);
   assert.match(loader, /IntersectionObserver/);

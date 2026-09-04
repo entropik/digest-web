@@ -3,7 +3,7 @@
 {{- $isProjectRegister := and $edition (eq (len $headers) 4) (eq ((index $headers 0).Text | plainify) "Projet") (eq ((index $headers 2).Text | plainify) "Rôle") -}}
 <table{{ if $edition }} class="edition-table{{ if $isProjectRegister }} edition-table--projects{{ end }}" role="table"{{ end }}>
   {{ if $edition }}
-    <caption><span>Registre {{ printf "%02d" (add .Ordinal 1) }}</span><span>{{ printf "%02d" (len .TBody) }} entrées</span></caption>
+    <caption><span>{{ i18n "ui_45b269f37e00" }} {{ printf "%02d" (add .Ordinal 1) }}</span><span>{{ printf "%02d" (len .TBody) }} {{ i18n "ui_fb0db8a4d5d1" }}</span></caption>
   {{ end }}
   <thead{{ if $edition }} role="rowgroup"{{ end }}>
     {{ range .THead }}

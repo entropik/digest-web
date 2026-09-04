@@ -1,4 +1,5 @@
 (() => {
+  const t = window.digestI18n?.t || ((text) => text);
   const article = document.querySelector(".post-single");
   const content = article?.querySelector(".post-content");
   const canAnimate = window.matchMedia(
@@ -12,7 +13,7 @@
   if (meta) {
     cue = document.createElement("span");
     cue.className = "about-liquid-cue";
-    cue.textContent = "plouf ?";
+    cue.textContent = t("plouf ?");
     cue.tabIndex = 0;
     cue.setAttribute("aria-describedby", "about-liquid-tooltip");
 
@@ -21,7 +22,7 @@
     tooltip.className = "about-liquid-tooltip";
     tooltip.setAttribute("role", "tooltip");
 
-    ["survolez", "le texte", "merci pretext.js !!!"].forEach((text, index) => {
+    ["survolez", "le texte", "merci pretext.js !!!"].map(t).forEach((text, index) => {
       const line = document.createElement("span");
       line.className = `about-liquid-tooltip-line line-${index + 1}`;
       line.textContent = text;

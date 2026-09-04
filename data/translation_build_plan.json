@@ -1,0 +1,615 @@
+{
+  "version": 1,
+  "baseRevision": "7c73089ced33b09276f27f5596ded74df797c536f478817c39c1f4ecf4aa8641",
+  "targetRevision": "2b6acf82ec5788b2e72d9d9d29a46aaaa0e5371a8f39d5ef35f4851fef06412e",
+  "manifestRevision": "f2272c908b90ac69240b90702fdeaa5e9baa19629f567348c73ce89e3d01d2ee",
+  "fullBuild": false,
+  "items": [
+    {
+      "id": "page:/archives/2026-08-16",
+      "fields": [
+        "$artwork"
+      ]
+    },
+    {
+      "id": "page:/archives/2026-08-18",
+      "fields": [
+        "$artwork"
+      ]
+    },
+    {
+      "id": "page:/archives/2026-08-20",
+      "fields": [
+        "$artwork"
+      ]
+    },
+    {
+      "id": "page:/archives/2026-08-24",
+      "fields": [
+        "$artwork"
+      ]
+    },
+    {
+      "id": "page:/archives/2026-08-25",
+      "fields": [
+        "$artwork"
+      ]
+    },
+    {
+      "id": "page:/archives/2026-08-27",
+      "fields": [
+        "$artwork"
+      ]
+    },
+    {
+      "id": "page:/archives/2026-08-28",
+      "fields": [
+        "$artwork"
+      ]
+    },
+    {
+      "id": "page:/archives/2026-08-29",
+      "fields": [
+        "$artwork"
+      ]
+    },
+    {
+      "id": "page:/archives/2026-09-01",
+      "fields": [
+        "$artwork"
+      ]
+    },
+    {
+      "id": "page:/archives/2026-09-02",
+      "fields": [
+        "$artwork"
+      ]
+    },
+    {
+      "id": "tag:1x1blue",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:activisme",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:Adobe",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:charit",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:coloniale",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:command",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:couille",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:culture-libre",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:encadrement",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:essentielles",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:Falciani",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:food",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:icc",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:Internet",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:jesaisplusijaidejatwitt",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:journal",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:LastRT",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:LLM",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "tag:MacronPi",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:orchestration",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:Pablo",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:PAO",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:ParisWeb",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:PJLterrorisme",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:Plex",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:pommiers",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:portfolio",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:programmers",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:Progres",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:ps",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:publisher",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:société",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "tag:stories",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:Super-8",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:typography",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:ValentinesDay",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:vimeo",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:Vocabulaire",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:web25",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:wood",
+      "fields": [
+        "name"
+      ]
+    }
+  ],
+  "paths": [
+    "/",
+    "/archives/",
+    "/archives/2014-02-26/",
+    "/archives/2014-03-12/",
+    "/archives/2014-03-13/",
+    "/archives/2014-03-27/",
+    "/archives/2014-03-31/",
+    "/archives/2014-04-01/",
+    "/archives/2014-04-07/",
+    "/archives/2014-04-23/",
+    "/archives/2014-04-26/",
+    "/archives/2014-04-30/",
+    "/archives/2014-05-14/",
+    "/archives/2014-05-19/",
+    "/archives/2014-05-21/",
+    "/archives/2014-07-01/",
+    "/archives/2014-07-11/",
+    "/archives/2014-07-13/",
+    "/archives/2014-07-20/",
+    "/archives/2014-07-21/",
+    "/archives/2014-08-02/",
+    "/archives/2014-08-20/",
+    "/archives/2014-08-28/",
+    "/archives/2014-08-31/",
+    "/archives/2014-09-01/",
+    "/archives/2014-09-05/",
+    "/archives/2014-09-06/",
+    "/archives/2014-09-13/",
+    "/archives/2014-09-14/",
+    "/archives/2014-09-15/",
+    "/archives/2014-09-16/",
+    "/archives/2014-09-18/",
+    "/archives/2014-09-21/",
+    "/archives/2014-09-26/",
+    "/archives/2014-09-29/",
+    "/archives/2014-10-14/",
+    "/archives/2014-11-10/",
+    "/archives/2014-11-24/",
+    "/archives/2014-11-25/",
+    "/archives/2014-12-22/",
+    "/archives/2015-01-02/",
+    "/archives/2015-01-05/",
+    "/archives/2015-01-13/",
+    "/archives/2015-01-16/",
+    "/archives/2015-01-21/",
+    "/archives/2015-01-29/",
+    "/archives/2015-02-03/",
+    "/archives/2015-02-08/",
+    "/archives/2015-02-09/",
+    "/archives/2015-02-14/",
+    "/archives/2015-03-06/",
+    "/archives/2015-04-26/",
+    "/archives/2015-05-27/",
+    "/archives/2015-06-17/",
+    "/archives/2015-07-16/",
+    "/archives/2015-09-11/",
+    "/archives/2015-10-23/",
+    "/archives/2015-12-10/",
+    "/archives/2015-12-17/",
+    "/archives/2015-12-30/",
+    "/archives/2016-01-07/",
+    "/archives/2016-01-09/",
+    "/archives/2016-02-29/",
+    "/archives/2016-05-08/",
+    "/archives/2016-08-14/",
+    "/archives/2016-08-17/",
+    "/archives/2016-08-30/",
+    "/archives/2016-09-04/",
+    "/archives/2016-09-11/",
+    "/archives/2016-09-14/",
+    "/archives/2016-09-30/",
+    "/archives/2016-10-04/",
+    "/archives/2016-11-08/",
+    "/archives/2016-12-15/",
+    "/archives/2017-03-08/",
+    "/archives/2017-03-21/",
+    "/archives/2017-03-30/",
+    "/archives/2017-04-07/",
+    "/archives/2017-04-18/",
+    "/archives/2017-04-19/",
+    "/archives/2018-09-10/",
+    "/archives/2020-02-23/",
+    "/archives/2026-07-24/",
+    "/archives/2026-08-16/",
+    "/archives/2026-08-18/",
+    "/archives/2026-08-20/",
+    "/archives/2026-08-24/",
+    "/archives/2026-08-25/",
+    "/archives/2026-08-27/",
+    "/archives/2026-08-28/",
+    "/archives/2026-08-29/",
+    "/archives/2026-09-01/",
+    "/archives/2026-09-02/",
+    "/flux/",
+    "/flux/blog-ooblik/",
+    "/flux/instagram/",
+    "/flux/tumblr-ooblik/",
+    "/flux/twitter/",
+    "/tags/",
+    "/tags/1x1blue/",
+    "/tags/25ansduoueb/",
+    "/tags/aaron-swartz/",
+    "/tags/activisme/",
+    "/tags/adobe/",
+    "/tags/agents/",
+    "/tags/animation/",
+    "/tags/apprentissage/",
+    "/tags/architecture/",
+    "/tags/archive/",
+    "/tags/archives-familiales/",
+    "/tags/archives/",
+    "/tags/area-17/",
+    "/tags/art/",
+    "/tags/article/",
+    "/tags/artisanat/",
+    "/tags/artiste/",
+    "/tags/attention/",
+    "/tags/auto-hebergement/",
+    "/tags/blog-ooblik/",
+    "/tags/book/",
+    "/tags/charit/",
+    "/tags/cinema/",
+    "/tags/clientcontent/",
+    "/tags/cms/",
+    "/tags/code/",
+    "/tags/coloniale/",
+    "/tags/colonialisme/",
+    "/tags/command/",
+    "/tags/compression/",
+    "/tags/contexte/",
+    "/tags/couille/",
+    "/tags/creation/",
+    "/tags/creative-coding/",
+    "/tags/cuisine/",
+    "/tags/culture-libre/",
+    "/tags/cybersecurite/",
+    "/tags/datavisualisation/",
+    "/tags/design-graphique/",
+    "/tags/design-web/",
+    "/tags/design/",
+    "/tags/desktop/",
+    "/tags/developpement/",
+    "/tags/documentaire/",
+    "/tags/donnees/",
+    "/tags/ecole/",
+    "/tags/edition/",
+    "/tags/editor/",
+    "/tags/encadrement/",
+    "/tags/england/",
+    "/tags/enseignement/",
+    "/tags/entrainement/",
+    "/tags/entretien/",
+    "/tags/essentielles/",
+    "/tags/ethique/",
+    "/tags/experimentation/",
+    "/tags/facebook/",
+    "/tags/falciani/",
+    "/tags/fermentation/",
+    "/tags/film/",
+    "/tags/fondation/",
+    "/tags/font-pairing/",
+    "/tags/font/",
+    "/tags/fonts/",
+    "/tags/food/",
+    "/tags/forum/",
+    "/tags/framework/",
+    "/tags/france/",
+    "/tags/g7/",
+    "/tags/geek/",
+    "/tags/google-fonts/",
+    "/tags/google/",
+    "/tags/histoire/",
+    "/tags/hplatex/",
+    "/tags/hplatex360/",
+    "/tags/hsbc/",
+    "/tags/hsbcblackmoneylist/",
+    "/tags/huiles/",
+    "/tags/ia-locale/",
+    "/tags/ia/",
+    "/tags/icc/",
+    "/tags/iceland/",
+    "/tags/identite/",
+    "/tags/ig/",
+    "/tags/imposition/",
+    "/tags/inference/",
+    "/tags/information/",
+    "/tags/instagram/",
+    "/tags/installation/",
+    "/tags/interface/",
+    "/tags/internet/",
+    "/tags/italie/",
+    "/tags/javascript/",
+    "/tags/jellyfin/",
+    "/tags/jesaisplusijaidejatwitt/",
+    "/tags/journal/",
+    "/tags/knowledge-management/",
+    "/tags/lastrt/",
+    "/tags/latex/",
+    "/tags/lien-mort/",
+    "/tags/line/",
+    "/tags/livre-photo/",
+    "/tags/llm/",
+    "/tags/local/",
+    "/tags/logiciel-libre/",
+    "/tags/logiciels/",
+    "/tags/macronpi/",
+    "/tags/manuel/",
+    "/tags/memoire-web/",
+    "/tags/memory/",
+    "/tags/modeles/",
+    "/tags/multi-agents/",
+    "/tags/multimedia/",
+    "/tags/nature/",
+    "/tags/nddl/",
+    "/tags/nivellement/",
+    "/tags/number-1/",
+    "/tags/numerisation/",
+    "/tags/ooblik/",
+    "/tags/opensource/",
+    "/tags/opinion/",
+    "/tags/optimisation/",
+    "/tags/orchestration/",
+    "/tags/outils/",
+    "/tags/pablo/",
+    "/tags/pairing/",
+    "/tags/pao/",
+    "/tags/papier/",
+    "/tags/parisweb/",
+    "/tags/pass/",
+    "/tags/paysage/",
+    "/tags/peinture/",
+    "/tags/photographe/",
+    "/tags/photographie/",
+    "/tags/php/",
+    "/tags/pieces-detachees/",
+    "/tags/pjlterrorisme/",
+    "/tags/plateforme/",
+    "/tags/plex/",
+    "/tags/poissondavril/",
+    "/tags/politique/",
+    "/tags/pommiers/",
+    "/tags/portfolio/",
+    "/tags/printbyooblik/",
+    "/tags/pro-bono/",
+    "/tags/productivite/",
+    "/tags/programmers/",
+    "/tags/progres/",
+    "/tags/ps/",
+    "/tags/publication/",
+    "/tags/publisher/",
+    "/tags/rag/",
+    "/tags/recherche/",
+    "/tags/reference/",
+    "/tags/reliure/",
+    "/tags/remaniementministeriel/",
+    "/tags/reparation/",
+    "/tags/retrospective/",
+    "/tags/saint-etienne/",
+    "/tags/sans/",
+    "/tags/serveur/",
+    "/tags/sexisme/",
+    "/tags/societe/",
+    "/tags/stories/",
+    "/tags/suisse/",
+    "/tags/super-8/",
+    "/tags/suprb/",
+    "/tags/technologie/",
+    "/tags/terminal/",
+    "/tags/tipibookshop/",
+    "/tags/tokens/",
+    "/tags/travail/",
+    "/tags/tumblr/",
+    "/tags/twitter/",
+    "/tags/typo/",
+    "/tags/typographie/",
+    "/tags/typography/",
+    "/tags/typos/",
+    "/tags/urbanisme/",
+    "/tags/valentinesday/",
+    "/tags/veille/",
+    "/tags/ville/",
+    "/tags/vimeo/",
+    "/tags/vocabulaire/",
+    "/tags/web-development/",
+    "/tags/web/",
+    "/tags/web25/",
+    "/tags/wiki/",
+    "/tags/wood/"
+  ],
+  "artwork": {
+    "upsert": [
+      "2026-08-16",
+      "2026-08-18",
+      "2026-08-20",
+      "2026-08-24",
+      "2026-08-25",
+      "2026-08-27",
+      "2026-08-28",
+      "2026-08-29",
+      "2026-09-01",
+      "2026-09-02"
+    ],
+    "remove": []
+  },
+  "revision": "6efa031d7e97dfaa7d730da822689a846cc10b300692826efa8f1fdc729eac9f"
+}

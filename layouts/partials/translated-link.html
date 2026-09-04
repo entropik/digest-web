@@ -1,0 +1,16 @@
+{{- $link := . -}}
+{{- if eq site.Language.Lang "en" -}}
+  {{- $id := printf "link:%s" .id -}}
+  {{- $pending := false -}}
+  {{- range $field := slice "title" "description" "archive_text" "status_note" "image_alt" -}}
+    {{- with index $link $field -}}
+      {{- $entry := index (index (hugo.Data.translations_en.entries | default dict) $id | default dict) $field -}}
+      {{- $hash := crypto.SHA256 (printf "text\n%s" .) -}}
+      {{- if not (and $entry (eq $entry.hash $hash)) -}}{{- $pending = true -}}{{- end -}}
+      {{- $text := partial "translated.html" (dict "id" $id "field" $field "source" .) -}}
+      {{- $link = merge $link (dict $field $text) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $link = merge $link (dict "translation_pending" $pending) -}}
+{{- end -}}
+{{- return $link -}}

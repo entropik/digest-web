@@ -1,6 +1,6 @@
 {{- $linksByTag := newScratch -}}
 {{- $linksByTag.Set "links" dict -}}
-{{- range (partialCached "public-links.html" hugo.Data.links "public-links") -}}
+{{- range (partialCached "public-links.html" hugo.Data.links "public-links" site.Language.Lang) -}}
   {{- $link := . -}}
   {{- range .tags -}}
     {{- $tag := . -}}
