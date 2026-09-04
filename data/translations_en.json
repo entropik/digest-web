@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "2967592e3b15a9f97bc866bbe56eafc48ad3539f42230004b6412637e6f81900",
+  "revision": "4faefa6d7825e1b793881305e0f7832cdc8fe0c9b8849fd1548cb908f0313d9a",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -84,6 +84,10 @@
       "description": {
         "hash": "4bbbafea7f289d26b1b4ac9b566f3e06aee1e283a13b5bf09c99a2aac8d6a3d7",
         "text": "create fonts online"
+      },
+      "title": {
+        "hash": "e0b46af3a34d3b8bc0c479298b0227076408c0aab2521b33c0f229212caf350f",
+        "text": "ModuloFont | Home"
       }
     },
     "link:069e17f4-795d-5135-90c6-fecb6efafcc7": {
@@ -276,6 +280,16 @@
       "title": {
         "hash": "d8f34949661f8a40ad3ad93cd373b414145c86b4e6d5ac8d298d7fbbc74fedcc",
         "text": "Pydantic AI — end-to-end typed Python agents"
+      }
+    },
+    "link:25662d65-c338-5ebd-bb3c-f0b32a2467a3": {
+      "description": {
+        "hash": "82dbfda805bdcb0e38ce7faebac8bb834a496a18fb99373f85009b46f2df8fe3",
+        "text": "Rakazo is an open source Grok Bot alternative for persistent AI teammates that do real work. Your keys, your model, your machine."
+      },
+      "title": {
+        "hash": "dd1e217ed3f093805ed4bcc9a6a7d47eefaab7bb60909dc4d8500ca077c4a3a9",
+        "text": "Tree"
       }
     },
     "link:271642cf-33b2-5f94-97d6-44468f5a6703": {
@@ -525,6 +539,10 @@
       }
     },
     "link:54d2f114-a47e-503a-b0eb-36fa1472bd03": {
+      "description": {
+        "hash": "cf134a5ce1e11bf8db326d7915284d1ac941047bf8ea436daee15a5b44992d0a",
+        "text": "Cultural and practical resources on what radical web design might look like, compiled and presented by Julien Bidoret."
+      },
       "title": {
         "hash": "7881879be65b5b272bcd66e8cfd8beb63d86b8f575115edba76bf77f183e43a2",
         "text": "Radical web design"
@@ -634,6 +652,12 @@
       "title": {
         "hash": "967f71519f49aebe42b812f0718af97900ad8a51623bb71a1bb902d6f400aaf1",
         "text": "JavaScript Algorithms — Algorithms and data structures explained"
+      }
+    },
+    "link:69551e95-ab3d-5622-823a-67ef708de15f": {
+      "title": {
+        "hash": "069c9686c84bfe56e70ec82fcab3e732f66f58b99c58bfc24e9bddb15f717a4f",
+        "text": "The 7 mistakes that ruin your print-ready PDFs! - Cloître Imprimeurs"
       }
     },
     "link:6b29fa58-0da6-51ef-b3bc-64598f36e8ae": {
@@ -803,6 +827,10 @@
       }
     },
     "link:802a3709-c69a-5049-83b8-a9545e26086e": {
+      "description": {
+        "hash": "f976c0bad3596be2083de26e90ca9691e808147efe971733da0d3b89aa6bcd17",
+        "text": "The Late Brake Show is the YouTube channel of motoring journalist :Gasolini AR1 Review"
+      },
       "title": {
         "hash": "7100a20a5cca473f9be6daa21bdf0380232188740457452ba88bddbf04729201",
         "text": "The Late Brake Show"
@@ -829,6 +857,10 @@
       }
     },
     "link:836c8b71-c8d3-575c-a9cd-aeb1be410265": {
+      "description": {
+        "hash": "fbb11fd697417c918468a32e06e45c67e548bf29ee3265f472829724b0c91038",
+        "text": "a complete artist, a visual and sound poet, a friend."
+      },
       "title": {
         "hash": "214785edb7587a59203d7721e4c71d06401a74db13e1de46ba7600bb51873db1",
         "text": "Vahan Soghomonian"
@@ -842,6 +874,12 @@
       "title": {
         "hash": "b3ceb0969b9885ae0f8b3a5e60fb65a48167711de29f25749dd4c45e2798c730",
         "text": "AutoGen — Programming agent-based systems"
+      }
+    },
+    "link:852bc9ae-96e5-561d-8dd9-0195d542b1a9": {
+      "description": {
+        "hash": "710cf9553b5e59667acf112653741a2093e701f158c9542103dd2744603d83e5",
+        "text": "Portfolio of Louis Eveillard, a freelance graphic and interaction designer based in Paris."
       }
     },
     "link:87db8e2b-cbc3-5691-bb1f-55a09fe9a41e": {
@@ -904,6 +942,16 @@
         "text": "LangChain — AI agent engineering platform"
       }
     },
+    "link:90f3e6b8-d446-570e-acbc-d4701b9d576d": {
+      "description": {
+        "hash": "26b29134f04f99114a80e63817c948bf4d3b08b3a77febe7d1d792c7efdba3db",
+        "text": "Hire AI agents that get a dedicated runtime, a sandboxed browser, a real email inbox, and a seat in Slack, Telegram & Discord. $299 per agent / mo, 48-hour free trial. Open-source core."
+      },
+      "title": {
+        "hash": "1eeaa189df3c8df80e7aa1376793d487cb1c67e3faf0910a14bbae97a38bfa52",
+        "text": "Provision — Hire AI agents for Slack, Telegram & email"
+      }
+    },
     "link:917cc88e-85f2-5cc5-ba80-103798eebe67": {
       "description": {
         "hash": "050b7e8bf5e0fe821bc53416cddfab1096d7ec989ca54cc634b47a9a9a5b436e",
@@ -922,6 +970,16 @@
       "title": {
         "hash": "7fee5425c782286c33bc279f435720fec73f54939bf067b8896bb58e0e2fe411",
         "text": "Frame — maintaining the project’s original intent"
+      }
+    },
+    "link:936ffc45-c35d-5251-b47f-48a8816aaaac": {
+      "description": {
+        "hash": "b629cef3b44bac53f8a43d65c1b0b65353a53228146754a0ec46af11cc07f601",
+        "text": "An open-source Grok Bot. Bring your own agent, local-first, on the models you already have. Free and open source, MIT licensed."
+      },
+      "title": {
+        "hash": "b6fa16f9bf25d6dea78be3b1143b480ed006f6984f36329ded6dea1682d95ba5",
+        "text": "OpenMausBot: Your own team of AI agents"
       }
     },
     "link:95618c6d-8d6a-523c-9381-2b47434f4bce": {
@@ -1064,6 +1122,16 @@
         "text": "OpenADE — plan, review, then execute"
       }
     },
+    "link:a393baef-6670-57c4-849c-d55d947ff389": {
+      "description": {
+        "hash": "de8157cb643d81bbee38d37f3bdaf06f0276d1153dd505a12de0c2ef8ab80db3",
+        "text": "a huge fan of Etienne Mineur’s work on AI-assisted generative art and other things…"
+      },
+      "title": {
+        "hash": "a29869a1f5cae04806bda4129d75c9c69cd323062fec861dc1048b3c0aa4f04b",
+        "text": "Artificial typefaces: lines – Étienne Mineur"
+      }
+    },
     "link:a554f655-6c3e-5ecc-9065-6bfb8679f612": {
       "description": {
         "hash": "2e5c13c06620034ed80a56d374ad4e78a8af3b49c983e239b720216b31a61001",
@@ -1200,6 +1268,12 @@
         "text": "do•doc | Home"
       }
     },
+    "link:b5f52802-a3ac-5412-9a59-1dbaf68a6495": {
+      "description": {
+        "hash": "43015fe2b563c87127c457a888d0af43ffdba6336eb0674bc79e715bf8ca3249",
+        "text": "Hivemind — Multi-agent AI team platform. Contribute to hivementality-ai/hivemind development by creating an account on GitHub."
+      }
+    },
     "link:b63b6ff0-4b0c-54d8-8c4b-bad4a02c27ee": {
       "description": {
         "hash": "790db12213cff34f498e25d294ab0aa0a0d6d53df5d85a42d5cf730feafe67a5",
@@ -1296,6 +1370,18 @@
         "text": "CodexBar"
       }
     },
+    "link:c960df00-e289-592d-8f11-10bd24c1806b": {
+      "title": {
+        "hash": "503c7f0f62ada310e8e5065bf5bcd846edae562548994e3db01fbfdf7b54d5b7",
+        "text": "pocketpaw/pocketpaw: Your AI agent in 30 seconds. Not 30 hours. Self-hosted, open-source personal AI with desktop installer, multi-agent Command Center(Deep Work), and 7-layer security. Anthropic, OpenAI, or Ollama."
+      }
+    },
+    "link:cbb49758-a9ab-5ad6-ba50-7eb3b78efaae": {
+      "description": {
+        "hash": "3137eef8184aaaf5b7efd234b1ead57baf49d87161346798892ea7fe77ab335f",
+        "text": "The perfect virtual assistant — on your computer. She drafts your replies, writes your content, chases your invoices, and runs the procedures you already know by heart. Free, private, no subscription."
+      }
+    },
     "link:cf0cb9e5-e686-59cb-b953-0d55eba56fbe": {
       "description": {
         "hash": "db389ed1f087fcaf7d2aaf60568eb302f7c8bb4cea8be1a3da518af139fb071a",
@@ -1320,6 +1406,10 @@
       "description": {
         "hash": "5b52f250eaf80f5db3d2ab1944d08cea497023ff673ceae9668d55e8ceb6138c",
         "text": "Freelance graphic and web designer based in Amiens, Hauts-de-France. Website development, graphic design, visual communication and more."
+      },
+      "title": {
+        "hash": "f9b9bbfe35ca0f9a23c245bc8daa26b85130b38e0ccd376f5cb648a9d1330317",
+        "text": "Benoît Wimart – web design & graphic design, Amiens: home"
       }
     },
     "link:d20e8093-a9f6-51e6-bd15-de4dfb32b687": {
@@ -1370,6 +1460,26 @@
       "title": {
         "hash": "d79112b2a84f91479253ca0c9c19fa21aa01cd27ff872757326de03b3546a215",
         "text": "Xirp — Know your systems, so your agents can too"
+      }
+    },
+    "link:d6da3dc7-daea-5e67-8ebc-fc7c58eeb560": {
+      "description": {
+        "hash": "161a4d3c8dd31c3d34cb88215f228861bb8331008c6c33b5b3836218ee31abd1",
+        "text": "The complete collection of ‘Mikrodystopies’ posted on Twitter between August 2018 and February 2023"
+      },
+      "title": {
+        "hash": "223e59264c1b7182010f17fa98a865b8165b990eac2ff68975d7cc53b5f8e490",
+        "text": "Mikrodystopies: The Complete Collection"
+      }
+    },
+    "link:d8041082-f34f-5940-bb39-c0ce79b98026": {
+      "description": {
+        "hash": "8afe6c270d118afb54556af67ee9933d5f00625b8f06b313c25f20708f4a6910",
+        "text": "cmux – The terminal designed for multitasking. Designed for AI coding agents and multitasking workflows on macOS."
+      },
+      "title": {
+        "hash": "3bf9ca8a456f18a9c7f8b9bcafc3e7c19f33eb2318c51e4542f0b73e332ff0ac",
+        "text": "cmux — The terminal designed for multitasking"
       }
     },
     "link:d890b9e1-8e30-591e-ac08-4399982362d7": {
@@ -1510,6 +1620,16 @@
         "text": "Sparrowhawk"
       }
     },
+    "link:e9a404e1-64d3-540b-9794-3bdea616c4b6": {
+      "description": {
+        "hash": "ae6a119ac89ecfb6818b31099b4da8513156117b6d967c6b768f36bbd15ae9d2",
+        "text": "Poursuite is a publishing house based in Arles; it publishes books on photography and the visual arts."
+      },
+      "title": {
+        "hash": "7a4d806d18fa63db2bdde378c0c98617f15394269e7b48c37304ecda7c71c01a",
+        "text": "Catalogue - Follow-up"
+      }
+    },
     "link:ea2aeedc-6035-55a2-839b-2e6791f2b92f": {
       "description": {
         "hash": "ef7d22c0cc91cfd5c4d7eb1df116c084f52bd8dbada9c475cbc58fc769c22e63",
@@ -1528,6 +1648,12 @@
       "title": {
         "hash": "e554a1f1ee1d5b103df925fc8e12f589bbc240e8fc8078e6d0e2322cd3459042",
         "text": "bluewave-labs/Checkmate: Checkmate is an open-source, self-hosted tool designed to track and monitor server hardware, uptime, response times, and incidents in real-time with beautiful visualizations. Don't be shy, join here: https://discord"
+      }
+    },
+    "link:ea96ab84-ed93-5c4d-b346-80a7604fb9f4": {
+      "title": {
+        "hash": "74c73f6b5dd4315824f58fc467d8fec8b9463249dadcc2d02998c59ff372d003",
+        "text": "plasma-ai/fractal: Hierarchical agent loops with recursive self-organization."
       }
     },
     "link:ef99ceaa-ea01-5c38-8f1e-204ef004c8dd": {
@@ -1630,6 +1756,16 @@
         "text": "Data breaches in France 2026 | FrenchBreaches"
       }
     },
+    "link:fe9b7aff-52f9-5f36-8974-51573dcf1ec9": {
+      "description": {
+        "hash": "21f0160753c80cf99a03e7607edb49ef5e185666e3298a97d319bccc05b961f6",
+        "text": "Your AI company, on your own machine. A multi-agent platform where you hire named agents, chat with a Lead to design workflows, and watch them run — desktop app or self-hosted server. - jhk482001/Holons"
+      },
+      "title": {
+        "hash": "9ca63edc75e92d740dc6964e1103ba96b3c53fccf6ed5ee3e33fd3685e2499d0",
+        "text": "jhk482001/Holons: Your AI company, on your own machine. A multi-agent platform where you hire named agents, chat with a Lead to design workflows, and watch them run — desktop app or self-hosted server."
+      }
+    },
     "link:ffef6cc6-afa6-5113-8e37-e2049c44da23": {
       "description": {
         "hash": "154db9f4f0ef66795cb4cc1d125cab569306d6ef246c7d2bd7f5ab0e91ecd56d",
@@ -1660,6 +1796,12 @@
         "text": "Archives"
       }
     },
+    "page:/archives/2016-11-09": {
+      "title": {
+        "hash": "eacef22eb7eee8bc4ef73faf4f736f268e285e881dad5f2b864d46bdcf2f56e6",
+        "text": "9 November 2016"
+      }
+    },
     "page:/archives/2026-07-24": {
       "description": {
         "hash": "7020c7026d8c2f38bd7960e40f85e507d1a79140762c20a8982092d9effe3b13",
@@ -1677,6 +1819,10 @@
       }
     },
     "page:/archives/2026-08-18": {
+      "body": {
+        "hash": "aa03ddaac96261eb68a49089821d9b6b0e8882795717c78d2287cbf47e259e22",
+        "text": "<p>A selection of carefully chosen and well-researched resources. Controversies come and go, but the links remain…</p>\n"
+      },
       "description": {
         "hash": "7020c7026d8c2f38bd7960e40f85e507d1a79140762c20a8982092d9effe3b13",
         "text": "Artificial intelligence, development, design, publishing and digital creation."
@@ -1687,6 +1833,10 @@
       }
     },
     "page:/archives/2026-08-20": {
+      "body": {
+        "hash": "9be090bbdec81194c9613093c4b90ec9806e24c02a75dd6250d65451f9744638",
+        "text": "<p>Bot or no bot? Apparently, for the richest man (in what?) in the tech world, the bot is man’s best friend… we’ll see. Conversely, the web is, and must remain, a free and shared resource.</p>\n"
+      },
       "description": {
         "hash": "7020c7026d8c2f38bd7960e40f85e507d1a79140762c20a8982092d9effe3b13",
         "text": "Artificial intelligence, development, design, publishing and digital creation."
@@ -1856,6 +2006,30 @@
       "title": {
         "hash": "946546d90a07b056aaf49f70b37dd2857b2ec866c0aea388c8914c2652bc086a",
         "text": "Diary of a Procrastinator"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-08-18": {
+      "description": {
+        "hash": "8077c95c60f908b90da4186763fc7955e2e69b522a482be97d700c17bdca92f1",
+        "text": "Day 130 of the diary: the publisher is tightening up backup, checkout and responsiveness procedures, whilst an audit is calling into question the instinctive migration from R2 to Hetzner."
+      },
+      "title": {
+        "hash": "777fb219464c221daa2cffc5b2e013ae5f0ffeb4dece49462f596ae514de8697",
+        "text": "Day 130 – Save before you exit, choose before you migrate"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-08-20": {
+      "body": {
+        "hash": "cbe17b64ea7a09920b7702823992cdd2b4e62369a959ef54dc38bf3f83bd34d0",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Browser used: <strong>Codex</strong></li>\n<li>Primary environment: <strong>Mac, KEREDIT repository <code translate=\"no\">dépôt local krampouz</code>, OVH and IONOS consoles, local S3 POC</strong></li>\n<li>Date covered: <strong>Thursday 20 August 2026; full report to follow after the session ends</strong></li>\n<li>Branches observed: <strong><code translate=\"no\">codex/vrifier-ltat-de-la-branche</code> then the branch from PR #444 merged into <code translate=\"no\">dev</code></strong></li>\n<li>Time window selected for the minimum: <strong>16:08 → 19:12 CEST</strong>, from initial work on the POC to the final commit of the GOF audit</li>\n<li>Minimum time observed: <strong>approximately 3 hours 4 minutes+</strong>, excluding research, supplier trials and conversations that cannot be reconstructed with a time stamp</li>\n<li>Version delivered: <strong>0.22.5</strong>, merge PR #444 <code translate=\"no\">d1a3acee</code></li>\n<li>Main result: <strong>OVH Standard 3-AZ Paris validated via POC and benchmark from the VPS; IONOS abandoned; no migration carried out yet</strong></li>\n<li>Key logs: <strong>storage health admin page, R2/OVH benchmark, release 0.22.5 and audit of the GOF integration up to <code translate=\"no\">3db0ed44</code></strong></li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 845h57+</strong> (<code translate=\"no\">842h53+</code> as at 18 August, plus <code translate=\"no\">3h04+</code> today)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>The storage POC provides a viable solution. OVH Standard 3-AZ Paris\naccepts the current KEREDIT stream: CORS, pre-signed PUTs with and without checksums,\nmultipart, signed GETs and cleaning operations all pass. IONOS has been ruled out prior to technical testing\ndue to issues with its onboarding process, a poor interface and an SLA that is too\nweak to make the effort economically viable.</p>\n<p>Another infrastructure option, Forgejo, has been explicitly classified as\nzero priority. GitHub remains the source of truth and nothing should be migrated\nin advance. These two decisions narrow the technical scope. They do not\nautomatically reduce the workload.</p>\n<h2 id=\"la-souveraineté-devient-une-architecture-concrète\">Sovereignty becomes a concrete architecture</h2>\n<p>The choice is not merely about a faster storage bucket. KEREDIT handles\nphotos, projects and production documents belonging to OOBLIK’s\nclients. The aim is therefore to keep their data journey within Europe: the\nin Germany, object storage with OVH in France, in the\nParis 3-AZ region. Moving away from R2, a service provided by an American company, removes the\nprimary storage from the scope of the Cloud Act and makes the location more transparent.</p>\n<p>This sovereignty is not presented as absolute. Cloudflare services\nmay still be used outside the storage environment, and a European architecture does not\nexempt organisations from the need for backups, encryption or access control. The benefit\nof the day is more specific: client objects now have a French target\nthat is proven to be compatible, whilst the application remains hosted in Germany.</p>\n<h2 id=\"le-poc-choisit-ovh-avec-une-reserve-nette\">The POC opts for OVH, with one caveat</h2>\n<p>The <code translate=\"no\">backend/scripts/poc-object-storage.mjs</code> framework performs the functions on which\nKEREDIT actually depends. On OVH 3-AZ Paris, the bucket responds, the CORS rule\nis applied, the browser preflight is correct, simple and\nmultipart uploads are successful, and signed GET URLs work. From the local workstation,\nthe small GET request has a median time of around 32 ms and the 1 MB PUT takes around 570 ms.\nThe measurement will need to be repeated from the VPS.</p>\n<p>The SHA-256 checksum is accepted in the signature but is not validated by OVH: a\ndeliberately corrupted body still receives a 200 response. This is not a blocking issue for\nthe current workflow, which already places the checksum in the URL and confirms the upload on the\nbackend side, but integrity then relies on TLS and this application-level validation.\nThe log retains this caveat rather than turning a green POC into\nabsolute certainty.</p>\n<p>The benchmark is then run again from the production VPS. Compared to R2, OVH\nis approximately 2.6 times faster on the median for the 4 MB pre-signed PUT, 5.5\ntimes faster for the small signed GET and 1.6 times faster for the 1 MB SDK PUT. Data sovereignty\ntherefore does not require sacrificing performance in this case; the more variable p95 of the\nlarge PUT requests remains to be monitored.</p>\n<p>The bucket and test keys must be revoked, as the credentials have\nbeen transmitted over an unsecured channel. No R2 copies, no switchover and no\ncreation of production resources are initiated in this post.</p>\n<h2 id=\"fermer-les-portes-qui-ne-menent-pas-a-septembre\">Close the doors that do not lead to September</h2>\n<p>Forgejo is technically feasible, but it would affect repositories, issues,\nPRs, CI, GHCR, procedures <code translate=\"no\">gh</code> and the Codex review. Now is not the\nright time. The ops documentation therefore sets out a decision not to take action: GitHub\nremains in place and any future evaluation will begin with an\nempty, isolated and reversible instance.</p>\n<p>The storage migration itself is not yet a priority over the product.\nThe useful outcome is a prepared plan and a roadmap: measure the actual volume,\nstrengthen retry mechanisms and monitoring, and only then plan for mirroring, failover\nand rollback.</p>\n<h2 id=\"billet-dhumeur--écrire-enfin-lépuisement\">Rant: finally writing about burnout</h2>\n<p>The delay in posting this journal entry isn’t just a routine oversight. As\nthe early September release approaches, the accumulated fatigue has become overwhelming: severe\ndemotivation, doubts about my ability to meet the deadline and a feeling of being\non the verge of burnout. I’m going through what feels like a mild\ndepression, probably fuelled by exhaustion. Even tangible progress\nis no longer always enough to restore my drive.</p>\n<p>I want to write about this honestly, because this state of mind is directly affecting the\nproject: difficulty in wrapping up the day, temporarily giving up on the journal,\ndecisions that feel more burdensome, and the impression that the release is drawing\ncloser faster than the product is progressing. This post is not intended to dramatise the situation or to\nconclude that everything is going badly. It simply records a moment when continuing at the same\npace is probably no longer sustainable.</p>\n<p>I’m not going through this alone, though. I’ve had a rest, and Claire, my\nwife, is supporting me with her love. Her presence doesn’t take the fatigue away, but\nit changes the way I cope with it. In my own words today: ‘with\nlove, everything passes’. This is also part of the truth of this period, and\nit deserves to be recorded in the journal just as much as the doubts.</p>\n<p>The code repository tells a paradoxical story. Since the last post, the Builder\nhas gone through the entire build chain, the print quantities have been made more reliable, the checkout\nprocess has been hardened and the storage option has been tested. So it is not the lack of\nresults that is fuelling the doubt. It is the accumulation of issues, the approach of September\nand the gradual disappearance of any leeway to catch up.</p>\n<h2 id=\"la-prochaine-preuve-nest-pas-une-nouvelle-feature\">The next milestone isn’t a new feature</h2>\n<p>The point is not to promise yet another sprint. We must first make\nthe release clear: what is essential for early September, what is\nalready sufficiently reliable, and what can wait. The log resumes\ntoday precisely for this reason. It is not just for counting\ncommits; it must also prevent the project from overshadowing the person driving it.</p>\n"
+      },
+      "description": {
+        "hash": "7dd1a3e36992bb833f627bacf163e507429f70d2b18c4be21fc12872a3fb69c8",
+        "text": "Day 131 of the log: the POC and benchmark from the VPS have selected OVH 3-AZ Paris to bring customer data back into a European infrastructure."
+      },
+      "title": {
+        "hash": "f698e9f242a31edad738a5767745b996f28f55afaf378a8129e400f16ce478f2",
+        "text": "Day 131 – The release is drawing near, my body’s saying ‘enough’"
       }
     },
     "page:/flux/journal-procrastinateur/2026-08-21": {
@@ -8040,6 +8214,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "fd08df7942b649027ab6a5d842b5a8045a5e299fd97c0d9a172a332ce1c0d6ed",
+        "text": "Space systems"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-19.webp": {
@@ -8126,6 +8304,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "fd08df7942b649027ab6a5d842b5a8045a5e299fd97c0d9a172a332ce1c0d6ed",
+        "text": "Space systems"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-30.webp": {
@@ -8142,6 +8324,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "fd08df7942b649027ab6a5d842b5a8045a5e299fd97c0d9a172a332ce1c0d6ed",
+        "text": "Space systems"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-01.webp": {
@@ -8158,6 +8344,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "fd08df7942b649027ab6a5d842b5a8045a5e299fd97c0d9a172a332ce1c0d6ed",
+        "text": "Space systems"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-03.webp": {
@@ -8184,6 +8374,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "fd08df7942b649027ab6a5d842b5a8045a5e299fd97c0d9a172a332ce1c0d6ed",
+        "text": "Space systems"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-08.webp": {
@@ -8288,18 +8482,30 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "fd08df7942b649027ab6a5d842b5a8045a5e299fd97c0d9a172a332ce1c0d6ed",
+        "text": "Space systems"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-22.webp": {
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "fd08df7942b649027ab6a5d842b5a8045a5e299fd97c0d9a172a332ce1c0d6ed",
+        "text": "Space systems"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-23.webp": {
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "fd08df7942b649027ab6a5d842b5a8045a5e299fd97c0d9a172a332ce1c0d6ed",
+        "text": "Space systems"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-27.webp": {
@@ -8374,6 +8580,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "fd08df7942b649027ab6a5d842b5a8045a5e299fd97c0d9a172a332ce1c0d6ed",
+        "text": "Space systems"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-09.webp": {
@@ -8500,6 +8710,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "fd08df7942b649027ab6a5d842b5a8045a5e299fd97c0d9a172a332ce1c0d6ed",
+        "text": "Space systems"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-22.webp": {
@@ -8704,6 +8918,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "fd08df7942b649027ab6a5d842b5a8045a5e299fd97c0d9a172a332ce1c0d6ed",
+        "text": "Space systems"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-17.webp": {
@@ -8822,6 +9040,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "fd08df7942b649027ab6a5d842b5a8045a5e299fd97c0d9a172a332ce1c0d6ed",
+        "text": "Space systems"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-01.webp": {
@@ -8910,6 +9132,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "fd08df7942b649027ab6a5d842b5a8045a5e299fd97c0d9a172a332ce1c0d6ed",
+        "text": "Space systems"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-11.webp": {
@@ -9097,15 +9323,39 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-18.webp": {
+      "alt": {
+        "hash": "292ed77616ba98db41a8af300d0b5e17b51b39a66d515fe26dd1f6dc46fcc714",
+        "text": "Document NASA : Mars Science Laboratory Spacecraft Assembled for Testing"
+      },
+      "date": {
+        "hash": "6697a6b33d540edb10faac7cdf9068eb262d2ba6d8729cd7b333e3ee5647e524",
+        "text": "19 November 2008"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "fd08df7942b649027ab6a5d842b5a8045a5e299fd97c0d9a172a332ce1c0d6ed",
+        "text": "Space systems"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-20.webp": {
+      "alt": {
+        "hash": "b6b3900381275465e1c9f3a7861ac7d8d95de83f29e5c6d8cb617ac8a52bb1b9",
+        "text": "Document NASA : CXBN-2 CubeSat Integration Team in the Morehead State University Spacecraft Integration and Assembly Facility"
+      },
+      "date": {
+        "hash": "eacef22eb7eee8bc4ef73faf4f736f268e285e881dad5f2b864d46bdcf2f56e6",
+        "text": "9 November 2016"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "fd08df7942b649027ab6a5d842b5a8045a5e299fd97c0d9a172a332ce1c0d6ed",
+        "text": "Space systems"
       },
       "title": {
         "hash": "29fe63a8c4a8a80be458894b0bf441c8c13a85dd48febbb3eef29de5e932604c",
