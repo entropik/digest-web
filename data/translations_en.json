@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "04fc2978f4a6049449cf70ac231b6954706cbea254a7a27137236c60a101835b",
+  "revision": "8a716d905a3fcb3981c650a571008ffc5eb1c287deeaa57daf1412913f618398",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -3090,6 +3090,22 @@
       "title": {
         "hash": "946546d90a07b056aaf49f70b37dd2857b2ec866c0aea388c8914c2652bc086a",
         "text": "Diary of a Procrastinator"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-06-20": {
+      "description": {
+        "hash": "1d4b61dc96cda8e8f8c3442d57555ce892be210e96866353a27484379733ce7d",
+        "text": "KEREDIT public sharing project: removal of flat image mode, implementation of StPageFlip, clean-up of public rendering, correction of artefacts and VPS deployment in version 0.9.10."
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-06-21": {
+      "description": {
+        "hash": "ab5ef1e3b81bf50b6565ef39b95cb3475aa6af2f5012e1914a789ab497f7195f",
+        "text": "KEREDIT Consolidation Day: improvements to file sharing, hardening of StPageFlip/GOF, simplification of GitHub Actions, fix for authentication issues when opening the back-office editor, and deployment of VPS 0.9.11."
+      },
+      "title": {
+        "hash": "b234283fd8b3a76cff77eb9ea9e57bff864001706ae793b1fe9157dd20845a2b",
+        "text": "Day 91 – Making sharing more robust, simplifying deployment"
       }
     },
     "page:/flux/journal-procrastinateur/2026-06-22": {
@@ -10679,6 +10695,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-20.webp": {
+      "alt": {
+        "hash": "4fc22d4cdcf0d3de96e78b344302b8759c50363699e8c6c2fb87c2729bed9487",
+        "text": "Document NASA : Astronaut James van Hoften on RMS tracking Syncom IV-3 after deployment"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10704,6 +10724,10 @@
       "themeLabel": {
         "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
         "text": "Telecommunications"
+      },
+      "title": {
+        "hash": "597fd37409831e5c949031eca9cedbc360f14a69b1eb90f3d6e007664a0a7b49",
+        "text": "View of the SBS-4 communications satellite in orbit above the earth"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-22.webp": {

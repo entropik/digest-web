@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "baseRevision": "a3171e70f11eee81bb17fac5d18e7b5a31672eba1f73b671f9fb39b975a1b713",
-  "targetRevision": "04fc2978f4a6049449cf70ac231b6954706cbea254a7a27137236c60a101835b",
+  "baseRevision": "04fc2978f4a6049449cf70ac231b6954706cbea254a7a27137236c60a101835b",
+  "targetRevision": "8a716d905a3fcb3981c650a571008ffc5eb1c287deeaa57daf1412913f618398",
   "manifestRevision": "261577e2e019b7cf9d967a9bb1dff52329a00c44f1188f132a4cdf0215a39dec",
   "fullBuild": false,
   "items": [
@@ -72,9 +72,28 @@
       ]
     },
     {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-21.webp",
+      "id": "page:/flux/journal-procrastinateur/2026-06-20",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "page:/flux/journal-procrastinateur/2026-06-21",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-20.webp",
       "fields": [
         "alt"
+      ]
+    },
+    {
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-21.webp",
+      "fields": [
+        "title"
       ]
     }
   ],
@@ -93,6 +112,7 @@
     "/archives/2026-09-02/",
     "/flux/",
     "/flux/journal-procrastinateur/",
+    "/flux/journal-procrastinateur/2026-06-20/",
     "/flux/journal-procrastinateur/2026-06-21/"
   ],
   "artwork": {
@@ -111,5 +131,5 @@
     ],
     "remove": []
   },
-  "revision": "11a217531bd9458044ff7c5a2ca029594147675eeb75c17559b5f1245978d08c"
+  "revision": "b96566209fe1c3e43020d727bf4a07d191865e82b9e4d52a3469dd0be08fb16b"
 }
