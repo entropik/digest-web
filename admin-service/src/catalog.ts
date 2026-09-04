@@ -114,6 +114,10 @@ export const changeVisibility = (
   if (index < 0) throw new Error("LINK_NOT_FOUND");
 
   const current = links[index]!;
+  if (action === "restore" && current.visibility_reason === "edition-draft") {
+    throw new Error("CANNOT_RESTORE_EDITION_DRAFT_LINK");
+  }
+
   const alreadyApplied =
     action === "hide"
       ? current.visibility === "hidden"

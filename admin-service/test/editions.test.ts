@@ -78,3 +78,64 @@ test("Focus editions round trip and keep their editorial type", () => {
   assert.equal(parseEdition(source).editorialType, "focus");
   assert.equal(setEditionDraft(source, true).includes('editorial_type: "focus"'), true);
 });
+
+test("toggling draft preserves unrelated front matter and visual artwork", () => {
+  const customArchive = [
+    "---",
+    'title: "Après l’IDE, voici l’ADE"',
+    "date: 2026-08-29",
+    'digest_date: "2026-08-29"',
+    "draft: true",
+    'description: "Une description détaillée."',
+    "images:",
+    '  - "/social/2026-08-29.png"',
+    'visual: "/social/2026-08-29-linkedin.png"',
+    "# Un commentaire conservé",
+    'custom_field: "valeur"',
+    "---",
+    "",
+    "Le corps de l'archive.",
+  ].join("\n");
+
+  const published = setEditionDraft(customArchive, false);
+  assert.doesNotMatch(published, /\ndraft:/);
+  assert.match(published, /\nvisual: "\/social\/2026-08-29-linkedin\.png"/);
+  assert.match(published, /\n# Un commentaire conservé/);
+  assert.match(published, /\ncustom_field: "valeur"/);
+  assert.match(published, /Le corps de l'archive\.$/);
+
+  const draftAgain = setEditionDraft(published, true);
+  assert.match(draftAgain, /\ndraft: true\n/);
+  assert.match(draftAgain, /\nvisual: "\/social\/2026-08-29-linkedin\.png"/);
+  assert.match(draftAgain, /\ncustom_field: "valeur"/);
+
+  const edited = editEdition(draftAgain, {
+    title: "Nouveau titre",
+    description: "Nouvelle description",
+    introduction: "Nouvelle intro",
+  });
+  assert.equal(parseEdition(edited).visual, "/social/2026-08-29-linkedin.png");
+  assert.match(edited, /\nvisual: "\/social\/2026-08-29-linkedin\.png"/);
+});
+
+test("setEditionDraft targets only the column-zero draft property and preserves nested draft keys", () => {
+  const source = [
+    "---",
+    'title: "Édition avec sous-clé draft"',
+    'digest_date: "2026-08-29"',
+    "metadata:",
+    '  draft: "valeur imbriquée"',
+    "draft: true",
+    "---",
+    "",
+    "Contenu.",
+  ].join("\n");
+
+  const published = setEditionDraft(source, false);
+  assert.match(published, /metadata:\n  draft: "valeur imbriquée"/);
+  assert.doesNotMatch(published, /^draft:/m);
+
+  const draftAgain = setEditionDraft(published, true);
+  assert.match(draftAgain, /metadata:\n  draft: "valeur imbriquée"/);
+  assert.match(draftAgain, /^draft: true/m);
+});

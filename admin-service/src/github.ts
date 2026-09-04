@@ -474,10 +474,16 @@ const commitCatalogMutation = async (
   throw new Error("Unable to update the catalog after a concurrent change");
 };
 
-export const listHiddenLinks = async () => {
-  const head = await readRepositoryHead();
+export const listHiddenLinks = async (
+  reader: () => Promise<{ links: DigestLink[] }> = readRepositoryHead,
+) => {
+  const head = await reader();
   return head.links
-    .filter((link) => link.visibility === "hidden")
+    .filter(
+      (link) =>
+        link.visibility === "hidden" &&
+        link.visibility_reason !== "edition-draft",
+    )
     .map(publicAdminLink)
     .sort((left, right) =>
       String(right.hiddenAt).localeCompare(String(left.hiddenAt)),

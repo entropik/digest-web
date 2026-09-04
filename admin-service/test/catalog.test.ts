@@ -269,6 +269,19 @@ test("repeated actions are idempotent", () => {
   );
 });
 
+test("restoring a link staged in an edition draft is rejected", () => {
+  const stagedLink: DigestLink = {
+    ...link(),
+    visibility: "hidden",
+    visibility_reason: "edition-draft",
+    hidden_at: "2026-07-27T10:00:00.000Z",
+  };
+  assert.throws(
+    () => changeVisibility([stagedLink], stagedLink.id, "restore"),
+    /CANNOT_RESTORE_EDITION_DRAFT_LINK/,
+  );
+});
+
 test("catalog parsing rejects duplicate ids", () => {
   const duplicate = [link(), { ...link(), url: "https://example.org" }];
   assert.throws(() => parseCatalog(JSON.stringify(duplicate)), /Duplicate link id/);

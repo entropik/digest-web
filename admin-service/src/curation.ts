@@ -900,13 +900,19 @@ export class CurationService {
   async updateLinkVisibility(id: string, action: VisibilityAction) {
     const verb = action === "hide" ? "Masquer" : "Restaurer";
     for (let attempt = 0; attempt < 2; attempt += 1) {
-      const head = await readRepositoryHead();
+      const head = await this.edition.readRepositoryHead();
       let result;
       try {
         result = changeVisibility(head.links, id, action);
       } catch (error) {
         if (error instanceof Error && error.message === "LINK_NOT_FOUND") {
           throw new CurationError("LINK_NOT_FOUND", 404);
+        }
+        if (
+          error instanceof Error &&
+          error.message === "CANNOT_RESTORE_EDITION_DRAFT_LINK"
+        ) {
+          throw new CurationError("CANNOT_RESTORE_EDITION_DRAFT_LINK", 409);
         }
         throw error;
       }
@@ -919,7 +925,7 @@ export class CurationService {
         };
       }
       const date = result.link.added;
-      const source = await tryReadRepositoryFile(
+      const source = await this.edition.tryReadRepositoryFile(
         editionPath(date),
         head.commitSha,
       );
@@ -937,8 +943,8 @@ export class CurationService {
       };
       const editionSource = setEditionDraft(source, publicLinkCount === 0);
       const [socialImage, linkedInImage] = await Promise.all([
-        generateOptimizedSocialImage(socialInput),
-        generateOptimizedLinkedInImage(socialInput),
+        this.edition.generateOptimizedSocialImage(socialInput),
+        this.edition.generateOptimizedLinkedInImage(socialInput),
       ]);
       try {
         const files: Record<string, string | Buffer> = {
@@ -949,7 +955,7 @@ export class CurationService {
         if (editionSource !== source) {
           files[editionPath(date)] = editionSource;
         }
-        const commit = await commitRepositoryFiles(
+        const commit = await this.edition.commitRepositoryFiles(
           head.commitSha,
           head.treeSha,
           files,
