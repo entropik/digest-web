@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "41cebf47e34bfcf2cfb2bb6fd26070bb676f1d6961a475f726e95f6a4c42f842",
+  "revision": "d14c79e59d8522879e6734111f943000d31afc2d073ce2e396069b223933b9ca",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -90,6 +90,16 @@
         "text": "ModuloFont | Home"
       }
     },
+    "link:060268b0-51bc-56d9-a105-d9e13e184822": {
+      "description": {
+        "hash": "57bd6cecdbc54f0cd62b060540f68a97dbfd8fcce8a7210af77c8af803551bfc",
+        "text": "A tool that transforms agents’ execution logs into reusable skills."
+      },
+      "title": {
+        "hash": "5b9716b1c2a36d40cdeeb72608e796e9d26b9de302128dc372e6779d105b13f0",
+        "text": "Hivemind"
+      }
+    },
     "link:069e17f4-795d-5135-90c6-fecb6efafcc7": {
       "description": {
         "hash": "ad10cc20b21bf59021da3ccd03f6b35d892bb441bbb98dc6c7dc3baa81c72220",
@@ -108,6 +118,12 @@
       "title": {
         "hash": "e31dd0bc8f86b21e288806e5bbeb1c2508d8f1388579ae3484e74297c7dad3d7",
         "text": "Graphify-Labs/graphify: Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explai"
+      }
+    },
+    "link:08469e82-bd71-5a9b-ae23-2332957f4863": {
+      "title": {
+        "hash": "77165202afb22475e1bbb1b03a64627738ebfad5c98531080efee9b39b2a0f1a",
+        "text": "Ente Photo Editor"
       }
     },
     "link:0b49f209-df03-5d5a-a53d-0e584a10de4e": {
@@ -134,6 +150,12 @@
       "title": {
         "hash": "cf85cc7a0cc97191b773d0fcc6e20f752ca2c6dc428572cdeb877df9a835778d",
         "text": "Orca — the control centre for agent fleets"
+      }
+    },
+    "link:0d24dc81-3127-500e-9c08-50c4bd5604c7": {
+      "title": {
+        "hash": "995816dff71d12eb486ed6fc70a2ddb743fd9fec6c961d433ae16c50ae55f26d",
+        "text": "Semantic Analysis of Text and Images"
       }
     },
     "link:0f428bd7-82ae-50a5-b175-03eeab43e89f": {
@@ -364,6 +386,12 @@
         "text": "DeepSeek — Official repositories for models and tools"
       }
     },
+    "link:2937346e-cd74-5026-aea0-64645623dc06": {
+      "title": {
+        "hash": "6de787a9ee94d43aa11406107034857f9fc0af283f3a5e0214048ac7de1385a6",
+        "text": "Camille Roux — archives"
+      }
+    },
     "link:2b78d858-2eff-5afa-9bf1-1bf7886192ba": {
       "description": {
         "hash": "0f19a0f1c65e6b7ffd9e65fde97dac46b15f5257ae187a550a12ce8445864947",
@@ -372,6 +400,16 @@
       "title": {
         "hash": "9b386b874a53816b6a509fcc913d00a0b12d76b6fc625d4eae9d300d08a882df",
         "text": "dmux - Parallel agents with tmux and worktrees"
+      }
+    },
+    "link:2c38b5ea-8b04-552a-be65-85d2e1cadc89": {
+      "description": {
+        "hash": "750116cca74ce7d3e01121d34f8f3ffdf9978d666372b59965f4eb948fed4330",
+        "text": "A platform for building programmable, portable development pipelines tailored to agent-based workflows."
+      },
+      "title": {
+        "hash": "999ef6f63757681e1a969fb2828bfbaa71f9f29beef65afe704c7f5ab981f2c8",
+        "text": "Dagger"
       }
     },
     "link:2cd9810d-bee7-5fc1-a821-a7f587aa4cdd": {
@@ -392,6 +430,12 @@
       "title": {
         "hash": "ff7ae0fae64d8af97f35e037fb0cf5bcc76c34331bdf28143f9af49b8c45466c",
         "text": "vLLM — Efficiently serving language models"
+      }
+    },
+    "link:2ef3351d-f75e-5c10-a998-2c467e590b4f": {
+      "title": {
+        "hash": "88d74a72d7e04d02affbda315beb2e2f78dffc465f0694ae6d701867e6b69753",
+        "text": "Nashsu LLM Wiki"
       }
     },
     "link:3025a40a-b102-53c7-b792-860edbdf604e": {
@@ -570,6 +614,10 @@
       "description": {
         "hash": "03dd72e6aacb550bf26ef1b07de5737cb7e62316f8160a3d5fe659e88f25a1f3",
         "text": "A guide to running a participatory workshop focusing on photography and darkroom techniques."
+      },
+      "title": {
+        "hash": "969f67c2ae6b177b4ad350df754ff97f6a35388248de947c4acb132e881d61d8",
+        "text": "Photo-Actifs Workshop"
       }
     },
     "link:45736262-3087-5462-84b7-5fda61a736d4": {
@@ -580,6 +628,12 @@
       "title": {
         "hash": "40875f706777f33efcfca641851ef8fecc6f5b660e398b200e85df66d108f024",
         "text": "ADE — a common environment spanning Mac and mobile devices"
+      }
+    },
+    "link:470f8e51-fb3a-5146-b5fd-467f81ba076b": {
+      "title": {
+        "hash": "783d5df8e03c698a5efe019385e1b3287eb371f006424140101194209c877e7c",
+        "text": "Coding"
       }
     },
     "link:4904720d-34ab-5224-b313-5d1542358f5c": {
@@ -608,6 +662,12 @@
         "text": "An autonomous business simulation running with agents on a personal computer."
       }
     },
+    "link:4c804003-47b1-5c50-b630-25893314fa3c": {
+      "title": {
+        "hash": "57299cc6f98da918871b2370eeacf2780c6859004f31354199af45c233d56582",
+        "text": "AnythingLLM Desktop"
+      }
+    },
     "link:4e0024a5-7e50-5d4c-9eb2-286324ca2b8a": {
       "description": {
         "hash": "681935c863d9ba294a2becc34a29bc5f8b9c62c37a33fcd7d7aa000911b0bad1",
@@ -619,6 +679,10 @@
       }
     },
     "link:4e68a52c-8551-52a9-b6a0-c061437b23ae": {
+      "description": {
+        "hash": "8e9fda31365560ab7ff20841560fa1d3fb43d51c5ee665418d50c53ee899da4e",
+        "text": "An orchestration toolkit that brings together a wide range of open-source cybersecurity tools."
+      },
       "title": {
         "hash": "0f88d9e70a845e4c099b3fb096c2e103bf87def8981f2e8421d0a302d72131fd",
         "text": "Medusa"
@@ -674,6 +738,10 @@
       "description": {
         "hash": "358ac7f16111d3af11585f83abd19239dd2e8838a6c9de95f575396a75597ce8",
         "text": "An open-source AI research and conversation platform compatible with multiple models and information sources."
+      },
+      "title": {
+        "hash": "66c4707d5822f5f2f5d7026db0dfa89aa39a84449af183eb474ee720ddccf362",
+        "text": "Onyx"
       }
     },
     "link:534ab75a-e110-52fe-b6d3-571376592bd8": {
@@ -752,6 +820,10 @@
       "description": {
         "hash": "28ee68f079f7c1f5a42373f48a94776f702d0811c27fe8ca0120fb9609fe070e",
         "text": "A free visual layout tool for quickly creating and testing layout grids."
+      },
+      "title": {
+        "hash": "75ee56f9b6a0c909863aea53497855135e954253cb510ad7385d1a3c0b05c06b",
+        "text": "PageTatin — Visual Grid Calculator"
       }
     },
     "link:5e58d6ea-0d30-51e4-8f02-4870650e5ae1": {
@@ -784,6 +856,16 @@
         "text": "Next Computer"
       }
     },
+    "link:6308c2bc-e033-5a7f-a1f5-dc57a2fa6b18": {
+      "description": {
+        "hash": "72d3ea8b5d14064ee117d33ee185ff44c21c191ad08e9daae7fd010da64d48b7",
+        "text": "Andrej Karpathy’s background notes on the idea of a wiki gradually built and maintained by an LLM."
+      },
+      "title": {
+        "hash": "5db029e6c942342472882ccaa223275b4384ec4e50fa6572eb07c44b40d2f935",
+        "text": "Karpathy’s LLM Wiki"
+      }
+    },
     "link:639e0121-66ca-5d1a-922c-d7c22e4f69d0": {
       "description": {
         "hash": "94be7654df56b85b0aa16a3a716ce2648ee930746e74f23b38084c38445a15e9",
@@ -802,6 +884,12 @@
       "title": {
         "hash": "f818b4b2e4460d03ee09ac9263606d3372b42c3d264309179193fc3c82c702a9",
         "text": "CrewAI — Coordinating teams of specialist agents"
+      }
+    },
+    "link:6643c96b-8585-5127-a0e7-d76bb2855921": {
+      "title": {
+        "hash": "9026fb3677be7b8b783c810257a16d1ec203acee731bc72253ed2ef3c9e87bd0",
+        "text": "Penpot — PÉPITES fact sheet"
       }
     },
     "link:67c19ac5-0e90-521e-8898-41df3e7b7f4d": {
@@ -980,6 +1068,12 @@
         "text": "Agent Deck — the control centre in the terminal"
       }
     },
+    "link:7888561a-e8e8-5471-9522-9027d2513fad": {
+      "description": {
+        "hash": "7702147d09b24d61943965080311fbb016afd29c0ea9051b8dc5d5b489246753",
+        "text": "A collection of vector illustrations inspired by organic, mystical and folkloric forms."
+      }
+    },
     "link:7c64d3ae-b8f6-5e87-bb11-cb1b5c1ec954": {
       "description": {
         "hash": "b06cd8f0b853135ffe941047d570709a9adaad5969e5b2948ae816ea1b8639b5",
@@ -1081,6 +1175,10 @@
       }
     },
     "link:86a4fadd-e43f-595d-955b-d2166481c3ab": {
+      "description": {
+        "hash": "5f17b52e6c0169fd750fe812a86cad65053099d184b94b451c484251b8266538",
+        "text": "A community guide to setting up a multimedia management and streaming system based on a Synology NAS."
+      },
       "title": {
         "hash": "069df5dbc6247227f90f4a5d2f2124ea2ea0685a0aa9ae634943b729fc98d03b",
         "text": "Guide to Jellyfin, Radarr and Sonarr"
@@ -1097,6 +1195,10 @@
       }
     },
     "link:894c6c6f-cee7-5070-bda0-88f36854057f": {
+      "description": {
+        "hash": "84c4225e2ff4264f30ff9cf43ebd98aefbc2b658eff4244ad670f7b3df33d955",
+        "text": "A library and a proxy designed to compress the output of tools, logs and RAG fragments before they are sent to the model."
+      },
       "title": {
         "hash": "320fd4a5de978132c136b23f11a21c1915b3f9bb12ca4191efe1433fc33407dc",
         "text": "Headroom"
@@ -1110,6 +1212,12 @@
       "title": {
         "hash": "b9184cce1263d8d82b3b51497eaeac3f907ea09bfc9f122d2f3402929676258c",
         "text": "LobeHub — Organising and managing a team of AI agents"
+      }
+    },
+    "link:8d636709-3f41-5c82-8827-6cdce8c3522f": {
+      "description": {
+        "hash": "714a36670c676d864538c62d7ff24ed8e943c3be0c124191b62db32500530fc5",
+        "text": "A project that automates the building of GenP executables from their source code."
       }
     },
     "link:8d649ef2-0fbc-5b7c-aedd-bc0504e326f4": {
@@ -1324,6 +1432,12 @@
         "text": "NanoNets/Graft: Turbocharge Claude Code, Cursor, Codex, Gemini & every coding agent: faster, cheaper, with contextual understanding specific to your codebase."
       }
     },
+    "link:9f57b6c8-0d78-5320-90c1-9fc73bda68a8": {
+      "description": {
+        "hash": "78d19e1d4324be175691ca91c805c414484e19911de94ed41183e687ddc957cc",
+        "text": "A webinar on the technological transformation of print businesses and developments in personalisation services."
+      }
+    },
     "link:9f737c42-e03f-5575-86eb-846d8b8ff798": {
       "description": {
         "hash": "4a0d43057a71344d94b242f6192d0686860ff630a3021e8edd0b5364042eb272",
@@ -1335,6 +1449,10 @@
       }
     },
     "link:9fb0f0ea-9309-5d38-b8c9-f54f4f34149c": {
+      "description": {
+        "hash": "71e871383019ad28d66c825fa8bf5e9448cc3f377621d8283e549ff03ceda7da",
+        "text": "A design language intended to help programming assistants produce more polished and consistent interfaces."
+      },
       "title": {
         "hash": "0ca27b797604e1c462b3e5b3dc9b4510a88855633cc4360ec6ff6cb8c007e04e",
         "text": "Impeccable"
@@ -1398,6 +1516,16 @@
       "title": {
         "hash": "517ed11b6c1f6289c77de1ae4d3bd063b9a23f4e63ca153fe03223b0d72a796d",
         "text": "Google ADK — building and deploying agent systems"
+      }
+    },
+    "link:a7a0f53a-3a32-5a71-a5b4-232150d02ca3": {
+      "description": {
+        "hash": "8cc00f3d8b99acae398db14eba58c4c1872e4d9acf969528efc95c6d97469a20",
+        "text": "A survey of the techniques and tools used to reduce the context and token consumption of AI agents."
+      },
+      "title": {
+        "hash": "6615b4b1de34a8e79505ccc73490d8c78123c9c352865aa30ca97f5e94ff328a",
+        "text": "Context Engineering P3: Token Reduction"
       }
     },
     "link:a7bfbfd4-a4c8-55bf-9dca-4712b186886b": {
@@ -1486,6 +1614,12 @@
         "text": "The 2026 Photography Festival through Nina’s eyes – LaCritique.Org"
       }
     },
+    "link:b2e06dd8-9b60-5841-89cc-a097a6492cf2": {
+      "description": {
+        "hash": "533d103e39fffc7f1a8b7bbb100a8eb8c932e41fe3e5be8517f52962b5d51ea0",
+        "text": "An open-source penetration testing tool capable of analysing code and checking for vulnerabilities in web applications."
+      }
+    },
     "link:b3efc7bb-7665-5145-999d-ea85e4af6028": {
       "description": {
         "hash": "c7520339564801d2ba1b03037e07f4e61d2b259e267b626d282241d3c4213170",
@@ -1514,6 +1648,12 @@
       "title": {
         "hash": "5d708de63c705ea3da7251529e7d96e435e7594fb6448aa7d1aefbcb69cffd40",
         "text": "You Don’t Know JS Yet — Understanding JavaScript in Depth"
+      }
+    },
+    "link:b4e9be0c-d402-5929-a781-1f9bf1841b06": {
+      "title": {
+        "hash": "660457e376dd094f921f1dd49f3627899573e871ddd44eb1eda6860681679d18",
+        "text": "SnapOtter"
       }
     },
     "link:b4fc0579-1bb0-5649-a81a-e215bdce75e9": {
@@ -1559,6 +1699,10 @@
       }
     },
     "link:b78ebf82-d07b-5a21-ab8d-1997f0153a05": {
+      "description": {
+        "hash": "77ca614e4a6c9a604746e45c8a9304782cbec4811c2c882cba15eec4e8e94a3b",
+        "text": "A tool that transforms a code repository into an interactive, searchable and queryable knowledge graph."
+      },
       "title": {
         "hash": "402b85d8808ce3f00bdb216b21bfe340e6fc3d292e95eceece006ec77e20d5d6",
         "text": "Understand Anything"
@@ -1650,6 +1794,12 @@
       "description": {
         "hash": "34e11ee659dd9422146efee5205011c0cda6ee99111469ae6d6c0225e16d1e6a",
         "text": "KIBLIND"
+      }
+    },
+    "link:c36e35ec-a569-561d-9995-359f75e509fc": {
+      "description": {
+        "hash": "8daa2238f076aa69e75e7d8e5436f45d32ed27cffcd8a3a301880f824e2a2b40",
+        "text": "A lightweight, specification-based framework for organising agent-assisted development."
       }
     },
     "link:c37318b1-b1e6-5c74-ba94-87c86eb47af6": {
@@ -1818,6 +1968,10 @@
       "description": {
         "hash": "4157a8e50c43898307e3efc3567d86be85c0bb84d7565ec6d07c895c88afc03c",
         "text": "A block-based content editor that produces clean JSON data rather than monolithic HTML."
+      },
+      "title": {
+        "hash": "673b4aa3beeacaab6352acc875fda98307a8800a0cd19ce6a60e810a46f08be3",
+        "text": "Editor.js"
       }
     },
     "link:d6da3dc7-daea-5e67-8ebc-fc7c58eeb560": {
@@ -1844,6 +1998,10 @@
       "description": {
         "hash": "2454bcf3a2e6c98131274507206970c69270b3df5a7625e90d6d74ed0ee61225",
         "text": "A library of brushes for creating painterly and expressive effects in p5.js canvases."
+      },
+      "title": {
+        "hash": "6834d8775ac9b5855146d0e5ba1aa97af546fa0bcdd6ad9de033f722b0fab9b8",
+        "text": "p5.brush"
       }
     },
     "link:d890b9e1-8e30-591e-ac08-4399982362d7": {
@@ -1910,6 +2068,10 @@
       "description": {
         "hash": "528b606d2ae0f39d6c954471c776355e47863135911ac81d40a4f1efdb877fe3",
         "text": "A project that aims to provide agents with structured web data without requiring them to use traditional navigation methods."
+      },
+      "title": {
+        "hash": "589d787d637e77ad4f81cb5161f312d5debaa1f565c02cd971c42abb905ac579",
+        "text": "Spectral"
       }
     },
     "link:dfa74cdd-e638-5b8a-8056-8619885abe7a": {
@@ -1926,6 +2088,12 @@
       "title": {
         "hash": "769eb6efaf748bae2e2f5b669d48580171a7bac641807f1fe06a26744816b505",
         "text": "Inside the minds of far-right leaders"
+      }
+    },
+    "link:e24ed8aa-5002-5a68-959e-53b4927b657c": {
+      "title": {
+        "hash": "5fc5a404680df3ab448ce9d323cb568af927abe73a13e807c67f2c9e3ec586ce",
+        "text": "Real-Time Kinematic"
       }
     },
     "link:e2b20cba-a6ca-56ed-b171-2a71ad5bbee1": {
@@ -1952,6 +2120,12 @@
       "title": {
         "hash": "bb4eac16126c520f82dc73f9f15f9f9a38b5ea84cbd17d8dd621d27a40082734",
         "text": "Layout"
+      }
+    },
+    "link:e3df1202-6fc8-580c-89d9-26dc026b11ea": {
+      "title": {
+        "hash": "8bb7faf5f6b2955884f8295c21b3589f9573d20988b5cd912fd56cce413666e7",
+        "text": "LocalSend"
       }
     },
     "link:e45669f2-4882-57e2-9c67-5e87bd810be3": {
@@ -2021,6 +2195,10 @@
       }
     },
     "link:e9a6c855-b199-5d0d-9933-e46f25d1ee1e": {
+      "description": {
+        "hash": "77af00ac16662b976f611db09cc93d07409611391595817d78e78e8a102103ee",
+        "text": "A desktop application for downloading, testing and running language models on your own computer."
+      },
       "title": {
         "hash": "4aeb9e12386b0dfe5bcda4645666864ed01fa9c292d9963a5d221eae3476afc3",
         "text": "LM Studio"
@@ -2142,6 +2320,10 @@
       "description": {
         "hash": "068a36621130335485ecb165b1a24ddb8ad5e2aa3baa8230f3995ae85fce7530",
         "text": "An article exploring the possibilities and limitations of massively parallel processing using agents."
+      },
+      "title": {
+        "hash": "83c1c355bb4593083f2b54795be9b67309a2e381789a6ed273c7aaa9ba5b1510",
+        "text": "Superpowers 5"
       }
     },
     "link:f84d3ef8-adf9-58ff-8c0d-e4b3c5a7ad55": {
@@ -2184,6 +2366,10 @@
       "description": {
         "hash": "489c54f9448970634ba1a30258b31c6587fb6da8bb731a3de73523d376131c01",
         "text": "A code intelligence tool for large-scale projects, combining semantic search, dependency analysis and impact analysis."
+      },
+      "title": {
+        "hash": "867876f27750eb378366170875e08d4bf7efc3a9346348d623c91bed8c38fe49",
+        "text": "SocratiCode"
       }
     },
     "link:fd3cc249-3a33-5681-9d31-b6fca8f46cb4": {
@@ -2200,6 +2386,16 @@
       "title": {
         "hash": "9ca63edc75e92d740dc6964e1103ba96b3c53fccf6ed5ee3e33fd3685e2499d0",
         "text": "jhk482001/Holons: Your AI company, on your own machine. A multi-agent platform where you hire named agents, chat with a Lead to design workflows, and watch them run — desktop app or self-hosted server."
+      }
+    },
+    "link:feb249fb-a640-594e-80c5-e53756c87861": {
+      "description": {
+        "hash": "89ce3da59e576b5d83086d7b15d8b9a7ef731129ec9c230f057b756683cfb077",
+        "text": "A collection of DESIGN.md files that can be used as reference material by interface designers."
+      },
+      "title": {
+        "hash": "72e0ff52455027b87925db22b68195b25babb183055040fc027222868eb9bb91",
+        "text": "getdesign.md"
       }
     },
     "link:ffef6cc6-afa6-5113-8e37-e2049c44da23": {
@@ -2438,6 +2634,10 @@
       "body": {
         "hash": "00496490daa049267ec0560e76dd8dddca7810969926434dab09c75a9c4da03a",
         "text": "<h2 id=\"demandes-et-échanges\">Requests and exchanges</h2>\n<p>This section has been reconstructed from Git, as the original conversations\nare not stored in the repository.</p>\n<p>The project therefore does not begin with a bookmarking service. It\nbuilds on hand-written Digests, fed by the OOBLIK blogs and by\nposts shared over the years on Tumblr, Instagram and other\nsocial media platforms. The changes reflect four successive requirements:</p>\n<ol>\n<li>to make the old HTML Digests searchable again.</li>\n<li>to bring together links from WordPress blogs and social media feeds without erasing\ntheir sources.</li>\n<li>to have a static, readable Digest, organised and deployable without revealing\nany server secrets to GitHub.</li>\n<li>to make this diverse archive searchable by archives and tags.</li>\n</ol>\n<p>The restoration revealed two editorial considerations: missing resources\ndeserve to be preserved and documented, whilst old, empty\nMailchimp editions provide no useful historical record.</p>\n<h2 id=\"décisions\">Decisions</h2>\n<ul>\n<li>Hugo and PaperMod form the public backbone.</li>\n<li><code translate=\"no\">data/links.json</code> centralises the links. The archives consist of dated Hugo\ncontent.</li>\n<li>The Digest is not a platform migration: it brings together multiple\nsources, multiple websites and multiple generations of URLs.</li>\n<li>GitHub Actions creates a ‘<code translate=\"no\">production</code>’ branch. CloudPanel takes over without\nany webhooks or server credentials in GitHub.</li>\n<li>A dead public URL remains viewable and is flagged as such.</li>\n<li>Domain variants and the actual validity of the destination must\nbe verified, not just their HTTP response.</li>\n<li>All external links open in a new tab.</li>\n</ul>\n<h2 id=\"réalisation\">Implementation</h2>\n<p>The first commit adds the theme, the homepage, the archives, the tags,\nthe catalogue and the curation skill. The validation and\ndeployment workflows follow immediately.</p>\n<p>The first historical restoration brings back old\neditions and several social feeds. A Pinboard export is one of the technical\nsources processed that day, alongside other batches: it is neither\nthe core of the Digest nor its origin. The import tools, consistency\nchecks and the concept of ‘<code translate=\"no\">lien-mort</code>’ instead provide a common method for these\nfragments. Imported titles are cleaned up, external links corrected and\nthe tag explorer is given a dedicated interface.</p>\n<p>Above all, this first day marks the start of a wider project. Posts from\nWordPress blogs, notably the OOBLIK Blog, will subsequently be added to the same repository\nalong with their text and provenance. Tumblr, Instagram and other feeds will\nretain their identity rather than being merged into a single source.</p>\n<p>Mailchimp entries that no longer contained a usable destination and\nsix entirely empty editions have been removed. This deletion concerns\nimport artefacts, not documented defunct public resources.</p>\n<h2 id=\"validation-et-déploiement\">Validation and deployment</h2>\n<p>The added workflows validate the data and then build Hugo. The\n16 GitHub Actions runs visible for the day were successful, with no\nfailures. The final deployment goes through the `<code translate=\"no\">production</code>` branch and is handled by\nCloudPanel.</p>\n<h2 id=\"commits\">Commits</h2>\n<table>\n\t<thead>\n\t\t\t<tr>\n\t\t\t\t\t<th>Commit</th>\n\t\t\t\t\t<th>Date · time</th>\n\t\t\t\t\t<th>Subject</th>\n\t\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/15a3360673c25f895baa464d3c40ac3ee9a27043\"><code translate=\"no\">15a33606</code></a></td>\n\t\t\t\t\t<td>24/07/2026 · 16:15</td>\n\t\t\t\t\t<td>Initialisation of the Hugo Digest</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/1c6d858fd029a45cb86ad7c3fdf6fd38a34fe146\"><code translate=\"no\">1c6d858f</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 16:45</td>\n\t\t\t\t\t<td>Preparing for production deployment</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/51c68e0f9478bd1289a045ef95a30cd8409e02b6\"><code translate=\"no\">51c68e0f</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 16:55</td>\n\t\t\t\t\t<td>Deployment via CloudPanel backup</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/12f3f116e4324b12b8d1f5c4befa2c49c86beb63\"><code translate=\"no\">12f3f116</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 17:38</td>\n\t\t\t\t\t<td>Restoring historical archives</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/66f3c2e5d8ca47e05d4fc5c15cb9758c64911190\"><code translate=\"no\">66f3c2e5</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 10.40 pm</td>\n\t\t\t\t\t<td>Pinboard and social feed import</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/a9e031d604449ef5abd3fcf6033294b9cccfe64c\"><code translate=\"no\">a9e031d6</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 10.52 pm</td>\n\t\t\t\t\t<td>Correction of links and titles</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/2f043425bb950489747315f0451e0a1521722136\"><code translate=\"no\">2f043425</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 23:03</td>\n\t\t\t\t\t<td>Opening external links</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/f5c405918bf3563d1171e3ca44d77b6fe7388e0a\"><code translate=\"no\">f5c40591</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 11.08 pm</td>\n\t\t\t\t\t<td>Redesign of the tag explorer</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/caa1bc0ea06102c1338eb6b5b33c704d12f920df\"><code translate=\"no\">caa1bc0e</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 23:10</td>\n\t\t\t\t\t<td>Merging the tag redesign</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/2f84021b0ef58713b7ff955776e05baf50329774\"><code translate=\"no\">2f84021b</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 23:12</td>\n\t\t\t\t\t<td>Cleaning up old Mailchimp references</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/1c17f9d7aec4c32665090ae93df31455cbce38b7\"><code translate=\"no\">1c17f9d7</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 23:12</td>\n\t\t\t\t\t<td>Deletion of empty Mailchimp editions</td>\n\t\t\t</tr>\n\t</tbody>\n</table>\n<h2 id=\"résultat\">Result</h2>\n<p>At the end of the day, the hand-crafted HTML digests have found a sustainable\nlong-term solution. The site now has its own editorial model, an initial history, its\nquality controls and a reproducible production workflow capable of accommodating\nblogs and scattered feeds.</p>\n"
+      },
+      "title": {
+        "hash": "6340d0847e26b43729f98e98454ff93ba44f367da1ce9bdff89b518d7626036a",
+        "text": "The Birth of the Digest and the Restoration of Lost Links"
       }
     },
     "page:/flux/journal-du-digest/2026-07-25": {

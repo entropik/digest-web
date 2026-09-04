@@ -1,43 +1,62 @@
 {
   "version": 1,
-  "baseRevision": "1bf1f7d3ebba9bfeaaad3caec4d4ca5e93b14e50382adee937e271e6e1984a0b",
-  "targetRevision": "41cebf47e34bfcf2cfb2bb6fd26070bb676f1d6961a475f726e95f6a4c42f842",
+  "baseRevision": "41cebf47e34bfcf2cfb2bb6fd26070bb676f1d6961a475f726e95f6a4c42f842",
+  "targetRevision": "d14c79e59d8522879e6734111f943000d31afc2d073ce2e396069b223933b9ca",
   "manifestRevision": "261577e2e019b7cf9d967a9bb1dff52329a00c44f1188f132a4cdf0215a39dec",
   "fullBuild": false,
   "items": [
     {
-      "id": "link:0c6b78c3-a7a0-5e54-8838-2df4b39c4eff",
-      "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:14f15812-b1e6-5332-8917-d25ed85c6513",
+      "id": "link:060268b0-51bc-56d9-a105-d9e13e184822",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:19622ce6-f6ad-5610-b651-0f43dc2fda99",
+      "id": "link:08469e82-bd71-5a9b-ae23-2332957f4863",
       "fields": [
         "title"
       ]
     },
     {
-      "id": "link:1e54008f-88af-519a-960b-3c79ce2b6a58",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:3819b7ee-7603-5d1e-bb39-03dcaef40e6b",
+      "id": "link:0d24dc81-3127-500e-9c08-50c4bd5604c7",
       "fields": [
         "title"
       ]
     },
     {
-      "id": "link:3a8897d8-96b6-5588-a252-3a66a117e579",
+      "id": "link:2937346e-cd74-5026-aea0-64645623dc06",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:2c38b5ea-8b04-552a-be65-85d2e1cadc89",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:2ef3351d-f75e-5c10-a998-2c467e590b4f",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:43c80086-b394-51a1-86b4-19e807f5ccd6",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:470f8e51-fb3a-5146-b5fd-467f81ba076b",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:4c804003-47b1-5c50-b630-25893314fa3c",
       "fields": [
         "title"
       ]
@@ -45,36 +64,36 @@
     {
       "id": "link:4e68a52c-8551-52a9-b6a0-c061437b23ae",
       "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:504dca6f-2667-52fe-8d20-cc5f0ce6a207",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:52887315-d62e-5ebf-9bca-5a2ed0aeee66",
-      "fields": [
         "description"
       ]
     },
     {
       "id": "link:5330a455-432b-55c7-a3c2-c7dc4131c232",
       "fields": [
-        "description"
+        "title"
       ]
     },
     {
-      "id": "link:56317a65-5744-5463-96d8-94130c3df609",
+      "id": "link:5e193d62-c48a-591f-83c1-cf52b2a6cbf4",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:6308c2bc-e033-5a7f-a1f5-dc57a2fa6b18",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:5e193d62-c48a-591f-83c1-cf52b2a6cbf4",
+      "id": "link:6643c96b-8585-5127-a0e7-d76bb2855921",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:7888561a-e8e8-5471-9522-9027d2513fad",
       "fields": [
         "description"
       ]
@@ -82,48 +101,48 @@
     {
       "id": "link:86a4fadd-e43f-595d-955b-d2166481c3ab",
       "fields": [
-        "title"
+        "description"
       ]
     },
     {
       "id": "link:894c6c6f-cee7-5070-bda0-88f36854057f",
       "fields": [
-        "title"
+        "description"
       ]
     },
     {
-      "id": "link:8fd51f98-c055-5878-8292-b4befd9ab3c9",
+      "id": "link:8d636709-3f41-5c82-8827-6cdce8c3522f",
       "fields": [
-        "title"
+        "description"
       ]
     },
     {
-      "id": "link:96941f7a-948d-5723-aa96-98a27deaf203",
+      "id": "link:9f57b6c8-0d78-5320-90c1-9fc73bda68a8",
       "fields": [
-        "title"
+        "description"
       ]
     },
     {
       "id": "link:9fb0f0ea-9309-5d38-b8c9-f54f4f34149c",
       "fields": [
-        "title"
+        "description"
       ]
     },
     {
-      "id": "link:a89481f8-5eff-5ea4-92c9-bca58d3e8d59",
+      "id": "link:a7a0f53a-3a32-5a71-a5b4-232150d02ca3",
       "fields": [
         "description",
         "title"
       ]
     },
     {
-      "id": "link:b4fc0579-1bb0-5649-a81a-e215bdce75e9",
+      "id": "link:b2e06dd8-9b60-5841-89cc-a097a6492cf2",
       "fields": [
-        "title"
+        "description"
       ]
     },
     {
-      "id": "link:b524b0d4-e683-5c9a-9d34-c2ef8ba52082",
+      "id": "link:b4e9be0c-d402-5929-a781-1f9bf1841b06",
       "fields": [
         "title"
       ]
@@ -131,54 +150,41 @@
     {
       "id": "link:b78ebf82-d07b-5a21-ab8d-1997f0153a05",
       "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:b9049c7f-4c62-5254-bb4a-103e83d4b509",
-      "fields": [
         "description"
       ]
     },
     {
-      "id": "link:bf999a82-d639-5131-a4a7-af7ea065894b",
+      "id": "link:c36e35ec-a569-561d-9995-359f75e509fc",
       "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:c614de9b-03c0-562a-b877-a08487b273db",
-      "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:cb0bcd50-82dc-5238-a5c4-8eda188c551e",
-      "fields": [
-        "description",
-        "title"
+        "description"
       ]
     },
     {
       "id": "link:d62f59f5-1d45-5755-8a51-0ff5817d8308",
       "fields": [
-        "description"
+        "title"
       ]
     },
     {
       "id": "link:d865c3c0-1ef5-56cb-b205-8a78e2dd79dc",
       "fields": [
-        "description"
+        "title"
       ]
     },
     {
       "id": "link:dc4e0559-034b-502c-8123-90bf084b59ac",
       "fields": [
-        "description"
+        "title"
       ]
     },
     {
-      "id": "link:dfa74cdd-e638-5b8a-8056-8619885abe7a",
+      "id": "link:e24ed8aa-5002-5a68-959e-53b4927b657c",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:e3df1202-6fc8-580c-89d9-26dc026b11ea",
       "fields": [
         "title"
       ]
@@ -186,43 +192,26 @@
     {
       "id": "link:e9a6c855-b199-5d0d-9933-e46f25d1ee1e",
       "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:f41ea5f3-56c3-5eee-bb2b-e52e0d4f7d8b",
-      "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:f5720f42-a2df-5994-84a2-b292b8137492",
-      "fields": [
         "description"
       ]
     },
     {
       "id": "link:f81e9775-14cf-5a6f-814e-f6eebe72b3b1",
       "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:f930a74b-ad96-5e1d-9abe-090d5c940c31",
-      "fields": [
-        "description"
+        "title"
       ]
     },
     {
       "id": "link:fc233b3b-388b-5586-80d3-8beafff0edfd",
       "fields": [
-        "description"
+        "title"
       ]
     },
     {
-      "id": "link:fd3cc249-3a33-5681-9d31-b6fca8f46cb4",
+      "id": "link:feb249fb-a640-594e-80c5-e53756c87861",
       "fields": [
-        "description"
+        "description",
+        "title"
       ]
     },
     {
@@ -284,6 +273,12 @@
       "fields": [
         "$artwork"
       ]
+    },
+    {
+      "id": "page:/flux/journal-du-digest/2026-07-24",
+      "fields": [
+        "title"
+      ]
     }
   ],
   "paths": [
@@ -300,84 +295,86 @@
     "/archives/2026-08-29/",
     "/archives/2026-09-01/",
     "/archives/2026-09-02/",
+    "/flux/",
+    "/flux/journal-du-digest/",
+    "/flux/journal-du-digest/2026-07-24/",
     "/tags/",
     "/tags/agents/",
     "/tags/analyse/",
-    "/tags/annuaire/",
+    "/tags/atelier/",
     "/tags/automatisation/",
-    "/tags/cartographie/",
+    "/tags/build/",
+    "/tags/ci-cd/",
     "/tags/cli/",
-    "/tags/code-review/",
     "/tags/codebase/",
+    "/tags/collection/",
     "/tags/compression/",
+    "/tags/confidentialite/",
     "/tags/contenu/",
+    "/tags/contexte/",
     "/tags/creative-coding/",
     "/tags/cybersecurite/",
-    "/tags/design-generatif/",
     "/tags/design-system/",
     "/tags/design/",
     "/tags/desktop/",
     "/tags/developpement/",
+    "/tags/devops/",
     "/tags/documentation/",
-    "/tags/donnees/",
+    "/tags/documents/",
     "/tags/editeur/",
-    "/tags/edition/",
     "/tags/entreprise/",
     "/tags/fiche/",
+    "/tags/fichiers/",
     "/tags/frontend/",
     "/tags/generatif/",
-    "/tags/git/",
-    "/tags/google-fonts/",
     "/tags/graphe/",
+    "/tags/graphisme/",
     "/tags/grille/",
     "/tags/ia-locale/",
     "/tags/ia/",
     "/tags/illustration/",
     "/tags/impression/",
     "/tags/inference/",
-    "/tags/information/",
-    "/tags/interface/",
     "/tags/javascript/",
     "/tags/jellyfin/",
     "/tags/knowledge-management/",
+    "/tags/laboratoire/",
     "/tags/llm/",
+    "/tags/local/",
     "/tags/mise-en-page/",
     "/tags/multimedia/",
+    "/tags/multiplateforme/",
     "/tags/nas/",
-    "/tags/navigateur/",
+    "/tags/nlp/",
     "/tags/opensource/",
     "/tags/optimisation/",
     "/tags/orchestration/",
     "/tags/outil/",
     "/tags/outils/",
     "/tags/p5js/",
-    "/tags/papier/",
     "/tags/parallelisation/",
-    "/tags/pdf/",
-    "/tags/plex/",
-    "/tags/politique/",
-    "/tags/poster/",
-    "/tags/prepresse/",
-    "/tags/productivite/",
+    "/tags/pentest/",
+    "/tags/photo/",
+    "/tags/pratique/",
+    "/tags/produit/",
     "/tags/rag/",
     "/tags/recherche/",
     "/tags/reflexion/",
-    "/tags/rust/",
+    "/tags/reseau-local/",
+    "/tags/ressources/",
     "/tags/skills/",
-    "/tags/societe/",
-    "/tags/specification/",
-    "/tags/terminal/",
-    "/tags/tmux/",
+    "/tags/specifications/",
+    "/tags/technologie/",
     "/tags/tokens/",
-    "/tags/travail/",
-    "/tags/typographie/",
-    "/tags/ui/",
-    "/tags/variable-font/",
+    "/tags/traces/",
+    "/tags/vecteur/",
     "/tags/veille/",
-    "/tags/video/",
-    "/tags/vscode/",
+    "/tags/vision/",
+    "/tags/web-to-print/",
     "/tags/web/",
-    "/tags/wiki/"
+    "/tags/webinaire/",
+    "/tags/wiki/",
+    "/tags/windows/"
   ],
   "artwork": {
     "upsert": [
@@ -394,5 +391,5 @@
     ],
     "remove": []
   },
-  "revision": "98f696769bd0ba274ae02d2fae6dfdaecc8c89d1f338a59e65371013785e5317"
+  "revision": "0231e95224bc969375c3eaed5ba4a5041c0a19a3ffd3462d705c75c9ab699824"
 }
