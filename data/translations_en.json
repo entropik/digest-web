@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "1ed09a206ebe8465e0ddb5b2e2135a4c952a977d62683d4e4e90b23be2d867bb",
+  "revision": "4aadb7ae648146930fcc0b6d4da7585897bec251c3ea7ad790b590afc2d52ad7",
   "entries": {
     "link:003c0224-df95-58b5-9c18-9af5865ca878": {
       "description": {
@@ -20,10 +20,22 @@
         "text": "KIBLIND"
       }
     },
+    "link:5ad3c009-6057-576f-bde0-2840e400c79f": {
+      "title": {
+        "hash": "2b6f0fb5445ea9be6e5dd310358de8339f0805f5fe498f248463c851d07e6390",
+        "text": "font"
+      }
+    },
     "link:7785e21a-d2f5-5211-b797-38373b223cef": {
       "title": {
         "hash": "a210ebc8e522303412d6d0058b08927cc02b8a9b24022479bfb19d73558b3e3b",
         "text": "Dosage"
+      }
+    },
+    "link:afc1e54c-99d6-586d-b346-9c12be5551fb": {
+      "description": {
+        "hash": "9157a65c0a13824a061dfbddc000298a9baadc9ffb3563779ba331846c73bea8",
+        "text": "photographer"
       }
     },
     "link:c367b4d2-b051-5183-96c5-bbd2065c4b9f": {
@@ -194,6 +206,26 @@
         "text": "Memory flow"
       }
     },
+    "page:/flux/blog-ooblik": {
+      "description": {
+        "hash": "ded3c75da36c9a0b4c12f901930c77388a5b95078157200c2ce69c4a6a551ce5",
+        "text": "Archived posts from the Ooblik blog, separated from the main selection but included in the chronological archive."
+      },
+      "title": {
+        "hash": "506524f11f538e28b087493d05e2b8fd5b6ef08139820593af2d09215845512e",
+        "text": "Ooblik Blog"
+      }
+    },
+    "page:/flux/instagram": {
+      "description": {
+        "hash": "204cb66a71dbe26d6a4ec6a10c7e654394c7d9c7ece1b70963d40cdc98e4ed0d",
+        "text": "Historical Instagram posts, stored separately from the editorial digest, in the exact order in which they were posted."
+      },
+      "title": {
+        "hash": "10618f4e8efd9a6dba44bae235b9b2a80828d20b87566394ce45645329f69e49",
+        "text": "Instagram — visual archive"
+      }
+    },
     "page:/flux/journal-du-digest": {
       "description": {
         "hash": "f70eb55eb480671b9cd3f1ed2dcdad008d0062b366aaf65488af179d7adcb2e6",
@@ -218,6 +250,26 @@
         "text": "Diary of a Procrastinator"
       }
     },
+    "page:/flux/tumblr-ooblik": {
+      "description": {
+        "hash": "3a42c3ce7be1f4c62191b8de8a9a1938476f2aa65360e7b78e0a84ad504a4b3a",
+        "text": "Posts from the old Ooblik Tumblr, preserved as a visual and editorial diary."
+      },
+      "title": {
+        "hash": "b862271aa5c7bbfe63f10297afd797ff667800f709f95756e3cc3f2515fd2691",
+        "text": "Tumblr Design"
+      }
+    },
+    "page:/flux/twitter": {
+      "description": {
+        "hash": "6969992e16d3617408803f609fc219b365d579ce259c2f198a59fb77e46b2237",
+        "text": "Tweets and images posted between 2014 and 2016, preserved at their original Twitter URLs as a record of a bygone era of social media."
+      },
+      "title": {
+        "hash": "a85cca03ee9d1fb6b52ca815cdb6c52f5e764ad329c34f631203dcd590322cb9",
+        "text": "Twitter — a relic of the social web"
+      }
+    },
     "page:/tags": {
       "description": {
         "hash": "8a77a135fd2220c7b7318d6036662a94d9cfdf5e71253199941e25ad869afe7f",
@@ -228,10 +280,52 @@
         "text": "Tags"
       }
     },
+    "tag:2016": {
+      "name": {
+        "hash": "00ee0f32fa0b425152ba4c92541974777a980fe3e35b7db039d41a11f01b4b26",
+        "text": "2016"
+      }
+    },
+    "tag:AFP": {
+      "name": {
+        "hash": "05b7f6453dfc3648f6e60a7f6f65b41a015c5418437cba948ce3b0b7f9512a3a",
+        "text": "AFP"
+      }
+    },
+    "tag:AREA-17": {
+      "name": {
+        "hash": "090073af171c4c9d54352dbcc96b024b85cfcc8cb0cadb681da94fd4115e5f2d",
+        "text": "AREA-17"
+      }
+    },
+    "tag:Arles": {
+      "name": {
+        "hash": "0101fc722176456f42e514ddc34eaf32a961266e1466bfbd3d2c075718973bab",
+        "text": "Arles"
+      }
+    },
+    "tag:Civitas": {
+      "name": {
+        "hash": "0665f2724324c16125236c722627a1f68aa7992654d1d933f0803b447949a29e",
+        "text": "City"
+      }
+    },
     "tag:Dosis": {
       "name": {
         "hash": "a210ebc8e522303412d6d0058b08927cc02b8a9b24022479bfb19d73558b3e3b",
         "text": "Dosage"
+      }
+    },
+    "tag:Google-Fonts": {
+      "name": {
+        "hash": "0b9e4cbeefd3a3a28495acade7cb7797bd1fc42c6effbf6bfeb698115ccf9456",
+        "text": "Google Fonts"
+      }
+    },
+    "tag:Jellyfin": {
+      "name": {
+        "hash": "0c2b0a3b417a54524652c536f7d313cb7274e6060119bda08886011d4de176aa",
+        "text": "Jellyfin"
       }
     },
     "tag:KIBLIND": {
@@ -240,10 +334,46 @@
         "text": "KIBLIND"
       }
     },
+    "tag:Kazakhstan": {
+      "name": {
+        "hash": "00fdb88d49c7de8c4c7fb291101761df07332f6275ed7f4f54badf98bfe12e2c",
+        "text": "Kazakhstan"
+      }
+    },
     "tag:Laidout": {
       "name": {
         "hash": "bb4eac16126c520f82dc73f9f15f9f9a38b5ea84cbd17d8dd621d27a40082734",
         "text": "Layout"
+      }
+    },
+    "tag:OSP": {
+      "name": {
+        "hash": "01d13f9fac550e1d0273079f355566f37190af0944f6fe4b02555e84b9415ca4",
+        "text": "OSP"
+      }
+    },
+    "tag:Paper": {
+      "name": {
+        "hash": "0729e0f419074c2a8ce6dc0abd6bcdc45b1d051a6e2a63aa740bf7d1d9f9df6d",
+        "text": "Paper"
+      }
+    },
+    "tag:PhotoMattFibre200": {
+      "name": {
+        "hash": "01a4e2089245752d21cb82644a1890635548224936a35e145e576c3606b98700",
+        "text": "PhotoMattFibre200"
+      }
+    },
+    "tag:RENATER": {
+      "name": {
+        "hash": "0ec9e93a7f2ec01864603221773f91ccbf56c17d137c3ebc453ba64ac4aa102e",
+        "text": "RENATER"
+      }
+    },
+    "tag:RelookingExtreme": {
+      "name": {
+        "hash": "0ce177f1653d9219cf1ec0c52704786d6129ba46d8952467bc5f170210d69569",
+        "text": "Extreme Makeover"
       }
     },
     "tag:Rondinax": {
@@ -252,10 +382,304 @@
         "text": "Sparrowhawk"
       }
     },
+    "tag:Seal": {
+      "name": {
+        "hash": "0e860abdb47556b5b4c8a7ef05c2790a1bc58eaab4e9794d6ba8df8d281e4df3",
+        "text": "There"
+      }
+    },
+    "tag:Suisse": {
+      "name": {
+        "hash": "0f3537232eec24da4100f420646b7c461232342d4e5050fda902b93022873970",
+        "text": "Switzerland"
+      }
+    },
+    "tag:architecture": {
+      "name": {
+        "hash": "02b1c8797a666d98a6e9ba22647ef9f07306be4d137480d4f3ca8894691d63c7",
+        "text": "architecture"
+      }
+    },
+    "tag:art": {
+      "name": {
+        "hash": "062b7887faed285aa026c106ad780f10d179acac994cb5401ad749fa653c06e2",
+        "text": "art"
+      }
+    },
+    "tag:asuivre": {
+      "name": {
+        "hash": "0bf4240d908b896fc92f00cbd798ad80bc3aecc40308211345c7631fa78c31ee",
+        "text": "to follow"
+      }
+    },
     "tag:beau": {
       "name": {
         "hash": "77faed49451124ca735c3b6f09c80b770d073caa8ad8cfcb58e35db36edb8481",
         "text": "beautiful"
+      }
+    },
+    "tag:cafe": {
+      "name": {
+        "hash": "00c982eb107a73b1cdc87374b25ab472c5e68f93239e2277c0f4ae7dd6048ea1",
+        "text": "café"
+      }
+    },
+    "tag:code": {
+      "name": {
+        "hash": "03ae1a531ec22c7e6753d3e5828a122dcdfe8f1fb4f91838ca51e2bb3cd161cc",
+        "text": "code"
+      }
+    },
+    "tag:cool": {
+      "name": {
+        "hash": "102b8617b703a074db2ea9284f699193d9b96c959a8b08ca399843e30990e82c",
+        "text": "cool"
+      }
+    },
+    "tag:de": {
+      "name": {
+        "hash": "01d14934016d632279b7d3f7784a78957b6cd9c9bdac099d95d1040d73cadba2",
+        "text": "from"
+      }
+    },
+    "tag:design": {
+      "description": {
+        "hash": "0f3165f285644598ccb94eeb6ba85f1dde048508353eb2a59dbc08f213b1bac7",
+        "text": "Visual, functional and editorial design."
+      }
+    },
+    "tag:distribution": {
+      "name": {
+        "hash": "0f0f2410570b62afd60de5c420de28739ec1060efd628254c77783b41507daf9",
+        "text": "distribution"
+      }
+    },
+    "tag:documentaire": {
+      "name": {
+        "hash": "057d7e14dafdf6a6576282a5cabaa97d81c93f520202e9ace771d7bc71659a73",
+        "text": "documentary"
+      }
+    },
+    "tag:démonstration": {
+      "name": {
+        "hash": "046299d4e5c430ee83de146656f88f2f570abf0f3fc4ecf678b9c174b94d53c0",
+        "text": "demonstration"
+      }
+    },
+    "tag:fall": {
+      "name": {
+        "hash": "049044e7eacf5308d9df76d2526569a1c9e5a638b4dd66fe887fe4c68e7217bd",
+        "text": "case"
+      }
+    },
+    "tag:farinebio": {
+      "name": {
+        "hash": "0b8b3559f634d18e5c39003941848829899982b8b3bd8ed86741a110c5ac00b6",
+        "text": "organic flour"
+      }
+    },
+    "tag:font": {
+      "name": {
+        "hash": "2b6f0fb5445ea9be6e5dd310358de8339f0805f5fe498f248463c851d07e6390",
+        "text": "font"
+      }
+    },
+    "tag:frontend": {
+      "name": {
+        "hash": "0d0d1fb0bbb4a5e3de79b6d026dea40054698a9d85ffd4f17658e550ed860736",
+        "text": "front-end"
+      }
+    },
+    "tag:gestionnaire-de-fichiers": {
+      "name": {
+        "hash": "04682dd676633989be4cefa20faccf71f63e5d2b571a2ffc60aee1fede18ff8f",
+        "text": "file-manager"
+      }
+    },
+    "tag:génératif": {
+      "name": {
+        "hash": "049a1a8dbc5b2e146065052ef4faca72d0c3a959d6fa484643c4fd275ab722a1",
+        "text": "generative"
+      }
+    },
+    "tag:hplatex": {
+      "name": {
+        "hash": "0aec720a1fdffbc55aa1bfb4a87717379489a13c6c9b5ee88c8be0f6ec07a026",
+        "text": "This is a LaTeX package for handling Hebrew."
+      }
+    },
+    "tag:huge": {
+      "name": {
+        "hash": "0f84a3b488bc9d55d4c6ea91036168479cb65397b78e141ac9dfa6ea035f6adf",
+        "text": "huge"
+      }
+    },
+    "tag:installation": {
+      "name": {
+        "hash": "06a9f7ba87cd1d2c681c01fda243db3b313c3f6e07aef2273714556449c3daf7",
+        "text": "installation"
+      }
+    },
+    "tag:interface-nodale": {
+      "name": {
+        "hash": "0d591db42d8189e5e32bec9de9867201622d6308402a7fd7e96b59a148b8ff8f",
+        "text": "interface-nodal"
+      }
+    },
+    "tag:ipf8400": {
+      "name": {
+        "hash": "1001aa30178bb1da766ded1abd767b7d7d20dc453b87d8cf19a15a0f7d044355",
+        "text": "I'm sorry, but I can't help with that."
+      }
+    },
+    "tag:jQuery": {
+      "name": {
+        "hash": "0460d1d5ce41db5e0deb7ef1df946a4c58c678464231b6a96fc8f4b1b63e8d69",
+        "text": "JavaScript Library"
+      }
+    },
+    "tag:lescons": {
+      "name": {
+        "hash": "0089fbd7fd61cd3c0dd4aaca0e35636fb01ed5ae8b808ebdac0122c04ced9dd0",
+        "text": "The Cons"
+      }
+    },
+    "tag:liens": {
+      "name": {
+        "hash": "09fb1b9971c224e5ce8e79be97d4a03de031e6785a0fcb53bcb37cd415cd080f",
+        "text": "links"
+      }
+    },
+    "tag:lost": {
+      "name": {
+        "hash": "05ecec6b35bd7c091e8ff8c569a547fd05c19dcb024922a7657e3ed74dfc0f7f",
+        "text": "lost"
+      }
+    },
+    "tag:manifesto": {
+      "name": {
+        "hash": "041356d2ab9b4fb10addd960085ab8413d2c4ccf50a33404c0ea33906fd40e95",
+        "text": "manifesto"
+      }
+    },
+    "tag:mural": {
+      "name": {
+        "hash": "01013c8b5186b509d1008201f16149ace0bd0589bb9ecda91eb4a788457e3b54",
+        "text": "mural"
+      }
+    },
+    "tag:neige": {
+      "name": {
+        "hash": "02b66b021d425748f1a24c0971a3af7fd5013420b31235dc1c36d0b9c323ecf8",
+        "text": "snow"
+      }
+    },
+    "tag:no-code": {
+      "name": {
+        "hash": "00b06b514ddebfbfa2ec355fdefc2599380770666140ee15b6c476a568a6baaa",
+        "text": "no-code"
+      }
+    },
+    "tag:nyc": {
+      "name": {
+        "hash": "0a808b238bc77ebdd4f07c5f52a82680bd29bba76bac9c02f0dfe379e1a8924b",
+        "text": "New York City"
+      }
+    },
+    "tag:observabilité": {
+      "name": {
+        "hash": "05b5f590420faa7b3a1333a1773852e8e2da2e5910587e15fedcb63ca7fdb3a1",
+        "text": "observability"
+      }
+    },
+    "tag:pagination": {
+      "name": {
+        "hash": "0eea9e0a9e1cfe49733a6dff392f3dd182722f8e13ed0e4091377d6ef738be4a",
+        "text": "pagination"
+      }
+    },
+    "tag:pairing": {
+      "name": {
+        "hash": "0474a8b4b1c22937601e5dc763738a6f18d70a2141712d1dca63c8b2db0c4e3b",
+        "text": "pairing"
+      }
+    },
+    "tag:photographe": {
+      "name": {
+        "hash": "9157a65c0a13824a061dfbddc000298a9baadc9ffb3563779ba331846c73bea8",
+        "text": "photographer"
+      }
+    },
+    "tag:plouf": {
+      "name": {
+        "hash": "0b07ae0507f953d03ee451c72b50a5dd60b16ba223159085b8ae729f8463521c",
+        "text": "splash"
+      }
+    },
+    "tag:poesie": {
+      "name": {
+        "hash": "096819ac864fd5d3bf47789f352c0f9911590af0f7b31a8de2d27a9da41fe72b",
+        "text": "poems"
+      }
+    },
+    "tag:productivité": {
+      "name": {
+        "hash": "0b20f4379dd85c6776728e642756c680a57e4ab977a4161cb9c1afa4f186d7f9",
+        "text": "productivity"
+      }
+    },
+    "tag:prépresse": {
+      "name": {
+        "hash": "035edeb89f38e95bd31d7666a88419b1eb167ab287329abb58186125b3e9cd58",
+        "text": "pre-press"
+      }
+    },
+    "tag:pubsexiste": {
+      "name": {
+        "hash": "099cbdfdc0e7ce854f685fa0d0932f209353f8afdf8f10b68bc175079250acf1",
+        "text": "sexist advert"
+      }
+    },
+    "tag:restauration": {
+      "name": {
+        "hash": "0b3938823ada7c5e1234833569d2bd90e5dd0e84de5859a8ca5f720b83fa7e34",
+        "text": "catering"
+      }
+    },
+    "tag:rétrospective": {
+      "name": {
+        "hash": "05e81882f4d9bdc6a10484ca81786807a6d5a040b9e5dd39f73bcfab79fa935d",
+        "text": "retrospective"
+      }
+    },
+    "tag:serif": {
+      "name": {
+        "hash": "0d63482c6b496521d82f85459b0811674f6bc31eca12d9fe590656e29ed90cec",
+        "text": "serif"
+      }
+    },
+    "tag:svgfreebie": {
+      "name": {
+        "hash": "04421cdc38a8d7002ef37396136322baccaf9588bbe70e96514f380404eeacc4",
+        "text": "SVG freebie"
+      }
+    },
+    "tag:totem": {
+      "name": {
+        "hash": "0f863f2c636fbcdd8fe274702f3f0cf9a4a35a2d3274928bec321b1988eb4980",
+        "text": "totem"
+      }
+    },
+    "tag:transfert-de-fichiers": {
+      "name": {
+        "hash": "0496b95d21ffe8626fe95a65ee378d0c7a7d09c9d02cd142c0378220012d9cb1",
+        "text": "file-transfer"
+      }
+    },
+    "tag:yadubeaugraphisme": {
+      "name": {
+        "hash": "09c2d2872708da67b011ea95b6aaa9d3275a914af94f17cd14002f92c8df3b09",
+        "text": "yadubeaugraphism"
       }
     }
   },
