@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://digest.ooblik.com/</loc>
-    <lastmod>2026-09-03T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
@@ -15,8 +15,22 @@
                 href="https://digest.ooblik.com/en/"
                 />
   </url><url>
+    <loc>https://digest.ooblik.com/flux/journal-du-digest/2026-09-04/</loc>
+    <lastmod>2026-09-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://digest.ooblik.com/flux/journal-du-digest/2026-09-04/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-GB"
+                href="https://digest.ooblik.com/en/flux/journal-du-digest/2026-09-04/"
+                />
+  </url><url>
     <loc>https://digest.ooblik.com/flux/</loc>
-    <lastmod>2026-09-03T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
@@ -29,7 +43,7 @@
                 />
   </url><url>
     <loc>https://digest.ooblik.com/flux/journal-du-digest/</loc>
-    <lastmod>2026-09-03T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-04T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
