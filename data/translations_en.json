@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "a3171e70f11eee81bb17fac5d18e7b5a31672eba1f73b671f9fb39b975a1b713",
+  "revision": "04fc2978f4a6049449cf70ac231b6954706cbea254a7a27137236c60a101835b",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -10689,6 +10689,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-21.webp": {
+      "alt": {
+        "hash": "00aafe74bbdace2539d86f9de8a5ece2098c40265188f77f0aee846957d2ff14",
+        "text": "Document NASA : View of the SBS-4 communications satellite in orbit above the earth"
+      },
       "date": {
         "hash": "cf43b15245b8fe45468da1f0d5dd70947ee3fae2b80fcb3e2b7936a77caba09d",
         "text": "30 August 1984"
