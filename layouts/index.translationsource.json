@@ -1,6 +1,9 @@
 {{- $items := slice -}}
-{{- $impactMap := dict -}}
+{{- $impactScratch := newScratch -}}
+{{- $impactScratch.Set "map" dict -}}
 {{- $links := where hugo.Data.links "visibility" "ne" "hidden" -}}
+{{- $linksByTag := partialCached "public-links-by-tag.html" hugo.Data.links "public-links-by-tag" site.Language.Lang -}}
+{{- $linksByDate := partialCached "public-links-by-date.html" hugo.Data.links "public-links-by-date" site.Language.Lang -}}
 {{- range $links -}}
   {{- $fields := dict -}}
   {{- $link := . -}}
@@ -18,12 +21,11 @@
     {{- $dependencies := slice -}}
     {{- $pageLinks := slice -}}
     {{- with .Params.digest_date -}}
-      {{- $pageLinks = where $links "added" . -}}
+      {{- $pageLinks = index $linksByDate . | default slice -}}
     {{- else with .Params.stream -}}
       {{- $pageLinks = where $links "stream" . -}}
     {{- else with .Params.tag -}}
-      {{- $tag := . -}}
-      {{- range $links -}}{{- if in (.tags | default slice) $tag -}}{{- $pageLinks = $pageLinks | append . -}}{{- end -}}{{- end -}}
+      {{- $pageLinks = index $linksByTag . | default slice -}}
     {{- end -}}
     {{- range $pageLinks -}}
       {{- $dependencies = $dependencies | append (printf "link:%s" .id) (printf "category:%s" .category) -}}
@@ -45,8 +47,8 @@
     {{- $items = $items | append $item -}}
     {{- $pageImpacts := partial "translation-impact-paths.html" (dict "route" .RelPermalink "aliases" .Aliases) -}}
     {{- range $dependency := $dependencies -}}
-      {{- $existingImpacts := index $impactMap $dependency | default slice -}}
-      {{- $impactMap = merge $impactMap (dict $dependency (uniq ($existingImpacts | append $pageImpacts))) -}}
+      {{- $existingImpacts := index ($impactScratch.Get "map") $dependency | default slice -}}
+      {{- $impactScratch.SetInMap "map" $dependency (uniq ($existingImpacts | append $pageImpacts)) -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
@@ -54,12 +56,12 @@
   {{- $entries := hugo.Data.categories -}}
   {{- if eq $kind "tag" -}}
     {{- $entries = hugo.Data.tags -}}
-    {{- $names := dict -}}
-    {{- range $entries -}}{{- $names = merge $names (dict .name true) -}}{{- end -}}
+    {{- $namesScratch := newScratch -}}
+    {{- range $entries -}}{{- $namesScratch.SetInMap "names" .name true -}}{{- end -}}
     {{- range $links -}}{{- range .tags -}}
-      {{- if not (index $names .) -}}
+      {{- if not (index ($namesScratch.Get "names") .) -}}
         {{- $entries = $entries | append (dict "name" .) -}}
-        {{- $names = merge $names (dict . true) -}}
+        {{- $namesScratch.SetInMap "names" . true -}}
       {{- end -}}
     {{- end -}}{{- end -}}
   {{- end -}}
@@ -81,6 +83,7 @@
   {{- $items = $items | append (dict "id" (printf "visual:%s" .image) "kind" "visual" "title" .title "date" $date "route" (printf "/flux/journal-procrastinateur/%s/" $date) "group" "visual" "dependencies" slice "fields" $fields) -}}
 {{- end -}}
 {{- $enriched := slice -}}
+{{- $impactMap := $impactScratch.Get "map" -}}
 {{- range $item := $items -}}
   {{- $aliases := slice -}}
   {{- with $item.page -}}{{- $aliases = .aliases | default slice -}}{{- end -}}

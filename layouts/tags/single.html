@@ -18,7 +18,7 @@
 <article class="archive-single">
   <header class="archive-single-header tag-archive-header">
     <p class="digest-kicker">{{ i18n "ui_d7027f546544" }}</p>
-    <h1>#{{ partial "tag-label.html" $tag }}</h1>
+    <h1>#{{ partialCached "tag-label.html" $tag $tag site.Language.Lang }}</h1>
     <p>{{ i18n "ui_06e18afc1753" }}</p>
     <div class="archive-single-count"><strong>{{ len $links }}</strong><span>{{ i18n "ui_132d6192dc26" }}</span></div>
     <span class="archive-linkedin-feedback" data-linkedin-feedback role="status" aria-live="polite"></span>
@@ -30,13 +30,13 @@
   <section class="archive-group">
     <div class="archive-link-list">
       {{ range sort $links "title" }}
-        {{ $targetURL := partial "link-target-url.html" . }}
+        {{ $targetURL := partialCached "link-target-url.html" . .id }}
         {{ $linkTags := .tags | default (slice) }}
         <article class="archive-link" id="link-{{ .id }}">
           <div>
             <h3>
               <a class="link-title" href="{{ $targetURL }}" target="_blank" rel="noopener noreferrer">
-                {{ partial "link-favicon.html" .url }}
+                {{ partialCached "link-favicon.html" .url .url }}
                 <span>{{ .title }}</span>
               </a>
             </h3>
@@ -91,7 +91,7 @@
             {{ with .description }}<p class="archive-link-description">{{ . }}</p>{{ end }}
             {{ with .tags }}
               <div class="archive-tags" aria-label="Tags">
-                {{ range . }}<a href="{{ partialCached "tag-url.html" . . site.Language.Lang }}">#{{ partial "tag-label.html" . }}</a>{{ end }}
+                {{ range . }}<a href="{{ partialCached "tag-url.html" . . site.Language.Lang }}">#{{ partialCached "tag-label.html" . . site.Language.Lang }}</a>{{ end }}
               </div>
             {{ end }}
           </div>

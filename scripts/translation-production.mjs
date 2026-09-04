@@ -181,7 +181,7 @@ async function publish() {
       }
     }
     if (!targeted) {
-      run(process.execPath, ["scripts/verify.mjs"]);
+      run(process.execPath, ["scripts/verify.mjs", "--content-only"]);
       run("rsync", ["-a", "--delete", "--exclude", ".git", "public/", `${production}/`]);
     }
     await writeFile(path.join(production, ".nojekyll"), "");

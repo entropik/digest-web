@@ -96,17 +96,17 @@
     {{ $category := . }}
     {{ $categoryLinks := where $links "category" $category }}
     <section class="archive-group">
-      <h2>{{ partial "category-label.html" $category }}</h2>
+      <h2>{{ partialCached "category-label.html" $category $category site.Language.Lang }}</h2>
       <div class="archive-link-list">
         {{ range sort $categoryLinks "title" }}
-          {{ $targetURL := partial "link-target-url.html" . }}
+          {{ $targetURL := partialCached "link-target-url.html" . .id }}
           {{ $archiveScope := .archive_scope | default "url" }}
           {{ $linkTags := .tags | default (slice) }}
           <article class="archive-link" id="link-{{ .id }}">
             <div>
               <h3>
                 <a class="link-title" href="{{ $targetURL }}" target="_blank" rel="noopener noreferrer">
-                  {{ partial "link-favicon.html" .url }}
+                  {{ partialCached "link-favicon.html" .url .url }}
                   <span>{{ .title }}</span>
                 </a>
               </h3>
@@ -179,7 +179,7 @@
             {{ with .description }}<p class="archive-link-description">{{ . }}</p>{{ end }}
               {{ with .tags }}
                 <div class="archive-tags" aria-label="Tags">
-                  {{ range . }}<a href="{{ partialCached "tag-url.html" . . site.Language.Lang }}">#{{ partial "tag-label.html" . }}</a>{{ end }}
+                  {{ range . }}<a href="{{ partialCached "tag-url.html" . . site.Language.Lang }}">#{{ partialCached "tag-label.html" . . site.Language.Lang }}</a>{{ end }}
                 </div>
               {{ end }}
             </div>

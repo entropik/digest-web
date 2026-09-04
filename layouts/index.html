@@ -153,7 +153,7 @@
           data-category-description="{{ index $categoryDescriptions $category | default "" }}"
           aria-pressed="false">
           <span class="digest-filter-index" aria-hidden="true">{{ printf "%02d" (add $index 1) }}</span>
-          <span class="digest-filter-name">{{ partial "category-label.html" $category }}</span>
+          <span class="digest-filter-name">{{ partialCached "category-label.html" $category $category site.Language.Lang }}</span>
           <span class="digest-filter-count">{{ len (where $allLinks "category" $category) }}</span>
         </button>
       {{ end }}
@@ -212,13 +212,13 @@
         <div class="digest-card-content">
           <div class="digest-card-top">
             <div class="digest-card-labels">
-              <span class="digest-category">{{ partial "category-label.html" $link.category }}</span>
+              <span class="digest-category">{{ partialCached "category-label.html" $link.category $link.category site.Language.Lang }}</span>
               {{ if eq ($link.status | default "") "dead" }}<span class="digest-status">{{ i18n "ui_6a518b9b9a4e" }}</span>{{ end }}
             </div>
             <span class="digest-arrow" aria-hidden="true">＋</span>
           </div>
           <h2 class="link-title">
-            {{ partial "link-favicon.html" $link.url }}
+            {{ partialCached "link-favicon.html" $link.url $link.url }}
             <span>{{ $link.title }}</span>
           </h2>
           {{ if $link.translation_pending }}<p class="translation-pending">Translation pending</p>{{ end }}

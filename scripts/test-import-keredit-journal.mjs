@@ -7,6 +7,13 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+
+const pwshProbe = spawnSync("pwsh", ["-v"], { shell: false });
+if (pwshProbe.error || pwshProbe.status !== 0) {
+  process.stdout.write("PowerShell (pwsh) is not installed; skipping test-import-keredit-journal.\n");
+  process.exit(0);
+}
+
 const tempRoot = await mkdtemp(path.join(root, ".tmp-journal-privacy-"));
 const sourceDirectory = path.join(tempRoot, "source");
 const destinationDirectory = path.join(tempRoot, "output");

@@ -279,3 +279,38 @@ décision éditoriale indépendante.
 publiée exige au moins un lien visible. Le contrôle de cohérence bloque les
 divergences, tandis que l’administration les signale explicitement au lieu de
 proposer une transition risquée.
+
+## 4 septembre 2026
+
+### Découplage strict du contenu et des applications
+
+La publication de contenu éditorial (liens, billets, archives) ne doit plus
+déclencher la validation ni la compilation des applications (extension de
+navigateur, service d’administration). Ces validations lourdes sont réservées à
+l’intégration logicielle.
+
+### Suppression du double build Hugo systématique
+
+La publication d’un billet en français ne doit pas être bloquée par
+l’extraction d’un manifeste complet de traduction anglaise. Le build Hugo
+s’exécute en une seule passe directe.
+
+### Rapatriement du build de publication sur le VPS
+
+Le serveur d’hébergement (VPS) devient le moteur de génération statique afin
+d’éliminer la latence, la file d’attente et les allers-retours avec les
+machines virtuelles de GitHub Actions. GitHub redevient un simple miroir de
+sauvegarde asynchrone.
+
+### Élimination de GitHub du chemin critique de publication
+
+Aucun appel à l’API GitHub ni exécution de GitHub Actions n’est toléré lors de la
+publication d’un billet. La publication s’effectue localement sur le disque du
+VPS, Hugo compile directement dans le répertoire servi par Nginx, et la mise en
+ligne est instantanée.
+
+### Mémoïsation des étiquettes et taxonomies dans Hugo
+
+L’évaluation répétée des libellés de tags et catégories sans cache provoquait
+des dizaines de milliers d’appels redondants. Les partiels de rendu de libellés
+sont systématiquement mémoïsés avec `partialCached`.

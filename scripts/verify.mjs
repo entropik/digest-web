@@ -50,21 +50,25 @@ if (
   throw new Error("Hugo Extended 0.164.0 or newer is required.");
 }
 
-const admin = path.join(root, "admin-service");
-const extension = path.join(root, "browser-extension");
+const contentOnly = process.argv.includes("--content-only");
 
-run(npm, ["ci"], { cwd: admin });
-run(npm, ["test"], { cwd: admin });
-run(npm, ["run", "build"], { cwd: admin });
+if (!contentOnly) {
+  const admin = path.join(root, "admin-service");
+  const extension = path.join(root, "browser-extension");
 
-run(npm, ["ci"], { cwd: extension });
-run(npm, ["run", "typecheck"], { cwd: extension });
-run(npm, ["test"], { cwd: extension });
-run(npm, ["run", "icons"], { cwd: extension });
-run("git", ["diff", "--exit-code", "--", "browser-extension/public/icon"]);
-run(npm, ["run", "build"], { cwd: extension });
-run(npm, ["run", "lint:firefox"], { cwd: extension });
-run(npm, ["run", "zip"], { cwd: extension });
+  run(npm, ["ci"], { cwd: admin });
+  run(npm, ["test"], { cwd: admin });
+  run(npm, ["run", "build"], { cwd: admin });
+
+  run(npm, ["ci"], { cwd: extension });
+  run(npm, ["run", "typecheck"], { cwd: extension });
+  run(npm, ["test"], { cwd: extension });
+  run(npm, ["run", "icons"], { cwd: extension });
+  run("git", ["diff", "--exit-code", "--", "browser-extension/public/icon"]);
+  run(npm, ["run", "build"], { cwd: extension });
+  run(npm, ["run", "lint:firefox"], { cwd: extension });
+  run(npm, ["run", "zip"], { cwd: extension });
+}
 
 run(python, ["scripts/ensure_link_ids.py", "--check"]);
 run(python, ["scripts/check_url_canonicalization.py"]);

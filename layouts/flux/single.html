@@ -37,7 +37,7 @@
               <time class="archive-edition-kicker" datetime="{{ .added }}">{{ time.Format "02 January 2006" .added }}</time>
               <h3>
                 <a class="link-title" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
-                  {{ partial "link-favicon.html" .url }}
+                  {{ partialCached "link-favicon.html" .url .url }}
                   <span>{{ .title }}</span>
                 </a>
               </h3>
@@ -52,7 +52,7 @@
             {{ with .description }}<p class="archive-link-description">{{ . }}</p>{{ end }}
               {{ with .tags }}
                 <div class="archive-tags" aria-label="Tags">
-                  {{ range . }}<a href="{{ partialCached "tag-url.html" . . site.Language.Lang }}">#{{ partial "tag-label.html" . }}</a>{{ end }}
+                  {{ range . }}<a href="{{ partialCached "tag-url.html" . . site.Language.Lang }}">#{{ partialCached "tag-label.html" . . site.Language.Lang }}</a>{{ end }}
                 </div>
               {{ end }}
             </div>

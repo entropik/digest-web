@@ -2,10 +2,10 @@
 {{- $fr := os.ReadFile "i18n/fr.json" | transform.Unmarshal -}}
 {{- range $key, $message := $fr -}}{{- $messages = merge $messages (dict $message.other (i18n $key)) -}}{{- end -}}
 {{- $categories := dict -}}{{- $tags := dict -}}
-{{- range hugo.Data.categories -}}{{- $categories = merge $categories (dict .name (partial "category-label.html" .name)) -}}{{- end -}}
-{{- range hugo.Data.tags -}}{{- $tags = merge $tags (dict .name (partial "tag-label.html" .name)) -}}{{- end -}}
+{{- range hugo.Data.categories -}}{{- $categories = merge $categories (dict .name (partialCached "category-label.html" .name .name site.Language.Lang)) -}}{{- end -}}
+{{- range hugo.Data.tags -}}{{- $tags = merge $tags (dict .name (partialCached "tag-label.html" .name .name site.Language.Lang)) -}}{{- end -}}
 {{- range where hugo.Data.links "visibility" "ne" "hidden" -}}{{- range .tags -}}
-  {{- if not (index $tags .) -}}{{- $tags = merge $tags (dict . (partial "tag-label.html" .)) -}}{{- end -}}
+  {{- if not (index $tags .) -}}{{- $tags = merge $tags (dict . (partialCached "tag-label.html" . . site.Language.Lang)) -}}{{- end -}}
 {{- end -}}{{- end -}}
 {{- $data := dict "locale" site.Language.Locale "messages" $messages "categories" $categories "tags" $tags | jsonify -}}
 {{- $dataScript := resources.FromString (printf "js/digest-language-%s.js" site.Language.Lang) (printf "window.digestLanguageData=%s;" $data) | minify | fingerprint -}}

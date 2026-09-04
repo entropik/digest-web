@@ -53,7 +53,7 @@
   <div class="tag-explorer-scene" data-tag-scene aria-label="{{ i18n "ui_c6db3ae3a9da" }}">
     {{ range sort $visibleTagPages "Title" }}
       {{ $tag := .Params.tag }}
-      {{ $tagLabel := partial "tag-label.html" $tag }}
+      {{ $tagLabel := partialCached "tag-label.html" $tag $tag site.Language.Lang }}
       {{ $count := $counts.Get $tag }}
       {{ $importance := div (math.Log (add (float $count) 1)) (math.Log (add (float $maxCount) 1)) }}
       <a
