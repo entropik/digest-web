@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "baseRevision": "9fc45e9560306f897c7e1513421bfb4fb13fa924ef44442d3c4bae86ff544e92",
-  "targetRevision": "80c0e10658fed4f56db63dc30d9bd5b68e562919db12d97ec1daadaa5466a6de",
+  "baseRevision": "80c0e10658fed4f56db63dc30d9bd5b68e562919db12d97ec1daadaa5466a6de",
+  "targetRevision": "987c8773b6cb2699dd0c870adc0e12165ba9e822165bbfdee73b448ec69fdd24",
   "manifestRevision": "261577e2e019b7cf9d967a9bb1dff52329a00c44f1188f132a4cdf0215a39dec",
   "fullBuild": false,
   "items": [
@@ -72,43 +72,23 @@
       ]
     },
     {
+      "id": "page:/flux/journal-procrastinateur/2026-06-23",
+      "fields": [
+        "title"
+      ]
+    },
+    {
       "id": "page:/flux/journal-procrastinateur/2026-06-24",
       "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-procrastinateur/2026-06-25",
-      "fields": [
         "body",
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-procrastinateur/2026-06-26",
-      "fields": [
-        "title"
+        "description"
       ]
     },
     {
       "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-24.webp",
       "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-25.webp",
-      "fields": [
         "alt",
-        "title"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-26.webp",
-      "fields": [
-        "date",
-        "title"
+        "date"
       ]
     }
   ],
@@ -127,9 +107,8 @@
     "/archives/2026-09-02/",
     "/flux/",
     "/flux/journal-procrastinateur/",
-    "/flux/journal-procrastinateur/2026-06-24/",
-    "/flux/journal-procrastinateur/2026-06-25/",
-    "/flux/journal-procrastinateur/2026-06-26/"
+    "/flux/journal-procrastinateur/2026-06-23/",
+    "/flux/journal-procrastinateur/2026-06-24/"
   ],
   "artwork": {
     "upsert": [
@@ -147,5 +126,5 @@
     ],
     "remove": []
   },
-  "revision": "33eb23933caa8da207017f1946e0aaf64f10fbe80d658214082f4fbb7c85ccc5"
+  "revision": "f4060f1a6b4f71f40f72f310e18415692cc0e35e9852aa93b28049fd90332827"
 }

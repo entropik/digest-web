@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "80c0e10658fed4f56db63dc30d9bd5b68e562919db12d97ec1daadaa5466a6de",
+  "revision": "987c8773b6cb2699dd0c870adc0e12165ba9e822165bbfdee73b448ec69fdd24",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -3092,7 +3092,21 @@
         "text": "Diary of a Procrastinator"
       }
     },
+    "page:/flux/journal-procrastinateur/2026-06-23": {
+      "title": {
+        "hash": "243b08b37c576172185be4d3e10a8a33af574cd62586a348303f1a231359e750",
+        "text": "Day 93 – Strengthen before expanding"
+      }
+    },
     "page:/flux/journal-procrastinateur/2026-06-24": {
+      "body": {
+        "hash": "2ce84e10a7ac617307fa4d829aee3b070a0fd46f621d926eb8071c46ade32834",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Main environment: <strong>VS Code WSL, Codex plugin, KEREDIT repository</strong></li>\n<li>Date covered: <strong>Wednesday 24 June 2026</strong></li>\n<li>Branch observed: <strong><code translate=\"no\">dev</code></strong></li>\n<li>Git window observed: <strong>09:07:52 → 15:10:18 CEST</strong></li>\n<li>Minimum duration observed: <strong>approximately 6 hours 2 minutes</strong>, for <strong>20 commits</strong></li>\n<li>Version reached in the sequence: <strong>KEREDIT <code translate=\"no\">0.9.22</code></strong></li>\n<li>Main batches: <strong>WooCommerce shopping basket options, EXIF orientation, photo insertion, cover area, automatic notebook filling</strong></li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 555h13+</strong> (<code translate=\"no\">548h47+</code> published as at 23 June, plus <code translate=\"no\">0h24+</code> from 1 May reintegrated, plus <code translate=\"no\">6h02+</code> today)</li>\n</ul>\n<h2 id=\"lecture-courte\">A quick read</h2>\n<p>This day had fallen between two posts. Yet it deserves its own entry:\nit elevates several still-fragile actions from the status of local fixes\nto that of established behaviour.</p>\n<p>The WooCommerce basket is becoming clearer, adding a photo is no longer\na surprise, and the automatic filling of the album is starting to offer a\nrhythm rather than simply piling up images. It’s a day of rapid development,\nwith a downside that the next session will reveal: many UI features\nwere developed simultaneously, before being sufficiently validated by testing.</p>\n<h2 id=\"le-panier-dit-enfin-ce-quil-vend\">The shopping basket finally tells you what it’s selling</h2>\n<p>The morning begins with a series of minor fixes to the\n. The BAT and web PDF options are moved back under the project, displayed\nas radio buttons, then forced and restored after the initial\nadjustments. Customer labels are synchronised, the options message is\nclarified and the product total is better framed.</p>\n<p>Taken individually, each commit seems minuscule. Together, they address a\nkey commercial issue: at the point of ordering, the customer must understand\nwhat they are adding to the project and not encounter a different interface between\nKEREDIT and the WordPress shopping basket.</p>\n<h2 id=\"une-photo-doit-arriver-comme-elle-a-été-prise\">A photo must appear exactly as it was taken</h2>\n<p>The photo insertion pipeline then corrects three visible inconsistencies.\nThe EXIF orientation is respected in the editor. Clicking in the library no\nlonger silently replaces an already filled block simply because it is\nselected. Finally, the aspect ratio used to insert a photo into a book is\nbased on the actual cover area and not on an approximation.</p>\n<p>The common thread is trust. A portrait-oriented image must not rotate\nwhen added to the project; a photo that has already been placed must not disappear with the\nnext click; a cover must not be given dimensions calculated for an\ninside page.</p>\n<h2 id=\"le-remplissage-automatique-devient-une-fonction-produit\">Automatic filling becomes a product feature</h2>\n<p>The second half of the day sees the start of the most visible task: the\nautomatic filling of notebooks. An initial version is able to distribute the\nphotos, then subsequent iterations add improved layout, an action to\nclear the result and a confirmation prompt tailored to this destructive operation.</p>\n<p>The photo album no longer merely offers blank pages. It begins to help the\ncustomer produce a complete book, whilst clearly retaining the option to\nundo changes.</p>\n<h2 id=\"ce-que-la-journée-prépare\">What the day has in store</h2>\n<p>Twenty commits in six hours drive the product forward, but also increase the\nscope for regression. The following day will be devoted to drag-and-drop, spreads,\nlayers and Fabric contracts. This is not a contradiction: 24 June\nsaw the emergence of a genuine notebook function; on 25 June, we must learn how to make it\nstable.</p>\n"
+      },
+      "description": {
+        "hash": "734178797d34eae558e87f76051eed2411749c97de673bb89782df03667a5ecd",
+        "text": "Post from 24 June: WooCommerce clarifies the BAT and web PDF options; images finally retain their orientation and dimensions; and auto-fill transforms the notebook into a proper layout."
+      },
       "title": {
         "hash": "0378238abc3969d5addd27539809e3b763daccd3f38a7b7aed1bf3b2d8de0ba0",
         "text": "Catch-up post for 24 June – The blog is finding its rhythm"
@@ -10687,6 +10701,14 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-24.webp": {
+      "alt": {
+        "hash": "461565d281c5d29b8169d1f21734b842d6cef439ed93951292c7f4cb58d56db5",
+        "text": "Document NASA : Gidzenko in Service Module with laptop computers"
+      },
+      "date": {
+        "hash": "9ebd5110f4c618c5b991d794861990083bf35393465e655dffd510e56782ee92",
+        "text": "30 March 2001"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
