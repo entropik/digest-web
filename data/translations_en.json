@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "3f14d9c282a17738cc78d2c86ef048c5b23b29df4abffd811f8e84ba3d4046a1",
+  "revision": "1997cfc7f87b4416ef3c632b02d06bc78aa763e1d3e839e21430195288f24e8a",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -2654,6 +2654,12 @@
         "text": "Archives"
       }
     },
+    "page:/archives/2014-08-06": {
+      "title": {
+        "hash": "b7cb9d8de04deac289be1e2dd5d7d9b10264871c93fd594e136be4ae57697c95",
+        "text": "6 August 2014"
+      }
+    },
     "page:/archives/2015-02-17": {
       "title": {
         "hash": "7be63809338899db7ba44781648ffae7292ce68a1a00fba71eb926dfe7bfd4e4",
@@ -3078,6 +3084,30 @@
       "title": {
         "hash": "946546d90a07b056aaf49f70b37dd2857b2ec866c0aea388c8914c2652bc086a",
         "text": "Diary of a Procrastinator"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-07-09": {
+      "description": {
+        "hash": "abd7495bac820d0238c4bbed4891bfe0fc527f109b121fe5a2fd1c438e13d4e6",
+        "text": "Day 108 of the log: enhanced pagination in KEREDIT, rendered using GOF fonts and protected until deployment on the Accurio."
+      },
+      "title": {
+        "hash": "711f22bcdac7462b1da0053ae699968e0eff35436de9000ed4b890d53e41e92b",
+        "text": "Day 108 – The layout becomes a print contract"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-07-10": {
+      "body": {
+        "hash": "5c91fb182bb958a6a0a4498fcb2d7df502e74df83da56dfe7729c4f878e7ed82",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Main environment: <strong>VS Code WSL, Codex plugin, KEREDIT and GOF repositories, documented P340 candidate</strong></li>\n<li>Date covered: <strong>Friday 10 July 2026</strong></li>\n<li>Branches observed: <strong><code translate=\"no\">dev</code> in KEREDIT and GOF</strong></li>\n<li>KEREDIT SHA at the end of the sequence: <strong><code translate=\"no\">a840461</code></strong> (<code translate=\"no\">chore(release): bump keredit to 0.10.20</code>)</li>\n<li>End-of-sequence GOF SHA: <strong><code translate=\"no\">87336ed</code></strong> (<code translate=\"no\">fix: allow isolated GOF candidate deploys</code>)</li>\n<li>Versions observed: <strong>KEREDIT 0.10.20</strong>, <strong>GOF 0.2.12</strong></li>\n<li>Direct commits observed: 3<strong> KEREDIT + 4 GOF</strong></li>\n<li>Minimum time observed on 10 July: <strong>8h01+ of multi-deposit duration</strong> (<code translate=\"no\">11:43</code> -&gt; <code translate=\"no\">19:44</code>, excluding machine tests, restoration and workshop verification)</li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 693h50+</strong> (<code translate=\"no\">685h49+</code> as at 9 July, + <code translate=\"no\">8h01+</code>)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>10 July illustrates what it means to maintain two repositories without creating two\nseparate realities. During the same hours, KEREDIT refines the payload and GOF enhances the\nwriter that utilises it.</p>\n<p>The second half of the day shifts focus from rendering to operations: two\nmachines still carry the hostname <code translate=\"no\">[nom privé]</code>, so the migration must identify the\nhardware by means other than its Linux name.</p>\n<h2 id=\"les-styles-de-police-deviennent-explicites\">Font styles become explicit</h2>\n<p>In KEREDIT, <code translate=\"no\">d349814</code> refines the rendering of fonts and clipart geometry. The\ncatalogue, payload and editor surfaces must convey enough\ninformation so that GOF does not have to guess a variant.</p>\n<p>At the same time, <code translate=\"no\">c8f9d9d</code> adds to GOF the framed synthesis of styles and\nsynchronisation safeguards. The tests cover resolution, glyphs, writers and\nreal-world contract fixtures.</p>\n<p>The aim is not to silently accept just any fallback. It is\nto make explicit what is correct, what can be synthesised within the same\nfamily, and what must be blocked.</p>\n<h2 id=\"le-clipart-cesse-dêtre-une-convention-implicite\">Clipart ceases to be an implicit convention</h2>\n<p><code translate=\"no\">782854f</code> aligns KEREDIT with the rendered clipart contract: internal rotation,\nflipping, colour, fit and content geometry are handled via types,\nvalidation, builders and tests.</p>\n<p><code translate=\"no\">18cc4d5</code> Applies the same contract in GOF. A persistent field must be rendered,\nflagged as unsupported or explicitly ignored. Its meaning must no longer change\nbetween Fabric and the PDF.</p>\n<p>The KEREDIT release is available at <code translate=\"no\">0.10.20</code>; GOF is available at <code translate=\"no\">0.2.12</code>.</p>\n<h2 id=\"la-p340-devient-une-candidate-identifiable\">The P340 becomes an identifiable candidate</h2>\n<p>The historical forge and the ThinkStation P340 deliberately retain the hostname\n<code translate=\"no\">gof</code>. <code translate=\"no\">9a6c831</code> therefore introduces <code translate=\"no\">GOF_NODE_ID</code>, a machine-specific identifier and\nscripts that reject unexpected targets.</p>\n<p>The migration documentation, runbook, implementation plan and\noperational tests are added as part of the same package. The candidate can be\naudited without accidentally becoming the primary forge.</p>\n<p><code translate=\"no\">87336ed</code> Finally, this enables isolated deployments on the candidate. The aim is to\ntest the output and capacity without joining the Accurio production environment or confusing\nthe two environments.</p>\n<h2 id=\"pour-la-suite\">Moving forward</h2>\n<p>The print pipeline is more consistent, but the speed of a large PDF remains dependent on the\nGOF core. The next issue is no longer simply which machine to buy: it\nis also necessary to understand parallelism, caching and pre-compilation.</p>\n"
+      },
+      "description": {
+        "hash": "db49ef2473052da3b281ea78e4e93a282021ac159eb7c1b361cd86daf5756a2b",
+        "text": "Day 109 of the log: font styles, clipart geometry and payload print aligned between KEREDIT and GOF, followed by a secure P340 migration."
+      },
+      "title": {
+        "hash": "17ccd454d0a7fb77b26657aa8d893c2afdb98b07534bacca17f4a8f168d8b8be",
+        "text": "Day 109 – The print contract passes through both warehouses"
       }
     },
     "page:/flux/journal-procrastinateur/2026-07-11": {
@@ -10587,6 +10617,14 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-09.webp": {
+      "alt": {
+        "hash": "5f3e91a7351679c9c7510c8f3e1441f4ccedac7c5386fc1c578adf11d223cb3c",
+        "text": "Document NASA : Advanced Data Acquisition and Telemetry System"
+      },
+      "date": {
+        "hash": "00375870f3446dcfe12192b46617c31286e58fea69cb4693cf99d42d8fc72348",
+        "text": "1 May 1998"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10594,9 +10632,21 @@
       "themeLabel": {
         "hash": "792bb99bf4ded673c9369c1ee797fb8d7f2101177f73e8f2403b542af8bc8700",
         "text": "Monitoring & Data"
+      },
+      "title": {
+        "hash": "d340f06539f84e77dbcaf020afe99272d4f7677644c67a97a77e49eb86a34e58",
+        "text": "Advanced Data Acquisition and Telemetry System"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-10.webp": {
+      "alt": {
+        "hash": "a69d24d0d415302dc5a288a8e6370592f6b3e2e083e8a6ca402c45e95b6ae46d",
+        "text": "Document NASA : Spacecraft Assembly Facility"
+      },
+      "date": {
+        "hash": "b7cb9d8de04deac289be1e2dd5d7d9b10264871c93fd594e136be4ae57697c95",
+        "text": "6 August 2014"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
