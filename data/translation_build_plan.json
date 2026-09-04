@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "baseRevision": "77f4ad937ef5a1408107d3aff07baaf7e8d65d43d243732c89e1be0c6ab76485",
-  "targetRevision": "ae152b79f439f4e09ac8ba038cf07587eda7319244fad7796aebd9b657a0fa8c",
+  "baseRevision": "ae152b79f439f4e09ac8ba038cf07587eda7319244fad7796aebd9b657a0fa8c",
+  "targetRevision": "e05f3c7a1feae2dd31959938ca6eefdd62371b6c5b3a8b6215f794b2532fb320",
   "manifestRevision": "f2272c908b90ac69240b90702fdeaa5e9baa19629f567348c73ce89e3d01d2ee",
   "fullBuild": false,
   "items": [
@@ -66,105 +66,82 @@
       ]
     },
     {
-      "id": "tag:aeachi",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:coeur",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:école",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:InDesign",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:MEP",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:norme",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:p5js",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:police",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:tmux",
-      "fields": [
-        "name"
-      ]
-    },
-    {
-      "id": "tag:zine",
+      "id": "tag:auto-hébergement",
       "fields": [
         "description"
+      ]
+    },
+    {
+      "id": "tag:braundesign",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:copyrightmadness",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:Easy",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:id",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:philosophie",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:responsive",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:scénographie",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:startuplife",
+      "fields": [
+        "name"
+      ]
+    },
+    {
+      "id": "tag:technologie",
+      "fields": [
+        "name"
       ]
     }
   ],
   "paths": [
     "/",
     "/archives/",
-    "/archives/2015-12-16/",
-    "/archives/2016-03-03/",
-    "/archives/2016-03-07/",
-    "/archives/2016-03-08/",
-    "/archives/2016-03-20/",
-    "/archives/2016-04-04/",
-    "/archives/2016-05-16/",
-    "/archives/2016-05-23/",
-    "/archives/2016-06-20/",
-    "/archives/2016-06-21/",
-    "/archives/2016-06-25/",
-    "/archives/2016-06-26/",
-    "/archives/2016-06-29/",
-    "/archives/2016-06-30/",
-    "/archives/2016-07-04/",
-    "/archives/2016-08-29/",
-    "/archives/2016-08-30/",
-    "/archives/2016-09-02/",
-    "/archives/2016-09-13/",
+    "/archives/2014-07-20/",
+    "/archives/2014-09-09/",
+    "/archives/2015-01-30/",
+    "/archives/2015-10-07/",
+    "/archives/2016-03-02/",
+    "/archives/2016-08-24/",
+    "/archives/2016-09-06/",
     "/archives/2016-09-14/",
-    "/archives/2016-09-20/",
-    "/archives/2016-09-28/",
-    "/archives/2016-10-01/",
+    "/archives/2016-09-15/",
     "/archives/2016-10-04/",
-    "/archives/2016-10-06/",
-    "/archives/2016-10-11/",
-    "/archives/2016-10-14/",
-    "/archives/2016-11-07/",
-    "/archives/2016-11-16/",
-    "/archives/2016-12-05/",
-    "/archives/2017-02-24/",
-    "/archives/2017-03-21/",
+    "/archives/2017-03-08/",
     "/archives/2017-03-30/",
-    "/archives/2017-04-07/",
-    "/archives/2017-04-20/",
-    "/archives/2018-09-10/",
+    "/archives/2017-04-18/",
     "/archives/2026-07-24/",
     "/archives/2026-08-16/",
     "/archives/2026-08-18/",
@@ -180,81 +157,61 @@
     "/flux/blog-ooblik/",
     "/flux/instagram/",
     "/flux/tumblr-ooblik/",
+    "/flux/twitter/",
     "/tags/",
-    "/tags/aeachi/",
-    "/tags/agents/",
+    "/tags/analyse/",
+    "/tags/anarchisme/",
+    "/tags/applewatch/",
+    "/tags/architecture/",
     "/tags/art/",
-    "/tags/autoeditions/",
+    "/tags/attention/",
+    "/tags/auto-hebergement/",
     "/tags/automatisation/",
-    "/tags/berlin/",
-    "/tags/bleedbox/",
     "/tags/blog-ooblik/",
-    "/tags/book/",
-    "/tags/canson/",
-    "/tags/catalogue/",
-    "/tags/coeur/",
-    "/tags/conference/",
-    "/tags/content/",
+    "/tags/braundesign/",
+    "/tags/copyrightmadness/",
     "/tags/creation/",
-    "/tags/creative-coding/",
-    "/tags/de/",
-    "/tags/design-graphique/",
-    "/tags/design/",
+    "/tags/css/",
+    "/tags/detection/",
+    "/tags/dev/",
     "/tags/developpement/",
-    "/tags/dummy/",
-    "/tags/ecole/",
+    "/tags/easy/",
     "/tags/edition/",
-    "/tags/enseignement/",
-    "/tags/fonderie/",
-    "/tags/france/",
-    "/tags/generatif/",
-    "/tags/git/",
-    "/tags/google-fonts/",
-    "/tags/grotesque/",
-    "/tags/hvd-fonts/",
+    "/tags/ethique/",
+    "/tags/geek/",
+    "/tags/graphisme/",
     "/tags/ia/",
-    "/tags/illustration/",
-    "/tags/images/",
+    "/tags/id/",
     "/tags/impression/",
-    "/tags/indesign/",
     "/tags/instagram/",
+    "/tags/interface/",
+    "/tags/jean-marie-guyau/",
     "/tags/lien-mort/",
-    "/tags/livre/",
-    "/tags/luju/",
+    "/tags/litterature/",
+    "/tags/llm/",
+    "/tags/massicot/",
     "/tags/memoire-web/",
-    "/tags/mep/",
-    "/tags/mise-en-page/",
-    "/tags/monospace/",
-    "/tags/norme/",
-    "/tags/ooblik/",
+    "/tags/newsletter/",
     "/tags/opensource/",
-    "/tags/outils/",
-    "/tags/p5js/",
-    "/tags/page-quot/",
-    "/tags/parallelisation/",
-    "/tags/pays-bas/",
-    "/tags/pdf/",
-    "/tags/photographie/",
-    "/tags/police/",
-    "/tags/portfolio/",
-    "/tags/print-quot/",
-    "/tags/production/",
-    "/tags/quot-norma/",
-    "/tags/quot-zone/",
+    "/tags/philosophie/",
+    "/tags/php/",
+    "/tags/poesie/",
+    "/tags/produit/",
+    "/tags/responsive/",
     "/tags/revue/",
-    "/tags/ricoh/",
-    "/tags/saint-etienne/",
-    "/tags/sans-serif/",
-    "/tags/serif/",
-    "/tags/suisse/",
-    "/tags/terminal/",
-    "/tags/tmux/",
+    "/tags/scenographie/",
+    "/tags/societe/",
+    "/tags/startuplife/",
+    "/tags/technologie/",
+    "/tags/textes/",
+    "/tags/transfert-de-fichiers/",
     "/tags/tumblr/",
-    "/tags/typographie/",
+    "/tags/twitter/",
+    "/tags/veille/",
     "/tags/web-to-print/",
-    "/tags/white/",
-    "/tags/winezine/",
-    "/tags/zine/"
+    "/tags/web/",
+    "/tags/webinaire/",
+    "/tags/workflows/"
   ],
   "artwork": {
     "upsert": [
@@ -271,5 +228,5 @@
     ],
     "remove": []
   },
-  "revision": "402170e57a5c39d239bfd0296e6253b43d393d4c78b5616bb0b60778e6701d8d"
+  "revision": "de434eab370f4eaab0521dd4cc6b0bd51f1fcc4dd477b54277fa59ec4df1716e"
 }

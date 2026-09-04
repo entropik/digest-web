@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "ae152b79f439f4e09ac8ba038cf07587eda7319244fad7796aebd9b657a0fa8c",
+  "revision": "e05f3c7a1feae2dd31959938ca6eefdd62371b6c5b3a8b6215f794b2532fb320",
   "entries": {
     "category:Krisis": {
       "name": {
@@ -322,6 +322,12 @@
         "text": "Dosage"
       }
     },
+    "tag:Easy": {
+      "name": {
+        "hash": "1687e7b030f262ebf59991b8b843c805ec617a75a4b93210b24147071f091d39",
+        "text": "Easy"
+      }
+    },
     "tag:Google-Fonts": {
       "name": {
         "hash": "0b9e4cbeefd3a3a28495acade7cb7797bd1fc42c6effbf6bfeb698115ccf9456",
@@ -455,6 +461,10 @@
       }
     },
     "tag:auto-hébergement": {
+      "description": {
+        "hash": "14e7eb4452f4169017370929eecfcd8cdec1fc6695bdd5f09e0fecca0735afbb",
+        "text": "Services and infrastructure hosted under its own control."
+      },
       "name": {
         "hash": "1056e7e1c25b3dbd20ccd032ba07035ede280c456a76981df97855d838c6fd91",
         "text": "self-hosting"
@@ -464,6 +474,12 @@
       "name": {
         "hash": "77faed49451124ca735c3b6f09c80b770d073caa8ad8cfcb58e35db36edb8481",
         "text": "beautiful"
+      }
+    },
+    "tag:braundesign": {
+      "name": {
+        "hash": "16760266659012d6a9df71d12ffde9b9fbd724bc3548e890d4501d302bfab8c3",
+        "text": "Brown design"
       }
     },
     "tag:cafe": {
@@ -488,6 +504,12 @@
       "name": {
         "hash": "102b8617b703a074db2ea9284f699193d9b96c959a8b08ca399843e30990e82c",
         "text": "cool"
+      }
+    },
+    "tag:copyrightmadness": {
+      "name": {
+        "hash": "15042dc87fe9c9aa8f01f56775fd8956864f816a13641cbb058c5a3f19546032",
+        "text": "copyrightmadness"
       }
     },
     "tag:de": {
@@ -572,6 +594,12 @@
       "name": {
         "hash": "0f84a3b488bc9d55d4c6ea91036168479cb65397b78e141ac9dfa6ea035f6adf",
         "text": "huge"
+      }
+    },
+    "tag:id": {
+      "name": {
+        "hash": "1522092d8249e7086f5e19d9b5867cab5fecb44d99782b52fc2a0f9fa892a7e6",
+        "text": "identity"
       }
     },
     "tag:installation": {
@@ -688,6 +716,12 @@
         "text": "pairing"
       }
     },
+    "tag:philosophie": {
+      "name": {
+        "hash": "159d4332542e028898d19aa30370f91dc0b73eb06ed699a58423e2764a62e246",
+        "text": "philosophy"
+      }
+    },
     "tag:photographe": {
       "name": {
         "hash": "9157a65c0a13824a061dfbddc000298a9baadc9ffb3563779ba331846c73bea8",
@@ -730,6 +764,12 @@
         "text": "sexist advert"
       }
     },
+    "tag:responsive": {
+      "name": {
+        "hash": "158d42f0fd38eb195c43c4b59ca6ca8e60c315853026dae33d961f3f9f0d14dd",
+        "text": "responsive"
+      }
+    },
     "tag:restauration": {
       "name": {
         "hash": "0b3938823ada7c5e1234833569d2bd90e5dd0e84de5859a8ca5f720b83fa7e34",
@@ -748,16 +788,34 @@
         "text": "sant"
       }
     },
+    "tag:scénographie": {
+      "name": {
+        "hash": "157f2cdb7edf06dc46da2d594f7a256df7a52ab296828f9b266f143f8a05bc57",
+        "text": "set design"
+      }
+    },
     "tag:serif": {
       "name": {
         "hash": "0d63482c6b496521d82f85459b0811674f6bc31eca12d9fe590656e29ed90cec",
         "text": "serif"
       }
     },
+    "tag:startuplife": {
+      "name": {
+        "hash": "1770c2cd6361fd0c4da85244f62a42acdb6d51a54f90f47f32a6ffbd6e2aac43",
+        "text": "startup life"
+      }
+    },
     "tag:svgfreebie": {
       "name": {
         "hash": "04421cdc38a8d7002ef37396136322baccaf9588bbe70e96514f380404eeacc4",
         "text": "SVG freebie"
+      }
+    },
+    "tag:technologie": {
+      "name": {
+        "hash": "156f37b64d4a2b00a9c8a4ee75b68b90a78d1bc34df2c3407f1c86c9f56ad348",
+        "text": "technology"
       }
     },
     "tag:tmux": {
