@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "baseRevision": "0277ccf77f660cb208c6b936038894d8e163cf5a44fa9ca69c3170d11c7bd165",
-  "targetRevision": "406ed31f903135c33fa5ddb3f1333d7dcdb5537cffbbc8214ec2af497c4cde82",
+  "baseRevision": "406ed31f903135c33fa5ddb3f1333d7dcdb5537cffbbc8214ec2af497c4cde82",
+  "targetRevision": "3f14d9c282a17738cc78d2c86ef048c5b23b29df4abffd811f8e84ba3d4046a1",
   "manifestRevision": "261577e2e019b7cf9d967a9bb1dff52329a00c44f1188f132a4cdf0215a39dec",
   "fullBuild": false,
   "items": [
@@ -72,117 +72,37 @@
       ]
     },
     {
+      "id": "page:/flux/journal-procrastinateur/2026-07-11",
+      "fields": [
+        "body",
+        "description",
+        "title"
+      ]
+    },
+    {
       "id": "page:/flux/journal-procrastinateur/2026-07-12",
       "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-procrastinateur/2026-07-13",
-      "fields": [
         "body",
-        "description",
         "title"
       ]
     },
     {
-      "id": "page:/flux/journal-procrastinateur/2026-07-14",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-10.webp",
       "fields": [
-        "body",
-        "description",
         "title"
       ]
     },
     {
-      "id": "page:/flux/journal-procrastinateur/2026-07-15",
+      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-11.webp",
       "fields": [
-        "body",
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-procrastinateur/2026-07-16",
-      "fields": [
-        "body",
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-procrastinateur/2026-07-18",
-      "fields": [
-        "body",
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-procrastinateur/2026-07-19",
-      "fields": [
-        "body",
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "page:/flux/journal-procrastinateur/2026-07-20",
-      "fields": [
-        "body",
+        "alt",
+        "date",
         "title"
       ]
     },
     {
       "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-12.webp",
       "fields": [
-        "alt",
-        "date"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-13.webp",
-      "fields": [
-        "alt",
-        "date",
-        "title"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-14.webp",
-      "fields": [
-        "alt",
-        "date",
-        "title"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-15.webp",
-      "fields": [
-        "alt",
-        "title"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-16.webp",
-      "fields": [
-        "alt",
-        "date",
-        "title"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-18.webp",
-      "fields": [
-        "alt",
-        "date",
-        "title"
-      ]
-    },
-    {
-      "id": "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-19.webp",
-      "fields": [
-        "alt",
-        "date",
         "title"
       ]
     }
@@ -202,14 +122,9 @@
     "/archives/2026-09-02/",
     "/flux/",
     "/flux/journal-procrastinateur/",
-    "/flux/journal-procrastinateur/2026-07-12/",
-    "/flux/journal-procrastinateur/2026-07-13/",
-    "/flux/journal-procrastinateur/2026-07-14/",
-    "/flux/journal-procrastinateur/2026-07-15/",
-    "/flux/journal-procrastinateur/2026-07-16/",
-    "/flux/journal-procrastinateur/2026-07-18/",
-    "/flux/journal-procrastinateur/2026-07-19/",
-    "/flux/journal-procrastinateur/2026-07-20/"
+    "/flux/journal-procrastinateur/2026-07-10/",
+    "/flux/journal-procrastinateur/2026-07-11/",
+    "/flux/journal-procrastinateur/2026-07-12/"
   ],
   "artwork": {
     "upsert": [
@@ -227,5 +142,5 @@
     ],
     "remove": []
   },
-  "revision": "5d585202c1d9401cc7b53c03001452b1cb27ba53ce3f65589d397594d13a4570"
+  "revision": "2a6758cbb4c0228fdf72b855072387f5f35cfc18b16f8aa4126b5a5dd3f6aea3"
 }
