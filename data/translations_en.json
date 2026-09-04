@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "d14c79e59d8522879e6734111f943000d31afc2d073ce2e396069b223933b9ca",
+  "revision": "66ce653b95e8f4dfaffb29de9cadd2a143b1d42ee7cc7cc3935611e37d29b142",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -137,6 +137,10 @@
       }
     },
     "link:0c6b78c3-a7a0-5e54-8838-2df4b39c4eff": {
+      "description": {
+        "hash": "c4a71d4ef86bfbbc308807a8f74e5fbd947fe1716ecc355652a69877dc27e60a",
+        "text": "A tool for running multiple agents in parallel using tmux sessions and Git worktrees."
+      },
       "title": {
         "hash": "3ccbb09884b2e23fa9fc1ecec7c68a22f99a9f65dcd2e0439afe122a0ad2c138",
         "text": "Don't cry"
@@ -245,6 +249,10 @@
       }
     },
     "link:19622ce6-f6ad-5610-b651-0f43dc2fda99": {
+      "description": {
+        "hash": "ab43955cc649046c0dc38c1c6dc1b524a9673f6399d4a602f21d75820965935c",
+        "text": "A monitoring video showcasing the developments of the Hermes AI agent and its integration with Paperclip."
+      },
       "title": {
         "hash": "1561220a1dbdb7ac83ed9e5ff51ca5cc1ea54b0e750c2ff4f2cc9acc6c1b8d19",
         "text": "Hermes Agent and Paperclip"
@@ -387,6 +395,10 @@
       }
     },
     "link:2937346e-cd74-5026-aea0-64645623dc06": {
+      "description": {
+        "hash": "b2bc3faaa441005da8dedd8437a8b57c7baf1cad28d02d98c59dae257bffabde",
+        "text": "An archive of Camille Roux’s articles and newsletters on technology, product development and AI."
+      },
       "title": {
         "hash": "6de787a9ee94d43aa11406107034857f9fc0af283f3a5e0214048ac7de1385a6",
         "text": "Camille Roux — archives"
@@ -498,6 +510,12 @@
         "text": "Ghost: The best open source blog & newsletter platform"
       }
     },
+    "link:37f6b68e-edbf-5bbc-ad2b-583f2d9f46da": {
+      "description": {
+        "hash": "a72d6b0ce0f81558d5b8f7c90a013931aed2aa736dcc285eb9fcdc297fc963cc",
+        "text": "A video focusing on the security analysis of a SaaS product and the lessons learnt from this experience."
+      }
+    },
     "link:37fbfbb1-a8e7-5fc2-9b0b-03c320cc0206": {
       "description": {
         "hash": "96721c30f87a35986ded30089f51da916f94672a12c5e28dbae4d58fa2656dd6",
@@ -568,6 +586,16 @@
       "title": {
         "hash": "60ea109b506c1fd4f3e3adb69318a5c46e146e024f0e60f0aef4f4ed6dc52c33",
         "text": "localsend/localsend: An open-source cross-platform alternative to AirDrop"
+      }
+    },
+    "link:3f868309-e665-5d68-afd3-9da08c78128c": {
+      "description": {
+        "hash": "bf590634595a4498994da2e04c1dd5f54f26c68a438824b71c183b4e5f5284f7",
+        "text": "An overview of the formats and options offered by Mixam for printing personalised zines."
+      },
+      "title": {
+        "hash": "a11e0acfa7a8fe1389c27fc0e59be7965bb08334877325d23ea6c6496622571f",
+        "text": "Mixam — zine printing"
       }
     },
     "link:3ffd3bbb-f726-5c6c-8ec6-65387d1f54ee": {
@@ -660,6 +688,10 @@
       "description": {
         "hash": "068316d54bc20d9e002014ccb82c5f50265b09ffb314571b9196ad6088897e03",
         "text": "An autonomous business simulation running with agents on a personal computer."
+      },
+      "title": {
+        "hash": "c630182f1cb4db57e7c1fd4dc306ae57a19d42a2468ba0abd91d5c22ce18e51c",
+        "text": "Auto-Company"
       }
     },
     "link:4c804003-47b1-5c50-b630-25893314fa3c": {
@@ -732,6 +764,10 @@
       "description": {
         "hash": "24dec87a0b50b833eb48bf0db29a1f7b358cfe61b7e615514f2ee680917c2a24",
         "text": "The documentation for Browser Use’s open-source command-line interface."
+      },
+      "title": {
+        "hash": "b4300e8daf66af1ca85bb439adbd6d2bb6f0215a4db4cf5ade6f3fdae6b7996b",
+        "text": "Browser Use CLI"
       }
     },
     "link:5330a455-432b-55c7-a3c2-c7dc4131c232": {
@@ -768,6 +804,16 @@
       "title": {
         "hash": "7881879be65b5b272bcd66e8cfd8beb63d86b8f575115edba76bf77f183e43a2",
         "text": "Radical web design"
+      }
+    },
+    "link:5627995c-cceb-5f13-9149-4c40765598f3": {
+      "description": {
+        "hash": "b000274794dbfd1fc2f3492c7f61438019f8e84c106858875b6fa01622805aa7",
+        "text": "A JavaScript library for measuring and formatting text without relying on the DOM."
+      },
+      "title": {
+        "hash": "c0983089d5eb8f52d41acfd0550cfe71ccaa4ca05c69ca1731795bc6e9fca9a4",
+        "text": "Pretext"
       }
     },
     "link:56317a65-5744-5463-96d8-94130c3df609": {
@@ -886,7 +932,17 @@
         "text": "CrewAI — Coordinating teams of specialist agents"
       }
     },
+    "link:660289d0-16c7-5c2b-987b-38bba6b1cca1": {
+      "description": {
+        "hash": "be5a33e081079fbbfa4b715f5bc7acc83214bd83e492a5b42335436e65afb040",
+        "text": "A tool that helps determine which AI models can run on a given hardware configuration."
+      }
+    },
     "link:6643c96b-8585-5127-a0e7-d76bb2855921": {
+      "description": {
+        "hash": "9eebf685e492d009319273176be1e676a39a0bcdc09179fb9db8518dd05bf742",
+        "text": "A brief overview of Penpot, its open-source approach and its main uses."
+      },
       "title": {
         "hash": "9026fb3677be7b8b783c810257a16d1ec203acee731bc72253ed2ef3c9e87bd0",
         "text": "Penpot — PÉPITES fact sheet"
@@ -1072,6 +1128,10 @@
       "description": {
         "hash": "7702147d09b24d61943965080311fbb016afd29c0ea9051b8dc5d5b489246753",
         "text": "A collection of vector illustrations inspired by organic, mystical and folkloric forms."
+      },
+      "title": {
+        "hash": "b01810b176736117e6728e8c6174621c960a59ce1becb57422323efb815f4535",
+        "text": "Mystic Organic Vector Graphic Kit"
       }
     },
     "link:7c64d3ae-b8f6-5e87-bb11-cb1b5c1ec954": {
@@ -1218,6 +1278,10 @@
       "description": {
         "hash": "714a36670c676d864538c62d7ff24ed8e943c3be0c124191b62db32500530fc5",
         "text": "A project that automates the building of GenP executables from their source code."
+      },
+      "title": {
+        "hash": "a273a0975e624b501714ec90fad6e7f560179300570b4748fc48eea849e641f6",
+        "text": "There is"
       }
     },
     "link:8d649ef2-0fbc-5b7c-aedd-bc0504e326f4": {
@@ -1251,6 +1315,10 @@
       }
     },
     "link:8fd51f98-c055-5878-8292-b4befd9ab3c9": {
+      "description": {
+        "hash": "c6f4632025a732dabea676148b30990b8232a4f34b35140e5ae696233e60de8a",
+        "text": "A skill for creating interfaces inspired by Nothing’s monochrome, industrial visual language."
+      },
       "title": {
         "hash": "3dce475904304e2ffaacfe540b79634978e01e5855062fb692659ef9cc18806f",
         "text": "Nothing Design Skill"
@@ -1337,6 +1405,10 @@
       }
     },
     "link:96941f7a-948d-5723-aa96-98a27deaf203": {
+      "description": {
+        "hash": "bdeb05969259147c1954f3bab9960632ff171ba94c7f971f192990bea427c57c",
+        "text": "An article by the PDF Association presenting a Visual Studio Code extension designed to analyse the internal syntax of PDFs."
+      },
       "title": {
         "hash": "398ad5c4bf254de67385d0e3c8715ce595764b80dfc982ec3f2b6de0a7ddf4bb",
         "text": "Visual Studio Code extension for PDF syntax highlighting"
@@ -1436,6 +1508,10 @@
       "description": {
         "hash": "78d19e1d4324be175691ca91c805c414484e19911de94ed41183e687ddc957cc",
         "text": "A webinar on the technological transformation of print businesses and developments in personalisation services."
+      },
+      "title": {
+        "hash": "b6e804c4edbb6fc14ae48462fba44e44849366f3766e1ede9d8ca0c53aedec4a",
+        "text": "Printess Webinar — All Printers Are Tech Companies"
       }
     },
     "link:9f737c42-e03f-5575-86eb-846d8b8ff798": {
@@ -1618,6 +1694,10 @@
       "description": {
         "hash": "533d103e39fffc7f1a8b7bbb100a8eb8c932e41fe3e5be8517f52962b5d51ea0",
         "text": "An open-source penetration testing tool capable of analysing code and checking for vulnerabilities in web applications."
+      },
+      "title": {
+        "hash": "a7dcf14a13a2134c47788185bf627a04625ce2cabe73fb813f2634adb1b106e6",
+        "text": "Shannon"
       }
     },
     "link:b3efc7bb-7665-5145-999d-ea85e4af6028": {
@@ -1651,12 +1731,20 @@
       }
     },
     "link:b4e9be0c-d402-5929-a781-1f9bf1841b06": {
+      "description": {
+        "hash": "9f691cf78c5257555a9b59ba44a89d138a0a5f538dc374852351f8afa74b9fe4",
+        "text": "A toolkit for local processing of images, videos, audio, PDFs and other files, with a privacy-focused approach."
+      },
       "title": {
         "hash": "660457e376dd094f921f1dd49f3627899573e871ddd44eb1eda6860681679d18",
         "text": "SnapOtter"
       }
     },
     "link:b4fc0579-1bb0-5649-a81a-e215bdce75e9": {
+      "description": {
+        "hash": "c1ecd7176850792dbd37bd7b0cb7f6055a821a177601cb014f16f87aae1e8983",
+        "text": "An open-source search tool designed to explore, summarise and organise information."
+      },
       "title": {
         "hash": "068f89a05b8e69e95c913f5ac2e62260bebd4f66eb35e28eba563ff09eef82ea",
         "text": "Feynman"
@@ -1673,6 +1761,10 @@
       }
     },
     "link:b524b0d4-e683-5c9a-9d34-c2ef8ba52082": {
+      "description": {
+        "hash": "9e85bf312ac2effbf725cd2071d1870138474bed18e8d6cd7ae80cf5700f5156",
+        "text": "The Seerr open-source repository, including its installation and development documentation."
+      },
       "title": {
         "hash": "1359f346ec81dc28410e3fac8740db8164b850cf4b4410c89f55172f4d35ee8a",
         "text": "Seerr — code source"
@@ -1722,6 +1814,10 @@
       "description": {
         "hash": "30337086a21e989ba79a079247573e5ed57fb62479a35181cceea18473042e17",
         "text": "A brief overview of Medusa and its uses in orchestrating security tools."
+      },
+      "title": {
+        "hash": "a2ef5edbd3f4e029be106243468018ce4b40b64e7b21671de4e2ab6fe52ff118",
+        "text": "Medusa — PÉPITES fact sheet"
       }
     },
     "link:b90cbd16-ebad-508e-8aeb-7c4213093001": {
@@ -1813,6 +1909,10 @@
       }
     },
     "link:c614de9b-03c0-562a-b877-a08487b273db": {
+      "description": {
+        "hash": "b2ed27ad8decea90c89d0bc2cc812548a6c71da93ef134fcc89ea7d1ac3ee0a4",
+        "text": "A public website dedicated to documenting and providing access to information relating to the world of politics."
+      },
       "title": {
         "hash": "3f2217cea71e1cd7113d509c5766a513e002ea9d6429f3dc4598c77e289ee1c0",
         "text": "casier-politique.fr"
@@ -1898,6 +1998,12 @@
         "text": "Luminar – Easy-to-use photo editor | Software for Mac and PC"
       }
     },
+    "link:d19aa2b1-81dd-5fd7-a697-d2afddc66e5a": {
+      "description": {
+        "hash": "ab6b97220d9009607ec8e09957f26c42d1240566ada73abfa77d18cf9635af49",
+        "text": "A non-destructive, GPU-accelerated RAW image editor."
+      }
+    },
     "link:d1a171a4-4895-518a-91bd-c839973a42ea": {
       "description": {
         "hash": "5b52f250eaf80f5db3d2ab1944d08cea497023ff673ceae9668d55e8ceb6138c",
@@ -1936,6 +2042,12 @@
       "title": {
         "hash": "059070f3c1e79d6815a3610496db32219e9ef85ddaae00c2a74f0e74fa7cadb1",
         "text": "Supermemory — Memory and context for AI applications"
+      }
+    },
+    "link:d3c8148e-bb21-5fd5-acab-eac0d1e7010c": {
+      "description": {
+        "hash": "bcf4106281370168d142db63d0f22c022d93a3452f1da4aed24e751dfdce5d98",
+        "text": "A local dictation app combining speech recognition and AI-powered text enhancement."
       }
     },
     "link:d42140f0-a527-5985-b6e6-bfbfd2444a41": {
@@ -2075,6 +2187,10 @@
       }
     },
     "link:dfa74cdd-e638-5b8a-8056-8619885abe7a": {
+      "description": {
+        "hash": "c84e1bb44d64713a9fd3b1d0c92e14c3488c9967253a711796898300eee0876b",
+        "text": "A specification designed to describe a visual identity in a structured manner for programme planners."
+      },
       "title": {
         "hash": "35f823d437c4f6b2e17f1325dc8c6fc26ea656dd8f84714e539c18a6c0def6a7",
         "text": "DESIGN.md"
@@ -2123,6 +2239,10 @@
       }
     },
     "link:e3df1202-6fc8-580c-89d9-26dc026b11ea": {
+      "description": {
+        "hash": "b8adf3f78b9fbd1c73a773abdb700aec7eedcbe6c39d1dec9cf40dedeb144105",
+        "text": "An open-source, cross-platform alternative to AirDrop for transferring files over a local network."
+      },
       "title": {
         "hash": "8bb7faf5f6b2955884f8295c21b3589f9573d20988b5cd912fd56cce413666e7",
         "text": "LocalSend"
@@ -2285,6 +2405,10 @@
       }
     },
     "link:f41ea5f3-56c3-5eee-bb2b-e52e0d4f7d8b": {
+      "description": {
+        "hash": "a05d95b5107f7bef6dc6c6547524d2576accd22a698e1f31fe0a95cdc20cd140",
+        "text": "The Browser Use quick start guide for creating automations and agents capable of interacting with the web."
+      },
       "title": {
         "hash": "17072094e138e88f5b0634c476eef909b2092acf5fa66efcd79c62aa2ccdcbc1",
         "text": "Browser Use — Quick Start"
@@ -2304,6 +2428,10 @@
       "description": {
         "hash": "354904a6db20b6f93384efec0663550283ee2739f719390de8b1c729b6df977f",
         "text": "A section dedicated to trends, techniques and news from the printing industry."
+      },
+      "title": {
+        "hash": "c284e63f0d11f96ef862f9155bed2d2e5b7b7923185ebe620fd20444225393bb",
+        "text": "News and trends in print"
       }
     },
     "link:f61a34fc-338f-58ff-97b2-b2ae9439a035": {
@@ -2634,6 +2762,10 @@
       "body": {
         "hash": "00496490daa049267ec0560e76dd8dddca7810969926434dab09c75a9c4da03a",
         "text": "<h2 id=\"demandes-et-échanges\">Requests and exchanges</h2>\n<p>This section has been reconstructed from Git, as the original conversations\nare not stored in the repository.</p>\n<p>The project therefore does not begin with a bookmarking service. It\nbuilds on hand-written Digests, fed by the OOBLIK blogs and by\nposts shared over the years on Tumblr, Instagram and other\nsocial media platforms. The changes reflect four successive requirements:</p>\n<ol>\n<li>to make the old HTML Digests searchable again.</li>\n<li>to bring together links from WordPress blogs and social media feeds without erasing\ntheir sources.</li>\n<li>to have a static, readable Digest, organised and deployable without revealing\nany server secrets to GitHub.</li>\n<li>to make this diverse archive searchable by archives and tags.</li>\n</ol>\n<p>The restoration revealed two editorial considerations: missing resources\ndeserve to be preserved and documented, whilst old, empty\nMailchimp editions provide no useful historical record.</p>\n<h2 id=\"décisions\">Decisions</h2>\n<ul>\n<li>Hugo and PaperMod form the public backbone.</li>\n<li><code translate=\"no\">data/links.json</code> centralises the links. The archives consist of dated Hugo\ncontent.</li>\n<li>The Digest is not a platform migration: it brings together multiple\nsources, multiple websites and multiple generations of URLs.</li>\n<li>GitHub Actions creates a ‘<code translate=\"no\">production</code>’ branch. CloudPanel takes over without\nany webhooks or server credentials in GitHub.</li>\n<li>A dead public URL remains viewable and is flagged as such.</li>\n<li>Domain variants and the actual validity of the destination must\nbe verified, not just their HTTP response.</li>\n<li>All external links open in a new tab.</li>\n</ul>\n<h2 id=\"réalisation\">Implementation</h2>\n<p>The first commit adds the theme, the homepage, the archives, the tags,\nthe catalogue and the curation skill. The validation and\ndeployment workflows follow immediately.</p>\n<p>The first historical restoration brings back old\neditions and several social feeds. A Pinboard export is one of the technical\nsources processed that day, alongside other batches: it is neither\nthe core of the Digest nor its origin. The import tools, consistency\nchecks and the concept of ‘<code translate=\"no\">lien-mort</code>’ instead provide a common method for these\nfragments. Imported titles are cleaned up, external links corrected and\nthe tag explorer is given a dedicated interface.</p>\n<p>Above all, this first day marks the start of a wider project. Posts from\nWordPress blogs, notably the OOBLIK Blog, will subsequently be added to the same repository\nalong with their text and provenance. Tumblr, Instagram and other feeds will\nretain their identity rather than being merged into a single source.</p>\n<p>Mailchimp entries that no longer contained a usable destination and\nsix entirely empty editions have been removed. This deletion concerns\nimport artefacts, not documented defunct public resources.</p>\n<h2 id=\"validation-et-déploiement\">Validation and deployment</h2>\n<p>The added workflows validate the data and then build Hugo. The\n16 GitHub Actions runs visible for the day were successful, with no\nfailures. The final deployment goes through the `<code translate=\"no\">production</code>` branch and is handled by\nCloudPanel.</p>\n<h2 id=\"commits\">Commits</h2>\n<table>\n\t<thead>\n\t\t\t<tr>\n\t\t\t\t\t<th>Commit</th>\n\t\t\t\t\t<th>Date · time</th>\n\t\t\t\t\t<th>Subject</th>\n\t\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/15a3360673c25f895baa464d3c40ac3ee9a27043\"><code translate=\"no\">15a33606</code></a></td>\n\t\t\t\t\t<td>24/07/2026 · 16:15</td>\n\t\t\t\t\t<td>Initialisation of the Hugo Digest</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/1c6d858fd029a45cb86ad7c3fdf6fd38a34fe146\"><code translate=\"no\">1c6d858f</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 16:45</td>\n\t\t\t\t\t<td>Preparing for production deployment</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/51c68e0f9478bd1289a045ef95a30cd8409e02b6\"><code translate=\"no\">51c68e0f</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 16:55</td>\n\t\t\t\t\t<td>Deployment via CloudPanel backup</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/12f3f116e4324b12b8d1f5c4befa2c49c86beb63\"><code translate=\"no\">12f3f116</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 17:38</td>\n\t\t\t\t\t<td>Restoring historical archives</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/66f3c2e5d8ca47e05d4fc5c15cb9758c64911190\"><code translate=\"no\">66f3c2e5</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 10.40 pm</td>\n\t\t\t\t\t<td>Pinboard and social feed import</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/a9e031d604449ef5abd3fcf6033294b9cccfe64c\"><code translate=\"no\">a9e031d6</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 10.52 pm</td>\n\t\t\t\t\t<td>Correction of links and titles</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/2f043425bb950489747315f0451e0a1521722136\"><code translate=\"no\">2f043425</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 23:03</td>\n\t\t\t\t\t<td>Opening external links</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/f5c405918bf3563d1171e3ca44d77b6fe7388e0a\"><code translate=\"no\">f5c40591</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 11.08 pm</td>\n\t\t\t\t\t<td>Redesign of the tag explorer</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/caa1bc0ea06102c1338eb6b5b33c704d12f920df\"><code translate=\"no\">caa1bc0e</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 23:10</td>\n\t\t\t\t\t<td>Merging the tag redesign</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/2f84021b0ef58713b7ff955776e05baf50329774\"><code translate=\"no\">2f84021b</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 23:12</td>\n\t\t\t\t\t<td>Cleaning up old Mailchimp references</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/1c17f9d7aec4c32665090ae93df31455cbce38b7\"><code translate=\"no\">1c17f9d7</code></a></td>\n\t\t\t\t\t<td>24 July 2026 · 23:12</td>\n\t\t\t\t\t<td>Deletion of empty Mailchimp editions</td>\n\t\t\t</tr>\n\t</tbody>\n</table>\n<h2 id=\"résultat\">Result</h2>\n<p>At the end of the day, the hand-crafted HTML digests have found a sustainable\nlong-term solution. The site now has its own editorial model, an initial history, its\nquality controls and a reproducible production workflow capable of accommodating\nblogs and scattered feeds.</p>\n"
+      },
+      "description": {
+        "hash": "c1e99fc5cc3bd6cf1993e2219d7fbd6623a0986845e2fbdc4607d3afa9f38926",
+        "text": "The Digest gives a new form to an older practice:\nhand-curated selections of links in HTML. It brings together in one place\nWordPress blogs, Tumblr, Instagram and other scattered traces, without\nremoving URLs that have become unstable or are no longer active."
       },
       "title": {
         "hash": "6340d0847e26b43729f98e98454ff93ba44f367da1ce9bdff89b518d7626036a",
