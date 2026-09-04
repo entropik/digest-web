@@ -19,6 +19,7 @@ chaque journée ayant produit une évolution du projet.
 | 28 août 2026 | [Le brouillon devient un état éditorial](2026-08-28.md) | — | Cycle de vie réversible des éditions |
 | 2 septembre 2026 | [La curation traverse Firefox](2026-09-02.md) | — | Extension Firefox, signature AMO et installation officielle |
 | 3 septembre 2026 | [Mouvements retrouvés, bilinguisme et cron admin](2026-09-03.md) | — | Survol du texte, reprise des tags, traductions et Node 22 pour le cron admin |
+| 4 septembre 2026 | [Du monstre aux réparations : démonter la dérive Codex](2026-09-04.md) | 3 | Optimisation Hugo, mémoïsation, suppression de la CI monolithique et sortie de GitHub |
 
 ## Provenance
 
