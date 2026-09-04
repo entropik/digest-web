@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "3698ea9cb97300a37cdc12e93dd5cb9acc2ef84c37b619aeb2a2c967ac0b8b3d",
+  "revision": "e9c651f3278ff8681b6ae6dc963478e2515dec09c13d1db658d5d89ea49c1c18",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -328,6 +328,12 @@
         "text": "2016"
       }
     },
+    "tag:A5": {
+      "name": {
+        "hash": "6ccf1f604d75a7090da8163416d0f5af109cd64c0ab4c230f0d68b8cfe10f07b",
+        "text": "Five A's"
+      }
+    },
     "tag:ADE": {
       "name": {
         "hash": "4848b05c08950d5c43202827f9df2566d763188e7470d6692b63c3f5a4fdf401",
@@ -466,6 +472,18 @@
         "text": "Definition"
       }
     },
+    "tag:DenisRobert": {
+      "name": {
+        "hash": "6d0080b2bc6461c692ce35fb07784bc45c84e0cca8e533c9d33ade748e3b92c7",
+        "text": "DenisRobert"
+      }
+    },
+    "tag:Depression": {
+      "name": {
+        "hash": "713ce5632fac0ffda2b1a899cb440782bcae1f450e1d9859373afe72d7af89c2",
+        "text": "Depression"
+      }
+    },
     "tag:Digest": {
       "name": {
         "hash": "3e7fb4744a67e34eb9add6c70bd8e6c53e91276ea321dab62eb48187541a6455",
@@ -500,6 +518,12 @@
       "name": {
         "hash": "56cb4d150742f71d169906cd0632393b909209a7d7612e25962675ea4b00e62e",
         "text": "Eurovision"
+      }
+    },
+    "tag:EurovisionFR": {
+      "name": {
+        "hash": "7430f5e2cec8bd613abae202be94e625ed82e2070cf636c7a2d726e21ffd9640",
+        "text": "EurovisionFR"
       }
     },
     "tag:FOAM": {
@@ -736,6 +760,12 @@
         "text": "PDF-X"
       }
     },
+    "tag:PHP": {
+      "name": {
+        "hash": "74a88f23e7c61c401d55caaa9b0035f098657ef3a7c5afe77ed7360ba92cda75",
+        "text": "Pretty Please"
+      }
+    },
     "tag:Paper": {
       "name": {
         "hash": "0729e0f419074c2a8ce6dc0abd6bcdc45b1d051a6e2a63aa740bf7d1d9f9df6d",
@@ -850,6 +880,12 @@
         "text": "Sparrowhawk"
       }
     },
+    "tag:Saint-Fons": {
+      "name": {
+        "hash": "7458e2602da7f104d0887f45fe632386b46e7efe429c5295c4a3350e965ea80c",
+        "text": "Saint-Fons"
+      }
+    },
     "tag:Saint-Étienne": {
       "name": {
         "hash": "59b9ab9158ee0376d7c9161713cd02f21f909f64aeeca2c4711e868297369084",
@@ -902,6 +938,18 @@
       "name": {
         "hash": "1b815d5b5e3ea63ef84c31a242ffc0047d7001a1681dc42e3a9aa9aaa0b7ca8a",
         "text": "TrueType"
+      }
+    },
+    "tag:Tunisie": {
+      "name": {
+        "hash": "77499bcd0e98a63aa6875cdbe2002a7aaccadab5b77747bff3229113584eff0b",
+        "text": "Tunisia"
+      }
+    },
+    "tag:UI": {
+      "description": {
+        "hash": "728564024f4ead41e98439fe30aa51f1082489d1d7ab141e2958b7904806fde0",
+        "text": "Design and operation of user interfaces."
       }
     },
     "tag:UX": {
@@ -958,6 +1006,12 @@
         "text": "accessibility"
       }
     },
+    "tag:adh": {
+      "name": {
+        "hash": "75d13b0fb7db0d0f0c77607d0d02cb88e1acef09f8bb0559fe7fa4f76e99932f",
+        "text": "I am sorry"
+      }
+    },
     "tag:aeachi": {
       "name": {
         "hash": "14905d169138aa9a611bb513d5bccc696c0c075a9a0070bdc18412779a41c455",
@@ -992,6 +1046,12 @@
         "text": "algorithms"
       }
     },
+    "tag:analyse": {
+      "name": {
+        "hash": "73a0eedfb3bd4c456c17504df70988a831b4df03fada89cabd7d6686c0325c41",
+        "text": "analysis"
+      }
+    },
     "tag:animation": {
       "name": {
         "hash": "6023365539ef4b9268fa721df5a224516cd2c4ad386171d78b4d5f205659f6e5",
@@ -1002,6 +1062,12 @@
       "name": {
         "hash": "65ac56ef7201b345aa6a47896507ce68f9d72508fe8161632c489908b422d980",
         "text": "directory"
+      }
+    },
+    "tag:appleEvent": {
+      "name": {
+        "hash": "739b6625798dec59f75a1bfd5263afd39742d7f7b5335a6493f65df16f0b51e9",
+        "text": "appleEvent"
       }
     },
     "tag:architecture": {
@@ -1042,6 +1108,12 @@
       "name": {
         "hash": "2df01868951652886c0ea0fa3986f5445460ad65aac68cf1b7596b86217d5111",
         "text": "crafts"
+      }
+    },
+    "tag:artiste": {
+      "name": {
+        "hash": "6e94f6d032fd8dac8d55f509c2309f6e5f17538bc84c372bd3c02a9fc299b581",
+        "text": "artist"
       }
     },
     "tag:assistant": {
@@ -1132,6 +1204,12 @@
         "text": "blog-design"
       }
     },
+    "tag:bolbreton": {
+      "name": {
+        "hash": "69c602f16034fb1691d0f939d719df86908765acf7a3c81911d8e3634398c63e",
+        "text": "little ball"
+      }
+    },
     "tag:booklet": {
       "name": {
         "hash": "269ff93d41833d8ef464d20b33522c99838874680b550bb508eaca6130cdfceb",
@@ -1204,6 +1282,12 @@
         "text": "camarcheraja"
       }
     },
+    "tag:canicule": {
+      "name": {
+        "hash": "76b771dc4e92f39ccf2f29981dca2735a2ac7be3f1174d0a8b8c4ae2e159c93d",
+        "text": "heatwave"
+      }
+    },
     "tag:canon": {
       "name": {
         "hash": "3ca0a90f99df56d4f4e000ac3ba2a638551b8628ab26453b2e57e2c08d31a17c",
@@ -1226,6 +1310,12 @@
       "name": {
         "hash": "54381f5ea86cff0fd18e5040cab2eeedf7623af7e6d0713bb5838608d824ffc6",
         "text": "cat"
+      }
+    },
+    "tag:chatcach": {
+      "name": {
+        "hash": "73266efe2b1d54da471538dce284593b14523439dd9f91cd47ce86269d96a7ab",
+        "text": "cottages"
       }
     },
     "tag:chaud": {
@@ -1404,6 +1494,12 @@
         "text": "cyber security"
       }
     },
+    "tag:danieldarc": {
+      "name": {
+        "hash": "6de4a29057a5fbc1ec1cd34ed822a1bbb5fe5d415ee3da75014c76d0e76f038a",
+        "text": "danieldarc"
+      }
+    },
     "tag:datavisualisation": {
       "name": {
         "hash": "26ac85984e506a4d62d414ea068d560bf3f1d9e0b780ae1fcfae55c0d6a2e51a",
@@ -1416,6 +1512,12 @@
         "text": "from"
       }
     },
+    "tag:decoracion": {
+      "name": {
+        "hash": "7701e7168e696d27151a62e864448848005881885a60bc09f2ba962f26331083",
+        "text": "decoration"
+      }
+    },
     "tag:degooglisons": {
       "name": {
         "hash": "1b43fd1901caa5b6358c81bd79b390082099adfc28ed62e3dcb3709a6b024e35",
@@ -1426,6 +1528,10 @@
       "description": {
         "hash": "0f3165f285644598ccb94eeb6ba85f1dde048508353eb2a59dbc08f213b1bac7",
         "text": "Visual, functional and editorial design."
+      },
+      "name": {
+        "hash": "771b395453665e3fab03c2f94c0c365a2ace89e0fd663e0a2f16bf66455204d2",
+        "text": "design"
       }
     },
     "tag:design-graphique": {
@@ -1472,6 +1578,12 @@
       "name": {
         "hash": "5142d14ebd608b3f01e657d8083dfa3fae9471e94d7dcfa55912bdba4ac9fc8b",
         "text": "documentation"
+      }
+    },
+    "tag:domains": {
+      "name": {
+        "hash": "6fdebaa65df7f2326be554af0126a2fba2b10a97275f2113f91ca7896fca38f2",
+        "text": "domains"
       }
     },
     "tag:dooo": {
@@ -1522,6 +1634,12 @@
         "text": "England"
       }
     },
+    "tag:enseignement": {
+      "name": {
+        "hash": "71dcdd681aaae23519365d0c110a986b6f07399c9c9fc53fe55595e60e2a6110",
+        "text": "education"
+      }
+    },
     "tag:entraînement": {
       "name": {
         "hash": "5ce7f2612529822c1d752a0f9f52f7fad8722665c2131856b380f0342bc946c2",
@@ -1532,6 +1650,12 @@
       "name": {
         "hash": "4a314b14ad0a769e1ce90a6323e4f2f4bd6cae2a860a5db3dbfa11f4ec2182d9",
         "text": "interview"
+      }
+    },
+    "tag:entretiens": {
+      "name": {
+        "hash": "6c21791dad1cfa8bc0dc2469dc28d795fd2ed843709d1b51677257b95a56e67f",
+        "text": "interviews"
       }
     },
     "tag:ergosoft": {
@@ -1588,6 +1712,12 @@
         "text": "shaping"
       }
     },
+    "tag:fiche": {
+      "name": {
+        "hash": "6d2acca88ea518ab9eeaaccb375acb544bb2dbd0120bbf66d285f6ab2bfdaa06",
+        "text": "fact sheet"
+      }
+    },
     "tag:fier": {
       "name": {
         "hash": "20aeacfb2acd756d3a6c6812394b9f3fb6573a65853a357f654a8336e8d3d754",
@@ -1598,6 +1728,12 @@
       "name": {
         "hash": "52fdfd7e61a1e31f3d6144875062d53f4c25adf514496b136987bc3ee81bb3b1",
         "text": "finance"
+      }
+    },
+    "tag:financement-participatif": {
+      "name": {
+        "hash": "7377e893f1b32299ec2890404f6903dc24e365ba78e013c40863810a33a5ee34",
+        "text": "crowdfunding"
       }
     },
     "tag:findepose": {
@@ -1664,6 +1800,12 @@
         "text": "graph"
       }
     },
+    "tag:graphisme": {
+      "name": {
+        "hash": "6bbe5c47600c466c4ad99ae3f289b0a111e48b54f5def6ff724e770923fe6c3f",
+        "text": "graphic design"
+      }
+    },
     "tag:green": {
       "name": {
         "hash": "3c4252b6037e0cc348852b90cfd3bc3661e8ccdbf5c7c535c746a9e8b45cae52",
@@ -1682,6 +1824,12 @@
         "text": "grid"
       }
     },
+    "tag:guide": {
+      "name": {
+        "hash": "6a00234915704f272f4c17c1238bb8f1ed9389c9095bd88f12a4dbc0ceab13c3",
+        "text": "guide"
+      }
+    },
     "tag:génératif": {
       "name": {
         "hash": "049a1a8dbc5b2e146065052ef4faca72d0c3a959d6fa484643c4fd275ab722a1",
@@ -1694,6 +1842,12 @@
         "text": "hahnem"
       }
     },
+    "tag:happy": {
+      "name": {
+        "hash": "6c95ec414f0a59068a3ebe1c80d3075373751c4e50c9ceb38d1a5a09084f927c",
+        "text": "happy"
+      }
+    },
     "tag:hardware": {
       "name": {
         "hash": "498018d89faf5ba843edc24c9033249ab6f3512f5611804b0e5ae49a6b027de8",
@@ -1704,6 +1858,12 @@
       "name": {
         "hash": "5479e5a32c60039656ba41ce72f8344abb04f5d6d433aa0a05180e60222eceb7",
         "text": "hexagonal"
+      }
+    },
+    "tag:histoire": {
+      "name": {
+        "hash": "6df466b1dd4d0660658bbd4bfa79586bac7f9e4203f7b66ed82d6b8464fce535",
+        "text": "history"
       }
     },
     "tag:hp": {
@@ -1944,6 +2104,12 @@
         "text": "list"
       }
     },
+    "tag:livre-d-art": {
+      "name": {
+        "hash": "76ef24bfaf8dadd71870f5c444c4e3b246a6ca19568e9909223a55cca1546429",
+        "text": "art book"
+      }
+    },
     "tag:livre-d’artiste": {
       "description": {
         "hash": "3b733f0683168081f310624dfa51bf0e45a01bc051b5acb6b8d9b334d4749bfb",
@@ -1962,10 +2128,22 @@
         "text": "books"
       }
     },
+    "tag:livret": {
+      "name": {
+        "hash": "776a5a7149ddf033d25cab9f7c3de9f3299af0e2a98bfcc779c7d7744846d810",
+        "text": "booklet"
+      }
+    },
     "tag:logiciels": {
       "name": {
         "hash": "5afcfe74106baeaffc028bd6a4b1fed502102f7325d9bd61e748cbcf1396dbaf",
         "text": "software"
+      }
+    },
+    "tag:logo": {
+      "name": {
+        "hash": "6bf1fc291800d161fdbe9b1b61fb91ed10376674e62b206f85b166683a0d7c6a",
+        "text": "therefore"
       }
     },
     "tag:looseassociations": {
@@ -1978,6 +2156,12 @@
       "name": {
         "hash": "05ecec6b35bd7c091e8ff8c569a547fd05c19dcb024922a7657e3ed74dfc0f7f",
         "text": "lost"
+      }
+    },
+    "tag:love": {
+      "name": {
+        "hash": "74f67fd8b995a2e79511cc3838cb2921ebff923178e7b372e7aad073a1bba1bc",
+        "text": "love"
       }
     },
     "tag:ludique": {
@@ -2023,15 +2207,31 @@
       }
     },
     "tag:memory": {
+      "description": {
+        "hash": "6a1a952e14df796d477aa3e43f471e37bbf3f6754533eabd4cb4170832b7ebad",
+        "text": "memory system, second brain, memories"
+      },
       "name": {
         "hash": "1cacd357d70918545c962a6e3c5aad48994c092f8e75af3daecd18551fee6d2a",
         "text": "memory"
+      }
+    },
+    "tag:minimalisme": {
+      "name": {
+        "hash": "767840e812567d7f53c5eb0222d84da2283f332c6d725dabf074246828202c82",
+        "text": "minimalism"
       }
     },
     "tag:mise-en-page": {
       "name": {
         "hash": "20e813a7d8b9eb1ae30013e8de14895a68af9feb41a0f9e8e0845670f0b6fc8f",
         "text": "page layout"
+      }
+    },
+    "tag:mise-à-jour": {
+      "name": {
+        "hash": "76554b96117f06fc5a75e55e0de39309a14b44d99335a2264c148cf656aace44",
+        "text": "update"
       }
     },
     "tag:monospace": {
@@ -2176,6 +2376,30 @@
         "text": "open source"
       }
     },
+    "tag:opentypo": {
+      "name": {
+        "hash": "71d75a1b29a1499c2072693984afff3bb511c6fc4b06331dd7b2893bf7ea1715",
+        "text": "OpenType"
+      }
+    },
+    "tag:optimisation": {
+      "name": {
+        "hash": "6f13407a038e04a2a04d3fed46c1510fb1881a12a800d4db98d3ce11ffa7550b",
+        "text": "optimisation"
+      }
+    },
+    "tag:outil": {
+      "name": {
+        "hash": "7083f23419317b769134f57caad21439fbbfc56dd794b2b8043bfc8e6173de26",
+        "text": "tool"
+      }
+    },
+    "tag:outils": {
+      "name": {
+        "hash": "71effeb35148b64741007badc5f0a22f4bc5b105f2a0ffdca0c4fc8c23676a2a",
+        "text": "tools"
+      }
+    },
     "tag:p5js": {
       "name": {
         "hash": "1383b54dce4bcec9ea42e936e5f3417239835ef6bd2970a68a6954b8b8b914d8",
@@ -2212,10 +2436,22 @@
         "text": "pairing"
       }
     },
+    "tag:palette": {
+      "name": {
+        "hash": "6c906a2357035bed5e310a961232fddd3ebef0ffb49f3dab6006bc9d09471ee0",
+        "text": "range"
+      }
+    },
     "tag:papelpintado": {
       "name": {
         "hash": "2508d1e89fc2aa34849148643f0f623bf12f9d8c86564d8cb3d608645f085c60",
         "text": "wallpaper"
+      }
+    },
+    "tag:papiers": {
+      "name": {
+        "hash": "77e88b44b39c174b926eb97e46aa655accfd2b67dfe6aa3aaa3d414e0a06ec92",
+        "text": "papers"
       }
     },
     "tag:pelliculage": {
@@ -2480,6 +2716,12 @@
         "text": "retrospective"
       }
     },
+    "tag:sanstitre": {
+      "name": {
+        "hash": "752f092a8eb6ab5691780cbc32845be174b91f6a715991eaef181e299e61baad",
+        "text": "sanstitre"
+      }
+    },
     "tag:sant": {
       "name": {
         "hash": "10ab30c0b117724be2cff2b3537ff4573b224ac71c06e15d30fdd1f4465d7a90",
@@ -2540,6 +2782,12 @@
         "text": "specifications"
       }
     },
+    "tag:stalker": {
+      "name": {
+        "hash": "7114fdbde32ba0dc62d4747849894c014d51c07af56e85a4df00d7746360a459",
+        "text": "stalker"
+      }
+    },
     "tag:startuplife": {
       "name": {
         "hash": "1770c2cd6361fd0c4da85244f62a42acdb6d51a54f90f47f32a6ffbd6e2aac43",
@@ -2594,10 +2842,22 @@
         "text": "trend"
       }
     },
+    "tag:terminal": {
+      "name": {
+        "hash": "6f38048922239321ce022cfb3fe4ac6878866aab9a534fdfadc7018e75091aa1",
+        "text": "terminal"
+      }
+    },
     "tag:texte": {
       "name": {
         "hash": "5e45aad36f8b1589c86d240fbcc8ad08fddda3591e8eb98df6e4647fda06b0a0",
         "text": "text"
+      }
+    },
+    "tag:textile": {
+      "name": {
+        "hash": "6a5e174f8fc9f134c29205a907348e019db069ed914cefefb3befa5bad8132d8",
+        "text": "textile"
       }
     },
     "tag:theme": {
@@ -2650,6 +2910,12 @@
       "name": {
         "hash": "0496b95d21ffe8626fe95a65ee378d0c7a7d09c9d02cd142c0378220012d9cb1",
         "text": "file-transfer"
+      }
+    },
+    "tag:transparent": {
+      "name": {
+        "hash": "6990dbb8888b6c1ac5ae0b11ce12605abc9308f7c054da6dfadd7831bb03ff47",
+        "text": "transparent"
       }
     },
     "tag:travail": {
@@ -2718,6 +2984,12 @@
         "text": "utopian"
       }
     },
+    "tag:variable-font": {
+      "name": {
+        "hash": "7400c04c8f8b17f8aa9117ee44bb07439c88edb91341cf3016c1fd0ea3ee5cfc",
+        "text": "variable-font"
+      }
+    },
     "tag:vecteur": {
       "name": {
         "hash": "43615598060b6644a330006f22482233515ab86368753e47c14cf4759558a783",
@@ -2776,6 +3048,12 @@
         "text": "can't wait for spring"
       }
     },
+    "tag:voyage": {
+      "name": {
+        "hash": "75db99490464b90c2e4a0fc43a0a6a47f183330360fd82218ecec91f1d98bc0e",
+        "text": "journey"
+      }
+    },
     "tag:web": {
       "description": {
         "hash": "67966dab258597f2142d8c527a2cac2deb4e2e48ccafe1e2a3c39901126be3b9",
@@ -2802,6 +3080,12 @@
       "name": {
         "hash": "3399c6d07cd743c1246631c0e700e6737a372bd9c7f21755aa1e4a57e8e30634",
         "text": "web design"
+      }
+    },
+    "tag:webfont": {
+      "name": {
+        "hash": "6a278e9a750ce836bd9f4820e26b692bc1179862c9cbecc3eb84db996ff28e52",
+        "text": "web font"
       }
     },
     "tag:white": {
@@ -2863,6 +3147,10 @@
       }
     },
     "tag:édition": {
+      "description": {
+        "hash": "7287fb83431453bcf00859e8edf15c2237966a2c78970676e316636490bc391e",
+        "text": "Editing, publishing and production of content."
+      },
       "name": {
         "hash": "648babdce8c136fbd7c4467a3bbd35a8bd0ecf00f9e7763180763c3c53117963",
         "text": "edition"
@@ -2872,6 +3160,12 @@
       "name": {
         "hash": "52ab6ec317a98f07b8bd7c9441136cc1de7cdef031f864158234f7b1d348fb24",
         "text": "ephemeris"
+      }
+    },
+    "tag:éthique": {
+      "name": {
+        "hash": "72c495f2a4f28aef3332c1e5a6692ebb06192828093b1ce2a20e0c4ac300b964",
+        "text": "ethics"
       }
     }
   },
