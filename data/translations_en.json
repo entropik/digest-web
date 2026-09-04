@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "8a716d905a3fcb3981c650a571008ffc5eb1c287deeaa57daf1412913f618398",
+  "revision": "e8a9703d0fb0043baac2ae0f2a7f9c66e1349a21786da107e4bfdf1d62da825a",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -3096,6 +3096,10 @@
       "description": {
         "hash": "1d4b61dc96cda8e8f8c3442d57555ce892be210e96866353a27484379733ce7d",
         "text": "KEREDIT public sharing project: removal of flat image mode, implementation of StPageFlip, clean-up of public rendering, correction of artefacts and VPS deployment in version 0.9.10."
+      },
+      "title": {
+        "hash": "a6e9bffa4a3b6ce69a05dc9e3020722b88af99203338957f9eb4fa458ef58142",
+        "text": "Day 90 – Sharing takes shape"
       }
     },
     "page:/flux/journal-procrastinateur/2026-06-21": {
@@ -10685,6 +10689,10 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-18.webp": {
+      "alt": {
+        "hash": "239c8102520533a54341fdf0a3eba15e3dcb3ca669c3b07a1906af5815857ecb",
+        "text": "Document NASA : Data Recording Room in the 10-by 10-Foot Supersonic Wind Tunnel"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10699,6 +10707,10 @@
         "hash": "4fc22d4cdcf0d3de96e78b344302b8759c50363699e8c6c2fb87c2729bed9487",
         "text": "Document NASA : Astronaut James van Hoften on RMS tracking Syncom IV-3 after deployment"
       },
+      "date": {
+        "hash": "917593239dfe816e5e12bac9b430cebfef7c1aa8bd3dbf612e5d7fe3ca44624b",
+        "text": "1 September 1985"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
@@ -10706,6 +10718,10 @@
       "themeLabel": {
         "hash": "517f7be08eaef3eac46185baac1fe75f90b659b88b2150d1559e32fb092cb1c8",
         "text": "Telecommunications"
+      },
+      "title": {
+        "hash": "c92325f98bc588b86ba1f7a26d3d3228fc54ec00260d4cfeef1bca96b7741da2",
+        "text": "Astronaut James van Hoften on RMS tracking Syncom IV-3 after deployment"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-21.webp": {
