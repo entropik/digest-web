@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "ed84a94dc05f152264101be36773e28ee666712760fd4f0cd99d5d20e8a688e3",
+  "revision": "7ad4bcd2c4957035cfc18cf91bafbac0d1a0b63a6d43e85452c5a8b2d980b4b8",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -2176,6 +2176,86 @@
         "text": "Digest Journal"
       }
     },
+    "page:/flux/journal-du-digest/2026-08-20": {
+      "description": {
+        "hash": "2be49fee9730515d8966616143251c5cc2d56ed679ad4eeea809952e36d392ca",
+        "text": "The configurable categories provide the Digest with its system of headings and\nshared subheadings. This framework then organises the archive of 831 WordPress posts\nwithout confusing archived text, source and current destination.\nAny cases of uncertainty remain subject to human judgement."
+      },
+      "title": {
+        "hash": "4da57fae5fdfc7e90f6427fd6608db8eaff2a71c18adad62f8f506ec7cddf54e",
+        "text": "From the Swiss cartridge to the OOBLIK blog archive"
+      }
+    },
+    "page:/flux/journal-du-digest/2026-08-25": {
+      "body": {
+        "hash": "968851b4b4c4d8d732008d7a1321bc8e4201dcddf65c542392fa0ac3fc59a161",
+        "text": "<h2 id=\"demandes-et-échanges\">Requests and exchanges</h2>\n<ul>\n<li>The ‘published’ status should no longer act as a definitive barrier.</li>\n<li>Repeated editorial content was to remain distinct from accidental duplicates.</li>\n<li>Each new post should retain its own URN and date without overwriting\nthe history.</li>\n<li>The browsing experience had to work without ambiguity across multiple computers.</li>\n<li>The development blog was to be integrated into Flux as a standalone editorial\nsection, with a chronological index, full-text viewing and RSS.</li>\n<li>The legacy feed <code translate=\"no\">blog-ooblik</code> was to remain strictly unchanged.</li>\n<li>The index summaries had to be no more than three sentences long.</li>\n<li>Each map was to feature a visual banner, reproduced as a square image in the\nfull post, based on American posters from the 1940s and 1950s.</li>\n</ul>\n<h2 id=\"décisions\">Decisions</h2>\n<ul>\n<li>A standard submission remains deduplicated and links to the most recent known post.</li>\n<li>‘Repost on LinkedIn’ is an explicit action that reopens the\ncomposer before requiring further confirmation.</li>\n<li>The URL-based lock and the ‘<code translate=\"no\">submitting</code>’ status remain unchanged in order to protect\nagainst concurrent submissions and ambiguous remote results.</li>\n<li><code translate=\"no\">docs/journal/YYYY-MM-DD.md</code> files feed directly into the\npublic pages via a Hugo content adapter. No copies of the posts are\nretained in <code translate=\"no\">content/</code>.</li>\n<li>The visual corpus is sourced from the IIIF feed of Northwestern University Libraries.\nOnly ‘War posters, American’ dated from 1940 to 1959 and\nlabelled ‘No Copyright – United States’ are included. Their source and\nattribution remain visible.</li>\n</ul>\n<h2 id=\"réalisation\">Implementation</h2>\n<ul>\n<li>Automatic migration from <code translate=\"no\">linkedin_publications</code> to a historical\nappend-only index organised by URL and date.</li>\n<li>Addition of an occurrence counter to publication responses.</li>\n<li>Reading of the central history upon opening the composer in order\nto directly activate ‘Confirm republishing’ on all workstations.</li>\n<li>Replacement of the retrieval process with a repeatable editorial republishing process,\nwith editable text and hashtags.</li>\n<li>Update of public, technical and operational documentation.</li>\n<li>Upgraded the site and administration version to <code translate=\"no\">v1.18.1</code> following\nthe integration of the changes made on 25 August.</li>\n<li>Addition of the ‘Digest Journal’ banner in Flux, an index by year and by\nmonth, dedicated pages with folio numbers, and a standalone RSS feed.</li>\n<li>Strict validation of post titles, dates and summaries, accompanied by a\nconsistency check between the Markdown files, the nine pages generated and the RSS feed.</li>\n<li>Co-ordinated migration of the website and the administration panel to <code translate=\"no\">v1.21.0</code> for this\nnew public feature.</li>\n<li>Reproducible creation of a local corpus of one hundred WebP posters, with\na metadata catalogue, attribution and an IIIF collection script.</li>\n<li>Addition of banners on the index page, a square box within blog posts and an\nautomatic check limiting each summary to three sentences.</li>\n<li>Co-ordinated migration of the website and the administration system to <code translate=\"no\">v1.21.1</code>.</li>\n</ul>\n<h2 id=\"validation-et-déploiement\">Validation and deployment</h2>\n<ul>\n<li>TypeScript verified with <code translate=\"no\">npm run typecheck</code>.</li>\n<li>Full verification successful with <code translate=\"no\">node scripts/verify.mjs</code>: 169 service\ntests, 74 extension tests, TypeScript, WXT and Hugo builds.</li>\n<li>Checked the local rendering in Chrome on a computer at 390 × 844 pixels,\nwith no horizontal overflow.</li>\n<li>Verification of the Digest Journal in light and dark themes, using the keyboard and at\n390 × 844 pixels. The nine posts, their neighbouring content and the RSS feed are consistent.</li>\n<li>Full verification successful with 171 service tests, 79\nextension tests, TypeScript, WXT and Hugo builds, followed by a dedicated check of the\npublic blog.</li>\n<li>New full verification successful after adding the hundred images. Actual check of the banners and the square in light and dark themes, with no\nhorizontal overflow.</li>\n</ul>\n<h2 id=\"commits\">Commits</h2>\n<table>\n\t<thead>\n\t\t\t<tr>\n\t\t\t\t\t<th>Commit</th>\n\t\t\t\t\t<th>Date · time</th>\n\t\t\t\t\t<th>Subject</th>\n\t\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t\t<tr>\n\t\t\t\t\t<td><code translate=\"no\">d3639eb63</code></td>\n\t\t\t\t\t<td>Voluntary LinkedIn repost and append-only history</td>\n\t\t\t\t\t<td></td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><code translate=\"no\">b4e99ee27</code></td>\n\t\t\t\t\t<td>Tag suggestions from the shared page</td>\n\t\t\t\t\t<td></td>\n\t\t\t</tr>\n\t</tbody>\n</table>\n<h2 id=\"suite\">Follow-up</h2>\n<ul>\n<li>Verify an actual repost from two workstations following the deployment of the\nmulti-workstation patch.</li>\n</ul>\n"
+      },
+      "description": {
+        "hash": "9479352c4d4469121fd1dc1151411c49fdfeeff7e51131e0532f7f1149b021ef",
+        "text": "A LinkedIn resource can be republished without deleting its previous\nposts. The author field remains editable and SQLite retains every\ninstance. The technical log becomes a standalone public mini-blog, without\nbeing incorporated into the OOBLIK Blog archives."
+      },
+      "title": {
+        "hash": "eb258c25c05e39a956778bdf9b2944b2d0259d7bff9fd460087775371727c395",
+        "text": "Repeat without deleting on LinkedIn"
+      }
+    },
+    "page:/flux/journal-du-digest/2026-08-27": {
+      "body": {
+        "hash": "06dfd0c0615dea1ce8b812aeabd79ececfd737f7757fafc116d11a5c8dd98b4b",
+        "text": "<h2 id=\"demandes-et-échanges\">Requests and discussions</h2>\n<ul>\n<li>Analyse fifty GitHub links to produce a coherent compilation, rather\nthan a list of top picks with no hierarchy.</li>\n<li>Correct truncated URLs, moved repositories and duplicates present\nin the original list.</li>\n<li>Group the resources editorially according to what they enable users to do.</li>\n<li>Add archive images and LinkedIn share visuals to the published Digest.</li>\n<li>Identify and then remove the floating white border that appeared between certain\narchive cards and moved in line with the window width.</li>\n<li>Remove ‘Pinboard’ from all archive titles, without deleting the term from\nsummaries, historical texts or posts that actually refer to it.</li>\n<li>Reserve the ‘Digest — date’ format for contemporary curations and allow\nhistorical archives to bear only their date.</li>\n<li>Position the navigation bar at the top of the viewport, without any top margin or border.</li>\n<li>Simplify the lines on the home page: no line beneath the manifesto, a\nsimple frame around the search bar and the date, followed by a slightly\nthicker bottom line.</li>\n</ul>\n<h2 id=\"décisions\">Decisions</h2>\n<ul>\n<li>Functional duplicates in the list have been merged. The fifty entries\nthus yield forty-five distinct destinations.</li>\n<li>The public classification remains deliberately narrow: 18 resources fall under\n‘Development’, 26 under ‘AI &amp; Agents’ and one under ‘Design &amp; Creation’.</li>\n<li>The introduction to this edition organises the reading into four paths: learning\nby building, composing agents, training or utilising models, and then\nchoosing specialised tools.</li>\n<li>The date becomes the fixed element in archive titles. The word ‘Pinboard’\nremains an indication of origin, never a systematic embellishment.</li>\n<li>Cards within the same row must fill the entire available height so\nthat the illustrated background remains continuous, regardless of the title’s length.</li>\n<li>The search box uses shared borders: one pixel at the top,\non the sides and between elements, and two black pixels at the bottom.</li>\n<li>This journal publication is purely editorial and therefore does not alter the\n<code translate=\"no\">v1.22.9</code> version of the website.</li>\n</ul>\n<h2 id=\"réalisation\">Production</h2>\n<ul>\n<li>Verification of identities and correction of canonical GitHub addresses,\nparticularly for Developer Roadmaps, MetaGPT, ComfyUI and iFixAi.</li>\n<li>Removal of duplicate bonus items that repeated Coding Interview University, LangChain\nand n8n.</li>\n<li>Drafting of French titles and summaries, addition of necessary tags and\npublication of the ‘Digest — 27 August 2026’ containing 45 links.</li>\n<li>Generated rectangular and square visuals for use in the archives and\non LinkedIn.</li>\n<li>Stretched the archive card links to the height of their cells, which\neliminates the responsive white bar visible beneath 24 July 2026.</li>\n<li>Standardisation of 842 historical titles and adaptation of the archive generator\nto prevent the ‘Archive Pinboard’ suffix from reappearing.</li>\n<li>Aligned the admin interface with the ‘Digest — date’ convention when\ncreating a new curation.</li>\n<li>Removal of the top margin in the admin panel on both desktop\nand mobile.</li>\n<li>Removal of the top border beneath the homepage manifesto; common framing for\nthe search bar and calendar; followed by reinforcement of the bottom border only.</li>\n<li>Co-ordinated transition of the site and the admin panel from <code translate=\"no\">v1.22.4</code> to <code translate=\"no\">v1.22.9</code>\nin line with the five functional and visual updates.</li>\n</ul>\n<h2 id=\"validation-et-déploiement\">Validation and deployment</h2>\n<ul>\n<li>Verification of links, usernames, categories and tag pages\nupon publication of the edition.</li>\n<li>Successful Hugo build and targeted testing of the admin panel after\neach correction.</li>\n<li>Check of the archives, the homepage and the administration panel in a\nreal browser on both desktop and mobile.</li>\n<li>No horizontal overflow confirmed at 830 and 375 pixels in width.</li>\n<li><code translate=\"no\">eecba5a04</code> successfully deployed using the\n<a href=\"https://github.com/entropik/digest-web/actions/runs/33083450351\">GitHub Actions</a> workflow.</li>\n<li><code translate=\"no\">v1.22.9</code> version verified in the public footer and in the admin panel,\nfollowed by an annotated tag applied to the commit that was actually deployed.</li>\n</ul>\n<h2 id=\"commits\">Commits</h2>\n<table>\n\t<thead>\n\t\t\t<tr>\n\t\t\t\t\t<th>Commit</th>\n\t\t\t\t\t<th>Date · time</th>\n\t\t\t\t\t<th>Subject</th>\n\t\t\t</tr>\n\t</thead>\n\t<tbody>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/806647c9a\"><code translate=\"no\">806647c9a</code></a></td>\n\t\t\t\t\t<td>27/08/2026 · 15:52</td>\n\t\t\t\t\t<td>Publish the GitHub Digest for 27 August.</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/ecf3c2603\"><code translate=\"no\">ecf3c2603</code></a></td>\n\t\t\t\t\t<td>27 August 2026 · 15:58</td>\n\t\t\t\t\t<td>Add the visuals for this edition.</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/cf44a5605\"><code translate=\"no\">cf44a5605</code></a></td>\n\t\t\t\t\t<td>27 August 2026 · 16:05</td>\n\t\t\t\t\t<td>Extend the archive maps to their full height.</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/e7b73b75f\"><code translate=\"no\">e7b73b75f</code></a></td>\n\t\t\t\t\t<td>27/08/2026 · 16:16</td>\n\t\t\t\t\t<td>Standardise the edition titles.</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/57f9ba2cf\"><code translate=\"no\">57f9ba2cf</code></a></td>\n\t\t\t\t\t<td>27 August 2026 · 16:25</td>\n\t\t\t\t\t<td>Apply the curation titles in the administration.</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/4a160f49c\"><code translate=\"no\">4a160f49c</code></a></td>\n\t\t\t\t\t<td>27 August 2026 · 16:30</td>\n\t\t\t\t\t<td>Pin the administration panel to the top of the viewport.</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/17340c97c\"><code translate=\"no\">17340c97c</code></a></td>\n\t\t\t\t\t<td>27 August 2026 · 16:35</td>\n\t\t\t\t\t<td>Refine the grids on the home page.</td>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t\t<td><a href=\"https://github.com/entropik/digest-web/commit/eecba5a04\"><code translate=\"no\">eecba5a04</code></a></td>\n\t\t\t\t\t<td>27 August 2026 · 16:39</td>\n\t\t\t\t\t<td>Strengthen the bottom border of the search function.</td>\n\t\t\t</tr>\n\t</tbody>\n</table>\n<p>The commit that publishes this post is not included in its own log in order\nto avoid an unstable self-reference.</p>\n<h2 id=\"suite\">Next</h2>\n<ul>\n<li>Assess the readability of the new search box at intermediate screen widths\nand retain this hierarchy of lines in future\nupdates.</li>\n</ul>\n"
+      },
+      "description": {
+        "hash": "d9cfa7b4fce3bb3a39798ffa539d9f74838a4d05bbd5155b0fc5d93b00db8399",
+        "text": "A raw list of fifty GitHub references is transformed into a digest of forty-five\nresources that have been verified, deduplicated and grouped by use case. The archives are given\na visual identity, with titles centred on the date and a grid without white gaps.\nThe homepage and admin panel finally refine their margins and borders."
+      },
+      "title": {
+        "hash": "709afc2c77c6305976813fecda782688663db5386f00dd8c7e75920ec0092872",
+        "text": "Forty-five boxes and a few nets"
+      }
+    },
+    "page:/flux/journal-du-digest/2026-08-28": {
+      "body": {
+        "hash": "40a2b72fc5e09112b60ab1fbf6d2d0a50cf2d4e0fb7e4d0ef75d9e9a6becb77b",
+        "text": "<h2 id=\"demandes-et-échanges\">Requests and exchanges</h2>\n<ul>\n<li>Retrieve a post from the repository that was drafted on another computer.</li>\n<li>Provide the archive panel with a proper draft mode and a\npublish action.</li>\n<li>Implement plan 004 without implicitly publishing or deploying the project.</li>\n</ul>\n<h2 id=\"décisions\">Decisions</h2>\n<ul>\n<li>A metadata correction always retains the existing ‘<code translate=\"no\">draft</code>’ value.</li>\n<li>The front matter and link visibility must reflect the same state.</li>\n<li>An editorial withdrawal is never cancelled by the publication of an edition.</li>\n<li>A transition generates a single commit for the archive, the catalogue and the\ntwo social media posts.</li>\n</ul>\n<h2 id=\"réalisation\">Implementation</h2>\n<ul>\n<li>Addition of the ‘draft’, ‘published’ and ‘inconsistent’ statuses to the administrative\nregister of editions.</li>\n<li>Added filters and confirmed actions for publication and reverting to\ndraft.</li>\n<li>Extension of SQLite tracking to edition transitions and their resumption following\nan ambiguous GitHub response.</li>\n<li>Added ‘<code translate=\"no\">visibility_reason</code>’ to the catalogue and migrated the 29\nAugust draft to the ‘<code translate=\"no\">edition-draft</code>’ template.</li>\n<li>Strengthened consistency checks between archives and links.</li>\n</ul>\n<h2 id=\"validation-et-déploiement\">Validation and deployment</h2>\n<ul>\n<li>TypeScript typing and build validated. All 226 service tests pass when the\nLinux production test is excluded on macOS.</li>\n<li>Consistency checks validated across 843 editions and 964 tag routes.</li>\n<li>Administration tested in a real browser at 1,280 px and 390 px, with no\nhorizontal overflow or console errors.</li>\n<li>Hugo validation remains unavailable on this workstation, where Hugo Extended and\nPowerShell are not installed. The Linux deployment test also requires\n<code translate=\"no\">/usr/bin/ln</code>, which is not available on macOS.</li>\n</ul>\n<h2 id=\"suite\">Next</h2>\n<ul>\n<li>Run the global validation again in the CI environment equipped with Hugo Extended,\nPowerShell and the expected Linux paths.</li>\n<li>Submit the changes to the usual Git branch following approval.</li>\n</ul>\n"
+      },
+      "description": {
+        "hash": "aef5b6fedc04a1f6bf6d8921ae345eec2253c07d9222564fb94b9d63cc7b7817",
+        "text": "Existing editions can now be corrected, published or returned\nto draft status via the admin panel. The catalogue distinguishes between links prepared\nfor an edition and editorial withdrawals, which must remain offline."
+      },
+      "title": {
+        "hash": "4bd008fe61b95d1eab682040a91406140caf08e1e8838396b5e8589ac783c515",
+        "text": "The draft becomes an editorial version"
+      }
+    },
+    "page:/flux/journal-du-digest/2026-09-02": {
+      "body": {
+        "hash": "f5eb50289531eaeeca88c27cd4085f2620c3fdb5f0093ccc557879866b97fc6b",
+        "text": "<h2 id=\"demandes-et-échanges\">Requests and discussions</h2>\n<ul>\n<li>Install the extension in Firefox and make it an official target.</li>\n<li>Carry out validation and submission directly from Firefox.</li>\n<li>Maintain a clear, documented and verifiable workflow prior to publication.</li>\n<li>Prepare a well-documented post on the trend towards software factories based\non seven recent videos, whilst retaining the videos in the source selection.</li>\n</ul>\n<h2 id=\"décisions\">Decisions</h2>\n<ul>\n<li>Firefox 142 becomes the minimum version required to have native consent\nfor data categories on desktop and Android.</li>\n<li>The stable Gecko identifier is <code translate=\"no\">curation@digest.ooblik.com</code>.</li>\n<li>The manifest declares browsing history and site content, as\nthe URL, title, description and any selection are transmitted.</li>\n<li>The service only accepts exact <code translate=\"no\">moz-extension</code> UUIDs configured per\nprofile. No Firefox wildcards are permitted.</li>\n<li>The AMO release remains unlisted, as does the Chrome Web Store release.</li>\n<li>The standard shortcut is <code translate=\"no\">Ctrl+Maj+Y</code> (<code translate=\"no\">Cmd+Maj+Y</code> on macOS): real-world\ntesting has shown that <code translate=\"no\">Ctrl+Maj+D</code> is reserved for Firefox bookmarks.</li>\n<li>The manifest command remains format-specific: <code translate=\"no\">_execute_action</code> in\nChrome MV3 and <code translate=\"no\">_execute_browser_action</code> in Firefox MV2.</li>\n<li>This post builds on previous instalments dedicated to agent farms and ADEs by\nexamining the complete workflow: code, tests, review and pull request.</li>\n<li>The three thematic dossiers dated 28 August, 29 August and 2 September are\nlabelled <code translate=\"no\">editorial_type: &quot;focus&quot;</code>. Their public titles are prefixed with\n<code translate=\"no\">FOCUS -</code>. The dated Digests retain their historical layout.</li>\n<li>The 2 September Focus is published: its seven videos are once again visible\nin the catalogue and are still listed as sources at the end of the post.</li>\n</ul>\n<h2 id=\"réalisation\">Implementation</h2>\n<ul>\n<li>Added Firefox builds, ZIP files and development commands to WXT.</li>\n<li>Added the Gecko manifest, data declarations and source package.</li>\n<li>Extended CORS and Better Auth configuration to explicitly authorised Firefox origins.\nAdded a Firefox artefact to the extension’s publication workflow.</li>\n<li>Added a Firefox artefact to the extension’s release workflow.</li>\n<li>Updated the architecture, design decisions, privacy policies and\nprocedures for Chrome and Firefox.</li>\n<li>Initial upgrade of the extension to version 1.5.0 and the website to version\n1.25.0.</li>\n<li>Fixed the registration diagnostic: a rejected Firefox origin\nis no longer presented as an expired session. The fix brings\nthe extension to version 1.5.1 and the website to version 1.25.1.</li>\n<li>The first test following authorisation revealed a second issue specific to Firefox:\nthe modern API <code translate=\"no\">scripting.executeScript</code> may refuse the injection even though the\npop-up does indeed have <code translate=\"no\">activeTab</code>. Extension 1.5.2 retries the same local function\nusing the Manifest V2 API <code translate=\"no\">tabs.executeScript</code>, without extending the\npermissions, and now distinguishes this refusal from a connection issue.</li>\n<li>Drafting of the blog post ‘Software Factory: code is no longer the bottleneck’ following\nanalysis of the videos and cross-referencing with feedback, research\ninto agent-based modelling, DORA, METR and containment practices.</li>\n<li>Added a ranking of fifteen open-source projects by popularity and maturity,\ndistinguishing between complete factories, control plans, agents, sandboxes,\ncockpits and review tools.</li>\n<li>Added the seven canonical videos to the catalogue, without their tracking parameters,\nalong with titles, summaries and tags.</li>\n<li>Added the ‘Focus’ format to the publishing template, creation and\nediting forms, archive cards, blog posts and LinkedIn shares.</li>\n<li>Focus cards use a dedicated technical photograph, a\nyellow and black colour scheme and a prefixed title, without replicating the red Digest banner.</li>\n<li>Creation of a deterministic Focus generator in the 1200 × 627 and\n1200 × 1200 formats. Four NASA images already documented in the project are prepared\nin black-and-white JPEG format, then recomposed in duotone with a grid and a\nbold title over a single full-frame photograph. The six posters for the\nthree Focus features are regenerated.</li>\n<li>The new editorial and visual format brings the site to version 1.26.0.</li>\n<li>The grid for the fifteen projects is reduced to four columns and widened to\n1120 px. The description takes up almost half the space, whilst the stars\nand the licence remain grouped together. This correction brings the site to version\n1.26.1.</li>\n<li>The static deployment forces the use of Git v1 to resolve the SHA, then\ndirectly downloads its immutable archive: no persistent Git clone\nnow depends on the server’s faulty transmission. A new fingerprinted CSS\nasset prevents the cached copy with altered alt text from being\nused. The site is updated to version 1.26.2.</li>\n</ul>\n<h2 id=\"validation-et-déploiement\">Validation and deployment</h2>\n<ul>\n<li>The extension’s 110 tests, type checking and the Chrome and Firefox builds\nall pass.</li>\n<li><code translate=\"no\">web-ext lint</code> validates the Firefox manifest without any errors, warnings or\nnotes.</li>\n<li>The 239 tests for the administration service and its build pass.</li>\n<li>The package has been temporarily installed and tested in Firefox 155: the\nshortcut opens the form and correctly pre-fills the URL and title.</li>\n<li>The temporary UUID of the tested profile is\n<code translate=\"no\">b63b2a6a-61de-4f10-9d93-bb8e2494142f</code>.</li>\n<li>The Firefox 1.5.0 package and its reproducible source archive passed\nAMO validation without any errors or warnings.</li>\n<li>The unlisted version was submitted under the developer name <code translate=\"no\">OOBLIK</code>.\nMozilla automatically approved it on 2 September 2026, under reference\n<code translate=\"no\">Addon#3064842</code>, with the comment ‘<code translate=\"no\">automatic validation</code>’.</li>\n<li>The XPI signed by <code translate=\"no\">824fca3040734408979d-1.5.0.xpi</code>, AMO file <code translate=\"no\">5000165</code>, was\ninstalled from Firefox. The add-on manager confirms that\n<code translate=\"no\">OOBLIK Digest — Curation</code> 1.5.0 is enabled.</li>\n<li>A check on <code translate=\"no\">https://example.com/</code> confirms that the URL and\ntitle are pre-filled, the link is validated and the save button is enabled.\nNo test draughts have been saved.</li>\n<li>The first actual save confirmed that the owner’s session was\nvalid, but that the origin of the signed Firefox profile was not yet on the\nservice’s whitelist. The CORS check returned <code translate=\"no\">INVALID_ORIGIN</code> for\n<code translate=\"no\">moz-extension://b63b2a6a-61de-4f10-9d93-bb8e2494142f</code>.</li>\n<li>The editorial import accepts seven links, with no duplicates or private destinations.</li>\n<li>The actual rendering is checked in the browser at 1440 px and 390 px: prefixes,\nmaps, images, seven links and aspect ratios are correct, with no horizontal overflow.</li>\n</ul>\n<h2 id=\"suite\">Next</h2>\n<ul>\n<li>Add the exact origin of the signed profile to the deployed service, then check a\nlive draft once the configuration has gone live.</li>\n<li>Publish the corrective extension 1.5.2 on AMO.</li>\n<li>Version 1.26.0 is deployed and its annotated Git tag points to the commit\nthat was actually published.</li>\n<li>After deploying patch 1.26.2, create its annotated Git tag and check\nthe version on the public site and in the administration panel.</li>\n</ul>\n"
+      },
+      "description": {
+        "hash": "ce278264b962eccb258cb4a9834ac4b65f39597fbc4ef1dce3567dfad40e0c5a",
+        "text": "The curation extension becomes a Chrome and Firefox extension based on the same\ncode. The Firefox 1.5.0 version is validated, signed and then officially installed\nvia AMO without extending the service’s trust to all the browser’s\nextensions. The feature on the ‘software factory’ becomes the first post\npublished in the `FOCUS` format, alongside the two previous features on agent\nfarms and ADEs, with a visual identity combining NASA technical archives,\na grid layout and large typography."
+      },
+      "title": {
+        "hash": "7e60a9bfc17b1f110a98f1e73349477ad35598278cc71d7d2dceb09c4084068a",
+        "text": "Curation is making its way into Firefox"
+      }
+    },
+    "page:/flux/journal-du-digest/2026-09-03": {
+      "body": {
+        "hash": "85131c1f1b0311130bc8fb25d53dde4c2b28a7fba9b30a406b51192c7e11f5e4",
+        "text": "<h2 id=\"demandes-et-échanges\">Requests and discussions</h2>\n<ul>\n<li>Translate the entire interface and, gradually, the content, whilst keeping things simple using DeepL.</li>\n<li>Prioritise the core of the site, the latest editions and the Procrastinator’s Journal.</li>\n<li>Distinguish between the percentage of editorial content translated, the credit used, and the translations actually published.</li>\n<li>Check the ‘About’ page and the titles visible in the English archives as a priority.</li>\n<li>Report that the text tooltip and the automatic movement of tags have disappeared.</li>\n<li>Diagnose the system settings and reproduce the conditions under which the issue occurs, without altering the machine’s preferences.</li>\n<li>Explain why the public site and the administration panel displayed different versions following a successful merge, then correct the relevant scheduled task.</li>\n</ul>\n<h2 id=\"décisions\">Decisions</h2>\n<ul>\n<li>Retain the French URLs and generate the English pages at <code translate=\"no\">/en/</code>.</li>\n<li>Maintain the usernames, original destinations and favourites common to both languages.</li>\n<li>Set aside part of the credit for new content, without assuming a monthly renewal.</li>\n<li>Preserve the French source files and display a ‘pending’ status when a translation is missing.</li>\n<li>Keep historical documents in their original language and produce English versions of typographic posters.</li>\n<li>Remove the arbitrary 900px threshold for mouse-over effects, without enabling this effect on touchscreens.</li>\n<li>Stop displaying the prompt ‘<code translate=\"no\">plouf ?</code>’ when mouse hover is disabled.</li>\n<li>Comply with <code translate=\"no\">prefers-reduced-motion</code> and its changes without reloading.</li>\n<li>Maintain a single tag loop and restart it during successive page reloads.</li>\n<li>Also provide a URL with a fingerprint to the liquid text script to refresh its cache after publication.</li>\n<li>Limit the correction to the admin command environment, without altering the public site’s schedule.</li>\n<li>Retain the pre-existing system task and flag it as a duplicate rather than implicitly deleting another configuration.</li>\n<li>Distinguish between the success of GitHub checks and the version actually served by each of the two components.</li>\n</ul>\n<h2 id=\"réalisation\">Implementation</h2>\n<ul>\n<li>Export of the public manifest via Hugo and generation of the English pages via a content adapter.</li>\n<li>SQLite file, field hashes, retention of manual corrections and daily history.</li>\n<li>‘Translations’ tab with coverage, credits, rework requests and a distinction between preparation and publication.</li>\n<li>Actual translation of static pages and the ten most recent titles and descriptions of editions.</li>\n<li>Deferred initialisation and resetting of the fluid text according to the current preference.</li>\n<li>Pausing and resuming the tag explorer on <code translate=\"no\">pagehide</code> and <code translate=\"no\">pageshow</code>.</li>\n<li>Three regression tests running the actual scripts and a reproducible Chromium check.</li>\n<li>Preparation of version 1.27.0, followed by alignment of the public and administrative versions on <code translate=\"no\">1.27.4</code>.</li>\n<li>Diagnosis of installation failures for native dependencies under Node 20, explicit selection of Node 22 in the admin cron job, and documentation of the operational procedure.</li>\n</ul>\n<h2 id=\"validation-et-déploiement\">Validation and deployment</h2>\n<ul>\n<li>Testing with a simulated API for rate limits, interruptions, priorities and publication errors.</li>\n<li>Chrome checks of the selector, search, calendar and favourites on desktop and mobile devices.</li>\n<li>Proofreading of a translated sample and local verification of the ‘About’ page.</li>\n<li>Full local validation: testing of the admin panel and extension, editorial checks and bilingual build.</li>\n<li>All three motion regression tests fail before correction and then pass.</li>\n<li>Chromium checks at 1280, 834, 390 and 320 px: hover on desktop, tag movement, animation scaling, search and absence of horizontal overflow.</li>\n<li>The rollback scenario is triggered by persistent browser events, as real-world browsing did not utilise the cache in the test environment.</li>\n<li>Release authorised on 3 September via a pull request to <code translate=\"no\">main</code>, the CI and public and administrative deployment procedures.</li>\n<li>Node 22.23.1 and npm 10.9.8 verified in a minimal environment; confirmation of the next step in the cron logs and maintenance of health checks without restarting the service.</li>\n</ul>\n<h2 id=\"suite\">Next steps</h2>\n<ul>\n<li>Check the English pages and version 1.27.4 on both services following deployment.</li>\n<li>The catch-up to 70 per cent remains pending explicit activation in the administration panel.</li>\n<li>Reducing animations remains a priority, and no system preferences or local exceptions are enforced.</li>\n<li>Consolidate the two admin schedules during a dedicated intervention, whilst retaining the existing safeguards and health checks.</li>\n</ul>\n"
+      },
+      "description": {
+        "hash": "53b1f48d8caa0dd2007a645ff0aa9eee19d8717d7df0c208217cefca5396d330",
+        "text": "The Digest is preparing an English version, accessible via a discreet FR/GB selector, whilst continuing to work on its translation in batches. The ‘About’ tooltip adapts to narrow windows and accessibility changes, and the tags resume their behaviour after the page is refreshed. The Node environment for the admin cron is documented and aligned with Node 22."
+      },
+      "title": {
+        "hash": "03e16074bce54640b251a5f663f17067f8f989bb0832b2a8f8bedc12268e4a61",
+        "text": "A bilingual Digest, restored movements and cron admin"
+      }
+    },
     "page:/flux/journal-procrastinateur": {
       "body": {
         "hash": "23762824bd497ae566a870fb76dc61a1cbd8a3c81d96ddc82fa685b53e15552e",
@@ -2188,6 +2268,34 @@
       "title": {
         "hash": "946546d90a07b056aaf49f70b37dd2857b2ec866c0aea388c8914c2652bc086a",
         "text": "Diary of a Procrastinator"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-08-09": {
+      "body": {
+        "hash": "2652beafa3dfd447f7ddac7322d6a222eb141fba329bca9158f78e9995a84d01",
+        "text": "<h2 id=\"horaires-de-session\">Session timetable</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Primary environment: <strong>Mac, KEREDIT repository and worktree <code translate=\"no\">dépôt local krampouz-worktree-workflow</code>, GitHub Actions</strong></li>\n<li>Date covered: <strong>Sunday 9 August 2026</strong></li>\n<li>Main branches: <strong><code translate=\"no\">fix/template-client-product-options</code> and <code translate=\"no\">chore/worktree-chantier-workflow</code></strong></li>\n<li>Time window selected for the minimum: <strong>09:32 → 13:20 CEST</strong>, based on the creation of the worktree, the changes retained and the merge of PR #441</li>\n<li>Minimum time observed: <strong>approximately 3h 47m+</strong></li>\n<li>Released version: 0<strong>.22.3</strong></li>\n<li>Milestone commits: <strong><code translate=\"no\">dd4a051f</code>, merge <code translate=\"no\">91913fc8</code>; the workflow’s work will only be committed on 15 August at <code translate=\"no\">42f5a576</code></strong></li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 841h37+</strong> (<code translate=\"no\">837h50+</code> as at 8 August, + <code translate=\"no\">3h47+</code> today)</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>The big day for the Builder leaves one very noticeable gap: the ‘Test\nas the customer’ mode shows the assembled product, but not yet the choices that\nmake it vary. The fix reveals the actual options for the reference product\nwithout creating a project and without unlocking the format. The Properties panel\nalso retains the template’s guides.</p>\n<p>Release 0.22.3 is prepared, then PR #441 is merged at 1.20 pm. The update is\nsmall compared to yesterday’s, but it completes the simulation loop: viewing an\nelastic band, a texture or a finish only makes sense if you can also\nchange the option that controls them.</p>\n<h2 id=\"le-début-dune-discipline-de-worktree\">The start of a worktree discipline</h2>\n<p>A second milestone belongs to this day, even though the commit wouldn’t happen until six\ndays later. The worktree <code translate=\"no\">krampouz-worktree-workflow</code> was created at 09:32 and\nthe first workflow files were modified that morning. The aim\nis simple: to ensure that two Codex sessions no longer share a branch, a\nworktree or a release number by accident.</p>\n<p>The future ‘<code translate=\"no\">worktree-chantier</code>’ skill formalises a dedicated branch, an\nisolated directory, the explicit copying of the environment only when\nnecessary, and a clean-up process that does not destroy anything until the work is\npublished or preserved. At the same time, the deployment workflow learns to verify\nits starting point.</p>\n<p>This discipline stems directly from the issues encountered in previous days. It\ndoes not deliver any client functionality, but seeks to reduce the human cost of\nparallel sessions. However, the work remains open and uncommitted at the end\nof the day: even a sound procedure can become an afterthought if its\ncompletion is postponed.</p>\n"
+      },
+      "description": {
+        "hash": "d16c18797974a6be8ac41fda1521c9810c42950bb0d1bff1bdeb649435db8b0e",
+        "text": "Day 128 of the diary: the user test finally reveals the product options, and the Codex project workflow is beginning to take shape in a separate worktree."
+      },
+      "title": {
+        "hash": "7ee6990d7b7a283f120f960096800973fb82daa0194867c885a607c4b12da124",
+        "text": "Day 128 – A visible option, an isolated building site"
+      }
+    },
+    "page:/flux/journal-procrastinateur/2026-08-15": {
+      "body": {
+        "hash": "9ed4ce675db8a4da28eab3198834060391ec5eafba39fad3d949712c333ca61a",
+        "text": "<h2 id=\"horaires-de-session\">Session timetables</h2>\n<ul>\n<li>Tool used: <strong>Codex</strong></li>\n<li>Primary environment: <strong>Mac, worktree<code translate=\"no\">dépôt local krampouz-worktree-workflow</code></strong></li>\n<li>Date covered: <strong>Saturday 15 August 2026</strong></li>\n<li>Branch: <strong><code translate=\"no\">chore/worktree-chantier-workflow</code></strong></li>\n<li>Trace observed: <strong>single commit <code translate=\"no\">42f5a576</code> at 18:17 CEST; the changes themselves are dated 9 August</strong></li>\n<li>Minimum time observed: <strong>definite one-off intervention; duration cannot be quantified from this single commit</strong></li>\n<li>Publication status: <strong>branch pushed and still retained, with no pull request and not merged into <code translate=\"no\">dev</code> as at 20 August</strong></li>\n<li>Minimum cumulative time since the start of the log: <strong>approximately 841h37+</strong>; no additional duration has been invented for the one-off commit on the 15th</li>\n</ul>\n<h2 id=\"lecture-courte\">Quick read</h2>\n<p>The project opened on 9 August has finally been committed. It adds the\n<code translate=\"no\">worktree-chantier</code> skill, strengthens the deployment procedure and enshrines in the\nrepository instructions a rule that has become necessary: a proper project is carried out\non a dedicated branch and in a dedicated worktree.</p>\n<p>The commit contains 261 lines added to the skills, guides and\ndocumentation maps. However, one should not claim that six days’ work were carried out on\n15 August. The mtimes and the creation of the worktree link most of the\nwriting to the 9th; the only evidence of work on that day is its Git commit at 6.17 pm.</p>\n<h2 id=\"une-clôture-qui-nest-pas-encore-une-livraison\">A commit that is not yet a release</h2>\n<p>The work is preserved on the remote, but no PR links it to <code translate=\"no\">dev</code>.\nThis distinction matters for the log: a commit is not a release, and\na pushed branch is not a rule actually shared by the product.</p>\n<p>This discrepancy also says something about the pace. A procedure created to\nreduce mental load remains open for almost a week itself. This is\nnot a technical incident; it is an early sign that the ability to finish\noff small outstanding tasks is beginning to wane.</p>\n"
+      },
+      "description": {
+        "hash": "f66f3e4ebd220e8fe1b928c2c08c00b1d15d38a83640bf6ef615d26aa2f95af9",
+        "text": "Day 129 of the diary: the Codex isolation workflow began on 9 August and was finally committed, without a pull request or a release on dev."
+      },
+      "title": {
+        "hash": "03833f8bce66e11724bbfcf7a4c431c8d41844a920f3df266f78057a4efa4773",
+        "text": "Day 129 – Wrapping up the building sites"
       }
     },
     "page:/flux/journal-procrastinateur/2026-08-18": {
@@ -8382,18 +8490,30 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-13.webp": {
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-16.webp": {
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-03-17.webp": {
@@ -8580,12 +8700,20 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-10.webp": {
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-13.webp": {
@@ -8622,6 +8750,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-17.webp": {
@@ -8698,6 +8830,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-28.webp": {
@@ -8714,6 +8850,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-04-30.webp": {
@@ -8730,6 +8870,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-03.webp": {
@@ -8840,6 +8984,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-16.webp": {
@@ -8906,12 +9054,20 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-23.webp": {
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-24.webp": {
@@ -8938,18 +9094,30 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-27.webp": {
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-28.webp": {
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-05-29.webp": {
@@ -8993,9 +9161,17 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-04.webp": {
+      "date": {
+        "hash": "e95ca25aef9f64110fcfe37a2159028fc696ec9deafa9ed6db1764f8de9d0ec0",
+        "text": "12 June 2007"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-05.webp": {
@@ -9042,6 +9218,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-10.webp": {
@@ -9068,6 +9248,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-13.webp": {
@@ -9178,6 +9362,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-25.webp": {
@@ -9214,12 +9402,20 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-29.webp": {
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-06-30.webp": {
@@ -9236,6 +9432,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-02.webp": {
@@ -9292,6 +9492,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-08.webp": {
@@ -9378,6 +9582,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-07-18.webp": {
@@ -9468,6 +9676,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-06.webp": {
@@ -9484,6 +9696,10 @@
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-08.webp": {
@@ -9497,15 +9713,47 @@
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-09.webp": {
+      "alt": {
+        "hash": "ddbc15f8355d7f325f0d1f8a8cb5a5dcceebe7b51fba358594ca31bc7431decf",
+        "text": "Document NASA : Williams works at laptop computer in the Node 1 during Joint Operations"
+      },
+      "date": {
+        "hash": "e95ca25aef9f64110fcfe37a2159028fc696ec9deafa9ed6db1764f8de9d0ec0",
+        "text": "12 June 2007"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
+      },
+      "title": {
+        "hash": "d3630d1f68b03bb8447a1cf3416967667cf71e1fa447b8500a474a252529d60d",
+        "text": "Williams works at laptop computer in the Node 1 during Joint Operations"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-15.webp": {
+      "alt": {
+        "hash": "ae97378f66e18e74db6e1035d573dca76300e552671194b6e076585af9b2787d",
+        "text": "Document NASA : Computer Plotting Data Points in the Engine Research Building"
+      },
+      "date": {
+        "hash": "ea505db83e062040e688f9aba46c38a856a7abcc9c31c8a03a70ed358dd12b41",
+        "text": "23 September 1956"
+      },
       "rights": {
         "hash": "a3896f4154a782ebd709d6336a97f074d3b74d3d473b45fbbe1a7ac4b4232ef5",
         "text": "NASA · for editorial and informational use in accordance with the agency’s media guidelines."
+      },
+      "themeLabel": {
+        "hash": "85371595541b066e5c958cea02d961f0a46b5c0fdfd3b50b4413892e85487cd5",
+        "text": "Computers & computing"
+      },
+      "title": {
+        "hash": "97be19a681d72ecbe9ea087c4ece636d2976a0e52fa8f501a779b6429bc60abb",
+        "text": "Computer Plotting Data Points in the Engine Research Building"
       }
     },
     "visual:media/journal-procrastinateur/collections/v2-nasa/2026-08-18.webp": {
