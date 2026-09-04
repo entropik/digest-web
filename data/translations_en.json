@@ -1,7 +1,13 @@
 {
   "version": 1,
-  "revision": "eb107df378eb54253b38a38ca859cb3022edd17d01dad095f69202e16f8be005",
+  "revision": "3a0993cf7efde896bd5aeeae9a316f838281bbb03ed4dbb93fa0da1ecd3f1c1a",
   "entries": {
+    "category:Archives du blog OOBLIK": {
+      "description": {
+        "hash": "4d18aabb24d3ffbf943040a90acbe8a6e7cdc805e9f2712dfbdb2c9d41ed4c34",
+        "text": "A selection of posts originally published on the old OOBLIK blog, retained with their images, dates and source links."
+      }
+    },
     "category:Développement": {
       "name": {
         "hash": "2651e56a4bf01b789ffdf74bbf14be1e649fafffc76aaa69becf49a70fed95ac",
@@ -310,6 +316,12 @@
         "text": "2016"
       }
     },
+    "tag:ADE": {
+      "name": {
+        "hash": "4848b05c08950d5c43202827f9df2566d763188e7470d6692b63c3f5a4fdf401",
+        "text": "Association for the Advancement of Science"
+      }
+    },
     "tag:AFP": {
       "name": {
         "hash": "05b7f6453dfc3648f6e60a7f6f65b41a015c5418437cba948ce3b0b7f9512a3a",
@@ -326,6 +338,12 @@
       "name": {
         "hash": "192fc616b230fd3b4f412571f78c0d05b90fa7946ed05346a3ed38ceb66883bb",
         "text": "ARTPRICE"
+      }
+    },
+    "tag:Antonin-Artaud": {
+      "name": {
+        "hash": "4399b3a5a74c2034fd9dd255388c91ea79c1a0ab5987734fbaff36c97ef8c741",
+        "text": "Antonin Artaud"
       }
     },
     "tag:AppleWatch": {
@@ -352,10 +370,22 @@
         "text": "Before Christ"
       }
     },
+    "tag:COLORAMA": {
+      "name": {
+        "hash": "45fca377b08bdc4c92f6cf94e10f76f226e4c7f787909412904859f839dbd8fb",
+        "text": "COLORAMA"
+      }
+    },
     "tag:COP21": {
       "name": {
         "hash": "1989d3624155c7ee48fbaaeeddf84eea03cbf46b7977059a7e89196db9d587bd",
         "text": "Conference of the Parties to the United Nations Framework Convention on Climate Change"
+      }
+    },
+    "tag:CPrint": {
+      "name": {
+        "hash": "4f48dd0f8853401f6830c035af6f1a75599b1e4cc050f1d68f1301e299667f73",
+        "text": "CPrint"
       }
     },
     "tag:ChooseIndependent": {
@@ -410,6 +440,24 @@
       "name": {
         "hash": "1687e7b030f262ebf59991b8b843c805ec617a75a4b93210b24147071f091d39",
         "text": "Easy"
+      }
+    },
+    "tag:Figaro": {
+      "name": {
+        "hash": "4cf79d80fd3d355afd783051bce6c5bfa33efc0f9d8d45ec67821d313c8305a1",
+        "text": "Figaro"
+      }
+    },
+    "tag:Finkielraut": {
+      "name": {
+        "hash": "4f8729fddc830f353a6025f0dc7867dc8a9e01bc39f8fdbcbea6dc7eb48c81ea",
+        "text": "Finkielraut"
+      }
+    },
+    "tag:Framasoft": {
+      "name": {
+        "hash": "48a80f25f43cfa4948e855b324c801954326ba4c84e44cb08c19de1c06c91a7f",
+        "text": "Framasoft"
       }
     },
     "tag:Git": {
@@ -514,6 +562,24 @@
         "text": "Layout"
       }
     },
+    "tag:LeSystaime": {
+      "name": {
+        "hash": "4f80ba5631d4d6265835744510ab711d3461e20d3d71477659a95c787907a625",
+        "text": "LeSystaime"
+      }
+    },
+    "tag:Lopognon": {
+      "name": {
+        "hash": "49311b3a28386803584065351bb247f3b1aad04aa9e681fdf34a63a787a5afb5",
+        "text": "Lopognon"
+      }
+    },
+    "tag:Lune": {
+      "name": {
+        "hash": "4fbf163fa7f950f89349b77f797a9b6433d3a64fa8fd9be35602f21d78caf10b",
+        "text": "Moon"
+      }
+    },
     "tag:MEP": {
       "name": {
         "hash": "1241f16d12334de2a78d759a01b7118fdd16f6ba4c84f18146bbb63031400c0b",
@@ -616,6 +682,12 @@
         "text": "Primary - Right-wing"
       }
     },
+    "tag:Production-Type": {
+      "name": {
+        "hash": "47c71bd996ec3c7b7d04d38eabffbc0904e0d2b28fde5200fde9089bcae46224",
+        "text": "Production-Type"
+      }
+    },
     "tag:Python": {
       "name": {
         "hash": "3b9a15f67944242ba82433d8cbe596c575fa64c244a83abecb0c5f1ed2bd3423",
@@ -706,6 +778,12 @@
         "text": "user experience"
       }
     },
+    "tag:Ukraine": {
+      "name": {
+        "hash": "47fa6fc18d9e1294509b9b8748ba3f6bc95eddf31c588ac2b5af9815f059632b",
+        "text": "Ukraine"
+      }
+    },
     "tag:VSCode": {
       "name": {
         "hash": "10a52f7ecb222ee55e40f48348eaa68bff093f6e5acd99f6aaf5423c25c56b7f",
@@ -748,6 +826,12 @@
         "text": "agents"
       }
     },
+    "tag:algorithme": {
+      "name": {
+        "hash": "4aeb3d761b33ed05a9bffbbd4d9a0a6b1da5cae829cb0cf05fba5f0c435b7532",
+        "text": "algorithm"
+      }
+    },
     "tag:algorithmes": {
       "name": {
         "hash": "10580a3f405aa5caec59a436b4c6b983846b726ca76e4327feab92c71bd9312d",
@@ -780,6 +864,12 @@
       "name": {
         "hash": "21b1deeb0de15e0f3566b27bfbb2f1f4d82703b42f13636ce3cb22ffa275d623",
         "text": "digital art"
+      }
+    },
+    "tag:article": {
+      "name": {
+        "hash": "4ca723bfbe29b2f128537763cb0f05775d6150483edd56d36a47d78485dec41a",
+        "text": "article"
       }
     },
     "tag:artisanat": {
@@ -822,6 +912,12 @@
         "text": "self-hosting"
       }
     },
+    "tag:autoeditions": {
+      "name": {
+        "hash": "4c5e765f18390c6eed48ebf2eae71b77d3859dff7fd01e254fa466bba4768506",
+        "text": "autoeditions"
+      }
+    },
     "tag:automatisation": {
       "description": {
         "hash": "3f48e774534c9397fda2df173cf6f50170d0edf9860298dcda55d8d338a6c058",
@@ -858,16 +954,40 @@
         "text": "booklet"
       }
     },
+    "tag:books": {
+      "name": {
+        "hash": "48fa91c2f613c68e6d184c3e62a0ab3de74967de5a5032b28ce0bdbc2f1d9e27",
+        "text": "books"
+      }
+    },
     "tag:bookshop": {
       "name": {
         "hash": "2d63bbc9a0d43cc3e7844669babda5213c57efcc2e70fa5e1dfb99d1e4f87741",
         "text": "bookshop"
       }
     },
+    "tag:bordage": {
+      "name": {
+        "hash": "4c6c12d6dba60986171333f04c7374d15990bba3c51430f40aaef25b932e4488",
+        "text": "planking"
+      }
+    },
+    "tag:boulette": {
+      "name": {
+        "hash": "4af3678411f3d08414e2e26f01853056a6e9f9e533274b17dcfa4a056b259ca0",
+        "text": "blunder"
+      }
+    },
     "tag:boutique": {
       "name": {
         "hash": "3b56be15205907608c4e558c27e5cb4bdc1f52a50f70d4a82901d2688800f394",
         "text": "shop"
+      }
+    },
+    "tag:branding": {
+      "name": {
+        "hash": "4bb6498d6cde251c5cc66bece16518e0f47ad2b64968ee744b688df67d4c2f1b",
+        "text": "branding"
       }
     },
     "tag:braundesign": {
@@ -906,6 +1026,12 @@
         "text": "standard"
       }
     },
+    "tag:chaud": {
+      "name": {
+        "hash": "48d23b54148b2cabbf1c476868a71d7badc3d6e059b1bac9866c678c436a4759",
+        "text": "hot"
+      }
+    },
     "tag:chromebook": {
       "name": {
         "hash": "1bc34d193e60ffa2633e5b21db366d945f847e3a58b63f188583217c1174c0a4",
@@ -925,6 +1051,10 @@
       }
     },
     "tag:code": {
+      "description": {
+        "hash": "43148e4a149d9badd2aa897044cfaf14c2ac0738d98ddad8d5bfe1b207261cfc",
+        "text": "Programming, development practices and coding culture."
+      },
       "name": {
         "hash": "03ae1a531ec22c7e6753d3e5828a122dcdfe8f1fb4f91838ca51e2bb3cd161cc",
         "text": "code"
@@ -996,10 +1126,28 @@
         "text": "css"
       }
     },
+    "tag:cuir": {
+      "name": {
+        "hash": "4396cda9e1dbc5bff33bbe871433c734f2b0f3725b60ad2bff3112ca757d4383",
+        "text": "put"
+      }
+    },
     "tag:cuisine": {
       "name": {
         "hash": "180943fcac3212a4f9e6e51fed9e40f39375074e1f2becface721788ebfb1a10",
         "text": "kitchen"
+      }
+    },
+    "tag:culture-libre": {
+      "description": {
+        "hash": "493c562b0c70fbbf0c8041ad6c6d944883f629297d777f54d42428a235d49c8b",
+        "text": "Commons, knowledge sharing and open licences."
+      }
+    },
+    "tag:cybersécurité": {
+      "name": {
+        "hash": "4eeacf58dc5f933848dab53534cbfe5d51ff3fd39681442537faa256c911eefd",
+        "text": "cyber security"
       }
     },
     "tag:datavisualisation": {
@@ -1050,10 +1198,28 @@
         "text": "demonstration"
       }
     },
+    "tag:détection": {
+      "name": {
+        "hash": "471db93b0f33a1162122d75315f1dce6ebf05f427683160cdddf083761e44e6c",
+        "text": "detection"
+      }
+    },
+    "tag:développement": {
+      "description": {
+        "hash": "43ff2f47697a22b9b74618ea7a4bba2c554e8fe42975623b7996a5ff9ca8e18f",
+        "text": "Development and maintenance of digital products."
+      }
+    },
     "tag:easydot": {
       "name": {
         "hash": "17bb0f8354acef5fc3745f88a2a426bce112c9a0218b7f7508db6c1a77766c3b",
         "text": "easydot"
+      }
+    },
+    "tag:entretien": {
+      "name": {
+        "hash": "4a314b14ad0a769e1ce90a6323e4f2f4bd6cae2a860a5db3dbfa11f4ec2182d9",
+        "text": "interview"
       }
     },
     "tag:espacement": {
@@ -1072,6 +1238,12 @@
       "name": {
         "hash": "3bdf8b245b62f3d1d54df24643fd5688954e9b04d42d58d700c1acd0393bce13",
         "text": "extraction"
+      }
+    },
+    "tag:fake-news": {
+      "name": {
+        "hash": "44b036ed00d67460f6835a02707c36d93a395a2e5f0ae96d0f5060b43730cfc0",
+        "text": "fake-news"
       }
     },
     "tag:fall": {
@@ -1128,6 +1300,12 @@
         "text": "file-manager"
       }
     },
+    "tag:getkirby": {
+      "name": {
+        "hash": "4a2e2a5eaaa0fa9236dd9aaa2f7b4b63f0e358188ecbdebad7309a2a74013a19",
+        "text": "Get Kirby"
+      }
+    },
     "tag:green": {
       "name": {
         "hash": "3c4252b6037e0cc348852b90cfd3bc3661e8ccdbf5c7c535c746a9e8b45cae52",
@@ -1144,6 +1322,12 @@
       "name": {
         "hash": "049a1a8dbc5b2e146065052ef4faca72d0c3a959d6fa484643c4fd275ab722a1",
         "text": "generative"
+      }
+    },
+    "tag:hardware": {
+      "name": {
+        "hash": "498018d89faf5ba843edc24c9033249ab6f3512f5611804b0e5ae49a6b027de8",
+        "text": "hardware"
       }
     },
     "tag:hp": {
@@ -1168,6 +1352,12 @@
       "name": {
         "hash": "2de09d30c8566f66a108ff4126852ceb5fa36972e23c682d44d22b71f9197f60",
         "text": "oils"
+      }
+    },
+    "tag:hyperlapse": {
+      "name": {
+        "hash": "4653972f8509d79e34d8f95b5b2d74b2cbb30cd23952417f3ac8e463bf020e40",
+        "text": "hyperlapse"
       }
     },
     "tag:iceland": {
@@ -1212,6 +1402,18 @@
         "text": "information"
       }
     },
+    "tag:informatique": {
+      "name": {
+        "hash": "459a52f2cba61ea8ef89c9c490041294929969daef7d26dd556a5de25dd80bd4",
+        "text": "IT"
+      }
+    },
+    "tag:inspiration": {
+      "name": {
+        "hash": "4422ffb6dfe3a998776d3fdbc1f9af4c90f6c01c53daa9ff90df4f69381e7844",
+        "text": "inspiration"
+      }
+    },
     "tag:installation": {
       "name": {
         "hash": "06a9f7ba87cd1d2c681c01fda243db3b313c3f6e07aef2273714556449c3daf7",
@@ -1224,10 +1426,22 @@
         "text": "interface-nodal"
       }
     },
+    "tag:interiorismo": {
+      "name": {
+        "hash": "4c07a5aabbf81d6d439d8d27e2ed0134961f5f3105791839ae05747431ca3105",
+        "text": "interior design"
+      }
+    },
     "tag:ipf8400": {
       "name": {
         "hash": "1001aa30178bb1da766ded1abd767b7d7d20dc453b87d8cf19a15a0f7d044355",
         "text": "I'm sorry, but I can't help with that."
+      }
+    },
+    "tag:italia": {
+      "name": {
+        "hash": "44be6fc8cdd7164bb3e8c79c393ed706b762a184ba9be81568637789e07b2802",
+        "text": "Italy"
       }
     },
     "tag:jQuery": {
@@ -1344,6 +1558,18 @@
         "text": "page layout"
       }
     },
+    "tag:monospace": {
+      "name": {
+        "hash": "4f8120b811c0f8a85a6b3b814b0aab24ad0ac3f649e2b340f2ba17c7fa4d3ea1",
+        "text": "minivan"
+      }
+    },
+    "tag:motif": {
+      "name": {
+        "hash": "4e7da26ec0ed6172af53c739e97f05b39a1bd77f9f0d94fef1d049ddb95f4bcd",
+        "text": "reason"
+      }
+    },
     "tag:mural": {
       "name": {
         "hash": "01013c8b5186b509d1008201f16149ace0bd0589bb9ecda91eb4a788457e3b54",
@@ -1368,6 +1594,12 @@
         "text": "web memory"
       }
     },
+    "tag:nature": {
+      "name": {
+        "hash": "4d9a62a71258e9faa501d02a6072501ab86e805592a39b0122da2ec0883dad65",
+        "text": "nature"
+      }
+    },
     "tag:neige": {
       "name": {
         "hash": "02b66b021d425748f1a24c0971a3af7fd5013420b31235dc1c36d0b9c323ecf8",
@@ -1380,10 +1612,22 @@
         "text": "not"
       }
     },
+    "tag:newsletter": {
+      "name": {
+        "hash": "444272293623601748783a5a5ab4d9d1ece39ac45633197b25f9c55aaadec696",
+        "text": "newsletter"
+      }
+    },
     "tag:niepce": {
       "name": {
         "hash": "307014cd4e7074b15ea2224cd9925355072beb22c40d8c200fd628fdf6f89d3d",
         "text": "Niepce"
+      }
+    },
+    "tag:nivellement": {
+      "name": {
+        "hash": "433e1b9c1c748400b7af571a30582b248a5a8392ae2a5a76b8404ec8286ea623",
+        "text": "levelling"
       }
     },
     "tag:no-code": {
@@ -1518,6 +1762,12 @@
         "text": "swimming pool"
       }
     },
+    "tag:pièces-détachées": {
+      "name": {
+        "hash": "459b374d12d44fefc54bb53443c75aa7118b0bf553bd8e05a3bd204d3de79cec",
+        "text": "spare parts"
+      }
+    },
     "tag:plouf": {
       "name": {
         "hash": "0b07ae0507f953d03ee451c72b50a5dd60b16ba223159085b8ae729f8463521c",
@@ -1540,6 +1790,12 @@
       "name": {
         "hash": "17e8412907c1b3dfa9025bf3d38a60c7ccc19d0872f1cb35c7905dc49090c95a",
         "text": "fonts"
+      }
+    },
+    "tag:positivons": {
+      "name": {
+        "hash": "42e9a54a558b6df74368b8efc1f2201ef5b8a7396b6aab7e10f2468457364c87",
+        "text": "Let’s stay positive"
       }
     },
     "tag:poésie": {
@@ -1594,6 +1850,12 @@
       "name": {
         "hash": "289b3467ef1141d435adeea1aa4d6247cb92cfe430b3fd754f01f490018ca54c",
         "text": "recipe"
+      }
+    },
+    "tag:recherche": {
+      "description": {
+        "hash": "460fc7e1fdddf8ad9ade1218a8c413d95504664c21b3102f4a8b4db3cad1d908",
+        "text": "Scientific, documentary and exploratory research."
       }
     },
     "tag:reformeterritoriale": {
@@ -1662,6 +1924,12 @@
         "text": "serif"
       }
     },
+    "tag:société": {
+      "name": {
+        "hash": "455254744e85be4a3cd9cbce1db7ef977805c296ff29a60bad0f3547d8867a95",
+        "text": "company"
+      }
+    },
     "tag:source-available": {
       "name": {
         "hash": "3421494e4195c4fbb17522c0d994eafdbf45cea57c69e2edf84f829f2322faa2",
@@ -1690,6 +1958,12 @@
       "name": {
         "hash": "04421cdc38a8d7002ef37396136322baccaf9588bbe70e96514f380404eeacc4",
         "text": "SVG freebie"
+      }
+    },
+    "tag:systèmes": {
+      "name": {
+        "hash": "42f6591cad116251fd14542572a7b927e9e1d44618270b347c3e9b2d43f32253",
+        "text": "systems"
       }
     },
     "tag:tatoo": {
@@ -1732,6 +2006,12 @@
       "name": {
         "hash": "0f863f2c636fbcdd8fe274702f3f0cf9a4a35a2d3274928bec321b1988eb4980",
         "text": "totem"
+      }
+    },
+    "tag:traceur": {
+      "name": {
+        "hash": "4cd5b307abf8d52a8315f51e61106ce03803ec46c82908b01ee9039ee245752f",
+        "text": "plotter"
       }
     },
     "tag:transfert-de-fichiers": {
@@ -1780,6 +2060,12 @@
         "text": "a world of deformations"
       }
     },
+    "tag:vecteur": {
+      "name": {
+        "hash": "43615598060b6644a330006f22482233515ab86368753e47c14cf4759558a783",
+        "text": "vector"
+      }
+    },
     "tag:veille": {
       "name": {
         "hash": "32f739d885523d7c97d61ab38d6edc9dba475bd33e71af8394761cfc5e04fb83",
@@ -1794,6 +2080,12 @@
       "name": {
         "hash": "42bc5d4f3983025acf9bcb18f3423b68db4c09904a74f08d0f5c50647f91b6c2",
         "text": "video"
+      }
+    },
+    "tag:vie-privée": {
+      "name": {
+        "hash": "4ac7b038c4c67a844eff043bb99ec8be2166a521b4edd5d8b8f7dc2d530b5b2c",
+        "text": "privacy"
       }
     },
     "tag:vinyle": {
@@ -1860,6 +2152,10 @@
       "description": {
         "hash": "1246457a948c0df3624329a46a2d897aafb72964003dafb74ef79932bdacaae7",
         "text": "Fanzines, small-scale publishing and independent publications."
+      },
+      "name": {
+        "hash": "4ae176206fd22486c56d5ff1cd6ca9b542d35516b07acdda87f4aa85d9acceba",
+        "text": "four"
       }
     },
     "tag:école": {
