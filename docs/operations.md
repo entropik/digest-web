@@ -121,3 +121,32 @@ sauvegarde SQLite, rétablissement du lien vers la release précédente, puis
 redémarrage et contrôle de santé de cette release. Si la restauration SQLite
 échoue, le service reste volontairement arrêté afin qu’un ancien binaire ne
 s’exécute pas contre un schéma incertain.
+
+## Synchronisation du dépôt VPS avec GitHub (origin)
+
+Le service d’administration sur le serveur VPS utilise le dépôt local
+(`DIGEST_LOCAL_REPO`). Après chaque commit éditorial ou lot de traductions, une
+synchronisation asynchrone non bloquante vers `origin/main` est lancée en
+arrière-plan comme miroir de sauvegarde GitHub.
+
+Si ce push miroir échoue (par exemple lors d’un conflit non fast-forward causé par
+des commits mergés sur GitHub en parallèle) :
+
+1. Depuis la machine de développement, récupérer les deux branches :
+   ```sh
+   git fetch origin main && git fetch live main
+   ```
+2. Vérifier si `live/main` a des commits d'avance (ex. traductions) :
+   ```sh
+   git log --oneline origin/main..live/main
+   ```
+3. Si oui, fusionner `live/main` dans la branche de travail ou `main` locale,
+   pousser vers `origin/main`, puis reporter sur `live/main` :
+   ```sh
+   git merge live/main -m "merge: réconcilier les traductions live"
+   git push origin main
+   git push live main
+   ```
+   Ce push vers `live` déclenche automatiquement le hook de déploiement
+   `scripts/deploy-vps.sh` sur le VPS et assure que le site public bilingue reste
+   parfaitement synchronisé et exempt d'erreurs 404.
