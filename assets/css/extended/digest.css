@@ -56,6 +56,7 @@ body {
   max-width: 100%;
   overflow-x: hidden;
   overflow-x: clip;
+  scrollbar-gutter: stable;
 }
 
 h1,
@@ -480,7 +481,7 @@ select {
   max-width: 1180px;
   flex-wrap: nowrap;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .header-brand {
@@ -497,7 +498,10 @@ select {
 }
 
 .header-nav #menu {
-  margin-left: auto;
+  display: flex;
+  align-items: center;
+  margin-left: .75rem;
+  overflow: visible;
 }
 
 .header-actions {
@@ -505,7 +509,7 @@ select {
   flex: 0 0 auto;
   align-items: center;
   gap: .55rem;
-  margin-left: .65rem;
+  margin-left: auto;
 }
 
 .header-admin-switch {
@@ -4343,39 +4347,6 @@ body.procrastinator-viewer-open { overflow: hidden; }
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .header-nav {
-    align-items: center;
-    column-gap: 1rem;
-    line-height: normal;
-    padding-top: .85rem;
-    padding-bottom: .7rem;
-  }
-
-  .header-nav .logo > a {
-    min-height: 2rem;
-  }
-
-  .header-nav .logo-switches {
-    order: 2;
-    min-height: 2rem;
-    margin-left: auto;
-  }
-
-  .header-nav #menu {
-    order: 3;
-    width: 100%;
-    margin: .45rem 0 0;
-    overflow: visible;
-    flex-wrap: wrap;
-    column-gap: 1.15rem;
-    row-gap: .25rem;
-    white-space: normal;
-  }
-
-  .header-nav #menu a {
-    padding: .35rem 0;
-    line-height: 1.25;
-  }
 
   .digest-tools {
     position: static;

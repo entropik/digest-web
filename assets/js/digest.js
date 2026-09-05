@@ -96,6 +96,9 @@
   let modalNavigationLinks = [];
   let modalNavigationIndex = -1;
   let isAdmin = false;
+  try {
+    isAdmin = sessionStorage.getItem("digest-is-admin") === "1";
+  } catch (_) {}
   let favorites = new Set();
   let searchRevision = 0;
   let renderedSearchRevision = 0;
@@ -916,11 +919,18 @@
         headers: { Accept: "application/json" },
       });
       isAdmin = response.ok && (await response.json()).isAdmin === true;
+      try {
+        if (isAdmin) sessionStorage.setItem("digest-is-admin", "1");
+        else sessionStorage.removeItem("digest-is-admin");
+      } catch (_) {}
       modalAdminTools.hidden = !isAdmin || !modalAdminId;
       modalLinkedIn.hidden = !isAdmin || !modalAdminId;
       modalAdmin.hidden = !isAdmin || !modalAdminId;
     } catch {
       isAdmin = false;
+      try {
+        sessionStorage.removeItem("digest-is-admin");
+      } catch (_) {}
       modalAdminTools.hidden = true;
       modalLinkedIn.hidden = true;
       modalAdmin.hidden = true;

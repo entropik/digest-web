@@ -9,7 +9,17 @@
     })
       .then((response) => response.ok ? response.json() : null)
       .then((session) => {
-        if (session?.isAdmin === true) adminSwitch.hidden = false;
+        if (session?.isAdmin === true) {
+          try {
+            sessionStorage.setItem("digest-is-admin", "1");
+          } catch (_) {}
+          adminSwitch.hidden = false;
+        } else {
+          try {
+            sessionStorage.removeItem("digest-is-admin");
+          } catch (_) {}
+          adminSwitch.hidden = true;
+        }
       })
       .catch(() => {});
   })();

@@ -31,6 +31,13 @@
         <span class="header-admin-switch-short" aria-hidden="true">A</span>
         <span aria-hidden="true">↗</span>
       </a>
+      <script>
+        try {
+          if (sessionStorage.getItem("digest-is-admin") === "1") {
+            document.querySelector("[data-admin-switch]")?.removeAttribute("hidden");
+          }
+        } catch (_) {}
+      </script>
       {{- if not site.Params.disableThemeToggle }}
       <button id="theme-toggle" class="theme-toggle" type="button" accesskey="t" title="{{ i18n "ui_2602795054c1" }}" aria-label="{{ i18n "ui_5113d95e5271" }}">
         <svg class="moon" aria-hidden="true" viewBox="0 0 24 24">

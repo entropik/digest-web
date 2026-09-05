@@ -83,3 +83,31 @@ test("Journal components keep one canonical rule plus intentional responsive ove
   assert.equal(occurrences(".journal-post-content"), 1);
   assert.equal(occurrences(".journal-post-folio"), 1);
 });
+
+test("header navigation maintains stable geometry and responsive drawer cutoff", async () => {
+  const css = await readFile(cssPath, "utf8");
+
+  assert.match(
+    css,
+    /html,\s*body\s*\{[^}]*scrollbar-gutter:\s*stable;/s,
+  );
+  assert.match(
+    css,
+    /\.header-nav #menu\s*\{[^}]*overflow:\s*visible;/s,
+  );
+  assert.match(
+    css,
+    /\.header-actions\s*\{[^}]*margin-left:\s*auto;/s,
+  );
+  assert.match(
+    css,
+    /@media \(max-width:\s*900px\)[\s\S]*?\.header-nav #menu\s*\{[^}]*display:\s*none;/,
+  );
+  assert.match(
+    css,
+    /@media \(max-width:\s*900px\)[\s\S]*?\.header-menu-toggle\s*\{[^}]*display:\s*grid !important;/,
+  );
+  assert.doesNotMatch(css, /\.logo-switches/);
+  assert.doesNotMatch(css, /\.header-nav \.logo/);
+});
+
