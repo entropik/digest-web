@@ -42,8 +42,10 @@ concurrentes effectuées par d’autres logiciels sur le même compte.
    Conserver **un seul processus Node** pour cette file.
 3. Construire le site avec `node scripts/build-site.mjs`. La première passe
    Hugo produit le manifeste français ; la seconde utilise l’adaptateur
-   `content/_content.en.gotmpl` pour les pages anglaises. La CI et le
-   déploiement exécutent cette commande via `scripts/verify.mjs`.
+   `content/_content.en.gotmpl` pour les pages anglaises. La CI exécute cette
+   commande via `scripts/verify.mjs`; sur le VPS, `scripts/deploy-vps.sh`
+   l’appelle directement afin de ne pas reconstruire l’administration et les
+   extensions lors d’une publication éditoriale.
    En développement, relancer cette construction après une modification des
    sources françaises pour actualiser aussi le manifeste anglais.
 4. Dans Traductions, actualiser le quota, contrôler l’estimation et lancer

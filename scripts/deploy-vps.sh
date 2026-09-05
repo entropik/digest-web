@@ -40,7 +40,9 @@ for required_page in \
   en/index.html \
   en/flux/index.html \
   en/tags/index.html \
-  en/archives/index.html
+  en/archives/index.html \
+  en/a-propos/index.html \
+  en/confidentialite/index.html
 do
   test -s "$RELEASE_DIR/$required_page"
 done

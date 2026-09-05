@@ -54,29 +54,31 @@ node scripts/verify.mjs
 Cette commande multiplateforme installe les dépendances verrouillées, exécute
 les tests et builds du service et de l’extension, valide les données, construit
 Hugo sans avertissement et refuse les URL de développement. C’est exactement la
-même commande qu’en CI et avant chaque déploiement. Elle nécessite Node.js 22,
-Python 3 et Hugo Extended 0.164.0 ou plus récent.
+même commande qu’en CI et avant l’intégration d’une évolution logicielle. Elle
+nécessite Node.js 22, Python 3 et Hugo Extended 0.164.0 ou plus récent.
+
+Une publication éditoriale déjà intégrée suit un chemin plus court sur le VPS :
+`scripts/deploy-vps.sh` exécute seulement le constructeur bilingue, contrôle les
+routes publiques indispensables, puis bascule la release. Elle ne reconstruit
+ni le service d’administration ni les extensions.
 
 Les fichiers statiques validés sont générés dans `public/`. L’URL canonique de
 production est <https://digest.ooblik.com/>.
 
 ## Déploiement
 
-Les pull requests sont validées par GitHub Actions. Sur `main`, le workflow
-`Deploy production` exécute le contrôle complet pour les changements ordinaires.
-Un commit de traduction muni d’un plan valide rend seulement les routes anglaises
-affectées et le snapshot public français, puis superpose ces sorties à l’arbre
-`production` existant. Tout écart de révision ou de fichier déclenche le build
-complet. La branche `production` avance toujours en fast-forward. Un cron exécuté par l’utilisateur
-CloudPanel du site transforme chaque révision de cette branche en release
-locale.
+Les pull requests sont validées par GitHub Actions. Sur le VPS, les publications
+éditoriales et les mises à jour de `main` déclenchent `scripts/deploy-vps.sh`
+depuis la copie locale du dépôt. Le script appelle `scripts/build-site.mjs` : une
+première passe Hugo produit le manifeste français, puis une seconde génère le
+site bilingue directement dans une nouvelle release. Les entrées françaises et
+anglaises principales sont vérifiées avant toute bascule.
 
 Le serveur conserve les cinq dernières releases et le lien symbolique
 `current` permet une bascule ou un retour arrière atomique.
 
-Le dépôt public permet à CloudPanel de récupérer la branche sans clé ni
-identifiant de serveur stocké dans GitHub. Le serveur résout le SHA publié puis
-télécharge son archive immuable ; il ne dépend pas d’un clone Git persistant.
+GitHub reçoit ensuite `main` comme miroir de sauvegarde asynchrone ; il ne se
+trouve plus dans le chemin critique de la publication éditoriale.
 
 ## Administration propriétaire
 
@@ -213,10 +215,10 @@ Avec l’installation locale du compte de service, la ligne est :
 * * * * * PATH=/home/digest/.local/node22/bin:/usr/local/bin:/usr/bin:/bin /bin/sh /home/digest/bin/deploy-admin-cloudpanel.sh >> /home/digest/logs/digest-admin-deploy.log 2>&1
 ```
 
-Copier ce script dans `/home/digest/bin/` avant d’activer le cron, car la
-branche `production` ne contient que la sortie Hugo. Une fois connecté sur
-`/admin`, les commandes propriétaire apparaissent automatiquement dans les
-fiches du Digest.
+Copier ce script dans `/home/digest/bin/` avant d’activer le cron : le site
+statique et l’administration suivent deux déploiements indépendants. Une fois
+connecté sur `/admin`, les commandes propriétaire apparaissent automatiquement
+dans les fiches du Digest.
 
 Vérifier le chemin Node installé et inventorier les autres planifications avant
 d’ajouter cette ligne. La [procédure d’exploitation](docs/operations.md#cron-et-version-node-de-ladministration)

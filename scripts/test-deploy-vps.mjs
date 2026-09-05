@@ -8,6 +8,15 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const deployScript = path.join(root, "scripts", "deploy-vps.sh");
+const requiredRoutes = [
+  "index.html",
+  "en/index.html",
+  "en/flux/index.html",
+  "en/tags/index.html",
+  "en/archives/index.html",
+  "en/a-propos/index.html",
+  "en/confidentialite/index.html",
+];
 
 test("the VPS deployment builds and publishes the complete bilingual site", async () => {
   const script = await readFile(deployScript, "utf8");
@@ -31,14 +40,13 @@ printf '%s\\n' "$*" > "$TEST_NODE_INVOCATION"
 test "$1" = "scripts/build-site.mjs"
 test "$2" = "--destination"
 destination="$3"
-mkdir -p "$destination/en/flux" "$destination/en/tags" "$destination/en/archives"
-printf 'home\\n' > "$destination/index.html"
-printf 'english home\\n' > "$destination/en/index.html"
-printf 'flux\\n' > "$destination/en/flux/index.html"
-printf 'archives\\n' > "$destination/en/archives/index.html"
-if [ "\${TEST_INCOMPLETE_BUILD:-0}" != "1" ]; then
-  printf 'tags\\n' > "$destination/en/tags/index.html"
-fi
+for route in ${requiredRoutes.map((route) => `"${route}"`).join(" ")}; do
+  if [ "\${TEST_MISSING_ROUTE:-}" = "$route" ]; then
+    continue
+  fi
+  mkdir -p "$(dirname "$destination/$route")"
+  printf '%s\\n' "$route" > "$destination/$route"
+done
 `,
   );
   await chmod(fakeNode, 0o755);
@@ -62,19 +70,23 @@ test "$1" = "-Tf"
   await writeFile(fakeXargs, "#!/bin/sh\nexit 0\n");
   await chmod(fakeXargs, 0o755);
 
-  try {
-    const result = spawnSync("sh", [deployScript], {
+  const runDeploy = (siteBase, missingRoute = "") =>
+    spawnSync("sh", [deployScript], {
       cwd: root,
       encoding: "utf8",
       env: {
         ...process.env,
-        DIGEST_SITE_BASE: base,
+        DIGEST_SITE_BASE: siteBase,
         HUGO_BIN: fakeHugo,
         PATH: `${fakeBin}:${process.env.PATH ?? ""}`,
+        TEST_MISSING_ROUTE: missingRoute,
         TEST_NODE_INVOCATION: invocationLog,
         TEST_REAL_MV: "/bin/mv",
       },
     });
+
+  try {
+    const result = runDeploy(base);
 
     assert.equal(result.status, 0, `${result.stdout}${result.stderr}`);
     const invocation = (await readFile(invocationLog, "utf8")).trim();
@@ -82,26 +94,16 @@ test "$1" = "-Tf"
 
     const current = await readlink(path.join(base, "current"));
     assert.match(current, /^releases\/\d{14}$/);
-    for (const route of ["index.html", "en/index.html", "en/flux/index.html", "en/tags/index.html", "en/archives/index.html"]) {
+    for (const route of requiredRoutes) {
       await access(path.join(base, current, route));
     }
 
-    const incompleteBase = path.join(temporary, "incomplete-site");
-    const incomplete = spawnSync("sh", [deployScript], {
-      cwd: root,
-      encoding: "utf8",
-      env: {
-        ...process.env,
-        DIGEST_SITE_BASE: incompleteBase,
-        HUGO_BIN: fakeHugo,
-        PATH: `${fakeBin}:${process.env.PATH ?? ""}`,
-        TEST_INCOMPLETE_BUILD: "1",
-        TEST_NODE_INVOCATION: invocationLog,
-        TEST_REAL_MV: "/bin/mv",
-      },
-    });
-    assert.notEqual(incomplete.status, 0, "an incomplete English build must not go live");
-    await assert.rejects(readlink(path.join(incompleteBase, "current")), { code: "ENOENT" });
+    for (const route of requiredRoutes) {
+      const incompleteBase = path.join(temporary, `missing-${route.replaceAll("/", "-")}`);
+      const incomplete = runDeploy(incompleteBase, route);
+      assert.notEqual(incomplete.status, 0, `a build without ${route} must not go live`);
+      await assert.rejects(readlink(path.join(incompleteBase, "current")), { code: "ENOENT" });
+    }
   } finally {
     await rm(temporary, { recursive: true, force: true });
   }

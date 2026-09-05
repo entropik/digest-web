@@ -22,6 +22,9 @@ GitHub Actions publie uniquement la branche statique `production`. CloudPanel
 la relève par scrutation et bascule des releases locales atomiques. Aucun
 secret de connexion au serveur n’est stocké dans GitHub.
 
+Cette topologie est remplacée le 4 septembre 2026 par le build local sur le VPS
+et la synchronisation asynchrone de `main` vers GitHub.
+
 ### Les liens morts sont conservés pour mémoire
 
 Une disparition publique devient un état documenté, pas une suppression. Les
@@ -81,6 +84,9 @@ La réussite du commit ne suffit pas : l’administration suit le workflow
 `Deploy production`, qui valide et construit une seule fois le commit, puis
 vérifie le résultat servi par le site.
 
+Depuis le 4 septembre 2026, ce suivi porte sur le déploiement local du VPS et
+son contrôle public, sans attendre un workflow GitHub.
+
 ### La note et la sélection restent privées
 
 Le texte sélectionné et la note éditoriale ne doivent apparaître ni dans un
@@ -112,6 +118,10 @@ Le workflow de production valide les sources, construit Hugo une fois puis
 publie exactement cette sortie sur la branche `production`. La validation d’un
 commit et son déploiement ne reposent ainsi plus sur deux constructions
 indépendantes.
+
+Cette chaîne distante est remplacée le 4 septembre 2026. La décision du
+5 septembre conserve le principe d’une sortie unique, mais la produit avec le
+constructeur bilingue local en deux passes Hugo.
 
 ### Les images sociales font partie de l’identité éditoriale
 
@@ -293,7 +303,9 @@ l’intégration logicielle.
 
 La publication d’un billet en français ne doit pas être bloquée par
 l’extraction d’un manifeste complet de traduction anglaise. Le build Hugo
-s’exécute en une seule passe directe.
+s’exécute en une seule passe directe. Cette décision est remplacée par la
+décision du 5 septembre 2026 ci-dessous : la passe unique supprimait les pages
+anglaises dépendantes du manifeste.
 
 ### Rapatriement du build de publication sur le VPS
 
@@ -325,3 +337,14 @@ compilation Hugo s’exécute immédiatement sur le VPS via `scripts/deploy-vps.
 Les requêtes bloquantes vers l’API GitHub et l’attente de GitHub Actions sont
 totalement éliminées du cycle d’administration.
 
+## 5 septembre 2026
+
+### Le déploiement VPS conserve le constructeur bilingue
+
+Sortir GitHub du chemin critique ne signifie pas appeler Hugo sans préparation.
+Chaque publication déclenche une seule opération locale via
+`scripts/deploy-vps.sh`, mais `scripts/build-site.mjs` conserve ses deux passes
+Hugo : la première produit le manifeste français, la seconde rend la release
+bilingue complète. Le déploiement éditorial n’exécute pas les tests ni les
+builds des applications, déjà couverts à l’intégration, mais refuse de basculer
+si les entrées françaises ou anglaises principales sont absentes.
