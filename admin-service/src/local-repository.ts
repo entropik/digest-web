@@ -190,8 +190,10 @@ export const localCommitRepositoryFiles = async (
     }
 
     // 4. Synchronisation asynchrone non bloquante vers GitHub (miroir de sauvegarde)
-    void execFileAsync("git", ["push", "origin", "main"], { cwd: localRepo }).catch(() => {
-      // Échec de synchronisation miroir ignoré pour ne jamais bloquer la mise en ligne
+    void execFileAsync("git", ["push", "origin", "main"], { cwd: localRepo }).catch((pushError) => {
+      process.stderr.write(
+        `Mirror push to origin/main failed: ${pushError instanceof Error ? pushError.message : String(pushError)}\n`,
+      );
     });
 
     return commitSha;
