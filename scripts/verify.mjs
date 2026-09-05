@@ -92,6 +92,7 @@ run(python, ["scripts/check_digest_consistency.py", "--site", "."]);
 run(process.execPath, ["scripts/check-journal-french.mjs"]);
 run(process.execPath, ["scripts/test-import-keredit-journal.mjs"]);
 run(process.execPath, ["--test", "scripts/test-translation-production.mjs"]);
+run(process.execPath, ["--test", "scripts/test-deploy-vps.mjs"]);
 run(process.execPath, ["scripts/check-journal-public-safety.mjs"]);
 run(process.execPath, ["scripts/build-site.mjs"]);
 run(process.execPath, ["scripts/check-translation-manifest.mjs"]);
