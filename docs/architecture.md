@@ -11,13 +11,11 @@ Extension Chrome
       ▼
 admin-service ── SQLite privée
       │
-      │ commit atomique via GitHub App
+      │ commit atomique dans la copie locale de main
       ▼
-branche main ── GitHub Actions ── branche production
-                                      │
-                                      │ relève CloudPanel
-                                      ▼
-                              digest.ooblik.com
+scripts/deploy-vps.sh ── release bilingue ── digest.ooblik.com
+      │
+      └── synchronisation asynchrone ── GitHub (miroir)
 ```
 
 ## Site public
@@ -25,7 +23,8 @@ branche main ── GitHub Actions ── branche production
 La construction bilingue passe par `scripts/build-site.mjs` : manifeste public
 français, puis adaptation des champs traduits vers `/en/`. La file DeepL et son
 historique résident dans SQLite, dans le service Node existant. Les snapshots
-de traduction et affiches anglaises suivent le circuit GitHub de publication.
+de traduction et affiches anglaises sont publiés depuis la copie locale du
+dépôt, puis synchronisés vers le miroir GitHub.
 Les contrats de quota, empreintes et reprise sont détaillés dans
 [Traductions FR / GB](translations.md).
 
@@ -52,14 +51,13 @@ plus faire échouer le build après coup. Les imports placent en revue toute
 taxonomie inconnue. Côté public, la modale reçoit directement les routes Hugo
 enregistrées ; le contrôle de cohérence bloque tout tag public sans destination.
 
-La branche `main` contient les sources. GitHub Actions valide les données et
-construit le site. Les commits ordinaires remplacent la sortie statique après
-un build complet ; les commits de traduction strictement reconnus rendent les
-segments anglais indiqués par leur plan et les superposent au dernier arbre
-`production`. Le nouveau commit reste descendant de `production` et est poussé
-en fast-forward.
-CloudPanel relève cette branche, crée une release locale et bascule un lien
-symbolique `current`. Les cinq dernières releases sont conservées.
+La branche `main` contient les sources. GitHub Actions valide les pull requests,
+mais la publication éditoriale s’effectue localement sur le VPS. Le script
+`deploy-vps.sh` lance `build-site.mjs`, qui produit d’abord le manifeste français
+puis le site bilingue complet dans une nouvelle release. Il contrôle les routes
+principales des deux langues avant de basculer atomiquement le lien symbolique
+`current`. Les cinq dernières releases sont conservées. Le push vers GitHub se
+fait ensuite de manière asynchrone comme sauvegarde.
 
 ## Mémoire éditoriale
 
@@ -259,7 +257,7 @@ l’extension.
 3. Le serveur vérifie les champs obligatoires, la taxonomie, les doublons, les
    URL et l’unicité de la date.
 4. Il génère le catalogue et l’archive dans un seul commit idempotent.
-5. Il suit l’unique workflow `Deploy production` pour le SHA produit.
+5. Il exécute le déploiement statique local pour le SHA produit.
 6. Il vérifie enfin la présence du titre et de la date sur le site public avant
    d’annoncer l’état « En ligne ».
 

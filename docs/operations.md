@@ -9,7 +9,7 @@ et les reprises de déploiement sans retraduction.
 ## Cron et version Node de l’administration
 
 Le site statique et le service Node sont déployés séparément. Une exécution
-réussie de `Deploy production` prouve la publication de la branche statique,
+réussie de `scripts/deploy-vps.sh` prouve la bascule de la release statique,
 pas la mise à jour de l’administration. Le cron admin récupère `main`, construit
 une release, sauvegarde les données, applique les migrations puis bascule le
 service. Les deux versions affichées doivent être vérifiées après déploiement.
