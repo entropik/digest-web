@@ -13,7 +13,7 @@
       <link>https://digest.ooblik.com/en/flux/journal-du-digest/2026-09-04/</link>
       <pubDate>Fri, 04 Sep 2026 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/flux/journal-du-digest/2026-09-04/</guid>
-      <description>Translation pending · Publishing a simple blog post had become a nightmare, with me stuck in endless GitHub Actions queues for over twenty minutes. Analysis reveals a major architectural drift that had built up under Codex, involving un-cached Hugo template loops, superfluous monolithic tests and endless commits from a translation bot. The pipeline has been fully repaired: Hugo’s build time has dropped from seven minutes to twenty seconds, publishing is no longer reliant on GitHub and now occurs directly on the VPS, and administration has regained its local autonomy in version 1.28.0.</description>
+      <description>Publishing a simple blog post had become a nightmare, with me stuck in endless GitHub Actions queues for over twenty minutes. Analysis reveals a major architectural drift that had built up under Codex, involving un-cached Hugo template loops, superfluous monolithic tests and endless commits from a translation bot. The pipeline has been fully repaired: Hugo’s build time has dropped from seven minutes to twenty seconds, publishing is no longer reliant on GitHub and now occurs directly on the VPS, and administration has regained its local autonomy in version 1.28.0.</description>
     </item>
     <item>
       <title>A bilingual Digest, restored movements and cron admin</title>
