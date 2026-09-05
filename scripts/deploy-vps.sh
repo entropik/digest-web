@@ -4,7 +4,7 @@ set -eu
 # Script de déploiement direct et autonome sur le VPS (CloudPanel)
 # Élimine tout passage par GitHub Actions pour la mise en ligne du site.
 
-BASE="/home/digest/htdocs/digest.ooblik.com"
+BASE="${DIGEST_SITE_BASE:-/home/digest/htdocs/digest.ooblik.com}"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 HUGO_BIN="${HUGO_BIN:-$(command -v hugo 2>/dev/null || echo "$HOME/bin/hugo")}"
@@ -33,9 +33,17 @@ RELEASE_DIR="$BASE/releases/$RELEASE_ID"
 
 echo "Compilation Hugo vers $RELEASE_DIR..."
 mkdir -p "$BASE/releases"
-"$HUGO_BIN" --gc --minify --destination "$RELEASE_DIR" --cleanDestinationDir
+HUGO_BINARY="$HUGO_BIN" node scripts/build-site.mjs --destination "$RELEASE_DIR"
 
-test -s "$RELEASE_DIR/index.html"
+for required_page in \
+  index.html \
+  en/index.html \
+  en/flux/index.html \
+  en/tags/index.html \
+  en/archives/index.html
+do
+  test -s "$RELEASE_DIR/$required_page"
+done
 
 # Bascule atomique du symlink CloudPanel
 ln -sfn "releases/$RELEASE_ID" "$BASE/current.new"

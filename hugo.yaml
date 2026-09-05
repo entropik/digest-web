@@ -50,7 +50,7 @@ params:
   ShowCodeCopyButtons: true
   disableSpecial1stPost: true
   footer:
-      text: "v1.28.0 · [Admin](/admin) · [Confidentialité](/confidentialite/)"
+      text: "v1.28.1 · [Admin](/admin) · [Confidentialité](/confidentialite/)"
   label:
     text: "OOBLIK DIGEST"
   homeInfoParams:
@@ -105,7 +105,7 @@ languages:
     params:
       description: A curated collection on AI, development, design and images.
       footer:
-        text: "v1.28.0 · [Admin](/admin) · [Privacy](/en/confidentialite/)"
+        text: "v1.28.1 · [Admin](/admin) · [Privacy](/en/confidentialite/)"
     menu:
       main:
         - {identifier: digest, name: Links, url: /, weight: 10}
