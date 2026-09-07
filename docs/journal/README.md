@@ -60,6 +60,8 @@ dans son propre relevé afin d’éviter une autoréférence impossible à stabi
 ## Continuer le journal
 
 Copier [le modèle](TEMPLATE.md) pour chaque nouvelle journée active. Les
-commits doivent être liés à GitHub et les affirmations de déploiement doivent
-être fondées sur un workflow ou une vérification publique. La section
-`Résumé`, reprise dans l’index public et le RSS, ne dépasse pas trois phrases.
+billets sont rédigés en paragraphes fluides ; les listes à puces ne doivent pas
+se substituer à la prose narrative. Les commits doivent être liés à GitHub et
+les affirmations de déploiement doivent être fondées sur un workflow ou une
+vérification publique. La section `Résumé`, reprise dans l’index public et le
+RSS, ne dépasse pas trois phrases.
