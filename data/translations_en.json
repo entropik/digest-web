@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "0d40a7e38b3e154dfb05ecd5c87509a67e8d8d39549b45c4f7146b726926b6c1",
+  "revision": "4b5d8600e17f511f338fd31c4c3e865304da9968fa5fe7052fa31c275bb8aafd",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -176,6 +176,16 @@
         "text": "Semantic Analysis of Text and Images"
       }
     },
+    "link:0e4336d2-ea32-57cc-82c4-07f2ac31d6a6": {
+      "description": {
+        "hash": "866aeb86ce0719efa3315d2512581dbcbde01afc7c99d34ca0d84a32f44e4f63",
+        "text": "Production-grade client-side tracing, profiling, and analysis for complex software systems. - google/perfetto"
+      },
+      "title": {
+        "hash": "6db58d0640170efb23d0d0ee5a19c69cf0513798d14fa3ab4b2d8e96463082fc",
+        "text": "google/perfetto: Production-grade client-side tracing, profiling, and analysis for complex software systems."
+      }
+    },
     "link:0f428bd7-82ae-50a5-b175-03eeab43e89f": {
       "description": {
         "hash": "a746f1eb779072bfc183faebd2ba904a63a5012a3602acb1e64de792aa07c52d",
@@ -200,6 +210,10 @@
       "description": {
         "hash": "3ad1717c55b62e4c02169e74f56add487c7f3a880dc83d210ff1d9e91a8fc52c",
         "text": "The words people throw around when they talk about AI coding. Tokens, context windows, agents, handoffs. Defined plainly and wired into a 3D graph you can explore term by term. From aihero.dev."
+      },
+      "title": {
+        "hash": "942b465b7094466b9c103b1e44184dda3ca29d1c615f53f45c69c33057c2acdf",
+        "text": "The AI Coding Dictionary"
       }
     },
     "link:12205153-6d73-5f3b-a407-420acc4ff033": {
@@ -764,6 +778,10 @@
       "description": {
         "hash": "54938cf3c254403d3d43f9422627e47b0aff2bd5d0fffa819bf3b5e4ac236018",
         "text": "Vécu: the background documentation for your business, shared with your team and readable by any AI tool. Self-hosted, AGPL-3.0. – ColinDargent/vecu-app"
+      },
+      "title": {
+        "hash": "9de9d0a156c03883f04a218f110fb7b6c9af72b3be464380996238c55e3103cc",
+        "text": "ColinDargent/vecu-app: Vécu: the background documentation for your business, shared with your team and readable by any AI tool. Self-hosted, AGPL-3.0."
       }
     },
     "link:4be0a9a2-1a15-54dc-a60d-55869bae66e4": {
@@ -886,6 +904,16 @@
       "title": {
         "hash": "7881879be65b5b272bcd66e8cfd8beb63d86b8f575115edba76bf77f183e43a2",
         "text": "Radical web design"
+      }
+    },
+    "link:55570ecb-1147-509a-af59-3c64a0cbf549": {
+      "description": {
+        "hash": "990d0d10f219c82fade45e3c378f5e14e3edc6d1073731bc2a03519307d1fc28",
+        "text": "uBlock Origin - An efficient blocker for Chromium and Firefox. Fast and lean. - gorhill/uBlock"
+      },
+      "title": {
+        "hash": "78a50f99d77b8d9fd7514b2f975569f5f44a3aae283b61fecc4cdb7c6eacd097",
+        "text": "gorhill/uBlock: uBlock Origin - An efficient blocker for Chromium and Firefox. Fast and lean."
       }
     },
     "link:5627995c-cceb-5f13-9149-4c40765598f3": {
@@ -1171,6 +1199,10 @@
       }
     },
     "link:71ffdecd-44a9-5036-900f-6bba1e293fa7": {
+      "description": {
+        "hash": "743d5a9913ca2da4743819b3a2fa688b3f3a7133e78f12327ff809da669e1200",
+        "text": "French new digital type foundry specialised in retail typefaces, custom fonts, and high-end fonts design."
+      },
       "title": {
         "hash": "5136821e783344114cda20d077dcbbe86c1066e9f0891be88dc7e89d27039006",
         "text": "Home | Lovercase Typefaces"
@@ -1260,6 +1292,12 @@
       "title": {
         "hash": "153b240e5ea2c2510dbd3c72ebffd3fe7d2f4f9c7f82700a3ad9074220cee9a9",
         "text": "Stagehand — An SDK for web navigation agents"
+      }
+    },
+    "link:7e4d2b1b-3223-5585-80f3-9e14f83ab8f8": {
+      "title": {
+        "hash": "9e93b1897ac9b1d1fb3814fd5506abc1b01481f25e74ec03f969403c8ff0506a",
+        "text": "block/buzz: A hive mind communication platform"
       }
     },
     "link:7ed43568-3c73-5315-83ce-7cbb18deffef": {
@@ -1966,6 +2004,12 @@
         "text": "Free Programming Books — Free programming books and courses"
       }
     },
+    "link:b83c490f-e863-5b65-b988-8a510f1f7e2f": {
+      "description": {
+        "hash": "69e37d7a64e87dc946aaba06b38ce833fc9630cc271bebe2f71d8c3cdb11255f",
+        "text": "Le Klap is a podcast and video recording studio, right in the heart of Lille."
+      }
+    },
     "link:b9049c7f-4c62-5254-bb4a-103e83d4b509": {
       "description": {
         "hash": "30337086a21e989ba79a079247573e5ed57fb62479a35181cceea18473042e17",
@@ -2266,6 +2310,12 @@
       "title": {
         "hash": "673b4aa3beeacaab6352acc875fda98307a8800a0cd19ce6a60e810a46f08be3",
         "text": "Editor.js"
+      }
+    },
+    "link:d6916fef-e39d-5a82-95e8-396e211d7eab": {
+      "description": {
+        "hash": "73e65b6a019c778a9d5f58c6ed9ea1be5cf3b74f7c45b12a05d2ea55c284cb0a",
+        "text": "Compare France’s ~35,000 local authorities on a single map: rents, prices per square metre, yield, demographics, the economy, quality of life, culture and climate risks in 2050."
       }
     },
     "link:d6da3dc7-daea-5e67-8ebc-fc7c58eeb560": {

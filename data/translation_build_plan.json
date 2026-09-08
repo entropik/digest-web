@@ -1,68 +1,58 @@
 {
   "version": 1,
-  "baseRevision": "af3988be2c203465fc6c43e94bccaba6da548c71f7961340f17f6e2472227c35",
-  "targetRevision": "0d40a7e38b3e154dfb05ecd5c87509a67e8d8d39549b45c4f7146b726926b6c1",
+  "baseRevision": "0d40a7e38b3e154dfb05ecd5c87509a67e8d8d39549b45c4f7146b726926b6c1",
+  "targetRevision": "4b5d8600e17f511f338fd31c4c3e865304da9968fa5fe7052fa31c275bb8aafd",
   "manifestRevision": "95e866c5d4b41cc3e4440a769d2b40d8c219228b024e0daea0fc044ae6df3774",
   "fullBuild": false,
   "items": [
     {
-      "id": "link:37f7d27c-1039-59f9-bcc0-195019beff61",
+      "id": "link:0e4336d2-ea32-57cc-82c4-07f2ac31d6a6",
       "fields": [
-        "description"
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "link:11ef0e2a-7f21-5ebb-b718-be0afd980713",
+      "fields": [
+        "title"
       ]
     },
     {
       "id": "link:4b672352-9dd2-57c4-886e-c6af16cf9e19",
       "fields": [
-        "description"
+        "title"
       ]
     },
     {
-      "id": "link:626f5ee3-aca0-53eb-8728-be22ab056042",
+      "id": "link:55570ecb-1147-509a-af59-3c64a0cbf549",
       "fields": [
+        "description",
         "title"
       ]
     },
     {
       "id": "link:71ffdecd-44a9-5036-900f-6bba1e293fa7",
       "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:771e4cdf-ac2c-5011-a8b9-3eec66916ce0",
-      "fields": [
         "description"
       ]
     },
     {
-      "id": "link:83fcdaf3-9033-5a9d-8d80-fe91ad32f12d",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:99c73fb6-3791-59f3-bf49-95b8f066786d",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:d8b3b08b-880c-513a-9924-334ebde6aab0",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:e611e0dc-5770-5c8f-a0f3-46090facf487",
+      "id": "link:7e4d2b1b-3223-5585-80f3-9e14f83ab8f8",
       "fields": [
         "title"
       ]
     },
     {
-      "id": "link:fe215c0b-8299-5f45-97b5-fa38fe205e8c",
+      "id": "link:b83c490f-e863-5b65-b988-8a510f1f7e2f",
       "fields": [
-        "title"
+        "description"
+      ]
+    },
+    {
+      "id": "link:d6916fef-e39d-5a82-95e8-396e211d7eab",
+      "fields": [
+        "description"
       ]
     },
     {
@@ -149,16 +139,14 @@
     "/archives/2026-09-08/",
     "/tags/",
     "/tags/agents/",
-    "/tags/art-numerique/",
-    "/tags/art/",
+    "/tags/cartographie/",
     "/tags/code/",
     "/tags/design/",
     "/tags/developpement/",
     "/tags/ia/",
-    "/tags/llm/",
-    "/tags/memory/",
-    "/tags/photographie/",
+    "/tags/materiel/",
     "/tags/typographie/",
+    "/tags/video/",
     "/tags/web/"
   ],
   "artwork": {
@@ -177,5 +165,5 @@
     ],
     "remove": []
   },
-  "revision": "3245ddc7f07e5fab7f05c3c910c17d307debfa97f35d758862dbf2b51f14b206"
+  "revision": "8dce19524b2fba6a37e26e8969c9fd1f833f5d3b3f5f45b5d8ee9498a2bcc00a"
 }
