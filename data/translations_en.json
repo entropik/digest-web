@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "25c61086e4590c2269847f04830f02860f691cd9e0c05f745670b0e208dcc730",
+  "revision": "2c1e7833cdc00e055b8c97d03e162fc85e972f9a5fd8db9c2a93627923b43205",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -1398,6 +1398,16 @@
       "title": {
         "hash": "1a56d4e6ea630f951a94be8155b7e949d4de77f7deed662e826cd1d49119ef85",
         "text": "LangChain — AI agent engineering platform"
+      }
+    },
+    "link:900b08f3-4409-50ca-8ac0-1cda765934a5": {
+      "description": {
+        "hash": "01308007f5bb90c435354d78ee65b6803826fcb3840e64b6fa92c3def40152e6",
+        "text": "Turn any codebase into an interactive knowledge graph you can explore, search, and learn from."
+      },
+      "title": {
+        "hash": "cbea9434b97d309836b30a7e26120c28ba83d0d28a4455dd3ff7f1c989e7eda3",
+        "text": "Understand Anything — Graphs that teach the codebase"
       }
     },
     "link:90f3e6b8-d446-570e-acbc-d4701b9d576d": {
@@ -2832,6 +2842,12 @@
       "title": {
         "hash": "46df12d7aef513eee597a565f8a80bbd3426039e758cef381d63cbc9363c8db7",
         "text": "Software Factory: code is no longer the bottleneck"
+      }
+    },
+    "page:/archives/2026-09-08": {
+      "description": {
+        "hash": "7020c7026d8c2f38bd7960e40f85e507d1a79140762c20a8982092d9effe3b13",
+        "text": "Artificial intelligence, development, design, publishing and digital creation."
       }
     },
     "page:/confidentialite": {
