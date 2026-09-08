@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "af3988be2c203465fc6c43e94bccaba6da548c71f7961340f17f6e2472227c35",
+  "revision": "0d40a7e38b3e154dfb05ecd5c87509a67e8d8d39549b45c4f7146b726926b6c1",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -564,6 +564,12 @@
         "text": "Benjamin Code’s SaaS platform has been hacked"
       }
     },
+    "link:37f7d27c-1039-59f9-bcc0-195019beff61": {
+      "description": {
+        "hash": "4df5e947440a8c7d71d9ff4c336e9f8b72e146f43d224335fa543d9447d49950",
+        "text": "Pierre Suchet – This essay draws parallels between my documentary geo-photographic investigation into the former Bois Noirs uranium mine and Andrei Tarkovsky’s film *Stalker*."
+      }
+    },
     "link:37fbfbb1-a8e7-5fc2-9b0b-03c320cc0206": {
       "description": {
         "hash": "96721c30f87a35986ded30089f51da916f94672a12c5e28dbae4d58fa2656dd6",
@@ -752,6 +758,12 @@
       "title": {
         "hash": "c630182f1cb4db57e7c1fd4dc306ae57a19d42a2468ba0abd91d5c22ce18e51c",
         "text": "Auto-Company"
+      }
+    },
+    "link:4b672352-9dd2-57c4-886e-c6af16cf9e19": {
+      "description": {
+        "hash": "54938cf3c254403d3d43f9422627e47b0aff2bd5d0fffa819bf3b5e4ac236018",
+        "text": "Vécu: the background documentation for your business, shared with your team and readable by any AI tool. Self-hosted, AGPL-3.0. – ColinDargent/vecu-app"
       }
     },
     "link:4be0a9a2-1a15-54dc-a60d-55869bae66e4": {
@@ -982,6 +994,10 @@
       "description": {
         "hash": "38dc4ade94a5a409a3f860bfacde2f1c1c8fee0869333d464d109077ce9a73f5",
         "text": "A little frog, a window, a few drops of water… and there you go. Touch the window and let it come to you."
+      },
+      "title": {
+        "hash": "3b2efc0270519a0c239e12ead6f2157a974f0c54fcd48212e2e094d4c1d09eba",
+        "text": "GrInouill3 :: a little time in the countryside"
       }
     },
     "link:6308c2bc-e033-5a7f-a1f5-dc57a2fa6b18": {
@@ -1154,6 +1170,12 @@
         "text": "growgraph/ontocast: Agentic Ontology Assisted Framework for Semantic Triple Extraction"
       }
     },
+    "link:71ffdecd-44a9-5036-900f-6bba1e293fa7": {
+      "title": {
+        "hash": "5136821e783344114cda20d077dcbbe86c1066e9f0891be88dc7e89d27039006",
+        "text": "Home | Lovercase Typefaces"
+      }
+    },
     "link:7412c069-0d3b-5d23-a46b-6977bfc3695b": {
       "description": {
         "hash": "1b16453acf0ba673840a144e5faaadda6ad52849cdd551ccdb37bd2a4a28ad47",
@@ -1195,6 +1217,10 @@
       }
     },
     "link:771e4cdf-ac2c-5011-a8b9-3eec66916ce0": {
+      "description": {
+        "hash": "47d527f0a6beb32771b11ff9d9c74ea9d041c6760c02135630876acb5a979ffb",
+        "text": "The headless browser for AI agents and web scraping - h4ckf0r0day/obscura"
+      },
       "title": {
         "hash": "16708e6e362533525557d982d933f85f5b9d0becf6c11663b4039cd535fcf62f",
         "text": "h4ckf0r0day/obscura: The headless browser for AI agents and web scraping"
@@ -1304,6 +1330,12 @@
       "title": {
         "hash": "214785edb7587a59203d7721e4c71d06401a74db13e1de46ba7600bb51873db1",
         "text": "Vahan Soghomonian"
+      }
+    },
+    "link:83fcdaf3-9033-5a9d-8d80-fe91ad32f12d": {
+      "description": {
+        "hash": "48d6abe9ebc524792544069c9dd935dd9be9abd2b97abbfe36d4d534d27080fd",
+        "text": "Benchmarks performances LLM"
       }
     },
     "link:840e6a9c-0848-5ccf-861b-c6002f7e29d9": {
@@ -1564,6 +1596,12 @@
       "title": {
         "hash": "9042a32e5774b96a72f44541563c677e56c8fc11b3a3c3acb85eb3c49cec2bfb",
         "text": "Superset — the large-scale agent-based IDE"
+      }
+    },
+    "link:99c73fb6-3791-59f3-bf49-95b8f066786d": {
+      "description": {
+        "hash": "53a9874d54ea058db78fa5bb4b72395c612bcd70dbf530ab9b51deaf7e74ceb9",
+        "text": "A multimodal AI creative studio that turns ideas into finished images, videos, voiceovers and edits. Keep local files private and reuse workflows with Skills."
       }
     },
     "link:99f1b0d0-954f-52ca-9828-0a8ef0a1b7bc": {
@@ -2271,6 +2309,10 @@
       }
     },
     "link:d8b3b08b-880c-513a-9924-334ebde6aab0": {
+      "description": {
+        "hash": "61d29de5098d8a4a5e3c65d57ed526c5dad5b3dbc1ab86dfc44e5dd73aef7e67",
+        "text": "The team second brain: plain markdown on your disk, edited live by your team and your AI."
+      },
       "title": {
         "hash": "1a635a5006b84ad54fa309a88bf1a44985b23ca0ca719aa944285ad5039be43c",
         "text": "Baalda | The team second brain"
@@ -2426,6 +2468,12 @@
       "title": {
         "hash": "83b8194ac77f56f96019238a492c0a809258a5deb54862c7b847c49e0b58f19e",
         "text": "Thank you Qian"
+      }
+    },
+    "link:e611e0dc-5770-5c8f-a0f3-46090facf487": {
+      "title": {
+        "hash": "3ce9fe28588174f783dea07867b6c24d155210f9f60e507f19bfa3689676bea9",
+        "text": ".txt - Structured Outputs for Production LLMs"
       }
     },
     "link:e721283c-7c01-5d7b-b6d6-6c61c076268e": {
@@ -2672,6 +2720,12 @@
       "title": {
         "hash": "d6048618387073b673519004656c71a202d5c1edfe57e0380b1e1219f9c9a3a3",
         "text": "Hunk"
+      }
+    },
+    "link:fe215c0b-8299-5f45-97b5-fa38fe205e8c": {
+      "title": {
+        "hash": "5cae781363f4beb339a2ea167094bee302e9f14c4c5d08bea9e1def40fce2ac7",
+        "text": "OpenClaw — Open-Source AI Assistant"
       }
     },
     "link:fe9b7aff-52f9-5f36-8974-51573dcf1ec9": {
