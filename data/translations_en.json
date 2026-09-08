@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "2c1e7833cdc00e055b8c97d03e162fc85e972f9a5fd8db9c2a93627923b43205",
+  "revision": "af3988be2c203465fc6c43e94bccaba6da548c71f7961340f17f6e2472227c35",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -68,6 +68,12 @@
       "description": {
         "hash": "77faed49451124ca735c3b6f09c80b770d073caa8ad8cfcb58e35db36edb8481",
         "text": "beautiful"
+      }
+    },
+    "link:005c347d-e2be-5731-a7cc-32eade5817a2": {
+      "title": {
+        "hash": "2e20c5b241df0881ef258aff9ba5d905b9885fd9d8945ed53362ba177315ea8b",
+        "text": "MiniMax"
       }
     },
     "link:02ec9698-3bae-5afe-bbfd-6b0671bf4d3c": {
@@ -188,6 +194,12 @@
       "title": {
         "hash": "cca47b46ca5ded5cf5cf7cccdc014cf47976ff8ffd73e22a3a58f1cb6ed7448c",
         "text": "Web security audits for indie builders, RLS Supabase - VICE"
+      }
+    },
+    "link:11ef0e2a-7f21-5ebb-b718-be0afd980713": {
+      "description": {
+        "hash": "3ad1717c55b62e4c02169e74f56add487c7f3a880dc83d210ff1d9e91a8fc52c",
+        "text": "The words people throw around when they talk about AI coding. Tokens, context windows, agents, handoffs. Defined plainly and wired into a 3D graph you can explore term by term. From aihero.dev."
       }
     },
     "link:12205153-6d73-5f3b-a407-420acc4ff033": {
@@ -742,6 +754,12 @@
         "text": "Auto-Company"
       }
     },
+    "link:4be0a9a2-1a15-54dc-a60d-55869bae66e4": {
+      "description": {
+        "hash": "347be756f1bcd2df5f0678539fa4fdac30149207b69d04f4e3c93f61c33e8636",
+        "text": "Orchestrate sandboxed coding agents in TypeScript with sandcastle.run() - mattpocock/sandcastle"
+      }
+    },
     "link:4c804003-47b1-5c50-b630-25893314fa3c": {
       "description": {
         "hash": "fe32ee0b5b343372aa0c5c06338f934fca8230bf5573dfc3fda5c19b87b85961",
@@ -888,6 +906,12 @@
         "text": "ai-driven-dev/framework: Marketplace Framework AI-Driven Dev : Context Engineering, Plugins, Agents, Skills, Hooks, Templates, SDLC"
       }
     },
+    "link:569b2e2e-62c9-5d87-9672-0de62064f17a": {
+      "title": {
+        "hash": "145a9916fe90c06e04bea2ce473c2f4a7f563fa7492b1351f546b8960326179d",
+        "text": "rlouf/zeta: Agent operating system"
+      }
+    },
     "link:58ed9520-8cea-54c1-b376-5d62265e4837": {
       "description": {
         "hash": "343a90c53a4c7d26663681cdadd9abfded1785c9a58aeca3211748ff98041883",
@@ -952,6 +976,12 @@
       "title": {
         "hash": "83d41aab2c4e7e56b2ffb74e7c8e270f392416ffade7d4fc3584621c46861171",
         "text": "Next Computer"
+      }
+    },
+    "link:626f5ee3-aca0-53eb-8728-be22ab056042": {
+      "description": {
+        "hash": "38dc4ade94a5a409a3f860bfacde2f1c1c8fee0869333d464d109077ce9a73f5",
+        "text": "A little frog, a window, a few drops of water… and there you go. Touch the window and let it come to you."
       }
     },
     "link:6308c2bc-e033-5a7f-a1f5-dc57a2fa6b18": {
@@ -1162,6 +1192,12 @@
       "title": {
         "hash": "b61838517f2c48c8bc13627f14a1b0cc19596fd1a977cc39be4b9f46f027eb55",
         "text": "Agent Zero — an agent who creates his own tools"
+      }
+    },
+    "link:771e4cdf-ac2c-5011-a8b9-3eec66916ce0": {
+      "title": {
+        "hash": "16708e6e362533525557d982d933f85f5b9d0becf6c11663b4039cd535fcf62f",
+        "text": "h4ckf0r0day/obscura: The headless browser for AI agents and web scraping"
       }
     },
     "link:7785e21a-d2f5-5211-b797-38373b223cef": {
@@ -1660,6 +1696,12 @@
         "text": "CanIRun.ai — Can your machine run AI models?"
       }
     },
+    "link:a7264839-6df2-5aae-9af1-a33e74492472": {
+      "title": {
+        "hash": "024938b72e677e89de9666ec52681d235a6532240748146719f4100a8e177215",
+        "text": "OpenHands | The Open Platform for Cloud Coding Agents"
+      }
+    },
     "link:a76823fd-a870-58ea-96d0-47408a629acc": {
       "description": {
         "hash": "78d47167b570517a034a3d5ddb315f9fb038e82e1b04c0840869c16e56716029",
@@ -2082,6 +2124,12 @@
         "text": "Luminar – Easy-to-use photo editor | Software for Mac and PC"
       }
     },
+    "link:d159169e-1e52-509e-a927-afcfaaac128c": {
+      "title": {
+        "hash": "2165e49c7a00339279d50b41d550e9267cfdb256b69870fd560f61a785f832b7",
+        "text": "Unsloth - Run and Train Models Locally"
+      }
+    },
     "link:d19aa2b1-81dd-5fd7-a697-d2afddc66e5a": {
       "description": {
         "hash": "ab6b97220d9009607ec8e09957f26c42d1240566ada73abfa77d18cf9635af49",
@@ -2222,6 +2270,12 @@
         "text": "C & F Publications"
       }
     },
+    "link:d8b3b08b-880c-513a-9924-334ebde6aab0": {
+      "title": {
+        "hash": "1a635a5006b84ad54fa309a88bf1a44985b23ca0ca719aa944285ad5039be43c",
+        "text": "Baalda | The team second brain"
+      }
+    },
     "link:d9f057b6-5c10-5c58-8716-859f77f41c44": {
       "description": {
         "hash": "7814d4cca7565bff6b0682ddd292c4f6c3578e8147baf907afb40593a33b1830",
@@ -2300,6 +2354,12 @@
       "title": {
         "hash": "769eb6efaf748bae2e2f5b669d48580171a7bac641807f1fe06a26744816b505",
         "text": "Inside the minds of far-right leaders"
+      }
+    },
+    "link:e1af596a-6627-5d25-8694-b197fa81b6c4": {
+      "title": {
+        "hash": "13bb4dfb1efc5d2737b160d30df1c872488a8d5e5e412dc23838c09343ba4dd5",
+        "text": "Agent Arena | AI Agent Performance Leaderboard"
       }
     },
     "link:e24ed8aa-5002-5a68-959e-53b4927b657c": {
