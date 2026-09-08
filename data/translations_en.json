@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "ae345d3cd1bbd2b3cba4b13fb48bd7af62a1dcd436d750874c15e71e2665510f",
+  "revision": "86197cc781af6534e1b9e738c915c8f428c6f21f570a22eb7aba97f8cef11518",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -268,6 +268,12 @@
       "title": {
         "hash": "4d996faa9b9cdc4d915af1f76fa52b5f8b4ef6a494a2ebeb115f0770c5133671",
         "text": "The Art of the Command Line — Mastering the terminal in one page"
+      }
+    },
+    "link:16149504-35cf-52ed-8096-aff01af908db": {
+      "description": {
+        "hash": "def1c965d72f28a4f41337475d9b941769f67765227a30a51225806d0f00ad8c",
+        "text": "Bring Claude Code, Codex, OpenCode, or any coding agent into one workspace. Run tasks in parallel, isolate changes, and review everything in one place."
       }
     },
     "link:16a92d00-b6cb-5b82-9ddf-2e1d313b9791": {
@@ -732,6 +738,10 @@
       "description": {
         "hash": "b8868fedf09de08789fb342351e1d4c002295e37215873b7ab4d5fee8314c767",
         "text": "Gemini 3.8 Flash and 3.8 Flash Cyber deliver next-generation intelligence for agentic workflows and cybersecurity."
+      },
+      "title": {
+        "hash": "cd1b89f8fd6c855738c3b1d6628397076e0973caf76ffc0fda3cd1972ca4ce0b",
+        "text": "Introducing Gemini 3.8 Flash and 3.8 Flash Cyber"
       }
     },
     "link:43c80086-b394-51a1-86b4-19e807f5ccd6": {
@@ -1408,6 +1418,10 @@
       "description": {
         "hash": "48d6abe9ebc524792544069c9dd935dd9be9abd2b97abbfe36d4d534d27080fd",
         "text": "Benchmarks performances LLM"
+      },
+      "title": {
+        "hash": "f1b4781753708fb504d77ade9a821a72756abb7b7f0ca839ed0c9bc1a1818030",
+        "text": "SWE-bench Leaderboards"
       }
     },
     "link:840e6a9c-0848-5ccf-861b-c6002f7e29d9": {
@@ -1674,6 +1688,10 @@
       "description": {
         "hash": "53a9874d54ea058db78fa5bb4b72395c612bcd70dbf530ab9b51deaf7e74ceb9",
         "text": "A multimodal AI creative studio that turns ideas into finished images, videos, voiceovers and edits. Keep local files private and reuse workflows with Skills."
+      },
+      "title": {
+        "hash": "df0503bbfa159eacf46549fe53d4ace2c0864bf091a2cf0bc4604bd92b5c6adb",
+        "text": "MiniMax Design: Multimodal AI Creative Studio"
       }
     },
     "link:99f1b0d0-954f-52ca-9828-0a8ef0a1b7bc": {
@@ -1807,6 +1825,10 @@
       }
     },
     "link:a7264839-6df2-5aae-9af1-a33e74492472": {
+      "description": {
+        "hash": "eac5204412dcaee6b4bb05669dc3a6487b2c30dc03ea259778ec5507ac8353d6",
+        "text": "Meet OpenHands, the open-source, model-agnostic platform for cloud coding agents. Automate real engineering work securely and transparently. Build faster with full control."
+      },
       "title": {
         "hash": "024938b72e677e89de9666ec52681d235a6532240748146719f4100a8e177215",
         "text": "OpenHands | The Open Platform for Cloud Coding Agents"
@@ -2042,6 +2064,10 @@
       "description": {
         "hash": "69e37d7a64e87dc946aaba06b38ce833fc9630cc271bebe2f71d8c3cdb11255f",
         "text": "Le Klap is a podcast and video recording studio, right in the heart of Lille."
+      },
+      "title": {
+        "hash": "c668a5a3268ee62e425d24d890cfa9988d7cca66b96741d526765e2a8b048bd6",
+        "text": "Le Klap – Recording Studio, Podcasts & Videos in Lille"
       }
     },
     "link:b9049c7f-4c62-5254-bb4a-103e83d4b509": {
@@ -2241,6 +2267,10 @@
       }
     },
     "link:d159169e-1e52-509e-a927-afcfaaac128c": {
+      "description": {
+        "hash": "d73c3e22ae988d7782cac5726c669739cffac39026b9b06fba1e896fb7bdb3ae",
+        "text": "Unsloth is an open-source, no-code deskop UI for training and running open models on your local hardware."
+      },
       "title": {
         "hash": "2165e49c7a00339279d50b41d550e9267cfdb256b69870fd560f61a785f832b7",
         "text": "Unsloth - Run and Train Models Locally"
@@ -2350,6 +2380,10 @@
       "description": {
         "hash": "73e65b6a019c778a9d5f58c6ed9ea1be5cf3b74f7c45b12a05d2ea55c284cb0a",
         "text": "Compare France’s ~35,000 local authorities on a single map: rents, prices per square metre, yield, demographics, the economy, quality of life, culture and climate risks in 2050."
+      },
+      "title": {
+        "hash": "e76f4eba1c8ed31d5c8b049be746924a1ac0debfd0f7c75c573ad708e1c01bc9",
+        "text": "Point Commune – all local authorities in France, rated"
       }
     },
     "link:d6da3dc7-daea-5e67-8ebc-fc7c58eeb560": {
@@ -3055,9 +3089,17 @@
       }
     },
     "page:/archives/2026-09-08": {
+      "body": {
+        "hash": "c87649b524649bc61eae13d6904ac4b9edd86a1d2cab878d8983b653dc9782a3",
+        "text": "<p>It’s been a while, hasn’t it? Well… hang on, this round-up isn’t just about AI – it’s got photography and typography as well. Enjoy the round-up!</p>\n"
+      },
       "description": {
         "hash": "7020c7026d8c2f38bd7960e40f85e507d1a79140762c20a8982092d9effe3b13",
         "text": "Artificial intelligence, development, design, publishing and digital creation."
+      },
+      "title": {
+        "hash": "eeb3c4d951036f92a653f5f046a79371b42363ebc337a10520957836e94cf061",
+        "text": "Digest — 8 September 2026"
       }
     },
     "page:/confidentialite": {
@@ -12615,6 +12657,12 @@
       "description": "Seven videos all point to the same idea: automating the build, code, testing, review and pull request pipeline shifts the bottleneck to human attention.",
       "linkCount": 7,
       "editorialType": "focus"
+    },
+    "2026-09-08": {
+      "title": "Digest — 8 September 2026",
+      "description": "Artificial intelligence, development, design, publishing and digital creation.",
+      "linkCount": 27,
+      "editorialType": "digest"
     }
   }
 }
