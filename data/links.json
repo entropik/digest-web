@@ -1,5 +1,325 @@
 [
   {
+    "id": "d159169e-1e52-509e-a927-afcfaaac128c",
+    "title": "Unsloth - Run and Train Models Locally",
+    "url": "https://unsloth.ai/",
+    "category": "IA & Agents",
+    "added": "2026-09-08",
+    "description": "Unsloth is an open-source, no-code deskop UI for training and running open models on your local hardware.",
+    "tags": [
+      "code",
+      "agents",
+      "UI"
+    ]
+  },
+  {
+    "id": "900b08f3-4409-50ca-8ac0-1cda765934a5",
+    "title": "Understand Anything — Graphs that teach the codebase",
+    "url": "https://understand-anything.com/#install",
+    "category": "IA & Agents",
+    "added": "2026-09-08",
+    "description": "Turn any codebase into an interactive knowledge graph you can explore, search, and learn from.",
+    "tags": [
+      "code"
+    ]
+  },
+  {
+    "id": "11ef0e2a-7f21-5ebb-b718-be0afd980713",
+    "title": "The AI Coding Dictionary",
+    "url": "https://www.aihero.dev/ai-coding-dictionary",
+    "category": "IA & Agents",
+    "added": "2026-09-08",
+    "description": "The words people throw around when they talk about AI coding. Tokens, context windows, agents, handoffs. Defined plainly and wired into a 3D graph you can explore term by term. From aihero.dev.",
+    "tags": [
+      "agents",
+      "design",
+      "code"
+    ]
+  },
+  {
+    "id": "83fcdaf3-9033-5a9d-8d80-fe91ad32f12d",
+    "title": "SWE-bench Leaderboards",
+    "url": "https://www.swebench.com/",
+    "category": "IA & Agents",
+    "added": "2026-09-08",
+    "description": "Benchmarks performances LLM",
+    "tags": [
+      "agents",
+      "code"
+    ]
+  },
+  {
+    "id": "16149504-35cf-52ed-8096-aff01af908db",
+    "title": "Superset - Orchestrate any coding agent",
+    "url": "https://superset.sh/",
+    "category": "IA & Agents",
+    "added": "2026-09-08",
+    "description": "Bring Claude Code, Codex, OpenCode, or any coding agent into one workspace. Run tasks in parallel, isolate changes, and review everything in one place.",
+    "tags": [
+      "code",
+      "agents"
+    ]
+  },
+  {
+    "id": "569b2e2e-62c9-5d87-9672-0de62064f17a",
+    "title": "rlouf/zeta: Agent operating system",
+    "url": "https://github.com/rlouf/zeta",
+    "category": "IA & Agents",
+    "added": "2026-09-08",
+    "description": "Agent operating system. Contribute to rlouf/zeta development by creating an account on GitHub.",
+    "tags": [
+      "agents",
+      "code"
+    ]
+  },
+  {
+    "id": "d6916fef-e39d-5a82-95e8-396e211d7eab",
+    "title": "Point Commune - toutes les communes de France, notées",
+    "url": "https://www.pointcommune.fr/",
+    "category": "IA & Agents",
+    "added": "2026-09-08",
+    "description": "Comparez les ~35 000 communes de France sur une même carte : loyers, prix au m², rendement, démographie, économie, cadre de vie, culture et risques climatiques 2050.",
+    "tags": [
+      "cartographie"
+    ]
+  },
+  {
+    "id": "a7264839-6df2-5aae-9af1-a33e74492472",
+    "title": "OpenHands | The Open Platform for Cloud Coding Agents",
+    "url": "https://www.openhands.dev/",
+    "category": "IA & Agents",
+    "added": "2026-09-08",
+    "description": "Meet OpenHands, the open-source, model-agnostic platform for cloud coding agents. Automate real engineering work securely and transparently. Build faster with full control.",
+    "tags": [
+      "agents",
+      "code"
+    ]
+  },
+  {
+    "id": "fe215c0b-8299-5f45-97b5-fa38fe205e8c",
+    "title": "OpenClaw — Open-Source AI Assistant",
+    "url": "https://openclaw.ai/",
+    "category": "IA & Agents",
+    "added": "2026-09-08",
+    "description": "OpenClaw — the open-source AI assistant that runs on your machine and works from the chat apps you already use. For you, or your whole team.",
+    "tags": [
+      "agents",
+      "code",
+      "memory"
+    ]
+  },
+  {
+    "id": "341b51d2-fa15-524b-99d4-2a0806b4b3db",
+    "title": "NoSignups",
+    "url": "https://nosignups.net/",
+    "category": "Développement",
+    "added": "2026-09-08",
+    "description": "NoSignups (formerly FckSignups) is an open-source directory of no-signup, in-browser, open-source tools.",
+    "tags": [
+      "design",
+      "code"
+    ]
+  },
+  {
+    "id": "99c73fb6-3791-59f3-bf49-95b8f066786d",
+    "title": "MiniMax Design: Multimodal AI Creative Studio",
+    "url": "https://design.minimax.io/",
+    "category": "IA & Agents",
+    "added": "2026-09-08",
+    "description": "A multimodal AI creative studio that turns ideas into finished images, videos, voiceovers and edits. Keep local files private and reuse workflows with Skills.",
+    "tags": [
+      "design",
+      "agents"
+    ]
+  },
+  {
+    "id": "005c347d-e2be-5731-a7cc-32eade5817a2",
+    "title": "MiniMax",
+    "url": "https://www.minimax.io/",
+    "category": "IA & Agents",
+    "added": "2026-09-08",
+    "description": "Building AGI with our mission Intelligence with Everyone. Global leader in multi-modal models and AI-native products with over 200 million users.",
+    "tags": [
+      "LLM",
+      "code"
+    ]
+  },
+  {
+    "id": "4be0a9a2-1a15-54dc-a60d-55869bae66e4",
+    "title": "mattpocock/sandcastle: Orchestrate sandboxed coding agents in TypeScript with sandcastle.run()",
+    "url": "https://github.com/mattpocock/sandcastle?ck_subscriber_id=4272814670&sh_kit=779895fe5f6e61c7bd2f8c90b84e5ffb6b88a2d1d2fc4c134ca246e7cbcbdd7c",
+    "category": "IA & Agents",
+    "added": "2026-09-08",
+    "description": "Orchestrate sandboxed coding agents in TypeScript with sandcastle.run() - mattpocock/sandcastle",
+    "tags": [
+      "agents",
+      "code"
+    ]
+  },
+  {
+    "id": "b83c490f-e863-5b65-b988-8a510f1f7e2f",
+    "title": "Le Klap - Studio d'enregistrement Podcasts & Vidéos à Lille",
+    "url": "https://leklap.fr/",
+    "category": "Design & Création",
+    "added": "2026-09-08",
+    "description": "Le Klap est un studio d’enregistrement de podcasts et de vidéos, en plein coeur de Lille.",
+    "tags": [
+      "vidéo",
+      "matériel"
+    ]
+  },
+  {
+    "id": "41526444-8c1e-5a81-85f3-efc9ed24d5ea",
+    "title": "Introducing Gemini 3.8 Flash and 3.8 Flash Cyber",
+    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber",
+    "category": "IA & Agents",
+    "added": "2026-09-08",
+    "description": "Gemini 3.8 Flash and 3.8 Flash Cyber deliver next-generation intelligence for agentic workflows and cybersecurity.",
+    "tags": [
+      "agents",
+      "code"
+    ]
+  },
+  {
+    "id": "71ffdecd-44a9-5036-900f-6bba1e293fa7",
+    "title": "Home | Lovercase Typefaces",
+    "url": "https://lovercasetypefaces.com/",
+    "category": "Design & Création",
+    "added": "2026-09-08",
+    "description": "French new digital type foundry specialised in retail typefaces, custom fonts, and high-end fonts design.",
+    "tags": [
+      "design",
+      "typographie"
+    ]
+  },
+  {
+    "id": "771e4cdf-ac2c-5011-a8b9-3eec66916ce0",
+    "title": "h4ckf0r0day/obscura: The headless browser for AI agents and web scraping",
+    "url": "https://github.com/h4ckf0r0day/obscura",
+    "category": "IA & Agents",
+    "added": "2026-09-08",
+    "description": "The headless browser for AI agents and web scraping - h4ckf0r0day/obscura",
+    "tags": [
+      "IA",
+      "code",
+      "web"
+    ]
+  },
+  {
+    "id": "626f5ee3-aca0-53eb-8728-be22ab056042",
+    "title": "GrInouill3 :: un petit moment au vert",
+    "url": "https://grinouille.com/",
+    "category": "Design & Création",
+    "added": "2026-09-08",
+    "description": "Une petite grenouille, une vitre, quelques gouttes d'eau... et pius voilà. Touchez la vitre et laissez-la venir à vous.",
+    "tags": [
+      "art-numérique"
+    ]
+  },
+  {
+    "id": "55570ecb-1147-509a-af59-3c64a0cbf549",
+    "title": "gorhill/uBlock: uBlock Origin - An efficient blocker for Chromium and Firefox. Fast and lean.",
+    "url": "https://github.com/gorhill/uBlock",
+    "category": "Cultures & Combats",
+    "added": "2026-09-08",
+    "description": "uBlock Origin - An efficient blocker for Chromium and Firefox. Fast and lean. - gorhill/uBlock",
+    "tags": [
+      "web"
+    ]
+  },
+  {
+    "id": "0e4336d2-ea32-57cc-82c4-07f2ac31d6a6",
+    "title": "google/perfetto: Production-grade client-side tracing, profiling, and analysis for complex software systems.",
+    "url": "https://github.com/google/perfetto",
+    "category": "Développement",
+    "added": "2026-09-08",
+    "description": "Production-grade client-side tracing, profiling, and analysis for complex software systems. - google/perfetto",
+    "tags": [
+      "agents",
+      "code"
+    ]
+  },
+  {
+    "id": "4b672352-9dd2-57c4-886e-c6af16cf9e19",
+    "title": "ColinDargent/vecu-app: Vécu : le dossier de contexte de ton activité, partagé avec ton équipe, lisible par n'importe quel outil d'IA. Auto-hébergé, AGPL-3.0.",
+    "url": "https://github.com/ColinDargent/vecu-app",
+    "category": "IA & Agents",
+    "added": "2026-09-08",
+    "description": "Vécu : le dossier de contexte de ton activité, partagé avec ton équipe, lisible par n'importe quel outil d'IA. Auto-hébergé, AGPL-3.0. - ColinDargent/vecu-app",
+    "tags": [
+      "IA",
+      "agents",
+      "développement"
+    ]
+  },
+  {
+    "id": "7e4d2b1b-3223-5585-80f3-9e14f83ab8f8",
+    "title": "block/buzz: A hive mind communication platform",
+    "url": "https://github.com/block/buzz",
+    "category": "IA & Agents",
+    "added": "2026-09-08",
+    "description": "A hive mind communication platform. Contribute to block/buzz development by creating an account on GitHub.",
+    "tags": []
+  },
+  {
+    "id": "46f4dd08-54c2-580a-9e91-20ae5f47eba8",
+    "title": "bb",
+    "url": "https://getbb.app/",
+    "category": "IA & Agents",
+    "added": "2026-09-08",
+    "description": "bb can control, customize, and automate itself, laying the groundwork for your own software factory. Fully open source and local-first, with Claude Code, Codex, Cursor, Pi, OpenCode, Grok, omp, and Hermes.",
+    "tags": [
+      "code",
+      "UI"
+    ]
+  },
+  {
+    "id": "d8b3b08b-880c-513a-9924-334ebde6aab0",
+    "title": "Baalda | The team second brain",
+    "url": "https://baalda.com/",
+    "category": "IA & Agents",
+    "added": "2026-09-08",
+    "description": "The team second brain: plain markdown on your disk, edited live by your team and your AI.",
+    "tags": [
+      "agents"
+    ]
+  },
+  {
+    "id": "37f7d27c-1039-59f9-bcc0-195019beff61",
+    "title": "Arpenter la Zone : Jeux de résonance entre enquête photographique documentaire et fiction cinématographique",
+    "url": "https://rzarts.hypotheses.org/1107",
+    "category": "Cultures & Combats",
+    "added": "2026-09-08",
+    "description": "Pierre Suchet - Cet essai met en relation mon enquête géo-photographique documentaire sur l'ancienne mine d'uranium des Bois Noirs et le film Stalker d'Andreï Tarkovski.",
+    "tags": [
+      "art",
+      "photographie"
+    ]
+  },
+  {
+    "id": "e1af596a-6627-5d25-8694-b197fa81b6c4",
+    "title": "Agent Arena | AI Agent Performance Leaderboard",
+    "url": "https://arena.ai/leaderboard/agent",
+    "category": "IA & Agents",
+    "added": "2026-09-08",
+    "description": "Dynamic ranking of models on how well they orchestrate tools for real-world agentic tasks, based on signals like tool reliability, task completion, and steerability.",
+    "tags": [
+      "code"
+    ]
+  },
+  {
+    "id": "e611e0dc-5770-5c8f-a0f3-46090facf487",
+    "title": ".txt - Structured Outputs for Production LLMs",
+    "url": "https://dottxt.ai/",
+    "category": "IA & Agents",
+    "added": "2026-09-08",
+    "description": "Structured generation libraries for developers and AI teams. Build reliable LLM-driven applications with schema-compliant, predictable outputs.",
+    "tags": [
+      "agents",
+      "LLM"
+    ]
+  },
+  {
     "title": "Tessl — Inside Kikimora: We Built a Dark Software Factory",
     "url": "https://www.youtube.com/watch?v=u37qkpp5eB8",
     "category": "IA & Agents",
