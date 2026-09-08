@@ -1,56 +1,32 @@
 {
   "version": 1,
-  "baseRevision": "ae345d3cd1bbd2b3cba4b13fb48bd7af62a1dcd436d750874c15e71e2665510f",
-  "targetRevision": "86197cc781af6534e1b9e738c915c8f428c6f21f570a22eb7aba97f8cef11518",
+  "baseRevision": "86197cc781af6534e1b9e738c915c8f428c6f21f570a22eb7aba97f8cef11518",
+  "targetRevision": "b56ba80a6efb34c573f2b9fc65ee4858eee83b4a5d708cc9383b8c9a13179454",
   "manifestRevision": "95e866c5d4b41cc3e4440a769d2b40d8c219228b024e0daea0fc044ae6df3774",
   "fullBuild": false,
   "items": [
     {
       "id": "link:16149504-35cf-52ed-8096-aff01af908db",
       "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:41526444-8c1e-5a81-85f3-efc9ed24d5ea",
-      "fields": [
         "title"
       ]
     },
     {
-      "id": "link:83fcdaf3-9033-5a9d-8d80-fe91ad32f12d",
-      "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:99c73fb6-3791-59f3-bf49-95b8f066786d",
-      "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:a7264839-6df2-5aae-9af1-a33e74492472",
+      "id": "link:341b51d2-fa15-524b-99d4-2a0806b4b3db",
       "fields": [
         "description"
       ]
     },
     {
-      "id": "link:b83c490f-e863-5b65-b988-8a510f1f7e2f",
+      "id": "link:46f4dd08-54c2-580a-9e91-20ae5f47eba8",
       "fields": [
         "title"
       ]
     },
     {
-      "id": "link:d159169e-1e52-509e-a927-afcfaaac128c",
+      "id": "link:7e4d2b1b-3223-5585-80f3-9e14f83ab8f8",
       "fields": [
         "description"
-      ]
-    },
-    {
-      "id": "link:d6916fef-e39d-5a82-95e8-396e211d7eab",
-      "fields": [
-        "title"
       ]
     },
     {
@@ -122,8 +98,7 @@
     {
       "id": "page:/archives/2026-09-08",
       "fields": [
-        "body",
-        "title"
+        "$artwork"
       ]
     }
   ],
@@ -144,12 +119,9 @@
     "/archives/2026-09-08/",
     "/tags/",
     "/tags/agents/",
-    "/tags/cartographie/",
     "/tags/code/",
     "/tags/design/",
-    "/tags/materiel/",
-    "/tags/ui/",
-    "/tags/video/"
+    "/tags/ui/"
   ],
   "artwork": {
     "upsert": [
@@ -168,5 +140,5 @@
     ],
     "remove": []
   },
-  "revision": "bca889fc416c2f8f625baf9667d87fa09d89b4e580c40a2cc684a5ccefa58c01"
+  "revision": "c357a8f34b9022a2f3fd67198dbc52cf13332574803029af5efccbb29aad5c28"
 }
