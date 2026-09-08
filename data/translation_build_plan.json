@@ -1,56 +1,66 @@
 {
   "version": 1,
-  "baseRevision": "0d40a7e38b3e154dfb05ecd5c87509a67e8d8d39549b45c4f7146b726926b6c1",
-  "targetRevision": "4b5d8600e17f511f338fd31c4c3e865304da9968fa5fe7052fa31c275bb8aafd",
+  "baseRevision": "4b5d8600e17f511f338fd31c4c3e865304da9968fa5fe7052fa31c275bb8aafd",
+  "targetRevision": "ae345d3cd1bbd2b3cba4b13fb48bd7af62a1dcd436d750874c15e71e2665510f",
   "manifestRevision": "95e866c5d4b41cc3e4440a769d2b40d8c219228b024e0daea0fc044ae6df3774",
   "fullBuild": false,
   "items": [
     {
-      "id": "link:0e4336d2-ea32-57cc-82c4-07f2ac31d6a6",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:11ef0e2a-7f21-5ebb-b718-be0afd980713",
-      "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:4b672352-9dd2-57c4-886e-c6af16cf9e19",
-      "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:55570ecb-1147-509a-af59-3c64a0cbf549",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:71ffdecd-44a9-5036-900f-6bba1e293fa7",
+      "id": "link:005c347d-e2be-5731-a7cc-32eade5817a2",
       "fields": [
         "description"
       ]
     },
     {
-      "id": "link:7e4d2b1b-3223-5585-80f3-9e14f83ab8f8",
+      "id": "link:341b51d2-fa15-524b-99d4-2a0806b4b3db",
       "fields": [
         "title"
       ]
     },
     {
-      "id": "link:b83c490f-e863-5b65-b988-8a510f1f7e2f",
+      "id": "link:37f7d27c-1039-59f9-bcc0-195019beff61",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:41526444-8c1e-5a81-85f3-efc9ed24d5ea",
       "fields": [
         "description"
       ]
     },
     {
-      "id": "link:d6916fef-e39d-5a82-95e8-396e211d7eab",
+      "id": "link:46f4dd08-54c2-580a-9e91-20ae5f47eba8",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:4be0a9a2-1a15-54dc-a60d-55869bae66e4",
+      "fields": [
+        "title"
+      ]
+    },
+    {
+      "id": "link:569b2e2e-62c9-5d87-9672-0de62064f17a",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:e1af596a-6627-5d25-8694-b197fa81b6c4",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:e611e0dc-5770-5c8f-a0f3-46090facf487",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:fe215c0b-8299-5f45-97b5-fa38fe205e8c",
       "fields": [
         "description"
       ]
@@ -139,15 +149,13 @@
     "/archives/2026-09-08/",
     "/tags/",
     "/tags/agents/",
-    "/tags/cartographie/",
+    "/tags/art/",
     "/tags/code/",
     "/tags/design/",
-    "/tags/developpement/",
-    "/tags/ia/",
-    "/tags/materiel/",
-    "/tags/typographie/",
-    "/tags/video/",
-    "/tags/web/"
+    "/tags/llm/",
+    "/tags/memory/",
+    "/tags/photographie/",
+    "/tags/ui/"
   ],
   "artwork": {
     "upsert": [
@@ -165,5 +173,5 @@
     ],
     "remove": []
   },
-  "revision": "8dce19524b2fba6a37e26e8969c9fd1f833f5d3b3f5f45b5d8ee9498a2bcc00a"
+  "revision": "d188e109d62cfdf0c86fa31e9e1cf7cb1812b7f940a47902c6204b24f2bcc569"
 }

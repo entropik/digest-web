@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "4b5d8600e17f511f338fd31c4c3e865304da9968fa5fe7052fa31c275bb8aafd",
+  "revision": "ae345d3cd1bbd2b3cba4b13fb48bd7af62a1dcd436d750874c15e71e2665510f",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -71,6 +71,10 @@
       }
     },
     "link:005c347d-e2be-5731-a7cc-32eade5817a2": {
+      "description": {
+        "hash": "aa077fdf98829de8ecb0c2a60e5c9dafd1f2badf1b48e2b436103ad20fc48500",
+        "text": "Building AGI with our mission Intelligence with Everyone. Global leader in multi-modal models and AI-native products with over 200 million users."
+      },
       "title": {
         "hash": "2e20c5b241df0881ef258aff9ba5d905b9885fd9d8945ed53362ba177315ea8b",
         "text": "MiniMax"
@@ -538,6 +542,12 @@
         "text": "Zoo Code — Open source AI coding assistant"
       }
     },
+    "link:341b51d2-fa15-524b-99d4-2a0806b4b3db": {
+      "title": {
+        "hash": "be042ab6caa5914667c3571b304aa6329d6c1156af57a1155f327e62cf0d8528",
+        "text": "NoSignups"
+      }
+    },
     "link:3452aad1-6482-580d-ad4b-07149f698150": {
       "description": {
         "hash": "f211bb59c738705f0c84e8e56f7a1143c7a57719ada9c16dacd8602f1d34106f",
@@ -582,6 +592,10 @@
       "description": {
         "hash": "4df5e947440a8c7d71d9ff4c336e9f8b72e146f43d224335fa543d9447d49950",
         "text": "Pierre Suchet – This essay draws parallels between my documentary geo-photographic investigation into the former Bois Noirs uranium mine and Andrei Tarkovsky’s film *Stalker*."
+      },
+      "title": {
+        "hash": "a6b8857be121a9e3541d425fa89ddce5d4ab91a5e89ff785cce3487ded4a6a7a",
+        "text": "Exploring the Zone: Interplay between documentary photography and cinematic fiction"
       }
     },
     "link:37fbfbb1-a8e7-5fc2-9b0b-03c320cc0206": {
@@ -714,6 +728,12 @@
         "text": "Graphify · the code knowledge graph for AI coding assistants"
       }
     },
+    "link:41526444-8c1e-5a81-85f3-efc9ed24d5ea": {
+      "description": {
+        "hash": "b8868fedf09de08789fb342351e1d4c002295e37215873b7ab4d5fee8314c767",
+        "text": "Gemini 3.8 Flash and 3.8 Flash Cyber deliver next-generation intelligence for agentic workflows and cybersecurity."
+      }
+    },
     "link:43c80086-b394-51a1-86b4-19e807f5ccd6": {
       "description": {
         "hash": "03dd72e6aacb550bf26ef1b07de5737cb7e62316f8160a3d5fe659e88f25a1f3",
@@ -732,6 +752,12 @@
       "title": {
         "hash": "40875f706777f33efcfca641851ef8fecc6f5b660e398b200e85df66d108f024",
         "text": "ADE — a common environment spanning Mac and mobile devices"
+      }
+    },
+    "link:46f4dd08-54c2-580a-9e91-20ae5f47eba8": {
+      "description": {
+        "hash": "b2d21fce78fc62328c1e84912ae14b50ea67f8a44075d9e485bd1758281c381b",
+        "text": "bb can control, customize, and automate itself, laying the groundwork for your own software factory. Fully open source and local-first, with Claude Code, Codex, Cursor, Pi, OpenCode, Grok, omp, and Hermes."
       }
     },
     "link:470f8e51-fb3a-5146-b5fd-467f81ba076b": {
@@ -788,6 +814,10 @@
       "description": {
         "hash": "347be756f1bcd2df5f0678539fa4fdac30149207b69d04f4e3c93f61c33e8636",
         "text": "Orchestrate sandboxed coding agents in TypeScript with sandcastle.run() - mattpocock/sandcastle"
+      },
+      "title": {
+        "hash": "ad4a10a285b69896f4d9585f1ff393ad366b301911e7a9212a5c5f230e5366fe",
+        "text": "mattpocock/sandcastle: Orchestrate sandboxed coding agents in TypeScript with sandcastle.run()"
       }
     },
     "link:4c804003-47b1-5c50-b630-25893314fa3c": {
@@ -947,6 +977,10 @@
       }
     },
     "link:569b2e2e-62c9-5d87-9672-0de62064f17a": {
+      "description": {
+        "hash": "c458c01fcbd4830d4b333ebd0e8a18c97ce4bbd6ffe6ce0a84eb0d9ad3cd8a4e",
+        "text": "Agent operating system. Contribute to rlouf/zeta development by creating an account on GitHub."
+      },
       "title": {
         "hash": "145a9916fe90c06e04bea2ce473c2f4a7f563fa7492b1351f546b8960326179d",
         "text": "rlouf/zeta: Agent operating system"
@@ -2449,6 +2483,10 @@
       }
     },
     "link:e1af596a-6627-5d25-8694-b197fa81b6c4": {
+      "description": {
+        "hash": "b572e1a0cf1dd25f2cfc120a833ea69e622e4e63accaca09c751b4f82f2931bd",
+        "text": "Dynamic ranking of models on how well they orchestrate tools for real-world agentic tasks, based on signals like tool reliability, task completion, and steerability."
+      },
       "title": {
         "hash": "13bb4dfb1efc5d2737b160d30df1c872488a8d5e5e412dc23838c09343ba4dd5",
         "text": "Agent Arena | AI Agent Performance Leaderboard"
@@ -2521,6 +2559,10 @@
       }
     },
     "link:e611e0dc-5770-5c8f-a0f3-46090facf487": {
+      "description": {
+        "hash": "c5ec16ae9f0b814f81a5ad6150b0a7a421f6cada4585db98cb72c9fc8cb4b346",
+        "text": "Structured generation libraries for developers and AI teams. Build reliable LLM-driven applications with schema-compliant, predictable outputs."
+      },
       "title": {
         "hash": "3ce9fe28588174f783dea07867b6c24d155210f9f60e507f19bfa3689676bea9",
         "text": ".txt - Structured Outputs for Production LLMs"
@@ -2773,6 +2815,10 @@
       }
     },
     "link:fe215c0b-8299-5f45-97b5-fa38fe205e8c": {
+      "description": {
+        "hash": "be2e531ef5471b2f225bff321581235422726ebb4b9f569606892b51b79004f5",
+        "text": "OpenClaw — the open-source AI assistant that runs on your machine and works from the chat apps you already use. For you, or your whole team."
+      },
       "title": {
         "hash": "5cae781363f4beb339a2ea167094bee302e9f14c4c5d08bea9e1def40fce2ac7",
         "text": "OpenClaw — Open-Source AI Assistant"
