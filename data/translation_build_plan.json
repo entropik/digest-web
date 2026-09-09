@@ -1,32 +1,33 @@
 {
   "version": 1,
-  "baseRevision": "86197cc781af6534e1b9e738c915c8f428c6f21f570a22eb7aba97f8cef11518",
-  "targetRevision": "b56ba80a6efb34c573f2b9fc65ee4858eee83b4a5d708cc9383b8c9a13179454",
-  "manifestRevision": "95e866c5d4b41cc3e4440a769d2b40d8c219228b024e0daea0fc044ae6df3774",
+  "baseRevision": "b56ba80a6efb34c573f2b9fc65ee4858eee83b4a5d708cc9383b8c9a13179454",
+  "targetRevision": "68ae2b9519f68d7722582e136cb8af928f213070344bed69315d99c4c28956de",
+  "manifestRevision": "4342d64ad0619d6c7efab79723e3caf7db5c9793675fcaf010f06a94643ff272",
   "fullBuild": false,
   "items": [
     {
-      "id": "link:16149504-35cf-52ed-8096-aff01af908db",
+      "id": "link:28b3ead4-7fb7-50b9-86f8-bf1092945199",
       "fields": [
         "title"
       ]
     },
     {
-      "id": "link:341b51d2-fa15-524b-99d4-2a0806b4b3db",
+      "id": "link:316c5f25-2d3d-50b6-8736-428fedd094a6",
       "fields": [
         "description"
       ]
     },
     {
-      "id": "link:46f4dd08-54c2-580a-9e91-20ae5f47eba8",
+      "id": "link:b6d6e03b-2f10-52b2-ba9b-8e8325c811d2",
       "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:deb199e6-21d0-5c5e-89ab-16c4b94e0509",
+      "fields": [
+        "description",
         "title"
-      ]
-    },
-    {
-      "id": "link:7e4d2b1b-3223-5585-80f3-9e14f83ab8f8",
-      "fields": [
-        "description"
       ]
     },
     {
@@ -117,11 +118,15 @@
     "/archives/2026-09-01/",
     "/archives/2026-09-02/",
     "/archives/2026-09-08/",
+    "/archives/2026-09-09/",
     "/tags/",
     "/tags/agents/",
-    "/tags/code/",
-    "/tags/design/",
-    "/tags/ui/"
+    "/tags/automatisation/",
+    "/tags/desktop/",
+    "/tags/ia/",
+    "/tags/opensource/",
+    "/tags/outils/",
+    "/tags/web/"
   ],
   "artwork": {
     "upsert": [
@@ -140,5 +145,5 @@
     ],
     "remove": []
   },
-  "revision": "c357a8f34b9022a2f3fd67198dbc52cf13332574803029af5efccbb29aad5c28"
+  "revision": "ec534afbe10dfbcad6ce957b127bf4f4922fda387fe8dbce957ff752894beaf2"
 }

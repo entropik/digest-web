@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "b56ba80a6efb34c573f2b9fc65ee4858eee83b4a5d708cc9383b8c9a13179454",
+  "revision": "68ae2b9519f68d7722582e136cb8af928f213070344bed69315d99c4c28956de",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -452,6 +452,12 @@
         "text": "DeepSeek — Official repositories for models and tools"
       }
     },
+    "link:28b3ead4-7fb7-50b9-86f8-bf1092945199": {
+      "title": {
+        "hash": "082f741854b8cdda7166bbf8da7a3f064539050e89b1649d07ef64301519d4d1",
+        "text": "OpenManus — the open-source general-purpose action engine"
+      }
+    },
     "link:2937346e-cd74-5026-aea0-64645623dc06": {
       "description": {
         "hash": "b2bc3faaa441005da8dedd8437a8b57c7baf1cad28d02d98c59dae257bffabde",
@@ -520,6 +526,12 @@
       "title": {
         "hash": "f335f8526d0d2e2e643fbeac9f154fd3e612d369097187d2e42a67a39ad21e32",
         "text": "Double Zero"
+      }
+    },
+    "link:316c5f25-2d3d-50b6-8736-428fedd094a6": {
+      "description": {
+        "hash": "1e4fc9bbd0614fbd755e9635bafb7e76a71527f879ef074ad274f6c1acedcc22",
+        "text": "The official repository for OpenMausBot agent team playbooks: fully configured teams in Markdown with YAML frontmatter for reproducible, one-click deployment."
       }
     },
     "link:327626e9-0c50-5d90-825f-d5f430d565f8": {
@@ -2056,6 +2068,12 @@
         "text": "Maigret — OSINT search using a username"
       }
     },
+    "link:b6d6e03b-2f10-52b2-ba9b-8e8325c811d2": {
+      "description": {
+        "hash": "0ad13389caf346a471c01b6d2d4308ea2c56e8f6cb6a8a91422e4df6dbd128a9",
+        "text": "An open-source desktop application that serves as an alternative to Grok Bot; it is local and operates on a BYOA (Bring Your Own Agent) basis, utilising your existing Claude, Codex or Grok CLIs directly, alongside dedicated virtual machines and a permissions broker."
+      }
+    },
     "link:b78ebf82-d07b-5a21-ab8d-1997f0153a05": {
       "description": {
         "hash": "77ca614e4a6c9a604746e45c8a9304782cbec4811c2c882cba15eec4e8e94a3b",
@@ -2510,6 +2528,16 @@
       "title": {
         "hash": "589d787d637e77ad4f81cb5161f312d5debaa1f565c02cd971c42abb905ac579",
         "text": "Spectral"
+      }
+    },
+    "link:deb199e6-21d0-5c5e-89ab-16c4b94e0509": {
+      "description": {
+        "hash": "342f5f1f8f20d31b213ee903d1356f3e53577e3943636101f66cb88c9d4059bf",
+        "text": "An open marketplace for importing teams of specialist agents, response rules and connector checklists compatible with OpenMausBot and other harnesses."
+      },
+      "title": {
+        "hash": "6dad363d16d70f739c6451f89e38a14fb2a91dc86ca22b9d15257bbc1f0bcaf3",
+        "text": "BotMRR — library of teams and agent routines"
       }
     },
     "link:dfa74cdd-e638-5b8a-8056-8619885abe7a": {
