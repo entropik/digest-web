@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "b56ba80a6efb34c573f2b9fc65ee4858eee83b4a5d708cc9383b8c9a13179454",
+  "revision": "4d90598ae0d3b837af70c51ff2131b6403513c8ee0b8171a74dce56fa3c88d86",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -452,6 +452,16 @@
         "text": "DeepSeek — Official repositories for models and tools"
       }
     },
+    "link:28b3ead4-7fb7-50b9-86f8-bf1092945199": {
+      "description": {
+        "hash": "acfed9cc9b621051e126b162fd17d20845ad45dec110d42d8c413e5816e13a56",
+        "text": "An open-source, community-driven reimplementation of the Manus concept for in-depth information retrieval, web task automation and multi-step reasoning."
+      },
+      "title": {
+        "hash": "082f741854b8cdda7166bbf8da7a3f064539050e89b1649d07ef64301519d4d1",
+        "text": "OpenManus — the open-source general-purpose action engine"
+      }
+    },
     "link:2937346e-cd74-5026-aea0-64645623dc06": {
       "description": {
         "hash": "b2bc3faaa441005da8dedd8437a8b57c7baf1cad28d02d98c59dae257bffabde",
@@ -470,6 +480,16 @@
       "title": {
         "hash": "9b386b874a53816b6a509fcc913d00a0b12d76b6fc625d4eae9d300d08a882df",
         "text": "dmux - Parallel agents with tmux and worktrees"
+      }
+    },
+    "link:2bf70682-a021-596e-8f4b-6425b7a1975d": {
+      "description": {
+        "hash": "bbdf394cc695dba391ef8251d830c81f4deb7619cebfbabcbb494cd7080f2acf",
+        "text": "An open-source collaborative platform that can be self-hosted via Docker Compose: persistent bots with memory and routines, local or cloud-based Docker sandboxes (E2B, Daytona, Box), and Expo-based web, desktop and native mobile applications."
+      },
+      "title": {
+        "hash": "85bbcd3ba9a8ccf262b05aa8503139a36ead94766c37d1468870e070085c9440",
+        "text": "Rakazo — the platform for persistent AI teammates"
       }
     },
     "link:2c38b5ea-8b04-552a-be65-85d2e1cadc89": {
@@ -520,6 +540,16 @@
       "title": {
         "hash": "f335f8526d0d2e2e643fbeac9f154fd3e612d369097187d2e42a67a39ad21e32",
         "text": "Double Zero"
+      }
+    },
+    "link:316c5f25-2d3d-50b6-8736-428fedd094a6": {
+      "description": {
+        "hash": "1e4fc9bbd0614fbd755e9635bafb7e76a71527f879ef074ad274f6c1acedcc22",
+        "text": "The official repository for OpenMausBot agent team playbooks: fully configured teams in Markdown with YAML frontmatter for reproducible, one-click deployment."
+      },
+      "title": {
+        "hash": "ef415c3e2bb25ee5a505bf124ec07bf1a4408b47c01ab2d631a76ee17e92eceb",
+        "text": "OpenMausBot Teams — portable playbooks for agent fleets"
       }
     },
     "link:327626e9-0c50-5d90-825f-d5f430d565f8": {
@@ -810,6 +840,16 @@
       "title": {
         "hash": "6f042ac59d0e7cd544d44d544f73f4625fe50ad856769edfd4054244f8cc6450",
         "text": "i-have-adhd/skills/i-have-adhd/SKILL.md at main · ayghri/i-have-adhd"
+      }
+    },
+    "link:499a7359-c6ab-51dd-bf99-d578592f5595": {
+      "description": {
+        "hash": "b42adc46bd694cc072a43ab8d2bd10b327104ad16616f1e35cb61c739446cff7",
+        "text": "xAI’s open-source development tool and TUI interface, which enables auditing of the context assembly, tool allocation and local execution loop."
+      },
+      "title": {
+        "hash": "7527d85c033245ad372814abf47445e45aa60ff1c46631736ca8078d7b9af53f",
+        "text": "Grok Build — le runtime terminal open source de xAI"
       }
     },
     "link:4ab60e22-6d90-55a5-9b22-72015fb6b1aa": {
@@ -2056,6 +2096,16 @@
         "text": "Maigret — OSINT search using a username"
       }
     },
+    "link:b6d6e03b-2f10-52b2-ba9b-8e8325c811d2": {
+      "description": {
+        "hash": "0ad13389caf346a471c01b6d2d4308ea2c56e8f6cb6a8a91422e4df6dbd128a9",
+        "text": "An open-source desktop application that serves as an alternative to Grok Bot; it is local and operates on a BYOA (Bring Your Own Agent) basis, utilising your existing Claude, Codex or Grok CLIs directly, alongside dedicated virtual machines and a permissions broker."
+      },
+      "title": {
+        "hash": "c0625c4701c452eb8d4348a4deb811445d940c4cf42fdb74512076844eacd312",
+        "text": "OpenMausBot — your team of bots in a desktop messaging app"
+      }
+    },
     "link:b78ebf82-d07b-5a21-ab8d-1997f0153a05": {
       "description": {
         "hash": "77ca614e4a6c9a604746e45c8a9304782cbec4811c2c882cba15eec4e8e94a3b",
@@ -2510,6 +2560,16 @@
       "title": {
         "hash": "589d787d637e77ad4f81cb5161f312d5debaa1f565c02cd971c42abb905ac579",
         "text": "Spectral"
+      }
+    },
+    "link:deb199e6-21d0-5c5e-89ab-16c4b94e0509": {
+      "description": {
+        "hash": "342f5f1f8f20d31b213ee903d1356f3e53577e3943636101f66cb88c9d4059bf",
+        "text": "An open marketplace for importing teams of specialist agents, response rules and connector checklists compatible with OpenMausBot and other harnesses."
+      },
+      "title": {
+        "hash": "6dad363d16d70f739c6451f89e38a14fb2a91dc86ca22b9d15257bbc1f0bcaf3",
+        "text": "BotMRR — library of teams and agent routines"
       }
     },
     "link:dfa74cdd-e638-5b8a-8056-8619885abe7a": {
@@ -3116,6 +3176,16 @@
       "title": {
         "hash": "eeb3c4d951036f92a653f5f046a79371b42363ebc337a10520957836e94cf061",
         "text": "Digest — 8 September 2026"
+      }
+    },
+    "page:/archives/2026-09-09": {
+      "description": {
+        "hash": "867c7deb3c486b6541b77718e3ac39ba941baa7e2cf59c62ca9b5f50cd271724",
+        "text": "For three years, AI amounted to nothing more than a fleeting dialogue box. The launch of Grok Bot and the response from OpenMausBot, Rakazo and OpenWorker are ushering in a new model: a messaging service featuring permanent bots equipped with virtual machines, capable of running in the background."
+      },
+      "title": {
+        "hash": "ead9282decfa3b9a6221d622d2fd928b0c2177ef180a30b0d7ede4c247d8fcc7",
+        "text": "After the chatbot, here comes the in-app teammate"
       }
     },
     "page:/confidentialite": {
@@ -6214,6 +6284,12 @@
         "text": "hears"
       }
     },
+    "tag:auto-hebergement": {
+      "name": {
+        "hash": "4bec5e07176ce94b7c89927fad3c8df62cd6429d4be64e51ee6a5fadf21299c8",
+        "text": "self-hosting"
+      }
+    },
     "tag:auto-hébergement": {
       "description": {
         "hash": "14e7eb4452f4169017370929eecfcd8cdec1fc6695bdd5f09e0fecca0735afbb",
@@ -7038,6 +7114,12 @@
       "name": {
         "hash": "ce314b2516e2145842888972fb499a89c02d98fb9ec6dfd16d89e2cdb29c4ccf",
         "text": "mouth"
+      }
+    },
+    "tag:devops": {
+      "name": {
+        "hash": "ac717b72139443d6e3b2150dfed6a9a0a32ee02f9f17ebbf416f8deca69da7dd",
+        "text": "devops"
       }
     },
     "tag:dictée": {
@@ -12679,6 +12761,12 @@
       "description": "Artificial intelligence, development, design, publishing and digital creation.",
       "linkCount": 27,
       "editorialType": "digest"
+    },
+    "2026-09-09": {
+      "title": "After the chatbot, here comes the in-app teammate",
+      "description": "For three years, AI amounted to nothing more than a fleeting dialogue box. The launch of Grok Bot and the response from OpenMausBot, Rakazo and OpenWorker are ushering in a new model: a messaging service featuring permanent bots equipped with virtual machines, capable of running in the background.",
+      "linkCount": 6,
+      "editorialType": "focus"
     }
   }
 }
