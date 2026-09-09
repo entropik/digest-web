@@ -2404,7 +2404,18 @@ body.digest-modal-open {
 }
 
 .archive-intro > p {
+  margin: 0 0 1rem;
   text-indent: 1.75em;
+}
+
+.archive-intro ol,
+.archive-intro ul {
+  margin: 0 0 1.5rem;
+  padding-inline-start: 1.5rem;
+}
+
+.archive-intro li {
+  margin-bottom: .6rem;
 }
 
 .archive-intro h2 {
