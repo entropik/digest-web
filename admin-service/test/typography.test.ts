@@ -62,3 +62,48 @@ test("new cards, dialogs and in-place text updates receive the same typography",
     await window.happyDOM.close();
   }
 });
+
+test("text between parentheses is displayed in italics everywhere while preserving excluded elements", async () => {
+  const window = new Window();
+  try {
+    window.document.body.innerHTML = `
+      <p id="simple">Projet (OpenMausBot, Rakazo) autonome.</p>
+      <p id="multiple">Un (premier) et un (second) choix.</p>
+      <p id="nested-tag">Déjà <em>(en italique)</em> ici.</p>
+      <p id="existing-paren">Déjà (<em>formaté</em>) aussi.</p>
+      <code>fn(arg)</code>
+      <pre>(ne pas toucher)</pre>
+      <input value="(valeur brute)">
+      <p id="url">Voir https://fr.wikipedia.org/wiki/Trame_(imprimerie) en ligne.</p>`;
+    window.eval(source);
+    assert.equal(
+      window.document.querySelector("#simple")?.innerHTML,
+      'Projet (<em class="digest-parenthetical">OpenMausBot, Rakazo</em>) autonome.',
+    );
+    assert.equal(
+      window.document.querySelector("#multiple")?.innerHTML,
+      'Un (<em class="digest-parenthetical">premier</em>) et un (<em class="digest-parenthetical">second</em>) choix.',
+    );
+    assert.equal(
+      window.document.querySelector("#nested-tag")?.innerHTML,
+      'Déjà <em>(en italique)</em> ici.',
+    );
+    assert.equal(
+      window.document.querySelector("#existing-paren")?.innerHTML,
+      'Déjà (<em>formaté</em>) aussi.',
+    );
+    assert.equal(window.document.querySelector("code")?.textContent, "fn(arg)");
+    assert.equal(window.document.querySelector("pre")?.textContent, "(ne pas toucher)");
+    assert.equal(window.document.querySelector("input")?.value, "(valeur brute)");
+    assert.equal(
+      window.document.querySelector("#url")?.textContent,
+      "Voir https://fr.wikipedia.org/wiki/Trame_(imprimerie) en ligne.",
+    );
+    const initial = window.document.body.innerHTML;
+    await flush();
+    assert.equal(window.document.body.innerHTML, initial, "parenthetical italicization is idempotent");
+  } finally {
+    await window.happyDOM.close();
+  }
+});
+
