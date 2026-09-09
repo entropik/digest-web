@@ -1,5 +1,94 @@
 [
   {
+    "title": "OpenMausBot — votre équipe de bots dans une messagerie de bureau",
+    "url": "https://github.com/milind-soni/OpenMausBot",
+    "category": "IA & Agents",
+    "added": "2026-09-09",
+    "id": "b6d6e03b-2f10-52b2-ba9b-8e8325c811d2",
+    "description": "Une application de bureau open source alternative à Grok Bot, locale et BYOA (Bring Your Own Agent) qui s’appuie directement sur vos CLI Claude, Codex ou Grok déjà installées avec des machines virtuelles dédiées et un courtier de permissions.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "auto-hebergement",
+      "desktop"
+    ]
+  },
+  {
+    "title": "Rakazo — la plateforme de coéquipiers IA persistants",
+    "url": "https://github.com/elie222/rakazo",
+    "category": "IA & Agents",
+    "added": "2026-09-09",
+    "id": "2bf70682-a021-596e-8f4b-6425b7a1975d",
+    "description": "Plateforme collaborative open source auto-hébergeable via Docker Compose : bots persistants avec mémoire et routines, sandboxes Docker locales ou cloud (E2B, Daytona, Box), applications web, desktop et mobile native Expo.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "auto-hebergement",
+      "devops"
+    ]
+  },
+  {
+    "title": "Grok Build — le runtime terminal open source de xAI",
+    "url": "https://github.com/xai-org/grok-build",
+    "category": "IA & Agents",
+    "added": "2026-09-09",
+    "id": "499a7359-c6ab-51dd-bf99-d578592f5595",
+    "description": "L’agent de développement et l’interface TUI open source de xAI permettant d’auditer la boucle d’assemblage de contexte, de répartition des outils et d’exécution locale.",
+    "tags": [
+      "IA",
+      "agents",
+      "terminal",
+      "opensource",
+      "code"
+    ]
+  },
+  {
+    "title": "OpenManus — le moteur d’action généraliste open source",
+    "url": "https://github.com/FoundationAgents/OpenManus",
+    "category": "IA & Agents",
+    "added": "2026-09-09",
+    "id": "28b3ead4-7fb7-50b9-86f8-bf1092945199",
+    "description": "Une réimplémentation communautaire et ouverte du concept de Manus pour la recherche documentaire approfondie, l’automatisation de tâches web et le raisonnement multi-étapes.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "web",
+      "automatisation"
+    ]
+  },
+  {
+    "title": "OpenMausBot Teams — playbooks portables pour flottes d’agents",
+    "url": "https://github.com/milind-soni/openmausbot-teams",
+    "category": "IA & Agents",
+    "added": "2026-09-09",
+    "id": "316c5f25-2d3d-50b6-8736-428fedd094a6",
+    "description": "Le dépôt officiel des playbooks d’équipes d’agents pour OpenMausBot : des équipes complètes configurées en Markdown avec frontmatter YAML pour un déploiement reproductible en un clic.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "automatisation",
+      "outils"
+    ]
+  },
+  {
+    "title": "BotMRR — bibliothèque d’équipes et de routines d’agents",
+    "url": "https://botmrr.io",
+    "category": "IA & Agents",
+    "added": "2026-09-09",
+    "id": "deb199e6-21d0-5c5e-89ab-16c4b94e0509",
+    "description": "Une place de marché ouverte pour importer des équipes d’agents spécialisés, des règles de réponse et des checklists de connecteurs compatibles avec OpenMausBot et d’autres harnais.",
+    "tags": [
+      "IA",
+      "agents",
+      "automatisation",
+      "outils"
+    ]
+  },
+  {
     "title": "Tessl — Inside Kikimora: We Built a Dark Software Factory",
     "url": "https://www.youtube.com/watch?v=u37qkpp5eB8",
     "category": "IA & Agents",
