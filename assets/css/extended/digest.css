@@ -2535,6 +2535,65 @@ body.digest-modal-open {
   color: var(--digest-ink);
   font-size: .92rem;
   line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+/* 5-column project register (Projet | Traction | Licence | Rôle & Approche | Maturité) */
+.edition-table--projects-5 thead th:nth-child(1),
+.edition-table--projects:has(thead th:nth-child(5)) thead th:nth-child(1) {
+  width: 17%;
+}
+
+.edition-table--projects-5 thead th:nth-child(2),
+.edition-table--projects:has(thead th:nth-child(5)) thead th:nth-child(2) {
+  width: 12%;
+  white-space: nowrap;
+}
+
+.edition-table--projects-5 thead th:nth-child(3),
+.edition-table--projects:has(thead th:nth-child(5)) thead th:nth-child(3) {
+  width: 11%;
+  white-space: nowrap;
+}
+
+.edition-table--projects-5 thead th:nth-child(4),
+.edition-table--projects:has(thead th:nth-child(5)) thead th:nth-child(4) {
+  width: 46%;
+}
+
+.edition-table--projects-5 thead th:nth-child(5),
+.edition-table--projects:has(thead th:nth-child(5)) thead th:nth-child(5) {
+  width: 14%;
+  white-space: nowrap;
+}
+
+.edition-table--projects-5 td:nth-child(2),
+.edition-table--projects:has(thead th:nth-child(5)) td:nth-child(2) {
+  white-space: nowrap;
+}
+
+.edition-table--projects-5 td:nth-child(3),
+.edition-table--projects:has(thead th:nth-child(5)) td:nth-child(3) {
+  color: var(--digest-ink);
+  font-size: .85rem;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.edition-table--projects-5 td:nth-child(4),
+.edition-table--projects:has(thead th:nth-child(5)) td:nth-child(4) {
+  color: var(--digest-ink);
+  font-family: var(--digest-font-body);
+  font-size: .95rem;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
+}
+
+.edition-table--projects-5 td:nth-child(5),
+.edition-table--projects:has(thead th:nth-child(5)) td:nth-child(5) {
+  white-space: nowrap;
 }
 
 .edition-table tbody th {
