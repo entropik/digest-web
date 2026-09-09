@@ -1,32 +1,39 @@
 {
   "version": 1,
-  "baseRevision": "b56ba80a6efb34c573f2b9fc65ee4858eee83b4a5d708cc9383b8c9a13179454",
-  "targetRevision": "68ae2b9519f68d7722582e136cb8af928f213070344bed69315d99c4c28956de",
+  "baseRevision": "68ae2b9519f68d7722582e136cb8af928f213070344bed69315d99c4c28956de",
+  "targetRevision": "e0c10fbd1e7795adc86d919066a2dc2512b90f564e2cf6e28fbb926fdc101d60",
   "manifestRevision": "4342d64ad0619d6c7efab79723e3caf7db5c9793675fcaf010f06a94643ff272",
   "fullBuild": false,
   "items": [
     {
       "id": "link:28b3ead4-7fb7-50b9-86f8-bf1092945199",
       "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:2bf70682-a021-596e-8f4b-6425b7a1975d",
+      "fields": [
+        "description",
         "title"
       ]
     },
     {
       "id": "link:316c5f25-2d3d-50b6-8736-428fedd094a6",
       "fields": [
-        "description"
+        "title"
+      ]
+    },
+    {
+      "id": "link:499a7359-c6ab-51dd-bf99-d578592f5595",
+      "fields": [
+        "description",
+        "title"
       ]
     },
     {
       "id": "link:b6d6e03b-2f10-52b2-ba9b-8e8325c811d2",
       "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:deb199e6-21d0-5c5e-89ab-16c4b94e0509",
-      "fields": [
-        "description",
         "title"
       ]
     },
@@ -101,6 +108,19 @@
       "fields": [
         "$artwork"
       ]
+    },
+    {
+      "id": "page:/archives/2026-09-09",
+      "fields": [
+        "description",
+        "title"
+      ]
+    },
+    {
+      "id": "tag:auto-hebergement",
+      "fields": [
+        "name"
+      ]
     }
   ],
   "paths": [
@@ -122,10 +142,12 @@
     "/tags/",
     "/tags/agents/",
     "/tags/automatisation/",
+    "/tags/code/",
     "/tags/desktop/",
     "/tags/ia/",
     "/tags/opensource/",
     "/tags/outils/",
+    "/tags/terminal/",
     "/tags/web/"
   ],
   "artwork": {
@@ -141,9 +163,10 @@
       "2026-08-29",
       "2026-09-01",
       "2026-09-02",
-      "2026-09-08"
+      "2026-09-08",
+      "2026-09-09"
     ],
     "remove": []
   },
-  "revision": "ec534afbe10dfbcad6ce957b127bf4f4922fda387fe8dbce957ff752894beaf2"
+  "revision": "cab66914499d1877994fac12690bedccfd3e5e00d4d5ef5986bb41fb095f7929"
 }
