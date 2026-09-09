@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "25c61086e4590c2269847f04830f02860f691cd9e0c05f745670b0e208dcc730",
+  "revision": "b56ba80a6efb34c573f2b9fc65ee4858eee83b4a5d708cc9383b8c9a13179454",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -68,6 +68,16 @@
       "description": {
         "hash": "77faed49451124ca735c3b6f09c80b770d073caa8ad8cfcb58e35db36edb8481",
         "text": "beautiful"
+      }
+    },
+    "link:005c347d-e2be-5731-a7cc-32eade5817a2": {
+      "description": {
+        "hash": "aa077fdf98829de8ecb0c2a60e5c9dafd1f2badf1b48e2b436103ad20fc48500",
+        "text": "Building AGI with our mission Intelligence with Everyone. Global leader in multi-modal models and AI-native products with over 200 million users."
+      },
+      "title": {
+        "hash": "2e20c5b241df0881ef258aff9ba5d905b9885fd9d8945ed53362ba177315ea8b",
+        "text": "MiniMax"
       }
     },
     "link:02ec9698-3bae-5afe-bbfd-6b0671bf4d3c": {
@@ -170,6 +180,16 @@
         "text": "Semantic Analysis of Text and Images"
       }
     },
+    "link:0e4336d2-ea32-57cc-82c4-07f2ac31d6a6": {
+      "description": {
+        "hash": "866aeb86ce0719efa3315d2512581dbcbde01afc7c99d34ca0d84a32f44e4f63",
+        "text": "Production-grade client-side tracing, profiling, and analysis for complex software systems. - google/perfetto"
+      },
+      "title": {
+        "hash": "6db58d0640170efb23d0d0ee5a19c69cf0513798d14fa3ab4b2d8e96463082fc",
+        "text": "google/perfetto: Production-grade client-side tracing, profiling, and analysis for complex software systems."
+      }
+    },
     "link:0f428bd7-82ae-50a5-b175-03eeab43e89f": {
       "description": {
         "hash": "a746f1eb779072bfc183faebd2ba904a63a5012a3602acb1e64de792aa07c52d",
@@ -188,6 +208,16 @@
       "title": {
         "hash": "cca47b46ca5ded5cf5cf7cccdc014cf47976ff8ffd73e22a3a58f1cb6ed7448c",
         "text": "Web security audits for indie builders, RLS Supabase - VICE"
+      }
+    },
+    "link:11ef0e2a-7f21-5ebb-b718-be0afd980713": {
+      "description": {
+        "hash": "3ad1717c55b62e4c02169e74f56add487c7f3a880dc83d210ff1d9e91a8fc52c",
+        "text": "The words people throw around when they talk about AI coding. Tokens, context windows, agents, handoffs. Defined plainly and wired into a 3D graph you can explore term by term. From aihero.dev."
+      },
+      "title": {
+        "hash": "942b465b7094466b9c103b1e44184dda3ca29d1c615f53f45c69c33057c2acdf",
+        "text": "The AI Coding Dictionary"
       }
     },
     "link:12205153-6d73-5f3b-a407-420acc4ff033": {
@@ -238,6 +268,16 @@
       "title": {
         "hash": "4d996faa9b9cdc4d915af1f76fa52b5f8b4ef6a494a2ebeb115f0770c5133671",
         "text": "The Art of the Command Line — Mastering the terminal in one page"
+      }
+    },
+    "link:16149504-35cf-52ed-8096-aff01af908db": {
+      "description": {
+        "hash": "def1c965d72f28a4f41337475d9b941769f67765227a30a51225806d0f00ad8c",
+        "text": "Bring Claude Code, Codex, OpenCode, or any coding agent into one workspace. Run tasks in parallel, isolate changes, and review everything in one place."
+      },
+      "title": {
+        "hash": "fff5b6862c71978bb4c746a7ba462eff60ed9ca6b026c76930ae0f80300a67ed",
+        "text": "Superset - Orchestrate any coding agent"
       }
     },
     "link:16a92d00-b6cb-5b82-9ddf-2e1d313b9791": {
@@ -512,6 +552,16 @@
         "text": "Zoo Code — Open source AI coding assistant"
       }
     },
+    "link:341b51d2-fa15-524b-99d4-2a0806b4b3db": {
+      "description": {
+        "hash": "f43914ac7675a1f9c651900759cc3206614bed5409aeb65e823fec1001d834b8",
+        "text": "NoSignups (formerly FckSignups) is an open-source directory of no-signup, in-browser, open-source tools."
+      },
+      "title": {
+        "hash": "be042ab6caa5914667c3571b304aa6329d6c1156af57a1155f327e62cf0d8528",
+        "text": "NoSignups"
+      }
+    },
     "link:3452aad1-6482-580d-ad4b-07149f698150": {
       "description": {
         "hash": "f211bb59c738705f0c84e8e56f7a1143c7a57719ada9c16dacd8602f1d34106f",
@@ -550,6 +600,16 @@
       "title": {
         "hash": "f3c4639e0601c90c4498707b6b5ff3b2f13951d4097fb3b585c78f53af6aaf56",
         "text": "Benjamin Code’s SaaS platform has been hacked"
+      }
+    },
+    "link:37f7d27c-1039-59f9-bcc0-195019beff61": {
+      "description": {
+        "hash": "4df5e947440a8c7d71d9ff4c336e9f8b72e146f43d224335fa543d9447d49950",
+        "text": "Pierre Suchet – This essay draws parallels between my documentary geo-photographic investigation into the former Bois Noirs uranium mine and Andrei Tarkovsky’s film *Stalker*."
+      },
+      "title": {
+        "hash": "a6b8857be121a9e3541d425fa89ddce5d4ab91a5e89ff785cce3487ded4a6a7a",
+        "text": "Exploring the Zone: Interplay between documentary photography and cinematic fiction"
       }
     },
     "link:37fbfbb1-a8e7-5fc2-9b0b-03c320cc0206": {
@@ -682,6 +742,16 @@
         "text": "Graphify · the code knowledge graph for AI coding assistants"
       }
     },
+    "link:41526444-8c1e-5a81-85f3-efc9ed24d5ea": {
+      "description": {
+        "hash": "b8868fedf09de08789fb342351e1d4c002295e37215873b7ab4d5fee8314c767",
+        "text": "Gemini 3.8 Flash and 3.8 Flash Cyber deliver next-generation intelligence for agentic workflows and cybersecurity."
+      },
+      "title": {
+        "hash": "cd1b89f8fd6c855738c3b1d6628397076e0973caf76ffc0fda3cd1972ca4ce0b",
+        "text": "Introducing Gemini 3.8 Flash and 3.8 Flash Cyber"
+      }
+    },
     "link:43c80086-b394-51a1-86b4-19e807f5ccd6": {
       "description": {
         "hash": "03dd72e6aacb550bf26ef1b07de5737cb7e62316f8160a3d5fe659e88f25a1f3",
@@ -700,6 +770,16 @@
       "title": {
         "hash": "40875f706777f33efcfca641851ef8fecc6f5b660e398b200e85df66d108f024",
         "text": "ADE — a common environment spanning Mac and mobile devices"
+      }
+    },
+    "link:46f4dd08-54c2-580a-9e91-20ae5f47eba8": {
+      "description": {
+        "hash": "b2d21fce78fc62328c1e84912ae14b50ea67f8a44075d9e485bd1758281c381b",
+        "text": "bb can control, customize, and automate itself, laying the groundwork for your own software factory. Fully open source and local-first, with Claude Code, Codex, Cursor, Pi, OpenCode, Grok, omp, and Hermes."
+      },
+      "title": {
+        "hash": "fa7aba08441af4a9c04fe3f6d433b269ee168d21e700c058fe54e3f88abdeace",
+        "text": "beautiful"
       }
     },
     "link:470f8e51-fb3a-5146-b5fd-467f81ba076b": {
@@ -740,6 +820,26 @@
       "title": {
         "hash": "c630182f1cb4db57e7c1fd4dc306ae57a19d42a2468ba0abd91d5c22ce18e51c",
         "text": "Auto-Company"
+      }
+    },
+    "link:4b672352-9dd2-57c4-886e-c6af16cf9e19": {
+      "description": {
+        "hash": "54938cf3c254403d3d43f9422627e47b0aff2bd5d0fffa819bf3b5e4ac236018",
+        "text": "Vécu: the background documentation for your business, shared with your team and readable by any AI tool. Self-hosted, AGPL-3.0. – ColinDargent/vecu-app"
+      },
+      "title": {
+        "hash": "9de9d0a156c03883f04a218f110fb7b6c9af72b3be464380996238c55e3103cc",
+        "text": "ColinDargent/vecu-app: Vécu: the background documentation for your business, shared with your team and readable by any AI tool. Self-hosted, AGPL-3.0."
+      }
+    },
+    "link:4be0a9a2-1a15-54dc-a60d-55869bae66e4": {
+      "description": {
+        "hash": "347be756f1bcd2df5f0678539fa4fdac30149207b69d04f4e3c93f61c33e8636",
+        "text": "Orchestrate sandboxed coding agents in TypeScript with sandcastle.run() - mattpocock/sandcastle"
+      },
+      "title": {
+        "hash": "ad4a10a285b69896f4d9585f1ff393ad366b301911e7a9212a5c5f230e5366fe",
+        "text": "mattpocock/sandcastle: Orchestrate sandboxed coding agents in TypeScript with sandcastle.run()"
       }
     },
     "link:4c804003-47b1-5c50-b630-25893314fa3c": {
@@ -858,6 +958,16 @@
         "text": "Radical web design"
       }
     },
+    "link:55570ecb-1147-509a-af59-3c64a0cbf549": {
+      "description": {
+        "hash": "990d0d10f219c82fade45e3c378f5e14e3edc6d1073731bc2a03519307d1fc28",
+        "text": "uBlock Origin - An efficient blocker for Chromium and Firefox. Fast and lean. - gorhill/uBlock"
+      },
+      "title": {
+        "hash": "78a50f99d77b8d9fd7514b2f975569f5f44a3aae283b61fecc4cdb7c6eacd097",
+        "text": "gorhill/uBlock: uBlock Origin - An efficient blocker for Chromium and Firefox. Fast and lean."
+      }
+    },
     "link:5627995c-cceb-5f13-9149-4c40765598f3": {
       "description": {
         "hash": "b000274794dbfd1fc2f3492c7f61438019f8e84c106858875b6fa01622805aa7",
@@ -886,6 +996,16 @@
       "title": {
         "hash": "b7860d9b2f4c6ae267e1a36fc7b1d7e71787023776270c5d46d93c8d1ab0c349",
         "text": "ai-driven-dev/framework: Marketplace Framework AI-Driven Dev : Context Engineering, Plugins, Agents, Skills, Hooks, Templates, SDLC"
+      }
+    },
+    "link:569b2e2e-62c9-5d87-9672-0de62064f17a": {
+      "description": {
+        "hash": "c458c01fcbd4830d4b333ebd0e8a18c97ce4bbd6ffe6ce0a84eb0d9ad3cd8a4e",
+        "text": "Agent operating system. Contribute to rlouf/zeta development by creating an account on GitHub."
+      },
+      "title": {
+        "hash": "145a9916fe90c06e04bea2ce473c2f4a7f563fa7492b1351f546b8960326179d",
+        "text": "rlouf/zeta: Agent operating system"
       }
     },
     "link:58ed9520-8cea-54c1-b376-5d62265e4837": {
@@ -952,6 +1072,16 @@
       "title": {
         "hash": "83d41aab2c4e7e56b2ffb74e7c8e270f392416ffade7d4fc3584621c46861171",
         "text": "Next Computer"
+      }
+    },
+    "link:626f5ee3-aca0-53eb-8728-be22ab056042": {
+      "description": {
+        "hash": "38dc4ade94a5a409a3f860bfacde2f1c1c8fee0869333d464d109077ce9a73f5",
+        "text": "A little frog, a window, a few drops of water… and there you go. Touch the window and let it come to you."
+      },
+      "title": {
+        "hash": "3b2efc0270519a0c239e12ead6f2157a974f0c54fcd48212e2e094d4c1d09eba",
+        "text": "GrInouill3 :: a little time in the countryside"
       }
     },
     "link:6308c2bc-e033-5a7f-a1f5-dc57a2fa6b18": {
@@ -1124,6 +1254,16 @@
         "text": "growgraph/ontocast: Agentic Ontology Assisted Framework for Semantic Triple Extraction"
       }
     },
+    "link:71ffdecd-44a9-5036-900f-6bba1e293fa7": {
+      "description": {
+        "hash": "743d5a9913ca2da4743819b3a2fa688b3f3a7133e78f12327ff809da669e1200",
+        "text": "French new digital type foundry specialised in retail typefaces, custom fonts, and high-end fonts design."
+      },
+      "title": {
+        "hash": "5136821e783344114cda20d077dcbbe86c1066e9f0891be88dc7e89d27039006",
+        "text": "Home | Lovercase Typefaces"
+      }
+    },
     "link:7412c069-0d3b-5d23-a46b-6977bfc3695b": {
       "description": {
         "hash": "1b16453acf0ba673840a144e5faaadda6ad52849cdd551ccdb37bd2a4a28ad47",
@@ -1164,6 +1304,16 @@
         "text": "Agent Zero — an agent who creates his own tools"
       }
     },
+    "link:771e4cdf-ac2c-5011-a8b9-3eec66916ce0": {
+      "description": {
+        "hash": "47d527f0a6beb32771b11ff9d9c74ea9d041c6760c02135630876acb5a979ffb",
+        "text": "The headless browser for AI agents and web scraping - h4ckf0r0day/obscura"
+      },
+      "title": {
+        "hash": "16708e6e362533525557d982d933f85f5b9d0becf6c11663b4039cd535fcf62f",
+        "text": "h4ckf0r0day/obscura: The headless browser for AI agents and web scraping"
+      }
+    },
     "link:7785e21a-d2f5-5211-b797-38373b223cef": {
       "title": {
         "hash": "a210ebc8e522303412d6d0058b08927cc02b8a9b24022479bfb19d73558b3e3b",
@@ -1198,6 +1348,16 @@
       "title": {
         "hash": "153b240e5ea2c2510dbd3c72ebffd3fe7d2f4f9c7f82700a3ad9074220cee9a9",
         "text": "Stagehand — An SDK for web navigation agents"
+      }
+    },
+    "link:7e4d2b1b-3223-5585-80f3-9e14f83ab8f8": {
+      "description": {
+        "hash": "fea37efc46c08ffd62976a381bc38ac8e7a0ac72c38c5a6257776a7bd16e5260",
+        "text": "A hive mind communication platform. Contribute to block/buzz development by creating an account on GitHub."
+      },
+      "title": {
+        "hash": "9e93b1897ac9b1d1fb3814fd5506abc1b01481f25e74ec03f969403c8ff0506a",
+        "text": "block/buzz: A hive mind communication platform"
       }
     },
     "link:7ed43568-3c73-5315-83ce-7cbb18deffef": {
@@ -1268,6 +1428,16 @@
       "title": {
         "hash": "214785edb7587a59203d7721e4c71d06401a74db13e1de46ba7600bb51873db1",
         "text": "Vahan Soghomonian"
+      }
+    },
+    "link:83fcdaf3-9033-5a9d-8d80-fe91ad32f12d": {
+      "description": {
+        "hash": "48d6abe9ebc524792544069c9dd935dd9be9abd2b97abbfe36d4d534d27080fd",
+        "text": "Benchmarks performances LLM"
+      },
+      "title": {
+        "hash": "f1b4781753708fb504d77ade9a821a72756abb7b7f0ca839ed0c9bc1a1818030",
+        "text": "SWE-bench Leaderboards"
       }
     },
     "link:840e6a9c-0848-5ccf-861b-c6002f7e29d9": {
@@ -1400,6 +1570,16 @@
         "text": "LangChain — AI agent engineering platform"
       }
     },
+    "link:900b08f3-4409-50ca-8ac0-1cda765934a5": {
+      "description": {
+        "hash": "01308007f5bb90c435354d78ee65b6803826fcb3840e64b6fa92c3def40152e6",
+        "text": "Turn any codebase into an interactive knowledge graph you can explore, search, and learn from."
+      },
+      "title": {
+        "hash": "cbea9434b97d309836b30a7e26120c28ba83d0d28a4455dd3ff7f1c989e7eda3",
+        "text": "Understand Anything — Graphs that teach the codebase"
+      }
+    },
     "link:90f3e6b8-d446-570e-acbc-d4701b9d576d": {
       "description": {
         "hash": "26b29134f04f99114a80e63817c948bf4d3b08b3a77febe7d1d792c7efdba3db",
@@ -1518,6 +1698,16 @@
       "title": {
         "hash": "9042a32e5774b96a72f44541563c677e56c8fc11b3a3c3acb85eb3c49cec2bfb",
         "text": "Superset — the large-scale agent-based IDE"
+      }
+    },
+    "link:99c73fb6-3791-59f3-bf49-95b8f066786d": {
+      "description": {
+        "hash": "53a9874d54ea058db78fa5bb4b72395c612bcd70dbf530ab9b51deaf7e74ceb9",
+        "text": "A multimodal AI creative studio that turns ideas into finished images, videos, voiceovers and edits. Keep local files private and reuse workflows with Skills."
+      },
+      "title": {
+        "hash": "df0503bbfa159eacf46549fe53d4ace2c0864bf091a2cf0bc4604bd92b5c6adb",
+        "text": "MiniMax Design: Multimodal AI Creative Studio"
       }
     },
     "link:99f1b0d0-954f-52ca-9828-0a8ef0a1b7bc": {
@@ -1648,6 +1838,16 @@
       "title": {
         "hash": "e5068115d772088e349ffbc93ea2085ba189172d4002b36d3157cc0aa3885313",
         "text": "CanIRun.ai — Can your machine run AI models?"
+      }
+    },
+    "link:a7264839-6df2-5aae-9af1-a33e74492472": {
+      "description": {
+        "hash": "eac5204412dcaee6b4bb05669dc3a6487b2c30dc03ea259778ec5507ac8353d6",
+        "text": "Meet OpenHands, the open-source, model-agnostic platform for cloud coding agents. Automate real engineering work securely and transparently. Build faster with full control."
+      },
+      "title": {
+        "hash": "024938b72e677e89de9666ec52681d235a6532240748146719f4100a8e177215",
+        "text": "OpenHands | The Open Platform for Cloud Coding Agents"
       }
     },
     "link:a76823fd-a870-58ea-96d0-47408a629acc": {
@@ -1876,6 +2076,16 @@
         "text": "Free Programming Books — Free programming books and courses"
       }
     },
+    "link:b83c490f-e863-5b65-b988-8a510f1f7e2f": {
+      "description": {
+        "hash": "69e37d7a64e87dc946aaba06b38ce833fc9630cc271bebe2f71d8c3cdb11255f",
+        "text": "Le Klap is a podcast and video recording studio, right in the heart of Lille."
+      },
+      "title": {
+        "hash": "c668a5a3268ee62e425d24d890cfa9988d7cca66b96741d526765e2a8b048bd6",
+        "text": "Le Klap – Recording Studio, Podcasts & Videos in Lille"
+      }
+    },
     "link:b9049c7f-4c62-5254-bb4a-103e83d4b509": {
       "description": {
         "hash": "30337086a21e989ba79a079247573e5ed57fb62479a35181cceea18473042e17",
@@ -2072,6 +2282,16 @@
         "text": "Luminar – Easy-to-use photo editor | Software for Mac and PC"
       }
     },
+    "link:d159169e-1e52-509e-a927-afcfaaac128c": {
+      "description": {
+        "hash": "d73c3e22ae988d7782cac5726c669739cffac39026b9b06fba1e896fb7bdb3ae",
+        "text": "Unsloth is an open-source, no-code deskop UI for training and running open models on your local hardware."
+      },
+      "title": {
+        "hash": "2165e49c7a00339279d50b41d550e9267cfdb256b69870fd560f61a785f832b7",
+        "text": "Unsloth - Run and Train Models Locally"
+      }
+    },
     "link:d19aa2b1-81dd-5fd7-a697-d2afddc66e5a": {
       "description": {
         "hash": "ab6b97220d9009607ec8e09957f26c42d1240566ada73abfa77d18cf9635af49",
@@ -2172,6 +2392,16 @@
         "text": "Editor.js"
       }
     },
+    "link:d6916fef-e39d-5a82-95e8-396e211d7eab": {
+      "description": {
+        "hash": "73e65b6a019c778a9d5f58c6ed9ea1be5cf3b74f7c45b12a05d2ea55c284cb0a",
+        "text": "Compare France’s ~35,000 local authorities on a single map: rents, prices per square metre, yield, demographics, the economy, quality of life, culture and climate risks in 2050."
+      },
+      "title": {
+        "hash": "e76f4eba1c8ed31d5c8b049be746924a1ac0debfd0f7c75c573ad708e1c01bc9",
+        "text": "Point Commune – all local authorities in France, rated"
+      }
+    },
     "link:d6da3dc7-daea-5e67-8ebc-fc7c58eeb560": {
       "description": {
         "hash": "161a4d3c8dd31c3d34cb88215f228861bb8331008c6c33b5b3836218ee31abd1",
@@ -2210,6 +2440,16 @@
       "title": {
         "hash": "aaf44db5ad29d6cdffe8f946cfb46eb4bc01d12054d314cb86eae99545aaf563",
         "text": "C & F Publications"
+      }
+    },
+    "link:d8b3b08b-880c-513a-9924-334ebde6aab0": {
+      "description": {
+        "hash": "61d29de5098d8a4a5e3c65d57ed526c5dad5b3dbc1ab86dfc44e5dd73aef7e67",
+        "text": "The team second brain: plain markdown on your disk, edited live by your team and your AI."
+      },
+      "title": {
+        "hash": "1a635a5006b84ad54fa309a88bf1a44985b23ca0ca719aa944285ad5039be43c",
+        "text": "Baalda | The team second brain"
       }
     },
     "link:d9f057b6-5c10-5c58-8716-859f77f41c44": {
@@ -2292,6 +2532,16 @@
         "text": "Inside the minds of far-right leaders"
       }
     },
+    "link:e1af596a-6627-5d25-8694-b197fa81b6c4": {
+      "description": {
+        "hash": "b572e1a0cf1dd25f2cfc120a833ea69e622e4e63accaca09c751b4f82f2931bd",
+        "text": "Dynamic ranking of models on how well they orchestrate tools for real-world agentic tasks, based on signals like tool reliability, task completion, and steerability."
+      },
+      "title": {
+        "hash": "13bb4dfb1efc5d2737b160d30df1c872488a8d5e5e412dc23838c09343ba4dd5",
+        "text": "Agent Arena | AI Agent Performance Leaderboard"
+      }
+    },
     "link:e24ed8aa-5002-5a68-959e-53b4927b657c": {
       "description": {
         "hash": "fea126713e806c82efc69ad49f6d126b1bd94cb8b968ae0642ae2dae6e81104c",
@@ -2356,6 +2606,16 @@
       "title": {
         "hash": "83b8194ac77f56f96019238a492c0a809258a5deb54862c7b847c49e0b58f19e",
         "text": "Thank you Qian"
+      }
+    },
+    "link:e611e0dc-5770-5c8f-a0f3-46090facf487": {
+      "description": {
+        "hash": "c5ec16ae9f0b814f81a5ad6150b0a7a421f6cada4585db98cb72c9fc8cb4b346",
+        "text": "Structured generation libraries for developers and AI teams. Build reliable LLM-driven applications with schema-compliant, predictable outputs."
+      },
+      "title": {
+        "hash": "3ce9fe28588174f783dea07867b6c24d155210f9f60e507f19bfa3689676bea9",
+        "text": ".txt - Structured Outputs for Production LLMs"
       }
     },
     "link:e721283c-7c01-5d7b-b6d6-6c61c076268e": {
@@ -2604,6 +2864,16 @@
         "text": "Hunk"
       }
     },
+    "link:fe215c0b-8299-5f45-97b5-fa38fe205e8c": {
+      "description": {
+        "hash": "be2e531ef5471b2f225bff321581235422726ebb4b9f569606892b51b79004f5",
+        "text": "OpenClaw — the open-source AI assistant that runs on your machine and works from the chat apps you already use. For you, or your whole team."
+      },
+      "title": {
+        "hash": "5cae781363f4beb339a2ea167094bee302e9f14c4c5d08bea9e1def40fce2ac7",
+        "text": "OpenClaw — Open-Source AI Assistant"
+      }
+    },
     "link:fe9b7aff-52f9-5f36-8974-51573dcf1ec9": {
       "description": {
         "hash": "21f0160753c80cf99a03e7607edb49ef5e185666e3298a97d319bccc05b961f6",
@@ -2832,6 +3102,20 @@
       "title": {
         "hash": "46df12d7aef513eee597a565f8a80bbd3426039e758cef381d63cbc9363c8db7",
         "text": "Software Factory: code is no longer the bottleneck"
+      }
+    },
+    "page:/archives/2026-09-08": {
+      "body": {
+        "hash": "c87649b524649bc61eae13d6904ac4b9edd86a1d2cab878d8983b653dc9782a3",
+        "text": "<p>It’s been a while, hasn’t it? Well… hang on, this round-up isn’t just about AI – it’s got photography and typography as well. Enjoy the round-up!</p>\n"
+      },
+      "description": {
+        "hash": "7020c7026d8c2f38bd7960e40f85e507d1a79140762c20a8982092d9effe3b13",
+        "text": "Artificial intelligence, development, design, publishing and digital creation."
+      },
+      "title": {
+        "hash": "eeb3c4d951036f92a653f5f046a79371b42363ebc337a10520957836e94cf061",
+        "text": "Digest — 8 September 2026"
       }
     },
     "page:/confidentialite": {
@@ -12389,6 +12673,12 @@
       "description": "Seven videos all point to the same idea: automating the build, code, testing, review and pull request pipeline shifts the bottleneck to human attention.",
       "linkCount": 7,
       "editorialType": "focus"
+    },
+    "2026-09-08": {
+      "title": "Digest — 8 September 2026",
+      "description": "Artificial intelligence, development, design, publishing and digital creation.",
+      "linkCount": 27,
+      "editorialType": "digest"
     }
   }
 }
