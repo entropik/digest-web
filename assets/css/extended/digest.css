@@ -7,19 +7,19 @@
 }
 
 @font-face {
-  font-family: "DM Sans";
+  font-family: "Epilogue";
   font-style: normal;
-  font-weight: 100 1000;
+  font-weight: 100 900;
   font-display: swap;
-  src: url("/fonts/dm-sans-latin.woff2") format("woff2");
+  src: url("/fonts/epilogue-latin.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: "DM Sans";
+  font-family: "Epilogue";
   font-style: italic;
-  font-weight: 100 1000;
+  font-weight: 100 900;
   font-display: swap;
-  src: url("/fonts/dm-sans-latin-italic.woff2") format("woff2");
+  src: url("/fonts/epilogue-latin-italic.woff2") format("woff2");
 }
 
 @font-face {
@@ -35,12 +35,12 @@
   --digest-accent-text: #ad3219;
   --digest-accent-rgb: 255 92 53;
   --digest-ink: #161616;
-  --digest-muted: #6e6a64;
+  --digest-muted: #54504b;
   --digest-line: #dedbd5;
   --digest-paper: #f5f2ec;
   --digest-page-bg: #f5f5f5;
   --digest-font-heading: "Bricolage Grotesque", "Arial Narrow", sans-serif;
-  --digest-font-body: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --digest-font-body: "Epilogue", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --digest-font-mono: "JetBrains Mono", Consolas, monospace;
 }
 
@@ -65,6 +65,8 @@ pre {
 
 body {
   font-family: var(--digest-font-body);
+  font-size: 16.5px;
+  line-height: 1.65;
   line-break: strict;
   word-break: normal;
 }
@@ -854,7 +856,7 @@ html {
 .digest-intro {
   max-width: 580px;
   margin: 2.2rem 0 0;
-  color: var(--digest-muted);
+  color: var(--digest-ink);
   font-size: clamp(1.05rem, 2vw, 1.35rem);
   line-height: 1.55;
 }
@@ -1185,9 +1187,9 @@ html {
   overflow-wrap: normal;
   word-break: normal;
   hyphens: none;
-  font-size: .79rem;
+  font-size: .76rem;
   font-weight: 650;
-  letter-spacing: .015em;
+  letter-spacing: 0;
   line-height: 1.2;
   text-overflow: ellipsis;
 }
@@ -2078,7 +2080,7 @@ body.digest-modal-open {
 .archive-single-header > p {
   max-width: 590px;
   margin: 1.4rem 0 0;
-  color: var(--digest-muted);
+  color: var(--digest-ink);
   font-size: 1.1rem;
   line-height: 1.55;
 }
@@ -2391,8 +2393,9 @@ body.digest-modal-open {
 .archive-intro {
   max-width: 860px;
   margin-top: 3rem;
-  color: var(--digest-muted);
-  line-height: 1.7;
+  color: var(--digest-ink);
+  font-size: 16.5px;
+  line-height: 1.65;
 }
 
 .archive-intro > p:first-child {

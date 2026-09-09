@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spécimen Typographique · 20 Polices Libres & Impactantes · OOBLIK Digest</title>
+  
+  <!-- Polices Google Fonts : Bricolage Grotesque + Sélection de 20 polices -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Groupe 1 : Néo-grotesques 1-5 -->
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Schibsted+Grotesk:ital,wght@0,400..700;1,400..700&family=Chivo:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  
+  <!-- Groupe 2 : Néo-grotesques & géométriques 6-10 -->
+  <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,400..700;1,400..700&family=Epilogue:ital,wght@0,400..700;1,400..700&family=Sora:wght@400..700&family=Onest:wght@400..700&family=Urbanist:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  
+  <!-- Groupe 3 : Sérifs éditoriaux 11-16 -->
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700&family=Spectral:ital,wght@0,400..700;1,400..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Vollkorn:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  
+  <!-- Groupe 4 : Sérifs & Slabs 17-20 -->
+  <link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,400..700;1,400..700&family=Besley:ital,wght@0,400..700;1,400..700&family=Bitter:ital,wght@0,400..700;1,400..700&family=Zilla+Slab:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --paper: #f5f2ec;
+      --paper-card: #ffffff;
+      --paper-elevated: #eae6de;
+      --ink: #111111;
+      --ink-muted: #555555;
+      --ink-faint: #888888;
+      --border: #111111;
+      --border-faint: #d5d0c5;
+      --accent: #ff5c35;
+      --accent-hover: #e10600;
+      --font-heading: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, sans-serif;
+      --body-size: 16.5px;
+      --body-lh: 1.65;
+    }
+
+    [data-theme="dark"] {
+      --paper: #121212;
+      --paper-card: #1c1c1c;
+      --paper-elevated: #242424;
+      --ink: #f0eee9;
+      --ink-muted: #a6a49f;
+      --ink-faint: #666666;
+      --border: #333333;
+      --border-faint: #2a2a2a;
+      --accent: #ff5c35;
+      --accent-hover: #ff724f;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: var(--body-lh);
+      font-size: var(--body-size);
+      padding-bottom: 80px;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    /* En-tête cartouche d'architecte */
+    .catalog-header {
+      border-bottom: 2px solid var(--border);
+      background: var(--paper);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+
+    .catalog-topbar {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand-title {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-title span.badge {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 3px 8px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 2px;
+    }
+
+    .controls-group {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .control-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--paper-elevated);
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+    }
+
+    .control-item label {
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+    }
+
+    .control-item input[type="range"] {
+      width: 90px;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .control-item select, .control-item button {
+      background: transparent;
+      border: none;
+      color: var(--ink);
+      font-weight: 700;
+      cursor: pointer;
+      outline: none;
+      font-size: 0.82rem;
+    }
+
+    .theme-btn {
+      padding: 6px 14px;
+      background: var(--ink);
+      color: var(--paper);
+      border: 1px solid var(--ink);
+      font-weight: 700;
+      font-size: 0.8rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all .15s ease;
+    }
+    .theme-btn:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* Barre de navigation / filtres */
+    .catalog-nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 10px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .filter-tabs, .view-tabs {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 6px 14px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: all .15s;
+    }
+
+    .tab-btn:hover {
+      background: var(--paper-elevated);
+    }
+
+    .tab-btn.is-active {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    /* Conteneur principal */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+
+    /* VUE 1 : GALERIE DE CARTES */
+    .specimen-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(620px, 1fr));
+      gap: 32px;
+    }
+
+    @media (max-width: 700px) {
+      .specimen-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .specimen-card {
+      background: var(--paper-card);
+      border: 2px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      box-shadow: 4px 4px 0px var(--border);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .specimen-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 6px 6px 0px var(--accent);
+    }
+
+    .card-cartouche {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      border-bottom: 1px solid var(--border);
+      background: var(--paper-elevated);
+      padding: 10px 16px;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.8rem;
+    }
+
+    .card-num {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .card-meta h3 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .card-meta p {
+      font-size: 0.74rem;
+      color: var(--ink-muted);
+      margin-top: 2px;
+      font-family: -apple-system, sans-serif;
+    }
+
+    .card-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 4px 8px;
+      border: 1px solid var(--border);
+      background: var(--paper);
+    }
+
+    .card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      flex-grow: 1;
+    }
+
+    .pairing-title {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .pairing-title span {
+      color: var(--accent);
+    }
+
+    .sample-kicker {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+    }
+
+    .sample-lead {
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .sample-paragraph {
+      color: var(--ink);
+    }
+
+    .sample-quote {
+      border-left: 3px solid var(--accent);
+      padding-left: 16px;
+      font-style: italic;
+      color: var(--ink-muted);
+    }
+
+    .sample-glyphs {
+      padding: 10px 14px;
+      background: var(--paper-elevated);
+      border: 1px solid var(--border-faint);
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      word-break: break-all;
+    }
+
+    .card-footer {
+      border-top: 1px solid var(--border);
+      padding: 12px 16px;
+      background: var(--paper);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-test {
+      padding: 6px 14px;
+      background: var(--ink);
+      color: var(--paper);
+      border: 1px solid var(--ink);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .btn-test:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* VUE 2 : SIMULATEUR COMPLET DIGEST */
+    .simulator-view {
+      display: none;
+      background: var(--paper-card);
+      border: 2px solid var(--border);
+      box-shadow: 6px 6px 0px var(--border);
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 48px;
+    }
+
+    .sim-header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 28px;
+      margin-bottom: 32px;
+    }
+
+    .sim-kicker {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-family: -apple-system, sans-serif;
+    }
+
+    .sim-title {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+
+    .sim-lead {
+      font-size: 1.18rem;
+      font-weight: 500;
+      line-height: 1.45;
+      color: var(--ink-muted);
+      margin-bottom: 20px;
+    }
+
+    .sim-meta-bar {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-faint);
+    }
+
+    .sim-meta-bar strong {
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+
+    .sim-content h2 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin: 36px 0 16px;
+      letter-spacing: -0.02em;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+    }
+
+    .sim-content p {
+      margin-bottom: 20px;
+    }
+
+    .sim-content blockquote {
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      background: var(--paper-elevated);
+      margin: 28px 0;
+      font-weight: 600;
+    }
+
+    .sim-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 28px 0;
+      font-size: 0.9rem;
+    }
+
+    .sim-table th, .sim-table td {
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      text-align: left;
+    }
+
+    .sim-table th {
+      background: var(--paper-elevated);
+      font-family: var(--font-heading);
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    /* VUE 3 : COMPARATEUR SPLIT A / B */
+    .split-view {
+      display: none;
+      gap: 24px;
+    }
+
+    .split-col {
+      flex: 1;
+      background: var(--paper-card);
+      border: 2px solid var(--border);
+      box-shadow: 4px 4px 0px var(--border);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .split-header {
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .split-header select {
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      background: var(--paper);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+  </style>
+</head>
+<body data-theme="light">
+
+  <!-- HEADER FIXE / BARRE DE CONTRÔLE -->
+  <header class="catalog-header">
+    <div class="catalog-topbar">
+      <div class="brand-title">
+        OOBLIK DIGEST 
+        <span class="badge">SPECIMEN TYPOGRAPHIQUE</span>
+      </div>
+
+      <div class="controls-group">
+        <div class="control-item">
+          <label for="sizeRange">Taille : <span id="sizeVal">16.5px</span></label>
+          <input type="range" id="sizeRange" min="14" max="22" step="0.5" value="16.5">
+        </div>
+
+        <div class="control-item">
+          <label for="lhRange">Interligne : <span id="lhVal">1.65</span></label>
+          <input type="range" id="lhRange" min="1.3" max="1.95" step="0.05" value="1.65">
+        </div>
+
+        <div class="control-item">
+          <label for="weightSelect">Graisse :</label>
+          <select id="weightSelect">
+            <option value="400">400 (Regular)</option>
+            <option value="500">500 (Medium)</option>
+            <option value="600">600 (Semi-Bold)</option>
+          </select>
+        </div>
+
+        <button class="theme-btn" id="themeToggle">🌓 Thème</button>
+      </div>
+    </div>
+
+    <div class="catalog-nav">
+      <div class="view-tabs">
+        <button class="tab-btn is-active" data-view="gallery">Galerie (20 Fiches)</button>
+        <button class="tab-btn" data-view="simulator">Simulateur Focus Complet</button>
+        <button class="tab-btn" data-view="split">Comparateur Split A/B</button>
+      </div>
+
+      <div class="filter-tabs" id="categoryFilters">
+        <button class="tab-btn is-active" data-cat="all">Toutes (20)</button>
+        <button class="tab-btn" data-cat="grotesque">Néo-Grotesques & Modernistes (10)</button>
+        <button class="tab-btn" data-cat="serif">Sérifs Éditoriaux (7)</button>
+        <button class="tab-btn" data-cat="slab">Slabs & Architecturales (3)</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- VUE 1 : GRILLE DES 20 POLICES -->
+    <section id="galleryView" class="specimen-grid">
+      <!-- Rendu dynamique via JavaScript -->
+    </section>
+
+    <!-- VUE 2 : SIMULATEUR ARTICLE FOCUS -->
+    <section id="simulatorView" class="simulator-view">
+      <div style="background: var(--paper-elevated); border: 1px solid var(--border); padding: 12px 18px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 0.82rem; font-weight: 700; text-transform: uppercase;">Police active sur le simulateur :</span>
+        <select id="simFontPicker" style="padding: 6px 14px; font-weight: 700; font-size: 0.9rem; border: 1px solid var(--border); background: var(--paper); color: var(--ink);">
+          <!-- Rempli en JS -->
+        </select>
+      </div>
+
+      <div id="simArticle">
+        <div class="sim-header">
+          <p class="sim-kicker">OOBLIK — DOSSIER THÉMATIQUE</p>
+          <h1 class="sim-title">FOCUS - Après le chatbot, voici le coéquipier en app</h1>
+          <p class="sim-lead">
+            Pendant trois ans, l’IA s’est résumée à une boîte de dialogue éphémère. Le lancement de Grok Bot et la riposte d’OpenMausBot, Rakazo et OpenWorker imposent un nouveau modèle : une messagerie de bots permanents dotés d’ordinateurs virtuels, capables d’agir en tâche de fond.
+          </p>
+          <div class="sim-meta-bar">
+            <div><strong>6</strong> liens documentés</div>
+            <div>09 septembre 2026</div>
+            <div>Format Focus</div>
+          </div>
+        </div>
+
+        <div class="sim-content">
+          <p>
+            Une fenêtre s’ouvre, on pose une question, le modèle aligne quelques paragraphes, puis on ferme l’onglet. Pendant trois ans, de ChatGPT à Claude, le chatbot est resté un interlocuteur sans bureau : réactif, amnésique d’une session à l’autre, cantonné à la génération de texte et dépendant de la présence constante d’un humain derrière l’écran.
+          </p>
+          <p>
+            Le lancement de Grok Bot par SpaceXAI au mois d’août 2026 a brutalement vieilli cette interface. L’IA ne se présente plus comme un formulaire de discussion jetable, mais comme une messagerie d’équipe où chaque bot est un contact permanent disposant de son propre ordinateur virtuel, de sa mémoire de projet et de ses routines autonomes.
+          </p>
+
+          <blockquote>
+            La thèse de cette édition tient en une phrase : le prochain bond d’usage de l’IA ne viendra pas d’un modèle plus intelligent, mais d’un agent qui possède son propre bureau.
+          </blockquote>
+
+          <h2>De la boîte de dialogue au contact permanent</h2>
+          <p>
+            Le passage du chatbot au coéquipier en application modifie la métaphore centrale de l’interaction :
+          </p>
+          <p>
+            <strong>1. L’interface de messagerie remplace le fil d’échange unique.</strong> Dans des applications comme OpenMausBot ou Rakazo, la barre latérale n’est plus un historique chronologique de requêtes passées, mais un carnet de collègues spécialisés. On s’adresse à un bot comme à un contact sur Telegram ou Slack.
+          </p>
+          <p>
+            <strong>2. De la réaction passive au travail asynchrone.</strong> Un chatbot ordinaire attend la frappe au clavier. Un bot en application peut exécuter des tâches longues en arrière-plan : surveiller une boîte aux lettres, dépouiller des rapports concurrentiels ou exécuter des tests pendant que l’opérateur dort.
+          </p>
+
+          <table class="sim-table">
+            <thead>
+              <tr>
+                <th>Projet</th>
+                <th>GitHub</th>
+                <th>Licence</th>
+                <th>Maturité</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>OpenMausBot</strong></td>
+                <td>2,4 k ★</td>
+                <td>MIT</td>
+                <td>3 — adoptable</td>
+              </tr>
+              <tr>
+                <td><strong>Rakazo</strong></td>
+                <td>2,1 k ★</td>
+                <td>Apache 2.0</td>
+                <td>3 — adoptable</td>
+              </tr>
+              <tr>
+                <td><strong>OpenWorker</strong></td>
+                <td>17,4 k ★</td>
+                <td>Apache 2.0</td>
+                <td>3 — adoptable</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- VUE 3 : COMPARATEUR SPLIT A / B -->
+    <section id="splitView" class="split-view">
+      <div class="split-col" id="colA">
+        <div class="split-header">
+          <span style="font-size: 0.8rem; font-weight: 800; color: var(--accent);">OPTION A</span>
+          <select id="splitSelectA"></select>
+        </div>
+        <div class="split-content" id="splitContentA">
+          <p class="sample-kicker">DOSSIER THÉMATIQUE</p>
+          <h2 class="pairing-title" style="margin-bottom: 12px;">Après le chatbot, voici le coéquipier en app</h2>
+          <p class="sample-lead" style="margin-bottom: 16px;">
+            Pendant trois ans, l’IA s’est résumée à une boîte de dialogue éphémère. Le lancement de Grok Bot et la riposte d’OpenMausBot imposent un nouveau modèle.
+          </p>
+          <p class="sample-paragraph" style="margin-bottom: 16px;">
+            Une fenêtre s’ouvre, on pose une question, le modèle aligne quelques paragraphes, puis on ferme l’onglet. Le chatbot est resté un interlocuteur sans bureau : réactif, amnésique d’une session à l’autre, cantonné à la génération de texte et dépendant de la présence d’un humain.
+          </p>
+          <div class="sample-quote">
+            « Le prochain bond d’usage de l’IA ne viendra pas d’un modèle plus intelligent, mais d’un agent qui possède son propre bureau. »
+          </div>
+          <div class="sample-glyphs" style="margin-top: 20px;">
+            0123456789 — 2065 liens · 01 02 03 04 · à é è ê î ô ù ç & « »
+          </div>
+        </div>
+      </div>
+
+      <div class="split-col" id="colB">
+        <div class="split-header">
+          <span style="font-size: 0.8rem; font-weight: 800; color: var(--accent);">OPTION B</span>
+          <select id="splitSelectB"></select>
+        </div>
+        <div class="split-content" id="splitContentB">
+          <p class="sample-kicker">DOSSIER THÉMATIQUE</p>
+          <h2 class="pairing-title" style="margin-bottom: 12px;">Après le chatbot, voici le coéquipier en app</h2>
+          <p class="sample-lead" style="margin-bottom: 16px;">
+            Pendant trois ans, l’IA s’est résumée à une boîte de dialogue éphémère. Le lancement de Grok Bot et la riposte d’OpenMausBot imposent un nouveau modèle.
+          </p>
+          <p class="sample-paragraph" style="margin-bottom: 16px;">
+            Une fenêtre s’ouvre, on pose une question, le modèle aligne quelques paragraphes, puis on ferme l’onglet. Le chatbot est resté un interlocuteur sans bureau : réactif, amnésique d’une session à l’autre, cantonné à la génération de texte et dépendant de la présence d’un humain.
+          </p>
+          <div class="sample-quote">
+            « Le prochain bond d’usage de l’IA ne viendra pas d’un modèle plus intelligent, mais d’un agent qui possède son propre bureau. »
+          </div>
+          <div class="sample-glyphs" style="margin-top: 20px;">
+            0123456789 — 2065 liens · 01 02 03 04 · à é è ê î ô ù ç & « »
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // DONNÉES DES 20 TYPOGRAPHIES LIBRES & OPEN SOURCE SÉLECTIONNÉES
+    const FONTS = [
+      // 1-10 : NÉO-GROTESQUES & MODERNISTES
+      {
+        id: "space-grotesk",
+        name: "Space Grotesk",
+        family: "'Space Grotesk', sans-serif",
+        category: "grotesque",
+        catLabel: "Néo-Grotesque Brutaliste",
+        designer: "Florian Karsten",
+        license: "SIL OFL 1.1",
+        vibe: "Dérivée de Space Mono avec des détails mécaniques nets et des pièges à encre géométriques. Énorme personnalité, accord parfait avec le style architecte.",
+      },
+      {
+        id: "instrument-sans",
+        name: "Instrument Sans",
+        family: "'Instrument Sans', sans-serif",
+        category: "grotesque",
+        catLabel: "Néo-Grotesque Industrielle",
+        designer: "Instrument",
+        license: "SIL OFL 1.1",
+        vibe: "Dessinée pour les interfaces contemporaines. Plus carrée, dense et nerveuse que DM Sans, avec une cadence de lecture très rythmée.",
+      },
+      {
+        id: "schibsted-grotesk",
+        name: "Schibsted Grotesk",
+        family: "'Schibsted Grotesk', sans-serif",
+        category: "grotesque",
+        catLabel: "Grotesque Presse Digitale",
+        designer: "Bakken & Bæck / Schibsted",
+        license: "SIL OFL 1.1",
+        vibe: "Créée sur mesure pour le journalisme numérique scandinave. Robuste, compacte, œil généreux, zéro fatigue visuelle.",
+      },
+      {
+        id: "chivo",
+        name: "Chivo",
+        family: "'Chivo', sans-serif",
+        category: "grotesque",
+        catLabel: "Grotesque d'Autorité",
+        designer: "Omnibus-Type (Héctor Gatti)",
+        license: "SIL OFL 1.1",
+        vibe: "Fûts affirmés, courbes solides, forte présence éditoriale. Pose une autorité immédiate et ne passe jamais inaperçue.",
+      },
+      {
+        id: "plus-jakarta-sans",
+        name: "Plus Jakarta Sans",
+        family: "'Plus Jakarta Sans', sans-serif",
+        category: "grotesque",
+        catLabel: "Géométrique Humaniste",
+        designer: "Tokotype",
+        license: "SIL OFL 1.1",
+        vibe: "Moderne, dynamique, ouvertures franches. Apporte du peps et une clarté limpide sans la neutralité fade des géométriques ordinaires.",
+      },
+      {
+        id: "albert-sans",
+        name: "Albert Sans",
+        family: "'Albert Sans', sans-serif",
+        category: "grotesque",
+        catLabel: "Modernisme Danois",
+        designer: "Andreas Rasmussen",
+        license: "SIL OFL 1.1",
+        vibe: "Inspirée de la signalétique moderniste danoise (1960-70). Rigueur géométrique stricte, esprit plan technique et cartouche d'usine.",
+      },
+      {
+        id: "epilogue",
+        name: "Epilogue",
+        family: "'Epilogue', sans-serif",
+        category: "grotesque",
+        catLabel: "Sans Brutaliste Affirmée",
+        designer: "Tyler Finck (Etcetera Type Co)",
+        license: "SIL OFL 1.1",
+        vibe: "Proportions assumées, lettres denses et angles francs. Donne un look de fanzine d'avant-garde et de manifeste technique.",
+      },
+      {
+        id: "sora",
+        name: "Sora",
+        family: "'Sora', sans-serif",
+        category: "grotesque",
+        catLabel: "Tech & Cybernétique",
+        designer: "Jonathan Barnbrook",
+        license: "SIL OFL 1.1",
+        vibe: "Dessinée par le studio de David Bowie. Courbes tendues et détails microscopiques très stylés (a, g, t). Résolument tournée vers le futur.",
+      },
+      {
+        id: "onest",
+        name: "Onest",
+        family: "'Onest', sans-serif",
+        category: "grotesque",
+        catLabel: "Géométrique Haute Densité",
+        designer: "Dmitrii Voloshin (Simpals)",
+        license: "SIL OFL 1.1",
+        vibe: "Première police conçue pour optimiser le confort de lecture dans les médias en ligne. Formes franches, compacité exemplaire.",
+      },
+      {
+        id: "urbanist",
+        name: "Urbanist",
+        family: "'Urbanist', sans-serif",
+        category: "grotesque",
+        catLabel: "Géométrique Tranchée",
+        designer: "Corey Hu",
+        license: "SIL OFL 1.1",
+        vibe: "Inspirée du modernisme du milieu du XXe siècle. Lignes chirurgicales et contraste net qui créent une texture très propre.",
+      },
+
+      // 11-17 : SÉRIFS ÉDITORIAUX & LITTÉRAIRES
+      {
+        id: "newsreader",
+        name: "Newsreader",
+        family: "'Newsreader', serif",
+        category: "serif",
+        catLabel: "Sérif Presse d'Investigation",
+        designer: "Production Type (Hugues Gentile)",
+        license: "SIL OFL 1.1",
+        vibe: "Chef-d’œuvre de la fonderie parisienne Production Type. Sérifs acérés, cadence digne du New Yorker ou du Monde Diplomatique.",
+      },
+      {
+        id: "literata",
+        name: "Literata",
+        family: "'Literata', serif",
+        category: "serif",
+        catLabel: "Sérif de Lecture Continue",
+        designer: "TypeTogether (Veronika Burian & José Scaglione)",
+        license: "SIL OFL 1.1",
+        vibe: "Conçue pour Google Play Books. Empattements sculptés, asymétries organiques, confort immersif absolu sur écran.",
+      },
+      {
+        id: "spectral",
+        name: "Spectral",
+        family: "'Spectral', serif",
+        category: "serif",
+        catLabel: "Classique Française",
+        designer: "Production Type (Jean-Baptiste Levée)",
+        license: "SIL OFL 1.1",
+        vibe: "Clarté cristalline, empattements biseautés taillés au scalpel. Alliance idéale de rigueur architecturale et de tradition livresque.",
+      },
+      {
+        id: "lora",
+        name: "Lora",
+        family: "'Lora', serif",
+        category: "serif",
+        catLabel: "Sérif Calligraphique",
+        designer: "Cyreal (Olga Karpushina)",
+        license: "SIL OFL 1.1",
+        vibe: "Contraste doux avec courbes brossées. Apporte de la chaleur et une présence organique très vivante sur le fond papier du Digest.",
+      },
+      {
+        id: "fraunces",
+        name: "Fraunces",
+        family: "'Fraunces', serif",
+        category: "serif",
+        catLabel: "Sérif Rétro-Futuriste",
+        designer: "Undercase Type",
+        license: "SIL OFL 1.1",
+        vibe: "Inspirée de la typographie du tournant du XXe siècle. Rondeurs plantureuses et cassures sèches. Un caractère fou, l'antithèse absolue de la fadeur.",
+      },
+      {
+        id: "vollkorn",
+        name: "Vollkorn",
+        family: "'Vollkorn', serif",
+        category: "serif",
+        catLabel: "Rustique & Bâtie",
+        designer: "Friedrich Althausen",
+        license: "SIL OFL 1.1",
+        vibe: "Signifie « pain complet » en allemand. Empattements solides, ligne d'assise ancrée dans la page, sensation d'archive pérenne.",
+      },
+      {
+        id: "petrona",
+        name: "Petrona",
+        family: "'Petrona', serif",
+        category: "serif",
+        catLabel: "Sérif Anguleuse",
+        designer: "Ringo R. Gómez",
+        license: "SIL OFL 1.1",
+        vibe: "Dessinée avec des empattements tranchants et un dessin vigoureux. Donne une cadence incisive aux textes critiques et synthèses.",
+      },
+
+      // 18-20 : SLABS & ARCHITECTURALES
+      {
+        id: "besley",
+        name: "Besley",
+        family: "'Besley', serif",
+        category: "slab",
+        catLabel: "Clarendon Contemporaine",
+        designer: "Indestructible Type (Owen Earl)",
+        license: "SIL OFL 1.1",
+        vibe: "Revival de la première Clarendon de 1845. Structure indestructible, cartouches massifs, très forte assise typographique.",
+      },
+      {
+        id: "bitter",
+        name: "Bitter",
+        family: "'Bitter', serif",
+        category: "slab",
+        catLabel: "Slab Écran Rectangulaire",
+        designer: "Sol Matas",
+        license: "SIL OFL 1.1",
+        vibe: "Spécialement forgée pour la lecture sur écran. Empattements droits sans chichi, carrée comme un plan de coupe d'architecte.",
+      },
+      {
+        id: "zilla-slab",
+        name: "Zilla Slab",
+        family: "'Zilla Slab', serif",
+        category: "slab",
+        catLabel: "Slab Industrielle Mozilla",
+        designer: "Typotheque (Peter Biľak)",
+        license: "SIL OFL 1.1",
+        vibe: "Police officielle de Mozilla. Géométrie industrielle à angle droit, engagée, technique et manifestement open-source.",
+      }
+    ];
+
+    // ÉLÉMENTS DU DOM
+    const galleryView = document.getElementById("galleryView");
+    const simulatorView = document.getElementById("simulatorView");
+    const splitView = document.getElementById("splitView");
+    const simFontPicker = document.getElementById("simFontPicker");
+    const simArticle = document.getElementById("simArticle");
+    const splitSelectA = document.getElementById("splitSelectA");
+    const splitSelectB = document.getElementById("splitSelectB");
+    const splitContentA = document.getElementById("splitContentA");
+    const splitContentB = document.getElementById("splitContentB");
+
+    const sizeRange = document.getElementById("sizeRange");
+    const sizeVal = document.getElementById("sizeVal");
+    const lhRange = document.getElementById("lhRange");
+    const lhVal = document.getElementById("lhVal");
+    const weightSelect = document.getElementById("weightSelect");
+    const themeToggle = document.getElementById("themeToggle");
+
+    // RENDU DE LA GALERIE
+    function renderGallery(cat = "all") {
+      galleryView.innerHTML = "";
+      const filtered = cat === "all" ? FONTS : FONTS.filter(f => f.category === cat);
+
+      filtered.forEach((font, idx) => {
+        const card = document.createElement("article");
+        card.className = "specimen-card";
+        card.dataset.fontId = font.id;
+
+        card.innerHTML = `
+          <div class="card-cartouche">
+            <span class="card-num">${String(idx + 1).padStart(2, "0")}</span>
+            <div class="card-meta">
+              <h3>${font.name}</h3>
+              <p>${font.designer} · ${font.license}</p>
+            </div>
+            <span class="card-tag">${font.catLabel}</span>
+          </div>
+
+          <div class="card-body" style="font-family: ${font.family};">
+            <div>
+              <p class="sample-kicker">ACCORD AVEC BRICOLAGE GROTESQUE (TITRES)</p>
+              <h4 class="pairing-title">Après le chatbot, voici le <span>coéquipier en app</span></h4>
+            </div>
+
+            <p class="sample-lead">
+              Pendant trois ans, l’IA s’est résumée à une boîte de dialogue éphémère. Le lancement de Grok Bot et la riposte d’OpenMausBot, Rakazo et OpenWorker imposent un nouveau modèle.
+            </p>
+
+            <p class="sample-paragraph">
+              Une fenêtre s’ouvre, on pose une question, le modèle aligne quelques paragraphes, puis on ferme l’onglet. Le chatbot est resté un interlocuteur sans bureau : réactif, amnésique d’une session à l’autre, cantonné à la génération de texte et dépendant de la présence constante d’un humain derrière l’écran.
+            </p>
+
+            <div class="sample-quote">
+              « Le prochain bond d’usage de l’IA ne viendra pas d’un modèle plus intelligent, mais d’un agent qui possède son propre bureau. »
+            </div>
+
+            <div class="sample-glyphs">
+              0123456789 — 2065 liens archivés — à é è ê î ô ù ç œ & « » — 01 02 03 04
+            </div>
+
+            <div style="font-size: 0.78rem; color: var(--ink-muted); line-height: 1.4; border-top: 1px dashed var(--border-faint); padding-top: 10px;">
+              <strong>Pourquoi elle marque :</strong> ${font.vibe}
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <span style="font-size: 0.75rem; color: var(--ink-faint); font-family: monospace;">font-family: ${font.family};</span>
+            <button class="btn-test" onclick="openInSimulator('${font.id}')">Tester en simulateur ↗</button>
+          </div>
+        `;
+        galleryView.appendChild(card);
+      });
+    }
+
+    // INITIALISER LES SÉLECTEURS
+    function initSelectors() {
+      FONTS.forEach(font => {
+        const opt1 = new Option(font.name + " (" + font.catLabel + ")", font.id);
+        const opt2 = new Option(font.name, font.id);
+        const opt3 = new Option(font.name, font.id);
+        simFontPicker.add(opt1);
+        splitSelectA.add(opt2);
+        splitSelectB.add(opt3);
+      });
+
+      // Valeurs par défaut
+      splitSelectA.value = "space-grotesk";
+      splitSelectB.value = "newsreader";
+      updateSplit();
+    }
+
+    // SIMULATEUR
+    function openInSimulator(fontId) {
+      simFontPicker.value = fontId;
+      updateSimulatorFont();
+      switchView("simulator");
+    }
+
+    function updateSimulatorFont() {
+      const font = FONTS.find(f => f.id === simFontPicker.value);
+      if (font) {
+        simArticle.style.fontFamily = font.family;
+      }
+    }
+
+    // SPLIT A / B
+    function updateSplit() {
+      const fontA = FONTS.find(f => f.id === splitSelectA.value);
+      const fontB = FONTS.find(f => f.id === splitSelectB.value);
+      if (fontA) splitContentA.style.fontFamily = fontA.family;
+      if (fontB) splitContentB.style.fontFamily = fontB.family;
+    }
+
+    // GESTION DES ONGLETS DE VUES
+    function switchView(viewName) {
+      document.querySelectorAll(".view-tabs .tab-btn").forEach(btn => {
+        btn.classList.toggle("is-active", btn.dataset.view === viewName);
+      });
+
+      galleryView.style.display = viewName === "gallery" ? "grid" : "none";
+      simulatorView.style.display = viewName === "simulator" ? "block" : "none";
+      splitView.style.display = viewName === "split" ? "flex" : "none";
+      document.getElementById("categoryFilters").style.visibility = viewName === "gallery" ? "visible" : "hidden";
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    document.querySelectorAll(".view-tabs .tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => switchView(btn.dataset.view));
+    });
+
+    // FILTRES DE CATÉGORIES
+    document.querySelectorAll("#categoryFilters .tab-btn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        document.querySelectorAll("#categoryFilters .tab-btn").forEach(b => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+        renderGallery(btn.dataset.cat);
+      });
+    });
+
+    // CONTRÔLES TYPOGRAPHIQUES GLOBAUX
+    sizeRange.addEventListener("input", (e) => {
+      const val = e.target.value + "px";
+      document.documentElement.style.setProperty("--body-size", val);
+      sizeVal.textContent = val;
+    });
+
+    lhRange.addEventListener("input", (e) => {
+      const val = e.target.value;
+      document.documentElement.style.setProperty("--body-lh", val);
+      lhVal.textContent = val;
+    });
+
+    weightSelect.addEventListener("change", (e) => {
+      const weight = e.target.value;
+      document.querySelectorAll(".sample-paragraph, .sim-content p").forEach(p => {
+        p.style.fontWeight = weight;
+      });
+    });
+
+    // BASCULE THÈME
+    themeToggle.addEventListener("click", () => {
+      const current = document.body.dataset.theme;
+      const next = current === "dark" ? "light" : "dark";
+      document.body.dataset.theme = next;
+    });
+
+    simFontPicker.addEventListener("change", updateSimulatorFont);
+    splitSelectA.addEventListener("change", updateSplit);
+    splitSelectB.addEventListener("change", updateSplit);
+
+    // DÉMARRAGE
+    renderGallery();
+    initSelectors();
+    updateSimulatorFont();
+  </script>
+</body>
+</html>
