@@ -1,42 +1,10 @@
 {
   "version": 1,
-  "baseRevision": "68ae2b9519f68d7722582e136cb8af928f213070344bed69315d99c4c28956de",
-  "targetRevision": "e0c10fbd1e7795adc86d919066a2dc2512b90f564e2cf6e28fbb926fdc101d60",
+  "baseRevision": "e0c10fbd1e7795adc86d919066a2dc2512b90f564e2cf6e28fbb926fdc101d60",
+  "targetRevision": "4d90598ae0d3b837af70c51ff2131b6403513c8ee0b8171a74dce56fa3c88d86",
   "manifestRevision": "4342d64ad0619d6c7efab79723e3caf7db5c9793675fcaf010f06a94643ff272",
   "fullBuild": false,
   "items": [
-    {
-      "id": "link:28b3ead4-7fb7-50b9-86f8-bf1092945199",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:2bf70682-a021-596e-8f4b-6425b7a1975d",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:316c5f25-2d3d-50b6-8736-428fedd094a6",
-      "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:499a7359-c6ab-51dd-bf99-d578592f5595",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:b6d6e03b-2f10-52b2-ba9b-8e8325c811d2",
-      "fields": [
-        "title"
-      ]
-    },
     {
       "id": "page:/archives/2026-07-24",
       "fields": [
@@ -112,12 +80,11 @@
     {
       "id": "page:/archives/2026-09-09",
       "fields": [
-        "description",
-        "title"
+        "$artwork"
       ]
     },
     {
-      "id": "tag:auto-hebergement",
+      "id": "tag:devops",
       "fields": [
         "name"
       ]
@@ -141,14 +108,8 @@
     "/archives/2026-09-09/",
     "/tags/",
     "/tags/agents/",
-    "/tags/automatisation/",
-    "/tags/code/",
-    "/tags/desktop/",
     "/tags/ia/",
-    "/tags/opensource/",
-    "/tags/outils/",
-    "/tags/terminal/",
-    "/tags/web/"
+    "/tags/opensource/"
   ],
   "artwork": {
     "upsert": [
@@ -168,5 +129,5 @@
     ],
     "remove": []
   },
-  "revision": "cab66914499d1877994fac12690bedccfd3e5e00d4d5ef5986bb41fb095f7929"
+  "revision": "66a9a719daecca9e67236792bddca38ddf6ffb43048aed50d44e9124dc2f97b9"
 }

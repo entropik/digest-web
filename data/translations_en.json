@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "e0c10fbd1e7795adc86d919066a2dc2512b90f564e2cf6e28fbb926fdc101d60",
+  "revision": "4d90598ae0d3b837af70c51ff2131b6403513c8ee0b8171a74dce56fa3c88d86",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -7114,6 +7114,12 @@
       "name": {
         "hash": "ce314b2516e2145842888972fb499a89c02d98fb9ec6dfd16d89e2cdb29c4ccf",
         "text": "mouth"
+      }
+    },
+    "tag:devops": {
+      "name": {
+        "hash": "ac717b72139443d6e3b2150dfed6a9a0a32ee02f9f17ebbf416f8deca69da7dd",
+        "text": "devops"
       }
     },
     "tag:dictée": {
