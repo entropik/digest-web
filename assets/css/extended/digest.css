@@ -7,6 +7,22 @@
 }
 
 @font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 100 1000;
+  font-display: swap;
+  src: url("/fonts/dm-sans-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-style: italic;
+  font-weight: 100 1000;
+  font-display: swap;
+  src: url("/fonts/dm-sans-latin-italic.woff2") format("woff2");
+}
+
+@font-face {
   font-family: "JetBrains Mono";
   font-style: normal;
   font-weight: 300 700;
@@ -24,7 +40,15 @@
   --digest-paper: #f5f2ec;
   --digest-page-bg: #f5f5f5;
   --digest-font-heading: "Bricolage Grotesque", "Arial Narrow", sans-serif;
-  --digest-font-body: "JetBrains Mono", Consolas, monospace;
+  --digest-font-body: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --digest-font-mono: "JetBrains Mono", Consolas, monospace;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--digest-font-mono);
 }
 
 [data-theme="dark"],
