@@ -111,3 +111,20 @@ test("header navigation maintains stable geometry and responsive drawer cutoff",
   assert.doesNotMatch(css, /\.header-nav \.logo/);
 });
 
+test("paragraph texts are justified with hyphenation and left-aligned last lines", async () => {
+  const css = await readFile(cssPath, "utf8");
+
+  assert.match(
+    css,
+    /^p\s*\{[^}]*text-align:\s*justify;[^}]*text-align-last:\s*left;[^}]*text-justify:\s*inter-word;/ms,
+  );
+  assert.match(
+    css,
+    /\.archive-intro\s*>\s*p\s*\{[^}]*text-align:\s*justify;[^}]*text-align-last:\s*left;/s,
+  );
+  assert.match(
+    css,
+    /\.archive-link-description\s*\{[^}]*text-align:\s*justify;[^}]*text-align-last:\s*left;/s,
+  );
+});
+

@@ -71,6 +71,14 @@ body {
   word-break: normal;
 }
 
+p {
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+}
+
 /* Prefer complete final lines. typography.js binds French punctuation with
    non-breaking spaces: CSS alone cannot make an ordinary space non-breaking. */
 :where(p, li, dt, dd, blockquote, figcaption, th, td) {
@@ -667,6 +675,7 @@ select {
   font-size: .72rem;
   font-weight: 700;
   letter-spacing: .12em;
+  text-align: left;
   text-transform: uppercase;
 }
 
@@ -830,6 +839,7 @@ html {
   font-size: .78rem;
   font-weight: 700;
   letter-spacing: .14em;
+  text-align: left;
   text-transform: uppercase;
 }
 
@@ -851,6 +861,7 @@ html {
   font-weight: 620;
   letter-spacing: -.045em;
   line-height: 1.05;
+  text-align: left;
 }
 
 .digest-intro {
@@ -1261,6 +1272,7 @@ html {
   font-size: .62rem;
   font-weight: 700;
   letter-spacing: .11em;
+  text-align: left;
   text-transform: uppercase;
 }
 
@@ -2259,6 +2271,7 @@ body.digest-modal-open {
   color: var(--digest-muted);
   font-size: .76rem;
   letter-spacing: .06em;
+  text-align: left;
   text-transform: uppercase;
 }
 
@@ -2406,6 +2419,11 @@ body.digest-modal-open {
 .archive-intro > p {
   margin: 0 0 1rem;
   text-indent: 1.75em;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
 }
 
 .archive-intro ol,
@@ -2438,6 +2456,11 @@ body.digest-modal-open {
 
 .archive-intro blockquote p {
   margin: 0 0 1rem;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
 }
 
 .archive-intro blockquote ol,
@@ -2943,6 +2966,7 @@ body.digest-modal-open {
   font-size: .78rem;
   font-weight: 700;
   letter-spacing: .02em;
+  text-align: left;
   text-transform: uppercase;
 }
 
@@ -2951,7 +2975,11 @@ body.digest-modal-open {
   overflow-wrap: anywhere;
   color: var(--digest-muted);
   line-height: 1.55;
-  text-align: start;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
   text-wrap: pretty;
 }
 
@@ -3960,6 +3988,7 @@ body.digest-modal-open {
   font-weight: 700;
   letter-spacing: -.035em;
   line-height: 1.05;
+  text-align: left;
 }
 
 .procrastinator-stats {
@@ -4769,7 +4798,7 @@ body.procrastinator-viewer-open { overflow: hidden; }
 .language-switch a{display:flex;align-items:center;min-height:44px;padding:0 .12rem;opacity:.65}
 .language-switch a[aria-current]{opacity:1;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
 .language-switch a:focus-visible{outline:2px solid currentColor;outline-offset:3px}
-.translation-pending{font-family:var(--font-mono,monospace);font-size:.7rem;color:var(--secondary);line-height:1.5}
+.translation-pending{font-family:var(--font-mono,monospace);font-size:.7rem;color:var(--secondary);line-height:1.5;text-align:left}
 .main>.translation-pending{border-bottom:1px solid var(--border);padding-bottom:.7rem}
 .digest-card .translation-pending{margin:.4rem 0 0}.digest-modal .translation-pending{margin-bottom:1rem}
 @media(max-width:400px){.header-actions{gap:.35rem}.language-switch{font-size:.62rem;gap:.2rem}}
