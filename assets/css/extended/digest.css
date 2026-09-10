@@ -71,7 +71,8 @@ body {
   word-break: normal;
 }
 
-p {
+p,
+li {
   -webkit-hyphens: auto;
   hyphens: auto;
   text-align: justify;
@@ -2434,6 +2435,11 @@ body.digest-modal-open {
 
 .archive-intro li {
   margin-bottom: .6rem;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
 }
 
 .archive-intro h2 {
@@ -2470,6 +2476,11 @@ body.digest-modal-open {
 
 .archive-intro blockquote li {
   margin-bottom: .35rem;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
 }
 
 .archive-intro a {
@@ -2798,6 +2809,10 @@ body.digest-modal-open {
   gap: .3rem;
   margin: .45rem 0 0;
   padding-left: 1rem;
+}
+
+.archive-previous-urls li {
+  text-align: left;
 }
 
 .archive-previous-urls a {
@@ -4293,12 +4308,15 @@ body.procrastinator-viewer-open { overflow: hidden; }
   letter-spacing: -.035em;
 }
 .procrastinator-entry-body h3 { margin: 2.5rem 0 1rem; font-size: 1.35rem; }
-.procrastinator-entry-body p {
+.procrastinator-entry-body p,
+.procrastinator-entry-body li {
   text-align: justify;
-  text-indent: 1.75em;
   text-justify: inter-word;
   -webkit-hyphens: auto;
   hyphens: auto;
+}
+.procrastinator-entry-body p {
+  text-indent: 1.75em;
 }
 .procrastinator-entry-body code { overflow-wrap: anywhere; }
 .procrastinator-entry-body :not(pre) > code {
@@ -4346,6 +4364,7 @@ body.procrastinator-viewer-open { overflow: hidden; }
   font-size: .64rem;
   line-height: 1.35;
   overflow-wrap: anywhere;
+  text-align: left;
 }
 
 .procrastinator-entry-body h2#horaires-de-session + ul li:nth-child(3n) { border-right: 0; }
