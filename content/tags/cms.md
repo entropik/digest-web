@@ -1,6 +1,6 @@
 ---
-title: "#cms"
-tag: "cms"
-tags: ["cms", "CMS"]
-generated_by: "curate-web-digest"
+title: "#CMS"
+tag: "CMS"
+tags: ["CMS"]
+generated_by: "digest-admin"
 ---
