@@ -2345,7 +2345,10 @@
     "description": "Rakazo is an open source Grok Bot alternative for persistent AI teammates that do real work. Your keys, your model, your machine.",
     "tags": [
       "IA"
-    ]
+    ],
+    "visibility": "hidden",
+    "visibility_reason": "editorial",
+    "hidden_at": "2026-09-11T15:23:59.931Z"
   },
   {
     "id": "54d2f114-a47e-503a-b0eb-36fa1472bd03",
