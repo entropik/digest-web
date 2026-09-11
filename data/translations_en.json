@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "e9aab05ff67c9384ba62d2609f8ca07d15799b386abec193e6d09246e24f08cf",
+  "revision": "b3520ecf06a91cba4be63d63ebed4919b1a573ddf44bc493417d46c51485e979",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -4656,6 +4656,12 @@
       "name": {
         "hash": "c106cbab49511d39e338ff321f066f9b71e2e2d3df7a99bcf958b98f9927212d",
         "text": "Command-line interface"
+      }
+    },
+    "tag:CMS": {
+      "name": {
+        "hash": "a75b20f8c11e0bd1bcecb49f1413bef1ef5a259e00ed681a8e51475537087654",
+        "text": "Content Management System"
       }
     },
     "tag:CNC": {
