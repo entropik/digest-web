@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "4d90598ae0d3b837af70c51ff2131b6403513c8ee0b8171a74dce56fa3c88d86",
+  "revision": "e9aab05ff67c9384ba62d2609f8ca07d15799b386abec193e6d09246e24f08cf",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -420,16 +420,6 @@
       "title": {
         "hash": "d8f34949661f8a40ad3ad93cd373b414145c86b4e6d5ac8d298d7fbbc74fedcc",
         "text": "Pydantic AI — end-to-end typed Python agents"
-      }
-    },
-    "link:25662d65-c338-5ebd-bb3c-f0b32a2467a3": {
-      "description": {
-        "hash": "82dbfda805bdcb0e38ce7faebac8bb834a496a18fb99373f85009b46f2df8fe3",
-        "text": "Rakazo is an open source Grok Bot alternative for persistent AI teammates that do real work. Your keys, your model, your machine."
-      },
-      "title": {
-        "hash": "dd1e217ed3f093805ed4bcc9a6a7d47eefaab7bb60909dc4d8500ca077c4a3a9",
-        "text": "Tree"
       }
     },
     "link:271642cf-33b2-5f94-97d6-44468f5a6703": {
@@ -12711,7 +12701,7 @@
     "2026-08-20": {
       "title": "Digest — 20 August 2026",
       "description": "Artificial intelligence, development, design, publishing and digital creation.",
-      "linkCount": 12,
+      "linkCount": 11,
       "editorialType": "digest"
     },
     "2026-08-24": {

@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "baseRevision": "e0c10fbd1e7795adc86d919066a2dc2512b90f564e2cf6e28fbb926fdc101d60",
-  "targetRevision": "4d90598ae0d3b837af70c51ff2131b6403513c8ee0b8171a74dce56fa3c88d86",
-  "manifestRevision": "4342d64ad0619d6c7efab79723e3caf7db5c9793675fcaf010f06a94643ff272",
+  "baseRevision": "7071590ae2e7f24e6fb7064a988e2cf6588f9336ee32c3710e02bf13bb584ac1",
+  "targetRevision": "e9aab05ff67c9384ba62d2609f8ca07d15799b386abec193e6d09246e24f08cf",
+  "manifestRevision": "592039342c11944c8bd91ce48be9c8ba434d1d82520d07e2d4ab454915347490",
   "fullBuild": false,
   "items": [
     {
@@ -84,7 +84,7 @@
       ]
     },
     {
-      "id": "tag:devops",
+      "id": "tag:DevOps",
       "fields": [
         "name"
       ]
@@ -108,6 +108,11 @@
     "/archives/2026-09-09/",
     "/tags/",
     "/tags/agents/",
+    "/tags/automatisation/",
+    "/tags/ci-cd/",
+    "/tags/configuration/",
+    "/tags/cybersecurite/",
+    "/tags/devops/",
     "/tags/ia/",
     "/tags/opensource/"
   ],
@@ -129,5 +134,5 @@
     ],
     "remove": []
   },
-  "revision": "66a9a719daecca9e67236792bddca38ddf6ffb43048aed50d44e9124dc2f97b9"
+  "revision": "14e05f336f620e0628fa059149baa65044b318dbb91183f5a9b0fc57d7abb2fa"
 }
