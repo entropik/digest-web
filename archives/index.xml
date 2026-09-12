@@ -6,8 +6,22 @@
     <description>Publications récentes de Digest</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
-    <lastBuildDate>Wed, 09 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 12 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://digest.ooblik.com/archives/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Digest — 12 septembre 2026</title>
+      <link>https://digest.ooblik.com/archives/2026-09-12/</link>
+      <pubDate>Sat, 12 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/archives/2026-09-12/</guid>
+      <description>Intelligence artificielle, développement, design, édition et création numérique.</description>
+    </item>
+    <item>
+      <title>Testé pour vous : Herdr, le multiplexeur d’agents en TUI — et pourquoi je reste sur Orca</title>
+      <link>https://digest.ooblik.com/archives/2026-09-12-herdr-vs-orca/</link>
+      <pubDate>Sat, 12 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/archives/2026-09-12-herdr-vs-orca/</guid>
+      <description>Herdr promet un tmux moderne et mouse-first dédié aux flottes d’agents dans le terminal. Après l’avoir installé, configuré et confronté à une équipe réelle (Kimi Code, Antigravity), retour d’expérience sans fard sur ses atouts, ses bugs d’accueil et la raison pour laquelle Orca reste indéboulonnable en production.</description>
+    </item>
     <item>
       <title>Après le chatbot, voici le coéquipier en app</title>
       <link>https://digest.ooblik.com/archives/2026-09-09/</link>

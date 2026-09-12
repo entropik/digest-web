@@ -2,21 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://digest.ooblik.com/archives/2026-09-09/</loc>
-    <lastmod>2026-09-09T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr-FR"
-                href="https://digest.ooblik.com/archives/2026-09-09/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-GB"
-                href="https://digest.ooblik.com/en/archives/2026-09-09/"
-                />
-  </url><url>
     <loc>https://digest.ooblik.com/archives/</loc>
-    <lastmod>2026-09-09T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-12T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
@@ -29,7 +16,7 @@
                 />
   </url><url>
     <loc>https://digest.ooblik.com/</loc>
-    <lastmod>2026-09-09T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-12T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
@@ -39,6 +26,45 @@
                 rel="alternate"
                 hreflang="en-GB"
                 href="https://digest.ooblik.com/en/"
+                />
+  </url><url>
+    <loc>https://digest.ooblik.com/archives/2026-09-12/</loc>
+    <lastmod>2026-09-12T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://digest.ooblik.com/archives/2026-09-12/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-GB"
+                href="https://digest.ooblik.com/en/archives/2026-09-12/"
+                />
+  </url><url>
+    <loc>https://digest.ooblik.com/archives/2026-09-12-herdr-vs-orca/</loc>
+    <lastmod>2026-09-12T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://digest.ooblik.com/archives/2026-09-12-herdr-vs-orca/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-GB"
+                href="https://digest.ooblik.com/en/archives/2026-09-12-herdr-vs-orca/"
+                />
+  </url><url>
+    <loc>https://digest.ooblik.com/archives/2026-09-09/</loc>
+    <lastmod>2026-09-09T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://digest.ooblik.com/archives/2026-09-09/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-GB"
+                href="https://digest.ooblik.com/en/archives/2026-09-09/"
                 />
   </url><url>
     <loc>https://digest.ooblik.com/archives/2026-09-08/</loc>
