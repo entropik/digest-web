@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "9822c143ea65391a5517324cfda51245d5f4e3c043cd4a03b93a00a3cc3900cf",
+  "revision": "b1633f30752539cac14501446ba7f9009ebff8cb5dd568753a5be8153ac8953c",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -80,6 +80,12 @@
         "text": "MiniMax"
       }
     },
+    "link:02b0e9d6-ab7d-51e9-a5e4-a96051b2a029": {
+      "title": {
+        "hash": "6b5899caa0a2c9e946892c87aa14fa4316d0b0bd47c6d9577f024b38a8d240b4",
+        "text": "Keep the Internet free"
+      }
+    },
     "link:02ec9698-3bae-5afe-bbfd-6b0671bf4d3c": {
       "description": {
         "hash": "78225794cafb27c5512ae1c2ebd0cd07ddd9047afa207e231bc709a3d61f9881",
@@ -98,6 +104,16 @@
       "title": {
         "hash": "e0b46af3a34d3b8bc0c479298b0227076408c0aab2521b33c0f229212caf350f",
         "text": "ModuloFont | Home"
+      }
+    },
+    "link:038f688f-82a2-5d49-8d0a-391388d3e99a": {
+      "description": {
+        "hash": "24541f930f233618a175273908f43c1071cb9b0931c6d1474dfe37846d964f87",
+        "text": "HarnessRouter Community Edition: the self-hosted, Apache-2.0 edition of the unified interface for agent harnesses. Run Codex, Claude Code, Hermes, PI, DSH, and more through one API, with sessions, streaming, files, cancellation, and failure handling. Implements the Unified Harness Protocol (UHP), an open standard. Your keys, your infrastructure. - HarnessRouter/harnessrouter"
+      },
+      "title": {
+        "hash": "5a6e91fae97223dd0bcff8e9ca5d919fc8167e31e405dbf7e6367e59094c4db3",
+        "text": "HarnessRouter/harnessrouter: HarnessRouter Community Edition: the self-hosted, Apache-2.0 edition of the unified interface for agent harnesses. Run Codex, Claude Code, Hermes, PI, DSH, and more through one API, with sessions, streaming, fil"
       }
     },
     "link:060268b0-51bc-56d9-a105-d9e13e184822": {
@@ -602,6 +618,12 @@
         "text": "Design Better Periodic Table"
       }
     },
+    "link:36bb8c05-890e-540b-abfb-0f4752211d80": {
+      "description": {
+        "hash": "6bde916654ac1fae3ce88020a6795d2c201ac104b16e40b75d24b50bcdd6066a",
+        "text": "Rebellion is right, disobedience is a duty, action is necessary… Open-access forums."
+      }
+    },
     "link:36f20953-2b06-579e-9417-9cd33749d277": {
       "description": {
         "hash": "272e02a6ada47d4619a3f205c4a01d1ba4e028f413c75fcca8161978b735180a",
@@ -1084,6 +1106,12 @@
         "text": "Gallery | Acid Studio Lab"
       }
     },
+    "link:5e8c3699-804a-596e-979e-d7ffc1179b96": {
+      "description": {
+        "hash": "4b2ad97656a90e5e3caeb8a69c0dcaa3f523dfdbb3a6dfcb5f491eecb4e701ee",
+        "text": "OpenCV provides a real-time optimized Computer Vision library, tools, and hardware. It also supports model execution for Machine Learning (ML) and Artificial Intelligence (AI)."
+      }
+    },
     "link:608fed03-083d-5503-abab-2b2c5e52ec8d": {
       "description": {
         "hash": "2b0d41c60d32a9ad33bb96de7d60ec4ddfec8cf59599ce128c7485a6c05ba1ad",
@@ -1292,6 +1320,16 @@
       "title": {
         "hash": "5136821e783344114cda20d077dcbbe86c1066e9f0891be88dc7e89d27039006",
         "text": "Home | Lovercase Typefaces"
+      }
+    },
+    "link:72b3abb6-5a76-5f14-bbb7-3072f8bc3e07": {
+      "description": {
+        "hash": "2918c4303da62631a7b0e6543b9567809acd49ca24c57a5a06e0e3afba151dd1",
+        "text": "Wiggle is a sandbox to run code in. Contribute to Razshy/Wiggle development by creating an account on GitHub."
+      },
+      "title": {
+        "hash": "454826e2a27983e2136f2b83736f6fbc4165b1d78c278ea30c5e848412537b68",
+        "text": "Razshy/Wiggle: Wiggle is a sandbox to run code in"
       }
     },
     "link:7412c069-0d3b-5d23-a46b-6977bfc3695b": {
@@ -1630,6 +1668,12 @@
         "text": "30 Seconds of Code — Practical articles for developers"
       }
     },
+    "link:932ebfd1-e457-53b2-a467-1e41833ff24e": {
+      "title": {
+        "hash": "3c207b7d44b4ffdd9fd78f1b516724ef169c13678023b5229a3e323a9b4dd3c1",
+        "text": "Publii: Free Open-Source Static CMS for Fast, Secure Websites"
+      }
+    },
     "link:934d468c-12ae-5249-a2a4-e468d790463f": {
       "description": {
         "hash": "8cdec5f7490ce6594f05909cfbfecac7fa7733f0bc53414d9103cf97a715b977",
@@ -1818,6 +1862,12 @@
       "title": {
         "hash": "0ca27b797604e1c462b3e5b3dc9b4510a88855633cc4360ec6ff6cb8c007e04e",
         "text": "Impeccable"
+      }
+    },
+    "link:a005e2b0-f321-53a1-897f-1bd2120d25de": {
+      "title": {
+        "hash": "559041d4a9bf3d10f43bb02d91771ff318520c2d8b0f6a898c2752caff8491aa",
+        "text": "AGENTS.md Generator | design.dev"
       }
     },
     "link:a20c8320-3c7c-51de-982f-fb6949602062": {
@@ -2752,6 +2802,12 @@
       "title": {
         "hash": "74c73f6b5dd4315824f58fc467d8fec8b9463249dadcc2d02998c59ff372d003",
         "text": "plasma-ai/fractal: Hierarchical agent loops with recursive self-organization."
+      }
+    },
+    "link:ef52dd4e-70aa-554e-a1e4-bf9e87852970": {
+      "title": {
+        "hash": "290c159769d70fc8e55445914544e70313db41931e4ab089b90de023672ca971",
+        "text": "Archify — Technical Diagrams from Plain English"
       }
     },
     "link:ef99ceaa-ea01-5c38-8f1e-204ef004c8dd": {
