@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "baseRevision": "2e8343b1bee3bdd8e212c1e48ee5aab3f8c372ca37f4a73d54a6354930af6099",
-  "targetRevision": "b3520ecf06a91cba4be63d63ebed4919b1a573ddf44bc493417d46c51485e979",
-  "manifestRevision": "ae4cd00321faa2ebb96598d6254b210ddddf8ee7cca5d5917232b35a2ff82127",
+  "baseRevision": "2fe3b1f3d34f853e80619484f161082af450ff59a857c530468fc514663ec2c3",
+  "targetRevision": "9822c143ea65391a5517324cfda51245d5f4e3c043cd4a03b93a00a3cc3900cf",
+  "manifestRevision": "859d91668dc484d69e4780430ed300aba0158b6b96959995fa83bac07289ba5a",
   "fullBuild": false,
   "items": [
     {
@@ -84,6 +84,12 @@
       ]
     },
     {
+      "id": "page:/archives/2026-09-12",
+      "fields": [
+        "description"
+      ]
+    },
+    {
       "id": "tag:CMS",
       "fields": [
         "name"
@@ -112,10 +118,12 @@
     "/archives/2026-09-02/",
     "/archives/2026-09-08/",
     "/archives/2026-09-09/",
+    "/archives/2026-09-12/",
     "/tags/",
     "/tags/agents/",
     "/tags/automatisation/",
     "/tags/ci-cd/",
+    "/tags/cms/",
     "/tags/configuration/",
     "/tags/cybersecurite/",
     "/tags/devops/",
@@ -140,5 +148,5 @@
     ],
     "remove": []
   },
-  "revision": "68f8a42cc5dc48757d9afc571569174547dc9bced548abc79c1863b452d52277"
+  "revision": "58c44656c52b30bb869fe719d2feb63f0218c7d7c871e005d265f59272272e19"
 }

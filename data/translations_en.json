@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "b3520ecf06a91cba4be63d63ebed4919b1a573ddf44bc493417d46c51485e979",
+  "revision": "9822c143ea65391a5517324cfda51245d5f4e3c043cd4a03b93a00a3cc3900cf",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -3176,6 +3176,12 @@
       "title": {
         "hash": "ead9282decfa3b9a6221d622d2fd928b0c2177ef180a30b0d7ede4c247d8fcc7",
         "text": "After the chatbot, here comes the in-app teammate"
+      }
+    },
+    "page:/archives/2026-09-12": {
+      "description": {
+        "hash": "7020c7026d8c2f38bd7960e40f85e507d1a79140762c20a8982092d9effe3b13",
+        "text": "Artificial intelligence, development, design, publishing and digital creation."
       }
     },
     "page:/confidentialite": {
