@@ -73,13 +73,30 @@
   - `2026-08-29` : `2026-03-13.jpg` (Data Processing · Ames Research Center)
   - `2026-09-02` : `2026-04-17.jpg` (Gemini 7 · Mission Control · 1965)
   - `2026-09-09` : `2026-04-16.jpg` (IBM 704 Computer Operations · 1957)
-  - `2026-09-12` : `2026-03-30.jpg` (Clifford Charlesworth · Mission Control · 1968)
+  - `2026-09-12-herdr-vs-orca` : `2026-03-30.jpg` (Clifford Charlesworth · Mission Control · 1968)
 - Pour tout nouveau dossier Focus : sélectionner un visuel inédit dans la
   collection NASA (`static/media/journal-procrastinateur/collections/v2-nasa/`),
   générer sa version 1200×800 dans `static/social/focus-archives/` via
   `admin-service/scripts/focus-archive-assets.ts`, l'ajouter à `TECHNICAL_ARCHIVES`
   et `FOCUS_ARCHIVES_BY_DATE` dans `admin-service/src/social-image.ts`, et mettre
   à jour ce registre.
+
+## Coexistence du Digest quotidien et des éditions Focus
+
+- Un billet de Digest quotidien (`content/archives/YYYY-MM-DD.md`) et un ou
+  plusieurs billets Focus (`content/archives/YYYY-MM-DD-<slug>.md`) peuvent
+  parfaitement coexister à la même date civile.
+- Le Digest quotidien porte les liens de la veille ou du jour ; ses visuels
+  sociaux sont `static/social/YYYY-MM-DD.png` et
+  `static/social/YYYY-MM-DD-linkedin.png`.
+- Chaque billet Focus porte son propre slug, son visuel d’archive NASA dédié
+  (`archive_image`), et ses propres cartes sociales
+  `static/social/YYYY-MM-DD-<slug>.png` et
+  `static/social/YYYY-MM-DD-<slug>-linkedin.png`.
+- Pour restreindre les liens affichés en bas d’un Focus aux seules ressources
+  citées dans l’article, déclarer `link_urls: ["..."]` dans le front matter. En
+  l’absence de cette clé sur un billet sluggué, aucun lien sans rapport n’est
+  hérité du Digest quotidien du même jour.
 
 ## Direction de l’interface
 

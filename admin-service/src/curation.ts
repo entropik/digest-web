@@ -1479,15 +1479,18 @@ export class CurationService {
       .filter(
         (item) =>
           item.type === "file" &&
-          /^\d{4}-\d{2}-\d{2}\.md$/.test(item.name),
+          /^\d{4}-\d{2}-\d{2}(-[a-z0-9-]+)?\.md$/.test(item.name),
       )
       .map((item) => {
+        const id = item.name.replace(/\.md$/, "");
         const date = item.name.slice(0, 10);
         const links = head.links.filter((link) => link.added === date);
         const visibleLinkCount = links.filter(
           (link) => link.visibility !== "hidden",
         ).length;
+        const isStandard = id === date;
         return {
+          ...(isStandard ? {} : { id }),
           date,
           state: visibleLinkCount === 0 ? "draft" as const : "published" as const,
           linkCount: links.length,
@@ -1501,15 +1504,16 @@ export class CurationService {
       .reverse();
   }
 
-  async getEdition(date: string) {
-    if (!validDate(date)) throw new CurationError("INVALID_DIGEST_DATE");
+  async getEdition(dateOrId: string) {
+    if (!/^\d{4}-\d{2}-\d{2}(-[a-z0-9-]+)?$/.test(dateOrId)) throw new CurationError("INVALID_DIGEST_DATE");
     const head = await this.edition.readRepositoryHead();
     const source = await this.edition.tryReadRepositoryFile(
-      editionPath(date),
+      editionPath(dateOrId),
       head.commitSha,
     );
     if (!source) throw new CurationError("EDITION_NOT_FOUND", 404);
     const edition = parseEdition(source);
+    const date = dateOrId.slice(0, 10);
     const links = head.links.filter((link) => link.added === date);
     const visibleLinkCount = links.filter(
       (link) => link.visibility !== "hidden",

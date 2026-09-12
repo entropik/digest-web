@@ -22,6 +22,18 @@
     {{- $pageLinks := slice -}}
     {{- with .Params.digest_date -}}
       {{- $pageLinks = index $linksByDate . | default slice -}}
+      {{- with $page.Params.link_urls -}}
+        {{- $allowed := . -}}
+        {{- $filtered := slice -}}
+        {{- range $pageLinks -}}
+          {{- if in $allowed .url -}}{{- $filtered = $filtered | append . -}}{{- end -}}
+        {{- end -}}
+        {{- $pageLinks = $filtered -}}
+      {{- else -}}
+        {{- if and (eq ($page.Params.editorial_type | default "digest") "focus") (ne $page.File.BaseFileName .) -}}
+          {{- $pageLinks = slice -}}
+        {{- end -}}
+      {{- end -}}
     {{- else with .Params.stream -}}
       {{- $pageLinks = where $links "stream" . -}}
     {{- else with .Params.tag -}}

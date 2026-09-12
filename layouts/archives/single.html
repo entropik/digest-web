@@ -4,6 +4,20 @@
 {{ $displayTitle := cond $isFocus (printf "FOCUS - %s" .Title) (partial "archive-title.html" .Title | plainify | htmlUnescape) }}
 {{ $linksByDate := partialCached "public-links-by-date.html" hugo.Data.links "public-links-by-date" site.Language.Lang }}
 {{ $links := index $linksByDate $digestDate | default slice }}
+{{ with .Params.link_urls }}
+  {{ $allowed := . }}
+  {{ $filtered := slice }}
+  {{ range $links }}
+    {{ if in $allowed .url }}
+      {{ $filtered = $filtered | append . }}
+    {{ end }}
+  {{ end }}
+  {{ $links = $filtered }}
+{{ else }}
+  {{ if and $isFocus (ne .File.BaseFileName $digestDate) }}
+    {{ $links = slice }}
+  {{ end }}
+{{ end }}
 {{ $categories := slice }}
 {{ $tags := slice }}
 {{ $socialImage := "" }}
@@ -28,9 +42,18 @@
     {{ end }}
   {{ end }}
 {{ end }}
-{{ $linkedinImagePath := printf "static/social/%s-linkedin.png" $digestDate }}
-{{ if and (eq site.Language.Lang "en") .Params.translation_artwork_current (fileExists (printf "static/social/en/%s-linkedin.png" $digestDate)) }}
-  {{ $linkedinImagePath = printf "static/social/en/%s-linkedin.png" $digestDate }}
+{{ $archiveSlug := .File.BaseFileName }}
+{{ $linkedinImagePath := printf "static/social/%s-linkedin.png" $archiveSlug }}
+{{ if and (eq site.Language.Lang "en") .Params.translation_artwork_current (fileExists (printf "static/social/en/%s-linkedin.png" $archiveSlug)) }}
+  {{ $linkedinImagePath = printf "static/social/en/%s-linkedin.png" $archiveSlug }}
+{{ else if not (fileExists $linkedinImagePath) }}
+  {{ $fallbackPath := printf "static/social/%s-linkedin.png" $digestDate }}
+  {{ if and (eq site.Language.Lang "en") .Params.translation_artwork_current (fileExists (printf "static/social/en/%s-linkedin.png" $digestDate)) }}
+    {{ $fallbackPath = printf "static/social/en/%s-linkedin.png" $digestDate }}
+  {{ end }}
+  {{ if fileExists $fallbackPath }}
+    {{ $linkedinImagePath = $fallbackPath }}
+  {{ end }}
 {{ end }}
 {{ if fileExists $linkedinImagePath }}
   {{ $linkedinImage = strings.TrimPrefix "static" $linkedinImagePath }}

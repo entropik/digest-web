@@ -14,6 +14,20 @@
     {{ $digestDate := .Params.digest_date }}
     {{ $isFocus := eq (.Params.editorial_type | default "digest") "focus" }}
     {{ $links := index $linksByDate $digestDate | default slice }}
+    {{ with .Params.link_urls }}
+      {{ $allowed := . }}
+      {{ $filtered := slice }}
+      {{ range $links }}
+        {{ if in $allowed .url }}
+          {{ $filtered = $filtered | append . }}
+        {{ end }}
+      {{ end }}
+      {{ $links = $filtered }}
+    {{ else }}
+      {{ if and $isFocus (ne .File.BaseFileName $digestDate) }}
+        {{ $links = slice }}
+      {{ end }}
+    {{ end }}
     {{ $categories := slice }}
     {{ range $links }}
       {{ $categories = $categories | append .category }}

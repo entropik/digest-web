@@ -30,13 +30,13 @@ const scalar = (frontMatter: string, key: string): string => {
   return value;
 };
 
-const withSocialImage = (source: string, digestDate: string): string => {
+const withSocialImage = (source: string, slug: string): string => {
   const match = source.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-  if (!match) throw new Error(`Missing front matter for ${digestDate}`);
-  const image = `/social/${digestDate}.png`;
+  if (!match) throw new Error(`Missing front matter for ${slug}`);
+  const image = `/social/${slug}.png`;
   if (match[1]!.includes(image)) return source;
   if (/^images:\s*$/m.test(match[1]!)) {
-    throw new Error(`An unrelated images list already exists for ${digestDate}`);
+    throw new Error(`An unrelated images list already exists for ${slug}`);
   }
   const updated = `${match[1]}\nimages:\n  - ${JSON.stringify(image)}`;
   return `${source.slice(0, match.index!)}---\n${updated}\n---${source.slice(match.index! + match[0].length)}`;
@@ -52,8 +52,8 @@ const concurrency = Number.isFinite(requestedConcurrency)
   : 6;
 
 const archiveFiles = (await readdir(archiveDirectory))
-  .filter((file) => /^\d{4}-\d{2}-\d{2}\.md$/.test(file))
-  .filter((file) => !requestedDate || file === `${requestedDate}.md`)
+  .filter((file) => /^\d{4}-\d{2}-\d{2}(-[a-z0-9-]+)?\.md$/.test(file))
+  .filter((file) => !requestedDate || file.startsWith(requestedDate))
   .sort();
 const catalog = JSON.parse(
   await readFile(resolve("../data/links.json"), "utf8"),
@@ -78,12 +78,14 @@ const worker = async (): Promise<void> => {
     const path = resolve(archiveDirectory, file);
     const source = await readFile(path, "utf8");
     const frontMatter = source.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? "";
-    const digestDate = scalar(frontMatter, "digest_date") || basename(file, ".md");
+    const slug = basename(file, ".md");
+    const calendarDate = scalar(frontMatter, "digest_date") || slug.slice(0, 10);
+    const digestDate = slug;
     const input: SocialImageInput = {
       digestDate,
-      title: scalar(frontMatter, "title") || digestDate,
+      title: scalar(frontMatter, "title") || calendarDate,
       description: scalar(frontMatter, "description") || "Archive du Digest Ooblik.",
-      linkCount: linksByDate.get(digestDate) ?? 0,
+      linkCount: linksByDate.get(calendarDate) ?? 0,
       editorialType: scalar(frontMatter, "editorial_type") === "focus" ? "focus" : "digest",
     };
     const destination = resolve(socialDirectory, `${digestDate}.png`);
@@ -118,7 +120,7 @@ const worker = async (): Promise<void> => {
       }
     }
 
-    const updatedSource = withSocialImage(source, digestDate);
+    const updatedSource = withSocialImage(source, slug);
     if (updatedSource !== source) {
       await writeFile(path, updatedSource);
       updatedFrontMatter += 1;

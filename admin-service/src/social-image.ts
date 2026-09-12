@@ -58,6 +58,7 @@ export const FOCUS_ARCHIVES_BY_DATE: Record<string, string> = {
   "2026-09-02": "social/focus-archives/2026-04-17.jpg",
   "2026-09-09": "social/focus-archives/2026-04-16.jpg",
   "2026-09-12": "social/focus-archives/2026-03-30.jpg",
+  "2026-09-12-herdr-vs-orca": "social/focus-archives/2026-03-30.jpg",
 };
 
 type Atmosphere = {
@@ -91,7 +92,7 @@ const integer = (min: number, max: number, random: () => number): number =>
   Math.floor(random() * (max - min + 1)) + min;
 
 const formattedDate = (digestDate: string, locale = "fr-FR"): string => {
-  const [year, month, day] = digestDate.split("-").map(Number);
+  const [year, month, day] = digestDate.slice(0, 10).split("-").map(Number);
   const date = new Date(Date.UTC(year!, month! - 1, day!));
   return new Intl.DateTimeFormat(locale, {
     day: "2-digit",
@@ -415,7 +416,9 @@ const brokenGrid = (
 };
 
 const technicalArchive = (seed: number, digestDate?: string) => {
-  const mappedFile = digestDate ? FOCUS_ARCHIVES_BY_DATE[digestDate] : undefined;
+  const mappedFile = digestDate
+    ? (FOCUS_ARCHIVES_BY_DATE[digestDate] ?? FOCUS_ARCHIVES_BY_DATE[digestDate.slice(0, 10)])
+    : undefined;
   const archive = (mappedFile ? TECHNICAL_ARCHIVES.find((a) => a.file === mappedFile) : undefined)
     ?? TECHNICAL_ARCHIVES[seed % TECHNICAL_ARCHIVES.length]!;
   const source = readFileSync(resolve(process.cwd(), "../static", archive.file));

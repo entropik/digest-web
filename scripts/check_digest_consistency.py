@@ -13,6 +13,7 @@ from pathlib import Path
 
 
 DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+ARCHIVE_FILENAME_PATTERN = re.compile(r"^(\d{4}-\d{2}-\d{2})(?:-([a-z0-9-]+))?$")
 FRONT_MATTER_PATTERN = re.compile(r"^---\s*$")
 BLOG_MEDIA_PATTERN = re.compile(
     r"^/media/blog-ooblik/(?P<year>\d{4})/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.webp$"
@@ -161,17 +162,24 @@ def validate(site: Path) -> list[str]:
             visible_link_dates[added] += 1
 
     archive_dates: set[str] = set()
+    primary_archive_dates: set[str] = set()
+    focus_dates: set[str] = set()
     archive_drafts: dict[str, bool] = {}
+
     for archive_path in sorted(archives_dir.glob("*.md")):
-        if archive_path.name == "_index.md":
+        if archive_path.name in ("_index.md", "_index.en.md"):
             continue
 
-        filename_date = archive_path.stem
-        if not DATE_PATTERN.fullmatch(filename_date):
+        match = ARCHIVE_FILENAME_PATTERN.fullmatch(archive_path.stem)
+        if not match:
             errors.append(
-                f"{archive_path}: le nom doit respecter content/archives/YYYY-MM-DD.md"
+                f"{archive_path}: le nom doit respecter content/archives/YYYY-MM-DD.md "
+                f"ou content/archives/YYYY-MM-DD-<slug>.md"
             )
             continue
+
+        file_date = match.group(1)
+        file_slug = match.group(2)
 
         try:
             params = parse_front_matter(archive_path)
@@ -180,14 +188,24 @@ def validate(site: Path) -> list[str]:
             continue
 
         digest_date = params.get("digest_date", "")
-        if digest_date != filename_date:
+        if digest_date != file_date:
             errors.append(
-                f"{archive_path}: digest_date={digest_date!r}, attendu {filename_date!r}"
+                f"{archive_path}: digest_date={digest_date!r}, attendu {file_date!r}"
             )
         if not params.get("title"):
             errors.append(f"{archive_path}: title manquant")
-        archive_dates.add(filename_date)
-        archive_drafts[filename_date] = params.get("draft", "").lower() == "true"
+
+        editorial_type = params.get("editorial_type", "digest")
+        is_focus = editorial_type == "focus"
+        if is_focus or file_slug:
+            focus_dates.add(file_date)
+        else:
+            primary_archive_dates.add(file_date)
+            archive_drafts[file_date] = params.get("draft", "").lower() == "true"
+
+        archive_dates.add(file_date)
+        if file_date not in archive_drafts:
+            archive_drafts[file_date] = params.get("draft", "").lower() == "true"
 
     for missing_date in sorted(set(link_dates) - archive_dates):
         errors.append(
@@ -195,12 +213,12 @@ def validate(site: Path) -> list[str]:
             f"({link_dates[missing_date]} liens)"
         )
 
-    for orphan_date in sorted(archive_dates - set(link_dates)):
+    for orphan_date in sorted(primary_archive_dates - set(link_dates) - focus_dates):
         errors.append(
             f"édition orpheline: content/archives/{orphan_date}.md ne possède aucun lien"
         )
 
-    for date in sorted(archive_dates & set(link_dates)):
+    for date in sorted(primary_archive_dates & set(link_dates)):
         markdown_is_draft = archive_drafts[date]
         catalog_is_draft = visible_link_dates[date] == 0
         if markdown_is_draft != catalog_is_draft:
