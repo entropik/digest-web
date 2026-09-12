@@ -7,7 +7,7 @@ images:
   - "/social/2026-09-12-herdr-vs-orca.png"
 archive_image: "/social/focus-archives/2026-03-30.jpg"
 link_urls:
-  - "https://github.com/the-herdr/herdr"
+  - "https://github.com/herdrdev/herdr"
 description: "Herdr promet un tmux moderne et mouse-first dédié aux flottes d’agents dans le terminal. Après l’avoir installé, configuré et confronté à une équipe réelle (Kimi Code, Antigravity), retour d’expérience sans fard sur ses atouts, ses bugs d’accueil et la raison pour laquelle Orca reste indéboulonnable en production."
 ---
 
