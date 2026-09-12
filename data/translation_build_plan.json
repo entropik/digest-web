@@ -1,49 +1,30 @@
 {
   "version": 1,
-  "baseRevision": "ee4af502217690e89e6f72c89fd9b2c077475542467a9be3cb4cb8e21cb1b0d3",
-  "targetRevision": "da67c1ae7e8030bc5f7d9c9864e6557dc34fa5034510ef514173ca1aced5c03c",
+  "baseRevision": "80312d392af7f21951e3739ecc151f91b1c2ac12eedf54e0e13425dd38e4f22e",
+  "targetRevision": "c6d867e35b66ab830e97a539fa8f0b3a61b91f74351785c3b78340f3d6984ca5",
   "manifestRevision": "859d91668dc484d69e4780430ed300aba0158b6b96959995fa83bac07289ba5a",
   "fullBuild": false,
   "items": [
     {
+      "id": "link:02b0e9d6-ab7d-51e9-a5e4-a96051b2a029",
+      "fields": [
+        "description"
+      ]
+    },
+    {
+      "id": "link:36bb8c05-890e-540b-abfb-0f4752211d80",
+      "fields": [
+        "title"
+      ]
+    },
+    {
       "id": "link:57aa3ca1-df8d-56d7-aaf3-2879b2ed0fcd",
       "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:5e8c3699-804a-596e-979e-d7ffc1179b96",
-      "fields": [
         "title"
-      ]
-    },
-    {
-      "id": "link:932ebfd1-e457-53b2-a467-1e41833ff24e",
-      "fields": [
-        "description"
-      ]
-    },
-    {
-      "id": "link:9d0efb31-b0b8-5037-9382-efb407bdcc5c",
-      "fields": [
-        "description",
-        "title"
-      ]
-    },
-    {
-      "id": "link:a005e2b0-f321-53a1-897f-1bd2120d25de",
-      "fields": [
-        "description"
       ]
     },
     {
       "id": "link:ce12260b-706d-571d-8727-a107f63bc27d",
-      "fields": [
-        "title"
-      ]
-    },
-    {
-      "id": "link:ef52dd4e-70aa-554e-a1e4-bf9e87852970",
       "fields": [
         "description"
       ]
@@ -129,8 +110,7 @@
     {
       "id": "page:/archives/2026-09-12",
       "fields": [
-        "body",
-        "title"
+        "$artwork"
       ]
     },
     {
@@ -168,17 +148,14 @@
     "/tags/automatisation/",
     "/tags/ci-cd/",
     "/tags/cms/",
-    "/tags/code/",
     "/tags/configuration/",
     "/tags/cybersecurite/",
-    "/tags/design-system/",
-    "/tags/design/",
     "/tags/devops/",
-    "/tags/ia-locale/",
     "/tags/ia/",
     "/tags/llm/",
     "/tags/opensource/",
-    "/tags/ui/"
+    "/tags/politique/",
+    "/tags/societe/"
   ],
   "artwork": {
     "upsert": [
@@ -199,5 +176,5 @@
     ],
     "remove": []
   },
-  "revision": "83da0ec864d0bbd4286de24e5cdef0dde2d7d1b2164e616802bbbfa083c22afb"
+  "revision": "ca47512d068c89b2c33ea0163c6fc3693148087abb22eede75abd7fa2e632d81"
 }

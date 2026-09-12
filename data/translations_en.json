@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "da67c1ae7e8030bc5f7d9c9864e6557dc34fa5034510ef514173ca1aced5c03c",
+  "revision": "c6d867e35b66ab830e97a539fa8f0b3a61b91f74351785c3b78340f3d6984ca5",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -81,6 +81,10 @@
       }
     },
     "link:02b0e9d6-ab7d-51e9-a5e4-a96051b2a029": {
+      "description": {
+        "hash": "f601b524260a8b0f7bb48fd0850fd0004162a446fd8193e43b2e7e9cb1c5d79f",
+        "text": "We are not terrorists. Autistici.org is an infrastructure of dissent"
+      },
       "title": {
         "hash": "6b5899caa0a2c9e946892c87aa14fa4316d0b0bd47c6d9577f024b38a8d240b4",
         "text": "Keep the Internet free"
@@ -622,6 +626,10 @@
       "description": {
         "hash": "6bde916654ac1fae3ce88020a6795d2c201ac104b16e40b75d24b50bcdd6066a",
         "text": "Rebellion is right, disobedience is a duty, action is necessary… Open-access forums."
+      },
+      "title": {
+        "hash": "eca2b7ca858c5dc84b5b8da5df9aac70008ddfc839bfa0536364fb0707bff74c",
+        "text": "Bellaciao – An alternative social network, since 1999: rebellion is right, disobedience is a duty, action is essential!"
       }
     },
     "link:36f20953-2b06-579e-9417-9cd33749d277": {
@@ -1064,6 +1072,10 @@
       "description": {
         "hash": "7e4217400720d2e01ce03271f774e2304dbd9db0cf1beb4a61abbfffaf693a28",
         "text": "Through his classes, workshops and talks, Fabrice Cottez helps you achieve your goals and develop your instinct as a baker."
+      },
+      "title": {
+        "hash": "dc31a576fe3695815a2f49a03d3ec403c711d8230c9e4ed1762041c966b96e28",
+        "text": "Pas à Pas Bakery – The bakery right on your doorstep!"
       }
     },
     "link:58ed9520-8cea-54c1-b376-5d62265e4837": {
@@ -2371,6 +2383,10 @@
       }
     },
     "link:ce12260b-706d-571d-8727-a107f63bc27d": {
+      "description": {
+        "hash": "f69c9575a24d1581d29a0f9fbbb22d7ac53b75cc89b68bbee3662f88df27353b",
+        "text": "Any model. Any hardware. Zero compromise. Built with @ziglang / @openxla / MLIR / @bazelbuild - zml/zml"
+      },
       "title": {
         "hash": "9f2dcd239c9b096fd5936a754161b2b91c965ff2b9d9b7ed76b027985436af85",
         "text": "zml/zml: Any model. Any hardware. Zero compromise. Built with @ziglang / @openxla / MLIR / @bazelbuild"
