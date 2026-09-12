@@ -2,7 +2,13 @@ import { mkdir } from "node:fs/promises";
 import { resolve } from "node:path";
 import sharp from "sharp";
 
-const dates = ["2026-03-12", "2026-03-13", "2026-04-16", "2026-04-17"];
+const dates = [
+  "2026-03-12",
+  "2026-03-13",
+  "2026-04-16",
+  "2026-04-17",
+  "2026-03-30",
+];
 const sourceDirectory = resolve(
   "../static/media/journal-procrastinateur/collections/v2-nasa",
 );

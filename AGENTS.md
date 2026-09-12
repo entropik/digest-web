@@ -60,6 +60,27 @@
   commit effectivement déployé, puis vérifier que la même version apparaît dans
   le pied de page public et dans l’en-tête de l’administration.
 
+## Visuels des dossiers Focus
+
+- Chaque édition Focus doit obligatoirement avoir son propre visuel d’archive
+  technique historique (`archive_image`), sans jamais réutiliser un visuel déjà
+  assigné à une édition précédente.
+- Avant de choisir un visuel, vérifier la liste des visuels déjà attribués dans
+  `content/archives/*.md` et dans `FOCUS_ARCHIVES_BY_DATE` de
+  `admin-service/src/social-image.ts`.
+- Registre des visuels Focus utilisés :
+  - `2026-08-28` : `2026-03-12.jpg` (Christine Darden · Computer Room · 1973)
+  - `2026-08-29` : `2026-03-13.jpg` (Data Processing · Ames Research Center)
+  - `2026-09-02` : `2026-04-17.jpg` (Gemini 7 · Mission Control · 1965)
+  - `2026-09-09` : `2026-04-16.jpg` (IBM 704 Computer Operations · 1957)
+  - `2026-09-12` : `2026-03-30.jpg` (Clifford Charlesworth · Mission Control · 1968)
+- Pour tout nouveau dossier Focus : sélectionner un visuel inédit dans la
+  collection NASA (`static/media/journal-procrastinateur/collections/v2-nasa/`),
+  générer sa version 1200×800 dans `static/social/focus-archives/` via
+  `admin-service/scripts/focus-archive-assets.ts`, l'ajouter à `TECHNICAL_ARCHIVES`
+  et `FOCUS_ARCHIVES_BY_DATE` dans `admin-service/src/social-image.ts`, et mettre
+  à jour ce registre.
+
 ## Direction de l’interface
 
 - L’identité visuelle s’inspire de la rigueur du style typographique suisse et

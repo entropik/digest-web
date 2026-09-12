@@ -1,5 +1,21 @@
 [
   {
+    "id": "59d5f658-0dc0-4209-baa8-1a9fb5304243",
+    "title": "Herdr — le multiplexeur d’agents dans le terminal",
+    "url": "https://github.com/herdrdev/herdr",
+    "category": "IA & Agents",
+    "added": "2026-09-12",
+    "description": "Un multiplexeur de terminal open source (Apache-2.0) pensé pour les agents IA : persistance des panneaux, navigation mouse-first et intégrations par hooks pour remonter l’état réel d’exécution.",
+    "tags": [
+      "IA",
+      "agents",
+      "terminal",
+      "TUI",
+      "opensource",
+      "CLI"
+    ]
+  },
+  {
     "id": "ce12260b-706d-571d-8727-a107f63bc27d",
     "title": "zml/zml: Any model. Any hardware. Zero compromise. Built with @ziglang / @openxla / MLIR / @bazelbuild",
     "url": "https://github.com/zml/zml",

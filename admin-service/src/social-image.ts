@@ -46,7 +46,19 @@ const TECHNICAL_ARCHIVES = [
     file: "social/focus-archives/2026-04-17.jpg",
     label: "GEMINI 7 · MISSION CONTROL · 1965",
   },
+  {
+    file: "social/focus-archives/2026-03-30.jpg",
+    label: "CLIFFORD CHARLESWORTH · MISSION CONTROL · 1968",
+  },
 ] as const;
+
+export const FOCUS_ARCHIVES_BY_DATE: Record<string, string> = {
+  "2026-08-28": "social/focus-archives/2026-03-12.jpg",
+  "2026-08-29": "social/focus-archives/2026-03-13.jpg",
+  "2026-09-02": "social/focus-archives/2026-04-17.jpg",
+  "2026-09-09": "social/focus-archives/2026-04-16.jpg",
+  "2026-09-12": "social/focus-archives/2026-03-30.jpg",
+};
 
 type Atmosphere = {
   accidents: string;
@@ -402,8 +414,10 @@ const brokenGrid = (
     })}`;
 };
 
-const technicalArchive = (seed: number) => {
-  const archive = TECHNICAL_ARCHIVES[seed % TECHNICAL_ARCHIVES.length]!;
+const technicalArchive = (seed: number, digestDate?: string) => {
+  const mappedFile = digestDate ? FOCUS_ARCHIVES_BY_DATE[digestDate] : undefined;
+  const archive = (mappedFile ? TECHNICAL_ARCHIVES.find((a) => a.file === mappedFile) : undefined)
+    ?? TECHNICAL_ARCHIVES[seed % TECHNICAL_ARCHIVES.length]!;
   const source = readFileSync(resolve(process.cwd(), "../static", archive.file));
   return {
     ...archive,
@@ -444,7 +458,7 @@ const focusSocialImageSvg = (
   input: SocialImageInput,
 ): { svg: string; family: SocialImageFamily; accent: string } => {
   const seed = seedFrom(`focus:${input.digestDate}:${input.title}:${input.description}`);
-  const archive = technicalArchive(seed);
+  const archive = technicalArchive(seed, input.digestDate);
   const accent = FOCUS_ACCENTS[(seed >>> 8) % FOCUS_ACCENTS.length]!;
   const topic = wrap(input.title.replace(/\s+:/g, ":"), 25, 4);
   const titleY = 255 + (4 - topic.length) * 39;
@@ -473,7 +487,7 @@ const focusLinkedInImageSvg = (
   input: SocialImageInput,
 ): { svg: string; family: SocialImageFamily; accent: string } => {
   const seed = seedFrom(`focus:${input.digestDate}:${input.title}:${input.description}`);
-  const archive = technicalArchive(seed);
+  const archive = technicalArchive(seed, input.digestDate);
   const accent = FOCUS_ACCENTS[(seed >>> 8) % FOCUS_ACCENTS.length]!;
   const topic = wrap(input.title.replace(/\s+:/g, ":"), 22, 4);
   const titleY = 650 + (4 - topic.length) * 52;
