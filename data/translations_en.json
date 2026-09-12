@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "b1633f30752539cac14501446ba7f9009ebff8cb5dd568753a5be8153ac8953c",
+  "revision": "da67c1ae7e8030bc5f7d9c9864e6557dc34fa5034510ef514173ca1aced5c03c",
   "entries": {
     "category:Archives du blog OOBLIK": {
       "description": {
@@ -1060,6 +1060,12 @@
         "text": "rlouf/zeta: Agent operating system"
       }
     },
+    "link:57aa3ca1-df8d-56d7-aaf3-2879b2ed0fcd": {
+      "description": {
+        "hash": "7e4217400720d2e01ce03271f774e2304dbd9db0cf1beb4a61abbfffaf693a28",
+        "text": "Through his classes, workshops and talks, Fabrice Cottez helps you achieve your goals and develop your instinct as a baker."
+      }
+    },
     "link:58ed9520-8cea-54c1-b376-5d62265e4837": {
       "description": {
         "hash": "343a90c53a4c7d26663681cdadd9abfded1785c9a58aeca3211748ff98041883",
@@ -1110,6 +1116,10 @@
       "description": {
         "hash": "4b2ad97656a90e5e3caeb8a69c0dcaa3f523dfdbb3a6dfcb5f491eecb4e701ee",
         "text": "OpenCV provides a real-time optimized Computer Vision library, tools, and hardware. It also supports model execution for Machine Learning (ML) and Artificial Intelligence (AI)."
+      },
+      "title": {
+        "hash": "897e6ba27adbb8038234a58f6b2c373c6bdf057065c6dd425a4e40b0f6f69a4c",
+        "text": "OpenCV - Open Computer Vision Library"
       }
     },
     "link:608fed03-083d-5503-abab-2b2c5e52ec8d": {
@@ -1669,6 +1679,10 @@
       }
     },
     "link:932ebfd1-e457-53b2-a467-1e41833ff24e": {
+      "description": {
+        "hash": "714476b85bbfbc82cdff494ff0563fd14e9b1a4da9654f4a915876e55ebee3fa",
+        "text": "Publii is a free, open-source desktop CMS for static websites. Write locally, publish to any host - no database, no PHP, no admin panel, no tracking by default."
+      },
       "title": {
         "hash": "3c207b7d44b4ffdd9fd78f1b516724ef169c13678023b5229a3e323a9b4dd3c1",
         "text": "Publii: Free Open-Source Static CMS for Fast, Secure Websites"
@@ -1804,6 +1818,16 @@
         "text": "Nuxt AI Agent Reviews"
       }
     },
+    "link:9d0efb31-b0b8-5037-9382-efb407bdcc5c": {
+      "description": {
+        "hash": "cdc0b221e3e63101e7487a55f7e1dffba658b074ee08c15e6b66d9161f321a4c",
+        "text": "ZML is a production inference stack, purpose-built to decouple AI workloads from proprietary hardware."
+      },
+      "title": {
+        "hash": "b75755fbdfbcc9fab21db5533af3c132cddd7abc199e0906e1fc5d94363113d0",
+        "text": "Posts | ZML - Model to Metal"
+      }
+    },
     "link:9d7dfa22-e16e-5fef-88ba-2622d822fcd6": {
       "description": {
         "hash": "a056bb8b1268ab840ed79d5afc9b31d3d520dd1e494fcf72b27ad13622872ba0",
@@ -1865,6 +1889,10 @@
       }
     },
     "link:a005e2b0-f321-53a1-897f-1bd2120d25de": {
+      "description": {
+        "hash": "cc57fd5bc977242e66ff38e8d51c0617e0423a90558f64f70cfb6a88cc1f405a",
+        "text": "Generate an AGENTS.md file — the universal markdown spec read by Codex, Cursor, Amp, Aider, Jules, and other AI coding agents. Stack-aware defaults included."
+      },
       "title": {
         "hash": "559041d4a9bf3d10f43bb02d91771ff318520c2d8b0f6a898c2752caff8491aa",
         "text": "AGENTS.md Generator | design.dev"
@@ -2342,6 +2370,12 @@
         "text": "COUNTER-PRINT"
       }
     },
+    "link:ce12260b-706d-571d-8727-a107f63bc27d": {
+      "title": {
+        "hash": "9f2dcd239c9b096fd5936a754161b2b91c965ff2b9d9b7ed76b027985436af85",
+        "text": "zml/zml: Any model. Any hardware. Zero compromise. Built with @ziglang / @openxla / MLIR / @bazelbuild"
+      }
+    },
     "link:ce5e56c6-63bd-57e8-b2f3-b7a309589e58": {
       "description": {
         "hash": "4883878827dca407c68db4eb4ada2e68396bb719964c3a7dc380949a85a29679",
@@ -2805,6 +2839,10 @@
       }
     },
     "link:ef52dd4e-70aa-554e-a1e4-bf9e87852970": {
+      "description": {
+        "hash": "76b254445546f3d4939976eb155955b4772cd40539ac07565191d9373d3b324f",
+        "text": "An agent skill for Cursor, Claude Code, Codex CLI, and OpenCode that turns plain-English descriptions into polished, explorable, self-contained technical diagrams with semantic focus, motion, and crisp export."
+      },
       "title": {
         "hash": "290c159769d70fc8e55445914544e70313db41931e4ab089b90de023672ca971",
         "text": "Archify — Technical Diagrams from Plain English"
@@ -3235,9 +3273,17 @@
       }
     },
     "page:/archives/2026-09-12": {
+      "body": {
+        "hash": "da607fe531d806b64b10afc2f48c53d071e467eb85a70b1055fea79533a1888e",
+        "text": "<p>A mini Saturday Digest…</p>\n"
+      },
       "description": {
         "hash": "7020c7026d8c2f38bd7960e40f85e507d1a79140762c20a8982092d9effe3b13",
         "text": "Artificial intelligence, development, design, publishing and digital creation."
+      },
+      "title": {
+        "hash": "c7b3016a9ebbf91dee9c1d0b48c9508b97553fbe0d7e6a27f42d0ff581c8baec",
+        "text": "Digest — 12 September 2026"
       }
     },
     "page:/confidentialite": {
@@ -12825,6 +12871,12 @@
       "description": "For three years, AI amounted to nothing more than a fleeting dialogue box. The launch of Grok Bot and the response from OpenMausBot, Rakazo and OpenWorker are ushering in a new model: a messaging service featuring permanent bots equipped with virtual machines, capable of running in the background.",
       "linkCount": 6,
       "editorialType": "focus"
+    },
+    "2026-09-12": {
+      "title": "Digest — 12 September 2026",
+      "description": "Artificial intelligence, development, design, publishing and digital creation.",
+      "linkCount": 11,
+      "editorialType": "digest"
     }
   }
 }
