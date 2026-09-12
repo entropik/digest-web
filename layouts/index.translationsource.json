@@ -23,12 +23,18 @@
     {{- with .Params.digest_date -}}
       {{- $pageLinks = index $linksByDate . | default slice -}}
       {{- with $page.Params.link_urls -}}
-        {{- $allowed := . -}}
-        {{- $filtered := slice -}}
-        {{- range $pageLinks -}}
-          {{- if in $allowed .url -}}{{- $filtered = $filtered | append . -}}{{- end -}}
+        {{- $allPublic := where hugo.Data.links "visibility" "ne" "hidden" -}}
+        {{- $linkMap := dict -}}
+        {{- range $allPublic -}}
+          {{- $linkMap = merge $linkMap (dict .url .) -}}
         {{- end -}}
-        {{- $pageLinks = $filtered -}}
+        {{- $resolved := slice -}}
+        {{- range . -}}
+          {{- with index $linkMap . -}}
+            {{- $resolved = $resolved | append . -}}
+          {{- end -}}
+        {{- end -}}
+        {{- $pageLinks = $resolved -}}
       {{- else -}}
         {{- if and (eq ($page.Params.editorial_type | default "digest") "focus") (ne $page.File.BaseFileName .) -}}
           {{- $pageLinks = slice -}}

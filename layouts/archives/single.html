@@ -5,14 +5,18 @@
 {{ $linksByDate := partialCached "public-links-by-date.html" hugo.Data.links "public-links-by-date" site.Language.Lang }}
 {{ $links := index $linksByDate $digestDate | default slice }}
 {{ with .Params.link_urls }}
-  {{ $allowed := . }}
-  {{ $filtered := slice }}
-  {{ range $links }}
-    {{ if in $allowed .url }}
-      {{ $filtered = $filtered | append . }}
+  {{ $allPublic := where hugo.Data.links "visibility" "ne" "hidden" }}
+  {{ $linkMap := dict }}
+  {{ range $allPublic }}
+    {{ $linkMap = merge $linkMap (dict .url .) }}
+  {{ end }}
+  {{ $resolved := slice }}
+  {{ range . }}
+    {{ with index $linkMap . }}
+      {{ $resolved = $resolved | append . }}
     {{ end }}
   {{ end }}
-  {{ $links = $filtered }}
+  {{ $links = $resolved }}
 {{ else }}
   {{ if and $isFocus (ne .File.BaseFileName $digestDate) }}
     {{ $links = slice }}

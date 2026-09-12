@@ -8,6 +8,7 @@ images:
 archive_image: "/social/focus-archives/2026-03-30.jpg"
 link_urls:
   - "https://github.com/herdrdev/herdr"
+  - "https://github.com/stablyai/orca"
 description: "Herdr promet un tmux moderne et mouse-first dédié aux flottes d’agents dans le terminal. Après l’avoir installé, configuré et confronté à une équipe réelle (Kimi Code, Antigravity), retour d’expérience sans fard sur ses atouts, ses bugs d’accueil et la raison pour laquelle Orca reste indéboulonnable en production."
 ---
 
@@ -15,9 +16,9 @@ description: "Herdr promet un tmux moderne et mouse-first dédié aux flottes d�
 
 Sur mon poste, le développement ne ressemble plus depuis longtemps à une session solitaire dans un éditeur. C’est devenu un atelier bruyant où tournent simultanément plusieurs agents de code : Kimi Code sur une refonte d'API, Antigravity sur l'architecture et les arbitrages, Codex ou Claude en renfort sur des scripts d'appoint.
 
-Dans cet écosystème, la gestion spatiale et cognitive des agents est devenue le nerf de la guerre. Alors quand la communauté s'est mise à bruisser autour de **Herdr**, présenté comme *« le multiplexeur d’agents qui vit dans votre terminal »*, ma curiosité d'artisan a pris le dessus. Un outil 100 % terminal, open source, pensé pour piloter ses IA sans quitter son shell ? Sur le papier, la promesse est séduisante.
+Dans cet écosystème, la gestion spatiale et cognitive des agents est devenue le nerf de la guerre. Alors quand la communauté s'est mise à bruisser autour de **[Herdr](https://github.com/herdrdev/herdr)**, présenté comme *« le multiplexeur d’agents qui vit dans votre terminal »*, ma curiosité d'artisan a pris le dessus. Un outil 100 % terminal, open source, pensé pour piloter ses IA sans quitter son shell ? Sur le papier, la promesse est séduisante.
 
-Binaire installé via Homebrew, démon configuré, agents branchés. Voici le retour d'expérience complet — et pourquoi, malgré ses charmes indéniables, il ne détrônera pas Orca sur ma machine de production.
+Binaire installé via Homebrew, démon configuré, agents branchés. Voici le retour d'expérience complet — et pourquoi, malgré ses charmes indéniables, il ne détrônera pas [Orca](https://github.com/stablyai/orca) sur ma machine de production.
 
 ---
 
@@ -65,7 +66,7 @@ Dans Orca, un agent n'est pas simplement un processus jeté dans un rectangle de
 
 ## Le face-à-face technique
 
-| Dimension | **Herdr** | **Orca** |
+| Dimension | **[Herdr](https://github.com/herdrdev/herdr)** | **[Orca](https://github.com/stablyai/orca)** |
 | :--- | :--- | :--- |
 | **Nature** | Multiplexeur TUI de terminal | Cockpit & plateforme d’orchestration (*App + CLI*) |
 | **Isolation des agents** | Panneaux (*panes*) dans un shell partagé | **Worktrees Git dédiés** (*chaque agent a son clone/branche*) |
@@ -83,7 +84,7 @@ Dans Orca, un agent n'est pas simplement un processus jeté dans un rectangle de
 
 Pour les nostalgiques des grilles de caractéristiques du *Weekly Shōnen Jump* et des fiches de tournoi d'arts martiaux, voici la lecture du combat au scanner de puissance :
 
-| Statistique / Attribut | 🥷 **Herdr** (*Le Rōnin du TUI*) | 🛸 **Orca** (*Le Léviathan de la Flotte*) |
+| Statistique / Attribut | 🥷 **[Herdr](https://github.com/herdrdev/herdr)** (*Le Rōnin du TUI*) | 🛸 **[Orca](https://github.com/stablyai/orca)** (*Le Léviathan de la Flotte*) |
 | :--- | :--- | :--- |
 | **Archétype** | Le bretteur solitaire et agile qui vit caché dans la pénombre du shell. | L'amiral de cuirassé spatial commandant une armada d'androïdes de guerre. |
 | **École de combat** | *Style des Quatre Panneaux Félins* : trancher l'écran à la vitesse de l'éclair sans jamais quitter le terminal. | *Technique Dimensionnelle du Worktree* : séparer l'espace-temps Git pour que personne ne se marche sur les pieds. |
