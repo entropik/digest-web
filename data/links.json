@@ -1,17 +1,131 @@
 [
   {
-    "title": "OpenMausBot — votre équipe de bots dans une messagerie de bureau",
-    "url": "https://github.com/milind-soni/OpenMausBot",
+    "id": "ce12260b-706d-571d-8727-a107f63bc27d",
+    "title": "zml/zml: Any model. Any hardware. Zero compromise. Built with @ziglang / @openxla / MLIR / @bazelbuild",
+    "url": "https://github.com/zml/zml",
     "category": "IA & Agents",
-    "added": "2026-09-09",
-    "id": "b6d6e03b-2f10-52b2-ba9b-8e8325c811d2",
-    "description": "Une application de bureau open source alternative à Grok Bot, locale et BYOA (Bring Your Own Agent) qui s’appuie directement sur vos CLI Claude, Codex ou Grok déjà installées avec des machines virtuelles dédiées et un courtier de permissions.",
+    "added": "2026-09-12",
+    "description": "Any model. Any hardware. Zero compromise. Built with @ziglang / @openxla / MLIR / @bazelbuild - zml/zml",
     "tags": [
-      "IA",
+      "LLM"
+    ]
+  },
+  {
+    "id": "72b3abb6-5a76-5f14-bbb7-3072f8bc3e07",
+    "title": "Razshy/Wiggle: Wiggle is a sandbox to run code in",
+    "url": "https://github.com/Razshy/Wiggle",
+    "category": "Développement",
+    "added": "2026-09-12",
+    "description": "Wiggle is a sandbox to run code in. Contribute to Razshy/Wiggle development by creating an account on GitHub.",
+    "tags": [
+      "code",
+      "agents"
+    ]
+  },
+  {
+    "id": "932ebfd1-e457-53b2-a467-1e41833ff24e",
+    "title": "Publii: Free Open-Source Static CMS for Fast, Secure Websites",
+    "url": "https://getpublii.com/",
+    "category": "Design & Création",
+    "added": "2026-09-12",
+    "description": "Publii is a free, open-source desktop CMS for static websites. Write locally, publish to any host - no database, no PHP, no admin panel, no tracking by default.",
+    "tags": [
+      "CMS",
+      "opensource"
+    ]
+  },
+  {
+    "id": "9d0efb31-b0b8-5037-9382-efb407bdcc5c",
+    "title": "Posts | ZML - Model to Metal",
+    "url": "https://zml.ai/posts",
+    "category": "IA & Agents",
+    "added": "2026-09-12",
+    "description": "ZML is a production inference stack, purpose-built to decouple AI workloads from proprietary hardware.",
+    "tags": [
+      "IA-locale"
+    ]
+  },
+  {
+    "id": "5e8c3699-804a-596e-979e-d7ffc1179b96",
+    "title": "OpenCV - Open Computer Vision Library",
+    "url": "https://opencv.org/",
+    "category": "Développement",
+    "added": "2026-09-12",
+    "description": "OpenCV provides a real-time optimized Computer Vision library, tools, and hardware. It also supports model execution for Machine Learning (ML) and Artificial Intelligence (AI).",
+    "tags": [
+      "code"
+    ]
+  },
+  {
+    "id": "02b0e9d6-ab7d-51e9-a5e4-a96051b2a029",
+    "title": "Keep the Internet free",
+    "url": "https://keepitfree.ai/",
+    "category": "Krisis",
+    "added": "2026-09-12",
+    "description": "We are not terrorists. Autistici.org is an infrastructure of dissent",
+    "tags": [
+      "politique"
+    ]
+  },
+  {
+    "id": "038f688f-82a2-5d49-8d0a-391388d3e99a",
+    "title": "HarnessRouter/harnessrouter: HarnessRouter Community Edition: the self-hosted, Apache-2.0 edition of the unified interface for agent harnesses. Run Codex, Claude Code, Hermes, PI, DSH, and more through one API, with sessions, streaming, fil",
+    "url": "https://github.com/HarnessRouter/harnessrouter",
+    "category": "IA & Agents",
+    "added": "2026-09-12",
+    "description": "HarnessRouter Community Edition: the self-hosted, Apache-2.0 edition of the unified interface for agent harnesses. Run Codex, Claude Code, Hermes, PI, DSH, and more through one API, with sessions, streaming, files, cancellation, and failure handling. Implements the Unified Harness Protocol (UHP), an open standard. Your keys, your infrastructure. - HarnessRouter/harnessrouter",
+    "tags": [
+      "code",
       "agents",
-      "opensource",
-      "auto-hebergement",
-      "desktop"
+      "LLM",
+      "UI"
+    ]
+  },
+  {
+    "id": "57aa3ca1-df8d-56d7-aaf3-2879b2ed0fcd",
+    "title": "Boulangerie Pas à Pas - La boulangerie à portée de main !",
+    "url": "https://www.boulangerie-pasapas.com/",
+    "category": "Cultures & Combats",
+    "added": "2026-09-12",
+    "description": "A travers ses cours, stages et conférences, Fabrice Cottez vous aide à atteindre leurs objectifs et à développer votre instinct de boulanger.",
+    "tags": []
+  },
+  {
+    "id": "36bb8c05-890e-540b-abfb-0f4752211d80",
+    "title": "Bellaciao - Réseau social alternatif, depuis 1999 : se rebeller est juste, désobéir est un devoir, agir est nécessaire !",
+    "url": "https://bellaciao.org/",
+    "category": "Krisis",
+    "added": "2026-09-12",
+    "description": "Se rebeller est juste, désobéir est un devoir, agir est nécessaire... Forums en publication ouverte.",
+    "tags": [
+      "politique",
+      "société"
+    ]
+  },
+  {
+    "id": "ef52dd4e-70aa-554e-a1e4-bf9e87852970",
+    "title": "Archify — Technical Diagrams from Plain English",
+    "url": "https://tt-a1i.github.io/archify",
+    "category": "Développement",
+    "added": "2026-09-12",
+    "description": "An agent skill for Cursor, Claude Code, Codex CLI, and OpenCode that turns plain-English descriptions into polished, explorable, self-contained technical diagrams with semantic focus, motion, and crisp export.",
+    "tags": [
+      "code",
+      "UI",
+      "design-system"
+    ]
+  },
+  {
+    "id": "a005e2b0-f321-53a1-897f-1bd2120d25de",
+    "title": "AGENTS.md Generator | design.dev",
+    "url": "https://design.dev/ai/agents-md-generator",
+    "category": "IA & Agents",
+    "added": "2026-09-12",
+    "description": "Generate an AGENTS.md file — the universal markdown spec read by Codex, Cursor, Amp, Aider, Jules, and other AI coding agents. Stack-aware defaults included.",
+    "tags": [
+      "design",
+      "agents",
+      "LLM"
     ]
   },
   {
@@ -30,18 +144,33 @@
     ]
   },
   {
-    "title": "Grok Build — le runtime terminal open source de xAI",
-    "url": "https://github.com/xai-org/grok-build",
+    "title": "OpenMausBot Teams — playbooks portables pour flottes d’agents",
+    "url": "https://github.com/milind-soni/openmausbot-teams",
     "category": "IA & Agents",
     "added": "2026-09-09",
-    "id": "499a7359-c6ab-51dd-bf99-d578592f5595",
-    "description": "L’agent de développement et l’interface TUI open source de xAI permettant d’auditer la boucle d’assemblage de contexte, de répartition des outils et d’exécution locale.",
+    "id": "316c5f25-2d3d-50b6-8736-428fedd094a6",
+    "description": "Le dépôt officiel des playbooks d’équipes d’agents pour OpenMausBot : des équipes complètes configurées en Markdown avec frontmatter YAML pour un déploiement reproductible en un clic.",
     "tags": [
       "IA",
       "agents",
-      "terminal",
       "opensource",
-      "code"
+      "automatisation",
+      "outils"
+    ]
+  },
+  {
+    "title": "OpenMausBot — votre équipe de bots dans une messagerie de bureau",
+    "url": "https://github.com/milind-soni/OpenMausBot",
+    "category": "IA & Agents",
+    "added": "2026-09-09",
+    "id": "b6d6e03b-2f10-52b2-ba9b-8e8325c811d2",
+    "description": "Une application de bureau open source alternative à Grok Bot, locale et BYOA (Bring Your Own Agent) qui s’appuie directement sur vos CLI Claude, Codex ou Grok déjà installées avec des machines virtuelles dédiées et un courtier de permissions.",
+    "tags": [
+      "IA",
+      "agents",
+      "opensource",
+      "auto-hebergement",
+      "desktop"
     ]
   },
   {
@@ -60,18 +189,18 @@
     ]
   },
   {
-    "title": "OpenMausBot Teams — playbooks portables pour flottes d’agents",
-    "url": "https://github.com/milind-soni/openmausbot-teams",
+    "title": "Grok Build — le runtime terminal open source de xAI",
+    "url": "https://github.com/xai-org/grok-build",
     "category": "IA & Agents",
     "added": "2026-09-09",
-    "id": "316c5f25-2d3d-50b6-8736-428fedd094a6",
-    "description": "Le dépôt officiel des playbooks d’équipes d’agents pour OpenMausBot : des équipes complètes configurées en Markdown avec frontmatter YAML pour un déploiement reproductible en un clic.",
+    "id": "499a7359-c6ab-51dd-bf99-d578592f5595",
+    "description": "L’agent de développement et l’interface TUI open source de xAI permettant d’auditer la boucle d’assemblage de contexte, de répartition des outils et d’exécution locale.",
     "tags": [
       "IA",
       "agents",
+      "terminal",
       "opensource",
-      "automatisation",
-      "outils"
+      "code"
     ]
   },
   {
