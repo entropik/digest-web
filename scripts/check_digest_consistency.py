@@ -12,11 +12,16 @@ from collections import Counter
 from pathlib import Path
 
 
+import yaml
+
 DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 ARCHIVE_FILENAME_PATTERN = re.compile(r"^(\d{4}-\d{2}-\d{2})(?:-([a-z0-9-]+))?$")
 FRONT_MATTER_PATTERN = re.compile(r"^---\s*$")
 BLOG_MEDIA_PATTERN = re.compile(
     r"^/media/blog-ooblik/(?P<year>\d{4})/[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.webp$"
+)
+HISTORICAL_UNSLUGGED_FOCUS = frozenset(
+    {"2026-08-28", "2026-08-29", "2026-09-02", "2026-09-09"}
 )
 
 
@@ -35,21 +40,20 @@ def tag_key(value: str) -> str:
     ).lower().strip()
 
 
-def parse_front_matter(path: Path) -> dict[str, str]:
-    lines = path.read_text(encoding="utf-8").splitlines()
-    if not lines or not FRONT_MATTER_PATTERN.match(lines[0]):
+def parse_front_matter(path: Path) -> dict[str, object]:
+    text = path.read_text(encoding="utf-8")
+    if not text.startswith("---"):
         raise ValueError("front matter YAML manquant")
-
-    values: dict[str, str] = {}
-    for line in lines[1:]:
-        if FRONT_MATTER_PATTERN.match(line):
-            return values
-        if ":" not in line or line.lstrip().startswith("#"):
-            continue
-        key, value = line.split(":", 1)
-        values[key.strip()] = value.strip().strip("\"'")
-
-    raise ValueError("front matter YAML non fermé")
+    parts = text.split("---", 2)
+    if len(parts) < 3:
+        raise ValueError("front matter YAML non fermé")
+    try:
+        data = yaml.safe_load(parts[1])
+    except yaml.YAMLError as exc:
+        raise ValueError(f"erreur YAML dans front matter: {exc}") from exc
+    if not isinstance(data, dict):
+        return {}
+    return data
 
 
 def validate_blog_media(links: list[object], site: Path) -> list[str]:
@@ -118,6 +122,7 @@ def validate(site: Path) -> list[str]:
     visible_link_dates: Counter[str] = Counter()
     tag_usage: Counter[str] = Counter()
     tag_labels: dict[str, str] = {}
+    public_catalog_urls: set[str] = set()
     for index, link in enumerate(links, start=1):
         if not isinstance(link, dict):
             errors.append(f"{links_path}: entrée {index} invalide")
@@ -160,11 +165,15 @@ def validate(site: Path) -> list[str]:
         link_dates[added] += 1
         if visibility != "hidden":
             visible_link_dates[added] += 1
+            raw_url = str(link.get("url", "")).strip()
+            if raw_url:
+                public_catalog_urls.add(raw_url)
 
     archive_dates: set[str] = set()
     primary_archive_dates: set[str] = set()
     focus_dates: set[str] = set()
     archive_drafts: dict[str, bool] = {}
+    seen_archive_images: dict[str, Path] = {}
 
     for archive_path in sorted(archives_dir.glob("*.md")):
         if archive_path.name in ("_index.md", "_index.en.md"):
@@ -187,7 +196,7 @@ def validate(site: Path) -> list[str]:
             errors.append(f"{archive_path}: {exc}")
             continue
 
-        digest_date = params.get("digest_date", "")
+        digest_date = str(params.get("digest_date", "")).strip()
         if digest_date != file_date:
             errors.append(
                 f"{archive_path}: digest_date={digest_date!r}, attendu {file_date!r}"
@@ -195,17 +204,107 @@ def validate(site: Path) -> list[str]:
         if not params.get("title"):
             errors.append(f"{archive_path}: title manquant")
 
-        editorial_type = params.get("editorial_type", "digest")
+        editorial_type = str(params.get("editorial_type", "digest")).strip()
         is_focus = editorial_type == "focus"
         if is_focus or file_slug:
             focus_dates.add(file_date)
         else:
             primary_archive_dates.add(file_date)
-            archive_drafts[file_date] = params.get("draft", "").lower() == "true"
+            archive_drafts[file_date] = str(params.get("draft", "")).lower() == "true"
 
         archive_dates.add(file_date)
         if file_date not in archive_drafts:
-            archive_drafts[file_date] = params.get("draft", "").lower() == "true"
+            archive_drafts[file_date] = str(params.get("draft", "")).lower() == "true"
+
+        # Vérification des visuels sociaux pour chaque archive
+        stem = archive_path.stem
+        social_landscape = site / "static" / "social" / f"{stem}.png"
+        social_square = site / "static" / "social" / f"{stem}-linkedin.png"
+        if not social_landscape.is_file():
+            errors.append(
+                f"{archive_path}: visuel social manquant static/social/{stem}.png"
+            )
+        if not social_square.is_file():
+            errors.append(
+                f"{archive_path}: visuel social LinkedIn manquant static/social/{stem}-linkedin.png"
+            )
+
+        # Vérification de l'unicité et de la présence de l'archive_image pour les Focus
+        archive_image = params.get("archive_image")
+        if is_focus or archive_image is not None:
+            if not archive_image:
+                errors.append(f"{archive_path}: archive_image manquant pour le billet Focus")
+            else:
+                image_str = str(archive_image).strip()
+                if image_str in seen_archive_images:
+                    errors.append(
+                        f"{archive_path}: archive_image {image_str!r} déjà utilisé dans "
+                        f"{seen_archive_images[image_str].name}"
+                    )
+                else:
+                    seen_archive_images[image_str] = archive_path
+
+                image_file = (site / "static" / image_str.lstrip("/")).resolve()
+                if not image_file.is_file():
+                    errors.append(
+                        f"{archive_path}: fichier archive_image introuvable dans static: {image_str}"
+                    )
+
+        # Vérification des règles de nommage Focus
+        if is_focus:
+            if not file_slug and file_date not in HISTORICAL_UNSLUGGED_FOCUS:
+                errors.append(
+                    f"{archive_path}: tout nouveau billet Focus doit comporter un slug "
+                    f"dans son nom de fichier (content/archives/{file_date}-<slug>.md)"
+                )
+            if (
+                not file_slug
+                and file_date not in HISTORICAL_UNSLUGGED_FOCUS
+                and visible_link_dates[file_date] > 0
+            ):
+                errors.append(
+                    f"{archive_path}: un billet Focus ne peut pas écraser le Digest quotidien "
+                    f"du même jour ({visible_link_dates[file_date]} liens publics)"
+                )
+
+        # Vérification de link_urls
+        raw_link_urls = params.get("link_urls")
+        if raw_link_urls is not None:
+            if not isinstance(raw_link_urls, list):
+                errors.append(f"{archive_path}: link_urls doit être une liste")
+            else:
+                seen_urls: set[str] = set()
+                for raw_url in raw_link_urls:
+                    url = str(raw_url).strip()
+                    if not url:
+                        continue
+                    if url in seen_urls:
+                        errors.append(f"{archive_path}: URL dupliquée dans link_urls: {url}")
+                    seen_urls.add(url)
+                    if url not in public_catalog_urls:
+                        errors.append(
+                            f"{archive_path}: URL {url!r} listée dans link_urls est "
+                            f"introuvable dans le catalogue public data/links.json"
+                        )
+
+    # Vérification qu'aucun Focus n'écrase un Digest quotidien
+    for date, count in sorted(visible_link_dates.items()):
+        if count > 0:
+            daily_archive = archives_dir / f"{date}.md"
+            if not daily_archive.is_file():
+                errors.append(
+                    f"Digest quotidien manquant: content/archives/{date}.md ({count} liens publics)"
+                )
+            elif date not in HISTORICAL_UNSLUGGED_FOCUS:
+                try:
+                    daily_params = parse_front_matter(daily_archive)
+                    if str(daily_params.get("editorial_type", "digest")).strip() == "focus":
+                        errors.append(
+                            f"content/archives/{date}.md: ce fichier remplace indûment le Digest "
+                            f"quotidien par un Focus ({count} liens publics perdus)"
+                        )
+                except Exception:
+                    pass
 
     for missing_date in sorted(set(link_dates) - archive_dates):
         errors.append(
@@ -233,7 +332,13 @@ def validate(site: Path) -> list[str]:
             continue
         try:
             params = parse_front_matter(tag_path)
-            variants = json.loads(params.get("tags", "[]"))
+            raw_variants = params.get("tags", [])
+            if isinstance(raw_variants, str):
+                variants = json.loads(raw_variants)
+            elif isinstance(raw_variants, list):
+                variants = raw_variants
+            else:
+                variants = []
         except (OSError, ValueError, json.JSONDecodeError) as exc:
             errors.append(f"{tag_path}: taxonomie illisible ({exc})")
             continue

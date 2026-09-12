@@ -74,7 +74,11 @@
   - `2026-09-02` : `2026-04-17.jpg` (Gemini 7 · Mission Control · 1965)
   - `2026-09-09` : `2026-04-16.jpg` (IBM 704 Computer Operations · 1957)
   - `2026-09-12-herdr-vs-orca` : `2026-03-30.jpg` (Clifford Charlesworth · Mission Control · 1968)
-- Pour tout nouveau dossier Focus : sélectionner un visuel inédit dans la
+- Pour tout nouveau dossier Focus : utiliser de préférence la commande automatisée :
+  `npm --prefix admin-service run focus:new -- --date YYYY-MM-DD --slug <slug> --title "<titre>" --urls "<url1,url2>"`
+  Pour consulter les visuels disponibles :
+  `npm --prefix admin-service run focus:available`
+- Si le processus est manuel : sélectionner un visuel inédit dans la
   collection NASA (`static/media/journal-procrastinateur/collections/v2-nasa/`),
   générer sa version 1200×800 dans `static/social/focus-archives/` via
   `admin-service/scripts/focus-archive-assets.ts`, l'ajouter à `TECHNICAL_ARCHIVES`
@@ -86,6 +90,10 @@
 - Un billet de Digest quotidien (`content/archives/YYYY-MM-DD.md`) et un ou
   plusieurs billets Focus (`content/archives/YYYY-MM-DD-<slug>.md`) peuvent
   parfaitement coexister à la même date civile.
+- **Règle absolue :** Un billet Focus ne doit JAMAIS écraser le fichier
+  `content/archives/YYYY-MM-DD.md` si des liens quotidiens existent pour cette
+  date. Tout nouveau Focus doit impérativement avoir son propre slug dans son nom
+  de fichier (`content/archives/YYYY-MM-DD-<slug>.md`).
 - Le Digest quotidien porte les liens de la veille ou du jour ; ses visuels
   sociaux sont `static/social/YYYY-MM-DD.png` et
   `static/social/YYYY-MM-DD-linkedin.png`.
@@ -94,9 +102,16 @@
   `static/social/YYYY-MM-DD-<slug>.png` et
   `static/social/YYYY-MM-DD-<slug>-linkedin.png`.
 - Pour restreindre les liens affichés en bas d’un Focus aux seules ressources
-  citées dans l’article, déclarer `link_urls: ["..."]` dans le front matter. En
-  l’absence de cette clé sur un billet sluggué, aucun lien sans rapport n’est
-  hérité du Digest quotidien du même jour.
+  citées dans l’article, déclarer `link_urls: ["..."]` dans le front matter.
+  Toute URL déclarée dans `link_urls` doit obligatoirement exister au préalable
+  dans `data/links.json` en visibilité publique. En l’absence de `link_urls` sur
+  un billet sluggué, aucun lien sans rapport n’est hérité du Digest quotidien.
+- Les scripts de contrôle (`scripts/check_digest_consistency.py` et
+  `scripts/verify.mjs`) bloquent automatiquement tout commit en cas :
+  1. de réutilisation d'un visuel NASA déjà attribué (`archive_image`),
+  2. de remplacement du Digest quotidien par un Focus,
+  3. d'URL manquante dans `data/links.json` pour `link_urls`,
+  4. d'absence des visuels sociaux landscape ou square sur une édition.
 
 ## Direction de l’interface
 

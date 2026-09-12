@@ -1,13 +1,15 @@
 import { mkdir } from "node:fs/promises";
 import { resolve } from "node:path";
 import sharp from "sharp";
+import { TECHNICAL_ARCHIVES } from "../src/social-image.js";
 
 const dates = [
-  "2026-03-12",
-  "2026-03-13",
-  "2026-04-16",
-  "2026-04-17",
-  "2026-03-30",
+  ...new Set(
+    TECHNICAL_ARCHIVES.map((entry) => {
+      const match = entry.file.match(/(\d{4}-\d{2}-\d{2})\.jpg$/);
+      return match ? match[1]! : "";
+    }).filter(Boolean),
+  ),
 ];
 const sourceDirectory = resolve(
   "../static/media/journal-procrastinateur/collections/v2-nasa",

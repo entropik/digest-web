@@ -15,6 +15,8 @@
     "import:wordpress": "tsx scripts/import-wordpress.ts",
     "recover:wordpress": "tsx scripts/recover-wordpress.ts",
     "recover:wordpress-destinations": "tsx scripts/recover-wordpress-destinations.ts",
+    "focus:new": "tsx scripts/new-focus.ts",
+    "focus:available": "tsx scripts/new-focus.ts --list-available",
     "social:archives": "tsx scripts/social-archive-preview.ts",
     "social:backfill": "node --import tsx scripts/social-backfill.ts",
     "social:focus-assets": "tsx scripts/focus-archive-assets.ts",

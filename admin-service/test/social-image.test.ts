@@ -9,6 +9,8 @@ import {
   MAX_SOCIAL_IMAGE_BYTES,
   socialImageSvg,
   type SocialImageFamily,
+  FOCUS_ARCHIVES_BY_DATE,
+  TECHNICAL_ARCHIVES,
 } from "../src/social-image.js";
 
 const input = {
@@ -555,3 +557,27 @@ test("the archive index uses social images as lazily loaded edition posters", as
     /\.archive-edition a:hover \.archive-edition-poster::before,\s*\.archive-edition a:focus-visible \.archive-edition-poster::before\s*\{[^}]*opacity:\s*0/s,
   );
 });
+
+test("FOCUS_ARCHIVES_BY_DATE has no duplicate visual assignments", () => {
+  const images = Object.values(FOCUS_ARCHIVES_BY_DATE);
+  const uniqueImages = new Set(images);
+  assert.equal(
+    images.length,
+    uniqueImages.size,
+    `Duplicate images found in FOCUS_ARCHIVES_BY_DATE: ${images.filter((img, i) => images.indexOf(img) !== i).join(", ")}`,
+  );
+});
+
+test("all entries in FOCUS_ARCHIVES_BY_DATE exist on disk and in TECHNICAL_ARCHIVES", async () => {
+  const technicalFiles = new Set(TECHNICAL_ARCHIVES.map((a) => a.file));
+  for (const [editionKey, imagePath] of Object.entries(FOCUS_ARCHIVES_BY_DATE)) {
+    assert.ok(
+      technicalFiles.has(imagePath as (typeof TECHNICAL_ARCHIVES)[number]["file"]),
+      `Image ${imagePath} for ${editionKey} is not registered in TECHNICAL_ARCHIVES`,
+    );
+    const fullPath = new URL(`../../static/${imagePath}`, import.meta.url);
+    const content = await readFile(fullPath);
+    assert.ok(content.length > 0, `Image file ${imagePath} is empty`);
+  }
+});
+

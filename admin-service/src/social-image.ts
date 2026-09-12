@@ -29,7 +29,7 @@ const PAPER = "#F4F2ED";
 const ACCENTS = ["#00AEEF", "#FFD500", "#EC008C", "#1646D8"] as const;
 const FOCUS_ACCENTS = ["#FF3B00", "#FFD500", "#3155FF", "#00A693"] as const;
 
-const TECHNICAL_ARCHIVES = [
+export const TECHNICAL_ARCHIVES = [
   {
     file: "social/focus-archives/2026-03-12.jpg",
     label: "CHRISTINE DARDEN · COMPUTER ROOM · 1973",
@@ -57,7 +57,6 @@ export const FOCUS_ARCHIVES_BY_DATE: Record<string, string> = {
   "2026-08-29": "social/focus-archives/2026-03-13.jpg",
   "2026-09-02": "social/focus-archives/2026-04-17.jpg",
   "2026-09-09": "social/focus-archives/2026-04-16.jpg",
-  "2026-09-12": "social/focus-archives/2026-03-30.jpg",
   "2026-09-12-herdr-vs-orca": "social/focus-archives/2026-03-30.jpg",
 };
 
@@ -417,7 +416,7 @@ const brokenGrid = (
 
 const technicalArchive = (seed: number, digestDate?: string) => {
   const mappedFile = digestDate
-    ? (FOCUS_ARCHIVES_BY_DATE[digestDate] ?? FOCUS_ARCHIVES_BY_DATE[digestDate.slice(0, 10)])
+    ? FOCUS_ARCHIVES_BY_DATE[digestDate]
     : undefined;
   const archive = (mappedFile ? TECHNICAL_ARCHIVES.find((a) => a.file === mappedFile) : undefined)
     ?? TECHNICAL_ARCHIVES[seed % TECHNICAL_ARCHIVES.length]!;
