@@ -389,6 +389,201 @@ test("publication accepts Journal du Digest pages with their local poster", () =
   );
 });
 
+test("publication accepts Focus editions with their slugged URL and image", async () => {
+  const calls: Array<{ url: string; init?: RequestInit }> = [];
+  const fetcher = async (input: string | URL | Request, init?: RequestInit) => {
+    const url = String(input);
+    calls.push({ url, init });
+    if (url.endsWith("/oauth/v2/accessToken")) {
+      return Response.json({
+        access_token: "focus-access-token",
+        expires_in: 3600,
+      });
+    }
+    if (url.endsWith("/v2/userinfo")) {
+      return Response.json({ sub: "focus-publisher", name: "Focus" });
+    }
+    if (url.endsWith("/social/2026-09-12-herdr-vs-orca-linkedin.png")) {
+      return new Response(new Uint8Array([137, 80, 78, 71]), {
+        headers: { "Content-Type": "image/png" },
+      });
+    }
+    if (url.includes("/v2/assets?action=registerUpload")) {
+      return Response.json({
+        value: {
+          uploadMechanism: {
+            "com.linkedin.digitalmedia.uploading.MediaUploadHttpRequest": {
+              uploadUrl: "https://upload.linkedin.test/focus-image",
+            },
+          },
+          asset: "urn:li:digitalmediaAsset:focus-image",
+        },
+      });
+    }
+    if (url === "https://upload.linkedin.test/focus-image") {
+      return new Response(null, { status: 201 });
+    }
+    if (url.endsWith("/v2/ugcPosts")) {
+      return new Response(null, {
+        status: 201,
+        headers: { "x-restli-id": "urn:li:share:focus-post" },
+      });
+    }
+    throw new Error(`Unexpected request: ${url}`);
+  };
+  const service = new LinkedInService(database, fetcher as typeof fetch);
+  const authorization = new URL(
+    service.authorizationUrl("focus-admin", "/archives/2026-09-12-herdr-vs-orca/"),
+  );
+  assert.equal(
+    await service.completeAuthorization(
+      "focus-admin",
+      authorization.searchParams.get("state")!,
+      "focus-code",
+    ),
+    "/archives/2026-09-12-herdr-vs-orca/",
+  );
+
+  const result = await service.publish("focus-admin", {
+    title: "FOCUS - Herdr vs Orca",
+    text: "Retour d’expérience sur deux multiplexeurs d’agents.",
+    url: "https://digest.ooblik.com/archives/2026-09-12-herdr-vs-orca/",
+    imageUrl: "/social/2026-09-12-herdr-vs-orca-linkedin.png",
+  });
+  assert.equal(result.alreadyPublished, false);
+  assert.equal(result.publicationCount, 1);
+  const postCall = calls.find(({ url }) => url.endsWith("/v2/ugcPosts"))!;
+  const post = JSON.parse(String(postCall.init!.body));
+  const content = post.specificContent["com.linkedin.ugc.ShareContent"];
+  assert.equal(
+    content.shareCommentary.text,
+    "Retour d’expérience sur deux multiplexeurs d’agents.\n\nhttps://digest.ooblik.com/archives/2026-09-12-herdr-vs-orca/",
+  );
+  assert.deepEqual(
+    service.publicationStatus(
+      "focus-admin",
+      "https://digest.ooblik.com/archives/2026-09-12-herdr-vs-orca/",
+    ),
+    {
+      alreadyPublished: true,
+      publicationCount: 1,
+      latestPostUrl: "https://www.linkedin.com/feed/update/urn:li:share:focus-post",
+    },
+  );
+
+  await assert.rejects(
+    service.publish("focus-admin", {
+      title: "Focus",
+      text: "Texte",
+      url: "https://digest.ooblik.com/archives/2026-09-12-Herdr-vs-Orca/",
+      imageUrl: "/social/2026-09-12-herdr-vs-orca-linkedin.png",
+    }),
+    (error: unknown) =>
+      error instanceof LinkedInError &&
+      error.code === "LINKEDIN_INVALID_PUBLICATION",
+  );
+  await assert.rejects(
+    service.publish("focus-admin", {
+      title: "Focus",
+      text: "Texte",
+      url: "https://digest.ooblik.com/archives/2026-09-12-herdr-vs-orca/",
+      imageUrl: "/social/focus-archives/2026-03-30.jpg",
+    }),
+    (error: unknown) =>
+      error instanceof LinkedInError &&
+      error.code === "LINKEDIN_INVALID_PUBLICATION",
+  );
+});
+
+test("publication accepts English archive pages and their translated artwork", async () => {
+  const calls: Array<{ url: string; init?: RequestInit }> = [];
+  const fetcher = async (input: string | URL | Request, init?: RequestInit) => {
+    const url = String(input);
+    calls.push({ url, init });
+    if (url.endsWith("/oauth/v2/accessToken")) {
+      return Response.json({
+        access_token: "english-access-token",
+        expires_in: 3600,
+      });
+    }
+    if (url.endsWith("/v2/userinfo")) {
+      return Response.json({ sub: "english-publisher", name: "English" });
+    }
+    if (url.endsWith("/social/en/2026-09-12-herdr-vs-orca-linkedin.png")) {
+      return new Response(new Uint8Array([137, 80, 78, 71]), {
+        headers: { "Content-Type": "image/png" },
+      });
+    }
+    if (url.includes("/v2/assets?action=registerUpload")) {
+      return Response.json({
+        value: {
+          uploadMechanism: {
+            "com.linkedin.digitalmedia.uploading.MediaUploadHttpRequest": {
+              uploadUrl: "https://upload.linkedin.test/english-image",
+            },
+          },
+          asset: "urn:li:digitalmediaAsset:english-image",
+        },
+      });
+    }
+    if (url === "https://upload.linkedin.test/english-image") {
+      return new Response(null, { status: 201 });
+    }
+    if (url.endsWith("/v2/ugcPosts")) {
+      return new Response(null, {
+        status: 201,
+        headers: { "x-restli-id": "urn:li:share:english-post" },
+      });
+    }
+    throw new Error(`Unexpected request: ${url}`);
+  };
+  const service = new LinkedInService(database, fetcher as typeof fetch);
+  const authorization = new URL(
+    service.authorizationUrl("english-admin", "/en/archives/2026-09-12-herdr-vs-orca/"),
+  );
+  assert.equal(
+    await service.completeAuthorization(
+      "english-admin",
+      authorization.searchParams.get("state")!,
+      "english-code",
+    ),
+    "/en/archives/2026-09-12-herdr-vs-orca/",
+  );
+
+  const result = await service.publish("english-admin", {
+    title: "FOCUS - Herdr vs Orca",
+    text: "Hands-on review of two agent multiplexers.",
+    url: "https://digest.ooblik.com/en/archives/2026-09-12-herdr-vs-orca/",
+    imageUrl: "/social/en/2026-09-12-herdr-vs-orca-linkedin.png",
+  });
+  assert.equal(result.alreadyPublished, false);
+  const postCall = calls.find(({ url }) => url.endsWith("/v2/ugcPosts"))!;
+  const post = JSON.parse(String(postCall.init!.body));
+  const content = post.specificContent["com.linkedin.ugc.ShareContent"];
+  assert.equal(
+    content.shareCommentary.text,
+    "Hands-on review of two agent multiplexers.\n\nhttps://digest.ooblik.com/en/archives/2026-09-12-herdr-vs-orca/",
+  );
+  assert.deepEqual(
+    service.publicationStatus(
+      "english-admin",
+      "https://digest.ooblik.com/en/archives/2026-09-12-herdr-vs-orca/",
+    ),
+    {
+      alreadyPublished: true,
+      publicationCount: 1,
+      latestPostUrl: "https://www.linkedin.com/feed/update/urn:li:share:english-post",
+    },
+  );
+  assert.deepEqual(
+    service.publicationStatus(
+      "english-admin",
+      "https://digest.ooblik.com/archives/2026-09-12-herdr-vs-orca/",
+    ),
+    { alreadyPublished: false, publicationCount: 0, latestPostUrl: null },
+  );
+});
+
 test("Journal du Digest posters are converted from WebP to PNG before LinkedIn upload", async () => {
   const calls: Array<{ url: string; init?: RequestInit }> = [];
   const webp = await sharp({

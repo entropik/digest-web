@@ -15,6 +15,10 @@ const LINKEDIN_TOKEN_URL = "https://www.linkedin.com/oauth/v2/accessToken";
 const LINKEDIN_USERINFO_URL = "https://api.linkedin.com/v2/userinfo";
 const LINKEDIN_ASSETS_URL = "https://api.linkedin.com/v2/assets?action=registerUpload";
 const LINKEDIN_POSTS_URL = "https://api.linkedin.com/v2/ugcPosts";
+const ARCHIVE_SLUG = String.raw`(?:-[a-z0-9-]+)?`;
+const ARCHIVE_PAGE_PATH = new RegExp(
+  String.raw`^(?:/en)?(?:/archives|/flux/journal-du-digest)/\d{4}-\d{2}-\d{2}${ARCHIVE_SLUG}/$`,
+);
 const STATE_LIFETIME_MS = 10 * 60 * 1_000;
 const PUBLICATION_RESERVATION_LIFETIME_MS = 10 * 60 * 1_000;
 const PUBLICATION_RESERVATION_RENEWAL_MS = 60 * 1_000;
@@ -129,7 +133,9 @@ const safeReturnTo = (value: string | undefined): string => {
   const target = new URL(value, config.origin);
   if (
     target.origin !== config.origin ||
-    !/^\/archives\/\d{4}-\d{2}-\d{2}\/$/.test(target.pathname)
+    !new RegExp(String.raw`^(?:/en)?/archives/\d{4}-\d{2}-\d{2}${ARCHIVE_SLUG}/$`).test(
+      target.pathname,
+    )
   ) {
     return "/admin";
   }
@@ -409,7 +415,7 @@ export class LinkedInService {
       const candidate = new URL(rawUrl, config.origin);
       publicationUrl =
         candidate.origin === config.origin &&
-        /^(?:\/archives|\/flux\/journal-du-digest)\/\d{4}-\d{2}-\d{2}\/$/.test(candidate.pathname)
+        ARCHIVE_PAGE_PATH.test(candidate.pathname)
           ? candidate.toString()
           : canonicalizePublicUrl(candidate.toString());
     } catch {
@@ -868,9 +874,9 @@ export class LinkedInService {
     } catch {
       throw new LinkedInError("LINKEDIN_INVALID_PUBLICATION", 400);
     }
-    const archiveImage = /^\/social\/\d{4}-\d{2}-\d{2}(?:-linkedin)?\.png$/.test(
-      imageUrl.pathname,
-    );
+    const archiveImage = new RegExp(
+      String.raw`^/social/(?:en/)?\d{4}-\d{2}-\d{2}${ARCHIVE_SLUG}(?:-linkedin)?\.png$`,
+    ).test(imageUrl.pathname);
     const journalImage = /^\/images\/journal\/posters\/\d{3}-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\.webp$/.test(
       imageUrl.pathname,
     );
@@ -887,7 +893,7 @@ export class LinkedInService {
     }
     if (!allowCatalogUrl &&
         (url.origin !== config.origin ||
-         !/^(?:\/archives|\/flux\/journal-du-digest)\/\d{4}-\d{2}-\d{2}\/$/.test(url.pathname))) {
+         !ARCHIVE_PAGE_PATH.test(url.pathname))) {
       throw new LinkedInError("LINKEDIN_INVALID_PUBLICATION", 400);
     }
     if (allowCatalogUrl) {
