@@ -1,5 +1,134 @@
 [
   {
+    "title": "obra/superpowers : la méthodologie de développement pour agents de code",
+    "url": "https://github.com/obra/superpowers",
+    "category": "IA & Agents",
+    "added": "2026-09-14",
+    "description": "La méthodologie de Jesse Vincent pour agents de code : brainstorming, plan, TDD strict, revue en deux étages. 286 000 étoiles.",
+    "tags": [
+      "agents",
+      "skills",
+      "TDD",
+      "code"
+    ],
+    "id": "488567a9-84d1-5248-9cff-38132d5c2629"
+  },
+  {
+    "title": "mattpocock/skills : Skills for Real Engineers",
+    "url": "https://github.com/mattpocock/skills",
+    "category": "IA & Agents",
+    "added": "2026-09-14",
+    "description": "Les skills quotidiens de Matt Pocock (AI Hero) : /grill-me, /tdd, langage partagé façon DDD. Petits et composables, anti-framework.",
+    "tags": [
+      "agents",
+      "skills",
+      "code"
+    ],
+    "id": "152e48f4-0dc4-50f7-b62e-e017cdb7cf6c"
+  },
+  {
+    "title": "pstack : les playbooks anti-slop de Lauren Tan (@poteto)",
+    "url": "https://github.com/backnotprop/pstack",
+    "category": "IA & Agents",
+    "added": "2026-09-14",
+    "description": "Le plugin Cursor de Lauren Tan (@poteto) : 21 principes, 22 playbooks anti-slop, et le credo « the best spec is code ».",
+    "tags": [
+      "agents",
+      "skills",
+      "cursor",
+      "code"
+    ],
+    "id": "a2418ee2-2bff-53ef-b449-7cefb350373c"
+  },
+  {
+    "title": "github/spec-kit : le kit open source de spec-driven development",
+    "url": "https://github.com/github/spec-kit",
+    "category": "IA & Agents",
+    "added": "2026-09-14",
+    "description": "Le toolkit de GitHub pour écrire la spécification avant le code : /specify → /plan → /tasks → /implement. 136 000 étoiles.",
+    "tags": [
+      "agents",
+      "spec-driven",
+      "code",
+      "github"
+    ],
+    "id": "9f47cb6d-d522-5104-ade3-29b86e6f4583"
+  },
+  {
+    "title": "Spec-Driven Development: The Waterfall Strikes Back",
+    "url": "https://marmelab.com/blog/2025/11/12/spec-driven-development-waterfall-strikes-back.html",
+    "category": "Développement",
+    "added": "2026-09-14",
+    "description": "Le réquisitoire de François Zaninotto contre le SDD : 1 300 lignes de spec pour afficher la date — un waterfall rebrandé.",
+    "tags": [
+      "spec-driven",
+      "IA"
+    ],
+    "id": "d1548dd8-f0b4-574e-aa8c-64cf23f3be4a"
+  },
+  {
+    "title": "Understanding Spec-Driven-Development: Kiro, spec-kit, and Tessl",
+    "url": "https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html",
+    "category": "Développement",
+    "added": "2026-09-14",
+    "description": "Birgitta Böckeler distingue spec-first, spec-anchored et spec-as-source, et pointe la surcharge documentaire du SDD.",
+    "tags": [
+      "spec-driven",
+      "IA"
+    ],
+    "id": "66dcf639-fb65-5acc-8c47-9d7ec365d04b"
+  },
+  {
+    "title": "My AI Adoption Journey — Mitchell Hashimoto",
+    "url": "https://mitchellh.com/writing/my-ai-adoption-journey",
+    "category": "IA & Agents",
+    "added": "2026-09-14",
+    "description": "Le récit du cofondateur de HashiCorp, qui introduit le « harness engineering » : chaque erreur de l'agent devient de l'ingénierie permanente.",
+    "tags": [
+      "agents",
+      "harness-engineering"
+    ],
+    "id": "49d7fdbd-c740-53c2-9655-fa65df2fb4c7"
+  },
+  {
+    "title": "Agentic Engineering — Addy Osmani",
+    "url": "https://addyosmani.com/blog/agentic-engineering/",
+    "category": "IA & Agents",
+    "added": "2026-09-14",
+    "description": "Le manifeste d'Addy Osmani pour un développement assisté par IA discipliné, en contrepoint du vibe coding.",
+    "tags": [
+      "agents",
+      "agentic-engineering"
+    ],
+    "id": "997107cc-5e72-5b5a-a0c3-2062197baf77"
+  },
+  {
+    "title": "Effective context engineering for AI agents",
+    "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+    "category": "IA & Agents",
+    "added": "2026-09-14",
+    "description": "Le billet d'Anthropic qui consacre le « context engineering » : gérer tout l'état informationnel de l'agent.",
+    "tags": [
+      "agents",
+      "context-engineering",
+      "LLM"
+    ],
+    "id": "c8838d82-9e49-5476-a8b5-4a6b16da2f61"
+  },
+  {
+    "title": "Agent Skills — Anthropic",
+    "url": "https://www.anthropic.com/news/skills",
+    "category": "IA & Agents",
+    "added": "2026-09-14",
+    "description": "L'annonce des Agent Skills par Anthropic, devenus un standard ouvert : dossiers d'instructions composables, chargés à la demande.",
+    "tags": [
+      "agents",
+      "skills",
+      "anthropic"
+    ],
+    "id": "0d2077b8-479b-5609-b12f-d967d87baa38"
+  },
+  {
     "id": "59d5f658-0dc0-4209-baa8-1a9fb5304243",
     "title": "Herdr — le multiplexeur d’agents dans le terminal",
     "url": "https://github.com/herdrdev/herdr",

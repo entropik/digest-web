@@ -31,6 +31,10 @@ const FOCUS_ACCENTS = ["#FF3B00", "#FFD500", "#3155FF", "#00A693"] as const;
 
 export const TECHNICAL_ARCHIVES = [
   {
+    file: "social/focus-archives/2026-03-19.jpg",
+    label: "WHITE FLIGHT CONTROL ROOM · NASA · 1995",
+  },
+  {
     file: "social/focus-archives/2026-03-12.jpg",
     label: "CHRISTINE DARDEN · COMPUTER ROOM · 1973",
   },
@@ -53,6 +57,7 @@ export const TECHNICAL_ARCHIVES = [
 ] as const;
 
 export const FOCUS_ARCHIVES_BY_DATE: Record<string, string> = {
+  "2026-09-14-super-skills": "social/focus-archives/2026-03-19.jpg",
   "2026-08-28": "social/focus-archives/2026-03-12.jpg",
   "2026-08-29": "social/focus-archives/2026-03-13.jpg",
   "2026-09-02": "social/focus-archives/2026-04-17.jpg",

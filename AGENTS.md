@@ -74,6 +74,7 @@
   - `2026-09-02` : `2026-04-17.jpg` (Gemini 7 · Mission Control · 1965)
   - `2026-09-09` : `2026-04-16.jpg` (IBM 704 Computer Operations · 1957)
   - `2026-09-12-herdr-vs-orca` : `2026-03-30.jpg` (Clifford Charlesworth · Mission Control · 1968)
+  - `2026-09-14-super-skills` : `2026-03-19.jpg` (Documentation du White Flight Control Room · 1995)
 - Pour tout nouveau dossier Focus : utiliser de préférence la commande automatisée :
   `npm --prefix admin-service run focus:new -- --date YYYY-MM-DD --slug <slug> --title "<titre>" --urls "<url1,url2>"`
   Pour consulter les visuels disponibles :

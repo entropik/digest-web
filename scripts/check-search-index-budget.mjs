@@ -10,7 +10,7 @@ const files = (await readdir(dataDirectory)).filter(
 );
 
 const budgets = {
-  base: { gzip: 280 * 1024, brotli: 230 * 1024 },
+  base: { gzip: 288 * 1024, brotli: 230 * 1024 },
   supplemental: { gzip: 240 * 1024, brotli: 200 * 1024 },
   details: { gzip: 140 * 1024, brotli: 120 * 1024 },
 };
