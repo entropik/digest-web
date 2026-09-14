@@ -656,7 +656,7 @@ app.notFound((context) => context.json({ error: "NOT_FOUND" }, 404));
 
 if (config.nodeEnv !== "test") {
   translations.startWorker();
-  serve({ fetch: app.fetch, port: config.port }, (info) => {
+  serve({ fetch: app.fetch, port: config.port, hostname: "127.0.0.1" }, (info) => {
     console.log(`Digest admin service listening on http://127.0.0.1:${info.port}`);
   });
 }
