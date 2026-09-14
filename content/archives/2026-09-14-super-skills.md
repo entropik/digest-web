@@ -95,13 +95,17 @@ Je veux être honnête avec ce projet, qui a le mérite d'exister en français e
 
 ## Le tableau de chasse
 
-| Projet | Camp | Adoption (14/09/2026) | Promesse | Talon d'Achille |
+Adoptions relevées en étoiles GitHub au 14 septembre 2026.
+
+| Projet | Camp | Adoption | Promesse & talon d'Achille | Verdict |
 | :--- | :--- | :--- | :--- | :--- |
-| [Superpowers](https://github.com/obra/superpowers) | Process | 286k ★ | Discipline TDD imposée, preuve avant succès | Méga-prompts contradictoires, coût en tokens, pipeline rigide |
-| [mattpocock/skills](https://github.com/mattpocock/skills) | Craft | 261k ★ | Skills petits, composables, langage partagé | Exige un senior aux commandes, centré sur son créateur |
-| [spec-kit](https://github.com/github/spec-kit) (GitHub) | Process | 136k ★ | L'intention rendue exécutable, specs versionnées | Surcharge documentaire, « waterfall rebrandé », specs qui pourrissent |
-| [pstack](https://github.com/backnotprop/pstack) | Craft radical | 7,6k ★ (dépôt parent) | « The best spec is code », preuve par l'exécution | Couplé à Cursor, très personnel |
-| [ai-driven-dev/framework](https://github.com/ai-driven-dev/framework) | Process | 464 ★ | SDLC complet « enterprise-grade » en français | Garanties probabilistes, adoption embryonnaire |
+| [Superpowers](https://github.com/obra/superpowers) | Process | 286k ★ | Discipline TDD imposée, preuve avant succès — mais méga-prompts contradictoires, coût en tokens et pipeline rigide. | À adopter |
+| [mattpocock/skills](https://github.com/mattpocock/skills) | Craft | 261k ★ | Skills petits, composables, langage partagé — mais suppose un senior aux commandes et un écosystème centré sur son créateur. | À adopter |
+| [spec-kit](https://github.com/github/spec-kit) (GitHub) | Process | 136k ★ | L'intention rendue exécutable, specs versionnées — mais surcharge documentaire, « waterfall rebrandé », specs qui pourrissent. | Spec-first |
+| [pstack](https://github.com/backnotprop/pstack) | Craft radical | 7,6k ★¹ | « The best spec is code », preuve par l'exécution — mais couplé à Cursor et aux conventions de son auteure. | À suivre |
+| [ai-driven-dev/framework](https://github.com/ai-driven-dev/framework) | Process | 464 ★ | SDLC complet « enterprise-grade » en français — mais garanties probabilistes, adoption embryonnaire. | À suivre |
+
+¹ Dépôt parent `cursor/plugins` — pstack est distribué nativement dans Cursor.
 
 ---
 
