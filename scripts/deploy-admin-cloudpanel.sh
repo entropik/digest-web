@@ -177,3 +177,8 @@ printf '%s\n' "$remote_sha" >"$base/shared/observed-main-sha"
 
 cd "$base/releases"
 ls -1dt -- */ 2>/dev/null | tail -n +6 | xargs -r rm -rf --
+
+if [ -d "$base/shared/backups" ]; then
+  cd "$base/shared/backups"
+  ls -1t -- *.backup 2>/dev/null | tail -n +6 | xargs -r rm -f --
+fi
