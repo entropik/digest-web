@@ -6,8 +6,22 @@
     <description>Publications récentes de Digest</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
-    <lastBuildDate>Sat, 12 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://digest.ooblik.com/archives/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Digest — 14 septembre 2026</title>
+      <link>https://digest.ooblik.com/archives/2026-09-14/</link>
+      <pubDate>Mon, 14 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/archives/2026-09-14/</guid>
+      <description>Intelligence artificielle, développement, design, édition et création numérique.</description>
+    </item>
+    <item>
+      <title>Super skills, specs et harnais : qui disciplinera les agents de code ?</title>
+      <link>https://digest.ooblik.com/archives/2026-09-14-super-skills/</link>
+      <pubDate>Mon, 14 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/archives/2026-09-14-super-skills/</guid>
+      <description>Skills composables, spec-driven development, harness engineering : en un an, toute une industrie des « super skills » promet de discipliner les agents de code. Panorama des camps (Superpowers, Matt Pocock, pstack, Spec Kit, ai-driven-dev), des critiques réelles et de ce qu&amp;#39;il faut vraiment adopter.</description>
+    </item>
     <item>
       <title>Digest — 12 septembre 2026</title>
       <link>https://digest.ooblik.com/archives/2026-09-12/</link>

@@ -6,8 +6,22 @@
     <description>Recent content from Digest</description>
     <generator>Hugo</generator>
     <language>en-GB</language>
-    <lastBuildDate>Sat, 12 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://digest.ooblik.com/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Digest — 14 septembre 2026</title>
+      <link>https://digest.ooblik.com/en/archives/2026-09-14/</link>
+      <pubDate>Mon, 14 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/archives/2026-09-14/</guid>
+      <description>Translation pending · Intelligence artificielle, développement, design, édition et création numérique.</description>
+    </item>
+    <item>
+      <title>Super skills, specs et harnais : qui disciplinera les agents de code ?</title>
+      <link>https://digest.ooblik.com/en/archives/2026-09-14-super-skills/</link>
+      <pubDate>Mon, 14 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/archives/2026-09-14-super-skills/</guid>
+      <description>Translation pending · Skills composables, spec-driven development, harness engineering : en un an, toute une industrie des « super skills » promet de discipliner les agents de code. Panorama des camps (Superpowers, Matt Pocock, pstack, Spec Kit, ai-driven-dev), des critiques réelles et de ce qu&amp;#39;il faut vraiment adopter.</description>
+    </item>
     <item>
       <title>Digest — 12 September 2026</title>
       <link>https://digest.ooblik.com/en/archives/2026-09-12/</link>
@@ -7252,6 +7266,13 @@ removing URLs that have become unstable or are no longer active.</description>
       <description>Translation pending · </description>
     </item>
     <item>
+      <title>#agentic-engineering</title>
+      <link>https://digest.ooblik.com/en/tags/agentic-engineering/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/tags/agentic-engineering/</guid>
+      <description>Translation pending · </description>
+    </item>
+    <item>
       <title>#agents</title>
       <link>https://digest.ooblik.com/en/tags/agents/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -7340,6 +7361,13 @@ removing URLs that have become unstable or are no longer active.</description>
       <link>https://digest.ooblik.com/en/tags/annuaire/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/tags/annuaire/</guid>
+      <description>Translation pending · </description>
+    </item>
+    <item>
+      <title>#anthropic</title>
+      <link>https://digest.ooblik.com/en/tags/anthropic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/tags/anthropic/</guid>
       <description>Translation pending · </description>
     </item>
     <item>
@@ -8470,6 +8498,13 @@ removing URLs that have become unstable or are no longer active.</description>
       <description>Translation pending · </description>
     </item>
     <item>
+      <title>#context-engineering</title>
+      <link>https://digest.ooblik.com/en/tags/context-engineering/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/tags/context-engineering/</guid>
+      <description>Translation pending · </description>
+    </item>
+    <item>
       <title>#contexte</title>
       <link>https://digest.ooblik.com/en/tags/contexte/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -8614,6 +8649,13 @@ removing URLs that have become unstable or are no longer active.</description>
       <link>https://digest.ooblik.com/en/tags/curiosity/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/tags/curiosity/</guid>
+      <description>Translation pending · </description>
+    </item>
+    <item>
+      <title>#cursor</title>
+      <link>https://digest.ooblik.com/en/tags/cursor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/tags/cursor/</guid>
       <description>Translation pending · </description>
     </item>
     <item>
@@ -9818,6 +9860,13 @@ removing URLs that have become unstable or are no longer active.</description>
       <link>https://digest.ooblik.com/en/tags/hardware/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/tags/hardware/</guid>
+      <description>Translation pending · </description>
+    </item>
+    <item>
+      <title>#harness-engineering</title>
+      <link>https://digest.ooblik.com/en/tags/harness-engineering/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/tags/harness-engineering/</guid>
       <description>Translation pending · </description>
     </item>
     <item>
@@ -12880,6 +12929,13 @@ removing URLs that have become unstable or are no longer active.</description>
       <description>Translation pending · </description>
     </item>
     <item>
+      <title>#spec-driven</title>
+      <link>https://digest.ooblik.com/en/tags/spec-driven/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/tags/spec-driven/</guid>
+      <description>Translation pending · </description>
+    </item>
+    <item>
       <title>#spécification</title>
       <link>https://digest.ooblik.com/en/tags/specification/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -13101,6 +13157,13 @@ removing URLs that have become unstable or are no longer active.</description>
       <link>https://digest.ooblik.com/en/tags/tatoo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/en/tags/tatoo/</guid>
+      <description>Translation pending · </description>
+    </item>
+    <item>
+      <title>#TDD</title>
+      <link>https://digest.ooblik.com/en/tags/tdd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/en/tags/tdd/</guid>
       <description>Translation pending · </description>
     </item>
     <item>

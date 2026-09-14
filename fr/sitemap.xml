@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://digest.ooblik.com/archives/</loc>
-    <lastmod>2026-09-12T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-14T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://digest.ooblik.com/</loc>
-    <lastmod>2026-09-12T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-14T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
@@ -26,6 +26,32 @@
                 rel="alternate"
                 hreflang="en-GB"
                 href="https://digest.ooblik.com/en/"
+                />
+  </url><url>
+    <loc>https://digest.ooblik.com/archives/2026-09-14/</loc>
+    <lastmod>2026-09-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://digest.ooblik.com/archives/2026-09-14/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-GB"
+                href="https://digest.ooblik.com/en/archives/2026-09-14/"
+                />
+  </url><url>
+    <loc>https://digest.ooblik.com/archives/2026-09-14-super-skills/</loc>
+    <lastmod>2026-09-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://digest.ooblik.com/archives/2026-09-14-super-skills/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-GB"
+                href="https://digest.ooblik.com/en/archives/2026-09-14-super-skills/"
                 />
   </url><url>
     <loc>https://digest.ooblik.com/archives/2026-09-12/</loc>
@@ -13432,6 +13458,18 @@
                 href="https://digest.ooblik.com/en/tags/agence/"
                 />
   </url><url>
+    <loc>https://digest.ooblik.com/tags/agentic-engineering/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://digest.ooblik.com/tags/agentic-engineering/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-GB"
+                href="https://digest.ooblik.com/en/tags/agentic-engineering/"
+                />
+  </url><url>
     <loc>https://digest.ooblik.com/tags/agents/</loc>
     <xhtml:link
                 rel="alternate"
@@ -13586,6 +13624,18 @@
                 rel="alternate"
                 hreflang="en-GB"
                 href="https://digest.ooblik.com/en/tags/annuaire/"
+                />
+  </url><url>
+    <loc>https://digest.ooblik.com/tags/anthropic/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://digest.ooblik.com/tags/anthropic/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-GB"
+                href="https://digest.ooblik.com/en/tags/anthropic/"
                 />
   </url><url>
     <loc>https://digest.ooblik.com/tags/antonin-artaud/</loc>
@@ -15520,6 +15570,18 @@
                 href="https://digest.ooblik.com/en/tags/contenu/"
                 />
   </url><url>
+    <loc>https://digest.ooblik.com/tags/context-engineering/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://digest.ooblik.com/tags/context-engineering/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-GB"
+                href="https://digest.ooblik.com/en/tags/context-engineering/"
+                />
+  </url><url>
     <loc>https://digest.ooblik.com/tags/contexte/</loc>
     <xhtml:link
                 rel="alternate"
@@ -15770,6 +15832,18 @@
                 rel="alternate"
                 hreflang="en-GB"
                 href="https://digest.ooblik.com/en/tags/curiosity/"
+                />
+  </url><url>
+    <loc>https://digest.ooblik.com/tags/cursor/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://digest.ooblik.com/tags/cursor/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-GB"
+                href="https://digest.ooblik.com/en/tags/cursor/"
                 />
   </url><url>
     <loc>https://digest.ooblik.com/tags/cybersecurite/</loc>
@@ -17834,6 +17908,18 @@
                 rel="alternate"
                 hreflang="en-GB"
                 href="https://digest.ooblik.com/en/tags/hardware/"
+                />
+  </url><url>
+    <loc>https://digest.ooblik.com/tags/harness-engineering/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://digest.ooblik.com/tags/harness-engineering/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-GB"
+                href="https://digest.ooblik.com/en/tags/harness-engineering/"
                 />
   </url><url>
     <loc>https://digest.ooblik.com/tags/harrycallahan/</loc>
@@ -23080,6 +23166,18 @@
                 href="https://digest.ooblik.com/en/tags/source-available/"
                 />
   </url><url>
+    <loc>https://digest.ooblik.com/tags/spec-driven/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://digest.ooblik.com/tags/spec-driven/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-GB"
+                href="https://digest.ooblik.com/en/tags/spec-driven/"
+                />
+  </url><url>
     <loc>https://digest.ooblik.com/tags/specification/</loc>
     <xhtml:link
                 rel="alternate"
@@ -23462,6 +23560,18 @@
                 rel="alternate"
                 hreflang="en-GB"
                 href="https://digest.ooblik.com/en/tags/tatoo/"
+                />
+  </url><url>
+    <loc>https://digest.ooblik.com/tags/tdd/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://digest.ooblik.com/tags/tdd/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-GB"
+                href="https://digest.ooblik.com/en/tags/tdd/"
                 />
   </url><url>
     <loc>https://digest.ooblik.com/tags/tech/</loc>

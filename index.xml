@@ -6,8 +6,22 @@
     <description>Publications récentes de Digest</description>
     <generator>Hugo</generator>
     <language>fr-FR</language>
-    <lastBuildDate>Sat, 12 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://digest.ooblik.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Digest — 14 septembre 2026</title>
+      <link>https://digest.ooblik.com/archives/2026-09-14/</link>
+      <pubDate>Mon, 14 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/archives/2026-09-14/</guid>
+      <description>Intelligence artificielle, développement, design, édition et création numérique.</description>
+    </item>
+    <item>
+      <title>Super skills, specs et harnais : qui disciplinera les agents de code ?</title>
+      <link>https://digest.ooblik.com/archives/2026-09-14-super-skills/</link>
+      <pubDate>Mon, 14 Sep 2026 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/archives/2026-09-14-super-skills/</guid>
+      <description>Skills composables, spec-driven development, harness engineering : en un an, toute une industrie des « super skills » promet de discipliner les agents de code. Panorama des camps (Superpowers, Matt Pocock, pstack, Spec Kit, ai-driven-dev), des critiques réelles et de ce qu&amp;#39;il faut vraiment adopter.</description>
+    </item>
     <item>
       <title>Digest — 12 septembre 2026</title>
       <link>https://digest.ooblik.com/archives/2026-09-12/</link>
@@ -7252,6 +7266,13 @@ effacer les adresses devenues fragiles ou mortes.</description>
       <description></description>
     </item>
     <item>
+      <title>#agentic-engineering</title>
+      <link>https://digest.ooblik.com/tags/agentic-engineering/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/tags/agentic-engineering/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>#agents</title>
       <link>https://digest.ooblik.com/tags/agents/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -7340,6 +7361,13 @@ effacer les adresses devenues fragiles ou mortes.</description>
       <link>https://digest.ooblik.com/tags/annuaire/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/tags/annuaire/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>#anthropic</title>
+      <link>https://digest.ooblik.com/tags/anthropic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/tags/anthropic/</guid>
       <description></description>
     </item>
     <item>
@@ -8470,6 +8498,13 @@ effacer les adresses devenues fragiles ou mortes.</description>
       <description></description>
     </item>
     <item>
+      <title>#context-engineering</title>
+      <link>https://digest.ooblik.com/tags/context-engineering/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/tags/context-engineering/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>#contexte</title>
       <link>https://digest.ooblik.com/tags/contexte/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -8614,6 +8649,13 @@ effacer les adresses devenues fragiles ou mortes.</description>
       <link>https://digest.ooblik.com/tags/curiosity/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/tags/curiosity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>#cursor</title>
+      <link>https://digest.ooblik.com/tags/cursor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/tags/cursor/</guid>
       <description></description>
     </item>
     <item>
@@ -9818,6 +9860,13 @@ effacer les adresses devenues fragiles ou mortes.</description>
       <link>https://digest.ooblik.com/tags/hardware/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/tags/hardware/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>#harness-engineering</title>
+      <link>https://digest.ooblik.com/tags/harness-engineering/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/tags/harness-engineering/</guid>
       <description></description>
     </item>
     <item>
@@ -12880,6 +12929,13 @@ effacer les adresses devenues fragiles ou mortes.</description>
       <description></description>
     </item>
     <item>
+      <title>#spec-driven</title>
+      <link>https://digest.ooblik.com/tags/spec-driven/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/tags/spec-driven/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>#spécification</title>
       <link>https://digest.ooblik.com/tags/specification/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -13101,6 +13157,13 @@ effacer les adresses devenues fragiles ou mortes.</description>
       <link>https://digest.ooblik.com/tags/tatoo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://digest.ooblik.com/tags/tatoo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>#TDD</title>
+      <link>https://digest.ooblik.com/tags/tdd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://digest.ooblik.com/tags/tdd/</guid>
       <description></description>
     </item>
     <item>
