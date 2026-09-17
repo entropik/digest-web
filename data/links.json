@@ -1,30 +1,182 @@
 [
   {
-    "title": "obra/superpowers : la méthodologie de développement pour agents de code",
-    "url": "https://github.com/obra/superpowers",
+    "id": "fb3faebc-1d7e-5d69-9dbd-cf156a12663b",
+    "title": "Welcome",
+    "url": "https://odyssai.eu/docs",
     "category": "IA & Agents",
-    "added": "2026-09-14",
-    "description": "La méthodologie de Jesse Vincent pour agents de code : brainstorming, plan, TDD strict, revue en deux étages. 286 000 étoiles.",
+    "added": "2026-09-17",
+    "description": "OdyssAI is a stack for running frontier language models on Apple Silicon. It is local-first — by default, your prompts never leave your machines — but not local-only. Cloud provide",
     "tags": [
       "agents",
-      "skills",
-      "TDD",
       "code"
-    ],
-    "id": "488567a9-84d1-5248-9cff-38132d5c2629"
+    ]
   },
   {
-    "title": "mattpocock/skills : Skills for Real Engineers",
-    "url": "https://github.com/mattpocock/skills",
+    "id": "89790519-cda8-5b31-8ce3-fc88e0718469",
+    "title": "The Monocle Bear · Privacy is an architecture, not a promise",
+    "url": "https://themonoclebear.com/en",
     "category": "IA & Agents",
-    "added": "2026-09-14",
-    "description": "Les skills quotidiens de Matt Pocock (AI Hero) : /grill-me, /tdd, langage partagé façon DDD. Petits et composables, anti-framework.",
+    "added": "2026-09-17",
+    "description": "Hybrid AI systems: a guardrail analyzes every request, confidential data stays local, the rest is routed to the most competent model.",
+    "tags": [
+      "LLM",
+      "code"
+    ]
+  },
+  {
+    "id": "9197d342-7f4b-51db-958b-fb5db1f1b939",
+    "title": "Tangled · The next-generation social coding platform",
+    "url": "https://tangled.org/",
+    "category": "Développement",
+    "added": "2026-09-17",
+    "description": "The next-generation social coding platform.",
+    "tags": [
+      "code"
+    ]
+  },
+  {
+    "id": "16f15a7b-5f0c-5e8a-8629-edd024071a0b",
+    "title": "spotify/portal-ai-plugins",
+    "url": "https://github.com/spotify/portal-ai-plugins",
+    "category": "IA & Agents",
+    "added": "2026-09-17",
+    "description": "Contribute to spotify/portal-ai-plugins development by creating an account on GitHub.",
     "tags": [
       "agents",
-      "skills",
       "code"
+    ]
+  },
+  {
+    "id": "b3e25a8f-dc8a-57dd-afbc-9505b0665ed8",
+    "title": "siyuan-note/siyuan: An open-source, privacy-first, self-hosted knowledge workspace where humans and AI agents work together 开源、隐私优先、自托管的知识工作空间，让人与智能体在此协作",
+    "url": "https://github.com/siyuan-note/siyuan",
+    "category": "Développement",
+    "added": "2026-09-17",
+    "description": "An open-source, privacy-first, self-hosted knowledge workspace where humans and AI agents work together",
+    "tags": [
+      "agents",
+      "code"
+    ]
+  },
+  {
+    "id": "02c93921-8f43-5fa9-84da-10308749208a",
+    "title": "rickub — the git that's never gonna let you down",
+    "url": "https://rickub.com/",
+    "category": "Développement",
+    "added": "2026-09-17",
+    "description": "rickub — the git that's never gonna let you down. Hosted git repositories, code review, CI, organizations and teams.",
+    "tags": [
+      "code"
+    ]
+  },
+  {
+    "id": "dd99494c-02a5-52c7-8917-1a907dc163c3",
+    "title": "Portal by Spotify cut my Claude Code token usage by 90% | Spotify Engineering",
+    "url": "https://engineering.atspotify.com/2026/9/portal-by-spotify-cut-my-claude-code-token-usage-by-90",
+    "category": "Développement",
+    "added": "2026-09-17",
+    "description": "Most of what an AI coding agent does for me isn't thinking. It's I/O.",
+    "tags": [
+      "code",
+      "agents"
+    ]
+  },
+  {
+    "id": "cd8592ce-a161-5c39-b5ca-255b637a3869",
+    "title": "Odyssai-eu/OdyssAI-X: Distributed MLX inference engine for Apple Silicon clusters. OpenAI- and Anthropic-compatible. Pipeline + tensor parallel over JACCL/RDMA or TCP.",
+    "url": "https://github.com/Odyssai-eu/OdyssAI-X",
+    "category": "IA & Agents",
+    "added": "2026-09-17",
+    "description": "Distributed MLX inference engine for Apple Silicon clusters. OpenAI- and Anthropic-compatible. Pipeline + tensor parallel over JACCL/RDMA or TCP. - Odyssai-eu/OdyssAI-X",
+    "tags": [
+      "agents",
+      "code"
+    ]
+  },
+  {
+    "id": "76ce639c-a734-5b44-a70a-5c5afced7aa3",
+    "title": "KbWen/agentic-os: Governance framework for AI coding agents. It runs them through a five-step workflow (plan, build, review, test, ship) where no step counts as done without evidence. Drop-in rules and guardrails for Claude Code, Codex, Cur",
+    "url": "https://github.com/KbWen/agentic-os",
+    "category": "IA & Agents",
+    "added": "2026-09-17",
+    "description": "Governance framework for AI coding agents. It runs them through a five-step workflow (plan, build, review, test, ship) where no step counts as done without evidence. Drop-in rules and guardrails for Claude Code, Codex, Cursor, Copilot, and Antigravity, via AGENTS.md. - KbWen/agentic-os",
+    "tags": [
+      "code",
+      "agents",
+      "LLM"
+    ]
+  },
+  {
+    "id": "ba681be7-f127-505e-ae6d-a3d44aafba5f",
+    "title": "JuliusBrussee/caveman: 🪨 why use many token when few token do trick. Viral skill + proxy for coding agents that cuts 65% of tokens by talking like a caveman.",
+    "url": "https://github.com/juliusbrussee/caveman",
+    "category": "IA & Agents",
+    "added": "2026-09-17",
+    "description": "🪨 why use many token when few token do trick. Viral skill + proxy for coding agents that cuts 65% of tokens by talking like a caveman. - JuliusBrussee/caveman",
+    "tags": [
+      "agents",
+      "LLM",
+      "memory"
+    ]
+  },
+  {
+    "id": "d86d6420-e30b-5a09-b4c0-12e7bb7fa913",
+    "title": "HAPI - Vibe Coding Anytime, Anywhere",
+    "url": "https://hapi.manus.space/",
+    "category": "IA & Agents",
+    "added": "2026-09-17",
+    "description": "The local-first AI agent platform for developers who love freedom. Go for a hike, grab a coffee, or just relax. Your AI agents work in the background.",
+    "tags": [
+      "agents",
+      "code"
+    ]
+  },
+  {
+    "id": "c07dd2ba-5468-5eaf-aad7-ba6e3f119bc0",
+    "title": "Code for the People Documentary - The human story of the open web",
+    "url": "https://codeforthepeople.com/",
+    "category": "Krisis",
+    "added": "2026-09-17",
+    "description": "Code for the People is a documentary short about the past, present, and contested future of the open web. This film is an exploration of what the internet is actually for, who gets to own it, and what it takes to keep it free.",
+    "tags": [
+      "web"
+    ]
+  },
+  {
+    "id": "e93badc1-1704-565e-8ade-04139746d77e",
+    "title": "Adding Thousands of Lines to Your Codebase Isn't Impressive. It's Actually Bad.",
+    "url": "https://brennan.day/adding-thousands-of-lines-to-your-codebase-isnt-impressive-its-actually-bad",
+    "category": "Krisis",
+    "added": "2026-09-17",
+    "description": "Vibe coders brag about adding thousands of lines of code with AI, but measuring productivity by lines of code is like measuring aircraft progress by weight…",
+    "tags": [
+      "code",
+      "LLM"
+    ]
+  },
+  {
+    "title": "Understanding Spec-Driven-Development: Kiro, spec-kit, and Tessl",
+    "url": "https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html",
+    "category": "Développement",
+    "added": "2026-09-14",
+    "description": "Birgitta Böckeler distingue spec-first, spec-anchored et spec-as-source, et pointe la surcharge documentaire du SDD.",
+    "tags": [
+      "spec-driven",
+      "IA"
     ],
-    "id": "152e48f4-0dc4-50f7-b62e-e017cdb7cf6c"
+    "id": "66dcf639-fb65-5acc-8c47-9d7ec365d04b"
+  },
+  {
+    "title": "Spec-Driven Development: The Waterfall Strikes Back",
+    "url": "https://marmelab.com/blog/2025/11/12/spec-driven-development-waterfall-strikes-back.html",
+    "category": "Développement",
+    "added": "2026-09-14",
+    "description": "Le réquisitoire de François Zaninotto contre le SDD : 1 300 lignes de spec pour afficher la date — un waterfall rebrandé.",
+    "tags": [
+      "spec-driven",
+      "IA"
+    ],
+    "id": "d1548dd8-f0b4-574e-aa8c-64cf23f3be4a"
   },
   {
     "title": "pstack : les playbooks anti-slop de Lauren Tan (@poteto)",
@@ -41,42 +193,18 @@
     "id": "a2418ee2-2bff-53ef-b449-7cefb350373c"
   },
   {
-    "title": "github/spec-kit : le kit open source de spec-driven development",
-    "url": "https://github.com/github/spec-kit",
+    "title": "obra/superpowers : la méthodologie de développement pour agents de code",
+    "url": "https://github.com/obra/superpowers",
     "category": "IA & Agents",
     "added": "2026-09-14",
-    "description": "Le toolkit de GitHub pour écrire la spécification avant le code : /specify → /plan → /tasks → /implement. 136 000 étoiles.",
+    "description": "La méthodologie de Jesse Vincent pour agents de code : brainstorming, plan, TDD strict, revue en deux étages. 286 000 étoiles.",
     "tags": [
       "agents",
-      "spec-driven",
-      "code",
-      "github"
+      "skills",
+      "TDD",
+      "code"
     ],
-    "id": "9f47cb6d-d522-5104-ade3-29b86e6f4583"
-  },
-  {
-    "title": "Spec-Driven Development: The Waterfall Strikes Back",
-    "url": "https://marmelab.com/blog/2025/11/12/spec-driven-development-waterfall-strikes-back.html",
-    "category": "Développement",
-    "added": "2026-09-14",
-    "description": "Le réquisitoire de François Zaninotto contre le SDD : 1 300 lignes de spec pour afficher la date — un waterfall rebrandé.",
-    "tags": [
-      "spec-driven",
-      "IA"
-    ],
-    "id": "d1548dd8-f0b4-574e-aa8c-64cf23f3be4a"
-  },
-  {
-    "title": "Understanding Spec-Driven-Development: Kiro, spec-kit, and Tessl",
-    "url": "https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html",
-    "category": "Développement",
-    "added": "2026-09-14",
-    "description": "Birgitta Böckeler distingue spec-first, spec-anchored et spec-as-source, et pointe la surcharge documentaire du SDD.",
-    "tags": [
-      "spec-driven",
-      "IA"
-    ],
-    "id": "66dcf639-fb65-5acc-8c47-9d7ec365d04b"
+    "id": "488567a9-84d1-5248-9cff-38132d5c2629"
   },
   {
     "title": "My AI Adoption Journey — Mitchell Hashimoto",
@@ -91,16 +219,31 @@
     "id": "49d7fdbd-c740-53c2-9655-fa65df2fb4c7"
   },
   {
-    "title": "Agentic Engineering — Addy Osmani",
-    "url": "https://addyosmani.com/blog/agentic-engineering/",
+    "title": "mattpocock/skills : Skills for Real Engineers",
+    "url": "https://github.com/mattpocock/skills",
     "category": "IA & Agents",
     "added": "2026-09-14",
-    "description": "Le manifeste d'Addy Osmani pour un développement assisté par IA discipliné, en contrepoint du vibe coding.",
+    "description": "Les skills quotidiens de Matt Pocock (AI Hero) : /grill-me, /tdd, langage partagé façon DDD. Petits et composables, anti-framework.",
     "tags": [
       "agents",
-      "agentic-engineering"
+      "skills",
+      "code"
     ],
-    "id": "997107cc-5e72-5b5a-a0c3-2062197baf77"
+    "id": "152e48f4-0dc4-50f7-b62e-e017cdb7cf6c"
+  },
+  {
+    "title": "github/spec-kit : le kit open source de spec-driven development",
+    "url": "https://github.com/github/spec-kit",
+    "category": "IA & Agents",
+    "added": "2026-09-14",
+    "description": "Le toolkit de GitHub pour écrire la spécification avant le code : /specify → /plan → /tasks → /implement. 136 000 étoiles.",
+    "tags": [
+      "agents",
+      "spec-driven",
+      "code",
+      "github"
+    ],
+    "id": "9f47cb6d-d522-5104-ade3-29b86e6f4583"
   },
   {
     "title": "Effective context engineering for AI agents",
@@ -116,6 +259,18 @@
     "id": "c8838d82-9e49-5476-a8b5-4a6b16da2f61"
   },
   {
+    "title": "Agentic Engineering — Addy Osmani",
+    "url": "https://addyosmani.com/blog/agentic-engineering/",
+    "category": "IA & Agents",
+    "added": "2026-09-14",
+    "description": "Le manifeste d'Addy Osmani pour un développement assisté par IA discipliné, en contrepoint du vibe coding.",
+    "tags": [
+      "agents",
+      "agentic-engineering"
+    ],
+    "id": "997107cc-5e72-5b5a-a0c3-2062197baf77"
+  },
+  {
     "title": "Agent Skills — Anthropic",
     "url": "https://www.anthropic.com/news/skills",
     "category": "IA & Agents",
@@ -127,21 +282,6 @@
       "anthropic"
     ],
     "id": "0d2077b8-479b-5609-b12f-d967d87baa38"
-  },
-  {
-    "id": "59d5f658-0dc0-4209-baa8-1a9fb5304243",
-    "title": "Herdr — le multiplexeur d’agents dans le terminal",
-    "url": "https://github.com/herdrdev/herdr",
-    "category": "IA & Agents",
-    "added": "2026-09-12",
-    "description": "Un multiplexeur de terminal open source (Apache-2.0) pensé pour les agents IA : persistance des panneaux, navigation mouse-first et intégrations par hooks pour remonter l’état réel d’exécution.",
-    "tags": [
-      "IA",
-      "agents",
-      "terminal",
-      "opensource",
-      "CLI"
-    ]
   },
   {
     "id": "ce12260b-706d-571d-8727-a107f63bc27d",
@@ -209,6 +349,21 @@
     "description": "We are not terrorists. Autistici.org is an infrastructure of dissent",
     "tags": [
       "politique"
+    ]
+  },
+  {
+    "id": "59d5f658-0dc0-4209-baa8-1a9fb5304243",
+    "title": "Herdr — le multiplexeur d’agents dans le terminal",
+    "url": "https://github.com/herdrdev/herdr",
+    "category": "IA & Agents",
+    "added": "2026-09-12",
+    "description": "Un multiplexeur de terminal open source (Apache-2.0) pensé pour les agents IA : persistance des panneaux, navigation mouse-first et intégrations par hooks pour remonter l’état réel d’exécution.",
+    "tags": [
+      "IA",
+      "agents",
+      "terminal",
+      "opensource",
+      "CLI"
     ]
   },
   {
