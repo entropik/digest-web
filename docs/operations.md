@@ -1,5 +1,16 @@
 # Exploitation de l’administration
 
+## Dépendance de build du site public (Pagefind)
+
+Depuis la v1.31.0, le build du site indexe le catalogue dans Pagefind
+(`scripts/build-pagefind-index.mjs`, appelé par `build-site.mjs`). La racine du
+dépôt porte donc un `package.json` avec la dépendance `pagefind`, et
+`deploy-vps.sh` exécute `npm ci --omit=dev` avant le build Hugo : le compte de
+service doit avoir `node` 22 et `npm` dans le `PATH` du hook, comme la ligne
+cron admin. Le premier déploiement télécharge le binaire (~5 Mio, mis en cache
+ensuite dans `~/.npm`). Les publications de traductions ciblées réindexent
+Pagefind sur l’arbre de production (voir `translation-production.mjs`).
+
 ## Délai d’attente nginx de l’API d’administration
 
 Le 17 septembre 2026, la publication du Digest a dépassé les 60 secondes de

@@ -131,6 +131,9 @@ async function targetedBuild(plan, production, temporary) {
     }
   }
   for (const date of plan.artwork.remove) for (const suffix of [".png", "-linkedin.png"]) await rm(path.join(production, `social/en/${date}${suffix}`), { force: true });
+  // Les index EN viennent de changer : réindexer Pagefind sur l'arbre de
+  // production complet (catalogue fr inchangé + segments en fraîchement rendus).
+  run(process.execPath, ["scripts/build-pagefind-index.mjs", "--site", production]);
 }
 
 export async function classifyPushChanges(mainSha) {

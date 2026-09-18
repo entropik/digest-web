@@ -20,3 +20,6 @@ run([...common, "--destination", ".build-i18n/source", "--cleanDestinationDir"],
 const source = await readFile(path.join(root, ".build-i18n/source/translation-source.json"), "utf8");
 await writeFile(path.join(root, ".build-i18n/manifest.json"), source);
 run([...common, "--destination", destination, "--cleanDestinationDir"]);
+const pagefindResult = spawnSync(process.execPath, ["scripts/build-pagefind-index.mjs", "--site", destination], { cwd: root, stdio: "inherit" });
+if (pagefindResult.error) throw pagefindResult.error;
+if (pagefindResult.status !== 0) throw new Error("Pagefind indexing failed");

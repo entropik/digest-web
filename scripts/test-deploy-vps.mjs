@@ -36,8 +36,10 @@ test("the VPS deployment builds and publishes the complete bilingual site", asyn
     fakeNode,
     `#!/bin/sh
 set -eu
+if [ "$1" != "scripts/build-site.mjs" ]; then
+  exec "$TEST_REAL_NODE" "$@"
+fi
 printf '%s\\n' "$*" > "$TEST_NODE_INVOCATION"
-test "$1" = "scripts/build-site.mjs"
 test "$2" = "--destination"
 destination="$3"
 for route in ${requiredRoutes.map((route) => `"${route}"`).join(" ")}; do
@@ -82,6 +84,7 @@ test "$1" = "-Tf"
         TEST_MISSING_ROUTE: missingRoute,
         TEST_NODE_INVOCATION: invocationLog,
         TEST_REAL_MV: "/bin/mv",
+        TEST_REAL_NODE: process.execPath,
       },
     });
 

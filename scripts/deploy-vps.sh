@@ -31,6 +31,9 @@ fi
 RELEASE_ID="$(date +%Y%m%d%H%M%S)"
 RELEASE_DIR="$BASE/releases/$RELEASE_ID"
 
+echo "Préparation des dépendances de build (indexation Pagefind)..."
+npm ci --omit=dev --no-audit --no-fund --silent
+
 echo "Compilation Hugo vers $RELEASE_DIR..."
 mkdir -p "$BASE/releases"
 HUGO_BINARY="$HUGO_BIN" node scripts/build-site.mjs --destination "$RELEASE_DIR"

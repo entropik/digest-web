@@ -1,0 +1,5 @@
+[
+  { "i": "l1", "t": "Intelligence artificielle et agents", "u": "https://exemple.fr/ia", "c": "IA & Agents", "g": ["agents"], "a": "2026-09-01" },
+  { "i": "l2", "t": "Photographie argentique", "u": "https://exemple.fr/photo", "c": "Photographie", "g": [], "a": "2026-09-02" },
+  { "i": "l3", "t": "Design typographique suisse", "u": "https://exemple.fr/design", "c": "Design & Création", "g": ["design"], "a": "2026-09-03" }
+]

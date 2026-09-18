@@ -45,6 +45,7 @@
   const descriptionIndexUrl = grid.dataset.descriptionIndexUrl;
   const supplementalIndexUrl = grid.dataset.supplementalIndexUrl;
   const detailIndexUrl = grid.dataset.detailIndexUrl;
+  const pagefindMapUrl = grid.dataset.pagefindMapUrl;
   let links = null;
   const indexPromises = new Map();
   const linksByScope = new Map();
@@ -52,6 +53,11 @@
   let cachedDescriptions = null;
   let detailPromise = null;
   let linkCountByDate = new Map();
+  let pagefindModule = null;
+  let pagefindMap = null;
+  let pagefindFailure = false;
+  let searchRanks = null;
+  let searchDebounce = null;
   const modal = document.querySelector("#digest-modal");
   const modalClose = modal.querySelector(".digest-modal-close");
   const modalPrev = modal.querySelector(".digest-modal-prev");
@@ -530,17 +536,26 @@
   };
 
   const getFilteredLinks = () => {
-    const terms = normalize(search.value).split(/\s+/).filter(Boolean);
+    const terms = searchRanks ? [] : normalize(search.value).split(/\s+/).filter(Boolean);
     const selectedDate = dateFilter.value;
-    return links.filter((link) => {
+    const matched = [];
+    links.forEach((link, position) => {
       const matchesCategory =
         category === "all" ||
         (category === "favorites" ? isFavorite(link.url) : link.category === category);
-      const searchableText = getSearchableText(link);
-      const matchesQuery = terms.every((term) => searchableText.includes(term));
+      let matchesQuery = true;
+      if (searchRanks) {
+        matchesQuery = searchRanks.has(position);
+      } else if (terms.length) {
+        matchesQuery = terms.every((term) => getSearchableText(link).includes(term));
+      }
       const matchesDate = !selectedDate || String(link.added).slice(0, 10) === selectedDate;
-      return matchesCategory && matchesQuery && matchesDate;
+      if (matchesCategory && matchesQuery && matchesDate) {
+        matched.push(searchRanks ? { link, rank: searchRanks.get(position) } : { link });
+      }
     });
+    if (searchRanks) matched.sort((left, right) => left.rank - right.rank);
+    return matched.map((entry) => entry.link);
   };
 
   const clearRandomSelection = () => {
@@ -685,32 +700,79 @@
 
   search.addEventListener("focus", () => void loadDescriptions(), { once: true });
 
+  const ensurePagefind = async () => {
+    if (!pagefindModule) {
+      pagefindModule = await import("/pagefind/pagefind.js");
+    }
+    if (!pagefindMap) {
+      const response = await fetch(pagefindMapUrl, {
+        credentials: "same-origin",
+        headers: { Accept: "application/json" },
+      });
+      if (!response.ok) throw new Error(`PAGEFIND_MAP_${response.status}`);
+      pagefindMap = await response.json();
+      if (!pagefindMap || typeof pagefindMap !== "object") throw new Error("PAGEFIND_MAP_INVALID");
+    }
+  };
+
+  const runSearch = async (query, revision) => {
+    if (revision !== searchRevision) return;
+    search.setAttribute("aria-busy", "true");
+    grid.setAttribute("aria-busy", "true");
+    try {
+      await ensurePagefind();
+      if (revision !== searchRevision) return;
+      const searchResult = await pagefindModule.search(query);
+      if (revision !== searchRevision) return;
+      searchRanks = new Map(
+        searchResult.results.map((result, rank) => [pagefindMap[result.id], rank]),
+      );
+      void withLinks(() => {
+        if (revision !== searchRevision) return;
+        render({ urlMode: "replace" });
+      });
+      return;
+    } catch {
+      // Pagefind indisponible : repli définitif sur le moteur local.
+      pagefindFailure = true;
+      searchRanks = null;
+    } finally {
+      search.removeAttribute("aria-busy");
+      grid.removeAttribute("aria-busy");
+    }
+    if (!cachedDescriptions) {
+      try {
+        await loadDescriptions();
+      } catch {
+        // Le moteur local tolère des descriptions absentes : seuls titre et
+        // champs techniques sont alors cherchables.
+      }
+    }
+    if (revision !== searchRevision) return;
+    void withLinks(() => {
+      if (revision !== searchRevision) return;
+      render({ urlMode: "replace" });
+    });
+  };
+
   search.addEventListener("input", () => {
     searchRevision += 1;
     currentPage = 1;
     clearRandomSelection();
     const query = search.value.trim();
-    if (query && !cachedDescriptions) {
-      search.setAttribute("aria-busy", "true");
-      grid.setAttribute("aria-busy", "true");
-      const currentRevision = searchRevision;
-      void loadDescriptions()
-        .then(() => {
-          search.removeAttribute("aria-busy");
-          grid.removeAttribute("aria-busy");
-          if (currentRevision === searchRevision) {
-            render({ urlMode: "replace" });
-          }
-        })
-        .catch(() => {
-          search.removeAttribute("aria-busy");
-          grid.removeAttribute("aria-busy");
-        });
-    } else {
-      search.removeAttribute("aria-busy");
-      grid.removeAttribute("aria-busy");
+    clearTimeout(searchDebounce);
+    if (!query) {
+      searchRanks = null;
+      void withLinks(() => undefined);
+      return;
     }
+    const revision = searchRevision;
+    // Rendu intermédiaire immédiat par sous-chaîne, remplacé par les résultats
+    // classés Pagefind dès qu'ils arrivent.
     void withLinks(() => undefined);
+    searchDebounce = setTimeout(() => {
+      void runSearch(query, revision);
+    }, 200);
   });
 
   dateToggle.addEventListener("click", () => {

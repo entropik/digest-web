@@ -190,7 +190,8 @@
   data-index-url="{{ $digestIndex.RelPermalink }}"
   data-description-index-url="{{ $digestDescriptionIndex.RelPermalink }}"
   data-supplemental-index-url="{{ $digestSupplementalIndex.RelPermalink }}"
-  data-detail-index-url="{{ $digestDetailIndex.RelPermalink }}">
+  data-detail-index-url="{{ $digestDetailIndex.RelPermalink }}"
+  data-pagefind-map-url="/pagefind/link-map.{{ site.Language.Lang }}.json">
   {{ range $index, $link := $initialLinks }}
     {{ $host := urls.Parse $link.url }}
     <article

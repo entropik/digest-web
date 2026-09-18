@@ -1,4 +1,4 @@
-import { readdir, readFile } from "node:fs/promises";
+import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { performance } from "node:perf_hooks";
 import { brotliCompressSync, constants, gzipSync } from "node:zlib";
@@ -91,8 +91,60 @@ for (const query of queries) {
 }
 if (longestSearch >= 50) {
   throw new Error(
-    `Search filtering exceeded the 50 ms long-task budget: ${longestSearch.toFixed(1)} ms.`,
+    `Fallback search filtering exceeded the 50 ms long-task budget: ${longestSearch.toFixed(1)} ms.`,
   );
+}
+
+// L'index Pagefind doit exister et ses tables doivent couvrir exactement le
+// catalogue fusionné de chaque langue (base puis supplémentaire, dédoublonné).
+const pagefindDirectory = path.join(dataDirectory, "..", "pagefind");
+const pagefindLibrary = path.join(pagefindDirectory, "pagefind.js");
+const libraryStat = await stat(pagefindLibrary).catch(() => null);
+if (!libraryStat?.isFile()) {
+  throw new Error("Pagefind index is missing: rebuild with scripts/build-pagefind-index.mjs.");
+}
+const readLanguageIndex = async (language, kind) => {
+  const languageData = path.join(dataDirectory, "..", language === "en" ? "en/data" : "data");
+  const match = (await readdir(languageData)).find(
+    (name) => name.startsWith(`digest-index-${kind}.`) && name.endsWith(".json"),
+  );
+  return JSON.parse(await readFile(path.join(languageData, match), "utf8"));
+};
+const catalogLength = async (language) => {
+  const seen = new Set();
+  for (const entry of [
+    ...(await readLanguageIndex(language, "base")),
+    ...(await readLanguageIndex(language, "supplemental")),
+  ]) {
+    if (entry?.i) seen.add(entry.i);
+  }
+  return seen.size;
+};
+const mapBudgets = { fr: 60 * 1024, en: 60 * 1024 };
+const mapSummary = {};
+for (const [language, budget] of Object.entries(mapBudgets)) {
+  const mapPath = path.join(pagefindDirectory, `link-map.${language}.json`);
+  const contents = await readFile(mapPath).catch(() => null);
+  if (!contents) {
+    throw new Error(`Pagefind link map is missing for ${language}.`);
+  }
+  const gzip = gzipSync(contents, { level: 9 }).length;
+  if (gzip > budget) {
+    throw new Error(
+      `Pagefind ${language} link map exceeds its budget: gzip ${gzip}/${budget} bytes.`,
+    );
+  }
+  const positions = Object.values(JSON.parse(contents.toString("utf8")));
+  if (new Set(positions).size !== positions.length) {
+    throw new Error(`Pagefind ${language} link map contains duplicate positions.`);
+  }
+  const expected = await catalogLength(language);
+  if (positions.length !== expected) {
+    throw new Error(
+      `Pagefind ${language} link map covers ${positions.length} positions, expected ${expected}.`,
+    );
+  }
+  mapSummary[language] = { fragments: positions.length, gzipKiB: Math.ceil(gzip / 1024) };
 }
 
 const summary = Object.fromEntries(
@@ -106,5 +158,5 @@ const summary = Object.fromEntries(
   ]),
 );
 process.stdout.write(
-  `Search indexes within budget: ${JSON.stringify(summary)}; longest filter ${longestSearch.toFixed(1)} ms.\n`,
+  `Search indexes within budget: ${JSON.stringify({ ...summary, pagefind: mapSummary })}; longest fallback filter ${longestSearch.toFixed(1)} ms.\n`,
 );
