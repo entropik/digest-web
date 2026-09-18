@@ -41,13 +41,15 @@
       ? JSON.parse(rawFaviconFallbackHosts)
       : rawFaviconFallbackHosts,
   );
-  const faviconFallbackSrc = faviconFallbackData.dataset.fallbackSrc;
   const indexUrl = grid.dataset.indexUrl;
+  const descriptionIndexUrl = grid.dataset.descriptionIndexUrl;
   const supplementalIndexUrl = grid.dataset.supplementalIndexUrl;
   const detailIndexUrl = grid.dataset.detailIndexUrl;
   let links = null;
   const indexPromises = new Map();
   const linksByScope = new Map();
+  let descriptionPromise = null;
+  let cachedDescriptions = null;
   let detailPromise = null;
   let linkCountByDate = new Map();
   const modal = document.querySelector("#digest-modal");
@@ -115,7 +117,7 @@
     title: entry.t,
     url: entry.u,
     category: entry.c,
-    description: entry.d || "",
+    description: entry.d || (cachedDescriptions ? cachedDescriptions.get(entry.i) || "" : ""),
     archive_text: "",
     tags: entry.g || [],
     added: entry.a,
@@ -151,6 +153,39 @@
     return indexPromises.get(url);
   };
 
+  const loadDescriptions = () => {
+    if (!descriptionIndexUrl) return Promise.resolve(new Map());
+    if (!descriptionPromise) {
+      descriptionPromise = fetch(descriptionIndexUrl, {
+        credentials: "same-origin",
+        headers: { Accept: "application/json" },
+      })
+        .then((response) => {
+          if (!response.ok) throw new Error(`DESCRIPTION_INDEX_${response.status}`);
+          return response.json();
+        })
+        .then((entries) => {
+          if (!Array.isArray(entries)) throw new Error("DESCRIPTION_INDEX_INVALID");
+          const descriptions = new Map(entries.map((entry) => [entry.i, entry.d || ""]));
+          cachedDescriptions = descriptions;
+          if (links) {
+            links.forEach((link) => {
+              if (!link.description && descriptions.has(link.id)) {
+                link.description = descriptions.get(link.id) || "";
+                link.searchText = "";
+              }
+            });
+          }
+          return descriptions;
+        })
+        .catch((error) => {
+          descriptionPromise = null;
+          throw error;
+        });
+    }
+    return descriptionPromise;
+  };
+
   const loadLinks = async () => {
     const scope = category === "all" ? "base" : "expanded";
     if (!linksByScope.has(scope)) {
@@ -161,7 +196,16 @@
       const groups = await Promise.all(requiredIndexes.map(fetchIndex));
       const unique = new Map();
       groups.flat().forEach((link) => unique.set(link.id, link));
-      linksByScope.set(scope, [...unique.values()]);
+      const scopedList = [...unique.values()];
+      if (cachedDescriptions) {
+        scopedList.forEach((link) => {
+          if (!link.description && cachedDescriptions.has(link.id)) {
+            link.description = cachedDescriptions.get(link.id) || "";
+            link.searchText = "";
+          }
+        });
+      }
+      linksByScope.set(scope, scopedList);
     }
     const scopedLinks = linksByScope.get(scope);
     if (!linkCountByDate.size) {
@@ -602,6 +646,9 @@
     const button = event.target.closest("button[data-category-label]");
     if (!button) return;
     const requestedCategory = button.dataset.categoryLabel;
+    if (requestedCategory !== "all" && requestedCategory !== "favorites") {
+      void loadDescriptions();
+    }
     category = requestedCategory;
     searchRevision += 1;
     if (requestedCategory === "favorites") {
@@ -636,10 +683,33 @@
     });
   });
 
+  search.addEventListener("focus", () => void loadDescriptions(), { once: true });
+
   search.addEventListener("input", () => {
     searchRevision += 1;
     currentPage = 1;
     clearRandomSelection();
+    const query = search.value.trim();
+    if (query && !cachedDescriptions) {
+      search.setAttribute("aria-busy", "true");
+      grid.setAttribute("aria-busy", "true");
+      const currentRevision = searchRevision;
+      void loadDescriptions()
+        .then(() => {
+          search.removeAttribute("aria-busy");
+          grid.removeAttribute("aria-busy");
+          if (currentRevision === searchRevision) {
+            render({ urlMode: "replace" });
+          }
+        })
+        .catch(() => {
+          search.removeAttribute("aria-busy");
+          grid.removeAttribute("aria-busy");
+        });
+    } else {
+      search.removeAttribute("aria-busy");
+      grid.removeAttribute("aria-busy");
+    }
     void withLinks(() => undefined);
   });
 
@@ -761,8 +831,15 @@
 
   const renderModalLink = async (link) => {
     try {
-      const details = await loadDetails();
+      const [details, descriptions] = await Promise.all([
+        loadDetails(),
+        loadDescriptions(),
+      ]);
       link.archive_text = details.get(link.id) || "";
+      if (!link.description && descriptions.has(link.id)) {
+        link.description = descriptions.get(link.id) || "";
+        link.searchText = "";
+      }
     } catch {
       link.archive_text = "";
     }
@@ -1055,6 +1132,7 @@
     }
     if (event.key === "/" && !modal.open && document.activeElement !== search) {
       event.preventDefault();
+      void loadDescriptions();
       search.focus();
     }
   });

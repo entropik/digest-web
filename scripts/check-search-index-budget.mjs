@@ -10,7 +10,8 @@ const files = (await readdir(dataDirectory)).filter(
 );
 
 const budgets = {
-  base: { gzip: 288 * 1024, brotli: 230 * 1024 },
+  base: { gzip: 200 * 1024, brotli: 165 * 1024 },
+  descriptions: { gzip: 180 * 1024, brotli: 150 * 1024 },
   supplemental: { gzip: 240 * 1024, brotli: 200 * 1024 },
   details: { gzip: 140 * 1024, brotli: 120 * 1024 },
 };
@@ -39,13 +40,17 @@ for (const [name, budget] of Object.entries(budgets)) {
 }
 
 const baseEntries = artifacts.get("base").entries;
+const descriptionEntries = artifacts.get("descriptions").entries;
 const supplementalEntries = artifacts.get("supplemental").entries;
 const detailEntries = artifacts.get("details").entries;
-if (!baseEntries.length || !supplementalEntries.length) {
-  throw new Error("Base and supplemental search indexes must both contain links.");
+if (!baseEntries.length || !supplementalEntries.length || !descriptionEntries.length) {
+  throw new Error("Base, supplemental, and description search indexes must all contain links.");
 }
-if (baseEntries.some((entry) => "m" in entry || "x" in entry)) {
-  throw new Error("The initial index must not contain streams or archive text.");
+if (baseEntries.some((entry) => "d" in entry || "m" in entry || "x" in entry)) {
+  throw new Error("The initial index must not contain descriptions, streams or archive text.");
+}
+if (descriptionEntries.some((entry) => !entry.i || typeof entry.d !== "string")) {
+  throw new Error("The description index must contain only addressable descriptions.");
 }
 if (detailEntries.some((entry) => !entry.i || typeof entry.x !== "string")) {
   throw new Error("The detail index must contain only addressable archive text.");
@@ -57,7 +62,12 @@ const normalize = (value = "") =>
     .replace(/\p{Diacritic}/gu, "")
     .toLowerCase()
     .trim();
-const links = baseEntries.map((entry) => ({ ...entry, searchText: "" }));
+const descriptionMap = new Map(descriptionEntries.map((entry) => [entry.i, entry.d || ""]));
+const links = baseEntries.map((entry) => ({
+  ...entry,
+  d: descriptionMap.get(entry.i) || "",
+  searchText: "",
+}));
 const queries = ["design", "intelligence artificielle", "github", "photographie", "outil"];
 let longestSearch = 0;
 for (const query of queries) {

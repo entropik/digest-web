@@ -306,6 +306,7 @@ test("the home loads its compact search index only when interaction needs it", a
     readFile(new URL("../../assets/js/digest.js", import.meta.url), "utf8"),
   ]);
   assert.match(layout, /resources\.FromString \(printf "%sdata\/digest-index-base\.json" \$indexPrefix\)/);
+  assert.match(layout, /resources\.FromString \(printf "%sdata\/digest-index-descriptions\.json" \$indexPrefix\)/);
   assert.match(layout, /resources\.FromString \(printf "%sdata\/digest-index-supplemental\.json" \$indexPrefix\)/);
   assert.match(layout, /resources\.FromString \(printf "%sdata\/digest-index-details\.json" \$indexPrefix\)/);
   assert.match(layout, /\$allLinks := sort \$publicLinks "added" "desc"/);
@@ -315,6 +316,7 @@ test("the home loads its compact search index only when interaction needs it", a
   assert.match(layout, /dict "i" \$link\.id "x" \./);
   assert.match(layout, /where \$allLinks "category" \$category/);
   assert.match(layout, /data-index-url="\{\{ \$digestIndex\.RelPermalink \}\}"/);
+  assert.match(layout, /data-description-index-url=/);
   assert.match(layout, /data-supplemental-index-url=/);
   assert.match(layout, /data-detail-index-url=/);
   assert.doesNotMatch(layout, /id="digest-data"/);
@@ -324,6 +326,7 @@ test("the home loads its compact search index only when interaction needs it", a
   assert.match(script, /scope === "base"[\s\S]*?\[indexUrl, supplementalIndexUrl\]/);
   assert.match(script, /image: entry\.p \|\| ""/);
   assert.match(script, /origin_url: entry\.q \|\| ""/);
+  assert.match(script, /const loadDescriptions = \(\) =>/);
   assert.match(script, /const loadDetails = \(\) =>/);
   assert.match(script, /details\.get\(link\.id\) \|\| ""/);
   assert.match(script, /modalArchiveText\.textContent = link\.archive_text \|\| ""/);

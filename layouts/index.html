@@ -40,7 +40,6 @@
     "t" .title
     "u" .url
     "c" .category
-    "d" (.description | default "")
     "g" (.tags | default (slice))
     "a" .added
     "z" (.translation_pending | default false)
@@ -52,6 +51,13 @@
   {{ with .archive_url }}{{ $entry = merge $entry (dict "r" .) }}{{ end }}
   {{ with .archive_scope }}{{ $entry = merge $entry (dict "o" .) }}{{ end }}
   {{ $baseIndex = $baseIndex | append $entry }}
+{{ end }}
+{{ $descriptionIndex := slice }}
+{{ range $links }}
+  {{ $link := . }}
+  {{ with .description }}
+    {{ $descriptionIndex = $descriptionIndex | append (dict "i" $link.id "d" .) }}
+  {{ end }}
 {{ end }}
 {{ $supplementalIndex := slice }}
 {{ range $supplementalLinks }}
@@ -82,6 +88,7 @@
 {{ end }}
 {{ $indexPrefix := cond (eq site.Language.Lang "en") "en/" "" }}
 {{ $digestIndex := resources.FromString (printf "%sdata/digest-index-base.json" $indexPrefix) ($baseIndex | jsonify) | minify | fingerprint }}
+{{ $digestDescriptionIndex := resources.FromString (printf "%sdata/digest-index-descriptions.json" $indexPrefix) ($descriptionIndex | jsonify) | minify | fingerprint }}
 {{ $digestSupplementalIndex := resources.FromString (printf "%sdata/digest-index-supplemental.json" $indexPrefix) ($supplementalIndex | jsonify) | minify | fingerprint }}
 {{ $digestDetailIndex := resources.FromString (printf "%sdata/digest-index-details.json" $indexPrefix) ($detailIndex | jsonify) | minify | fingerprint }}
 
@@ -181,6 +188,7 @@
   id="digest-grid"
   aria-live="polite"
   data-index-url="{{ $digestIndex.RelPermalink }}"
+  data-description-index-url="{{ $digestDescriptionIndex.RelPermalink }}"
   data-supplemental-index-url="{{ $digestSupplementalIndex.RelPermalink }}"
   data-detail-index-url="{{ $digestDetailIndex.RelPermalink }}">
   {{ range $index, $link := $initialLinks }}
