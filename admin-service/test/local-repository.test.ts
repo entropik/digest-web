@@ -139,6 +139,63 @@ test("localCommitRepositoryFiles écrit, supprime et commite des fichiers locale
   }
 });
 
+test("localCommitRepositoryFiles déclenche le déploiement en arrière-plan sans bloquer le commit", async () => {
+  const dir = await createTempGitRepo();
+  try {
+    await fs.mkdir(path.join(dir, "scripts"), { recursive: true });
+    await fs.writeFile(
+      path.join(dir, "scripts", "deploy-vps.sh"),
+      'printf "start\\n" >> deploy-log.txt\nsleep 0.3\nprintf "done\\n" >> deploy-log.txt\n',
+    );
+
+    await localCommitRepositoryFiles(dir, { "data/x.txt": "x" }, "Commit avec déploiement");
+
+    const immediate = await fs
+      .readFile(path.join(dir, "deploy-log.txt"), "utf8")
+      .catch(() => "");
+    assert.doesNotMatch(immediate, /done/, "le déploiement ne doit pas être terminé au retour du commit");
+
+    const deadline = Date.now() + 15_000;
+    let log = "";
+    while (Date.now() < deadline) {
+      log = await fs.readFile(path.join(dir, "deploy-log.txt"), "utf8").catch(() => "");
+      if (log.includes("done")) break;
+      await new Promise((resolve) => setTimeout(resolve, 50));
+    }
+    assert.match(log, /start/);
+    assert.match(log, /done/);
+  } finally {
+    await fs.rm(dir, { recursive: true, force: true });
+  }
+});
+
+test("localCommitRepositoryFiles sérialise les déploiements successifs", async () => {
+  const dir = await createTempGitRepo();
+  try {
+    await fs.mkdir(path.join(dir, "scripts"), { recursive: true });
+    await fs.writeFile(
+      path.join(dir, "scripts", "deploy-vps.sh"),
+      'printf "start\\n" >> deploy-log.txt\nsleep 0.2\nprintf "end\\n" >> deploy-log.txt\n',
+    );
+
+    await localCommitRepositoryFiles(dir, { "data/a.txt": "a" }, "Commit A");
+    await localCommitRepositoryFiles(dir, { "data/b.txt": "b" }, "Commit B");
+
+    const deadline = Date.now() + 15_000;
+    let log = "";
+    while (Date.now() < deadline) {
+      log = await fs.readFile(path.join(dir, "deploy-log.txt"), "utf8").catch(() => "");
+      if ((log.match(/end/g) ?? []).length >= 2) break;
+      await new Promise((resolve) => setTimeout(resolve, 50));
+    }
+    assert.equal((log.match(/start/g) ?? []).length, 2);
+    assert.equal((log.match(/end/g) ?? []).length, 2);
+    assert.match(log, /start\nend\nstart\nend/);
+  } finally {
+    await fs.rm(dir, { recursive: true, force: true });
+  }
+});
+
 test("localWorkflowRunsForCommit retourne un statut complété avec succès", async () => {
   const runs = await localWorkflowRunsForCommit("dummy-sha-1234");
   assert.equal(runs.length, 1);

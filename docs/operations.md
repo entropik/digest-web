@@ -1,5 +1,20 @@
 # Exploitation de l’administration
 
+## Délai d’attente nginx de l’API d’administration
+
+Le 17 septembre 2026, la publication du Digest a dépassé les 60 secondes de
+`proxy_read_timeout` par défaut du bloc `location ^~ /api/` : nginx a renvoyé un
+504 au navigateur pendant que le serveur terminait correctement le build Hugo
+(~85 s avec 2 099 liens). L’interface a affiché « Publication impossible », la
+page d’archive a répondu 404 le temps du build, puis tout est passé en ligne
+sans intervention. Le bloc `/api/` porte désormais `proxy_read_timeout 180s` et
+`proxy_send_timeout 180s` (sauvegarde `digest.ooblik.com.conf.bak-20260918`).
+Depuis la v1.30.3, `localCommitRepositoryFiles` rend la main dès le commit et
+exécute `deploy-vps.sh` en arrière-plan, sérialisé par le verrou de mutations :
+la publication suit l’état `validating → deploying → live` via
+`publicationIsLive`, sans bloquer la requête HTTP. Une publication déclenchée
+pendant un build en cours attend la fin de celui-ci (verrou partagé).
+
 ## Traductions
 
 La [procédure FR / GB](translations.md) décrit la configuration privée DeepL,

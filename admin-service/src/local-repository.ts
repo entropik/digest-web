@@ -50,6 +50,24 @@ export const withLocalMutationLock = async <T>(fn: () => Promise<T>): Promise<T>
   }
 };
 
+let localDeployChain: Promise<void> = Promise.resolve();
+
+const enqueueLocalDeploy = (localRepo: string): void => {
+  const deployScript = path.join(localRepo, "scripts", "deploy-vps.sh");
+  if (!existsSync(deployScript)) return;
+  localDeployChain = localDeployChain
+    .then(() =>
+      withLocalMutationLock(async () => {
+        await execFileAsync("sh", [deployScript], { cwd: localRepo });
+      }),
+    )
+    .catch((deployError: unknown) => {
+      process.stderr.write(
+        `Local deployment script failed: ${deployError instanceof Error ? deployError.message : String(deployError)}\n`,
+      );
+    });
+};
+
 const resolveSafePath = (localRepo: string, relativePath: string): string => {
   const normalized = path.resolve(localRepo, relativePath);
   if (!normalized.startsWith(localRepo)) {
@@ -178,16 +196,8 @@ export const localCommitRepositoryFiles = async (
     const commitSha = headSha.trim();
 
     // 3. Déclencher le script de déploiement autonome s'il existe
-    const deployScript = path.join(localRepo, "scripts", "deploy-vps.sh");
-    if (existsSync(deployScript)) {
-      try {
-        await execFileAsync("sh", [deployScript], { cwd: localRepo });
-      } catch (deployError) {
-        process.stderr.write(
-          `Local deployment script failed: ${deployError instanceof Error ? deployError.message : String(deployError)}\n`,
-        );
-      }
-    }
+    //    (asynchrone et sérialisé : la requête rend la main dès le commit)
+    enqueueLocalDeploy(localRepo);
 
     // 4. Synchronisation asynchrone non bloquante vers GitHub (miroir de sauvegarde)
     void execFileAsync("git", ["push", "origin", "main"], { cwd: localRepo }).catch((pushError) => {
