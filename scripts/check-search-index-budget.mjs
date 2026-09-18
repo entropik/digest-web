@@ -1,6 +1,5 @@
 import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
-import { performance } from "node:perf_hooks";
 import { brotliCompressSync, constants, gzipSync } from "node:zlib";
 
 const root = path.resolve(import.meta.dirname, "..");
@@ -54,45 +53,6 @@ if (descriptionEntries.some((entry) => !entry.i || typeof entry.d !== "string"))
 }
 if (detailEntries.some((entry) => !entry.i || typeof entry.x !== "string")) {
   throw new Error("The detail index must contain only addressable archive text.");
-}
-
-const normalize = (value = "") =>
-  String(value)
-    .normalize("NFD")
-    .replace(/\p{Diacritic}/gu, "")
-    .toLowerCase()
-    .trim();
-const descriptionMap = new Map(descriptionEntries.map((entry) => [entry.i, entry.d || ""]));
-const links = baseEntries.map((entry) => ({
-  ...entry,
-  d: descriptionMap.get(entry.i) || "",
-  searchText: "",
-}));
-const queries = ["design", "intelligence artificielle", "github", "photographie", "outil"];
-let longestSearch = 0;
-for (const query of queries) {
-  const terms = normalize(query).split(/\s+/).filter(Boolean);
-  const startedAt = performance.now();
-  links.filter((entry) => {
-    entry.searchText ||= normalize(
-      [
-        entry.t,
-        entry.c,
-        entry.u,
-        entry.d,
-        entry.s,
-        entry.n,
-        ...(entry.g || []),
-      ].join(" "),
-    );
-    return terms.every((term) => entry.searchText.includes(term));
-  });
-  longestSearch = Math.max(longestSearch, performance.now() - startedAt);
-}
-if (longestSearch >= 50) {
-  throw new Error(
-    `Fallback search filtering exceeded the 50 ms long-task budget: ${longestSearch.toFixed(1)} ms.`,
-  );
 }
 
 // L'index Pagefind doit exister et ses tables doivent couvrir exactement le
@@ -158,5 +118,5 @@ const summary = Object.fromEntries(
   ]),
 );
 process.stdout.write(
-  `Search indexes within budget: ${JSON.stringify({ ...summary, pagefind: mapSummary })}; longest fallback filter ${longestSearch.toFixed(1)} ms.\n`,
+  `Search indexes within budget: ${JSON.stringify({ ...summary, pagefind: mapSummary })}.\n`,
 );

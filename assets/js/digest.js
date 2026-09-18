@@ -41,6 +41,7 @@
       ? JSON.parse(rawFaviconFallbackHosts)
       : rawFaviconFallbackHosts,
   );
+  const faviconFallbackSrc = faviconFallbackData.dataset.fallbackSrc;
   const indexUrl = grid.dataset.indexUrl;
   const descriptionIndexUrl = grid.dataset.descriptionIndexUrl;
   const supplementalIndexUrl = grid.dataset.supplementalIndexUrl;
@@ -55,7 +56,6 @@
   let linkCountByDate = new Map();
   let pagefindModule = null;
   let pagefindMap = null;
-  let pagefindFailure = false;
   let searchRanks = null;
   let searchDebounce = null;
   const modal = document.querySelector("#digest-modal");
@@ -127,7 +127,6 @@
     archive_text: "",
     tags: entry.g || [],
     added: entry.a,
-    searchText: "",
     status: entry.s || "",
     status_note: entry.n || "",
     archive_url: entry.r || "",
@@ -178,7 +177,6 @@
             links.forEach((link) => {
               if (!link.description && descriptions.has(link.id)) {
                 link.description = descriptions.get(link.id) || "";
-                link.searchText = "";
               }
             });
           }
@@ -207,7 +205,6 @@
         scopedList.forEach((link) => {
           if (!link.description && cachedDescriptions.has(link.id)) {
             link.description = cachedDescriptions.get(link.id) || "";
-            link.searchText = "";
           }
         });
       }
@@ -356,20 +353,6 @@
       return url;
     }
   };
-
-  const getSearchableText = (link) =>
-    link.searchText ||= normalize(
-      [
-        link.title,
-        categoryText(link.category),
-        link.url,
-        getHost(link.url),
-        link.description,
-        link.status,
-        link.status_note,
-        ...(link.tags || []).map(tagText),
-      ].join(" "),
-    );
 
   const toDateKey = (date) =>
     [
@@ -536,19 +519,13 @@
   };
 
   const getFilteredLinks = () => {
-    const terms = searchRanks ? [] : normalize(search.value).split(/\s+/).filter(Boolean);
     const selectedDate = dateFilter.value;
     const matched = [];
     links.forEach((link, position) => {
       const matchesCategory =
         category === "all" ||
         (category === "favorites" ? isFavorite(link.url) : link.category === category);
-      let matchesQuery = true;
-      if (searchRanks) {
-        matchesQuery = searchRanks.has(position);
-      } else if (terms.length) {
-        matchesQuery = terms.every((term) => getSearchableText(link).includes(term));
-      }
+      const matchesQuery = !searchRanks || searchRanks.has(position);
       const matchesDate = !selectedDate || String(link.added).slice(0, 10) === selectedDate;
       if (matchesCategory && matchesQuery && matchesDate) {
         matched.push(searchRanks ? { link, rank: searchRanks.get(position) } : { link });
@@ -698,8 +675,6 @@
     });
   });
 
-  search.addEventListener("focus", () => void loadDescriptions(), { once: true });
-
   const ensurePagefind = async () => {
     if (!pagefindModule) {
       pagefindModule = await import("/pagefind/pagefind.js");
@@ -727,32 +702,24 @@
       searchRanks = new Map(
         searchResult.results.map((result, rank) => [pagefindMap[result.id], rank]),
       );
+      empty.textContent = emptyMessage;
+      empty.hidden = true;
       void withLinks(() => {
         if (revision !== searchRevision) return;
         render({ urlMode: "replace" });
       });
-      return;
     } catch {
-      // Pagefind indisponible : repli définitif sur le moteur local.
-      pagefindFailure = true;
-      searchRanks = null;
+      // Index de recherche indisponible : vider la grille, le signaler et
+      // laisser la saisie suivante retenter le chargement.
+      searchRanks = new Map();
+      grid.replaceChildren();
+      pagination.hidden = true;
+      empty.textContent = t("L’index de recherche n’a pas pu être chargé. Réessaie dans un instant.");
+      empty.hidden = false;
     } finally {
       search.removeAttribute("aria-busy");
       grid.removeAttribute("aria-busy");
     }
-    if (!cachedDescriptions) {
-      try {
-        await loadDescriptions();
-      } catch {
-        // Le moteur local tolère des descriptions absentes : seuls titre et
-        // champs techniques sont alors cherchables.
-      }
-    }
-    if (revision !== searchRevision) return;
-    void withLinks(() => {
-      if (revision !== searchRevision) return;
-      render({ urlMode: "replace" });
-    });
   };
 
   search.addEventListener("input", () => {
@@ -767,9 +734,6 @@
       return;
     }
     const revision = searchRevision;
-    // Rendu intermédiaire immédiat par sous-chaîne, remplacé par les résultats
-    // classés Pagefind dès qu'ils arrivent.
-    void withLinks(() => undefined);
     searchDebounce = setTimeout(() => {
       void runSearch(query, revision);
     }, 200);
@@ -900,7 +864,6 @@
       link.archive_text = details.get(link.id) || "";
       if (!link.description && descriptions.has(link.id)) {
         link.description = descriptions.get(link.id) || "";
-        link.searchText = "";
       }
     } catch {
       link.archive_text = "";

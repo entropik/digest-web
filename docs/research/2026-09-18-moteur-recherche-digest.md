@@ -256,3 +256,8 @@ Les poids réels confirment la recommandation Pagefind : payload par recherche
 réajuster à mesure que le catalogue croît, et la bibliothèque cliente
 minimale (12,6 Kio) est plus légère que la logique de filtrage maison
 actuelle. Le point restant à valider : le rendu UI (voir section 5).
+
+**Décision v1.31.1** : le moteur local n'est pas conservé en repli — un seul
+moteur, aucune duplication. En cas d'index indisponible, la recherche affiche
+un message d'erreur explicite et la saisie suivante retente le chargement ;
+la navigation par catégorie, date et favoris reste fonctionnelle.

@@ -331,7 +331,10 @@ test("the home loads its compact search index only when interaction needs it", a
   assert.match(script, /details\.get\(link\.id\) \|\| ""/);
   assert.match(script, /modalArchiveText\.textContent = link\.archive_text \|\| ""/);
   assert.match(script, /category === "all" \|\|/);
-  assert.match(script, /link\.searchText \|\|= normalize/);
+  assert.match(script, /await pagefindModule\.search\(query\)/);
+  assert.match(script, /searchRanks\.has\(position\)/);
+  assert.match(script, /pagefindMap\[result\.id\]/);
+  assert.doesNotMatch(script, /searchText/);
   assert.match(script, /gridTop - headerHeight - stickyToolsHeight/);
   assert.match(script, /getComputedStyle\(tools\)\.position === "sticky"/);
   assert.match(script, /requestAnimationFrame\(\(\) => \{\s*window\.requestAnimationFrame/);
